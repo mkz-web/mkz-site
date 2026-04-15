@@ -4,9 +4,9 @@ import JsonLd, { serviceSchemas, faqSchema } from "@/lib/JsonLd";
 import HomeContent from "@/components/HomeContent";
 
 export const metadata: Metadata = createMetadata({
-  title: "Cr\u00e9ation de site internet & SEO pour artisans et TPE | MKZ",
+  title: "Création de site internet & SEO pour artisans et TPE | MKZ",
   description:
-    "Votre site web visible sur Google, enfin. MKZ cr\u00e9e des sites internet professionnels et optimise votre r\u00e9f\u00e9rencement SEO. Artisans, commer\u00e7ants, ind\u00e9pendants en \u00cele-de-France et partout en France. Audit gratuit 30 min.",
+    "Votre site web visible sur Google, enfin. MKZ crée des sites internet professionnels et optimise votre référencement SEO. Artisans, commerçants, indépendants en Île-de-France et partout en France. Audit gratuit 30 min.",
   alternates: { canonical: "https://mkz.fr/" },
 });
 
