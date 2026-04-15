@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx create-next-app@latest mkz-site --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv mkz-site/* .)",
+      "Bash(rmdir mkz-site:*)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(xargs sed:*)",
+      "Bash(node -e ':*)",
+      "Bash(node fix-chars.js)",
+      "Bash(rm fix-chars.js)",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "WebSearch",
+      "Bash(grep -l \"export const metadata\\\\|generateMetadata\" \"C:/Users/micka/OneDrive/Documents/Claude/MKZ/Client/MKZ/src/app\"/*.tsx \"C:/Users/micka/OneDrive/Documents/Claude/MKZ/Client/MKZ/src/app\"/*/*.tsx)",
+      "Bash(cp app/services/page.tsx components/ServicesContent.tsx)",
+      "Bash(cp app/about/page.tsx components/AboutContent.tsx)",
+      "Bash(cp app/contact/page.tsx components/ContactContent.tsx)",
+      "Bash(cp app/mentions-legales/page.tsx components/MentionsContent.tsx)",
+      "Bash(sed -i 's/export default function ServicesPage/export default function ServicesContent/' ServicesContent.tsx)",
+      "Bash(sed -i 's/export default function AboutPage/export default function AboutContent/' AboutContent.tsx)",
+      "Bash(sed -i 's/export default function ContactPage/export default function ContactContent/' ContactContent.tsx)",
+      "Bash(sed -i 's/export default function MentionsLegalesPage/export default function MentionsContent/' MentionsContent.tsx)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(git config:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"/c/Program Files/GitHub CLI:$PATH\")"
+    ]
+  }
+}

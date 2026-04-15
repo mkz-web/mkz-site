@@ -1,0 +1,53 @@
+export const theme = {
+  colors: {
+    background: "#F9FAFB",
+    surface: "#FFFFFF",
+    surfaceAlt: "#F0F4F8",
+    text: "#1E293B",
+    textSecondary: "#64748B",
+    accent: "#003764",
+    accentLight: "#0B5394",
+    cta: "#E8590C",
+    ctaHover: "#D14A04",
+    border: "#E2E8F0",
+    hoverSurface: "#F1F5F9",
+    success: "#059669",
+    star: "#F59E0B",
+  },
+  fonts: {
+    sans: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  },
+  breakpoints: {
+    sm: "640px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
+  },
+  spacing: {
+    xs: "4px",
+    sm: "8px",
+    md: "16px",
+    lg: "24px",
+    xl: "32px",
+    "2xl": "48px",
+    "3xl": "64px",
+    "4xl": "96px",
+    "5xl": "128px",
+  },
+  radius: {
+    sm: "6px",
+    md: "10px",
+    lg: "16px",
+    xl: "24px",
+    full: "9999px",
+  },
+  shadows: {
+    sm: "0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04)",
+    md: "0 4px 14px rgba(15, 23, 42, 0.08)",
+    lg: "0 10px 32px rgba(15, 23, 42, 0.10)",
+    cta: "0 4px 14px rgba(232, 89, 12, 0.25)",
+    ctaHover: "0 8px 24px rgba(232, 89, 12, 0.35)",
+  },
+} as const;
+
+export type Theme = typeof theme;
