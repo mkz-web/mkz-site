@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import GlobalStyles from "@/lib/GlobalStyles";
 import JsonLd, { organizationSchema, localBusinessSchema } from "@/lib/JsonLd";
 import { createMetadata } from "@/lib/metadata";
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Header />
         <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
