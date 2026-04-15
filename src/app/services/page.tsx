@@ -4,9 +4,9 @@ import JsonLd, { serviceSchemas } from "@/lib/JsonLd";
 import ServicesContent from "@/components/ServicesContent";
 
 export const metadata: Metadata = createMetadata({
-  title: "Cr\u00e9ation de site web & SEO pour artisans et TPE",
+  title: "Création de site web & SEO pour artisans et TPE",
   description:
-    "Cr\u00e9ation de site internet professionnel et r\u00e9f\u00e9rencement Google pour artisans, commer\u00e7ants et ind\u00e9pendants. Design sur-mesure, SEO technique, audit gratuit. MKZ, Seine-et-Marne (77).",
+    "Création de site internet professionnel et référencement Google pour artisans, commerçants et indépendants. Design sur-mesure, SEO technique, audit gratuit. MKZ, Seine-et-Marne (77).",
   alternates: { canonical: "https://mkz.fr/services/" },
 });
 
