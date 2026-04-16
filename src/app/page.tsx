@@ -7,7 +7,7 @@ export const metadata: Metadata = createMetadata({
   title: "Création de site internet & SEO pour artisans et TPE | MKZ",
   description:
     "Votre site web visible sur Google, enfin. MKZ crée des sites internet professionnels et optimise votre référencement SEO. Artisans, commerçants, indépendants en Île-de-France et partout en France. Audit gratuit 30 min.",
-  alternates: { canonical: "https://mkz.fr/" },
+  alternates: { canonical: "https://mkz-consulting.fr/" },
 });
 
 export default function Home() {

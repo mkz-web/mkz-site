@@ -7,7 +7,7 @@ export const metadata: Metadata = createMetadata({
   description:
     "Politique de confidentialité du site MKZ. Informations sur la collecte, l’utilisation et la protection de vos données personnelles. Conforme RGPD.",
   robots: { index: false, follow: false },
-  alternates: { canonical: "https://mkz.fr/politique-confidentialite/" },
+  alternates: { canonical: "https://mkz-consulting.fr/politique-confidentialite/" },
 });
 
 export default function PolitiqueConfidentialitePage() {
