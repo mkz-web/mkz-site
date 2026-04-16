@@ -13,11 +13,9 @@ export const metadata: Metadata = createMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <head>
-        {serviceSchemas.map((s, i) => (
-          <JsonLd key={i} data={s} />
-        ))}
-      </head>
+      {serviceSchemas.map((s, i) => (
+        <JsonLd key={i} data={s} />
+      ))}
       <ServicesContent />
     </>
   );

@@ -13,12 +13,10 @@ export const metadata: Metadata = createMetadata({
 export default function Home() {
   return (
     <>
-      <head>
-        {serviceSchemas.map((s, i) => (
-          <JsonLd key={i} data={s} />
-        ))}
-        <JsonLd data={faqSchema} />
-      </head>
+      {serviceSchemas.map((s, i) => (
+        <JsonLd key={i} data={s} />
+      ))}
+      <JsonLd data={faqSchema} />
       <HomeContent />
     </>
   );
