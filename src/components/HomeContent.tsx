@@ -25,19 +25,21 @@ const Section = styled.section<{ variant?: "light" | "alt" | "dark" | "accent" }
 `;
 const Container = styled.div`max-width: 1280px; margin: 0 auto;`;
 
-/* ─── Section headers ─── */
-const SectionTag = styled.span<{ onDark?: boolean }>`
+/* ─── Section headers (dark variant uses parent class) ─── */
+const SectionTag = styled.span`
   font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
-  color: ${({ onDark }) => onDark ? theme.colors.cta : theme.colors.cta};
+  color: ${theme.colors.cta};
 `;
-const SectionTitle = styled.h2<{ onDark?: boolean }>`
+const SectionTitle = styled.h2`
   font-size: 32px; font-weight: 800; margin-top: 12px; letter-spacing: -0.02em;
-  color: ${({ onDark }) => onDark ? theme.colors.textOnDark : theme.colors.text};
+  color: ${theme.colors.text};
+  .dark-section & { color: ${theme.colors.textOnDark}; }
   @media (min-width: ${theme.breakpoints.md}) { font-size: 40px; }
 `;
-const SectionSubtitle = styled.p<{ onDark?: boolean }>`
+const SectionSubtitle = styled.p`
   margin-top: 16px; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 16px; line-height: 1.7;
-  color: ${({ onDark }) => onDark ? theme.colors.textOnDarkSecondary : theme.colors.textSecondary};
+  color: ${theme.colors.textSecondary};
+  .dark-section & { color: ${theme.colors.textOnDarkSecondary}; }
 `;
 const SectionHeader = styled.div`text-align: center; margin-bottom: 64px;`;
 
@@ -178,12 +180,12 @@ export default function HomeContent() {
       </Section>
 
       {/* Problems — DARK */}
-      <Section variant="dark">
+      <Section variant="dark" className="dark-section">
         <Container>
           <SectionHeader>
-            <SectionTag onDark>On conna&icirc;t vos gal&egrave;res</SectionTag>
-            <SectionTitle onDark>Ces probl&egrave;mes vous parlent ?</SectionTitle>
-            <SectionSubtitle onDark>Vous n&rsquo;&ecirc;tes pas seul. 80% des ind&eacute;pendants et petites entreprises font face aux m&ecirc;mes obstacles.</SectionSubtitle>
+            <SectionTag>On conna&icirc;t vos gal&egrave;res</SectionTag>
+            <SectionTitle>Ces probl&egrave;mes vous parlent ?</SectionTitle>
+            <SectionSubtitle>Vous n&rsquo;&ecirc;tes pas seul. 80% des ind&eacute;pendants et petites entreprises font face aux m&ecirc;mes obstacles.</SectionSubtitle>
           </SectionHeader>
           <ProblemGrid>
             {problems.map((p) => (
@@ -219,12 +221,12 @@ export default function HomeContent() {
       </Section>
 
       {/* Method — DARK */}
-      <Section variant="dark" id="methode">
+      <Section variant="dark" className="dark-section" id="methode">
         <Container>
           <SectionHeader>
-            <SectionTag onDark>La m&eacute;thode MKZ</SectionTag>
-            <SectionTitle onDark>3 &eacute;tapes vers votre succ&egrave;s</SectionTitle>
-            <SectionSubtitle onDark>Un accompagnement simple et transparent, sans jargon technique.</SectionSubtitle>
+            <SectionTag>La m&eacute;thode MKZ</SectionTag>
+            <SectionTitle>3 &eacute;tapes vers votre succ&egrave;s</SectionTitle>
+            <SectionSubtitle>Un accompagnement simple et transparent, sans jargon technique.</SectionSubtitle>
           </SectionHeader>
           <MethodGrid>
             {methodSteps.map((s) => (
@@ -297,11 +299,11 @@ export default function HomeContent() {
       </Section>
 
       {/* CTA Final — ACCENT */}
-      <Section variant="accent">
+      <Section variant="accent" className="dark-section">
         <Container style={{ textAlign: "center" }}>
           <CTABadge>Places limit&eacute;es ce mois-ci</CTABadge>
-          <SectionTitle onDark>Pr&ecirc;t &agrave; booster votre visibilit&eacute; ?</SectionTitle>
-          <SectionSubtitle onDark style={{ color: "rgba(255,255,255,0.85)" }}>
+          <SectionTitle>Pr&ecirc;t &agrave; booster votre visibilit&eacute; ?</SectionTitle>
+          <SectionSubtitle style={{ color: "rgba(255,255,255,0.85)" }}>
             R&eacute;servez votre audit gratuit de 30 minutes. On analyse votre situation,
             on identifie les opportunit&eacute;s, et on vous donne un plan d&rsquo;action concret.
           </SectionSubtitle>

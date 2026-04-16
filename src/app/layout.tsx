@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -18,17 +19,6 @@ export default function RootLayout({
       <head>
         <JsonLd data={organizationSchema} />
         <JsonLd data={localBusinessSchema} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `var huOptions = {"appID":"mkz-consultingfr-9f08d00","currentLanguage":"fr","blocking":true,"globalCookie":false}`,
-          }}
-        />
-        <script
-          src="https://cdn.hu-manity.co/hu-banner.min.js"
-          type="text/javascript"
-          charSet="utf-8"
-          async
-        />
       </head>
       <body>
         <GlobalStyles />
@@ -36,6 +26,13 @@ export default function RootLayout({
         <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Script id="hu-options" strategy="beforeInteractive">
+          {`var huOptions = {"appID":"mkz-consultingfr-9f08d00","currentLanguage":"fr","blocking":true,"globalCookie":false}`}
+        </Script>
+        <Script
+          src="https://cdn.hu-manity.co/hu-banner.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
