@@ -20,7 +20,7 @@ export default function ConfidentialiteContent() {
 
       <Text>
         La pr&eacute;sente politique de confidentialit&eacute; d&eacute;crit comment MKZ collecte, utilise et prot&egrave;ge
-        les informations personnelles que vous nous transmettez via le site <Link href="https://mkz.fr">mkz.fr</Link>.
+        les informations personnelles que vous nous transmettez via le site <Link href="https://mkz-consulting.fr">mkz-consulting.fr</Link>.
       </Text>
 
       <SectionTitle>Responsable du traitement</SectionTitle>

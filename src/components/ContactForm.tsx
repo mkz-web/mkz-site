@@ -151,7 +151,7 @@ export default function ContactForm() {
           access_key: WEB3FORMS_KEY,
           name: data.name,
           email: data.email,
-          subject: "Nouveau message mkz.fr : " + (data.subject || "Contact"),
+          subject: "Nouveau message mkz-consulting.fr : " + (data.subject || "Contact"),
           message: data.message,
           from_name: "MKZ Site Web",
         }),
