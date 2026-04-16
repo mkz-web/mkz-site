@@ -141,26 +141,33 @@ export default function ContactForm() {
     setStatus("sending");
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
-    formData.append("access_key", WEB3FORMS_KEY);
-    formData.append("subject", "Nouveau message depuis mkz.fr : " + (formData.get("subject") || "Contact"));
-    formData.append("from_name", "MKZ Site Web");
+    const data = Object.fromEntries(new FormData(form));
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: data.name,
+          email: data.email,
+          subject: "Nouveau message mkz.fr : " + (data.subject || "Contact"),
+          message: data.message,
+          from_name: "MKZ Site Web",
+        }),
       });
 
-      const data = await res.json();
+      const result = await res.json();
 
-      if (data.success) {
+      if (result.success) {
         setStatus("success");
         form.reset();
       } else {
+        console.error("Web3Forms error:", result);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Fetch error:", err);
       setStatus("error");
     }
   }
@@ -179,10 +186,6 @@ export default function ContactForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-      <input type="hidden" name="from_name" value="MKZ Site Web" />
-      <input type="checkbox" name="botcheck" style={{ display: "none" }} />
-
       <Row>
         <div>
           <Label htmlFor="name">Nom complet</Label>
@@ -199,12 +202,12 @@ export default function ContactForm() {
       </div>
       <div>
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" rows={5} required placeholder="Décrivez votre projet..." />
+        <Textarea id="message" name="message" rows={5} required placeholder="D&eacute;crivez votre projet..." />
       </div>
 
       {status === "error" && (
         <ErrorBox>
-          Une erreur est survenue. Veuillez r&eacute;essayer ou me contacter directement au 07 69 09 39 09.
+          Une erreur est survenue. Veuillez r&eacute;essayer ou contactez-moi au 07 69 09 39 09.
         </ErrorBox>
       )}
 
