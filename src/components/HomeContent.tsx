@@ -8,12 +8,10 @@ import Button from "@/components/Button";
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
 /* ─── Section variants ─── */
-const Section = styled.section<{ variant?: "light" | "alt" | "dark" | "accent" }>`
+const Section = styled.section<{ variant?: "light" | "alt" | "accent" }>`
   padding: 96px 24px;
   ${({ variant }) => {
     switch (variant) {
-      case "dark":
-        return `background: ${theme.colors.dark}; color: ${theme.colors.textOnDark};`;
       case "accent":
         return `background: ${theme.colors.accent}; color: white;`;
       case "alt":
@@ -25,42 +23,44 @@ const Section = styled.section<{ variant?: "light" | "alt" | "dark" | "accent" }
 `;
 const Container = styled.div`max-width: 1280px; margin: 0 auto;`;
 
-/* ─── Section headers (dark variant uses parent class) ─── */
+/* ─── Section headers ─── */
 const SectionTag = styled.span`
   font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
   color: ${theme.colors.cta};
+  .accent-section & { color: rgba(255,255,255,0.7); }
 `;
 const SectionTitle = styled.h2`
   font-size: 32px; font-weight: 800; margin-top: 12px; letter-spacing: -0.02em;
   color: ${theme.colors.text};
-  .dark-section & { color: ${theme.colors.textOnDark}; }
+  .accent-section & { color: white; }
   @media (min-width: ${theme.breakpoints.md}) { font-size: 40px; }
 `;
 const SectionSubtitle = styled.p`
   margin-top: 16px; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 16px; line-height: 1.7;
   color: ${theme.colors.textSecondary};
-  .dark-section & { color: ${theme.colors.textOnDarkSecondary}; }
+  .accent-section & { color: rgba(255,255,255,0.75); }
 `;
 const SectionHeader = styled.div`text-align: center; margin-bottom: 64px;`;
 
 /* ─── Metrics ─── */
 const MetricsGrid = styled.div`display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(4, 1fr); }`;
 const MetricCard = styled.div`padding: 24px; border-radius: ${theme.radius.lg}; border: 1px solid ${theme.colors.border}; background: ${theme.colors.surface}; text-align: center; box-shadow: ${theme.shadows.sm};`;
-const MetricValue = styled.div`font-size: 28px; font-weight: 700; color: ${theme.colors.accent}; @media (min-width: ${theme.breakpoints.md}) { font-size: 32px; }`;
+const MetricValue = styled.div`font-size: 28px; font-weight: 800; color: ${theme.colors.accent}; @media (min-width: ${theme.breakpoints.md}) { font-size: 32px; }`;
 const MetricLabel = styled.div`font-size: 13px; color: ${theme.colors.textSecondary}; margin-top: 4px;`;
 const MetricIndicator = styled.div`font-size: 11px; color: ${theme.colors.success}; margin-top: 4px; font-weight: 500;`;
 
-/* ─── Problem Cards (on dark bg) ─── */
+/* ─── Problem Cards (on accent bg) ─── */
 const ProblemGrid = styled.div`display: grid; gap: 24px; @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(3, 1fr); }`;
 const ProblemCard = styled.div`
   padding: 32px; border-radius: ${theme.radius.lg};
-  background: ${theme.colors.darkSurface}; border: 1px solid ${theme.colors.darkBorder};
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(4px);
   transition: all 0.25s;
-  &:hover { border-color: ${theme.colors.cta}60; transform: translateY(-2px); }
+  &:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
 `;
 const ProblemIcon = styled.div`font-size: 32px; margin-bottom: 16px;`;
-const ProblemTitle = styled.h3`font-size: 17px; font-weight: 600; margin-bottom: 12px; color: ${theme.colors.textOnDark};`;
-const ProblemDesc = styled.p`font-size: 14px; line-height: 1.7; color: ${theme.colors.textOnDarkSecondary};`;
+const ProblemTitle = styled.h3`font-size: 17px; font-weight: 600; margin-bottom: 12px; color: white;`;
+const ProblemDesc = styled.p`font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7);`;
 
 /* ─── Service Cards ─── */
 const ServiceGrid = styled.div`display: grid; gap: 32px; @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }`;
@@ -75,16 +75,19 @@ const ServiceDesc = styled.p`font-size: 14px; line-height: 1.7; color: ${theme.c
 const TagsRow = styled.div`display: flex; flex-wrap: wrap; gap: 8px;`;
 const Tag = styled.span`padding: 4px 12px; font-size: 12px; border-radius: ${theme.radius.full}; background: ${theme.colors.hoverSurface}; color: ${theme.colors.textSecondary}; border: 1px solid ${theme.colors.border};`;
 
-/* ─── Method Steps (on dark bg) ─── */
+/* ─── Method Steps (on accent bg) ─── */
 const MethodGrid = styled.div`display: grid; gap: 32px; @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(3, 1fr); }`;
 const StepCard = styled.div`
   padding: 32px; border-radius: ${theme.radius.lg};
-  background: ${theme.colors.darkSurface}; border: 1px solid ${theme.colors.darkBorder};
-  position: relative;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(4px);
 `;
-const StepNumber = styled.span`font-size: 56px; font-weight: 800; color: ${theme.colors.cta}; opacity: 0.3; line-height: 1;`;
-const StepTitle = styled.h3`font-size: 18px; font-weight: 600; margin-top: 8px; margin-bottom: 12px; color: ${theme.colors.textOnDark};`;
-const StepDesc = styled.p`font-size: 14px; line-height: 1.7; color: ${theme.colors.textOnDarkSecondary};`;
+const StepNumber = styled.span`
+  font-size: 64px; font-weight: 800; color: ${theme.colors.cta}; line-height: 1;
+  @media (min-width: ${theme.breakpoints.md}) { font-size: 72px; }
+`;
+const StepTitle = styled.h3`font-size: 20px; font-weight: 700; margin-top: 12px; margin-bottom: 12px; color: white;`;
+const StepDesc = styled.p`font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.7);`;
 
 /* ─── Testimonials ─── */
 const TestGrid = styled.div`display: grid; gap: 24px; @media (min-width: ${theme.breakpoints.sm}) { grid-template-columns: repeat(2, 1fr); } @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(3, 1fr); }`;
@@ -164,7 +167,7 @@ export default function HomeContent() {
     <>
       <Hero />
 
-      {/* Metrics — light alt */}
+      {/* Metrics */}
       <Section variant="alt">
         <Container>
           <MetricsGrid>
@@ -179,8 +182,8 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* Problems — DARK */}
-      <Section variant="dark" className="dark-section">
+      {/* Problems — BLEU MKZ */}
+      <Section variant="accent" className="accent-section">
         <Container>
           <SectionHeader>
             <SectionTag>On conna&icirc;t vos gal&egrave;res</SectionTag>
@@ -199,7 +202,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* Services — light */}
+      {/* Services */}
       <Section>
         <Container>
           <SectionHeader>
@@ -220,8 +223,8 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* Method — DARK */}
-      <Section variant="dark" className="dark-section" id="methode">
+      {/* M&eacute;thode — BLEU MKZ */}
+      <Section variant="accent" className="accent-section" id="methode">
         <Container>
           <SectionHeader>
             <SectionTag>La m&eacute;thode MKZ</SectionTag>
@@ -240,7 +243,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* Testimonials — light */}
+      {/* T&eacute;moignages */}
       <Section id="temoignages">
         <Container>
           <SectionHeader>
@@ -262,7 +265,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* Differentiators — alt */}
+      {/* Diff&eacute;renciateurs */}
       <Section variant="alt">
         <Container>
           <SectionHeader>
@@ -281,7 +284,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* Zones — light */}
+      {/* Zones */}
       <Section>
         <Container>
           <ZonesWrapper>
@@ -298,8 +301,8 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* CTA Final — ACCENT */}
-      <Section variant="accent" className="dark-section">
+      {/* CTA Final — BLEU MKZ */}
+      <Section variant="accent" className="accent-section">
         <Container style={{ textAlign: "center" }}>
           <CTABadge>Places limit&eacute;es ce mois-ci</CTABadge>
           <SectionTitle>Pr&ecirc;t &agrave; booster votre visibilit&eacute; ?</SectionTitle>
