@@ -11,8 +11,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "MKZ",
-  url: "https://mkz.fr",
-  logo: "https://mkz.fr/images/mkz-logo.svg",
+  url: "https://mkz-consulting.fr",
+  logo: "https://mkz-consulting.fr/images/mkz-logo.svg",
   description:
     "Création de sites web et SEO pour artisans, commerçants et indépendants.",
   telephone: "+33769093909",
@@ -40,10 +40,10 @@ export const organizationSchema = {
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://mkz.fr/#localbusiness",
+  "@id": "https://mkz-consulting.fr/#localbusiness",
   name: "MKZ",
-  url: "https://mkz.fr",
-  image: "https://mkz.fr/images/mkz-logo.svg",
+  url: "https://mkz-consulting.fr",
+  image: "https://mkz-consulting.fr/images/mkz-logo.svg",
   description:
     "Création de sites internet et référencement SEO pour artisans, commerçants, TPE et indépendants en Île-de-France.",
   telephone: "+33769093909",

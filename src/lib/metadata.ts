@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const siteUrl = "https://mkz.fr";
+const siteUrl = "https://mkz-consulting.fr";
 
 export const siteMetadata = {
   name: "MKZ",
