@@ -4,7 +4,7 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE"; // TODO: remplacer par votre clé Web3Forms
+const WEB3FORMS_KEY = "5f80cd7f-a0fb-484c-995c-a6a1a5534c34";
 
 const Form = styled.form`
   display: flex;
