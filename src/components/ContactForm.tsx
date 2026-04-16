@@ -4,6 +4,8 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 
+const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE"; // TODO: remplacer par votre clé Web3Forms
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -72,7 +74,7 @@ const Textarea = styled.textarea`
   }
 `;
 
-const SubmitButton = styled.button`
+const SubmitButton = styled.button<{ disabled?: boolean }>`
   padding: 15px 30px;
   background: ${theme.colors.cta};
   color: white;
@@ -82,12 +84,17 @@ const SubmitButton = styled.button`
   border: none;
   border-radius: ${theme.radius.md};
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: ${theme.colors.ctaHover};
     box-shadow: ${theme.shadows.ctaHover};
     transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `;
 
@@ -116,22 +123,55 @@ const SuccessText = styled.p`
   color: ${theme.colors.textSecondary};
 `;
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+const ErrorBox = styled.div`
+  padding: 16px;
+  border-radius: ${theme.radius.md};
+  border: 1px solid #ef444433;
+  background: #ef444408;
+  color: #dc2626;
+  font-size: 14px;
+  text-align: center;
+`;
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export default function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("access_key", WEB3FORMS_KEY);
+    formData.append("subject", "Nouveau message depuis mkz.fr : " + (formData.get("subject") || "Contact"));
+    formData.append("from_name", "MKZ Site Web");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <SuccessBox>
         <SuccessIcon>&#10003;</SuccessIcon>
         <SuccessTitle>Message envoy&eacute; !</SuccessTitle>
         <SuccessText>
-          Merci pour votre message. Nous vous recontacterons dans les plus brefs
-          d&eacute;lais.
+          Merci pour votre message. Je vous recontacte dans les 24h.
         </SuccessText>
       </SuccessBox>
     );
@@ -139,6 +179,10 @@ export default function ContactForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+      <input type="hidden" name="from_name" value="MKZ Site Web" />
+      <input type="checkbox" name="botcheck" style={{ display: "none" }} />
+
       <Row>
         <div>
           <Label htmlFor="name">Nom complet</Label>
@@ -155,9 +199,18 @@ export default function ContactForm() {
       </div>
       <div>
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" rows={5} required placeholder="D&eacute;crivez votre projet..." />
+        <Textarea id="message" name="message" rows={5} required placeholder="Décrivez votre projet..." />
       </div>
-      <SubmitButton type="submit">Envoyer le message</SubmitButton>
+
+      {status === "error" && (
+        <ErrorBox>
+          Une erreur est survenue. Veuillez r&eacute;essayer ou me contacter directement au 07 69 09 39 09.
+        </ErrorBox>
+      )}
+
+      <SubmitButton type="submit" disabled={status === "sending"}>
+        {status === "sending" ? "Envoi en cours..." : "Envoyer le message"}
+      </SubmitButton>
     </Form>
   );
 }
