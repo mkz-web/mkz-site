@@ -1,0 +1,19 @@
+# Bloquer l'acces direct aux fichiers caches, au contenu brut et a un eventuel index.html
+<FilesMatch "^(\.ht|_content\.html|index\.html)$">
+  Require all denied
+</FilesMatch>
+
+# Forcer index.php comme entree (l'auth est faite la-dedans)
+DirectoryIndex index.php
+
+# Passer le header Authorization a PHP (OVH PHP-CGI/FastCGI ne le fait pas par defaut)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+# Defense en profondeur : header noindex (le PHP en envoie aussi un)
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
