@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Consultante SEO La Ciotat | Sarah El Gharbi (Freelance)</title>
+<meta name="description" content="Consultante SEO freelance à La Ciotat. SEO local, TPE/PME, e-commerce. Audit, contenu, GEO. Devis sous 48h.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://sarahelgharbi.fr/consultante-seo-la-ciotat/#service",
+    "name": "Sarah El Gharbi — Consultante SEO La Ciotat",
+    "description": "Consultante SEO freelance à La Ciotat. SEO local, TPE/PME, e-commerce. Audit, contenu, GEO.",
+    "url": "https://sarahelgharbi.fr/consultante-seo-la-ciotat/",
+    "telephone": "+33-X-XX-XX-XX-XX",
+    "email": "contact@sarahelgharbi.fr",
+    "priceRange": "€€",
+    "areaServed": [
+      {"@type": "City", "name": "La Ciotat"},
+      {"@type": "AdministrativeArea", "name": "Bouches-du-Rhône"},
+      {"@type": "AdministrativeArea", "name": "Provence-Alpes-Côte d'Azur"}
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "La Ciotat",
+      "addressRegion": "Provence-Alpes-Côte d'Azur",
+      "addressCountry": "FR"
+    },
+    "geo": {"@type": "GeoCoordinates", "latitude": "43.175350", "longitude": "5.605620"},
+    "founder": {"@type": "Person", "name": "Sarah El Gharbi", "jobTitle": "Consultante SEO & GEO"}
+  }
+]
+</script>
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — Editorial Tech / Sarah El Gharbi
+   ============================================================ */
+:root {
+  /* Palette */
+  --ink: #0F1A2E;
+  --ink-soft: #1B2742;
+  --cream: #F4EFE6;
+  --cream-warm: #EDE5D6;
+  --copper: #C7795A;
+  --copper-deep: #A85F42;
+  --sage: #3D5A4C;
+  --sage-light: #6B8576;
+  --line: rgba(15, 26, 46, 0.12);
+  --line-soft: rgba(15, 26, 46, 0.06);
+
+  /* Typo */
+  --serif: "Fraunces", "Times New Roman", serif;
+  --sans: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "JetBrains Mono", "Courier New", monospace;
+
+  /* Spacing rhythm */
+  --rhythm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+  font-weight: 400;
+  font-size: 17px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain texture subtle */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: 1000;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* Selection */
+::selection { background: var(--copper); color: var(--cream); }
+
+/* ============================================================
+   TYPOGRAPHIE
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+p { font-weight: 400; color: var(--ink-soft); }
+strong { font-weight: 600; color: var(--ink); }
+
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   GRID & LAYOUT
+   ============================================================ */
+.wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+.wrap-tight { max-width: 960px; }
+
+.section { padding: clamp(80px, 12vh, 140px) 0; position: relative; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 239, 230, 0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.logo-mark {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--copper-deep);
+  font-weight: 500;
+  text-transform: uppercase;
+  border: 1px solid var(--copper-deep);
+  padding: 3px 7px;
+  border-radius: 100px;
+  margin-left: 8px;
+}
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--copper);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--ink);
+  color: var(--cream) !important;
+  padding: 10px 20px !important;
+  border-radius: 100px;
+  transition: background 0.25s ease;
+}
+.nav-cta:hover { background: var(--copper-deep); }
+.nav-cta::after { display: none; }
+
+@media (max-width: 768px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: clamp(70px, 10vh, 110px) 0 clamp(80px, 12vh, 130px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.hero-meta span { display: flex; align-items: center; gap: 8px; }
+.hero-meta b { color: var(--copper-deep); font-weight: 500; }
+
+.hero h1 {
+  font-size: clamp(48px, 7.5vw, 104px);
+  letter-spacing: -0.035em;
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--copper-deep);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 300;
+}
+
+.hero-lede {
+  font-size: clamp(17px, 1.4vw, 19px);
+  max-width: 560px;
+  color: var(--ink-soft);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  letter-spacing: -0.01em;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--copper-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -10px rgba(168, 95, 66, 0.5);
+}
+.btn-primary .arrow {
+  transition: transform 0.3s ease;
+}
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* HERO SIDE — Photo treatment + data card */
+.hero-side {
+  position: relative;
+}
+
+.portrait-frame {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--cream-warm);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 32px 64px -24px rgba(15, 26, 46, 0.18);
+}
+.portrait-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  filter: contrast(1.02) saturate(1.05);
+}
+/* Subtle gradient ovelay for text legibility — top fades light, bottom fades dark */
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom,
+      rgba(15, 26, 46, 0.35) 0%,
+      rgba(15, 26, 46, 0) 22%,
+      rgba(15, 26, 46, 0) 55%,
+      rgba(15, 26, 46, 0.55) 100%);
+}
+/* Fine inner border for editorial feel */
+.portrait-frame::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(244, 239, 230, 0.18);
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 2px;
+}
+.portrait-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.portrait-overlay-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.portrait-overlay-top span {
+  background: rgba(15,26,46,0.4);
+  backdrop-filter: blur(10px);
+  padding: 6px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(244,239,230,0.2);
+}
+.portrait-overlay-text {
+  max-width: 72%;
+}
+.portrait-overlay-bottom {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.portrait-overlay-coord {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 12px;
+  opacity: 0.75;
+}
+
+.data-card {
+  position: absolute;
+  bottom: -32px;
+  right: -24px;
+  left: auto;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 22px 26px;
+  border-radius: 4px;
+  box-shadow: 0 24px 48px -16px rgba(15, 26, 46, 0.25);
+  max-width: 240px;
+  z-index: 3;
+}
+.data-card .num {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--copper);
+}
+.data-card .num small { font-size: 24px; opacity: 0.8; }
+.data-card .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* Hero deco lines */
+.hero-deco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* ============================================================
+   STATS / CONTEXT BAR
+   ============================================================ */
+.stats {
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 20%, rgba(199, 121, 90, 0.25) 0%, transparent 60%);
+}
+.stats-inner {
+  position: relative;
+  z-index: 2;
+  padding: 64px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 48px 32px;
+}
+.stat .num {
+  font-family: var(--serif);
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--copper);
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+}
+.stat .num small { font-family: var(--serif); font-size: 0.5em; opacity: 0.7; }
+.stat .label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 14px;
+  opacity: 0.7;
+}
+.stat .desc {
+  font-size: 14px;
+  margin-top: 8px;
+  color: rgba(244, 239, 230, 0.85);
+  line-height: 1.4;
+  max-width: 240px;
+}
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+.section-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 64px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .section-header { grid-template-columns: 80px 1fr; align-items: start; gap: 40px; }
+}
+.section-num {
+  font-family: var(--serif);
+  font-size: clamp(56px, 6vw, 88px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: var(--copper);
+  line-height: 0.85;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.section-num sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 8px;
+  font-weight: 500;
+}
+.section-title h2 {
+  font-size: clamp(34px, 4.5vw, 56px);
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+}
+.section-title h2 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--copper-deep);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.section-title p {
+  font-size: 17px;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   CONTEXT TEXT — readable column
+   ============================================================ */
+.context-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 1024px) {
+  .context-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+}
+.context-text p { font-size: 17px; margin-bottom: 20px; }
+.context-text p:first-child {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 26px);
+  line-height: 1.4;
+  font-weight: 300;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  letter-spacing: -0.015em;
+  margin-bottom: 32px;
+}
+.context-text p:first-child::first-letter {
+  font-family: var(--serif);
+  font-size: 4em;
+  float: left;
+  line-height: 0.85;
+  margin: 8px 12px 0 -2px;
+  color: var(--copper);
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+
+.context-asides {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.aside-card {
+  border: 1px solid var(--line);
+  background: var(--cream-warm);
+  padding: 28px;
+  border-radius: 4px;
+  position: relative;
+}
+.aside-card .aside-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  margin-bottom: 12px;
+}
+.aside-card h4 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+}
+.aside-card p { font-size: 15px; line-height: 1.55; }
+
+/* ============================================================
+   SERVICES — asymmetric grid
+   ============================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.service {
+  background: var(--cream);
+  padding: 40px 32px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.service:hover { background: var(--cream-warm); }
+
+.service.featured {
+  background: var(--ink);
+  color: var(--cream);
+}
+.service.featured:hover { background: var(--ink-soft); }
+.service.featured .service-num { color: var(--copper); }
+.service.featured h3 { color: var(--cream); }
+.service.featured p { color: rgba(244,239,230,0.75); }
+.service.featured .service-tag { color: var(--copper); border-color: var(--copper); }
+
+.service-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.service-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 24px;
+  color: var(--copper-deep);
+}
+.service.featured .service-icon { color: var(--copper); }
+.service h3 {
+  font-size: 26px;
+  margin-bottom: 14px;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  letter-spacing: -0.02em;
+}
+.service p { font-size: 15px; line-height: 1.55; margin-bottom: 20px; }
+.service-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   METHOD — vertical timeline
+   ============================================================ */
+.method-bg { background: var(--ink); color: var(--cream); position: relative; overflow: hidden; }
+.method-bg .section-num { color: var(--copper); }
+.method-bg .section-num sub { color: rgba(244,239,230,0.5); }
+.method-bg .section-title h2 { color: var(--cream); }
+.method-bg .section-title h2 em { color: var(--copper); }
+.method-bg .section-title p { color: rgba(244,239,230,0.75); }
+
+.method-bg::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 60%;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(199,121,90,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.steps {
+  display: grid;
+  gap: 0;
+  position: relative;
+}
+.step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(244,239,230,0.12);
+  align-items: start;
+  transition: padding-left 0.3s ease;
+}
+.step:hover { padding-left: 8px; }
+.step:last-child { border-bottom: none; }
+@media (min-width: 1024px) {
+  .step { grid-template-columns: 80px 1fr 1fr; gap: 48px; }
+}
+.step-num {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--copper);
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+}
+.step h3 {
+  color: var(--cream);
+  font-size: 28px;
+  margin-bottom: 8px;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  letter-spacing: -0.02em;
+}
+.step .step-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 8px;
+}
+.step p { color: rgba(244,239,230,0.75); font-size: 16px; line-height: 1.6; }
+
+/* ============================================================
+   QUOTE / DIFFERENTIATOR
+   ============================================================ */
+.quote-section { padding: clamp(80px, 12vh, 120px) 0; }
+.quote {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.25;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  max-width: 920px;
+  position: relative;
+  padding-left: 60px;
+}
+.quote::before {
+  content: """;
+  position: absolute;
+  left: 0;
+  top: -20px;
+  font-size: 120px;
+  color: var(--copper);
+  line-height: 1;
+  font-style: italic;
+  font-weight: 300;
+}
+.quote em {
+  font-style: italic;
+  color: var(--copper-deep);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.quote-attr {
+  margin-top: 28px;
+  padding-left: 60px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.differentiators {
+  display: grid;
+  gap: 1px;
+  margin-top: 80px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) { .differentiators { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .differentiators { grid-template-columns: repeat(3, 1fr); } }
+
+.diff {
+  background: var(--cream);
+  padding: 36px 32px;
+}
+.diff-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.diff-num::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--copper);
+}
+.diff h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  letter-spacing: -0.015em;
+}
+.diff p { font-size: 15px; line-height: 1.55; }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .pricing-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.price-card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 32px 28px;
+  background: var(--cream);
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.price-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--copper);
+}
+.price-card .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  margin-bottom: 12px;
+}
+.price-card h4 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+}
+.price-card .price {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+}
+.price-card .price small {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  letter-spacing: 0;
+}
+.price-card .desc { font-size: 14px; line-height: 1.5; margin-top: 16px; color: var(--ink-soft); }
+
+/* ============================================================
+   ZONE / MAP-ish
+   ============================================================ */
+.zone-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 1024px) {
+  .zone-grid { grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+}
+.zone-text h3 {
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+}
+.zone-text p { margin-bottom: 16px; font-size: 16px; }
+.zone-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+.zone-list li {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: var(--cream-warm);
+  transition: background 0.25s, border-color 0.25s;
+}
+.zone-list li:hover { border-color: var(--copper); background: var(--cream); color: var(--copper-deep); }
+
+/* Stylized "map" panel — abstract */
+.map-card {
+  background: var(--ink);
+  border-radius: 4px;
+  padding: 40px;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.map-card svg { width: 100%; height: 100%; }
+.map-overlay {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.7);
+}
+.map-coord {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--copper);
+  text-align: right;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+  cursor: pointer;
+}
+.faq-item:first-child { border-top: 1px solid var(--line); }
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  line-height: 1.3;
+  user-select: none;
+}
+.faq-toggle {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--copper-deep);
+  transition: all 0.3s ease;
+}
+.faq-item[open] .faq-toggle {
+  background: var(--copper);
+  color: var(--cream);
+  border-color: var(--copper);
+  transform: rotate(45deg);
+}
+.faq-answer {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 800px;
+}
+.faq-item summary { list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.cta-final {
+  background: var(--copper);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 30%, rgba(15,26,46,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(244,239,230,0.1) 0%, transparent 50%);
+}
+.cta-final-inner {
+  position: relative;
+  padding: clamp(80px, 14vh, 140px) 0;
+  text-align: left;
+}
+.cta-final h2 {
+  color: var(--cream);
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  max-width: 900px;
+  font-variation-settings: "opsz" 144, "SOFT" 70;
+}
+.cta-final h2 em {
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--ink);
+}
+.cta-final p { color: rgba(244,239,230,0.9); font-size: 17px; max-width: 580px; margin-bottom: 40px; }
+.cta-final .btn-primary { background: var(--ink); color: var(--cream); }
+.cta-final .btn-primary:hover { background: var(--cream); color: var(--ink); }
+.cta-final .btn-ghost { color: var(--cream); border-color: rgba(244,239,230,0.4); }
+.cta-final .btn-ghost:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--ink);
+  color: rgba(244,239,230,0.7);
+  padding: 64px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1fr;
+  margin-bottom: 48px;
+}
+@media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+
+footer h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+footer ul a {
+  font-size: 14px;
+  color: rgba(244,239,230,0.7);
+  transition: color 0.25s;
+}
+footer ul a:hover { color: var(--copper); }
+
+.footer-brand .logo { color: var(--cream); margin-bottom: 16px; }
+.footer-brand p { font-size: 14px; color: rgba(244,239,230,0.7); max-width: 320px; line-height: 1.55; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(244,239,230,0.12);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+.hero-grid > * { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-grid > *:nth-child(2) { animation-delay: 0.15s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 48px; }
+  .data-card { left: auto; right: -10px; bottom: -16px; padding: 18px 20px; max-width: 200px; }
+  .data-card .num { font-size: 42px; }
+  .quote { padding-left: 44px; font-size: 24px; }
+  .quote::before { font-size: 80px; top: -10px; }
+  .quote-attr { padding-left: 44px; }
+  .step { grid-template-columns: 56px 1fr; gap: 20px; }
+  .step-num { font-size: 42px; }
+  .footer-bottom { font-size: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        Sarah El Gharbi<span class="logo-mark">SEO · GEO</span>
+      </a>
+      <div class="nav-links">
+        <a href="/services/">Services</a>
+        <a href="/methode/">Méthode</a>
+        <a href="/blog/">Journal</a>
+        <a href="/contact/" class="nav-cta">Audit offert</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-meta">
+          <span><b>Vol. 08</b> · Localisation</span>
+          <span>43.1753° N · 5.6056° E</span>
+          <span>Lecture · 7 min</span>
+          <span>MAJ · Mai 2026</span>
+        </div>
+        <h1>Consultante SEO<br>à La Ciotat,<br>du référencement<br><em>qui rapporte vraiment.</em></h1>
+        <p class="hero-lede">
+          Vous tenez un commerce, un cabinet ou une PME à La Ciotat, à Cassis ou à Ceyreste, et vous voulez que vos prospects vous trouvent en premier sur Google ? Mon métier : faire de votre site un véritable canal d'acquisition local, durable, sans dépendance à la publicité payante.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">
+            Demander mon audit gratuit
+            <span class="arrow">→</span>
+          </a>
+          <a href="#services" class="btn btn-ghost">Voir les prestations</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="portrait-frame">
+          <img src="sarah-el-gharbi.webp" alt="Sarah El Gharbi, consultante SEO et GEO freelance basée en PACA" loading="eager" fetchpriority="high">
+          <div class="portrait-overlay">
+            <div class="portrait-overlay-top">
+              <span>Consultante SEO &amp; GEO</span>
+              <span>·sarahelgharbi.fr</span>
+            </div>
+            <div class="portrait-overlay-text">
+              <div class="portrait-overlay-bottom">"Le SEO ne se décrète pas. Il se construit."</div>
+              <div class="portrait-overlay-coord">— La Ciotat · Bouches-du-Rhône · PACA</div>
+            </div>
+          </div>
+        </div>
+        <div class="data-card">
+          <div class="num">48<small>h</small></div>
+          <div class="label">Réponse à toute<br>demande d'audit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<section class="stats">
+  <div class="wrap stats-inner">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="num">4 000<small>+</small></div>
+        <div class="label">Entreprises locales</div>
+        <div class="desc">À La Ciotat et dans son bassin économique immédiat.</div>
+      </div>
+      <div class="stat">
+        <div class="num">3<small>e</small></div>
+        <div class="label">Bassin maritime PACA</div>
+        <div class="desc">Naval haut de gamme, tourisme balnéaire, tissu PME dense.</div>
+      </div>
+      <div class="stat">
+        <div class="num">88<small>%</small></div>
+        <div class="label">Recherches locales</div>
+        <div class="desc">Aboutissent à un contact ou une visite sous 24h (source : Google).</div>
+      </div>
+      <div class="stat">
+        <div class="num">0</div>
+        <div class="label">Spécialiste GEO local</div>
+        <div class="desc">À La Ciotat aujourd'hui. C'est précisément la fenêtre.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTEXT — Pourquoi un consultant SEO à La Ciotat
+     ============================================================ -->
+<section class="section" id="context">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01<sub>Contexte</sub></div>
+      <div class="section-title">
+        <h2>Pourquoi faire appel à une<br>consultante SEO <em>à La Ciotat</em></h2>
+        <p>Un marché local sous-exploité, un bassin maritime qui se réinvente, et une opportunité réelle pour les entreprises qui décident de structurer leur visibilité maintenant.</p>
+      </div>
+    </div>
+
+    <div class="context-grid reveal">
+      <div class="context-text">
+        <p>La Ciotat conjugue trois économies puissantes : les chantiers navals haut de gamme d'Athélia qui attirent une clientèle internationale, un tourisme balnéaire qui pulse d'avril à octobre, et un tissu d'artisans, commerçants et professions libérales qui font vivre la ville à l'année.</p>
+        <p>Sur ce marché, <strong>être visible sur Google ne se décrète pas, ça se construit</strong>. Et aujourd'hui, ce n'est plus suffisant : il faut aussi être visible sur ChatGPT, Perplexity et Gemini — c'est ce qu'on appelle le <strong>GEO (Generative Engine Optimization)</strong>.</p>
+        <p>La concurrence SEO à La Ciotat est faible. Pour la majorité des requêtes locales à forte intention, les premières positions Google sont accessibles avec un travail méthodique. C'est un avantage rare à saisir — surtout quand on sait que les concurrents marseillais et toulonnais y portent peu d'attention.</p>
+      </div>
+
+      <div class="context-asides">
+        <div class="aside-card">
+          <div class="aside-label">— Le marché</div>
+          <h4>Naval, tourisme, TPE/PME</h4>
+          <p>Renaissance des chantiers à Athélia, tourisme balnéaire international, professions libérales, restauration, BTP, services à la personne. Un mix rare en PACA.</p>
+        </div>
+        <div class="aside-card">
+          <div class="aside-label">— L'opportunité</div>
+          <h4>SEO local sous-exploité</h4>
+          <p>La majorité des entreprises ciotadennes n'ont pas de stratégie SEO structurée. Ceux qui s'y mettent maintenant prennent durablement les premières positions.</p>
+        </div>
+        <div class="aside-card">
+          <div class="aside-label">— Mon angle</div>
+          <h4>SEO + GEO, dès le départ</h4>
+          <p>Je travaille les deux en parallèle. Pendant que vos concurrents découvrent Google, vos prospects vous trouvent déjà sur ChatGPT.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="section" id="services" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02<sub>Services</sub></div>
+      <div class="section-title">
+        <h2>Mes prestations SEO<br><em>à La Ciotat</em></h2>
+        <p>Un accompagnement complet, pour les TPE, PME, e-commerces et acteurs B2B qui veulent transformer leur site en levier business mesurable.</p>
+      </div>
+    </div>
+
+    <div class="services-grid reveal">
+
+      <div class="service">
+        <div class="service-num">— 01</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="14" cy="14" r="9"/>
+          <path d="M21 21L28 28"/>
+        </svg>
+        <h3>Audit SEO complet</h3>
+        <p>Analyse technique, sémantique et concurrentielle. Vous repartez avec une feuille de route priorisée, actionnable dès le lendemain — pas un PDF de 80 pages.</p>
+        <span class="service-tag">Diagnostic</span>
+        <span class="service-tag">Roadmap</span>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 02</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 8H28M4 16H28M4 24H28"/>
+          <circle cx="9" cy="8" r="2" fill="currentColor"/>
+          <circle cx="22" cy="16" r="2" fill="currentColor"/>
+          <circle cx="14" cy="24" r="2" fill="currentColor"/>
+        </svg>
+        <h3>SEO technique</h3>
+        <p>Core Web Vitals, crawl, indexation, données structurées Schema.org. Le socle invisible mais indispensable. Sans ça, aucune stratégie de contenu ne tient.</p>
+        <span class="service-tag">Core Web Vitals</span>
+        <span class="service-tag">Schema</span>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 03</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 26V8M6 8L14 16M6 8L14 14M20 6V26M26 14V26"/>
+        </svg>
+        <h3>Stratégie éditoriale</h3>
+        <p>Recherche de mots-clés à forte intention commerciale, architecture en silos, briefs rédactionnels. Du contenu qui amène des prospects prêts à acheter, pas des curieux.</p>
+        <span class="service-tag">Cocon</span>
+        <span class="service-tag">Briefs</span>
+      </div>
+
+      <div class="service featured">
+        <div class="service-num">— 04 · La nouvelle frontière</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="16" cy="16" r="3"/>
+          <circle cx="16" cy="16" r="9" stroke-dasharray="2 3"/>
+          <path d="M5 5L9 9M27 5L23 9M5 27L9 23M27 27L23 23"/>
+        </svg>
+        <h3>GEO — Generative Engine Optimization</h3>
+        <p>Vos prospects n'utilisent plus seulement Google : ils interrogent ChatGPT, Perplexity, Gemini et Claude. Le GEO consiste à structurer votre présence pour être cité dans leurs réponses. Encore peu travaillé à La Ciotat — premier arrivé, premier servi.</p>
+        <span class="service-tag">ChatGPT</span>
+        <span class="service-tag">Perplexity</span>
+        <span class="service-tag">Gemini</span>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 05</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M16 4C10 4 6 8 6 14C6 22 16 28 16 28C16 28 26 22 26 14C26 8 22 4 16 4Z"/>
+          <circle cx="16" cy="14" r="3"/>
+        </svg>
+        <h3>SEO local &amp; GMB</h3>
+        <p>Optimisation Google Business Profile, NAP cohérent, citations locales, gestion des avis, requêtes géolocalisées. Indispensable pour le pack local et Google Maps.</p>
+        <span class="service-tag">GMB</span>
+        <span class="service-tag">Pack local</span>
+      </div>
+
+      <div class="service">
+        <div class="service-num">— 06</div>
+        <svg class="service-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 26L4 6M4 26H28M9 22V14M15 22V10M21 22V16M27 22V8"/>
+        </svg>
+        <h3>Suivi mensuel</h3>
+        <p>Reporting orienté résultats business — leads, conversions, chiffre d'affaires généré. Pas de graphiques abstraits. On ajuste ce qui marche, on coupe ce qui ne marche pas.</p>
+        <span class="service-tag">Reporting</span>
+        <span class="service-tag">Pilotage</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     METHOD
+     ============================================================ -->
+<section class="section method-bg">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-num">03<sub>Méthode</sub></div>
+      <div class="section-title">
+        <h2>Cinq étapes,<br>zéro <em>blabla</em></h2>
+        <p>Une méthode rigoureuse, documentée et reproductible. Pas de recette miracle, pas de promesses creuses — juste un travail méthodique qui produit du résultat sur la durée.</p>
+      </div>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-meta">— Diagnostic stratégique</div>
+          <h3>Comprendre votre business avant Google</h3>
+        </div>
+        <p>Je commence par votre business : marges, clients idéaux, cycles de vente, concurrents directs à La Ciotat. Sans cette étape, le SEO devient du bricolage déconnecté du terrain.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-meta">— Audit complet</div>
+          <h3>Technique, sémantique, GEO</h3>
+        </div>
+        <p>Audit technique, sémantique, concurrentiel, GEO. Identification des leviers à fort ROI, priorisation par impact. Ce qui se joue en premier, ce qui peut attendre, ce qu'on abandonne.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-meta">— Plan d'action</div>
+          <h3>Une feuille de route, pas un rapport</h3>
+        </div>
+        <p>Une roadmap claire, datée, hiérarchisée. Vous savez ce qu'on fait, pourquoi on le fait, et dans quel ordre. Pas de jargon qui sert à cacher du vide.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-meta">— Exécution rigoureuse</div>
+          <h3>En direct, sans intermédiaire</h3>
+        </div>
+        <p>Optimisations techniques, production éditoriale, GEO, netlinking. Vous travaillez avec moi. Pas de junior, pas de turnover, pas de couches de process inutiles.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-meta">— Mesure &amp; ajustement</div>
+          <h3>On mesure ce qui rapporte</h3>
+        </div>
+        <p>Reporting mensuel orienté business : leads, conversions, chiffre d'affaires généré par le SEO. On amplifie ce qui marche, on coupe ce qui ne marche pas. Sans état d'âme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUOTE / DIFFERENTIATORS
+     ============================================================ -->
+<section class="quote-section">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="quote">
+        Je ne fais pas de SEO <em>pour faire joli</em>. Je le fais pour cibler les mots-clés qui ont un impact direct sur votre chiffre d'affaires — les autres ne servent à rien.
+      </div>
+      <div class="quote-attr">— Sarah El Gharbi · Consultante SEO &amp; GEO</div>
+    </div>
+
+    <div class="differentiators reveal">
+      <div class="diff">
+        <div class="diff-num">01 · Senior</div>
+        <h4>Une seule interlocutrice, du début à la fin</h4>
+        <p>Pas de junior qui gère votre dossier en arrière-plan, pas de turnover. Vous travaillez avec moi, directement, sur tout le projet.</p>
+      </div>
+      <div class="diff">
+        <div class="diff-num">02 · ROI-driven</div>
+        <h4>Cibler les mots-clés qui rapportent</h4>
+        <p>Pas du trafic vanity, pas de compteurs qui flattent. Des requêtes à forte intention commerciale, mesurées en leads et en chiffre d'affaires.</p>
+      </div>
+      <div class="diff">
+        <div class="diff-num">03 · GEO</div>
+        <h4>L'avant-garde du référencement</h4>
+        <p>Le GEO est une vraie spécialité, pas un mot à la mode. Très peu de consultants à La Ciotat et en PACA le pratiquent sérieusement aujourd'hui.</p>
+      </div>
+      <div class="diff">
+        <div class="diff-num">04 · Transparente</div>
+        <h4>Méthode documentée, reporting clair</h4>
+        <p>Vous savez à tout moment ce qui est fait, pourquoi, et avec quel impact. Pas de jargon de consultant, pas de boîte noire.</p>
+      </div>
+      <div class="diff">
+        <div class="diff-num">05 · Locale</div>
+        <h4>Connaissance fine du terrain PACA</h4>
+        <p>Je vis et je travaille en PACA. Spécificités du marché local, concurrents directs à La Ciotat, requêtes à fort potentiel : je connais le terrain.</p>
+      </div>
+      <div class="diff">
+        <div class="diff-num">06 · Spécialisée</div>
+        <h4>B2B, SaaS, TPE/PME</h4>
+        <p>Cycles de vente longs, génération de leads B2B, contraintes des budgets PME : je connais les enjeux et les leviers spécifiques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+     ============================================================ -->
+<section class="section" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-num">04<sub>Tarifs</sub></div>
+      <div class="section-title">
+        <h2>Combien coûte<br>une consultante SEO <em>à La Ciotat ?</em></h2>
+        <p>Tarifs définis à l'avance, sans surprise ni surcoût en cours de mission. Chaque devis est sur-mesure après diagnostic.</p>
+      </div>
+    </div>
+
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="label">— Audit ponctuel</div>
+        <h4>Audit SEO complet</h4>
+        <div class="price">à partir de<br>900 <small>€ HT</small></div>
+        <p class="desc">Selon la complexité et le nombre de pages. Livrable : feuille de route priorisée et actionnable.</p>
+      </div>
+      <div class="price-card">
+        <div class="label">— TPE locale</div>
+        <h4>Suivi mensuel léger</h4>
+        <div class="price">800 — 1 200<br><small>€ HT / mois</small></div>
+        <p class="desc">Pour les TPE et commerces ciotadens qui veulent structurer leur SEO local sans tout réinventer.</p>
+      </div>
+      <div class="price-card">
+        <div class="label">— PME / B2B</div>
+        <h4>Suivi mensuel complet</h4>
+        <div class="price">1 500 — 3 000<br><small>€ HT / mois</small></div>
+        <p class="desc">Stratégie complète : SEO technique, éditorial, GEO, netlinking, reporting business. Pour les PME et SaaS exigeants.</p>
+      </div>
+      <div class="price-card">
+        <div class="label">— Mission ponctuelle</div>
+        <h4>Refonte / migration / GEO</h4>
+        <div class="price">Sur devis<br><small>après diagnostic</small></div>
+        <p class="desc">Refonte de site, migration, déploiement GEO complet, formation équipe : devis personnalisé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ZONE — La Ciotat & alentours
+     ============================================================ -->
+<section class="section" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <div class="section-num">05<sub>Zone</sub></div>
+      <div class="section-title">
+        <h2>Présente <em>à La Ciotat</em>,<br>active partout en France</h2>
+      </div>
+    </div>
+
+    <div class="zone-grid reveal">
+      <div class="zone-text">
+        <h3>De Cassis à Aubagne, et bien au-delà.</h3>
+        <p>J'interviens en présentiel à La Ciotat et dans les communes proches. Pour les projets à distance (le reste de la France), tout se fait par visio — la qualité de la stratégie ne dépend pas des kilomètres.</p>
+        <p><strong>Quartiers business privilégiés à La Ciotat :</strong> Centre-ville, Athélia (parc d'activités), Port-Vieux, Ceyreste.</p>
+        <ul class="zone-list">
+          <li>La Ciotat</li>
+          <li>Cassis</li>
+          <li>Ceyreste</li>
+          <li>Saint-Cyr-sur-Mer</li>
+          <li>Bandol</li>
+          <li>Aubagne</li>
+          <li>Roquefort-la-Bédoule</li>
+          <li>Marseille</li>
+          <li>Toulon</li>
+          <li>+ Remote France</li>
+        </ul>
+      </div>
+
+      <div class="map-card">
+        <div class="map-overlay">— Zone d'intervention · 25 km</div>
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+          <!-- Coastline abstract -->
+          <path d="M 0 200 Q 50 180 100 195 T 200 175 Q 280 165 340 170 T 400 160 L 400 300 L 0 300 Z"
+                fill="rgba(199, 121, 90, 0.18)"
+                stroke="rgba(199, 121, 90, 0.6)"
+                stroke-width="0.8"/>
+
+          <!-- Lines / latitudes -->
+          <g stroke="rgba(244, 239, 230, 0.07)" stroke-width="0.5">
+            <line x1="0" y1="80" x2="400" y2="80"/>
+            <line x1="0" y1="140" x2="400" y2="140"/>
+            <line x1="0" y1="220" x2="400" y2="220"/>
+            <line x1="100" y1="0" x2="100" y2="300"/>
+            <line x1="200" y1="0" x2="200" y2="300"/>
+            <line x1="300" y1="0" x2="300" y2="300"/>
+          </g>
+
+          <!-- Marseille pulse -->
+          <g transform="translate(80, 175)">
+            <circle r="4" fill="rgba(244,239,230,0.4)"/>
+            <circle r="10" fill="none" stroke="rgba(244,239,230,0.4)" stroke-width="0.6">
+              <animate attributeName="r" from="4" to="22" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.6" to="0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text x="14" y="4" font-family="JetBrains Mono" font-size="8" fill="rgba(244,239,230,0.7)" letter-spacing="1">MARSEILLE</text>
+          </g>
+
+          <!-- Aubagne -->
+          <g transform="translate(140, 165)">
+            <circle r="3" fill="rgba(244,239,230,0.35)"/>
+            <text x="10" y="4" font-family="JetBrains Mono" font-size="7" fill="rgba(244,239,230,0.55)" letter-spacing="1">AUBAGNE</text>
+          </g>
+
+          <!-- Cassis -->
+          <g transform="translate(180, 195)">
+            <circle r="3" fill="rgba(244,239,230,0.35)"/>
+            <text x="10" y="4" font-family="JetBrains Mono" font-size="7" fill="rgba(244,239,230,0.55)" letter-spacing="1">CASSIS</text>
+          </g>
+
+          <!-- LA CIOTAT — featured -->
+          <g transform="translate(220, 200)">
+            <circle r="14" fill="none" stroke="rgba(199, 121, 90, 0.5)" stroke-width="1">
+              <animate attributeName="r" from="6" to="28" dur="2.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="1" to="0" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="6" fill="rgba(199, 121, 90, 1)"/>
+            <circle r="3" fill="rgba(244, 239, 230, 1)"/>
+            <text x="14" y="-6" font-family="JetBrains Mono" font-size="9" fill="rgba(199, 121, 90, 1)" letter-spacing="1.2" font-weight="500">LA CIOTAT</text>
+            <text x="14" y="6" font-family="JetBrains Mono" font-size="6.5" fill="rgba(244,239,230,0.6)" letter-spacing="1">43.1753° N · 5.6056° E</text>
+          </g>
+
+          <!-- Bandol -->
+          <g transform="translate(280, 215)">
+            <circle r="3" fill="rgba(244,239,230,0.35)"/>
+            <text x="10" y="4" font-family="JetBrains Mono" font-size="7" fill="rgba(244,239,230,0.55)" letter-spacing="1">BANDOL</text>
+          </g>
+
+          <!-- Toulon -->
+          <g transform="translate(340, 220)">
+            <circle r="4" fill="rgba(244,239,230,0.4)"/>
+            <text x="10" y="4" font-family="JetBrains Mono" font-size="8" fill="rgba(244,239,230,0.7)" letter-spacing="1">TOULON</text>
+          </g>
+
+          <!-- Connecting line -->
+          <path d="M 80 175 Q 150 165 220 200 T 340 220" fill="none"
+                stroke="rgba(199, 121, 90, 0.3)"
+                stroke-width="0.6"
+                stroke-dasharray="2 4"/>
+        </svg>
+        <div class="map-coord">
+          43.1753° N · 5.6056° E<br>
+          <span style="opacity: 0.5;">— Bouches-du-Rhône, FR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section" style="padding-top: 0;" id="faq">
+  <div class="wrap wrap-tight">
+    <div class="section-header reveal">
+      <div class="section-num">06<sub>FAQ</sub></div>
+      <div class="section-title">
+        <h2>Questions <em>légitimes</em></h2>
+        <p>Tout ce qu'on me demande avant de commencer un accompagnement à La Ciotat. Pas de réponses langue de bois — j'aime mieux qu'on parte avec un cadre clair.</p>
+      </div>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Combien de temps faut-il pour voir des résultats SEO à La Ciotat ?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p class="faq-answer">Les premiers résultats apparaissent généralement entre <strong>3 et 6 mois</strong> selon la concurrence sur vos mots-clés et l'état initial du site. À La Ciotat, où la concurrence SEO est faible, on peut voir des positions remonter en quelques semaines sur des requêtes locales. Sur des requêtes B2B/SaaS plus disputées (au-delà du périmètre local), comptez 6 à 12 mois pour des résultats stables et significatifs.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Travaillez-vous uniquement avec des entreprises de La Ciotat ?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p class="faq-answer">Non. Je suis basée en PACA et j'interviens à La Ciotat ainsi que partout en France à distance. La proximité géographique n'est pas le facteur clé — c'est la qualité de la stratégie et la rigueur d'exécution qui comptent. Pour les rendez-vous physiques, je me déplace facilement entre Cassis, Aubagne, Marseille et Toulon.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Consultante SEO freelance ou agence SEO à La Ciotat ?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p class="faq-answer">Si vous cherchez une équipe complète multi-compétences (SEO + dev + design + ads), une agence peut faire sens. Si vous voulez un <strong>interlocuteur unique senior, impliqué personnellement, sans frais de structure</strong>, le freelance est plus adapté. Pour la majorité des TPE/PME et e-commerces ciotadens, le freelance offre un meilleur rapport qualité/prix et une réactivité supérieure.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Qu'est-ce que le GEO et pourquoi c'est important à La Ciotat ?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p class="faq-answer">Le <strong>GEO (Generative Engine Optimization)</strong> consiste à optimiser votre présence pour être cité dans les réponses des IA génératives comme ChatGPT, Perplexity, Gemini et Claude. C'est la nouvelle frontière du référencement : aujourd'hui, encore aucun consultant SEO local à La Ciotat ne s'y positionne sérieusement, ce qui représente une vraie opportunité à saisir maintenant. Premier arrivé, premier servi.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Pouvez-vous garantir la première place sur Google à La Ciotat ?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p class="faq-answer">Non, et personne ne devrait le faire sérieusement. Aucun consultant SEO honnête ne peut garantir une position précise sur Google — c'est contraire aux guidelines de Google. Ce que je garantis : <strong>une méthode rigoureuse, un travail régulier, une transparence totale</strong> sur l'avancement et des indicateurs business clairs.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Quels secteurs accompagnez-vous à La Ciotat ?</span>
+          <span class="faq-toggle">+</span>
+        </summary>
+        <p class="faq-answer">Je suis spécialisée <strong>B2B, SaaS et TPE/PME</strong>. À La Ciotat, ça inclut typiquement : naval (chantiers d'Athélia), tourisme balnéaire, restauration, BTP, services à la personne, e-commerce local, professions libérales. Si votre secteur n'est pas listé, contactez-moi : la méthode SEO reste la même, c'est l'angle commercial qui s'adapte.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+     ============================================================ -->
+<section class="cta-final" id="contact">
+  <div class="wrap cta-final-inner">
+    <div class="reveal">
+      <div class="eyebrow" style="color: var(--ink); margin-bottom: 24px;">— Prêt à passer à l'action</div>
+      <h2>Faisons de votre site<br>le canal d'acquisition n°1<br><em>à La Ciotat.</em></h2>
+      <p>Premier échange gratuit, réponse sous 48h. On regarde votre projet, vos enjeux, et ce qu'on peut concrètement débloquer ensemble — sans engagement, sans baratin commercial.</p>
+      <div class="hero-ctas">
+        <a href="/contact/" class="btn btn-primary">
+          Demander mon audit offert
+          <span class="arrow">→</span>
+        </a>
+        <a href="mailto:contact@sarahelgharbi.fr" class="btn btn-ghost">contact@sarahelgharbi.fr</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Sarah El Gharbi <span class="logo-mark" style="border-color: var(--copper); color: var(--copper);">SEO · GEO</span></div>
+        <p>Consultante SEO &amp; GEO freelance. B2B, SaaS, TPE/PME. Basée en PACA, intervient partout en France.</p>
+      </div>
+
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/audit-seo/">Audit SEO</a></li>
+          <li><a href="/seo-technique/">SEO technique</a></li>
+          <li><a href="/strategie-contenu/">Stratégie contenu</a></li>
+          <li><a href="/geo/">GEO</a></li>
+          <li><a href="/seo-local/">SEO local</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Zones</h5>
+        <ul>
+          <li><a href="/consultante-seo-marseille/">Marseille</a></li>
+          <li><a href="/consultante-seo-aix-en-provence/">Aix-en-Provence</a></li>
+          <li><a href="/consultante-seo-toulon/">Toulon</a></li>
+          <li><a href="/consultante-seo-nice/">Nice</a></li>
+          <li><a href="/zones-intervention/">Toutes les zones →</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@sarahelgharbi.fr">contact@sarahelgharbi.fr</a></li>
+          <li><a href="https://linkedin.com/">LinkedIn</a></li>
+          <li><a href="/contact/">Formulaire</a></li>
+          <li><a href="/blog/">Journal SEO</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Sarah El Gharbi · Tous droits réservés</span>
+      <span>SIRET · Mentions légales · Politique de confidentialité</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
