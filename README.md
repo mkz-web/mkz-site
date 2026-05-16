@@ -4,7 +4,7 @@
 
 MKZ aide les artisans, commerçants, professions libérales et TPE à obtenir un site internet professionnel qui génère des clients grâce au référencement naturel (SEO).
 
-**Site web :** [mkz.fr](https://mkz.fr)
+**Site web :** [mkz-consulting.fr](https://mkz-consulting.fr)
 **Contact :** [contact@mkz-consulting.fr](mailto:contact@mkz-consulting.fr) | 07 69 09 39 09
 **Audit gratuit :** [Réserver 30 min](https://calendly.com/mkz-consulting/30min)
 
