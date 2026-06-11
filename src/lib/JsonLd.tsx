@@ -7,16 +7,61 @@ export default function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+const SITE = "https://mkz-consulting.fr";
+
+export const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE}/#mickael-leclerc`,
+  name: "Mickaël Leclerc",
+  jobTitle: "Président & fondateur",
+  description:
+    "Ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps, fondateur de MKZ. Expert SEO au service des artisans, commerçants et TPE.",
+  image: `${SITE}/images/mickael-leclerc.jpg`,
+  url: `${SITE}/about/`,
+  worksFor: { "@id": `${SITE}/#organization` },
+  knowsAbout: [
+    "Création de site internet",
+    "Référencement naturel (SEO)",
+    "Référencement local",
+    "GEO (Generative Engine Optimization)",
+    "Core Web Vitals",
+    "Automatisation",
+    "DevOps",
+  ],
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE}/#website`,
+  name: "MKZ",
+  alternateName: "MKZ Consulting",
+  url: SITE,
+  inLanguage: "fr-FR",
+  description:
+    "Création de sites web et SEO pour artisans, commerçants et indépendants en Île-de-France et partout en France.",
+  publisher: { "@id": `${SITE}/#organization` },
+};
+
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE}/#organization`,
   name: "MKZ",
-  url: "https://mkz-consulting.fr",
-  logo: "https://mkz-consulting.fr/images/mkz-logo.svg",
+  legalName: "MKZ",
+  slogan: "Votre site web visible sur Google, enfin.",
+  url: SITE,
+  logo: `${SITE}/images/mkz-logo.svg`,
   description:
     "Création de sites web et SEO pour artisans, commerçants et indépendants.",
   telephone: "+33769093909",
   email: "contact@mkz-consulting.fr",
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "SIRET",
+    value: "983 662 784 00013",
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "1 rue Françoise Sagan",
@@ -25,22 +70,18 @@ export const organizationSchema = {
     addressRegion: "Île-de-France",
     addressCountry: "FR",
   },
-  founder: {
-    "@type": "Person",
-    name: "Mickaël Leclerc",
-    jobTitle: "Président",
-  },
+  founder: { "@id": `${SITE}/#mickael-leclerc` },
   areaServed: {
     "@type": "Country",
     name: "France",
   },
-  sameAs: [],
 };
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "ProfessionalService"],
   "@id": "https://mkz-consulting.fr/#localbusiness",
+  founder: { "@id": `${SITE}/#mickael-leclerc` },
   name: "MKZ",
   url: "https://mkz-consulting.fr",
   image: "https://mkz-consulting.fr/images/mkz-logo.svg",
@@ -82,7 +123,8 @@ export const serviceSchemas = [
     name: "Création de site internet",
     description:
       "Création de sites web sur mesure pour artisans, commerçants et indépendants. Design responsive, performances optimisées et référencement naturel inclus.",
-    provider: { "@type": "Organization", name: "MKZ" },
+    provider: { "@id": `${SITE}/#organization` },
+    url: `${SITE}/services/`,
     areaServed: { "@type": "Country", name: "France" },
     serviceType: "Création de site web",
   },
@@ -92,7 +134,8 @@ export const serviceSchemas = [
     name: "SEO & Référencement Google",
     description:
       "Stratégie SEO complète pour améliorer votre visibilité sur Google. Audit SEO, optimisation technique, contenu et netlinking pour TPE et artisans.",
-    provider: { "@type": "Organization", name: "MKZ" },
+    provider: { "@id": `${SITE}/#organization` },
+    url: `${SITE}/services/`,
     areaServed: { "@type": "Country", name: "France" },
     serviceType: "Référencement naturel SEO",
   },
