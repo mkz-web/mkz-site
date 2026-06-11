@@ -75,12 +75,18 @@ export const organizationSchema = {
     "@type": "Country",
     name: "France",
   },
+  sameAs: [
+    "https://maps.google.com/?cid=6891196325972723134",
+    "https://www.pappers.fr/entreprise/mkz-983662784",
+    "https://www.societe.com/societe/mkz-983662784.html",
+  ],
 };
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
   "@id": "https://mkz-consulting.fr/#localbusiness",
+  hasMap: "https://maps.google.com/?cid=6891196325972723134",
   founder: { "@id": `${SITE}/#mickael-leclerc` },
   name: "MKZ",
   url: "https://mkz-consulting.fr",
