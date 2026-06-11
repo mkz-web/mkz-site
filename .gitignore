@@ -76,6 +76,10 @@ next-env.d.ts
 deploy.sh
 .wrangler/
 
+# Documents business (audits, livrables) — hors repo site
+Audit-*.docx
+audit-data.json
+
 # Misc
 *.log
 *.bak
