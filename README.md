@@ -122,7 +122,7 @@ npm run deploy
 
 Variables d'environnement requises : `CLOUDFLARE_API_TOKEN_MKZ` (token API avec permission *Cloudflare Pages:Edit* — fallback `CLOUDFLARE_API_TOKEN`) et `CLOUDFLARE_ACCOUNT_ID`. Aucune dépendance npm : `wrangler` est récupéré à la volée par `npx`.
 
-Les en-têtes HTTP (sécurité, cache) sont définis dans `public/_headers`, la redirection www → apex dans `public/_redirects`. HTTPS forcé, compression et clean URLs sont natifs chez Cloudflare Pages (l'ancien `.htaccess` OVH a été retiré).
+Les en-têtes HTTP (sécurité, cache) sont définis dans `public/_headers`. La redirection www → apex est une règle de redirection dans la zone Cloudflare (Pages ne supporte pas les redirections inter-hôtes via `_redirects`). HTTPS forcé, compression et clean URLs sont natifs chez Cloudflare Pages (l'ancien `.htaccess` OVH a été retiré).
 
 ---
 
