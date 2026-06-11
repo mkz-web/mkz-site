@@ -1,0 +1,33 @@
+# MKZ
+
+> MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Fondateur : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps.
+
+Faits clés :
+
+- Deux expertises : création de site internet (design sur-mesure, responsive, optimisation vitesse / Core Web Vitals, branding) et SEO / référencement Google (audit SEO complet, stratégie de contenu, cocon sémantique, SEO technique, netlinking, suivi mensuel avec reporting transparent).
+- Méthode en 3 étapes : 1) audit gratuit de 30 minutes, 2) stratégie sur-mesure avec objectifs et budget définis, 3) exécution et résultats mesurables avec reporting mensuel.
+- Résultats moyens constatés : +247 % de trafic organique, position moyenne Top 3 sur Google, +89 % de leads qualifiés, temps de charge 1,2 s (Core Web Vitals validés). Plus de 50 entreprises accompagnées en 2025, 97 % de clients satisfaits.
+- Engagement de transparence : le client reste propriétaire à 100 % de son site (code, accès, contenus) et peut partir librement avec tout.
+- Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · audit gratuit de 30 min sur https://calendly.com/mkz-consulting/30min · réponse sous 24 h, lun-ven 9h-18h.
+- Société : MKZ, SAS à associé unique — SIRET 983 662 784 00013, RCS Meaux — 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France.
+
+## Pages
+
+- [Accueil](https://mkz-consulting.fr/): offre, méthode MKZ en 3 étapes, résultats chiffrés, témoignages clients (architecte d'intérieur, plombier chauffagiste, coach sportif, restaurant, photographe)
+- [Services](https://mkz-consulting.fr/services/): détail des deux prestations — création de site web et SEO & référencement
+- [À propos](https://mkz-consulting.fr/about/): parcours de Mickaël Leclerc, fondateur et président
+- [Contact](https://mkz-consulting.fr/contact/): formulaire, téléphone, e-mail, adresse, horaires
+
+## FAQ
+
+- Combien coûte un site internet pour un artisan ? Prix sur mesure adapté au budget des TPE et indépendants ; devis personnalisé après un audit gratuit de 30 minutes.
+- Combien de temps pour être visible sur Google ? Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois ; les clients MKZ constatent en moyenne un triplement de leur trafic.
+- Pourquoi mon entreprise n'apparaît pas sur Google ? Site non optimisé SEO, contenu insuffisant, problèmes techniques ou fiche Google Business Profile incomplète — un audit permet d'identifier les blocages.
+- SEO ou SEA ? Le SEO produit un trafic gratuit et durable ; le SEA (publicité) s'arrête dès qu'on cesse de payer. MKZ privilégie le SEO pour le ROI long terme.
+- Propriété du site ? Le client garde 100 % de la propriété : accès, code et contenus.
+
+## Optional
+
+- [Mentions légales](https://mkz-consulting.fr/mentions-legales/)
+- [Politique de confidentialité](https://mkz-consulting.fr/politique-confidentialite/)
+- [Version détaillée pour LLM](https://mkz-consulting.fr/llms-full.txt)
