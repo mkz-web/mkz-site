@@ -74,6 +74,7 @@ next-env.d.ts
 .sftp-config.json
 .ftp-credentials
 deploy.sh
+.wrangler/
 
 # Misc
 *.log
