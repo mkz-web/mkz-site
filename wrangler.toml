@@ -1,0 +1,4 @@
+# Config Cloudflare Pages — lue par `npx wrangler pages deploy` (voir scripts/deploy.mjs)
+name = "mkz-site"
+pages_build_output_dir = "out"
+compatibility_date = "2026-06-11"

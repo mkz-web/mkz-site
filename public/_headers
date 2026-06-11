@@ -1,0 +1,16 @@
+# En-têtes Cloudflare Pages — équivalent de l'ancien .htaccess OVH.
+# HTTPS forcé, compression (brotli/gzip), clean URLs et 404.html
+# sont gérés nativement par Cloudflare Pages.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Assets Next.js fingerprintés (hash dans le nom de fichier) → 1 an immuable
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images du site (non fingerprintées) → 1 an, parité avec l'ancien .htaccess
+/images/*
+  Cache-Control: public, max-age=31536000

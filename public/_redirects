@@ -1,0 +1,2 @@
+# Redirection www → apex (active une fois les deux domaines rattachés au projet Pages)
+https://www.mkz-consulting.fr/* https://mkz-consulting.fr/:splat 301
