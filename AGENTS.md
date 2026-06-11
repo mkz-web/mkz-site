@@ -3,3 +3,9 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
+
+# Déploiement
+
+- Hébergement : **Cloudflare Pages** (projet `mkz-site`, compte Mkzcons@gmail.com). Production : `https://mkz-consulting.fr` (+ `mkz-site.pages.dev`).
+- `npm run deploy:build` = build statique (`out/`) + direct upload via wrangler (récupéré par npx, pas de dépendance npm). Requiert `CLOUDFLARE_API_TOKEN_MKZ` (fallback `CLOUDFLARE_API_TOKEN`) + `CLOUDFLARE_ACCOUNT_ID` en variables d'environnement.
+- En-têtes HTTP : `public/_headers` · redirection www→apex : `public/_redirects`. Pas de `.htaccess` (l'hébergement OVH est abandonné depuis juin 2026).

@@ -89,11 +89,11 @@ Basé à **Dammartin-en-Goële (77)**, MKZ intervient dans toute l’Île-de-Fra
 
 | Technologie | Usage |
 |---|---|
-| [Next.js 15](https://nextjs.org) | Framework React (App Router, export statique) |
+| [Next.js 16](https://nextjs.org) | Framework React (App Router, export statique) |
 | [Emotion](https://emotion.sh) | CSS-in-JS (styled-components) |
 | TypeScript | Typage statique |
 | JSON-LD | Données structurées (Organization, LocalBusiness, Service, FAQPage) |
-| OVH | Hébergement (export statique) |
+| [Cloudflare Pages](https://pages.cloudflare.com) | Hébergement (export statique, direct upload) |
 
 ## Développement
 
@@ -108,9 +108,21 @@ npm run dev
 npm run build
 ```
 
-## Déploiement OVH
+## Déploiement (Cloudflare Pages)
 
-Le build génère un dossier `out/` contenant le site statique complet. Uploadez son contenu à la racine de votre hébergement OVH via FTP.
+Le build génère un dossier `out/` contenant le site statique complet, déployé sur le projet Cloudflare Pages `mkz-site` (production : `https://mkz-site.pages.dev` → `https://mkz-consulting.fr`).
+
+```bash
+# Build + déploiement
+npm run deploy:build
+
+# Déploiement seul (out/ existant)
+npm run deploy
+```
+
+Variables d'environnement requises : `CLOUDFLARE_API_TOKEN_MKZ` (token API avec permission *Cloudflare Pages:Edit* — fallback `CLOUDFLARE_API_TOKEN`) et `CLOUDFLARE_ACCOUNT_ID`. Aucune dépendance npm : `wrangler` est récupéré à la volée par `npx`.
+
+Les en-têtes HTTP (sécurité, cache) sont définis dans `public/_headers`, la redirection www → apex dans `public/_redirects`. HTTPS forcé, compression et clean URLs sont natifs chez Cloudflare Pages (l'ancien `.htaccess` OVH a été retiré).
 
 ---
 
