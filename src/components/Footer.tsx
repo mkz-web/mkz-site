@@ -4,48 +4,107 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import Button from "@/components/Button";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
+// Méga-footer « second héros » : accroche éditoriale + colonnes + signature.
+
 const FooterWrapper = styled.footer`
-  border-top: 1px solid ${theme.colors.border};
-  background: ${theme.colors.surfaceAlt};
+  background: ${theme.colors.dark};
+  color: ${theme.colors.textOnDark};
 `;
 
 const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 80px 24px 40px;
+`;
+
+const TopBlock = styled.div`
+  display: grid;
+  gap: 32px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid ${theme.colors.darkBorder};
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: 7fr 4fr;
+    align-items: end;
+  }
+`;
+
+const Tagline = styled.p`
+  font-family: ${theme.fonts.display};
+  font-size: clamp(30px, 4.5vw, 52px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+
+  em {
+    font-style: italic;
+    color: ${theme.colors.cta};
+  }
+`;
+
+const TopActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    align-items: flex-end;
+  }
+`;
+
+const TopPhone = styled.a`
+  font-family: ${theme.fonts.mono};
+  font-size: 14px;
+  color: ${theme.colors.textOnDarkSecondary};
+
+  strong { color: ${theme.colors.textOnDark}; font-weight: 500; }
+  &:hover strong { color: ${theme.colors.cta}; }
 `;
 
 const Grid = styled.div`
   display: grid;
-  gap: 48px;
+  gap: 40px;
+  padding: 56px 0;
 
   @media (min-width: ${theme.breakpoints.md}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: ${theme.breakpoints.lg}) {
-    grid-template-columns: 2fr 1.2fr 1.2fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
   }
 `;
 
 const BrandDescription = styled.p`
   margin-top: 16px;
-  max-width: 360px;
+  max-width: 320px;
   font-size: 14px;
   line-height: 1.7;
-  color: ${theme.colors.textSecondary};
+  color: ${theme.colors.textOnDarkSecondary};
+`;
+
+const BrandLegal = styled.p`
+  margin-top: 14px;
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  line-height: 1.8;
+  color: ${theme.colors.textOnDarkSecondary};
 `;
 
 const GroupTitle = styled.h3`
-  font-size: 12px;
-  font-weight: 600;
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: ${theme.colors.text};
-  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+  color: ${theme.colors.cta};
+  margin-bottom: 18px;
 `;
 
 const LinkList = styled.ul`
@@ -57,42 +116,42 @@ const LinkList = styled.ul`
 
 const FooterLink = styled(Link)`
   font-size: 14px;
-  color: ${theme.colors.textSecondary};
-  transition: color 0.2s;
+  color: ${theme.colors.textOnDarkSecondary};
+  transition: color 0.18s ${theme.easing};
 
   &:hover {
-    color: ${theme.colors.accent};
+    color: ${theme.colors.textOnDark};
   }
 `;
 
 const FooterExtLink = styled.a`
   font-size: 14px;
-  color: ${theme.colors.textSecondary};
-  transition: color 0.2s;
+  color: ${theme.colors.textOnDarkSecondary};
+  transition: color 0.18s ${theme.easing};
   text-decoration: none;
 
   &:hover {
-    color: ${theme.colors.accent};
+    color: ${theme.colors.textOnDark};
   }
 `;
 
 const ContactInfo = styled.p`
   font-size: 14px;
-  color: ${theme.colors.textSecondary};
+  color: ${theme.colors.textOnDarkSecondary};
   line-height: 1.7;
 `;
 
 const BottomBar = styled.div`
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid ${theme.colors.border};
+  padding-top: 28px;
+  border-top: 1px solid ${theme.colors.darkBorder};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  font-size: 13px;
-  color: ${theme.colors.textSecondary};
+  gap: 14px;
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  color: ${theme.colors.textOnDarkSecondary};
   text-align: center;
 
   @media (min-width: ${theme.breakpoints.md}) {
@@ -110,22 +169,38 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <Container>
+        <TopBlock>
+          <Tagline>
+            Votre t&eacute;l&eacute;phone devrait <em>sonner</em> plus souvent.
+          </Tagline>
+          <TopActions>
+            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+            <TopPhone href="tel:0769093909">
+              ou directement : <strong>07 69 09 39 09</strong>
+            </TopPhone>
+          </TopActions>
+        </TopBlock>
+
         <Grid>
           <div>
             <Link href="/">
               <Image
                 src="/images/mkz-logo.svg"
                 alt="MKZ"
-                width={100}
-                height={51}
+                width={88}
+                height={45}
+                style={{ filter: "brightness(0) invert(1)" }}
               />
             </Link>
             <BrandDescription>
-              Votre visibilit&eacute;, notre mission. Cr&eacute;ation de sites web et SEO pour artisans, commer&ccedil;ants et ind&eacute;pendants.
+              Cr&eacute;ation de sites web et SEO pour artisans, commer&ccedil;ants
+              et ind&eacute;pendants. Bas&eacute;s en Seine-et-Marne, partout en France.
             </BrandDescription>
-            <ContactInfo style={{ marginTop: 12 }}>
-              MKZ &middot; SIRET : 983 662 784 00013 &middot; RCS Meaux
-            </ContactInfo>
+            <BrandLegal>
+              MKZ · SIRET 983 662 784 00013 · RCS Meaux
+              <br />
+              1 rue Fran&ccedil;oise Sagan, 77230 Dammartin-en-Go&euml;le
+            </BrandLegal>
           </div>
 
           <div>
@@ -142,8 +217,8 @@ export default function Footer() {
             <GroupTitle>Conseils</GroupTitle>
             <LinkList>
               <li><FooterLink href="/conseils/tutoriels">Tutoriels pas &agrave; pas</FooterLink></li>
-              <li><FooterLink href="/conseils/creation-site-internet">Conseils cr&eacute;ation de site</FooterLink></li>
-              <li><FooterLink href="/conseils/seo">Conseils SEO &amp; visibilit&eacute;</FooterLink></li>
+              <li><FooterLink href="/conseils/creation-site-internet">Cr&eacute;ation de site</FooterLink></li>
+              <li><FooterLink href="/conseils/seo">SEO &amp; visibilit&eacute;</FooterLink></li>
               <li><FooterLink href="/conseils">Tous les conseils</FooterLink></li>
             </LinkList>
           </div>
@@ -153,7 +228,7 @@ export default function Footer() {
             <LinkList>
               <li><FooterExtLink href="tel:0769093909">07 69 09 39 09</FooterExtLink></li>
               <li><FooterExtLink href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</FooterExtLink></li>
-              <li><ContactInfo>1 rue Fran&ccedil;oise Sagan<br />77230 Dammartin-en-Go&euml;le</ContactInfo></li>
+              <li><ContactInfo>Lun-ven 9h-18h<br />R&eacute;ponse sous 24 h</ContactInfo></li>
             </LinkList>
           </div>
 
@@ -169,7 +244,7 @@ export default function Footer() {
         </Grid>
 
         <BottomBar>
-          <p>&copy; 2026 MKZ - SIRET 983 662 784 00013. Tous droits r&eacute;serv&eacute;s.</p>
+          <p>&copy; 2026 MKZ · Tous droits r&eacute;serv&eacute;s</p>
           <LegalLinks>
             <FooterLink href="/mentions-legales">Mentions l&eacute;gales</FooterLink>
             <FooterLink href="/politique-confidentialite">Politique de confidentialit&eacute;</FooterLink>

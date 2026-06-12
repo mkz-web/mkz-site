@@ -14,3 +14,7 @@
 # Images du site (non fingerprintées) → 1 an, parité avec l'ancien .htaccess
 /images/*
   Cache-Control: public, max-age=31536000
+
+# Polices auto-hébergées → 1 an immuable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

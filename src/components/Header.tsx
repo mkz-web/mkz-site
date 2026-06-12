@@ -10,10 +10,10 @@ const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
 const navigation = [
   { name: "Accueil", href: "/" },
-  { name: "Cr\u00e9ation de site", href: "/creation-site-internet" },
+  { name: "Création de site", href: "/creation-site-internet" },
   { name: "SEO", href: "/referencement-seo" },
   { name: "Conseils", href: "/conseils" },
-  { name: "T\u00e9moignages", href: "/#temoignages" },
+  { name: "Témoignages", href: "/#temoignages" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -23,8 +23,8 @@ const HeaderWrapper = styled.header`
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
+  background: rgba(250, 247, 241, 0.92);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid ${theme.colors.border};
 `;
 
@@ -34,51 +34,72 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
+  gap: 24px;
+  padding: 14px 24px;
 `;
 
 const NavLinks = styled.ul`
   display: none;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   list-style: none;
 
-  @media (min-width: ${theme.breakpoints.md}) {
+  @media (min-width: ${theme.breakpoints.lg}) {
     display: flex;
   }
 `;
 
 const NavLink = styled(Link)`
   font-size: 14px;
-  color: ${theme.colors.textSecondary};
-  transition: color 0.2s;
+  color: ${theme.colors.text};
   font-weight: 500;
+  text-decoration: none;
+  background-image: linear-gradient(${theme.colors.cta}, ${theme.colors.cta});
+  background-size: 0% 1.5px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-bottom: 4px;
+  transition: background-size 0.22s ${theme.easing};
 
   &:hover {
-    color: ${theme.colors.accent};
+    background-size: 100% 1.5px;
   }
 `;
 
-const CTALink = styled.a`
+const RightSide = styled.div`
   display: none;
-  padding: 10px 20px;
+  align-items: center;
+  gap: 20px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    display: flex;
+  }
+`;
+
+const Phone = styled.a`
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  font-weight: 500;
+  color: ${theme.colors.text};
+
+  &:hover { color: ${theme.colors.cta}; }
+`;
+
+const CTALink = styled.a`
+  display: inline-flex;
+  padding: 10px 18px;
   background: ${theme.colors.cta};
   color: white;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
-  border-radius: ${theme.radius.md};
-  transition: all 0.25s;
+  border: 1px solid ${theme.colors.cta};
+  border-radius: ${theme.radius.sm};
+  transition: all 0.18s ${theme.easing};
   text-decoration: none;
-  box-shadow: ${theme.shadows.cta};
 
   &:hover {
     background: ${theme.colors.ctaHover};
-    box-shadow: ${theme.shadows.ctaHover};
-    transform: translateY(-1px);
-  }
-
-  @media (min-width: ${theme.breakpoints.md}) {
-    display: inline-flex;
+    border-color: ${theme.colors.ctaHover};
   }
 `;
 
@@ -91,7 +112,7 @@ const MenuButton = styled.button`
   cursor: pointer;
   padding: 4px;
 
-  @media (min-width: ${theme.breakpoints.md}) {
+  @media (min-width: ${theme.breakpoints.lg}) {
     display: none;
   }
 `;
@@ -101,7 +122,6 @@ const MenuBar = styled.span<{ open: boolean; position: "top" | "mid" | "bot" }>`
   width: 22px;
   height: 2px;
   background: ${theme.colors.text};
-  border-radius: 1px;
   transition: transform 0.2s, opacity 0.2s;
 
   ${({ open, position }) => {
@@ -114,10 +134,10 @@ const MenuBar = styled.span<{ open: boolean; position: "top" | "mid" | "bot" }>`
 
 const MobileMenu = styled.div`
   border-top: 1px solid ${theme.colors.border};
-  background: white;
-  padding: 16px 24px;
+  background: ${theme.colors.background};
+  padding: 16px 24px 24px;
 
-  @media (min-width: ${theme.breakpoints.md}) {
+  @media (min-width: ${theme.breakpoints.lg}) {
     display: none;
   }
 `;
@@ -129,16 +149,22 @@ const MobileLinks = styled.ul`
   gap: 16px;
 `;
 
+const MobilePhone = styled.a`
+  font-family: ${theme.fonts.mono};
+  font-size: 14px;
+  font-weight: 500;
+  color: ${theme.colors.text};
+`;
+
 const MobileCTA = styled.a`
   display: inline-flex;
-  padding: 10px 20px;
+  padding: 12px 20px;
   background: ${theme.colors.cta};
   color: white;
   font-size: 14px;
   font-weight: 600;
-  border-radius: ${theme.radius.md};
+  border-radius: ${theme.radius.sm};
   text-decoration: none;
-  box-shadow: ${theme.shadows.cta};
 `;
 
 export default function Header() {
@@ -151,8 +177,8 @@ export default function Header() {
           <Image
             src="/images/mkz-logo.svg"
             alt="MKZ"
-            width={80}
-            height={41}
+            width={72}
+            height={37}
             priority
           />
         </Link>
@@ -165,9 +191,12 @@ export default function Header() {
           ))}
         </NavLinks>
 
-        <CTALink href={CALENDLY} target="_blank" rel="noopener noreferrer">
-          Audit gratuit
-        </CTALink>
+        <RightSide>
+          <Phone href="tel:0769093909">07 69 09 39 09</Phone>
+          <CTALink href={CALENDLY} target="_blank" rel="noopener noreferrer">
+            Audit gratuit
+          </CTALink>
+        </RightSide>
 
         <MenuButton
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -189,6 +218,9 @@ export default function Header() {
                 </NavLink>
               </li>
             ))}
+            <li>
+              <MobilePhone href="tel:0769093909">07 69 09 39 09</MobilePhone>
+            </li>
             <li>
               <MobileCTA href={CALENDLY} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                 Audit gratuit

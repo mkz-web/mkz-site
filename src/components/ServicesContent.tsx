@@ -7,28 +7,108 @@ import Button from "@/components/Button";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
-const PageHeader = styled.section`padding: 96px 24px 64px; text-align: center; max-width: 1280px; margin: 0 auto;`;
-const Tag = styled.span`font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: ${theme.colors.accent};`;
-const Title = styled.h1`font-size: 40px; font-weight: 700; margin-top: 12px; @media (min-width: ${theme.breakpoints.md}) { font-size: 48px; }`;
-const Subtitle = styled.p`margin-top: 16px; max-width: 640px; margin-left: auto; margin-right: auto; color: ${theme.colors.textSecondary}; line-height: 1.7;`;
+const PageHeader = styled.section`
+  padding: 96px 24px 56px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+`;
 
-const Grid = styled.div`display: grid; gap: 32px; padding: 0 24px 96px; max-width: 1280px; margin: 0 auto; @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }`;
-const Card = styled.div`padding: 40px; border-radius: ${theme.radius.lg}; border: 1px solid ${theme.colors.border}; background: ${theme.colors.surface}; box-shadow: ${theme.shadows.sm};`;
-const CardIcon = styled.div`font-size: 36px; margin-bottom: 16px;`;
-const CardTitle = styled.h2`font-size: 24px; font-weight: 700; margin-bottom: 16px;`;
-const CardDesc = styled.p`font-size: 15px; line-height: 1.8; color: ${theme.colors.textSecondary}; margin-bottom: 24px;`;
-const TagsRow = styled.div`display: flex; flex-wrap: wrap; gap: 8px;`;
-const TagItem = styled.span`padding: 6px 14px; font-size: 13px; border-radius: ${theme.radius.full}; background: ${theme.colors.hoverSurface}; color: ${theme.colors.textSecondary}; border: 1px solid ${theme.colors.border};`;
+const Kicker = styled.p`
+  font-family: ${theme.fonts.mono};
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: ${theme.colors.textSecondary};
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-const CTASection = styled.section`padding: 96px 24px; text-align: center; background: ${theme.colors.surface}; border-top: 1px solid ${theme.colors.border};`;
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: ${theme.colors.cta};
+  }
+`;
+
+const Title = styled.h1`
+  margin-top: 20px;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: ${theme.colors.accent};
+`;
+
+const Subtitle = styled.p`
+  margin-top: 18px;
+  max-width: 56ch;
+  color: ${theme.colors.textSecondary};
+  font-size: 17px;
+  line-height: 1.7;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  gap: 24px;
+  padding: 24px 24px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+  @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }
+`;
+
+const Card = styled.div`
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.lg};
+  background: ${theme.colors.surface};
+  padding: 36px;
+`;
+
+const CardKicker = styled.p`
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: ${theme.colors.cta};
+`;
+
+const CardTitle = styled.h2`
+  margin-top: 12px;
+  font-size: 28px;
+  font-weight: 600;
+  color: ${theme.colors.accent};
+`;
+
+const CardDesc = styled.p`
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: ${theme.colors.textSecondary};
+`;
+
+const CardTags = styled.p`
+  margin-top: 18px;
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
+  line-height: 2;
+  color: ${theme.colors.textSecondary};
+`;
 
 const CardLink = styled(Link)`
   display: inline-flex;
-  margin-top: 24px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
   font-size: 15px;
   font-weight: 600;
-  color: ${theme.colors.accentLight};
-  &:hover { color: ${theme.colors.cta}; text-decoration: underline; text-underline-offset: 3px; }
+  color: ${theme.colors.text};
+  transition: color 0.18s ${theme.easing};
+
+  &::after { content: "→"; transition: transform 0.18s ${theme.easing}; }
+  &:hover { color: ${theme.colors.cta}; &::after { transform: translateX(5px); } }
 `;
 
 const MoreBand = styled.div`
@@ -39,71 +119,101 @@ const MoreBand = styled.div`
   gap: 24px;
   @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }
 `;
+
 const MoreCard = styled(Link)`
   display: block;
   padding: 28px 32px;
-  border-radius: ${theme.radius.lg};
   border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.lg};
   background: ${theme.colors.surfaceAlt};
-  transition: all 0.25s;
-  &:hover { box-shadow: ${theme.shadows.md}; transform: translateY(-2px); border-color: ${theme.colors.cta}40; }
+  transition: all 0.18s ${theme.easing};
+  &:hover { border-color: ${theme.colors.borderInk}; }
 `;
-const MoreTitle = styled.span`display: block; font-size: 17px; font-weight: 700; color: ${theme.colors.text};`;
-const MoreDesc = styled.span`display: block; margin-top: 8px; font-size: 14px; line-height: 1.7; color: ${theme.colors.textSecondary};`;
+
+const MoreTitle = styled.span`
+  display: block;
+  font-family: ${theme.fonts.display};
+  font-size: 19px;
+  font-weight: 600;
+  color: ${theme.colors.accent};
+`;
+
+const MoreDesc = styled.span`
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: ${theme.colors.textSecondary};
+`;
+
+const CTASection = styled.section`
+  padding: 96px 24px;
+  background: ${theme.colors.dark};
+  color: ${theme.colors.textOnDark};
+`;
+
+const CTAInner = styled.div`max-width: 1280px; margin: 0 auto;`;
+
+const CTATitle = styled.h2`
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+  color: ${theme.colors.textOnDark};
+`;
+
+const CTAText = styled.p`
+  margin-top: 14px;
+  max-width: 54ch;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: ${theme.colors.textOnDarkSecondary};
+`;
 
 export default function ServicesContent() {
   return (
     <>
       <PageHeader>
-        <Tag>Nos solutions</Tag>
-        <Title>Des services pens&eacute;s pour vous</Title>
+        <Kicker>Nos services</Kicker>
+        <Title>Deux expertises, un objectif : du business.</Title>
         <Subtitle>
-          Deux expertises compl&eacute;mentaires pour une pr&eacute;sence digitale qui g&eacute;n&egrave;re du business.
+          Cr&eacute;ation de site et r&eacute;f&eacute;rencement Google se renforcent l&rsquo;un l&rsquo;autre.
+          Vous pouvez commencer par l&rsquo;un, l&rsquo;autre, ou les deux.
         </Subtitle>
       </PageHeader>
 
       <Grid>
         <Card>
-          <CardIcon>&#128187;</CardIcon>
-          <CardTitle>Cr&eacute;ation de Site Web</CardTitle>
+          <CardKicker>Service 01</CardKicker>
+          <CardTitle>Cr&eacute;ation de site web</CardTitle>
           <CardDesc>
             Un site qui vous ressemble et qui convertit. Design sur-mesure, UX optimis&eacute;e,
             et performances au top pour transformer vos visiteurs en clients.
           </CardDesc>
-          <TagsRow>
-            {["Image de marque", "Direction artistique", "Responsive design", "Branding complet", "Optimisation vitesse"].map((t) => (
-              <TagItem key={t}>{t}</TagItem>
-            ))}
-          </TagsRow>
-          <CardLink href="/creation-site-internet/">D&eacute;couvrir la cr&eacute;ation de site internet &rarr;</CardLink>
+          <CardTags>image de marque · direction artistique · responsive · branding · optimisation vitesse</CardTags>
+          <CardLink href="/creation-site-internet/">D&eacute;couvrir la cr&eacute;ation de site internet</CardLink>
         </Card>
 
         <Card>
-          <CardIcon>&#128269;</CardIcon>
-          <CardTitle>SEO &amp; R&eacute;f&eacute;rencement</CardTitle>
+          <CardKicker>Service 02</CardKicker>
+          <CardTitle>SEO &amp; r&eacute;f&eacute;rencement</CardTitle>
           <CardDesc>
             Montez sur le podium Google. Strat&eacute;gie de mots-cl&eacute;s, optimisation technique,
             contenu optimis&eacute; et netlinking pour un trafic qualifi&eacute; et durable.
           </CardDesc>
-          <TagsRow>
-            {["Audit SEO complet", "Strat\u00e9gie de contenu", "SEO technique", "Cocon s\u00e9mantique", "Suivi mensuel"].map((t) => (
-              <TagItem key={t}>{t}</TagItem>
-            ))}
-          </TagsRow>
-          <CardLink href="/referencement-seo/">D&eacute;couvrir le r&eacute;f&eacute;rencement SEO &rarr;</CardLink>
+          <CardTags>audit SEO complet · strat&eacute;gie de contenu · SEO technique · cocon s&eacute;mantique · suivi mensuel</CardTags>
+          <CardLink href="/referencement-seo/">D&eacute;couvrir le r&eacute;f&eacute;rencement SEO</CardLink>
         </Card>
       </Grid>
 
       <MoreBand>
         <MoreCard href="/agence-web-77/">
-          <MoreTitle>&#128205; Votre agence web en Seine-et-Marne (77)</MoreTitle>
+          <MoreTitle>Votre agence web en Seine-et-Marne (77)</MoreTitle>
           <MoreDesc>
             Bas&eacute;s &agrave; Dammartin-en-Go&euml;le, nous accompagnons artisans, commer&ccedil;ants
             et TPE &agrave; Meaux, Melun, Chelles et dans tout le 77.
           </MoreDesc>
         </MoreCard>
         <MoreCard href="/conseils/">
-          <MoreTitle>&#128218; Conseils &amp; tutoriels gratuits</MoreTitle>
+          <MoreTitle>Conseils &amp; tutoriels gratuits</MoreTitle>
           <MoreDesc>
             Guides SEO, tutoriels pas &agrave; pas (Search Console, fiche Google, WordPress)&hellip;
             Les m&eacute;thodes que nous appliquons pour nos clients, en acc&egrave;s libre.
@@ -112,11 +222,16 @@ export default function ServicesContent() {
       </MoreBand>
 
       <CTASection>
-        <Title as="h2" style={{ fontSize: 32 }}>Un projet en t&ecirc;te ?</Title>
-        <Subtitle>R&eacute;servez votre audit gratuit de 30 minutes. C&rsquo;est gratuit et sans engagement.</Subtitle>
-        <div style={{ marginTop: 32 }}>
-          <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
-        </div>
+        <CTAInner>
+          <CTATitle>Un projet en t&ecirc;te ?</CTATitle>
+          <CTAText>
+            R&eacute;servez votre audit gratuit de 30 minutes. C&rsquo;est gratuit, sans engagement,
+            et vous repartez avec un plan d&rsquo;action concret.
+          </CTAText>
+          <div style={{ marginTop: 32 }}>
+            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+          </div>
+        </CTAInner>
       </CTASection>
     </>
   );
