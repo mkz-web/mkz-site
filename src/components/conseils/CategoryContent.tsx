@@ -16,36 +16,37 @@ export interface CategoryPageData {
 }
 
 const Hero = styled.header`
-  padding: 64px 24px 48px;
-  background: ${theme.colors.surfaceAlt};
+  padding: 88px 24px 56px;
   border-bottom: 1px solid ${theme.colors.border};
+  background: ${theme.colors.surfaceAlt};
 `;
-const HeroInner = styled.div`max-width: 860px; margin: 0 auto;`;
+
+const HeroInner = styled.div`max-width: 880px; margin: 0 auto;`;
 
 const Crumbs = styled.nav`
-  font-size: 13px;
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
   color: ${theme.colors.textSecondary};
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 20px;
-`;
-const CrumbLink = styled(Link)`
-  color: ${theme.colors.textSecondary};
-  &:hover { color: ${theme.colors.accent}; text-decoration: underline; }
+  gap: 8px;
+  margin-bottom: 24px;
 `;
 
-const HeroIcon = styled.div`font-size: 36px;`;
-const HeroTitle = styled.h1`
-  margin-top: 12px;
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: ${theme.colors.text};
-  @media (min-width: ${theme.breakpoints.md}) { font-size: 40px; }
+const CrumbLink = styled(Link)`
+  color: ${theme.colors.textSecondary};
+  &:hover { color: ${theme.colors.accent}; text-decoration: underline; text-underline-offset: 3px; }
 `;
+
+const HeroTitle = styled.h1`
+  font-size: clamp(32px, 4.5vw, 50px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: ${theme.colors.accent};
+`;
+
 const HeroIntro = styled.div`
-  margin-top: 16px;
+  margin-top: 18px;
   font-size: 16px;
   line-height: 1.8;
   color: ${theme.colors.textSecondary};
@@ -56,19 +57,25 @@ const Section = styled.section`padding: 56px 24px 80px;`;
 const Container = styled.div`max-width: 1280px; margin: 0 auto;`;
 
 const PillarBand = styled.div`
-  max-width: 860px;
-  margin: 48px auto 0;
+  max-width: 880px;
+  margin: 56px auto 0;
   padding: 28px 32px;
+  border: 1px solid ${theme.colors.borderInk};
   border-radius: ${theme.radius.lg};
   background: ${theme.colors.dark};
-  color: white;
+  color: ${theme.colors.textOnDark};
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
 `;
-const PillarText = styled.p`font-size: 15.5px; font-weight: 600;`;
+
+const PillarText = styled.p`
+  font-family: ${theme.fonts.display};
+  font-size: 19px;
+  font-weight: 600;
+`;
 
 export default function CategoryContent({
   category,
@@ -83,12 +90,11 @@ export default function CategoryContent({
         <HeroInner>
           <Crumbs aria-label="Fil d'Ariane">
             <CrumbLink href="/">Accueil</CrumbLink>
-            <span>›</span>
+            <span>/</span>
             <CrumbLink href="/conseils/">Conseils</CrumbLink>
-            <span>›</span>
+            <span>/</span>
             <span>{category.name}</span>
           </Crumbs>
-          <HeroIcon aria-hidden>{category.icon}</HeroIcon>
           <HeroTitle>{category.title}</HeroTitle>
           <HeroIntro>
             {category.intro.map((p, i) => (

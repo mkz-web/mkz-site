@@ -115,7 +115,7 @@ for (const file of htmlFiles(outDir)) {
   for (const m of html.matchAll(/href="(\/[^"#?]*)["#?]/g)) {
     const href = m[1];
     if (href.startsWith("/_next/") || href.startsWith("/images/")) continue;
-    if (/\.(xml|txt|ico|svg|png|jpg|webp|css|js)$/.test(href)) {
+    if (/\.(xml|txt|ico|svg|png|jpg|webp|css|js|woff2?)$/.test(href)) {
       if (!existsSync(join(outDir, href))) errors.push(`${rel} : lien fichier cassé ${href}`);
       continue;
     }

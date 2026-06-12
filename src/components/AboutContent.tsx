@@ -7,18 +7,54 @@ import Button from "@/components/Button";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
-const PageHeader = styled.section`padding: 96px 24px 64px; text-align: center; max-width: 1280px; margin: 0 auto;`;
-const Tag = styled.span`font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: ${theme.colors.accent};`;
-const Title = styled.h1`font-size: 40px; font-weight: 700; margin-top: 12px; @media (min-width: ${theme.breakpoints.md}) { font-size: 48px; }`;
-const Subtitle = styled.p`margin-top: 16px; max-width: 640px; margin-left: auto; margin-right: auto; color: ${theme.colors.textSecondary}; line-height: 1.7;`;
-const Container = styled.div`max-width: 800px; margin: 0 auto; padding: 0 24px;`;
+const PageHeader = styled.section`
+  padding: 96px 24px 48px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+`;
+
+const Kicker = styled.p`
+  font-family: ${theme.fonts.mono};
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: ${theme.colors.textSecondary};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: ${theme.colors.cta};
+  }
+`;
+
+const Title = styled.h1`
+  margin-top: 20px;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 600;
+  line-height: 1.06;
+  color: ${theme.colors.accent};
+`;
+
+const Subtitle = styled.p`
+  margin-top: 14px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  color: ${theme.colors.textSecondary};
+`;
+
+const Container = styled.div`max-width: 880px; margin: 0 auto; padding: 0 24px;`;
 
 const ProfileSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  margin-bottom: 64px;
+  gap: 36px;
+  margin: 24px 0 64px;
 
   @media (min-width: ${theme.breakpoints.md}) {
     flex-direction: row;
@@ -27,65 +63,135 @@ const ProfileSection = styled.div`
 `;
 
 const PhotoWrapper = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: ${theme.radius.xl};
-  overflow: hidden;
+  width: 220px;
   flex-shrink: 0;
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.lg};
+  overflow: hidden;
   box-shadow: ${theme.shadows.lg};
-  border: 3px solid ${theme.colors.surface};
+`;
+
+const PhotoCaption = styled.p`
+  font-family: ${theme.fonts.mono};
+  font-size: 11px;
+  line-height: 1.6;
+  color: ${theme.colors.textSecondary};
+  margin-top: 10px;
 `;
 
 const BioContent = styled.div`flex: 1;`;
-const BioName = styled.h2`font-size: 24px; font-weight: 700; margin-bottom: 4px;`;
-const BioRole = styled.p`font-size: 14px; color: ${theme.colors.accent}; font-weight: 600; margin-bottom: 16px;`;
-const BioText = styled.p`font-size: 15px; line-height: 1.8; color: ${theme.colors.textSecondary}; margin-bottom: 16px;`;
-const TagsRow = styled.div`display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;`;
-const TagItem = styled.span`padding: 6px 14px; font-size: 13px; border-radius: ${theme.radius.full}; background: ${theme.colors.hoverSurface}; color: ${theme.colors.textSecondary}; border: 1px solid ${theme.colors.border};`;
+
+const BioText = styled.p`
+  font-size: 16px;
+  line-height: 1.8;
+  color: ${theme.colors.text};
+  margin-bottom: 18px;
+
+  strong { color: ${theme.colors.accent}; }
+`;
+
+const BioTags = styled.p`
+  font-family: ${theme.fonts.mono};
+  font-size: 12.5px;
+  line-height: 2;
+  color: ${theme.colors.textSecondary};
+  border-top: 1px solid ${theme.colors.border};
+  padding-top: 16px;
+`;
 
 const ArgsGrid = styled.div`
-  display: grid; gap: 24px; margin-top: 64px; margin-bottom: 96px;
+  display: grid;
+  gap: 1px;
+  background: ${theme.colors.border};
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.lg};
+  overflow: hidden;
+  margin: 0 0 96px;
+
   @media (min-width: ${theme.breakpoints.sm}) { grid-template-columns: repeat(2, 1fr); }
 `;
 
-const ArgCard = styled.div`padding: 24px; border-radius: ${theme.radius.lg}; border: 1px solid ${theme.colors.border}; background: ${theme.colors.surface}; box-shadow: ${theme.shadows.sm};`;
-const ArgIcon = styled.div`font-size: 24px; margin-bottom: 8px;`;
-const ArgTitle = styled.h3`font-size: 15px; font-weight: 600; margin-bottom: 4px;`;
-const ArgDesc = styled.p`font-size: 13px; color: ${theme.colors.textSecondary};`;
+const ArgCell = styled.div`
+  background: ${theme.colors.surface};
+  padding: 26px;
+`;
 
-const CTASection = styled.section`padding: 96px 24px; text-align: center; background: ${theme.colors.surface}; border-top: 1px solid ${theme.colors.border};`;
+const ArgNum = styled.span`
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
+  font-weight: 500;
+  color: ${theme.colors.cta};
+`;
+
+const ArgTitle = styled.h3`
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: ${theme.colors.text};
+`;
+
+const ArgDesc = styled.p`
+  margin-top: 6px;
+  font-size: 14px;
+  color: ${theme.colors.textSecondary};
+`;
+
+const CTASection = styled.section`
+  padding: 96px 24px;
+  background: ${theme.colors.dark};
+  color: ${theme.colors.textOnDark};
+`;
+
+const CTAInner = styled.div`max-width: 880px; margin: 0 auto;`;
+
+const CTATitle = styled.h2`
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 600;
+  color: ${theme.colors.textOnDark};
+
+  em { font-style: italic; color: ${theme.colors.cta}; }
+`;
+
+const CTAText = styled.p`
+  margin-top: 14px;
+  max-width: 50ch;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: ${theme.colors.textOnDarkSecondary};
+`;
 
 const args = [
-  { icon: "\uD83D\uDCCD", title: "Bas\u00e9 en \u00cele-de-France", desc: "Dammartin-en-Go\u00eble (77)" },
-  { icon: "\u26A1", title: "Disponible & r\u00e9actif", desc: "R\u00e9ponse sous 24h garantie" },
-  { icon: "\uD83D\uDD11", title: "Solutions cl\u00e9 en main", desc: "De A \u00e0 Z, je g\u00e8re tout" },
-  { icon: "\uD83D\uDCCA", title: "Reporting transparent", desc: "Vous voyez vos r\u00e9sultats" },
+  { num: "01", title: "Basé en Île-de-France", desc: "Dammartin-en-Goële, Seine-et-Marne (77)" },
+  { num: "02", title: "Disponible & réactif", desc: "Réponse sous 24 h garantie, on décroche" },
+  { num: "03", title: "Clé en main", desc: "De A à Z : je gère tout, vous gardez tout" },
+  { num: "04", title: "Reporting transparent", desc: "Chaque mois, vous voyez vos résultats" },
 ];
 
 export default function AboutContent() {
   return (
     <>
       <PageHeader>
-        <Tag>&Agrave; propos</Tag>
+        <Kicker>&Agrave; propos</Kicker>
         <Title>Micka&euml;l Leclerc</Title>
-        <Subtitle>Pr&eacute;sident de MKZ &middot; Ing&eacute;nieur IT, +20 ans d&rsquo;exp&eacute;rience</Subtitle>
+        <Subtitle>Pr&eacute;sident de MKZ · ing&eacute;nieur IT, +20 ans d&rsquo;exp&eacute;rience</Subtitle>
       </PageHeader>
 
       <Container>
         <ProfileSection>
-          <PhotoWrapper>
-            <Image
-              src="/images/mickael-leclerc.jpg"
-              alt="Micka&euml;l Leclerc - Fondateur de MKZ"
-              width={200}
-              height={200}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-              priority
-            />
-          </PhotoWrapper>
+          <div>
+            <PhotoWrapper>
+              <Image
+                src="/images/mickael-leclerc.jpg"
+                alt="Micka&euml;l Leclerc, fondateur de MKZ"
+                width={220}
+                height={220}
+                style={{ objectFit: "cover", width: "100%", height: "auto" }}
+                priority
+              />
+            </PhotoWrapper>
+            <PhotoCaption>Micka&euml;l Leclerc, fondateur<br />Dammartin-en-Go&euml;le (77)</PhotoCaption>
+          </div>
           <BioContent>
-            <BioName>Micka&euml;l Leclerc</BioName>
-            <BioRole>Ing&eacute;nieur IT | Expert SEO | Automatisation | DevOps</BioRole>
             <BioText>
               Apr&egrave;s plus de 20 ans dans les grandes entreprises (infrastructure,
               automatisation, syst&egrave;mes complexes), j&rsquo;ai voulu mettre cette expertise
@@ -102,31 +208,29 @@ export default function AboutContent() {
               Que vous soyez artisan, commer&ccedil;ant, coach ou profession lib&eacute;rale,
               je comprends vos enjeux et je m&rsquo;adapte &agrave; votre r&eacute;alit&eacute;.
             </BioText>
-            <TagsRow>
-              {["Ing\u00e9nieur IT", "Expert SEO", "Automatisation", "DevOps"].map((t) => (
-                <TagItem key={t}>{t}</TagItem>
-              ))}
-            </TagsRow>
+            <BioTags>ing&eacute;nieur IT · expert SEO · automatisation · DevOps</BioTags>
           </BioContent>
         </ProfileSection>
 
         <ArgsGrid>
           {args.map((a) => (
-            <ArgCard key={a.title}>
-              <ArgIcon>{a.icon}</ArgIcon>
+            <ArgCell key={a.num}>
+              <ArgNum>{a.num}</ArgNum>
               <ArgTitle>{a.title}</ArgTitle>
               <ArgDesc>{a.desc}</ArgDesc>
-            </ArgCard>
+            </ArgCell>
           ))}
         </ArgsGrid>
       </Container>
 
       <CTASection>
-        <Title as="h2" style={{ fontSize: 32 }}>Envie d&rsquo;en discuter ?</Title>
-        <Subtitle>R&eacute;servez un cr&eacute;neau de 30 min. C&rsquo;est gratuit et sans engagement.</Subtitle>
-        <div style={{ marginTop: 32 }}>
-          <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
-        </div>
+        <CTAInner>
+          <CTATitle>Envie d&rsquo;en <em>discuter</em> ?</CTATitle>
+          <CTAText>R&eacute;servez un cr&eacute;neau de 30 minutes. C&rsquo;est gratuit et sans engagement.</CTAText>
+          <div style={{ marginTop: 32 }}>
+            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+          </div>
+        </CTAInner>
       </CTASection>
     </>
   );
