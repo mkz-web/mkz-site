@@ -185,11 +185,10 @@ export default function Footer() {
           <div>
             <Link href="/">
               <Image
-                src="/images/mkz-logo.svg"
+                src="/images/mkz-logo-footer.svg"
                 alt="MKZ"
                 width={88}
                 height={45}
-                style={{ filter: "brightness(0) invert(1)" }}
               />
             </Link>
             <BrandDescription>
