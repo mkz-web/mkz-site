@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
@@ -20,6 +21,35 @@ const TagsRow = styled.div`display: flex; flex-wrap: wrap; gap: 8px;`;
 const TagItem = styled.span`padding: 6px 14px; font-size: 13px; border-radius: ${theme.radius.full}; background: ${theme.colors.hoverSurface}; color: ${theme.colors.textSecondary}; border: 1px solid ${theme.colors.border};`;
 
 const CTASection = styled.section`padding: 96px 24px; text-align: center; background: ${theme.colors.surface}; border-top: 1px solid ${theme.colors.border};`;
+
+const CardLink = styled(Link)`
+  display: inline-flex;
+  margin-top: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: ${theme.colors.accentLight};
+  &:hover { color: ${theme.colors.cta}; text-decoration: underline; text-underline-offset: 3px; }
+`;
+
+const MoreBand = styled.div`
+  max-width: 1280px;
+  margin: 0 auto 96px;
+  padding: 0 24px;
+  display: grid;
+  gap: 24px;
+  @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }
+`;
+const MoreCard = styled(Link)`
+  display: block;
+  padding: 28px 32px;
+  border-radius: ${theme.radius.lg};
+  border: 1px solid ${theme.colors.border};
+  background: ${theme.colors.surfaceAlt};
+  transition: all 0.25s;
+  &:hover { box-shadow: ${theme.shadows.md}; transform: translateY(-2px); border-color: ${theme.colors.cta}40; }
+`;
+const MoreTitle = styled.span`display: block; font-size: 17px; font-weight: 700; color: ${theme.colors.text};`;
+const MoreDesc = styled.span`display: block; margin-top: 8px; font-size: 14px; line-height: 1.7; color: ${theme.colors.textSecondary};`;
 
 export default function ServicesContent() {
   return (
@@ -45,6 +75,7 @@ export default function ServicesContent() {
               <TagItem key={t}>{t}</TagItem>
             ))}
           </TagsRow>
+          <CardLink href="/creation-site-internet/">D&eacute;couvrir la cr&eacute;ation de site internet &rarr;</CardLink>
         </Card>
 
         <Card>
@@ -59,8 +90,26 @@ export default function ServicesContent() {
               <TagItem key={t}>{t}</TagItem>
             ))}
           </TagsRow>
+          <CardLink href="/referencement-seo/">D&eacute;couvrir le r&eacute;f&eacute;rencement SEO &rarr;</CardLink>
         </Card>
       </Grid>
+
+      <MoreBand>
+        <MoreCard href="/agence-web-77/">
+          <MoreTitle>&#128205; Votre agence web en Seine-et-Marne (77)</MoreTitle>
+          <MoreDesc>
+            Bas&eacute;s &agrave; Dammartin-en-Go&euml;le, nous accompagnons artisans, commer&ccedil;ants
+            et TPE &agrave; Meaux, Melun, Chelles et dans tout le 77.
+          </MoreDesc>
+        </MoreCard>
+        <MoreCard href="/conseils/">
+          <MoreTitle>&#128218; Conseils &amp; tutoriels gratuits</MoreTitle>
+          <MoreDesc>
+            Guides SEO, tutoriels pas &agrave; pas (Search Console, fiche Google, WordPress)&hellip;
+            Les m&eacute;thodes que nous appliquons pour nos clients, en acc&egrave;s libre.
+          </MoreDesc>
+        </MoreCard>
+      </MoreBand>
 
       <CTASection>
         <Title as="h2" style={{ fontSize: 32 }}>Un projet en t&ecirc;te ?</Title>

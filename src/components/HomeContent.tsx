@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Hero from "@/components/Hero";
@@ -48,6 +49,7 @@ const MetricCard = styled.div`padding: 24px; border-radius: ${theme.radius.lg}; 
 const MetricValue = styled.div`font-size: 28px; font-weight: 800; color: ${theme.colors.accent}; @media (min-width: ${theme.breakpoints.md}) { font-size: 32px; }`;
 const MetricLabel = styled.div`font-size: 13px; color: ${theme.colors.textSecondary}; margin-top: 4px;`;
 const MetricIndicator = styled.div`font-size: 11px; color: ${theme.colors.success}; margin-top: 4px; font-weight: 500;`;
+const MetricsNote = styled.p`margin-top: 16px; text-align: center; font-size: 12.5px; color: ${theme.colors.textSecondary};`;
 
 /* ─── Problem Cards (on accent bg) ─── */
 const ProblemGrid = styled.div`display: grid; gap: 24px; @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(3, 1fr); }`;
@@ -72,6 +74,14 @@ const ServiceCard = styled.div`
 const ServiceIcon = styled.div`width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: ${theme.radius.md}; background: ${theme.colors.accent}0D; color: ${theme.colors.accent}; margin-bottom: 20px; font-size: 28px;`;
 const ServiceTitle = styled.h3`font-size: 20px; font-weight: 700; margin-bottom: 12px;`;
 const ServiceDesc = styled.p`font-size: 14px; line-height: 1.7; color: ${theme.colors.textSecondary}; margin-bottom: 16px;`;
+const ServiceLink = styled(Link)`
+  display: inline-flex;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: ${theme.colors.accentLight};
+  &:hover { color: ${theme.colors.cta}; text-decoration: underline; text-underline-offset: 3px; }
+`;
 const TagsRow = styled.div`display: flex; flex-wrap: wrap; gap: 8px;`;
 const Tag = styled.span`padding: 4px 12px; font-size: 12px; border-radius: ${theme.radius.full}; background: ${theme.colors.hoverSurface}; color: ${theme.colors.textSecondary}; border: 1px solid ${theme.colors.border};`;
 
@@ -101,6 +111,24 @@ const TestRole = styled.div`font-size: 12px; color: ${theme.colors.textSecondary
 /* ─── Differentiators ─── */
 const DiffGrid = styled.div`display: grid; gap: 24px; @media (min-width: ${theme.breakpoints.sm}) { grid-template-columns: repeat(2, 1fr); }`;
 const DiffCard = styled.div`padding: 28px; border-radius: ${theme.radius.lg}; border: 1px solid ${theme.colors.border}; background: ${theme.colors.surface}; box-shadow: ${theme.shadows.sm};`;
+const ConseilGrid = styled.div`display: grid; gap: 24px; @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(3, 1fr); }`;
+const ConseilCard = styled(Link)`
+  display: block;
+  padding: 28px;
+  border-radius: ${theme.radius.lg};
+  border: 1px solid ${theme.colors.border};
+  background: ${theme.colors.surface};
+  box-shadow: ${theme.shadows.sm};
+  transition: all 0.25s;
+  &:hover { box-shadow: ${theme.shadows.lg}; transform: translateY(-3px); border-color: ${theme.colors.cta}40; }
+`;
+const ConseilMore = styled.span`
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: ${theme.colors.accentLight};
+`;
 const DiffIcon = styled.div`font-size: 28px; margin-bottom: 12px;`;
 const DiffTitle = styled.h3`font-size: 16px; font-weight: 600; margin-bottom: 8px;`;
 const DiffDesc = styled.p`font-size: 14px; line-height: 1.7; color: ${theme.colors.textSecondary};`;
@@ -133,8 +161,14 @@ const problems = [
 ];
 
 const services = [
-  { icon: "💻", title: "Création de Site Web", desc: "Un site qui vous ressemble et qui convertit. Design sur-mesure, UX optimisée, et performances au top pour transformer vos visiteurs en clients.", tags: ["Image de marque", "Direction artistique", "Responsive design", "Branding complet", "Optimisation vitesse"] },
-  { icon: "🔍", title: "SEO & Référencement", desc: "Montez sur le podium Google. Stratégie de mots-clés, optimisation technique, contenu optimisé et netlinking pour un trafic qualifié et durable.", tags: ["Audit SEO complet", "Stratégie de contenu", "SEO technique", "Cocon sémantique", "Suivi mensuel"] },
+  { icon: "💻", title: "Création de Site Web", desc: "Un site qui vous ressemble et qui convertit. Design sur-mesure, UX optimisée, et performances au top pour transformer vos visiteurs en clients.", tags: ["Image de marque", "Direction artistique", "Responsive design", "Branding complet", "Optimisation vitesse"], href: "/creation-site-internet/", linkLabel: "Découvrir la création de site →" },
+  { icon: "🔍", title: "SEO & Référencement", desc: "Montez sur le podium Google. Stratégie de mots-clés, optimisation technique, contenu optimisé et netlinking pour un trafic qualifié et durable.", tags: ["Audit SEO complet", "Stratégie de contenu", "SEO technique", "Cocon sémantique", "Suivi mensuel"], href: "/referencement-seo/", linkLabel: "Découvrir le référencement SEO →" },
+];
+
+const conseils = [
+  { icon: "🧰", title: "Tutoriels pas à pas", desc: "Search Console, fiche Google, WordPress : reprenez la main sur vos outils, captures d'écran à l'appui.", href: "/conseils/tutoriels/" },
+  { icon: "💻", title: "Création de site", desc: "Combien coûte un site, quand le refondre, quel type choisir : les bonnes décisions avant d'investir.", href: "/conseils/creation-site-internet/" },
+  { icon: "🔍", title: "SEO & visibilité", desc: "Référencement local, audit SEO, visibilité Google : des guides concrets, sans jargon.", href: "/conseils/seo/" },
 ];
 
 const methodSteps = [
@@ -179,6 +213,9 @@ export default function HomeContent() {
               </MetricCard>
             ))}
           </MetricsGrid>
+          <MetricsNote>
+            Moyennes constat&eacute;es sur les clients MKZ accompagn&eacute;s en 2025 &mdash; plus de 50 entreprises, 97&nbsp;% de clients satisfaits.
+          </MetricsNote>
         </Container>
       </Section>
 
@@ -217,6 +254,7 @@ export default function HomeContent() {
                 <ServiceTitle>{s.title}</ServiceTitle>
                 <ServiceDesc>{s.desc}</ServiceDesc>
                 <TagsRow>{s.tags.map((t) => <Tag key={t}>{t}</Tag>)}</TagsRow>
+                <ServiceLink href={s.href}>{s.linkLabel}</ServiceLink>
               </ServiceCard>
             ))}
           </ServiceGrid>
@@ -298,6 +336,33 @@ export default function HomeContent() {
               <ZoneHighlight>Toute la France</ZoneHighlight>
             </ZonesList>
           </ZonesWrapper>
+        </Container>
+      </Section>
+
+      {/* Conseils & tutoriels */}
+      <Section variant="alt">
+        <Container>
+          <SectionHeader>
+            <SectionTag>On partage nos m&eacute;thodes</SectionTag>
+            <SectionTitle>Conseils &amp; tutoriels gratuits</SectionTitle>
+            <SectionSubtitle>
+              Guides SEO, tutoriels pas &agrave; pas et conseils cr&eacute;ation de site :
+              les m&eacute;thodes que nous appliquons pour nos clients, en acc&egrave;s libre.
+            </SectionSubtitle>
+          </SectionHeader>
+          <ConseilGrid>
+            {conseils.map((c) => (
+              <ConseilCard key={c.title} href={c.href}>
+                <DiffIcon>{c.icon}</DiffIcon>
+                <DiffTitle>{c.title}</DiffTitle>
+                <DiffDesc>{c.desc}</DiffDesc>
+                <ConseilMore>Voir les guides &rarr;</ConseilMore>
+              </ConseilCard>
+            ))}
+          </ConseilGrid>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Button href="/conseils/" variant="secondary">Tous nos conseils &amp; tutoriels</Button>
+          </div>
         </Container>
       </Section>
 
