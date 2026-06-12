@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/referencement-local.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -16,7 +16,7 @@ const article: Article = {
   "tldr": [
     "Le référencement local consiste à apparaître sur Google (pack local, Maps, résultats classiques) quand un client de votre ville cherche votre métier. La base est gratuite.",
     "97 % des internautes utilisent la recherche locale et 78 % des recherches locales sur mobile aboutissent à un achat dans les heures qui suivent (France Num, 2025).",
-    "Le pack local — l'encadré carte avec 3 établissements — capte 44 % des clics d'une page de résultats locale (Renolon, 2024).",
+    "Le pack local (l'encadré carte avec 3 établissements) capte 44 % des clics d'une page de résultats locale (Renolon, 2024).",
     "La méthode en 5 étapes : fiche Google (1 h), avis clients (15 min par semaine), site « métier + ville », annuaires cohérents, visibilité dans les IA.",
     "Budget : 0 € si vous faites tout vous-même, 150 à 600 € par mois via un prestataire. Plan d'action 90 jours détaillé dans l'article."
   ],
@@ -46,7 +46,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le SEO « classique » positionne un site sur des requêtes nationales, face à des milliers de concurrents. Le **SEO local** vise les requêtes « métier + ville » : la concurrence se limite à votre zone, et votre fiche Google pèse autant que votre site. Pour un artisan, le combat est bien plus gagnable — et bien plus rapide."
+      "text": "Le SEO « classique » positionne un site sur des requêtes nationales, face à des milliers de concurrents. Le **SEO local** vise les requêtes « métier + ville » : la concurrence se limite à votre zone, et votre fiche Google pèse autant que votre site. Pour un artisan, le combat est bien plus gagnable, et bien plus rapide."
     },
     {
       "type": "table",
@@ -123,7 +123,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Oui — c'est même l'investissement marketing le plus rentable pour une TPE. La base est gratuite : la fiche Google ne coûte que du temps. Les visiteurs sont ultra-qualifiés : qui tape « serrurier » + votre ville a un besoin immédiat. Et le pack local génère en moyenne **500 % de conversions de plus** que les liens classiques (Renolon, cité par Eskimoz, 2024). Contrairement à la publicité, qui s'arrête dès que vous cessez de payer, chaque avis gagné et chaque photo ajoutée capitalisent durablement."
+      "text": "Oui : c'est même l'investissement marketing le plus rentable pour une TPE. La base est gratuite : la fiche Google ne coûte que du temps. Les visiteurs sont ultra-qualifiés : qui tape « serrurier » + votre ville a un besoin immédiat. Et le pack local génère en moyenne **500 % de conversions de plus** que les liens classiques (Renolon, cité par Eskimoz, 2024). Contrairement à la publicité, qui s'arrête dès que vous cessez de payer, chaque avis gagné et chaque photo ajoutée capitalisent durablement."
     },
     {
       "type": "callout",
@@ -178,7 +178,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-1-optimiser-votre-fiche-google-business-profile",
-      "text": "Étape 1 — Optimiser votre fiche Google Business Profile (1 h chrono)"
+      "text": "Étape 1 : Optimiser votre fiche Google Business Profile (1 h chrono)"
     },
     {
       "type": "p",
@@ -200,7 +200,7 @@ const article: Article = {
       "type": "ul",
       "items": [
         "**La catégorie principale** : choisissez la plus précise (« Plombier » plutôt qu'« Entreprise de bâtiment »). C'est le critère n°1 pour sortir sur les bonnes recherches.",
-        "**Les horaires exacts**, jours fériés compris : une fiche fausse fait fuir — et Google s'en aperçoit.",
+        "**Les horaires exacts**, jours fériés compris : une fiche fausse fait fuir, et Google s'en aperçoit.",
         "**Des photos récentes et authentiques** : devanture, réalisations, équipe. Pas d'images de banque d'images."
       ]
     },
@@ -215,7 +215,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-2-avis-clients",
-      "text": "Étape 2 — Les avis clients, votre meilleur commercial"
+      "text": "Étape 2 : Les avis clients, votre meilleur commercial"
     },
     {
       "type": "p",
@@ -227,7 +227,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le bon moment : juste après une prestation réussie, quand le client vous remercie. Facilitez le geste — envoyez par SMS le lien d'avis direct de votre fiche, ou imprimez-le en QR code sur vos factures et votre comptoir."
+      "text": "Le bon moment : juste après une prestation réussie, quand le client vous remercie. Facilitez le geste : envoyez par SMS le lien d'avis direct de votre fiche, ou imprimez-le en QR code sur vos factures et votre comptoir."
     },
     {
       "type": "callout",
@@ -258,7 +258,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-3-site-internet-local",
-      "text": "Étape 3 — Mettre votre site internet au service du local"
+      "text": "Étape 3 : Mettre votre site internet au service du local"
     },
     {
       "type": "p",
@@ -270,7 +270,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Vos clients tapent « métier + ville ». Votre site doit le dire noir sur blanc : titre de la page d'accueil (« Plombier chauffagiste à Meaux »), pages services, textes — naturellement, sans bourrage. Notre [guide du SEO pour artisans](/conseils/seo/seo-artisan/) détaille la méthode page par page."
+      "text": "Vos clients tapent « métier + ville ». Votre site doit le dire noir sur blanc : titre de la page d'accueil (« Plombier chauffagiste à Meaux »), pages services, textes, le tout naturellement, sans bourrage. Notre [guide du SEO pour artisans](/conseils/seo/seo-artisan/) détaille la méthode page par page."
     },
     {
       "type": "h3",
@@ -290,12 +290,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les **données structurées** sont des étiquettes invisibles dans le code de votre site, qui disent aux moteurs : « ceci est une entreprise locale, voici son adresse et ses horaires ». Le format s'appelle LocalBusiness. Demandez à votre prestataire si c'est en place — chez MKZ, c'est inclus dans toute prestation de [référencement naturel](/referencement-seo/)."
+      "text": "Les **données structurées** sont des étiquettes invisibles dans le code de votre site, qui disent aux moteurs : « ceci est une entreprise locale, voici son adresse et ses horaires ». Le format s'appelle LocalBusiness. Demandez à votre prestataire si c'est en place ; chez MKZ, c'est inclus dans toute prestation de [référencement naturel](/referencement-seo/)."
     },
     {
       "type": "h2",
       "id": "etape-4-annuaires-partenariats-locaux",
-      "text": "Étape 4 — Annuaires et partenariats locaux : la cohérence avant la quantité"
+      "text": "Étape 4 : Annuaires et partenariats locaux, la cohérence avant la quantité"
     },
     {
       "type": "h3",
@@ -316,12 +316,12 @@ const article: Article = {
     {
       "type": "callout",
       "variant": "retenir",
-      "text": "Mieux vaut 10 inscriptions cohérentes (NAP identique au caractère près) que 50 annuaires négligés. Priorité : PagesJaunes, CMA ou CCI, annuaires professionnels reconnus, et quelques liens de proximité — presse locale, mairie, partenaires."
+      "text": "Mieux vaut 10 inscriptions cohérentes (NAP identique au caractère près) que 50 annuaires négligés. Priorité : PagesJaunes, CMA ou CCI, annuaires professionnels reconnus, et quelques liens de proximité : presse locale, mairie, partenaires."
     },
     {
       "type": "h2",
       "id": "etape-5-etre-recommande-par-les-ia",
-      "text": "Étape 5 — Être recommandé par les IA (ChatGPT, Perplexity, Google AI)"
+      "text": "Étape 5 : Être recommandé par les IA (ChatGPT, Perplexity, Google AI)"
     },
     {
       "type": "p",
@@ -329,7 +329,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Bonne nouvelle : les IA puisent dans les mêmes sources que Google — fiches, avis, annuaires, sites. Les étapes 1 à 4 font déjà 80 % du chemin. Voici le reste :"
+      "text": "Bonne nouvelle : les IA puisent dans les mêmes sources que Google (fiches, avis, annuaires, sites). Les étapes 1 à 4 font déjà 80 % du chemin. Voici le reste :"
     },
     {
       "type": "ul",
@@ -434,7 +434,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Au bout de 90 jours : une fiche complète et vivante, un flux d'avis régulier, un site qui dit métier + ville — et vos premières remontées mesurables dans le pack local."
+      "text": "Au bout de 90 jours : une fiche complète et vivante, un flux d'avis régulier, un site qui dit métier + ville, et vos premières remontées mesurables dans le pack local."
     },
     {
       "type": "h2",
@@ -443,7 +443,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est LA question que tout patron de TPE se pose — et que presque aucun guide ne traite franchement. Réponse honnête : de 0 € en le faisant vous-même à quelques centaines d'euros par mois en déléguant."
+      "text": "C'est LA question que tout patron de TPE se pose, et que presque aucun guide ne traite franchement. Réponse honnête : de 0 € en le faisant vous-même à quelques centaines d'euros par mois en déléguant."
     },
     {
       "type": "h3",
@@ -451,7 +451,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La fiche Google, les avis, les annuaires et les posts ne coûtent que votre temps : 4 à 5 heures la première semaine, puis 30 minutes par semaine. Pour une TPE, c'est largement suffisant pour dépasser les concurrents inactifs — c'est-à-dire la majorité."
+      "text": "La fiche Google, les avis, les annuaires et les posts ne coûtent que votre temps : 4 à 5 heures la première semaine, puis 30 minutes par semaine. Pour une TPE, c'est largement suffisant pour dépasser les concurrents inactifs, c'est-à-dire la majorité."
     },
     {
       "type": "h3",
@@ -459,7 +459,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Si vous préférez déléguer, voici les ordres de grandeur que nous constatons sur le marché français pour une TPE. Toute offre très en dessous — ou très au-dessus — mérite des questions."
+      "text": "Si vous préférez déléguer, voici les ordres de grandeur que nous constatons sur le marché français pour une TPE. Toute offre très en dessous, ou très au-dessus, mérite des questions."
     },
     {
       "type": "table",
@@ -526,12 +526,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le référencement local n'est ni magique ni compliqué : de la méthode, de la régularité — une heure pour démarrer, 30 minutes par semaine pour creuser l'écart. Si vous préférez consacrer ce temps à votre métier, on peut le faire pour vous."
+      "text": "Le référencement local n'est ni magique ni compliqué : de la méthode, de la régularité : une heure pour démarrer, 30 minutes par semaine pour creuser l'écart. Si vous préférez consacrer ce temps à votre métier, on peut le faire pour vous."
     },
     {
       "type": "cta",
       "title": "On regarde ensemble, gratuitement ?",
-      "text": "En 30 minutes, Mickaël analyse en direct votre visibilité locale : fiche Google, avis, site, concurrents. Vous repartez avec un plan d'action clair — que vous travailliez avec nous ou non.",
+      "text": "En 30 minutes, Mickaël analyse en direct votre visibilité locale : fiche Google, avis, site, concurrents. Vous repartez avec un plan d'action clair, que vous travailliez avec nous ou non.",
       "button": "Réserver mon audit gratuit de 30 min",
       "href": "https://calendly.com/mkz-consulting/30min"
     }

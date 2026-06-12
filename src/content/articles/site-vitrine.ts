@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/site-vitrine.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -12,7 +12,7 @@ const article: Article = {
   "datePublished": "2026-06-12",
   "dateModified": "2026-06-12",
   "readingMinutes": 10,
-  "excerpt": "Vous êtes artisan, commerçant ou à la tête d'une TPE, et on vous répète qu'il vous faut un **site vitrine** — sans jamais vous dire combien ça coûte vraiment, ni à qui il appartiendra. Voici le guide honnête : prix réels 2026, étapes concrètes et pièges à déjouer avant de signer.",
+  "excerpt": "Vous êtes artisan, commerçant ou à la tête d'une TPE, et on vous répète qu'il vous faut un **site vitrine**, sans jamais vous dire combien ça coûte vraiment, ni à qui il appartiendra. Voici le guide honnête : prix réels 2026, étapes concrètes et pièges à déjouer avant de signer.",
   "tldr": [
     "Un site vitrine présente votre activité en 5 à 10 pages, sans vente en ligne : c'est la formule adaptée à la plupart des artisans, commerçants et TPE.",
     "Prix 2026 : de 0 à 35 €/mois en le faisant vous-même, 300 à 700 € la page avec un freelance, 3 000 € et plus en agence pour du sur-mesure (AmphiBee, 2025).",
@@ -23,11 +23,11 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Un **site vitrine** est un site internet de 5 à 10 pages qui présente votre activité, vos services, vos réalisations et vos coordonnées — sans vente en ligne. Pour le créer, comptez de 0 à 35 € par mois avec un outil en ligne, de 300 à 700 € la page avec un freelance, et 3 000 € ou plus en agence pour du sur-mesure (AmphiBee, 2025). Délai : de 2 jours à 6 semaines selon la formule choisie."
+      "text": "Un **site vitrine** est un site internet de 5 à 10 pages qui présente votre activité, vos services, vos réalisations et vos coordonnées, sans vente en ligne. Pour le créer, comptez de 0 à 35 € par mois avec un outil en ligne, de 300 à 700 € la page avec un freelance, et 3 000 € ou plus en agence pour du sur-mesure (AmphiBee, 2025). Délai : de 2 jours à 6 semaines selon la formule choisie."
     },
     {
       "type": "p",
-      "text": "Vous avez peut-être déjà reçu des devis du simple au décuple, sans explication. C'est répandu : 37 % des TPE-PME ont du mal à identifier un prestataire numérique fiable, en hausse de 15 points en un an (Baromètre France Num 2025). Voici les vrais prix, les 7 étapes d'une **création de site vitrine** réussie — et la question que personne ne pose : qui sera propriétaire du site ?"
+      "text": "Vous avez peut-être déjà reçu des devis du simple au décuple, sans explication. C'est répandu : 37 % des TPE-PME ont du mal à identifier un prestataire numérique fiable, en hausse de 15 points en un an (Baromètre France Num 2025). Voici les vrais prix, les 7 étapes d'une **création de site vitrine** réussie, et la question que personne ne pose : qui sera propriétaire du site ?"
     },
     {
       "type": "h2",
@@ -42,7 +42,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est votre local commercial sur internet, ouvert 24 h/24. Le client qui tape votre nom sur Google doit y trouver un site clair, des photos et un téléphone visible — sinon, il appelle votre concurrent."
+      "text": "C'est votre local commercial sur internet, ouvert 24 h/24. Le client qui tape votre nom sur Google doit y trouver un site clair, des photos et un téléphone visible ; sinon, il appelle votre concurrent."
     },
     {
       "type": "h3",
@@ -95,7 +95,7 @@ const article: Article = {
     {
       "type": "ul",
       "items": [
-        "**Le site vitrine local** : il vise les clients de votre zone (ville, département). Celui qu'il faut à un plombier, une boulangerie, un institut — et l'objet de ce guide.",
+        "**Le site vitrine local** : il vise les clients de votre zone (ville, département). Celui qu'il faut à un plombier, une boulangerie, un institut, et l'objet de ce guide.",
         "**Le site institutionnel** : il présente l'entreprise à ses partenaires et grands comptes, sans viser le client local.",
         "**Le site événementiel** : créé pour un événement ponctuel (portes ouvertes, salon), à durée de vie courte."
       ]
@@ -112,7 +112,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un site vitrine sert d'abord à ne pas disparaître des recherches de vos futurs clients : avant d'appeler un artisan, la plupart des gens vérifient son existence en ligne. Sans site, le doute s'installe — et le doute ne rappelle jamais."
+      "text": "Un site vitrine sert d'abord à ne pas disparaître des recherches de vos futurs clients : avant d'appeler un artisan, la plupart des gens vérifient son existence en ligne. Sans site, le doute s'installe, et le doute ne rappelle jamais."
     },
     {
       "type": "h3",
@@ -121,7 +121,7 @@ const article: Article = {
     {
       "type": "ul",
       "items": [
-        "65 % des TPE-PME françaises disposent d'un site internet présentant leur activité, et même 81 % des PME — Baromètre France Num 2025 (DGE/Crédoc, septembre 2025, 11 021 entreprises interrogées).",
+        "65 % des TPE-PME françaises disposent d'un site internet présentant leur activité, et même 81 % des PME, selon le Baromètre France Num 2025 (DGE/Crédoc, septembre 2025, 11 021 entreprises interrogées).",
         "Dans le bâtiment, seules 53,4 % des TPE-PME ont un site web, contre 64,6 % tous secteurs confondus (open data du Baromètre France Num 2025, data.gouv.fr, mai 2026). Près d'un artisan du bâtiment sur deux reste donc invisible.",
         "51 % des TPE-PME déclarent qu'au moins 5 % de leurs clients proviennent d'internet (Baromètre France Num 2025).",
         "78 % des dirigeants estiment que le numérique apporte un bénéfice réel à leur activité, et 40 % qu'il augmente leur chiffre d'affaires (Baromètre France Num 2025).",
@@ -143,7 +143,7 @@ const article: Article = {
     {
       "type": "callout",
       "variant": "retenir",
-      "text": "Fiche Google et page Facebook sont des outils loués sur le terrain des autres. Votre site vitrine est le seul actif numérique qui vous appartient — à condition de le créer correctement."
+      "text": "Fiche Google et page Facebook sont des outils loués sur le terrain des autres. Votre site vitrine est le seul actif numérique qui vous appartient, à condition de le créer correctement."
     },
     {
       "type": "h2",
@@ -164,7 +164,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le vrai coût, c'est votre temps : des dizaines d'heures pour apprendre l'outil, écrire les textes, choisir les photos — prises sur vos soirées ou vos chantiers. Budget très serré et activité peu dépendante d'internet ? L'option se défend. Sinon, le calcul mérite réflexion."
+      "text": "Le vrai coût, c'est votre temps : des dizaines d'heures, prises sur vos soirées ou vos chantiers, pour apprendre l'outil, écrire les textes et choisir les photos. Budget très serré et activité peu dépendante d'internet ? L'option se défend. Sinon, le calcul mérite réflexion."
     },
     {
       "type": "h3",
@@ -172,7 +172,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Avec un professionnel, comptez 300 à 700 € la page chez un freelance (AmphiBee, 2025), soit environ 1 500 à 5 000 € pour un **site vitrine** complet de 5 à 7 pages, et 3 000 € ou plus en agence pour du sur-mesure. Pour comprendre ce qui justifie ces écarts — et la différence entre un site à 500 € et un site à 5 000 € —, lisez notre guide [combien coûte un site internet](/conseils/creation-site-internet/combien-coute-un-site-internet/)."
+      "text": "Avec un professionnel, comptez 300 à 700 € la page chez un freelance (AmphiBee, 2025), soit environ 1 500 à 5 000 € pour un **site vitrine** complet de 5 à 7 pages, et 3 000 € ou plus en agence pour du sur-mesure. Pour comprendre ce qui justifie ces écarts (et la différence entre un site à 500 € et un site à 5 000 €), lisez notre guide [combien coûte un site internet](/conseils/creation-site-internet/combien-coute-un-site-internet/)."
     },
     {
       "type": "p",
@@ -231,12 +231,12 @@ const article: Article = {
     {
       "type": "callout",
       "variant": "attention",
-      "text": "Méfiez-vous du « site à 0 € » comme du devis trop flou : le coût réel est ailleurs — votre temps, un abonnement qui s'éternise, des suppléments en cours de route. Exigez un chiffrage écrit sur 3 ans : création + frais annuels + maintenance."
+      "text": "Méfiez-vous du « site à 0 € » comme du devis trop flou : le coût réel est ailleurs (votre temps, un abonnement qui s'éternise, des suppléments en cours de route). Exigez un chiffrage écrit sur 3 ans : création + frais annuels + maintenance."
     },
     {
       "type": "cta",
       "title": "Vous voulez un chiffrage clair, sans surprise ?",
-      "text": "Envoyez-nous votre projet : nous répondons avec un devis détaillé ligne par ligne — création, hébergement, maintenance. Et vous restez propriétaire de tout.",
+      "text": "Envoyez-nous votre projet : nous répondons avec un devis détaillé ligne par ligne (création, hébergement, maintenance). Et vous restez propriétaire de tout.",
       "button": "Demander un devis transparent",
       "href": "/contact/"
     },
@@ -247,7 +247,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Que vous le fassiez vous-même ou non, les étapes d'une **création de site vitrine** sont les mêmes — avec, à chacune, son piège à éviter."
+      "text": "Que vous le fassiez vous-même ou non, les étapes d'une **création de site vitrine** sont les mêmes, chacune avec son piège à éviter."
     },
     {
       "type": "h3",
@@ -280,7 +280,7 @@ const article: Article = {
     {
       "type": "ul",
       "items": [
-        "**Accueil** : qui vous êtes, ce que vous faites, où, comment vous joindre — compréhensible en 5 secondes.",
+        "**Accueil** : qui vous êtes, ce que vous faites, où, comment vous joindre, le tout compréhensible en 5 secondes.",
         "**Services** : une page par grande prestation, avec vos prix ou fourchettes si possible.",
         "**Réalisations** : photos de vos chantiers ou produits, avant/après. La page qui vend.",
         "**À propos** : votre histoire, votre visage, vos certifications. On achète une personne autant qu'un service.",
@@ -289,11 +289,11 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "5. Rédiger des contenus qui parlent à vos clients — sans jargon"
+      "text": "5. Rédiger des contenus qui parlent à vos clients, sans jargon"
     },
     {
       "type": "p",
-      "text": "Écrivez comme vous parlez à un client au téléphone. Bannissez le « leader de solutions innovantes » : dites qui vous êtes, ce que vous faites, pour qui, où, depuis quand. Montrez de vraies photos de votre travail — pas des images de banque d'images qui sentent le faux."
+      "text": "Écrivez comme vous parlez à un client au téléphone. Bannissez le « leader de solutions innovantes » : dites qui vous êtes, ce que vous faites, pour qui, où, depuis quand. Montrez de vraies photos de votre travail, pas des images de banque d'images qui sentent le faux."
     },
     {
       "type": "h3",
@@ -332,7 +332,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Être propriétaire de son site signifie trois choses : le **nom de domaine** est déposé à votre nom, vous détenez les accès à l'hébergement, et les contenus (textes, photos, logo) vous sont cédés par écrit. S'il manque l'un des trois, vous êtes locataire — et on le découvre toujours au pire moment."
+      "text": "Être propriétaire de son site signifie trois choses : le **nom de domaine** est déposé à votre nom, vous détenez les accès à l'hébergement, et les contenus (textes, photos, logo) vous sont cédés par écrit. S'il manque l'un des trois, vous êtes locataire, et on le découvre toujours au pire moment."
     },
     {
       "type": "p",
@@ -348,7 +348,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Pas de quoi les bannir — mais déposez au minimum votre nom de domaine chez un fournisseur indépendant (OVH, Gandi…) : vous garderez votre adresse en cas de départ."
+      "text": "Pas de quoi les bannir, mais déposez au minimum votre nom de domaine chez un fournisseur indépendant (OVH, Gandi…) : vous garderez votre adresse en cas de départ."
     },
     {
       "type": "h3",
@@ -357,16 +357,16 @@ const article: Article = {
     {
       "type": "ol",
       "items": [
-        "« Le nom de domaine sera-t-il déposé à mon nom, avec mes propres accès ? » — La seule bonne réponse est oui.",
-        "« Si je vous quitte, qu'est-ce que j'emporte, et sous quel format ? » — Site complet, textes, photos, base de données.",
-        "« Que comprend la maintenance, et que se passe-t-il si je l'arrête ? » — Le site doit rester en ligne sans elle.",
-        "« Qui rédige les textes, et à qui appartiennent-ils ? » — Cédés par écrit, photos comprises.",
-        "« Le devis couvre-t-il les 3 prochaines années : hébergement, domaine, mises à jour ? » — Exigez le coût total."
+        "« Le nom de domaine sera-t-il déposé à mon nom, avec mes propres accès ? » La seule bonne réponse est oui.",
+        "« Si je vous quitte, qu'est-ce que j'emporte, et sous quel format ? » Réponse attendue : site complet, textes, photos, base de données.",
+        "« Que comprend la maintenance, et que se passe-t-il si je l'arrête ? » Le site doit rester en ligne sans elle.",
+        "« Qui rédige les textes, et à qui appartiennent-ils ? » Ils doivent être cédés par écrit, photos comprises.",
+        "« Le devis couvre-t-il les 3 prochaines années : hébergement, domaine, mises à jour ? » Exigez le coût total."
       ]
     },
     {
       "type": "p",
-      "text": "Un prestataire sérieux y répond sans se froisser. Chez MKZ, nos clients sont [propriétaires à 100 % de leur site](/creation-site-internet/), domaine et contenus compris — et libres de partir avec."
+      "text": "Un prestataire sérieux y répond sans se froisser. Chez MKZ, nos clients sont [propriétaires à 100 % de leur site](/creation-site-internet/), domaine et contenus compris, et libres de partir avec."
     },
     {
       "type": "callout",
@@ -422,7 +422,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Cas concret : un électricien de Seine-et-Marne crée un site vitrine de 6 pages, une par prestation (dépannage, tableau électrique, bornes de recharge…), avec ses villes d'intervention dans les titres. Objectif fixé dès le départ : des appels et des devis — pas des « visites »."
+      "text": "Cas concret : un électricien de Seine-et-Marne crée un site vitrine de 6 pages, une par prestation (dépannage, tableau électrique, bornes de recharge…), avec ses villes d'intervention dans les titres. Objectif fixé dès le départ : des appels et des devis, pas des « visites »."
     },
     {
       "type": "p",
@@ -450,21 +450,21 @@ const article: Article = {
     {
       "type": "ol",
       "items": [
-        "**Ignorer le mobile** : une grande partie des recherches locales se fait sur téléphone. Un site illisible sur mobile fait fuir — et Google le rétrograde.",
+        "**Ignorer le mobile** : une grande partie des recherches locales se fait sur téléphone. Un site illisible sur mobile fait fuir, et Google le rétrograde.",
         "**Zéro référencement local** : sans vos villes d'intervention et une page par prestation, vous n'apparaîtrez sur aucune recherche « métier + ville ».",
         "**Ne jamais le mettre à jour** : horaires faux, photos d'il y a dix ans… un site figé inspire la méfiance, aux visiteurs comme à Google.",
         "**Oublier mentions légales et RGPD** : c'est illégal pour un site professionnel, et ça se remarque.",
-        "**Ne rien mesurer** : sans suivi des appels et formulaires, impossible de savoir si le site rapporte — ni de l'améliorer."
+        "**Ne rien mesurer** : sans suivi des appels et formulaires, impossible de savoir si le site rapporte, ni de l'améliorer."
       ]
     },
     {
       "type": "p",
-      "text": "Votre site actuel cumule plusieurs de ces erreurs ? Pas besoin de tout jeter : une [refonte de site internet](/conseils/creation-site-internet/refonte-site-internet/) bien menée corrige l'existant en gardant ce qui fonctionne — souvent pour moins cher qu'une création complète."
+      "text": "Votre site actuel cumule plusieurs de ces erreurs ? Pas besoin de tout jeter : une [refonte de site internet](/conseils/creation-site-internet/refonte-site-internet/) bien menée corrige l'existant en gardant ce qui fonctionne, souvent pour moins cher qu'une création complète."
     },
     {
       "type": "cta",
       "title": "Faites le point en 30 minutes, gratuitement",
-      "text": "Vous hésitez entre le faire vous-même, un freelance ou une agence ? Réservez un audit gratuit de 30 minutes avec Mickaël : on vous dit honnêtement ce dont vous avez besoin — même si la réponse est « faites-le vous-même ».",
+      "text": "Vous hésitez entre le faire vous-même, un freelance ou une agence ? Réservez un audit gratuit de 30 minutes avec Mickaël : on vous dit honnêtement ce dont vous avez besoin, même si la réponse est « faites-le vous-même ».",
       "button": "Réserver mon audit gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     }

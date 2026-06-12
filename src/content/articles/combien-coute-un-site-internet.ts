@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/combien-coute-un-site-internet.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -16,14 +16,14 @@ const article: Article = {
   "tldr": [
     "Grille France Num/Afnic (juin 2025) : 500 à 2 000 € pour un site one-page, 900 à 5 000 € pour un site vitrine, 3 000 à 10 000 € pour un e-commerce.",
     "Frais récurrents d'un site vitrine : 10 à 50 € par an de nom de domaine, jusqu'à 20 € par mois d'hébergement (Afnic), 0 à 100 € par mois de maintenance.",
-    "Une offre « site à 29 €/mois » coûte plus de 1 000 € sur 3 ans — souvent sans que vous soyez propriétaire du site ni du nom de domaine.",
+    "Une offre « site à 29 €/mois » coûte plus de 1 000 € sur 3 ans, souvent sans que vous soyez propriétaire du site ni du nom de domaine.",
     "48 % des TPE-PME citent l'acquisition de nouveaux clients comme premier bénéfice de leur site (Baromètre France Num 2025).",
     "Avant de signer : vérifiez la propriété du domaine, les contenus inclus, la durée d'engagement et ce que recouvre le « référencement offert »."
   ],
   "blocks": [
     {
       "type": "p",
-      "text": "**Combien coûte un site internet en 2026 ?** De 500 à 2 000 € pour un site one-page et de 900 à 5 000 € pour un site vitrine, selon la grille France Num/Afnic mise à jour en juin 2025. Comptez de 3 000 à 10 000 € pour un site e-commerce. Ajoutez les frais récurrents — nom de domaine, hébergement, maintenance — soit de quelques euros à une centaine d'euros par mois."
+      "text": "**Combien coûte un site internet en 2026 ?** De 500 à 2 000 € pour un site one-page et de 900 à 5 000 € pour un site vitrine, selon la grille France Num/Afnic mise à jour en juin 2025. Comptez de 3 000 à 10 000 € pour un site e-commerce. Ajoutez les frais récurrents (nom de domaine, hébergement, maintenance), soit de quelques euros à une centaine d'euros par mois."
     },
     {
       "type": "p",
@@ -70,7 +70,7 @@ const article: Article = {
           "Abonnement « tout compris »",
           "0 € à la signature",
           "29 à 150 €/mois",
-          "≈ 1 000 à 5 400 € — sans rien posséder"
+          "≈ 1 000 à 5 400 €, sans rien posséder"
         ]
       ]
     },
@@ -97,7 +97,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Sa limite : une seule page ne peut viser qu'une seule recherche Google. « Plombier Dammartin-en-Goële », d'accord — mais pas en même temps « débouchage canalisation 77 » et « installation chauffe-eau ». Pour être trouvé sur plusieurs requêtes, il faut plusieurs pages."
+      "text": "Sa limite : une seule page ne peut viser qu'une seule recherche Google. « Plombier Dammartin-en-Goële », d'accord, mais pas en même temps « débouchage canalisation 77 » et « installation chauffe-eau ». Pour être trouvé sur plusieurs requêtes, il faut plusieurs pages."
     },
     {
       "type": "h3",
@@ -121,7 +121,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Avant de vous lancer, posez-vous la question : avez-vous vraiment besoin de vendre en ligne ? Si vos clients vous appellent pour un devis ou un rendez-vous, un site vitrine bien construit suffit — pour une fraction du prix."
+      "text": "Avant de vous lancer, posez-vous la question : avez-vous vraiment besoin de vendre en ligne ? Si vos clients vous appellent pour un devis ou un rendez-vous, un site vitrine bien construit suffit, pour une fraction du prix."
     },
     {
       "type": "callout",
@@ -136,7 +136,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "À type de site égal, le prix varie surtout selon le prestataire. Quatre options s'offrent à vous, avec chacune son vrai coût — pas toujours celui affiché."
+      "text": "À type de site égal, le prix varie surtout selon le prestataire. Quatre options s'offrent à vous, avec chacune son vrai coût, qui n'est pas toujours celui affiché."
     },
     {
       "type": "h3",
@@ -148,7 +148,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le vrai coût est ailleurs : vos heures. Concevoir des pages qui donnent envie d'appeler, écrire des textes qui se positionnent sur Google, régler les détails techniques — comptez des dizaines d'heures d'apprentissage. Des heures que vous ne passez pas sur vos chantiers ou en boutique."
+      "text": "Le vrai coût est ailleurs : vos heures. Concevoir des pages qui donnent envie d'appeler, écrire des textes qui se positionnent sur Google, régler les détails techniques : comptez des dizaines d'heures d'apprentissage. Des heures que vous ne passez pas sur vos chantiers ou en boutique."
     },
     {
       "type": "h3",
@@ -160,7 +160,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les premiers prix démarrent autour de 500 €, mais regardez ce qu'ils incluent : souvent ni les textes, ni les photos, ni le référencement de base. Vérifiez aussi qui s'occupera du site après la livraison — c'est le point faible le plus fréquent."
+      "text": "Les premiers prix démarrent autour de 500 €, mais regardez ce qu'ils incluent : souvent ni les textes, ni les photos, ni le référencement de base. Vérifiez aussi qui s'occupera du site après la livraison : c'est le point faible le plus fréquent."
     },
     {
       "type": "h3",
@@ -176,11 +176,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le principe : 0 € à la signature, puis un abonnement mensuel qui inclut création, hébergement et maintenance. Séduisant — mais faites le calcul : **29 €/mois pendant 3 ans, c'est 1 044 €** ; à 99 €/mois, 3 564 €. Et dans la plupart de ces contrats, vous n'êtes propriétaire **ni du site, ni parfois du nom de domaine** : si vous arrêtez de payer, tout disparaît."
+      "text": "Le principe : 0 € à la signature, puis un abonnement mensuel qui inclut création, hébergement et maintenance. Séduisant, mais faites le calcul : **29 €/mois pendant 3 ans, c'est 1 044 €** ; à 99 €/mois, 3 564 €. Et dans la plupart de ces contrats, vous n'êtes propriétaire **ni du site, ni parfois du nom de domaine** : si vous arrêtez de payer, tout disparaît."
     },
     {
       "type": "p",
-      "text": "Ce modèle peut dépanner pour démarrer vite sans apport. Mais lisez la clause de propriété et les conditions de sortie avant de signer — c'est là que tout se joue."
+      "text": "Ce modèle peut dépanner pour démarrer vite sans apport. Mais lisez la clause de propriété et les conditions de sortie avant de signer : c'est là que tout se joue."
     },
     {
       "type": "table",
@@ -269,7 +269,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Voici un devis représentatif de ce que nous chiffrons chez MKZ pour un électricien de Seine-et-Marne. Le projet : un site vitrine de 6 pages (accueil, 3 pages de services, réalisations, contact), conçu pour être trouvé sur les recherches locales. Peu de prestataires montrent leurs prix — nous, si : la **transparence sur les tarifs** fait partie de nos valeurs."
+      "text": "Voici un devis représentatif de ce que nous chiffrons chez MKZ pour un électricien de Seine-et-Marne. Le projet : un site vitrine de 6 pages (accueil, 3 pages de services, réalisations, contact), conçu pour être trouvé sur les recherches locales. Peu de prestataires montrent leurs prix. Nous, si : la **transparence sur les tarifs** fait partie de nos valeurs."
     },
     {
       "type": "table",
@@ -319,7 +319,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Chaque ligne se justifie. La rédaction, par exemple : 6 pages représentent une vingtaine d'heures de travail, soit environ 550 € au tarif moyen d'un rédacteur web français de **26 €/h** (Codeur.com, mars 2025). Quand un devis global est très en dessous de ces ordres de grandeur, c'est qu'une ligne manque — souvent les contenus (« textes fournis par le client ») ou l'accompagnement après livraison."
+      "text": "Chaque ligne se justifie. La rédaction, par exemple : 6 pages représentent une vingtaine d'heures de travail, soit environ 550 € au tarif moyen d'un rédacteur web français de **26 €/h** (Codeur.com, mars 2025). Quand un devis global est très en dessous de ces ordres de grandeur, c'est qu'une ligne manque : souvent les contenus (« textes fournis par le client ») ou l'accompagnement après livraison."
     },
     {
       "type": "callout",
@@ -372,14 +372,14 @@ const article: Article = {
           "500 à 3 000 €",
           "400 à 1 500 €",
           "900 à 4 500 €",
-          "Oui — à faire préciser au contrat"
+          "Oui, à faire préciser au contrat"
         ],
         [
           "Agence web",
           "2 000 à 5 000 €",
           "500 à 3 600 €",
           "2 500 à 8 600 €",
-          "Oui chez MKZ — à vérifier ailleurs"
+          "Oui chez MKZ, à vérifier ailleurs"
         ]
       ]
     },
@@ -391,7 +391,7 @@ const article: Article = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "Comparez toujours les devis sur le coût total à 3 ans (création + frais récurrents), pas sur le prix affiché à la signature. Un abonnement à 79 €/mois coûte 2 844 € sur 3 ans — souvent plus qu'un site vitrine acheté, sans la propriété."
+      "text": "Comparez toujours les devis sur le coût total à 3 ans (création + frais récurrents), pas sur le prix affiché à la signature. Un abonnement à 79 €/mois coûte 2 844 € sur 3 ans : souvent plus qu'un site vitrine acheté, sans la propriété."
     },
     {
       "type": "h2",
@@ -406,7 +406,7 @@ const article: Article = {
       "type": "ol",
       "items": [
         "**La propriété du site et du domaine.** Exigez que le nom de domaine soit déposé à votre nom et que le contrat précise que site, contenus et visuels vous appartiennent. Sinon, le jour où vous voudrez changer de prestataire ou lancer une [refonte de votre site](/conseils/creation-site-internet/refonte-site-internet/), vous repartirez de zéro.",
-        "**Les contenus non inclus.** Un devis attractif qui mentionne « textes et photos fournis par le client » vous transfère des dizaines d'heures de travail. Si vous ne les fournissez pas, le projet s'enlise — c'est l'une des premières causes de sites jamais mis en ligne.",
+        "**Les contenus non inclus.** Un devis attractif qui mentionne « textes et photos fournis par le client » vous transfère des dizaines d'heures de travail. Si vous ne les fournissez pas, le projet s'enlise : c'est l'une des premières causes de sites jamais mis en ligne.",
         "**L'engagement de durée caché.** Certaines offres par abonnement engagent sur 24, 36, voire 48 mois, avec des frais de sortie. Lisez la durée d'engagement et les conditions de résiliation avant tout.",
         "**Le référencement « offert ».** Être présent dans Google et être trouvé par vos clients sont deux choses très différentes. Le [référencement naturel](/referencement-seo/) est un travail à part entière : si on vous l'« offre », demandez précisément ce que ça recouvre."
       ]
@@ -433,7 +433,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Faisons le calcul pour notre électricien. Son site complet coûte 2 990 €, plus environ 30 € par mois de frais courants : **4 070 € sur 3 ans, soit 113 € par mois**. Imaginons qu'un chantier moyen lui laisse 400 € de marge — hypothèse à adapter à votre métier. Il lui suffit alors de **3 à 4 chantiers par an** venus du site pour être largement gagnant. Un client par trimestre."
+      "text": "Faisons le calcul pour notre électricien. Son site complet coûte 2 990 €, plus environ 30 € par mois de frais courants : **4 070 € sur 3 ans, soit 113 € par mois**. Imaginons qu'un chantier moyen lui laisse 400 € de marge (hypothèse à adapter à votre métier). Il lui suffit alors de **3 à 4 chantiers par an** venus du site pour être largement gagnant. Un client par trimestre."
     },
     {
       "type": "p",
@@ -443,7 +443,7 @@ const article: Article = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "Pour un artisan, un site vitrine autour de 3 000 € s'amortit avec 3 à 4 chantiers par an. 48 % des TPE-PME citent l'acquisition de clients comme premier bénéfice de leur site (Baromètre France Num 2025) — et près d'un artisan du bâtiment sur deux n'a toujours pas de site."
+      "text": "Pour un artisan, un site vitrine autour de 3 000 € s'amortit avec 3 à 4 chantiers par an. 48 % des TPE-PME citent l'acquisition de clients comme premier bénéfice de leur site (Baromètre France Num 2025), et près d'un artisan du bâtiment sur deux n'a toujours pas de site."
     },
     {
       "type": "h2",
@@ -452,12 +452,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Vous n'êtes pas obligé de tout financer seul. Plusieurs dispositifs publics aident les TPE à se numériser — leurs montants et leurs conditions évoluent chaque année, vérifiez-les avant de monter votre dossier."
+      "text": "Vous n'êtes pas obligé de tout financer seul. Plusieurs dispositifs publics aident les TPE à se numériser ; leurs montants et leurs conditions évoluent chaque année, vérifiez-les avant de monter votre dossier."
     },
     {
       "type": "ul",
       "items": [
-        "**France Num** (francenum.gouv.fr) : le portail public de la transformation numérique des TPE-PME — guides gratuits, diagnostics et annuaire d'« Activateurs » référencés par l'État.",
+        "**France Num** (francenum.gouv.fr) : le portail public de la transformation numérique des TPE-PME, avec guides gratuits, diagnostics et annuaire d'« Activateurs » référencés par l'État.",
         "**Les aides régionales à la numérisation** : plusieurs régions, dont l'Île-de-France, proposent ponctuellement des chèques ou subventions numériques pour les petites entreprises. Renseignez-vous sur le site de votre région.",
         "**Votre CMA ou votre CCI** : les chambres consulaires proposent des diagnostics numériques et des accompagnements, parfois cofinancés, pour les artisans et commerçants."
       ]
@@ -469,12 +469,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Vous savez maintenant ce que coûte vraiment un site internet — et surtout ce qui justifie chaque euro. La suite logique : poser votre projet à plat, avec des chiffres et sans jargon."
+      "text": "Vous savez maintenant ce que coûte vraiment un site internet, et surtout ce qui justifie chaque euro. La suite logique : poser votre projet à plat, avec des chiffres et sans jargon."
     },
     {
       "type": "cta",
       "title": "Parlons de votre projet, chiffres à l'appui",
-      "text": "30 minutes au téléphone : on regarde votre activité, votre zone et votre budget. On vous dit honnêtement ce dont vous avez besoin — et ce dont vous n'avez pas besoin. Gratuit, sans engagement.",
+      "text": "30 minutes au téléphone : on regarde votre activité, votre zone et votre budget. On vous dit honnêtement ce dont vous avez besoin, et ce dont vous n'avez pas besoin. Gratuit, sans engagement.",
       "button": "Réserver mon audit gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     }
@@ -494,11 +494,11 @@ const article: Article = {
     },
     {
       "q": "Quels sont les frais de gestion d'un site internet ?",
-      "a": "Les frais de gestion regroupent le nom de domaine (10 à 50 € par an), l'hébergement (jusqu'à 20 € par mois pour un site vitrine selon l'Afnic) et la maintenance — mises à jour, sauvegardes, sécurité — de 0 à 100 € par mois. S'y ajoutent en option le référencement et les évolutions du site. Au total : de 120 à plus de 1 500 € par an."
+      "a": "Les frais de gestion regroupent le nom de domaine (10 à 50 € par an), l'hébergement (jusqu'à 20 € par mois pour un site vitrine selon l'Afnic) et la maintenance (mises à jour, sauvegardes, sécurité), de 0 à 100 € par mois. S'y ajoutent en option le référencement et les évolutions du site. Au total : de 120 à plus de 1 500 € par an."
     },
     {
       "q": "La refonte d'un site coûte-t-elle moins cher que la création ?",
-      "a": "Pas forcément. Une refonte légère (design, quelques pages) coûte moins cher qu'une création complète, car les contenus et le nom de domaine existent déjà. Mais une refonte profonde — nouvelle structure, changement d'outil, reprise des contenus, redirections des anciennes adresses — peut coûter autant, voire plus. Il faut préserver l'existant, notamment le référencement, en plus de construire le neuf."
+      "a": "Pas forcément. Une refonte légère (design, quelques pages) coûte moins cher qu'une création complète, car les contenus et le nom de domaine existent déjà. Mais une refonte profonde (nouvelle structure, changement d'outil, reprise des contenus, redirections des anciennes adresses) peut coûter autant, voire plus. Il faut préserver l'existant, notamment le référencement, en plus de construire le neuf."
     },
     {
       "q": "Qui est propriétaire de mon site si je passe par une agence ?",

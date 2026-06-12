@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/audit-seo.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -14,16 +14,16 @@ const article: Article = {
   "readingMinutes": 10,
   "excerpt": "Le téléphone ne sonne plus et votre site reste invisible sur Google ? Avant de payer qui que ce soit, passez-le au contrôle technique vous-même. Nous vous expliquons l'**audit SEO** sans jargon : checklist gratuite en 30 minutes, vrais prix d'un audit pro et pièges à éviter.",
   "tldr": [
-    "Un audit SEO est le contrôle technique de votre site : il diagnostique la technique, le contenu, la popularité — et, pour un artisan, la fiche Google.",
+    "Un audit SEO est le contrôle technique de votre site : il diagnostique la technique, le contenu, la popularité et, pour un artisan, la fiche Google.",
     "Vous pouvez faire un premier auto-audit en 30 minutes, avec 10 points de contrôle et des outils 100 % gratuits (checklist dans ce guide).",
     "Résultat documenté : après audit, une page est passée de la 15e à la 2e position Google sur une requête à 1 100 recherches par mois (France Num, 2026).",
     "Les outils d'audit SEO gratuit en ligne débroussaillent, mais ignorent votre métier, votre ville et votre fiche Google.",
-    "Comptez de 0 € (auto-audit) à environ 2 500 € (audit complet en agence) — et fuyez les démarchages « votre site a des erreurs graves »."
+    "Comptez de 0 € (auto-audit) à environ 2 500 € (audit complet en agence), et fuyez les démarchages « votre site a des erreurs graves »."
   ],
   "blocks": [
     {
       "type": "p",
-      "text": "Un **audit SEO**, c'est le contrôle technique de votre site internet. Ce diagnostic complet vérifie pourquoi Google vous affiche — ou vous ignore — quand un client tape « plombier + votre ville ». Il liste ensuite les réparations à faire, classées par priorité. Bonne nouvelle : le premier diagnostic, vous pouvez le réaliser vous-même, gratuitement, en une demi-heure."
+      "text": "Un **audit SEO**, c'est le contrôle technique de votre site internet. Ce diagnostic complet vérifie pourquoi Google vous affiche (ou vous ignore) quand un client tape « plombier + votre ville ». Il liste ensuite les réparations à faire, classées par priorité. Bonne nouvelle : le premier diagnostic, vous pouvez le réaliser vous-même, gratuitement, en une demi-heure."
     },
     {
       "type": "p",
@@ -59,7 +59,7 @@ const article: Article = {
       "items": [
         "Un audit SEO est un diagnostic, pas une réparation : sa valeur tient au plan d'action qui en sort.",
         "Il couvre 3 piliers (technique, contenu, popularité) + le pilier local pour les artisans et commerçants.",
-        "Le premier niveau se fait soi-même : 10 points, 30 minutes, 0 € — checklist plus bas dans ce guide."
+        "Le premier niveau se fait soi-même : 10 points, 30 minutes, 0 € (checklist plus bas dans ce guide)."
       ]
     },
     {
@@ -112,7 +112,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un audit SEO sérieux s'organise autour de trois piliers. La plupart des guides s'arrêtent là ; pour un artisan ou un commerçant, nous en ajoutons systématiquement un quatrième — souvent le plus rentable."
+      "text": "Un audit SEO sérieux s'organise autour de trois piliers. La plupart des guides s'arrêtent là ; pour un artisan ou un commerçant, nous en ajoutons systématiquement un quatrième, souvent le plus rentable."
     },
     {
       "type": "h3",
@@ -120,7 +120,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est la mécanique sous le capot : vitesse de chargement, affichage mobile, sécurité (le cadenas HTTPS). S'y ajoute la capacité de Google à trouver et lire vos pages — ce qu'on appelle l'**indexation**. Un site magnifique que Google ne peut pas lire, c'est un magasin sans porte d'entrée."
+      "text": "C'est la mécanique sous le capot : vitesse de chargement, affichage mobile, sécurité (le cadenas HTTPS). S'y ajoute la capacité de Google à trouver et lire vos pages, ce qu'on appelle l'**indexation**. Un site magnifique que Google ne peut pas lire, c'est un magasin sans porte d'entrée."
     },
     {
       "type": "h3",
@@ -136,7 +136,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Google fait confiance aux sites recommandés par d'autres : annuaires sérieux, presse locale, fournisseurs, fédérations professionnelles. Ces liens entrants — le **netlinking** — sont des bons points de réputation. L'audit vérifie combien vous en avez, et surtout leur qualité."
+      "text": "Google fait confiance aux sites recommandés par d'autres : annuaires sérieux, presse locale, fournisseurs, fédérations professionnelles. Ces liens entrants, le **netlinking**, sont des bons points de réputation. L'audit vérifie combien vous en avez, et surtout leur qualité."
     },
     {
       "type": "h3",
@@ -184,18 +184,18 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Voici comment faire un bon audit SEO de premier niveau, sans rien payer : **10 points de contrôle**, des outils 100 % gratuits, environ 30 minutes. La méthode est calibrée pour un site vitrine de 5 à 15 pages — celui d'un artisan, pas celui d'Amazon. Prenez de quoi noter et cochez « OK » ou « à corriger » à chaque point."
+      "text": "Voici comment faire un bon audit SEO de premier niveau, sans rien payer : **10 points de contrôle**, des outils 100 % gratuits, environ 30 minutes. La méthode est calibrée pour un site vitrine de 5 à 15 pages : celui d'un artisan, pas celui d'Amazon. Prenez de quoi noter et cochez « OK » ou « à corriger » à chaque point."
     },
     {
       "type": "h3",
-      "text": "Points 1 à 3 — Votre visibilité dans Google (10 minutes)"
+      "text": "Points 1 à 3 : votre visibilité dans Google (10 minutes)"
     },
     {
       "type": "ol",
       "items": [
-        "**Le test `site:`** — tapez `site:votredomaine.fr` dans Google. Cette commande affiche les pages de votre site que Google connaît. Aucun résultat ? Votre site n'est pas indexé : c'est LA panne prioritaire.",
-        "**La recherche « métier + ville »** — en navigation privée (pour neutraliser les résultats personnalisés), tapez votre métier suivi de votre ville. Où sortez-vous : dans la carte, en première page, nulle part ? Notez aussi qui est devant vous.",
-        "**Votre fiche Google** — cherchez le nom de votre entreprise. La fiche existe-t-elle, est-elle revendiquée par vous, les horaires et le téléphone sont-ils justes, les photos datent-elles de moins de six mois ? Notre tutoriel pour [créer et optimiser votre fiche Google Business Profile](/conseils/tutoriels/creer-fiche-google-business-profile/) vous guide pas à pas."
+        "**Le test `site:`**. Tapez `site:votredomaine.fr` dans Google. Cette commande affiche les pages de votre site que Google connaît. Aucun résultat ? Votre site n'est pas indexé : c'est LA panne prioritaire.",
+        "**La recherche « métier + ville »** : en navigation privée (pour neutraliser les résultats personnalisés), tapez votre métier suivi de votre ville. Où sortez-vous : dans la carte, en première page, nulle part ? Notez aussi qui est devant vous.",
+        "**Votre fiche Google** : cherchez le nom de votre entreprise. La fiche existe-t-elle, est-elle revendiquée par vous, les horaires et le téléphone sont-ils justes, les photos datent-elles de moins de six mois ? Notre tutoriel pour [créer et optimiser votre fiche Google Business Profile](/conseils/tutoriels/creer-fiche-google-business-profile/) vous guide pas à pas."
       ]
     },
     {
@@ -205,15 +205,15 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Points 4 à 7 — La technique, sans toucher au code (10 minutes)"
+      "text": "Points 4 à 7 : la technique, sans toucher au code (10 minutes)"
     },
     {
       "type": "ol",
       "items": [
-        "**Le test mobile** — ouvrez votre site sur votre téléphone : textes lisibles sans zoomer, boutons assez gros pour le pouce, numéro de téléphone cliquable en un geste.",
-        "**La vitesse** — passez votre page d'accueil dans [PageSpeed Insights](https://pagespeed.web.dev), l'outil gratuit de Google. Visez le vert ; si tout est rouge sur mobile, la lenteur fait fuir vos visiteurs. Sous WordPress, notre tutoriel pour [optimiser la vitesse de votre site](/conseils/tutoriels/optimiser-vitesse-wordpress/) liste les corrections de base.",
-        "**Le cadenas HTTPS** — votre adresse doit commencer par https:// avec un cadenas dans le navigateur. Sans lui, Google et vos visiteurs voient un avertissement « non sécurisé ».",
-        "**Google Search Console** — l'outil gratuit où Google vous signale lui-même les pages en erreur et les requêtes qui vous amènent des clics. Pas encore installée ? Suivez notre tutoriel pour [connecter votre site à la Search Console](/conseils/tutoriels/connecter-site-google-search-console/) : c'est le carnet d'entretien de votre site."
+        "**Le test mobile**. Ouvrez votre site sur votre téléphone : textes lisibles sans zoomer, boutons assez gros pour le pouce, numéro de téléphone cliquable en un geste.",
+        "**La vitesse** : passez votre page d'accueil dans [PageSpeed Insights](https://pagespeed.web.dev), l'outil gratuit de Google. Visez le vert ; si tout est rouge sur mobile, la lenteur fait fuir vos visiteurs. Sous WordPress, notre tutoriel pour [optimiser la vitesse de votre site](/conseils/tutoriels/optimiser-vitesse-wordpress/) liste les corrections de base.",
+        "**Le cadenas HTTPS** : votre adresse doit commencer par https:// avec un cadenas dans le navigateur. Sans lui, Google et vos visiteurs voient un avertissement « non sécurisé ».",
+        "**Google Search Console** : l'outil gratuit où Google vous signale lui-même les pages en erreur et les requêtes qui vous amènent des clics. Pas encore installée ? Suivez notre tutoriel pour [connecter votre site à la Search Console](/conseils/tutoriels/connecter-site-google-search-console/) : c'est le carnet d'entretien de votre site."
       ]
     },
     {
@@ -223,14 +223,14 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Points 8 à 10 — Vos contenus et votre réputation (10 minutes)"
+      "text": "Points 8 à 10 : vos contenus et votre réputation (10 minutes)"
     },
     {
       "type": "ol",
       "items": [
-        "**Les titres de vos pages** — survolez l'onglet du navigateur sur chaque page. « Accueil » ou « Page d'exemple » ne disent rien à Google. « Électricien certifié à Dammartin-en-Goële — Dupont Élec » dit tout.",
-        "**Une page par service** — vos prestations principales ont-elles chacune leur page, avec un texte original (pas copié sur un confrère) et des photos de vos propres chantiers ? Une seule page « Nos services » fourre-tout ne se positionne sur rien.",
-        "**Vos avis clients** — combien d'avis Google, quelle note, de quand date le dernier, et répondez-vous à tous, bons comme mauvais ? Les avis nourrissent à la fois Google et la confiance de vos futurs clients."
+        "**Les titres de vos pages** : survolez l'onglet du navigateur sur chaque page. « Accueil » ou « Page d'exemple » ne disent rien à Google. « Électricien certifié à Dammartin-en-Goële - Dupont Élec » dit tout.",
+        "**Une page par service** : vos prestations principales ont-elles chacune leur page, avec un texte original (pas copié sur un confrère) et des photos de vos propres chantiers ? Une seule page « Nos services » fourre-tout ne se positionne sur rien.",
+        "**Vos avis clients** : combien d'avis Google, quelle note, de quand date le dernier, et répondez-vous à tous, bons comme mauvais ? Les avis nourrissent à la fois Google et la confiance de vos futurs clients."
       ]
     },
     {
@@ -320,7 +320,7 @@ const article: Article = {
       "type": "callout",
       "variant": "astuce",
       "title": "Votre verdict",
-      "text": "Comptez vos « à corriger ». De 0 à 2 : votre site passe le contrôle, simple entretien courant. De 3 à 5 : bloquez une demi-journée pour corriger, ou faites-vous aider. 6 et plus : un regard professionnel vous fera gagner des mois — c'est la contre-visite."
+      "text": "Comptez vos « à corriger ». De 0 à 2 : votre site passe le contrôle, simple entretien courant. De 3 à 5 : bloquez une demi-journée pour corriger, ou faites-vous aider. 6 et plus : un regard professionnel vous fera gagner des mois ; c'est la contre-visite."
     },
     {
       "type": "cta",
@@ -336,7 +336,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un **audit SEO gratuit** en ligne est un robot : vous entrez votre adresse, il scanne votre page et ressort un score sur 100 en quelques secondes. C'est utile — et très incomplet."
+      "text": "Un **audit SEO gratuit** en ligne est un robot : vous entrez votre adresse, il scanne votre page et ressort un score sur 100 en quelques secondes. C'est à la fois utile et très incomplet."
     },
     {
       "type": "p",
@@ -355,7 +355,7 @@ const article: Article = {
       "type": "callout",
       "variant": "attention",
       "title": "Un score n'est pas un diagnostic",
-      "text": "Un 60/100 ne veut pas dire que votre site est « cassé » : ces notes n'ont aucune valeur officielle, Google n'attribue aucun score global. Servez-vous des outils gratuits pour débroussailler — jamais pour décider d'un investissement sous le coup de la peur."
+      "text": "Un 60/100 ne veut pas dire que votre site est « cassé » : ces notes n'ont aucune valeur officielle, Google n'attribue aucun score global. Servez-vous des outils gratuits pour débroussailler, jamais pour décider d'un investissement sous le coup de la peur."
     },
     {
       "type": "h2",
@@ -408,7 +408,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est cette dernière formule que nous pratiquons : le diagnostic initial est offert lors d'un rendez-vous de 30 minutes. Il sert ensuite de base à notre [accompagnement en référencement naturel](/referencement-seo/) si — et seulement si — il révèle un vrai potentiel pour votre activité."
+      "text": "C'est cette dernière formule que nous pratiquons : le diagnostic initial est offert lors d'un rendez-vous de 30 minutes. Il sert ensuite de base à notre [accompagnement en référencement naturel](/referencement-seo/) si, et seulement si, il révèle un vrai potentiel pour votre activité."
     },
     {
       "type": "h3",
@@ -462,17 +462,17 @@ const article: Article = {
       ],
       "rows": [
         [
-          "1 — Gains rapides (fort impact, faible effort)",
+          "1. Gains rapides (fort impact, faible effort)",
           "Réglages rapides",
           "Un robots.txt corrigé en 2 minutes a débloqué l'indexation de toutes les images d'une boutique (France Num, 2026)"
         ],
         [
-          "2 — Chantiers de fond (fort impact, gros effort)",
+          "2. Chantiers de fond (fort impact, gros effort)",
           "Réécriture, création de pages",
           "Une page réécrite après audit est passée de la 15e à la 2e position Google (France Num, 2026)"
         ],
         [
-          "3 — Peaufinage (faible impact)",
+          "3. Peaufinage (faible impact)",
           "Détails mineurs",
           "Micro-réglages techniques, optimisation d'images déjà correctes"
         ]
@@ -480,7 +480,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Avancez dans cet ordre et mesurez les effets : la **Search Console** suffit. Puis re-auditez tous les 12 à 18 mois pour un site vitrine, ou après chaque événement majeur — refonte, déménagement, baisse durable des demandes."
+      "text": "Avancez dans cet ordre et mesurez les effets : la **Search Console** suffit. Puis re-auditez tous les 12 à 18 mois pour un site vitrine, ou après chaque événement majeur : refonte, déménagement, baisse durable des demandes."
     },
     {
       "type": "callout",
@@ -495,7 +495,7 @@ const article: Article = {
     {
       "type": "cta",
       "title": "Faites auditer votre site gratuitement (30 min, sans jargon)",
-      "text": "Réservez un créneau de 30 minutes : nous passons votre site et votre fiche Google au contrôle technique, en direct avec vous, et vous repartez avec vos 3 priorités. Gratuit, sans engagement — et vous comprenez chaque mot.",
+      "text": "Réservez un créneau de 30 minutes : nous passons votre site et votre fiche Google au contrôle technique, en direct avec vous, et vous repartez avec vos 3 priorités. Gratuit, sans engagement, et vous comprenez chaque mot.",
       "button": "Réserver mon audit gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     }

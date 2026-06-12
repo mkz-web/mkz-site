@@ -91,7 +91,7 @@ export default function ConseilsContent({
         <HeroSub>
           Guides pratiques, tutoriels pas &agrave; pas et conseils SEO pour artisans,
           commer&ccedil;ants et TPE. Les m&ecirc;mes m&eacute;thodes que nous appliquons
-          pour nos clients — en acc&egrave;s libre.
+          pour nos clients, en acc&egrave;s libre.
         </HeroSub>
       </Hero>
 

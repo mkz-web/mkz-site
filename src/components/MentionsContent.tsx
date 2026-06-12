@@ -15,7 +15,7 @@ export default function MentionsContent() {
       <Title>Mentions l&eacute;gales</Title>
 
       <SectionTitle>&Eacute;diteur du site</SectionTitle>
-      <InfoLine><strong>MKZ</strong> &mdash; SAS &agrave; associ&eacute; unique</InfoLine>
+      <InfoLine><strong>MKZ</strong>, SAS &agrave; associ&eacute; unique</InfoLine>
       <InfoLine>SIRET : 983 662 784 00013</InfoLine>
       <InfoLine>RCS : Meaux</InfoLine>
       <InfoLine>Activit&eacute; : Conseil en syst&egrave;mes et logiciels informatiques</InfoLine>

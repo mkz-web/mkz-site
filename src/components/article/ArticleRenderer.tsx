@@ -319,7 +319,7 @@ const FaqItem = styled.details`
     &::-webkit-details-marker { display: none; }
     &::after { content: "+"; color: ${theme.colors.cta}; font-weight: 700; font-size: 18px; }
   }
-  &[open] summary::after { content: "–"; }
+  &[open] summary::after { content: "−"; }
   p { padding: 0 20px 16px; font-size: 15px; line-height: 1.7; color: ${theme.colors.textSecondary}; margin-top: 0; }
 `;
 
@@ -451,7 +451,7 @@ function renderBlock(block: Block, key: number): React.ReactNode {
       return (
         <QuoteBlock key={key}>
           « {block.text} »
-          {block.author && <footer>— {block.author}</footer>}
+          {block.author && <footer>{block.author}</footer>}
         </QuoteBlock>
       );
     case "cta":

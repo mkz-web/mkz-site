@@ -51,7 +51,7 @@ export default function CreationSiteInternetPage() {
           faq: pillar.faq,
           finalCta: {
             title: "Parlons de votre futur site",
-            text: "30 minutes au téléphone : on regarde votre projet, votre marché local et on vous donne un plan d'action concret — que vous travailliez avec nous ou non.",
+            text: "30 minutes au téléphone : on regarde votre projet, votre marché local et on vous donne un plan d'action concret, que vous travailliez avec nous ou non.",
             button: "Réserver mon audit gratuit",
           },
         }}

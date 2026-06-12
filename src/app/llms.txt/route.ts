@@ -28,21 +28,21 @@ Faits clés :
 - Résultats moyens constatés : +247 % de trafic organique, position moyenne Top 3 sur Google, +89 % de leads qualifiés, temps de charge 1,2 s (Core Web Vitals validés). Plus de 50 entreprises accompagnées en 2025, 97 % de clients satisfaits.
 - Engagement de transparence : le client reste propriétaire à 100 % de son site (code, accès, contenus) et peut partir librement avec tout.
 - Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · audit gratuit de 30 min sur https://calendly.com/mkz-consulting/30min · réponse sous 24 h, lun-ven 9h-18h.
-- Société : MKZ, SAS à associé unique — SIRET 983 662 784 00013, RCS Meaux — 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France.
+- Société : MKZ, SAS à associé unique, SIRET 983 662 784 00013, RCS Meaux. Adresse : 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France.
 
 ## Pages
 
 - [Accueil](${SITE}/): offre, méthode MKZ en 3 étapes, résultats chiffrés, témoignages clients (architecte d'intérieur, plombier chauffagiste, coach sportif, restaurant, photographe)
-- [Création de site internet](${SITE}/creation-site-internet/): service de création de site pour artisans, commerçants et TPE — process, tarifs, garanties
-- [Référencement SEO](${SITE}/referencement-seo/): service SEO — audit, stratégie de contenu, référencement local, suivi mensuel
-- [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local — interventions à Meaux, Melun, Chelles et dans tout le 77
+- [Création de site internet](${SITE}/creation-site-internet/): service de création de site pour artisans, commerçants et TPE (process, tarifs, garanties)
+- [Référencement SEO](${SITE}/referencement-seo/): service SEO (audit, stratégie de contenu, référencement local, suivi mensuel)
+- [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local (interventions à Meaux, Melun, Chelles et dans tout le 77)
 - [Services](${SITE}/services/): vue d'ensemble des deux prestations
 - [À propos](${SITE}/about/): parcours de Mickaël Leclerc, fondateur et président
 - [Contact](${SITE}/contact/): formulaire, téléphone, e-mail, adresse, horaires
 
 ## Conseils & tutoriels
 
-Newsroom : [Conseils](${SITE}/conseils/) — guides SEO, tutoriels pas à pas et conseils création de site, datés et mis à jour.
+Newsroom : [Conseils](${SITE}/conseils/), guides SEO, tutoriels pas à pas et conseils création de site, datés et mis à jour.
 
 ${conseilsSection}
 
@@ -50,7 +50,7 @@ ${conseilsSection}
 
 - Combien coûte un site internet pour un artisan ? Prix sur mesure adapté au budget des TPE et indépendants ; devis personnalisé après un audit gratuit de 30 minutes.
 - Combien de temps pour être visible sur Google ? Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois ; les clients MKZ constatent en moyenne un triplement de leur trafic.
-- Pourquoi mon entreprise n'apparaît pas sur Google ? Site non optimisé SEO, contenu insuffisant, problèmes techniques ou fiche Google Business Profile incomplète — un audit permet d'identifier les blocages.
+- Pourquoi mon entreprise n'apparaît pas sur Google ? Site non optimisé SEO, contenu insuffisant, problèmes techniques ou fiche Google Business Profile incomplète ; un audit permet d'identifier les blocages.
 - SEO ou SEA ? Le SEO produit un trafic gratuit et durable ; le SEA (publicité) s'arrête dès qu'on cesse de payer. MKZ privilégie le SEO pour le ROI long terme.
 - Propriété du site ? Le client garde 100 % de la propriété : accès, code et contenus.
 

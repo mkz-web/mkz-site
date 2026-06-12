@@ -6,20 +6,20 @@ const pillar: PillarPage = {
   "title": "Agence SEO en Seine-et-Marne : un référencement qui ramène des clients",
   "metaTitle": "Agence SEO Seine-et-Marne (77) : référencement rentable",
   "metaDescription": "Agence SEO en Seine-et-Marne : référencement Google pour artisans, commerçants et TPE. Tarifs clairs, méthode transparente, audit SEO gratuit de 30 min.",
-  "heroBadge": "Agence SEO — Seine-et-Marne (77)",
-  "heroLead": "Vos clients vous cherchent déjà sur Google. Nous faisons en sorte qu'ils vous trouvent, vous — pas vos concurrents. Méthode transparente, tarifs annoncés avant signature, résultats mesurés chaque mois.",
+  "heroBadge": "Agence SEO en Seine-et-Marne (77)",
+  "heroLead": "Vos clients vous cherchent déjà sur Google. Nous faisons en sorte qu'ils vous trouvent, vous, pas vos concurrents. Méthode transparente, tarifs annoncés avant signature, résultats mesurés chaque mois.",
   "blocks": [
     {
       "type": "p",
-      "text": "MKZ est une **agence SEO en Seine-et-Marne**, basée à Dammartin-en-Goële, dans le nord du 77. Notre métier : faire apparaître votre entreprise en haut de Google quand un client tape votre métier et sa ville — « plombier Meaux », « boulangerie Dammartin-en-Goële »."
+      "text": "MKZ est une **agence SEO en Seine-et-Marne**, basée à Dammartin-en-Goële, dans le nord du 77. Notre métier : faire apparaître votre entreprise en haut de Google quand un client tape votre métier et sa ville : « plombier Meaux », « boulangerie Dammartin-en-Goële »."
     },
     {
       "type": "p",
-      "text": "Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Résultat constaté chez nos clients en 2025 : **+247 % de trafic organique en moyenne** — c'est-à-dire les visites gratuites venues de Google."
+      "text": "Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Résultat constaté chez nos clients en 2025 : **+247 % de trafic organique en moyenne**, c'est-à-dire les visites gratuites venues de Google."
     },
     {
       "type": "p",
-      "text": "Vous êtes artisan, commerçant ou patron de TPE ? Notre offre est construite pour vous : zéro jargon, tarifs annoncés avant signature, aucun engagement-piège — et vous restez propriétaire de tout, du nom de domaine aux contenus."
+      "text": "Vous êtes artisan, commerçant ou patron de TPE ? Notre offre est construite pour vous : zéro jargon, tarifs annoncés avant signature, aucun engagement-piège. Et vous restez propriétaire de tout, du nom de domaine aux contenus."
     },
     {
       "type": "h2",
@@ -153,7 +153,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Vitesse, affichage mobile, sécurité, structure des pages : nous corrigeons tout ce qui empêche Google de bien lire votre site. S'il est trop ancien pour être sauvé, nous vous le disons honnêtement — notre offre de [création de site internet](/creation-site-internet/) prend alors le relais."
+      "text": "Vitesse, affichage mobile, sécurité, structure des pages : nous corrigeons tout ce qui empêche Google de bien lire votre site. S'il est trop ancien pour être sauvé, nous vous le disons honnêtement : notre offre de [création de site internet](/creation-site-internet/) prend alors le relais."
     },
     {
       "type": "h3",
@@ -165,11 +165,11 @@ const pillar: PillarPage = {
     },
     {
       "type": "h3",
-      "text": "4. Suivi mensuel : positions, appels, devis — des chiffres, pas du vent"
+      "text": "4. Suivi mensuel : positions, appels, devis (des chiffres, pas du vent)"
     },
     {
       "type": "p",
-      "text": "Chaque mois, un reporting lisible : vos positions sur Google, vos visiteurs, vos appels, vos demandes de devis. Et vous gardez l'accès à tous vos outils — dont la Google Search Console, l'outil gratuit de Google qui mesure votre visibilité : **vous voyez tout**, tout le temps."
+      "text": "Chaque mois, un reporting lisible : vos positions sur Google, vos visiteurs, vos appels, vos demandes de devis. Et vous gardez l'accès à tous vos outils, dont la Google Search Console, l'outil gratuit de Google qui mesure votre visibilité : **vous voyez tout**, tout le temps."
     },
     {
       "type": "callout",
@@ -179,7 +179,7 @@ const pillar: PillarPage = {
     {
       "type": "cta",
       "title": "Et votre site, où en est-il ?",
-      "text": "En 30 minutes, nous analysons votre site et votre fiche Google. Vous repartez avec un diagnostic clair — que vous travailliez ensuite avec nous ou non.",
+      "text": "En 30 minutes, nous analysons votre site et votre fiche Google. Vous repartez avec un diagnostic clair, que vous travailliez ensuite avec nous ou non.",
       "button": "Réserver mon audit SEO gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     },
@@ -190,7 +190,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "C'est la première question des dirigeants — et celle que le marché évite. Repère : le coût moyen d'une prestation SEO se situe **entre 500 € et 2 500 € par mois**, selon seo.fr (consulté en juin 2026). L'écart dépend de la concurrence de votre secteur et du volume de travail mensuel."
+      "text": "C'est la première question des dirigeants, et celle que le marché évite. Repère : le coût moyen d'une prestation SEO se situe **entre 500 € et 2 500 € par mois**, selon seo.fr (consulté en juin 2026). L'écart dépend de la concurrence de votre secteur et du volume de travail mensuel."
     },
     {
       "type": "h3",
@@ -233,7 +233,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Un **consultant SEO** indépendant travaille seul ; une grosse agence aligne intermédiaires et frais de structure. MKZ combine le meilleur des deux : la rigueur de méthode d'une agence, l'interlocuteur unique d'un consultant. Vous parlez directement à Mickaël Leclerc, fondateur, ingénieur IT depuis 20 ans — celui qui fait le travail, pas un commercial."
+      "text": "Un **consultant SEO** indépendant travaille seul ; une grosse agence aligne intermédiaires et frais de structure. MKZ combine le meilleur des deux : la rigueur de méthode d'une agence, l'interlocuteur unique d'un consultant. Vous parlez directement à Mickaël Leclerc, fondateur, ingénieur IT depuis 20 ans : celui qui fait le travail, pas un commercial."
     },
     {
       "type": "callout",
@@ -247,12 +247,12 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Comptez **3 à 6 mois** pour des progrès nets et durables — parfois moins sur des requêtes locales peu disputées, fréquentes en Seine-et-Marne. Les premiers signaux arrivent souvent avant : votre site s'affiche plus souvent dans Google, puis les clics et les appels suivent. Le reporting mensuel permet de vérifier la trajectoire."
+      "text": "Comptez **3 à 6 mois** pour des progrès nets et durables, parfois moins sur des requêtes locales peu disputées, fréquentes en Seine-et-Marne. Les premiers signaux arrivent souvent avant : votre site s'affiche plus souvent dans Google, puis les clics et les appels suivent. Le reporting mensuel permet de vérifier la trajectoire."
     },
     {
       "type": "ul",
       "items": [
-        "**Mois 1 à 2** : corrections techniques et fiche Google optimisée — Google redécouvre votre site.",
+        "**Mois 1 à 2** : corrections techniques et fiche Google optimisée ; Google redécouvre votre site.",
         "**Mois 3 à 6** : progression des positions sur vos requêtes « métier + ville », premiers appels et devis.",
         "**Après 6 mois** : les positions acquises s'entretiennent et continuent de produire, sans budget publicitaire."
       ]
@@ -261,7 +261,7 @@ const pillar: PillarPage = {
       "type": "callout",
       "variant": "attention",
       "title": "Méfiez-vous des promesses",
-      "text": "Personne ne peut garantir la première position sur Google — Google recommande lui-même de se méfier des prestataires qui la promettent. Un professionnel honnête s'engage sur sa méthode et ses livrables, jamais sur une position précise."
+      "text": "Personne ne peut garantir la première position sur Google. Google recommande lui-même de se méfier des prestataires qui la promettent. Un professionnel honnête s'engage sur sa méthode et ses livrables, jamais sur une position précise."
     },
     {
       "type": "h2",
@@ -274,7 +274,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Concrètement : des données structurées que les robots IA savent lire, des informations vérifiables (adresse, zone d'intervention, services, chiffres sourcés), des contenus formulés pour être repris tels quels. Presque personne ne le propose encore aux TPE du département — nous l'appliquons déjà, à commencer par notre propre site."
+      "text": "Concrètement : des données structurées que les robots IA savent lire, des informations vérifiables (adresse, zone d'intervention, services, chiffres sourcés), des contenus formulés pour être repris tels quels. Presque personne ne le propose encore aux TPE du département ; nous l'appliquons déjà, à commencer par notre propre site."
     },
     {
       "type": "callout",
@@ -284,11 +284,11 @@ const pillar: PillarPage = {
     {
       "type": "h2",
       "id": "agence-seo-nord-77",
-      "text": "MKZ, l'agence SEO du nord Seine-et-Marne — Dammartin-en-Goële, Meaux, Roissy"
+      "text": "MKZ, l'agence SEO du nord Seine-et-Marne : Dammartin-en-Goële, Meaux, Roissy"
     },
     {
       "type": "p",
-      "text": "La plupart des agences du département sont installées dans le sud (Fontainebleau, Melun) ou autour de Marne-la-Vallée. Le nord du 77 — Dammartin-en-Goële, Meaux, Roissy, Mitry-Mory, Claye-Souilly — restait sans agence SEO de proximité. C'est ici que MKZ est née."
+      "text": "La plupart des agences du département sont installées dans le sud (Fontainebleau, Melun) ou autour de Marne-la-Vallée. Le nord du 77 (Dammartin-en-Goële, Meaux, Roissy, Mitry-Mory, Claye-Souilly) restait sans agence SEO de proximité. C'est ici que MKZ est née."
     },
     {
       "type": "p",
@@ -300,7 +300,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Nom de domaine, hébergement, textes, photos, fiche Google, statistiques : tout est ouvert à votre nom dès le premier jour. Si vous partez demain, vous partez avec tout — sans frais de sortie, sans rétention."
+      "text": "Nom de domaine, hébergement, textes, photos, fiche Google, statistiques : tout est ouvert à votre nom dès le premier jour. Si vous partez demain, vous partez avec tout, sans frais de sortie, sans rétention."
     },
     {
       "type": "h3",
@@ -314,7 +314,7 @@ const pillar: PillarPage = {
       "type": "ul",
       "items": [
         "**On parle français** : chaque terme technique est expliqué, chaque action justifiée.",
-        "**Je décroche** : vous appelez, c'est le fondateur qui répond — pas un standard.",
+        "**Je décroche** : vous appelez, c'est le fondateur qui répond, pas un standard.",
         "**Vous voyez tout** : accès permanent à vos outils et à vos chiffres, reporting mensuel lisible.",
         "**Vous restez libre** : sans engagement de durée, propriétaire de tout, à 100 %."
       ]
@@ -332,7 +332,7 @@ const pillar: PillarPage = {
       "type": "ul",
       "items": [
         "**Audit SEO gratuit** : 30 minutes, en visio ou par téléphone, diagnostic clair à la clé",
-        "**Localisation** : Dammartin-en-Goële (Seine-et-Marne) — interventions dans tout le 77 et en Île-de-France",
+        "**Localisation** : Dammartin-en-Goële (Seine-et-Marne), interventions dans tout le 77 et en Île-de-France",
         "**Contact** : réservation en ligne ci-dessous, réponse personnelle du fondateur"
       ]
     },

@@ -24,7 +24,7 @@ export default function ConfidentialiteContent() {
       </Text>
 
       <SectionTitle>Responsable du traitement</SectionTitle>
-      <InfoLine><strong>MKZ</strong> &mdash; SAS &agrave; associ&eacute; unique</InfoLine>
+      <InfoLine><strong>MKZ</strong>, SAS &agrave; associ&eacute; unique</InfoLine>
       <InfoLine>1 rue Fran&ccedil;oise Sagan, 77230 Dammartin-en-Go&euml;le</InfoLine>
       <InfoLine>Email : <Link href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</Link></InfoLine>
       <InfoLine>T&eacute;l&eacute;phone : <Link href="tel:0769093909">07 69 09 39 09</Link></InfoLine>
@@ -68,8 +68,8 @@ export default function ConfidentialiteContent() {
       </Text>
       <Text>Elles peuvent &ecirc;tre trait&eacute;es par les sous-traitants suivants, strictement n&eacute;cessaires au fonctionnement du service :</Text>
       <List>
-        <ListItem><strong>OVH</strong> &mdash; H&eacute;bergement du site web (France)</ListItem>
-        <ListItem><strong>Calendly</strong> &mdash; Gestion de la prise de rendez-vous en ligne</ListItem>
+        <ListItem><strong>OVH</strong> : h&eacute;bergement du site web (France)</ListItem>
+        <ListItem><strong>Calendly</strong> : gestion de la prise de rendez-vous en ligne</ListItem>
       </List>
 
       <SectionTitle>Vos droits</SectionTitle>

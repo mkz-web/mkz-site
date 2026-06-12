@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/refonte-site-internet.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -15,7 +15,7 @@ const article: Article = {
   "excerpt": "Votre site a pris un coup de vieux, ne ramène plus de clients ou s'affiche mal sur téléphone ? Ce guide sans jargon vous donne les **prix réels** d'une refonte, les **7 étapes** à suivre et le moyen d'éviter le piège n°1 : perdre votre référencement Google. Écrit pour les artisans, commerçants et TPE.",
   "tldr": [
     "Fourchettes constatées en 2026 : 1 000 à 5 000 € pour la refonte d'un site vitrine, 5 000 à 15 000 € pour un site e-commerce (Ideagency, juin 2026).",
-    "Le piège n°1 : mettre en ligne sans plan de redirections 301 — le trafic Google peut s'effondrer en quelques jours.",
+    "Le piège n°1 : mettre en ligne sans plan de redirections 301 ; le trafic Google peut s'effondrer en quelques jours.",
     "Comptez 4 à 8 semaines pour un site vitrine de TPE ; une refonte totale s'envisage environ tous les 5 ans (NOIISE, janvier 2025).",
     "48 % des TPE-PME citent l'acquisition de nouveaux clients comme premier bénéfice de leur site (Baromètre France Num 2025).",
     "Avant de signer : restez propriétaire de votre nom de domaine, de votre hébergement et de vos contenus."
@@ -23,11 +23,11 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Refaire son site, c'est comme rénover sa boutique : nécessaire, mais on redoute la facture et les mauvaises surprises. Voici les réponses en trois lignes. **Quand ?** Dès que votre site s'affiche mal sur mobile, met plus de 3 secondes à charger ou ne génère plus d'appels — et au plus tard tous les 5 ans environ. **À quel prix ?** De 1 000 à 5 000 € pour un site vitrine, selon les fourchettes constatées sur le marché français (Ideagency, juin 2026). **Comment ?** En 7 étapes, avec un point non négociable : les **redirections 301**, sans lesquelles vous pouvez perdre des années de référencement Google en une nuit."
+      "text": "Refaire son site, c'est comme rénover sa boutique : nécessaire, mais on redoute la facture et les mauvaises surprises. Voici les réponses en trois lignes. **Quand ?** Dès que votre site s'affiche mal sur mobile, met plus de 3 secondes à charger ou ne génère plus d'appels, et au plus tard tous les 5 ans environ. **À quel prix ?** De 1 000 à 5 000 € pour un site vitrine, selon les fourchettes constatées sur le marché français (Ideagency, juin 2026). **Comment ?** En 7 étapes, avec un point non négociable : les **redirections 301**, sans lesquelles vous pouvez perdre des années de référencement Google en une nuit."
     },
     {
       "type": "p",
-      "text": "Ce guide est écrit pour vous, artisan, commerçant ou patron de TPE — pas pour un directeur marketing. Repères concrets, prix transparents, zéro jargon : la méthode MKZ pour **refaire un site internet** sans casser ce qui fonctionne."
+      "text": "Ce guide est écrit pour vous, artisan, commerçant ou patron de TPE, pas pour un directeur marketing. Repères concrets, prix transparents, zéro jargon : la méthode MKZ pour **refaire un site internet** sans casser ce qui fonctionne."
     },
     {
       "type": "h2",
@@ -36,7 +36,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La **refonte de site internet** désigne la transformation en profondeur d'un site existant : design, structure, contenus ou technique. Contrairement à une simple mise à jour, elle modifie l'ossature du site — sans repartir de zéro, puisqu'on conserve le nom de domaine et l'historique acquis sur Google."
+      "text": "La **refonte de site internet** désigne la transformation en profondeur d'un site existant : design, structure, contenus ou technique. Contrairement à une simple mise à jour, elle modifie l'ossature du site, sans repartir de zéro puisqu'on conserve le nom de domaine et l'historique acquis sur Google."
     },
     {
       "type": "p",
@@ -88,7 +88,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Prenez votre téléphone et ouvrez votre site. Texte minuscule, boutons impossibles à toucher, menu qui déborde ? Vos clients vivent la même chose — et la plupart vous cherchent depuis leur téléphone, souvent en urgence. Google, lui, évalue d'abord la version mobile : un site illisible sur smartphone est doublement pénalisant."
+      "text": "Prenez votre téléphone et ouvrez votre site. Texte minuscule, boutons impossibles à toucher, menu qui déborde ? Vos clients vivent la même chose, et la plupart vous cherchent depuis leur téléphone, souvent en urgence. Google, lui, évalue d'abord la version mobile : un site illisible sur smartphone est doublement pénalisant."
     },
     {
       "type": "h3",
@@ -104,7 +104,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un site n'est pas une carte de visite décorative : c'est un commercial qui travaille 24 h/24. L'acquisition de nouveaux clients est le premier bénéfice d'un site cité par les TPE-PME (48 %), devant l'image de modernité (39 %) — Baromètre France Num 2025. Téléphone muet, formulaire vide ? Votre site ne fait plus son travail."
+      "text": "Un site n'est pas une carte de visite décorative : c'est un commercial qui travaille 24 h/24. L'acquisition de nouveaux clients est le premier bénéfice d'un site cité par les TPE-PME (48 %), devant l'image de modernité (39 %), selon le Baromètre France Num 2025. Téléphone muet, formulaire vide ? Votre site ne fait plus son travail."
     },
     {
       "type": "h3",
@@ -112,7 +112,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Vos clients jugent votre sérieux en quelques secondes, sur votre seule page d'accueil. Photos pixelisées, couleurs criardes, mention « copyright 2017 » : un design daté envoie le même signal qu'une devanture défraîchie — on hésite à pousser la porte. **Moderniser un site internet**, ce n'est pas de la coquetterie, c'est de la confiance."
+      "text": "Vos clients jugent votre sérieux en quelques secondes, sur votre seule page d'accueil. Photos pixelisées, couleurs criardes, mention « copyright 2017 » : un design daté envoie le même signal qu'une devanture défraîchie : on hésite à pousser la porte. **Moderniser un site internet**, ce n'est pas de la coquetterie, c'est de la confiance."
     },
     {
       "type": "h3",
@@ -120,7 +120,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Changer un horaire ne devrait pas prendre trois e-mails et deux semaines. Si vous dépendez d'un prestataire injoignable pour la moindre virgule, vous avez perdu le contrôle de votre outil de travail. Pire : vérifiez qui détient votre **nom de domaine** et votre **hébergement** — si ce n'est pas vous, votre site ne vous appartient pas vraiment."
+      "text": "Changer un horaire ne devrait pas prendre trois e-mails et deux semaines. Si vous dépendez d'un prestataire injoignable pour la moindre virgule, vous avez perdu le contrôle de votre outil de travail. Pire : vérifiez qui détient votre **nom de domaine** et votre **hébergement**. Si ce n'est pas vous, votre site ne vous appartient pas vraiment."
     },
     {
       "type": "p",
@@ -138,7 +138,7 @@ const article: Article = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "Dans le bâtiment, seules 53,4 % des entreprises ont un site web, contre 64,6 % toutes TPE-PME confondues (Baromètre France Num 2025, exploitation publiée sur data.gouv.fr, mai 2026). Un site moderne et rapide reste un vrai facteur de différenciation locale — surtout chez les artisans."
+      "text": "Dans le bâtiment, seules 53,4 % des entreprises ont un site web, contre 64,6 % toutes TPE-PME confondues (Baromètre France Num 2025, exploitation publiée sur data.gouv.fr, mai 2026). Un site moderne et rapide reste un vrai facteur de différenciation locale, surtout chez les artisans."
     },
     {
       "type": "h2",
@@ -147,7 +147,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Réponse directe, parce que c'est la question n°1 — et que peu d'agences osent y répondre : comptez de **1 000 à 5 000 €** pour la refonte d'un site vitrine et de **5 000 à 15 000 €** pour un site e-commerce, fourchettes constatées sur le marché français (Ideagency, juin 2026)."
+      "text": "Réponse directe, parce que c'est la question n°1, et que peu d'agences osent y répondre : comptez de **1 000 à 5 000 €** pour la refonte d'un site vitrine et de **5 000 à 15 000 €** pour un site e-commerce, fourchettes constatées sur le marché français (Ideagency, juin 2026)."
     },
     {
       "type": "h3",
@@ -203,11 +203,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les TPE qui investissent dans leur site sont de plus en plus nombreuses : 17 % y consacrent plus de 1 000 € par an (+4 points en un an), et 7 % plus de 5 000 € — une part qui a doublé (étude Afnic, décembre 2024). Et ça rapporte : 56 % des TPE-PME obtiennent au moins 5 % de leurs clients via internet, +13 points depuis 2022 (Baromètre France Num 2024)."
+      "text": "Les TPE qui investissent dans leur site sont de plus en plus nombreuses : 17 % y consacrent plus de 1 000 € par an (+4 points en un an), et 7 % plus de 5 000 €, une part qui a doublé (étude Afnic, décembre 2024). Et ça rapporte : 56 % des TPE-PME obtiennent au moins 5 % de leurs clients via internet, +13 points depuis 2022 (Baromètre France Num 2024)."
     },
     {
       "type": "p",
-      "text": "Faites le calcul : si une refonte à 3 000 € vous apporte un seul chantier de plus par mois, elle est remboursée en quelques semaines. La bonne question n'est pas « combien ça coûte » mais « combien ça doit rapporter » — à écrire noir sur blanc dans le cahier des charges."
+      "text": "Faites le calcul : si une refonte à 3 000 € vous apporte un seul chantier de plus par mois, elle est remboursée en quelques semaines. La bonne question n'est pas « combien ça coûte » mais « combien ça doit rapporter », à écrire noir sur blanc dans le cahier des charges."
     },
     {
       "type": "callout",
@@ -289,7 +289,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "L'étape la plus négligée — et la plus lourde de conséquences. Avant la mise en ligne, chaque ancienne adresse doit rediriger vers sa nouvelle version : c'est le **plan de redirections 301**. Le sujet mérite une section entière, juste en dessous."
+      "text": "L'étape la plus négligée, et la plus lourde de conséquences. Avant la mise en ligne, chaque ancienne adresse doit rediriger vers sa nouvelle version : c'est le **plan de redirections 301**. Le sujet mérite une section entière, juste en dessous."
     },
     {
       "type": "h3",
@@ -297,7 +297,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Reprenez les objectifs de l'étape 2 et suivez-les : visites, appels, devis, positions Google. L'outil indispensable et gratuit : Google Search Console — notre tutoriel pour [connecter votre site à la Search Console](/conseils/tutoriels/connecter-site-google-search-console/) vous guide pas à pas. Surveillez de près les 4 à 6 premières semaines."
+      "text": "Reprenez les objectifs de l'étape 2 et suivez-les : visites, appels, devis, positions Google. L'outil indispensable et gratuit : Google Search Console. Notre tutoriel pour [connecter votre site à la Search Console](/conseils/tutoriels/connecter-site-google-search-console/) vous guide pas à pas. Surveillez de près les 4 à 6 premières semaines."
     },
     {
       "type": "h2",
@@ -306,7 +306,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le scénario que nous voyons le plus souvent en rendez-vous : un artisan fait refaire son site, le résultat est superbe… et trois semaines plus tard, le téléphone ne sonne plus. L'ancien site cumulait des années de présence sur Google ; le nouveau est reparti de zéro, parce que personne n'a prévenu Google du déménagement. Le piège n°1 de la refonte — entièrement évitable."
+      "text": "Le scénario que nous voyons le plus souvent en rendez-vous : un artisan fait refaire son site, le résultat est superbe… et trois semaines plus tard, le téléphone ne sonne plus. L'ancien site cumulait des années de présence sur Google ; le nouveau est reparti de zéro, parce que personne n'a prévenu Google du déménagement. Le piège n°1 de la refonte, entièrement évitable."
     },
     {
       "type": "callout",
@@ -320,14 +320,14 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Lors d'une refonte (ou d'une **migration de site**), les adresses de vos pages changent presque toujours. Le plan de redirections est un simple tableau à deux colonnes — ancienne adresse vers nouvelle adresse — préparé AVANT la mise en ligne :"
+      "text": "Lors d'une refonte (ou d'une **migration de site**), les adresses de vos pages changent presque toujours. Le plan de redirections est un simple tableau à deux colonnes (ancienne adresse vers nouvelle adresse), préparé AVANT la mise en ligne :"
     },
     {
       "type": "ol",
       "items": [
         "Listez toutes les adresses de l'ancien site (votre prestataire sait les extraire automatiquement).",
         "Repérez celles qui reçoivent du trafic Google ou des liens d'autres sites : priorités absolues.",
-        "Associez chaque ancienne adresse à la page la plus proche du nouveau site — page à page, jamais tout vers l'accueil.",
+        "Associez chaque ancienne adresse à la page la plus proche du nouveau site : page à page, jamais tout vers l'accueil.",
         "Activez les redirections au moment exact de la mise en ligne.",
         "Testez les anciennes adresses, puis surveillez les erreurs 404 dans la Search Console."
       ]
@@ -344,7 +344,7 @@ const article: Article = {
     {
       "type": "ol",
       "items": [
-        "**Mettre en ligne sans plan de redirections.** Les anciennes pages tombent en erreur 404 : Google perd ses repères et déclasse le site. L'erreur la plus fréquente — et la plus coûteuse.",
+        "**Mettre en ligne sans plan de redirections.** Les anciennes pages tombent en erreur 404 : Google perd ses repères et déclasse le site. L'erreur la plus fréquente, et la plus coûteuse.",
         "**Tout rediriger vers la page d'accueil.** Google traite ces redirections « paresseuses » comme des pages disparues. Chaque ancienne page mérite sa destination précise.",
         "**Supprimer les pages qui se positionnent bien.** Une page en première page de Google est un actif. On la modernise, on ne la jette pas.",
         "**Oublier de lever le « noindex » de la version de test.** Pendant le développement, le site est volontairement caché de Google ; si le verrou n'est pas retiré à la mise en ligne, le site neuf reste invisible. Un grand classique.",
@@ -357,7 +357,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Vos futurs clients ne passent plus uniquement par Google : ils posent aussi leurs questions à ChatGPT ou lisent les réponses générées par l'IA en haut des résultats. Et une TPE-PME sur quatre utilise déjà une solution d'intelligence artificielle — une proportion qui a doublé en un an (Baromètre France Num 2025)."
+      "text": "Vos futurs clients ne passent plus uniquement par Google : ils posent aussi leurs questions à ChatGPT ou lisent les réponses générées par l'IA en haut des résultats. Et une TPE-PME sur quatre utilise déjà une solution d'intelligence artificielle, une proportion qui a doublé en un an (Baromètre France Num 2025)."
     },
     {
       "type": "p",
@@ -376,7 +376,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Pour un site vitrine de TPE, comptez **4 à 8 semaines** entre le premier rendez-vous et la mise en ligne — notre constat chez MKZ. Comptez 3 à 6 mois pour une PME riche en contenus (Invox, janvier 2026), et une refonte totale environ tous les 5 ans (NOIISE, janvier 2025)."
+      "text": "Pour un site vitrine de TPE, comptez **4 à 8 semaines** entre le premier rendez-vous et la mise en ligne (notre constat chez MKZ). Comptez 3 à 6 mois pour une PME riche en contenus (Invox, janvier 2026), et une refonte totale environ tous les 5 ans (NOIISE, janvier 2025)."
     },
     {
       "type": "table",
@@ -445,7 +445,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un critère reste non négociable : la **propriété**. Nom de domaine, hébergement, contenus, accès d'administration — tout doit être à votre nom. C'est le cœur de notre méthode d'[agence web en Seine-et-Marne](/agence-web-77/) : nos clients restent propriétaires à 100 %, sans abonnement-prison."
+      "text": "Un critère reste non négociable : la **propriété**. Nom de domaine, hébergement, contenus, accès d'administration : tout doit être à votre nom. C'est le cœur de notre méthode d'[agence web en Seine-et-Marne](/agence-web-77/) : nos clients restent propriétaires à 100 %, sans abonnement-prison."
     },
     {
       "type": "callout",
@@ -461,7 +461,7 @@ const article: Article = {
     {
       "type": "cta",
       "title": "Et si on regardait votre site ensemble ?",
-      "text": "30 minutes au téléphone, gratuites et sans engagement : nous passons votre site en revue et vous disons franchement si une refonte se justifie — et à quel prix.",
+      "text": "30 minutes au téléphone, gratuites et sans engagement : nous passons votre site en revue et vous disons franchement si une refonte se justifie, et à quel prix.",
       "button": "Réserver mon audit gratuit de 30 min",
       "href": "https://calendly.com/mkz-consulting/30min"
     }
