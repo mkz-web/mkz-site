@@ -106,7 +106,18 @@ npm run dev
 
 # Build (génère le dossier out/)
 npm run build
+
+# Validation SEO du build (JSON-LD, titles/metas, maillage interne)
+node scripts/validate-out.mjs
 ```
+
+## Newsroom `/conseils/`
+
+Le site embarque une newsroom organisée en 3 cocons sémantiques (tutoriels clients, création de site internet, SEO), reliés aux pages piliers `/creation-site-internet/`, `/referencement-seo/` et `/agence-web-77/`.
+
+- Les articles vivent dans `src/content/articles/*.ts` (générés par `node scripts/ingest-content.mjs`).
+- `sitemap.xml`, `llms.txt` et `llms-full.txt` sont **générés au build** depuis le registre d'articles.
+- Les emplacements de captures d'écran des tutoriels s'activent en ajoutant `src` aux blocs `screenshot` (images dans `public/images/conseils/`).
 
 ## Déploiement (Cloudflare Pages)
 

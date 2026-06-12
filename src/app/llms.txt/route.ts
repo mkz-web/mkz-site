@@ -1,4 +1,23 @@
-# MKZ
+import { articles, articleUrl, categories, articlesByCategory, stripInline } from "@/lib/articles";
+
+// llms.txt (format llmstxt.org) généré au build depuis le registre de contenu.
+
+export const dynamic = "force-static";
+
+const SITE = "https://mkz-consulting.fr";
+
+export function GET() {
+  const conseilsSection = categories
+    .map((c) => {
+      const list = articlesByCategory(c.slug);
+      const lines = list.map(
+        (a) => `- [${a.title}](${SITE}${articleUrl(a)}): ${stripInline(a.excerpt)}`
+      );
+      return `### ${c.name}\n\n${lines.join("\n")}`;
+    })
+    .join("\n\n");
+
+  const body = `# MKZ
 
 > MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Fondateur : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps.
 
@@ -13,10 +32,19 @@ Faits clés :
 
 ## Pages
 
-- [Accueil](https://mkz-consulting.fr/): offre, méthode MKZ en 3 étapes, résultats chiffrés, témoignages clients (architecte d'intérieur, plombier chauffagiste, coach sportif, restaurant, photographe)
-- [Services](https://mkz-consulting.fr/services/): détail des deux prestations — création de site web et SEO & référencement
-- [À propos](https://mkz-consulting.fr/about/): parcours de Mickaël Leclerc, fondateur et président
-- [Contact](https://mkz-consulting.fr/contact/): formulaire, téléphone, e-mail, adresse, horaires
+- [Accueil](${SITE}/): offre, méthode MKZ en 3 étapes, résultats chiffrés, témoignages clients (architecte d'intérieur, plombier chauffagiste, coach sportif, restaurant, photographe)
+- [Création de site internet](${SITE}/creation-site-internet/): service de création de site pour artisans, commerçants et TPE — process, tarifs, garanties
+- [Référencement SEO](${SITE}/referencement-seo/): service SEO — audit, stratégie de contenu, référencement local, suivi mensuel
+- [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local — interventions à Meaux, Melun, Chelles et dans tout le 77
+- [Services](${SITE}/services/): vue d'ensemble des deux prestations
+- [À propos](${SITE}/about/): parcours de Mickaël Leclerc, fondateur et président
+- [Contact](${SITE}/contact/): formulaire, téléphone, e-mail, adresse, horaires
+
+## Conseils & tutoriels
+
+Newsroom : [Conseils](${SITE}/conseils/) — guides SEO, tutoriels pas à pas et conseils création de site, datés et mis à jour.
+
+${conseilsSection}
 
 ## FAQ
 
@@ -28,6 +56,12 @@ Faits clés :
 
 ## Optional
 
-- [Mentions légales](https://mkz-consulting.fr/mentions-legales/)
-- [Politique de confidentialité](https://mkz-consulting.fr/politique-confidentialite/)
-- [Version détaillée pour LLM](https://mkz-consulting.fr/llms-full.txt)
+- [Mentions légales](${SITE}/mentions-legales/)
+- [Politique de confidentialité](${SITE}/politique-confidentialite/)
+- [Version détaillée pour LLM](${SITE}/llms-full.txt)
+`;
+
+  return new Response(body, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}

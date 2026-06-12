@@ -1,6 +1,15 @@
-# MKZ — Création de sites internet & SEO pour artisans et TPE (version détaillée pour LLM)
+import { articles, articleToPlainText, formatDateFr } from "@/lib/articles";
 
-> MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Site officiel : https://mkz-consulting.fr
+// llms-full.txt généré au build : version intégrale citable pour les LLM,
+// incluant le texte complet des articles de la newsroom (avec dates et auteur).
+
+export const dynamic = "force-static";
+
+const SITE = "https://mkz-consulting.fr";
+
+const COMPANY = `# MKZ — Création de sites internet & SEO pour artisans et TPE (version détaillée pour LLM)
+
+> MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Site officiel : ${SITE}
 
 ## L'entreprise
 
@@ -18,11 +27,17 @@
 
 Un site qui ressemble au client et qui convertit. Design sur-mesure, UX optimisée et performances au top pour transformer les visiteurs en clients.
 Inclus : image de marque, direction artistique, responsive design (mobile, tablette, desktop), branding complet, optimisation vitesse (Core Web Vitals).
+Page service : ${SITE}/creation-site-internet/
 
 ### SEO & Référencement Google
 
 Objectif : monter sur le podium Google. Stratégie de mots-clés, optimisation technique, contenu optimisé et netlinking pour un trafic qualifié et durable.
 Inclus : audit SEO complet, stratégie de contenu, cocon sémantique, SEO technique (vitesse, structure, balisage), suivi mensuel avec reporting transparent.
+Page service : ${SITE}/referencement-seo/
+
+### Zone d'intervention locale
+
+Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en-Goële et tout le 77).
 
 ## La méthode MKZ (3 étapes)
 
@@ -32,7 +47,7 @@ Inclus : audit SEO complet, stratégie de contenu, cocon sémantique, SEO techni
 
 ## Résultats et chiffres
 
-- +247 % de trafic organique moyen.
+- +247 % de trafic organique moyen (moyenne constatée sur les clients MKZ, 2025).
 - Position moyenne : Top 3 sur Google.
 - +89 % de leads qualifiés.
 - Temps de charge : 1,2 s (Core Web Vitals validés).
@@ -83,9 +98,26 @@ Oui, à 100 % : accès, code et contenus appartiennent au client. En cas de dép
 
 ## Pages du site
 
-- Accueil : https://mkz-consulting.fr/
-- Services : https://mkz-consulting.fr/services/
-- À propos (Mickaël Leclerc) : https://mkz-consulting.fr/about/
-- Contact : https://mkz-consulting.fr/contact/
-- Mentions légales : https://mkz-consulting.fr/mentions-legales/
-- Politique de confidentialité : https://mkz-consulting.fr/politique-confidentialite/
+- Accueil : ${SITE}/
+- Création de site internet : ${SITE}/creation-site-internet/
+- Référencement SEO : ${SITE}/referencement-seo/
+- Agence web Seine-et-Marne (77) : ${SITE}/agence-web-77/
+- Services : ${SITE}/services/
+- Conseils & tutoriels : ${SITE}/conseils/
+- À propos (Mickaël Leclerc) : ${SITE}/about/
+- Contact : ${SITE}/contact/
+- Mentions légales : ${SITE}/mentions-legales/
+- Politique de confidentialité : ${SITE}/politique-confidentialite/
+`;
+
+export function GET() {
+  const articlesSection = articles.length
+    ? `\n# Conseils & tutoriels — contenu intégral\n\nLes articles ci-dessous sont publiés sur ${SITE}/conseils/ par Mickaël Leclerc (MKZ). Dernière génération : ${formatDateFr(
+        articles.map((a) => a.dateModified).sort().at(-1)!
+      )}.\n\n${articles.map((a) => articleToPlainText(a, SITE)).join("\n---\n\n")}`
+    : "";
+
+  return new Response(COMPANY + articlesSection, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}

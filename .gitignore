@@ -80,6 +80,10 @@ deploy.sh
 Audit-*.docx
 audit-data.json
 
+# Dossiers de travail éditorial (recherche SERP + staging rédaction) — hors repo site
+/_research/
+/_content-staging/
+
 # Misc
 *.log
 *.bak

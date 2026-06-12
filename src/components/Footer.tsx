@@ -23,7 +23,11 @@ const Grid = styled.div`
   gap: 48px;
 
   @media (min-width: ${theme.breakpoints.md}) {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: 2fr 1.2fr 1.2fr 1fr 1fr;
   }
 `;
 
@@ -127,9 +131,20 @@ export default function Footer() {
           <div>
             <GroupTitle>Services</GroupTitle>
             <LinkList>
-              <li><FooterLink href="/services">Cr&eacute;ation de site web</FooterLink></li>
-              <li><FooterLink href="/services">SEO &amp; R&eacute;f&eacute;rencement</FooterLink></li>
+              <li><FooterLink href="/creation-site-internet">Cr&eacute;ation de site internet</FooterLink></li>
+              <li><FooterLink href="/referencement-seo">R&eacute;f&eacute;rencement SEO</FooterLink></li>
+              <li><FooterLink href="/agence-web-77">Agence web Seine-et-Marne</FooterLink></li>
               <li><FooterExtLink href={CALENDLY} target="_blank" rel="noopener noreferrer">Audit gratuit</FooterExtLink></li>
+            </LinkList>
+          </div>
+
+          <div>
+            <GroupTitle>Conseils</GroupTitle>
+            <LinkList>
+              <li><FooterLink href="/conseils/tutoriels">Tutoriels pas &agrave; pas</FooterLink></li>
+              <li><FooterLink href="/conseils/creation-site-internet">Conseils cr&eacute;ation de site</FooterLink></li>
+              <li><FooterLink href="/conseils/seo">Conseils SEO &amp; visibilit&eacute;</FooterLink></li>
+              <li><FooterLink href="/conseils">Tous les conseils</FooterLink></li>
             </LinkList>
           </div>
 
@@ -146,6 +161,7 @@ export default function Footer() {
             <GroupTitle>Liens</GroupTitle>
             <LinkList>
               <li><FooterLink href="/">Accueil</FooterLink></li>
+              <li><FooterLink href="/services">Services</FooterLink></li>
               <li><FooterLink href="/about">&Agrave; propos</FooterLink></li>
               <li><FooterLink href="/contact">Contact</FooterLink></li>
             </LinkList>
