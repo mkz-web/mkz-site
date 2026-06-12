@@ -124,7 +124,7 @@ export default function Footer() {
               Votre visibilit&eacute;, notre mission. Cr&eacute;ation de sites web et SEO pour artisans, commer&ccedil;ants et ind&eacute;pendants.
             </BrandDescription>
             <ContactInfo style={{ marginTop: 12 }}>
-              MKZ &mdash; SIRET : 983 662 784 00013 &mdash; RCS Meaux
+              MKZ &middot; SIRET : 983 662 784 00013 &middot; RCS Meaux
             </ContactInfo>
           </div>
 

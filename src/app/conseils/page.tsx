@@ -24,7 +24,7 @@ export default function ConseilsPage() {
     <>
       <JsonLd
         data={collectionPageSchema({
-          name: "Conseils & tutoriels — MKZ",
+          name: "Conseils & tutoriels MKZ",
           description:
             "Guides SEO, tutoriels pas à pas et conseils création de site pour artisans, commerçants et TPE.",
           url: "/conseils/",

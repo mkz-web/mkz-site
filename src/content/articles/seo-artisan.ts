@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/seo-artisan.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -8,7 +8,7 @@ const article: Article = {
   "category": "seo",
   "title": "SEO artisan : être visible sur Google et trouver des chantiers",
   "metaTitle": "SEO artisan : le plan simple pour être visible sur Google",
-  "metaDescription": "Plombier, électricien, menuisier : le plan SEO artisan en 2 h par semaine. Fiche Google, avis, pages locales — soyez visible et décrochez des chantiers.",
+  "metaDescription": "Plombier, électricien, menuisier : le plan SEO artisan en 2 h par semaine. Fiche Google, avis, pages locales : soyez visible et décrochez des chantiers.",
   "datePublished": "2026-06-12",
   "dateModified": "2026-06-12",
   "readingMinutes": 10,
@@ -22,11 +22,11 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Pour être visible sur Google quand on est artisan, trois leviers suffisent. Une **fiche Google Business Profile** complète et tenue à jour, un site internet avec une page par métier et par ville d'intervention, et des **avis clients** récoltés régulièrement. C'est tout l'enjeu du **SEO artisan** — et non, il ne faut pas être ingénieur pour s'y mettre."
+      "text": "Pour être visible sur Google quand on est artisan, trois leviers suffisent. Une **fiche Google Business Profile** complète et tenue à jour, un site internet avec une page par métier et par ville d'intervention, et des **avis clients** récoltés régulièrement. C'est tout l'enjeu du **SEO artisan**. Et non, il ne faut pas être ingénieur pour s'y mettre."
     },
     {
       "type": "p",
-      "text": "Vous passez vos journées sur les chantiers, pas derrière un écran. Ce guide distingue donc ce qui se fait seul, gratuitement, de ce qui se délègue — vrais tarifs à l'appui."
+      "text": "Vous passez vos journées sur les chantiers, pas derrière un écran. Ce guide distingue donc ce qui se fait seul, gratuitement, de ce qui se délègue, vrais tarifs à l'appui."
     },
     {
       "type": "h2",
@@ -41,7 +41,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Contrairement à la publicité Google Ads, vous ne payez pas au clic. Le **référencement naturel** se construit lentement, mais il travaille pour vous pendant que vous êtes sur un chantier — la pub s'arrête le jour où vous coupez le budget."
+      "text": "Contrairement à la publicité Google Ads, vous ne payez pas au clic. Le **référencement naturel** se construit lentement, mais il travaille pour vous pendant que vous êtes sur un chantier, alors que la pub s'arrête le jour où vous coupez le budget."
     },
     {
       "type": "h3",
@@ -79,7 +79,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Inutile de viser la France entière : vos clients habitent à 20 ou 30 kilomètres de votre dépôt. Votre objectif, c'est le **SEO local** : sortir sur les recherches « métier + ville » — « électricien Mitry-Mory », « couvreur Senlis », « plombier urgence Meaux » — et sur Google Maps. Notre guide du [référencement local](/conseils/seo/referencement-local/) détaille cette mécanique."
+      "text": "Inutile de viser la France entière : vos clients habitent à 20 ou 30 kilomètres de votre dépôt. Votre objectif, c'est le **SEO local** : sortir sur les recherches « métier + ville » (« électricien Mitry-Mory », « couvreur Senlis », « plombier urgence Meaux ») et sur Google Maps. Notre guide du [référencement local](/conseils/seo/referencement-local/) détaille cette mécanique."
     },
     {
       "type": "h2",
@@ -88,7 +88,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Quelques chiffres pour commencer — des vrais, sourcés, pas des pourcentages sortis d'un chapeau."
+      "text": "Quelques chiffres pour commencer : des vrais, sourcés, pas des pourcentages sortis d'un chapeau."
     },
     {
       "type": "ul",
@@ -178,7 +178,7 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Une page par métier, une page par ville — sans copier-coller"
+      "text": "Une page par métier, une page par ville, sans copier-coller"
     },
     {
       "type": "p",
@@ -197,13 +197,13 @@ const article: Article = {
       "items": [
         "Chaque page a un titre unique « métier + ville » (la « balise title », le lien bleu sur Google).",
         "Le numéro de téléphone est cliquable et visible en haut de chaque page.",
-        "Le site est agréable sur mobile, là où vos clients cherchent — souvent en urgence.",
+        "Le site est agréable sur mobile, là où vos clients cherchent, souvent en urgence.",
         "Les pages chargent en moins de 3 secondes (test gratuit sur pagespeed.web.dev).",
         "Les photos sont compressées et décrites (« remplacement de chaudière à Meaux »).",
         "Nom, adresse et téléphone identiques au caractère près entre site et fiche Google.",
         "Vos avis clients sont visibles sur le site, pas seulement sur Google.",
         "Vos certifications (RGE, Qualibat, garantie décennale) sont affichées clairement.",
-        "Chaque service principal a sa propre page — pas un fourre-tout « Nos prestations ».",
+        "Chaque service principal a sa propre page, pas un fourre-tout « Nos prestations ».",
         "Le formulaire de contact demande 3 champs maximum : nom, téléphone, message."
       ]
     },
@@ -214,15 +214,15 @@ const article: Article = {
     {
       "type": "ul",
       "items": [
-        "**Le bourrage de mots-clés** : « plombier Meaux pas cher plombier Meaux urgence » est illisible — et Google pénalise.",
+        "**Le bourrage de mots-clés** : « plombier Meaux pas cher plombier Meaux urgence » est illisible, et Google pénalise.",
         "**Les pages villes dupliquées** : 20 pages identiques où seule la ville change, c'est 20 pages ignorées.",
-        "**L'incohérence des coordonnées** : un ancien numéro ici, le nouveau là — Google ne sait plus à qui se fier. Le « NAP » (nom, adresse, téléphone) doit être identique partout."
+        "**L'incohérence des coordonnées** : un ancien numéro ici, le nouveau là : Google ne sait plus à qui se fier. Le « NAP » (nom, adresse, téléphone) doit être identique partout."
       ]
     },
     {
       "type": "cta",
       "title": "Un doute sur votre site actuel ?",
-      "text": "En 30 minutes au téléphone, nous passons votre site et votre fiche Google au crible — vous repartez avec des actions concrètes, avec ou sans nous ensuite.",
+      "text": "En 30 minutes au téléphone, nous passons votre site et votre fiche Google au crible. Vous repartez avec des actions concrètes, avec ou sans nous ensuite.",
       "button": "Réserver mon audit gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     },
@@ -233,7 +233,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Voici le plan minimal qui produit des résultats, calibré sur 2 heures par semaine — parce que vous n'en avez pas dix à y consacrer."
+      "text": "Voici le plan minimal qui produit des résultats, calibré sur 2 heures par semaine, parce que vous n'en avez pas dix à y consacrer."
     },
     {
       "type": "table",
@@ -245,17 +245,17 @@ const article: Article = {
       ],
       "rows": [
         [
-          "Mois 1 — Fondations",
+          "Mois 1 : Fondations",
           "Créer et faire vérifier la fiche Google Business, la remplir à 100 %, demander un avis aux 5 derniers clients",
           "Votre entreprise existe aux yeux de Google ; premiers avis en ligne"
         ],
         [
-          "Mois 2 — Contenu",
+          "Mois 2 : Contenu",
           "Rédiger une page par métier principal et pour 3 à 5 villes prioritaires ; ajouter 10 photos de chantiers",
           "Google comprend ce que vous faites, et où ; le site sort en local"
         ],
         [
-          "Mois 3 — Régularité",
+          "Mois 3 : Régularité",
           "Routine d'avis (1 à 2 par semaine), réponses systématiques, 1 post Google hebdomadaire, suivi des positions",
           "La fiche vit, les avis s'accumulent, les premiers appels arrivent"
         ]
@@ -263,7 +263,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Dès le mois 1, connectez votre site à la **Search Console**, l'outil gratuit qui montre sur quelles recherches Google vous affiche — notre [tutoriel Google Search Console](/conseils/tutoriels/connecter-site-google-search-console/) vous guide en 15 minutes."
+      "text": "Dès le mois 1, connectez votre site à la **Search Console**, l'outil gratuit qui montre sur quelles recherches Google vous affiche ; notre [tutoriel Google Search Console](/conseils/tutoriels/connecter-site-google-search-console/) vous guide en 15 minutes."
     },
     {
       "type": "h3",
@@ -271,11 +271,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Exemple volontairement simple — le panier moyen est une hypothèse, remplacez-le par le vôtre. Un plombier près de Meaux facture 450 € par intervention et vise 2 chantiers de plus par mois grâce à Google."
+      "text": "Exemple volontairement simple : le panier moyen est une hypothèse, remplacez-le par le vôtre. Un plombier près de Meaux facture 450 € par intervention et vise 2 chantiers de plus par mois grâce à Google."
     },
     {
       "type": "p",
-      "text": "Deux chantiers à 450 €, c'est 900 € de chiffre d'affaires par mois, soit 10 800 € par an. En face, une prestation SEO d'entrée de gamme tourne autour de 500 € mensuels — la fourchette basse du marché selon seo.fr (2026)."
+      "text": "Deux chantiers à 450 €, c'est 900 € de chiffre d'affaires par mois, soit 10 800 € par an. En face, une prestation SEO d'entrée de gamme tourne autour de 500 € mensuels, la fourchette basse du marché selon seo.fr (2026)."
     },
     {
       "type": "p",
@@ -336,7 +336,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est la transparence que nous appliquons chez MKZ : client propriétaire à 100 %, reporting lisible, zéro jargon — notre approche du [référencement SEO pour artisans et TPE](/referencement-seo/) en détail."
+      "text": "C'est la transparence que nous appliquons chez MKZ : client propriétaire à 100 %, reporting lisible, zéro jargon (notre approche du [référencement SEO pour artisans et TPE](/referencement-seo/) en détail)."
     },
     {
       "type": "callout",
@@ -354,7 +354,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Faire en sorte qu'une IA vous recommande porte un nom : le **GEO** (Generative Engine Optimization). Bonne nouvelle : les IA s'appuient largement sur les mêmes sources que Google — votre fiche, vos avis, votre site. Ce guide vous prépare donc déjà aux deux."
+      "text": "Faire en sorte qu'une IA vous recommande porte un nom : le **GEO** (Generative Engine Optimization). Bonne nouvelle : les IA s'appuient largement sur les mêmes sources que Google (votre fiche, vos avis, votre site). Ce guide vous prépare donc déjà aux deux."
     },
     {
       "type": "ul",

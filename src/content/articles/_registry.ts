@@ -1,4 +1,4 @@
-// Registre généré par scripts/ingest-content.mjs — ne pas éditer à la main.
+// Registre généré par scripts/ingest-content.mjs ; ne pas éditer à la main.
 import type { Article } from "@/lib/articles/types";
 import a0 from "./audit-seo";
 import a1 from "./combien-coute-un-site-internet";

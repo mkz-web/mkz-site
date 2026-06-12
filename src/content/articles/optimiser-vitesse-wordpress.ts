@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/optimiser-vitesse-wordpress.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -23,7 +23,7 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Pour **optimiser WordPress** sans toucher au code, la méthode tient en trois temps. Mesurez d'abord la vitesse réelle de votre site avec **PageSpeed Insights**, l'outil gratuit de Google. Appliquez ensuite 7 gestes simples et réversibles (images, extensions, cache, PHP…). Confiez le reste — et seulement le reste — à un professionnel. Comptez environ 30 minutes pour l'essentiel, sauvegarde comprise."
+      "text": "Pour **optimiser WordPress** sans toucher au code, la méthode tient en trois temps. Mesurez d'abord la vitesse réelle de votre site avec **PageSpeed Insights**, l'outil gratuit de Google. Appliquez ensuite 7 gestes simples et réversibles (images, extensions, cache, PHP…). Confiez le reste (et seulement le reste) à un professionnel. Comptez environ 30 minutes pour l'essentiel, sauvegarde comprise."
     },
     {
       "type": "p",
@@ -36,7 +36,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le **temps de chargement** est le délai entre le clic d'un visiteur et l'affichage complet de votre page. Il se mesure en secondes — et chaque seconde compte, littéralement."
+      "text": "Le **temps de chargement** est le délai entre le clic d'un visiteur et l'affichage complet de votre page. Il se mesure en secondes, et chaque seconde compte, littéralement."
     },
     {
       "type": "p",
@@ -63,7 +63,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-1-mesurer-pagespeed",
-      "text": "Étape 1 — Mesurez : votre site est-il vraiment lent ?"
+      "text": "Étape 1 : mesurez. Votre site est-il vraiment lent ?"
     },
     {
       "type": "callout",
@@ -108,7 +108,7 @@ const article: Article = {
       "rows": [
         [
           "LCP (Largest Contentful Paint)",
-          "Le temps d'affichage du plus gros élément visible — souvent votre photo d'accueil",
+          "Le temps d'affichage du plus gros élément visible (souvent votre photo d'accueil)",
           "Moins de 2,5 secondes"
         ],
         [
@@ -118,7 +118,7 @@ const article: Article = {
         ],
         [
           "CLS (Cumulative Layout Shift)",
-          "La stabilité de la page — ces blocs qui « sautent » pendant le chargement",
+          "La stabilité de la page (ces blocs qui « sautent » pendant le chargement)",
           "Moins de 0,1"
         ]
       ]
@@ -197,7 +197,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-2-sauvegarder",
-      "text": "Étape 2 — Sauvegardez votre site avant d'y toucher"
+      "text": "Étape 2 : sauvegardez votre site avant d'y toucher"
     },
     {
       "type": "callout",
@@ -225,12 +225,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Votre hébergeur propose peut-être aussi des sauvegardes automatiques : tant mieux. Gardez quand même votre propre copie — ceinture et bretelles."
+      "text": "Votre hébergeur propose peut-être aussi des sauvegardes automatiques : tant mieux. Gardez quand même votre propre copie : ceinture et bretelles."
     },
     {
       "type": "h2",
       "id": "etape-3-sept-gestes",
-      "text": "Étape 3 — 7 gestes pour accélérer WordPress sans toucher au code"
+      "text": "Étape 3 : 7 gestes pour accélérer WordPress sans toucher au code"
     },
     {
       "type": "p",
@@ -255,7 +255,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "**Temps : 10 min · Difficulté : facile · Impact : moyen à fort.** Chaque extension active ajoute du code qui se charge à chaque visite. Dans **Extensions → Extensions installées**, repérez celles que vous n'utilisez plus : désactivez-les, puis supprimez-les. Une extension désactivée ne ralentit plus le site, mais elle reste une porte d'entrée pour les pirates si elle n'est plus mise à jour — d'où la suppression."
+      "text": "**Temps : 10 min · Difficulté : facile · Impact : moyen à fort.** Chaque extension active ajoute du code qui se charge à chaque visite. Dans **Extensions → Extensions installées**, repérez celles que vous n'utilisez plus : désactivez-les, puis supprimez-les. Une extension désactivée ne ralentit plus le site, mais elle reste une porte d'entrée pour les pirates si elle n'est plus mise à jour, d'où la suppression."
     },
     {
       "type": "callout",
@@ -291,7 +291,7 @@ const article: Article = {
     {
       "type": "callout",
       "variant": "attention",
-      "text": "Une seule extension de cache à la fois : deux caches se marchent dessus et peuvent rendre le site instable. Vérifiez qu'aucune n'est déjà active — certains hébergeurs en préinstallent une. Après activation, contrôlez vos pages principales en navigation privée."
+      "text": "Une seule extension de cache à la fois : deux caches se marchent dessus et peuvent rendre le site instable. Vérifiez qu'aucune n'est déjà active : certains hébergeurs en préinstallent une. Après activation, contrôlez vos pages principales en navigation privée."
     },
     {
       "type": "screenshot",
@@ -358,7 +358,7 @@ const article: Article = {
         "La **minification** : compresser les fichiers de code (CSS, JavaScript) pour les alléger. Un mauvais réglage casse l'affichage ou le formulaire de contact.",
         "Le **CDN** : un réseau de serveurs qui rapproche physiquement votre site de vos visiteurs. Utile, mais la configuration demande de la méthode.",
         "Les fichiers serveur (`.htaccess`, compression Gzip) : une seule ligne erronée et le site devient totalement inaccessible.",
-        "Le changement de **thème** ou d'**hébergeur** : souvent la vraie solution quand tout le reste a échoué, mais c'est un chantier qui se prépare — pas un réglage du dimanche soir."
+        "Le changement de **thème** ou d'**hébergeur** : souvent la vraie solution quand tout le reste a échoué, mais c'est un chantier qui se prépare, pas un réglage du dimanche soir."
       ]
     },
     {
@@ -368,8 +368,8 @@ const article: Article = {
     {
       "type": "ul",
       "items": [
-        "votre score PageSpeed mobile reste sous 50 — la zone rouge de l'outil — malgré les 7 gestes de ce tutoriel ;",
-        "votre site a plus de 5 ans et son thème n'est plus mis à jour — dans ce cas, une [refonte de site internet](/conseils/creation-site-internet/refonte-site-internet/) coûte souvent moins cher qu'une optimisation acharnée ;",
+        "votre score PageSpeed mobile reste sous 50 (la zone rouge de l'outil) malgré les 7 gestes de ce tutoriel ;",
+        "votre site a plus de 5 ans et son thème n'est plus mis à jour : dans ce cas, une [refonte de site internet](/conseils/creation-site-internet/refonte-site-internet/) coûte souvent moins cher qu'une optimisation acharnée ;",
         "votre hébergement est une offre d'entrée de gamme qui plafonne, quoi que vous fassiez."
       ]
     },
@@ -391,7 +391,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Récapitulons. Les gestes essentiels — mesure, sauvegarde, images, extensions, cache — tiennent dans une demi-heure. Le reste peut attendre un autre créneau dans la semaine."
+      "text": "Récapitulons. Les gestes essentiels (mesure, sauvegarde, images, extensions, cache) tiennent dans une demi-heure. Le reste peut attendre un autre créneau dans la semaine."
     },
     {
       "type": "table",
@@ -494,7 +494,7 @@ const article: Article = {
     },
     {
       "type": "cta",
-      "title": "Audit vitesse offert — 30 minutes au téléphone",
+      "title": "Audit vitesse offert : 30 minutes au téléphone",
       "text": "Réservez un créneau : nous testons votre site en direct avec vous, nous identifions ce qui le ralentit vraiment, et vous repartez avec un plan d'action clair, étape par étape. Sans engagement.",
       "button": "Réserver mon audit gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
@@ -519,11 +519,11 @@ const article: Article = {
     },
     {
       "q": "La vitesse influence-t-elle vraiment ma position sur Google ?",
-      "a": "Oui. Google intègre les Core Web Vitals — vitesse, réactivité, stabilité visuelle — à son algorithme de classement depuis juin 2021. L'effet le plus fort reste indirect : 53 % des visiteurs mobiles abandonnent un site qui met plus de 3 secondes à charger selon Google, et ces visiteurs perdus pèsent sur votre référencement et vos demandes de devis."
+      "a": "Oui. Google intègre les Core Web Vitals (vitesse, réactivité, stabilité visuelle) à son algorithme de classement depuis juin 2021. L'effet le plus fort reste indirect : 53 % des visiteurs mobiles abandonnent un site qui met plus de 3 secondes à charger selon Google, et ces visiteurs perdus pèsent sur votre référencement et vos demandes de devis."
     },
     {
       "q": "Faut-il quitter WordPress si mon site reste lent ?",
-      "a": "Non, presque jamais. WordPress n'est pas lent en soi : ce sont les images lourdes, les extensions accumulées ou un hébergement faible qui le ralentissent. Si le site reste lent après les optimisations de base, c'est généralement le thème ou l'hébergement qu'il faut changer, voire envisager une refonte — pas l'outil lui-même."
+      "a": "Non, presque jamais. WordPress n'est pas lent en soi : ce sont les images lourdes, les extensions accumulées ou un hébergement faible qui le ralentissent. Si le site reste lent après les optimisations de base, c'est généralement le thème ou l'hébergement qu'il faut changer, voire envisager une refonte, et non l'outil lui-même."
     }
   ],
   "related": [

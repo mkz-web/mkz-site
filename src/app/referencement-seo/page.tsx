@@ -51,7 +51,7 @@ export default function ReferencementSeoPage() {
           faq: pillar.faq,
           finalCta: {
             title: "Et si on regardait votre visibilité Google ?",
-            text: "Audit gratuit de 30 minutes : où vous en êtes, ce que font vos concurrents, et les actions qui rapporteraient le plus — expliqué sans jargon.",
+            text: "Audit gratuit de 30 minutes : où vous en êtes, ce que font vos concurrents, et les actions qui rapporteraient le plus, expliqué sans jargon.",
             button: "Réserver mon audit SEO gratuit",
           },
         }}

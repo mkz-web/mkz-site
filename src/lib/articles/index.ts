@@ -116,7 +116,7 @@ export function articleToPlainText(a: Article, siteUrl: string): string {
         break;
       }
       case "quote":
-        lines.push(`« ${block.text} »${block.author ? ` — ${block.author}` : ""}`);
+        lines.push(`« ${block.text} »${block.author ? ` (${block.author})` : ""}`);
         lines.push("");
         break;
       case "screenshot":

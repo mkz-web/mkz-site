@@ -40,7 +40,7 @@ for (const f of files) {
     const data = JSON.parse(readFileSync(resolve(stagingDir, f), "utf8"));
     parsed.push({ file: f, data });
   } catch (e) {
-    errors.push(`${f} : JSON invalide — ${e.message}`);
+    errors.push(`${f} : JSON invalide : ${e.message}`);
   }
 }
 const knownSlugs = new Map(parsed.map(({ data }) => [data.slug, data.category]));
@@ -119,7 +119,7 @@ for (const f of pillarFiles) {
   try {
     a = JSON.parse(readFileSync(resolve(stagingDir, f), "utf8"));
   } catch (e) {
-    errors.push(`${f} : JSON invalide — ${e.message}`);
+    errors.push(`${f} : JSON invalide : ${e.message}`);
     continue;
   }
   const err = (msg) => errors.push(`${f} : ${msg}`);
@@ -180,7 +180,7 @@ const ordered = [...parsed].sort((x, y) => x.data.slug.localeCompare(y.data.slug
 for (const { data } of ordered) {
   const ts = `// Article généré depuis _content-staging/${data.slug}.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = ${JSON.stringify(data, null, 2)};
@@ -193,7 +193,7 @@ export default article;
 const imports = ordered
   .map(({ data }, i) => `import a${i} from "./${data.slug}";`)
   .join("\n");
-const registry = `// Registre généré par scripts/ingest-content.mjs — ne pas éditer à la main.
+const registry = `// Registre généré par scripts/ingest-content.mjs ; ne pas éditer à la main.
 import type { Article } from "@/lib/articles/types";
 ${imports}
 
@@ -203,5 +203,5 @@ writeFileSync(resolve(outDir, "_registry.ts"), registry, "utf8");
 
 console.log(`✅ ${ordered.length} articles ingérés → src/content/articles/ (+ _registry.ts)`);
 for (const { data } of ordered) {
-  console.log(`   - [${data.category}] ${data.slug} — « ${data.title} »`);
+  console.log(`   - [${data.category}] ${data.slug} : « ${data.title} »`);
 }

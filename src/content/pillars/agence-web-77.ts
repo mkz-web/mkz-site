@@ -6,8 +6,8 @@ const pillar: PillarPage = {
   "title": "Agence web en Seine-et-Marne (77) : site internet + SEO pour TPE",
   "metaTitle": "Agence web 77 (Seine-et-Marne) : site internet + SEO",
   "metaDescription": "Agence web en Seine-et-Marne (77) : site internet et SEO local pour artisans, commerçants et TPE. Vous êtes propriétaire à 100 %. Audit gratuit 30 min.",
-  "heroBadge": "Agence web — Seine-et-Marne (77)",
-  "heroLead": "Création de sites internet et référencement local pour artisans, commerçants et TPE. Basés à Dammartin-en-Goële, nous intervenons dans tout le 77 : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Vous êtes propriétaire de votre site à 100 % — et vous savez tout, noir sur blanc, avant de signer.",
+  "heroBadge": "Agence web en Seine-et-Marne (77)",
+  "heroLead": "Création de sites internet et référencement local pour artisans, commerçants et TPE. Basés à Dammartin-en-Goële, nous intervenons dans tout le 77 : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Vous êtes propriétaire de votre site à 100 %, et vous savez tout, noir sur blanc, avant de signer.",
   "blocks": [
     {
       "type": "p",
@@ -28,7 +28,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "La bonne nouvelle, c'est que tout le monde n'a pas encore pris le train. Dans le bâtiment, seules **53,4 % des entreprises ont un site web**, contre 64,6 % tous secteurs confondus (exploitation du Baromètre France Num 2025 publiée sur data.gouv.fr, mai 2026). Si vous êtes plombier à Meaux ou électricien à Mitry-Mory, il y a une vraie place à prendre — maintenant."
+      "text": "La bonne nouvelle, c'est que tout le monde n'a pas encore pris le train. Dans le bâtiment, seules **53,4 % des entreprises ont un site web**, contre 64,6 % tous secteurs confondus (exploitation du Baromètre France Num 2025 publiée sur data.gouv.fr, mai 2026). Si vous êtes plombier à Meaux ou électricien à Mitry-Mory, il y a une vraie place à prendre, maintenant."
     },
     {
       "type": "ul",
@@ -134,7 +134,7 @@ const pillar: PillarPage = {
     {
       "type": "cta",
       "title": "Un prix ferme, sans engagement",
-      "text": "30 minutes au téléphone ou autour d'un café : on analyse votre situation, on identifie les actions prioritaires, et vous repartez avec un devis ferme — que vous signiez ou non.",
+      "text": "30 minutes au téléphone ou autour d'un café : on analyse votre situation, on identifie les actions prioritaires, et vous repartez avec un devis ferme, que vous signiez ou non.",
       "button": "Réserver mon audit gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     },
@@ -145,7 +145,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "La **location de site** (ou site « en abonnement ») consiste à payer chaque mois un prestataire qui reste propriétaire de votre site. Le jour où vous arrêtez de payer, le site disparaît — et souvent le **nom de domaine** (votre adresse en .fr ou .com) et les textes avec. Ce modèle, très répandu auprès des artisans de Seine-et-Marne, crée une dépendance que nous refusons."
+      "text": "La **location de site** (ou site « en abonnement ») consiste à payer chaque mois un prestataire qui reste propriétaire de votre site. Le jour où vous arrêtez de payer, le site disparaît, et souvent le **nom de domaine** (votre adresse en .fr ou .com) et les textes avec. Ce modèle, très répandu auprès des artisans de Seine-et-Marne, crée une dépendance que nous refusons."
     },
     {
       "type": "table",
@@ -200,11 +200,11 @@ const pillar: PillarPage = {
     {
       "type": "ol",
       "items": [
-        "**On se rencontre** — chez vous, à Dammartin-en-Goële ou en visio : un audit gratuit de 30 minutes, où l'on parle de votre métier et de vos clients, pas de technique.",
-        "**Vous validez la maquette** — vous voyez à quoi ressemblera votre site avant que la première ligne de code ne soit écrite. Rien ne part en production sans votre accord.",
-        "**Nous construisons le site** — design, textes optimisés pour Google, photos mises en valeur. Vous suivez l'avancement et restez maître des contenus.",
-        "**Mise en ligne et raccordement à Google** — nom de domaine déposé à votre nom, site déclaré aux outils Google, fiche Google Business Profile reliée.",
-        "**Vous êtes formé, puis suivi** — une session de formation pour être autonome, et un reporting mensuel clair : visites, positions Google, demandes reçues."
+        "**On se rencontre** : chez vous, à Dammartin-en-Goële ou en visio : un audit gratuit de 30 minutes, où l'on parle de votre métier et de vos clients, pas de technique.",
+        "**Vous validez la maquette** : vous voyez à quoi ressemblera votre site avant que la première ligne de code ne soit écrite. Rien ne part en production sans votre accord.",
+        "**Nous construisons le site** : design, textes optimisés pour Google, photos mises en valeur. Vous suivez l'avancement et restez maître des contenus.",
+        "**Mise en ligne et raccordement à Google** : nom de domaine déposé à votre nom, site déclaré aux outils Google, fiche Google Business Profile reliée.",
+        "**Vous êtes formé, puis suivi** : une session de formation pour être autonome, et un reporting mensuel clair : visites, positions Google, demandes reçues."
       ]
     },
     {
@@ -219,7 +219,7 @@ const pillar: PillarPage = {
     {
       "type": "quote",
       "text": "Je ne comprenais rien au SEO. L'équipe MKZ a tout géré de A à Z. Aujourd'hui mes réservations en ligne ont explosé.",
-      "author": "Pierre D., restaurateur à Dammartin-en-Goële — réservations en ligne multipliées par 2"
+      "author": "Pierre D., restaurateur à Dammartin-en-Goële (réservations en ligne multipliées par 2)"
     },
     {
       "type": "h3",
@@ -227,12 +227,12 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "C'est notre terrain quotidien : Meaux, Roissy, Mitry-Mory, Claye-Souilly, Othis, Saint-Pathus, Dammartin-en-Goële. Une zone dynamique, portée par l'aéroport et l'artisanat — et étonnamment délaissée par les agences web du département, presque toutes installées au sud."
+      "text": "C'est notre terrain quotidien : Meaux, Roissy, Mitry-Mory, Claye-Souilly, Othis, Saint-Pathus, Dammartin-en-Goële. Une zone dynamique, portée par l'aéroport et l'artisanat, et étonnamment délaissée par les agences web du département, presque toutes installées au sud."
     },
     {
       "type": "quote",
       "text": "Enfin une équipe qui parle français et pas charabia technique ! Mon nouveau site est pro, rapide, et les clients me trouvent facilement.",
-      "author": "Marc T., plombier chauffagiste à Meaux — +12 nouveaux clients par mois"
+      "author": "Marc T., plombier chauffagiste à Meaux (+12 nouveaux clients par mois)"
     },
     {
       "type": "h3",
@@ -258,13 +258,13 @@ const pillar: PillarPage = {
     {
       "type": "quote",
       "text": "Après 6 mois de collaboration, j'ai pu arrêter de payer des pubs Facebook qui ne marchaient pas.",
-      "author": "Caroline B., coach sportif à Chelles — Top 3 Google local"
+      "author": "Caroline B., coach sportif à Chelles (Top 3 Google local)"
     },
     {
       "type": "callout",
       "variant": "retenir",
       "title": "Notre zone d'intervention",
-      "text": "MKZ, agence web basée à Dammartin-en-Goële (77230), intervient sur place dans toute la Seine-et-Marne — Meaux, Roissy, Melun, Chelles, Marne-la-Vallée — et accompagne à distance des clients dans toute l'Île-de-France et en France."
+      "text": "MKZ, agence web basée à Dammartin-en-Goële (77230), intervient sur place dans toute la Seine-et-Marne (Meaux, Roissy, Melun, Chelles, Marne-la-Vallée) et accompagne à distance des clients dans toute l'Île-de-France et en France."
     },
     {
       "type": "h2",
@@ -290,7 +290,7 @@ const pillar: PillarPage = {
       "type": "callout",
       "variant": "astuce",
       "title": "Notre conseil",
-      "text": "Gardez cette liste pour vos rendez-vous. Une agence sérieuse répond aux six questions sans détour — c'est même à ça qu'on la reconnaît."
+      "text": "Gardez cette liste pour vos rendez-vous. Une agence sérieuse répond aux six questions sans détour : c'est même à ça qu'on la reconnaît."
     },
     {
       "type": "cta",

@@ -3,7 +3,7 @@ import { createMetadata } from "@/lib/metadata";
 import AboutContent from "@/components/AboutContent";
 
 export const metadata: Metadata = createMetadata({
-  title: "Mickaël Leclerc — Fondateur MKZ, ingénieur IT & expert SEO",
+  title: "Mickaël Leclerc, fondateur MKZ : ingénieur IT & expert SEO",
   description:
     "Mickaël Leclerc, ingénieur IT avec +20 ans d’expérience, fondateur de MKZ. Création de sites web et SEO pour artisans et TPE en Seine-et-Marne (77).",
   alternates: { canonical: "https://mkz-consulting.fr/about/" },

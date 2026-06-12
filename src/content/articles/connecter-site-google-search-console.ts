@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/connecter-site-google-search-console.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -12,10 +12,10 @@ const article: Article = {
   "datePublished": "2026-06-12",
   "dateModified": "2026-06-12",
   "readingMinutes": 9,
-  "excerpt": "Vous avez un site, mais aucune idée de ce que Google en fait ? **Google Search Console** vous montre gratuitement les recherches qui amènent vos clients. Ce tutoriel pas-à-pas, écrit pour les artisans, commerçants et TPE, vous connecte en 15 minutes — sans jargon, sans rien casser.",
+  "excerpt": "Vous avez un site, mais aucune idée de ce que Google en fait ? **Google Search Console** vous montre gratuitement les recherches qui amènent vos clients. Ce tutoriel pas-à-pas, écrit pour les artisans, commerçants et TPE, vous connecte en 15 minutes, sans jargon et sans rien casser.",
   "tldr": [
     "Google Search Console est 100 % gratuite, API comprise (page Tarifs, Google for Developers, juin 2026).",
-    "4 étapes : propriété, vérification, sitemap, indexation — environ 15 minutes au total.",
+    "4 étapes : propriété, vérification, sitemap, indexation. Environ 15 minutes au total.",
     "Pas informaticien ? Propriété « Préfixe d'URL » + balise HTML : le chemin le plus simple.",
     "Le rapport Performances conserve 16 mois d'historique de données (documentation officielle Google).",
     "Lancé en 2006 (Webmaster Tools), l'outil s'appelle Google Search Console depuis le 20 mai 2015."
@@ -32,7 +32,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "google-search-console-cest-quoi",
-      "text": "Google Search Console, c'est quoi — et pourquoi vous en avez besoin"
+      "text": "Google Search Console, c'est quoi, et pourquoi vous en avez besoin"
     },
     {
       "type": "callout",
@@ -58,7 +58,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "**Google Search Console est entièrement gratuite** : « L'utilisation de l'API Google Search Console est sans frais », écrit Google sur sa page Tarifs (Google for Developers, juin 2026). Si on vous facture un « abonnement Search Console », on vous facture du temps d'expert — jamais l'outil."
+      "text": "**Google Search Console est entièrement gratuite** : « L'utilisation de l'API Google Search Console est sans frais », écrit Google sur sa page Tarifs (Google for Developers, juin 2026). Si on vous facture un « abonnement Search Console », on vous facture du temps d'expert, jamais l'outil."
     },
     {
       "type": "h3",
@@ -116,11 +116,11 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-1-creer-la-propriete",
-      "text": "Étape 1 — Ajoutez votre site en créant une « propriété »"
+      "text": "Étape 1 : Ajoutez votre site en créant une « propriété »"
     },
     {
       "type": "p",
-      "text": "Rendez-vous sur [search.google.com/search-console](https://search.google.com/search-console), connectez-vous avec votre compte Google et cliquez sur **Commencer maintenant**. Une **propriété**, c'est simplement votre site déclaré dans l'outil — rien à acheter, rien à installer."
+      "text": "Rendez-vous sur [search.google.com/search-console](https://search.google.com/search-console), connectez-vous avec votre compte Google et cliquez sur **Commencer maintenant**. Une **propriété**, c'est simplement votre site déclaré dans l'outil : rien à acheter, rien à installer."
     },
     {
       "type": "screenshot",
@@ -157,7 +157,7 @@ const article: Article = {
         [
           "Pour qui ?",
           "Les habitués de leur hébergeur",
-          "Tout le monde — recommandé pour débuter"
+          "Tout le monde (recommandé pour débuter)"
         ]
       ]
     },
@@ -175,7 +175,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-2-verification-propriete",
-      "text": "Étape 2 — Prouvez que le site est à vous (la « vérification »)"
+      "text": "Étape 2 : Prouvez que le site est à vous (la « vérification »)"
     },
     {
       "type": "p",
@@ -207,12 +207,12 @@ const article: Article = {
         [
           "Déjà équipé d'Analytics ou Tag Manager",
           "Validation automatique, même compte Google",
-          "Facile — un clic"
+          "Facile (un clic)"
         ],
         [
           "Géré via l'hébergeur (OVH, Ionos, o2switch…)",
           "Enregistrement DNS TXT",
-          "Moyen — 10 minutes"
+          "Moyen (10 minutes)"
         ]
       ]
     },
@@ -248,11 +248,11 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Méthode 3 : l'enregistrement DNS — pas-à-pas chez OVH"
+      "text": "Méthode 3 : l'enregistrement DNS, pas-à-pas chez OVH"
     },
     {
       "type": "p",
-      "text": "Le **DNS**, c'est l'annuaire qui relie votre nom de domaine à votre site. Y ajouter un « enregistrement TXT », c'est déposer une note que seul Google lira — la seule méthode acceptée en propriété Domaine. Chez OVH :"
+      "text": "Le **DNS**, c'est l'annuaire qui relie votre nom de domaine à votre site. Y ajouter un « enregistrement TXT », c'est déposer une note que seul Google lira (la seule méthode acceptée en propriété Domaine). Chez OVH :"
     },
     {
       "type": "ol",
@@ -281,7 +281,7 @@ const article: Article = {
       "type": "callout",
       "variant": "attention",
       "title": "Ne supprimez jamais la balise ni l'enregistrement DNS",
-      "text": "Google revérifie périodiquement que vous êtes toujours propriétaire. Si la balise ou l'entrée DNS disparaît — refonte, changement de thème… — vous perdez l'accès à vos données. Laissez-les en place, définitivement."
+      "text": "Google revérifie périodiquement que vous êtes toujours propriétaire. Si la balise ou l'entrée DNS disparaît (refonte, changement de thème…), vous perdez l'accès à vos données. Laissez-les en place, définitivement."
     },
     {
       "type": "cta",
@@ -293,7 +293,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-3-envoyer-sitemap",
-      "text": "Étape 3 — Envoyez votre sitemap (le plan de votre site)"
+      "text": "Étape 3 : Envoyez votre sitemap (le plan de votre site)"
     },
     {
       "type": "p",
@@ -322,11 +322,11 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-4-demander-indexation",
-      "text": "Étape 4 — Demandez l'indexation de vos pages importantes"
+      "text": "Étape 4 : Demandez l'indexation de vos pages importantes"
     },
     {
       "type": "p",
-      "text": "L'**indexation**, c'est l'entrée de vos pages dans le grand annuaire de Google. Tant qu'une page n'y figure pas, elle ne peut pas apparaître dans les résultats — même parfaite. Pour accélérer :"
+      "text": "L'**indexation**, c'est l'entrée de vos pages dans le grand annuaire de Google. Tant qu'une page n'y figure pas, elle ne peut pas apparaître dans les résultats, même parfaite. Pour accélérer :"
     },
     {
       "type": "ol",
@@ -344,7 +344,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La demande accélère la découverte, mais l'indexation reste à la main de Google — de quelques jours à quelques semaines. Les demandes quotidiennes étant limitées, réservez-les aux pages qui comptent."
+      "text": "La demande accélère la découverte, mais l'indexation reste à la main de Google : de quelques jours à quelques semaines. Les demandes quotidiennes étant limitées, réservez-les aux pages qui comptent."
     },
     {
       "type": "h2",
@@ -422,9 +422,9 @@ const article: Article = {
       "variant": "retenir",
       "title": "La checklist du tutoriel",
       "items": [
-        "Propriété créée — type Préfixe d'URL, avec l'adresse exacte du site",
-        "Vérification validée — balise ou enregistrement DNS laissé en place",
-        "Sitemap envoyé — statut « Opération réussie »",
+        "Propriété créée : type Préfixe d'URL, avec l'adresse exacte du site",
+        "Vérification validée : balise ou enregistrement DNS laissé en place",
+        "Sitemap envoyé : statut « Opération réussie »",
         "Indexation demandée pour les 3 à 5 pages clés",
         "Rendez-vous dans une semaine : rapport Performances, onglet Requêtes"
       ]
@@ -440,7 +440,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Chez MKZ, nous configurons la Search Console pour chacun de nos clients — et nous vous apprenons à la lire. C'est votre site, ce sont vos données : vous devez pouvoir vérifier vous-même ce que votre [référencement](/referencement-seo/) produit. Une question sur votre cas ? [Écrivez-nous](/contact/) : on répond en français, sans jargon."
+      "text": "Chez MKZ, nous configurons la Search Console pour chacun de nos clients, et nous vous apprenons à la lire. C'est votre site, ce sont vos données : vous devez pouvoir vérifier vous-même ce que votre [référencement](/referencement-seo/) produit. Une question sur votre cas ? [Écrivez-nous](/contact/) : on répond en français, sans jargon."
     },
     {
       "type": "cta",

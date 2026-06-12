@@ -41,6 +41,6 @@ const r = spawnSync(
 );
 
 if (r.status === 0) {
-  console.log("✅ Déploiement terminé — https://mkz-site.pages.dev / https://mkz-consulting.fr");
+  console.log("✅ Déploiement terminé : https://mkz-site.pages.dev / https://mkz-consulting.fr");
 }
 process.exit(r.status ?? 1);

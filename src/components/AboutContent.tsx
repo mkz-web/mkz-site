@@ -68,7 +68,7 @@ export default function AboutContent() {
       <PageHeader>
         <Tag>&Agrave; propos</Tag>
         <Title>Micka&euml;l Leclerc</Title>
-        <Subtitle>Pr&eacute;sident de MKZ &mdash; Ing&eacute;nieur IT, +20 ans d&rsquo;exp&eacute;rience</Subtitle>
+        <Subtitle>Pr&eacute;sident de MKZ &middot; Ing&eacute;nieur IT, +20 ans d&rsquo;exp&eacute;rience</Subtitle>
       </PageHeader>
 
       <Container>
@@ -87,8 +87,8 @@ export default function AboutContent() {
             <BioName>Micka&euml;l Leclerc</BioName>
             <BioRole>Ing&eacute;nieur IT | Expert SEO | Automatisation | DevOps</BioRole>
             <BioText>
-              Apr&egrave;s plus de 20 ans dans les grandes entreprises &mdash; infrastructure,
-              automatisation, syst&egrave;mes complexes &mdash; j&rsquo;ai voulu mettre cette expertise
+              Apr&egrave;s plus de 20 ans dans les grandes entreprises (infrastructure,
+              automatisation, syst&egrave;mes complexes), j&rsquo;ai voulu mettre cette expertise
               technique au service des entrepreneurs qui n&rsquo;ont ni le temps ni les moyens
               des grands groupes.
             </BioText>

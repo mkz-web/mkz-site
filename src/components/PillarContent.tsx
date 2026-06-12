@@ -144,7 +144,7 @@ export default function PillarContent({ data }: { data: PillarData }) {
         <FinalText>{data.finalCta.text}</FinalText>
         <Button href={CALENDLY}>{data.finalCta.button}</Button>
         <FinalFallback>
-          Ou appelez directement : <a href="tel:0769093909">07 69 09 39 09</a> — on décroche.
+          Ou appelez directement : <a href="tel:0769093909">07 69 09 39 09</a>. On décroche.
         </FinalFallback>
       </FinalCta>
     </>
