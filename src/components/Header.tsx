@@ -10,8 +10,9 @@ const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
 const navigation = [
   { name: "Accueil", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "La m\u00e9thode", href: "/#methode" },
+  { name: "Cr\u00e9ation de site", href: "/creation-site-internet" },
+  { name: "SEO", href: "/referencement-seo" },
+  { name: "Conseils", href: "/conseils" },
   { name: "T\u00e9moignages", href: "/#temoignages" },
   { name: "Contact", href: "/contact" },
 ];
