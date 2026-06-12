@@ -23,11 +23,12 @@ const Hero = styled.header`
 `;
 const HeroInner = styled.div`max-width: 860px; margin: 0 auto;`;
 const Crumbs = styled.nav`
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
+  color: rgba(246, 241, 231, 0.7);
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 24px;
 `;
 const CrumbLink = styled(Link)`
@@ -36,20 +37,21 @@ const CrumbLink = styled(Link)`
 `;
 const Badge = styled.span`
   display: inline-flex;
-  padding: 5px 14px;
-  border-radius: ${theme.radius.full};
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 12.5px;
-  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: ${theme.radius.sm};
+  border: 1.5px solid rgba(246, 241, 231, 0.5);
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 `;
 const HeroTitle = styled.h1`
-  margin-top: 18px;
-  font-size: 34px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  @media (min-width: ${theme.breakpoints.md}) { font-size: 44px; }
+  margin-top: 20px;
+  font-size: clamp(34px, 4.5vw, 50px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 `;
 const HeroLead = styled.p`
   margin-top: 16px;

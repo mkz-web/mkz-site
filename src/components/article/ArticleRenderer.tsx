@@ -9,8 +9,8 @@ import type { Article, Block, Inline } from "@/lib/articles/types";
 /* ─── Rendu inline (mini-markdown : **gras**, [lien](url), `code`) ─── */
 
 const InlineCode = styled.code`
-  font-family: Consolas, 'Courier New', monospace;
-  font-size: 0.9em;
+  font-family: ${theme.fonts.mono};
+  font-size: 0.88em;
   background: ${theme.colors.hoverSurface};
   border: 1px solid ${theme.colors.border};
   border-radius: 4px;
@@ -72,11 +72,12 @@ const Inner = styled.div`
 `;
 
 const Crumbs = styled.nav`
-  font-size: 13px;
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
   color: ${theme.colors.textSecondary};
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 24px;
 `;
 const CrumbLink = styled(Link)`
@@ -87,25 +88,26 @@ const CrumbLink = styled(Link)`
 const CategoryBadge = styled(Link)`
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: ${theme.radius.full};
-  background: ${theme.colors.accent}0D;
-  color: ${theme.colors.accent};
-  border: 1px solid ${theme.colors.accent}26;
-  &:hover { background: ${theme.colors.accent}1A; }
+  padding: 6px 12px;
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: ${theme.radius.sm};
+  color: ${theme.colors.cta};
+  border: 1.5px solid ${theme.colors.cta};
+  &:hover { background: ${theme.colors.cta}; color: white; }
 `;
 
 const Title = styled.h1`
   font-size: 34px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-top: 16px;
-  color: ${theme.colors.text};
-  @media (min-width: ${theme.breakpoints.md}) { font-size: 42px; }
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  margin-top: 18px;
+  color: ${theme.colors.accent};
+  @media (min-width: ${theme.breakpoints.md}) { font-size: 44px; }
 `;
 
 const Lead = styled.p`
@@ -119,11 +121,12 @@ const MetaRow = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 16px;
-  margin-top: 20px;
+  gap: 8px 20px;
+  margin-top: 22px;
   padding-bottom: 24px;
-  border-bottom: 1px solid ${theme.colors.border};
-  font-size: 13px;
+  border-bottom: 2px solid ${theme.colors.borderInk};
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
   color: ${theme.colors.textSecondary};
 `;
 
@@ -141,13 +144,14 @@ const Body = styled.div`
 `;
 
 const H2 = styled.h2`
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-top: 56px;
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  margin-top: 60px;
   scroll-margin-top: 96px;
-  color: ${theme.colors.text};
-  @media (min-width: ${theme.breakpoints.md}) { font-size: 29px; }
+  color: ${theme.colors.accent};
+  @media (min-width: ${theme.breakpoints.md}) { font-size: 31px; }
 `;
 
 const H3 = styled.h3`
@@ -170,10 +174,11 @@ const TldrBox = styled.aside`
   a { color: white; }
 `;
 const TldrTitle = styled.p`
-  font-size: 13px;
-  font-weight: 700;
+  font-family: ${theme.fonts.mono};
+  font-size: 12px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.85);
 `;
 
@@ -190,18 +195,19 @@ const TocBox = styled.nav`
   a:hover { color: ${theme.colors.accent}; text-decoration: underline; }
 `;
 const TocTitle = styled.p`
-  font-size: 12px;
-  font-weight: 700;
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: ${theme.colors.text};
 `;
 
 const calloutStyles = {
-  retenir: { border: theme.colors.accent, bg: `${theme.colors.accent}0A`, icon: "📌", label: "À retenir" },
-  astuce: { border: theme.colors.success, bg: "#05966910", icon: "💡", label: "Astuce" },
-  attention: { border: theme.colors.cta, bg: `${theme.colors.cta}0D`, icon: "⚠️", label: "Attention" },
-  definition: { border: theme.colors.accentLight, bg: `${theme.colors.accentLight}0D`, icon: "📖", label: "Définition" },
+  retenir: { border: theme.colors.accent, bg: `${theme.colors.accent}0A`, label: "À retenir" },
+  astuce: { border: theme.colors.success, bg: "#1E7A4F12", label: "Astuce" },
+  attention: { border: theme.colors.cta, bg: `${theme.colors.cta}0D`, label: "Attention" },
+  definition: { border: theme.colors.accentLight, bg: `${theme.colors.accentLight}0D`, label: "Définition" },
 } as const;
 
 const CalloutBox = styled.aside<{ variant: keyof typeof calloutStyles }>`
@@ -217,8 +223,11 @@ const CalloutBox = styled.aside<{ variant: keyof typeof calloutStyles }>`
   li { margin-top: 6px; }
 `;
 const CalloutTitle = styled.p`
-  font-weight: 700;
-  font-size: 14px;
+  font-family: ${theme.fonts.mono};
+  font-weight: 500;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   margin-top: 0 !important;
 `;
 
@@ -244,13 +253,16 @@ const Figure = styled.figure`
   figcaption { margin-top: 10px; font-size: 13px; color: ${theme.colors.textSecondary}; text-align: center; }
 `;
 const Placeholder = styled.div`
-  border: 2px dashed ${theme.colors.border};
+  border: 1.5px dashed ${theme.colors.textSecondary};
   border-radius: ${theme.radius.lg};
   background: ${theme.colors.surfaceAlt};
-  padding: 48px 24px;
+  padding: 44px 24px;
   text-align: center;
   color: ${theme.colors.textSecondary};
-  font-size: 14px;
+  font-family: ${theme.fonts.mono};
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 `;
 const ShotImg = styled.img`
   width: 100%;
@@ -291,8 +303,8 @@ const CodeBlock = styled.pre`
   padding: 18px 22px;
   border-radius: ${theme.radius.md};
   background: ${theme.colors.dark};
-  color: #e2e8f0;
-  font-family: Consolas, 'Courier New', monospace;
+  color: #ece5d8;
+  font-family: ${theme.fonts.mono};
   font-size: 13.5px;
   line-height: 1.7;
   overflow-x: auto;
@@ -372,10 +384,11 @@ const RelatedCard = styled(Link)`
   &:hover { border-color: ${theme.colors.cta}66; box-shadow: ${theme.shadows.md}; transform: translateY(-2px); }
 `;
 const RelatedTag = styled.span`
+  font-family: ${theme.fonts.mono};
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: ${theme.colors.cta};
 `;
 const RelatedTitle = styled.span`
@@ -427,7 +440,7 @@ function renderBlock(block: Block, key: number): React.ReactNode {
       const style = calloutStyles[block.variant];
       return (
         <CalloutBox key={key} variant={block.variant}>
-          <CalloutTitle>{style.icon} {block.title ?? style.label}</CalloutTitle>
+          <CalloutTitle>{block.title ?? style.label}</CalloutTitle>
           {block.text && <p>{renderInline(block.text)}</p>}
           {block.items && <ul>{block.items.map((it, i) => <li key={i}>{renderInline(it)}</li>)}</ul>}
         </CalloutBox>
@@ -440,7 +453,10 @@ function renderBlock(block: Block, key: number): React.ReactNode {
             <ShotImg src={block.src} alt={block.alt} loading="lazy" />
           ) : (
             <Placeholder role="img" aria-label={block.alt}>
-              <span style={{ fontSize: 28, display: "block", marginBottom: 8 }}>📸</span>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "block", margin: "0 auto 10px" }} aria-hidden>
+                <path d="M14.5 4h-5L7.5 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3z" />
+                <circle cx="12" cy="13" r="3.5" />
+              </svg>
               Capture d&apos;écran à venir
             </Placeholder>
           )}
@@ -534,10 +550,10 @@ export default function ArticleRenderer({
         <Title>{article.title}</Title>
         <Lead>{renderInline(article.excerpt)}</Lead>
         <MetaRow>
-          <span>✍️ {author.name}</span>
-          <span>📅 Publié le {datePublishedLabel}</span>
-          {dateModifiedLabel !== datePublishedLabel && <span>🔄 Mis à jour le {dateModifiedLabel}</span>}
-          <span>⏱️ {article.readingMinutes} min de lecture</span>
+          <span>{author.name}</span>
+          <span>Publié le {datePublishedLabel}</span>
+          {dateModifiedLabel !== datePublishedLabel && <span>Mis à jour le {dateModifiedLabel}</span>}
+          <span>{article.readingMinutes} min de lecture</span>
         </MetaRow>
 
         <TldrBox>

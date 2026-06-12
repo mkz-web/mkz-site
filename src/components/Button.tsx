@@ -7,18 +7,21 @@ import { theme } from "@/lib/theme";
 type ButtonProps = {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "onDark";
 };
+
+// Boutons « étiquette d'atelier » : rectangle net, aucun dégradé, aucune ombre
+// floue ; au survol, léger décalage + ombre dure (signal imprimé).
 
 const baseStyles = `
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 30px;
+  padding: 15px 28px;
   font-size: 15px;
   font-weight: 600;
-  border-radius: ${theme.radius.md};
-  transition: all 0.25s ease;
+  border-radius: ${theme.radius.sm};
+  transition: all 0.18s ${theme.easing};
   letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
@@ -27,35 +30,53 @@ const baseStyles = `
 const primaryStyles = `
   background-color: ${theme.colors.cta};
   color: white;
-  box-shadow: ${theme.shadows.cta};
+  border: 1px solid ${theme.colors.cta};
   &:hover {
     background-color: ${theme.colors.ctaHover};
-    box-shadow: ${theme.shadows.ctaHover};
-    transform: translateY(-2px) scale(1.02);
+    border-color: ${theme.colors.ctaHover};
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(34, 31, 26, 0.22);
   }
   &:active {
-    transform: translateY(0) scale(1);
+    transform: translate(0, 0);
+    box-shadow: none;
   }
 `;
 
 const secondaryStyles = `
   background-color: transparent;
-  color: ${theme.colors.accent};
-  border: 2px solid ${theme.colors.accent};
+  color: ${theme.colors.text};
+  border: 1px solid ${theme.colors.borderInk};
   &:hover {
-    background-color: ${theme.colors.accent};
-    color: white;
+    background-color: ${theme.colors.text};
+    color: ${theme.colors.background};
   }
 `;
 
-const StyledInternalLink = styled(Link)<{ variant: "primary" | "secondary" }>`
-  ${baseStyles}
-  ${({ variant }) => (variant === "primary" ? primaryStyles : secondaryStyles)}
+const onDarkStyles = `
+  background-color: transparent;
+  color: ${theme.colors.textOnDark};
+  border: 1px solid rgba(246, 241, 231, 0.55);
+  &:hover {
+    background-color: ${theme.colors.textOnDark};
+    color: ${theme.colors.dark};
+  }
 `;
 
-const StyledExternalLink = styled.a<{ variant: "primary" | "secondary" }>`
+const variantStyles = (variant: "primary" | "secondary" | "onDark") => {
+  if (variant === "primary") return primaryStyles;
+  if (variant === "onDark") return onDarkStyles;
+  return secondaryStyles;
+};
+
+const StyledInternalLink = styled(Link)<{ variant: "primary" | "secondary" | "onDark" }>`
   ${baseStyles}
-  ${({ variant }) => (variant === "primary" ? primaryStyles : secondaryStyles)}
+  ${({ variant }) => variantStyles(variant)}
+`;
+
+const StyledExternalLink = styled.a<{ variant: "primary" | "secondary" | "onDark" }>`
+  ${baseStyles}
+  ${({ variant }) => variantStyles(variant)}
 `;
 
 export default function Button({

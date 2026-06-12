@@ -19,32 +19,36 @@ const Card = styled(Link)`
   display: flex;
   flex-direction: column;
   padding: 28px;
+  border: 1px solid ${theme.colors.borderInk};
   border-radius: ${theme.radius.lg};
-  border: 1px solid ${theme.colors.border};
   background: ${theme.colors.surface};
-  box-shadow: ${theme.shadows.sm};
-  transition: all 0.25s;
+  transition: all 0.18s ${theme.easing};
+
   &:hover {
-    box-shadow: ${theme.shadows.lg};
-    transform: translateY(-3px);
-    border-color: ${theme.colors.cta}40;
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 rgba(34, 31, 26, 0.16);
+
+    .go { color: ${theme.colors.cta}; }
+    .go::after { transform: translateX(5px); }
   }
 `;
 
 const CardTag = styled.span`
+  font-family: ${theme.fonts.mono};
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: ${theme.colors.cta};
 `;
 
 const CardTitle = styled.h3`
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: ${theme.colors.text};
+  margin-top: 12px;
+  font-family: ${theme.fonts.display};
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: ${theme.colors.accent};
 `;
 
 const CardExcerpt = styled.p`
@@ -55,19 +59,24 @@ const CardExcerpt = styled.p`
   flex: 1;
 `;
 
-const CardMeta = styled.div`
+const CardMeta = styled.p`
   margin-top: 16px;
-  font-size: 12.5px;
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
   color: ${theme.colors.textSecondary};
-  display: flex;
-  gap: 12px;
 `;
 
 const CardRead = styled.span`
-  margin-top: 14px;
-  font-size: 13.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
   font-weight: 600;
-  color: ${theme.colors.accentLight};
+  color: ${theme.colors.text};
+  transition: color 0.18s ${theme.easing};
+
+  &::after { content: "→"; transition: transform 0.18s ${theme.easing}; }
 `;
 
 export function ArticleCard({ article }: { article: ArticleCardData }) {
@@ -77,10 +86,9 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
       <CardTitle>{article.title}</CardTitle>
       <CardExcerpt>{article.excerpt}</CardExcerpt>
       <CardMeta>
-        <span>📅 {article.dateLabel}</span>
-        <span>⏱️ {article.readingMinutes} min</span>
+        {article.dateLabel} · {article.readingMinutes} min de lecture
       </CardMeta>
-      <CardRead>Lire l&apos;article →</CardRead>
+      <CardRead className="go">Lire l&apos;article</CardRead>
     </Card>
   );
 }

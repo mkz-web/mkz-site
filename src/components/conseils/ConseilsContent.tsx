@@ -18,64 +18,151 @@ export interface CategoryCardData {
 }
 
 const Hero = styled.header`
-  padding: 72px 24px 56px;
-  background: ${theme.colors.accent};
-  color: white;
-  text-align: center;
+  padding: 96px 24px 56px;
+  border-bottom: 1px solid ${theme.colors.border};
 `;
+
+const HeroInner = styled.div`max-width: 1280px; margin: 0 auto;`;
+
+const Kicker = styled.p`
+  font-family: ${theme.fonts.mono};
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: ${theme.colors.textSecondary};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: ${theme.colors.cta};
+  }
+`;
+
 const HeroTitle = styled.h1`
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  @media (min-width: ${theme.breakpoints.md}) { font-size: 46px; }
+  margin-top: 20px;
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 600;
+  line-height: 1.06;
+  color: ${theme.colors.accent};
+
+  em { font-style: italic; color: ${theme.colors.cta}; }
 `;
+
 const HeroSub = styled.p`
-  margin: 16px auto 0;
-  max-width: 680px;
-  font-size: 17px;
+  margin-top: 18px;
+  max-width: 60ch;
+  font-size: 16.5px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: ${theme.colors.textSecondary};
 `;
 
 const Section = styled.section`padding: 64px 24px;`;
 const Container = styled.div`max-width: 1280px; margin: 0 auto;`;
+
+const GroupHead = styled.div`
+  border-top: 2px solid ${theme.colors.borderInk};
+  padding-top: 18px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+`;
+
+const GroupTitle = styled.h2`
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  color: ${theme.colors.accent};
+`;
 
 const CatGrid = styled.div`
   display: grid;
   gap: 24px;
   @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(3, 1fr); }
 `;
+
 const CatCard = styled(Link)`
   display: block;
-  padding: 32px;
+  padding: 30px;
+  border: 1px solid ${theme.colors.borderInk};
   border-radius: ${theme.radius.lg};
-  border: 1px solid ${theme.colors.border};
   background: ${theme.colors.surface};
-  box-shadow: ${theme.shadows.sm};
-  transition: all 0.25s;
-  &:hover { box-shadow: ${theme.shadows.lg}; transform: translateY(-3px); border-color: ${theme.colors.cta}40; }
-`;
-const CatIcon = styled.div`font-size: 32px;`;
-const CatName = styled.h2`margin-top: 14px; font-size: 19px; font-weight: 700; color: ${theme.colors.text};`;
-const CatDesc = styled.p`margin-top: 10px; font-size: 14px; line-height: 1.7; color: ${theme.colors.textSecondary};`;
-const CatCount = styled.span`display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: ${theme.colors.accentLight};`;
+  transition: all 0.18s ${theme.easing};
 
-const GroupTitle = styled.h2`
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin-bottom: 28px;
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 rgba(34, 31, 26, 0.16);
+    .go { color: ${theme.colors.cta}; }
+    .go::after { transform: translateX(5px); }
+  }
+`;
+
+const CatCount = styled.span`
+  font-family: ${theme.fonts.mono};
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: ${theme.colors.cta};
+`;
+
+const CatName = styled.h2`
+  margin-top: 12px;
+  font-family: ${theme.fonts.display};
+  font-size: 23px;
+  font-weight: 600;
+  color: ${theme.colors.accent};
+`;
+
+const CatDesc = styled.p`
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: ${theme.colors.textSecondary};
+`;
+
+const CatGo = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 600;
   color: ${theme.colors.text};
+  transition: color 0.18s ${theme.easing};
+
+  &::after { content: "→"; transition: transform 0.18s ${theme.easing}; }
 `;
 
 const CtaBand = styled.section`
-  padding: 72px 24px;
-  background: ${theme.colors.accent};
-  color: white;
-  text-align: center;
+  margin-top: 32px;
+  padding: 88px 24px;
+  background: ${theme.colors.dark};
+  color: ${theme.colors.textOnDark};
 `;
-const CtaTitle = styled.h2`font-size: 28px; font-weight: 800; @media (min-width: ${theme.breakpoints.md}) { font-size: 34px; }`;
-const CtaText = styled.p`margin: 14px auto 28px; max-width: 560px; font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.8);`;
+
+const CtaInner = styled.div`max-width: 1280px; margin: 0 auto;`;
+
+const CtaTitle = styled.h2`
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  color: ${theme.colors.textOnDark};
+
+  em { font-style: italic; color: ${theme.colors.cta}; }
+`;
+
+const CtaText = styled.p`
+  margin: 14px 0 28px;
+  max-width: 54ch;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: ${theme.colors.textOnDarkSecondary};
+`;
 
 export default function ConseilsContent({
   categories,
@@ -87,33 +174,42 @@ export default function ConseilsContent({
   return (
     <>
       <Hero>
-        <HeroTitle>Conseils &amp; tutoriels</HeroTitle>
-        <HeroSub>
-          Guides pratiques, tutoriels pas &agrave; pas et conseils SEO pour artisans,
-          commer&ccedil;ants et TPE. Les m&ecirc;mes m&eacute;thodes que nous appliquons
-          pour nos clients, en acc&egrave;s libre.
-        </HeroSub>
+        <HeroInner>
+          <Kicker>Conseils &amp; tutoriels</Kicker>
+          <HeroTitle>
+            Nos m&eacute;thodes, <em>en acc&egrave;s libre</em>.
+          </HeroTitle>
+          <HeroSub>
+            Guides pratiques, tutoriels pas &agrave; pas et conseils SEO pour artisans,
+            commer&ccedil;ants et TPE. Exactement ce que nous appliquons pour nos clients,
+            dat&eacute; et mis &agrave; jour.
+          </HeroSub>
+        </HeroInner>
       </Hero>
 
       <Section>
         <Container>
-          <GroupTitle>Explorez par th&eacute;matique</GroupTitle>
+          <GroupHead>
+            <GroupTitle>Explorez par th&eacute;matique</GroupTitle>
+          </GroupHead>
           <CatGrid>
             {categories.map((c) => (
               <CatCard key={c.slug} href={c.url}>
-                <CatIcon aria-hidden>{c.icon}</CatIcon>
+                <CatCount>{c.count} article{c.count > 1 ? "s" : ""}</CatCount>
                 <CatName>{c.name}</CatName>
                 <CatDesc>{c.description}</CatDesc>
-                <CatCount>{c.count} article{c.count > 1 ? "s" : ""} →</CatCount>
+                <CatGo className="go">Explorer</CatGo>
               </CatCard>
             ))}
           </CatGrid>
         </Container>
       </Section>
 
-      <Section style={{ paddingTop: 0 }}>
+      <Section style={{ paddingTop: 16 }}>
         <Container>
-          <GroupTitle>Derniers articles</GroupTitle>
+          <GroupHead>
+            <GroupTitle>Derniers articles</GroupTitle>
+          </GroupHead>
           <CardsGrid>
             {latest.map((a) => (
               <ArticleCard key={a.url} article={a} />
@@ -123,13 +219,15 @@ export default function ConseilsContent({
       </Section>
 
       <CtaBand>
-        <CtaTitle>Besoin d&apos;un coup de main ?</CtaTitle>
-        <CtaText>
-          R&eacute;servez un audit gratuit de 30 minutes : on analyse votre visibilit&eacute;
-          Google et on repart avec un plan d&apos;action concret, que vous travailliez
-          avec nous ou non.
-        </CtaText>
-        <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+        <CtaInner>
+          <CtaTitle>Besoin d&rsquo;un <em>coup de main</em> ?</CtaTitle>
+          <CtaText>
+            R&eacute;servez un audit gratuit de 30 minutes : on analyse votre visibilit&eacute;
+            Google et vous repartez avec un plan d&rsquo;action concret, que vous travailliez
+            avec nous ou non.
+          </CtaText>
+          <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+        </CtaInner>
       </CtaBand>
     </>
   );

@@ -1,26 +1,33 @@
+// Design system MKZ v2 : « papier & encre, éditorial chantier ».
+// Fond papier chaud + encre quasi-noire, navy en encre de titre, orange rationné
+// (CTA, kickers, détails), filets 1px, angles francs, aucune ombre floue.
+
 export const theme = {
   colors: {
-    background: "#F9FAFB",
-    surface: "#FFFFFF",
-    surfaceAlt: "#F0F4F8",
-    dark: "#0C1B2A",
-    darkSurface: "#142236",
-    darkBorder: "rgba(255, 255, 255, 0.1)",
-    text: "#1E293B",
-    textSecondary: "#64748B",
-    textOnDark: "#FFFFFF",
-    textOnDarkSecondary: "rgba(255, 255, 255, 0.7)",
-    accent: "#003764",
+    background: "#FAF7F1", // papier
+    surface: "#FFFDF8", // carte sur papier
+    surfaceAlt: "#F1EBDF", // sable
+    dark: "#0C1B2A", // encre nuit (sections sombres)
+    darkSurface: "#13253B",
+    darkBorder: "rgba(255, 255, 255, 0.14)",
+    text: "#221F1A", // encre chaude
+    textSecondary: "#5E574B",
+    textOnDark: "#F6F1E7",
+    textOnDarkSecondary: "rgba(246, 241, 231, 0.72)",
+    accent: "#003764", // navy MKZ
     accentLight: "#0B5394",
-    cta: "#E8590C",
-    ctaHover: "#D14A04",
-    border: "#E2E8F0",
-    hoverSurface: "#F1F5F9",
-    success: "#059669",
-    star: "#F59E0B",
+    cta: "#E8590C", // orange MKZ, budget strict
+    ctaHover: "#C84A05",
+    border: "#E3DACA", // filet discret (papier)
+    borderInk: "#221F1A", // filet fort (chapitres)
+    hoverSurface: "#F1EBDF",
+    success: "#1E7A4F",
+    star: "#E8590C",
   },
   fonts: {
-    sans: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    sans: "'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif",
+    display: "'Fraunces', Georgia, 'Times New Roman', serif",
+    mono: "'IBM Plex Mono', Consolas, 'Courier New', monospace",
   },
   breakpoints: {
     sm: "640px",
@@ -40,19 +47,21 @@ export const theme = {
     "5xl": "128px",
   },
   radius: {
-    sm: "6px",
-    md: "10px",
-    lg: "16px",
-    xl: "24px",
+    sm: "2px",
+    md: "2px",
+    lg: "4px",
+    xl: "6px",
     full: "9999px",
   },
   shadows: {
-    sm: "0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04)",
-    md: "0 4px 14px rgba(15, 23, 42, 0.08)",
-    lg: "0 10px 32px rgba(15, 23, 42, 0.10)",
-    cta: "0 4px 14px rgba(232, 89, 12, 0.25)",
-    ctaHover: "0 8px 24px rgba(232, 89, 12, 0.35)",
+    // Ombres dures décalées (signal « imprimé »), jamais de flou
+    sm: "none",
+    md: "4px 4px 0 rgba(34, 31, 26, 0.10)",
+    lg: "6px 6px 0 rgba(34, 31, 26, 0.12)",
+    cta: "none",
+    ctaHover: "none",
   },
+  easing: "cubic-bezier(0.22, 1, 0.36, 1)",
 } as const;
 
 export type Theme = typeof theme;
