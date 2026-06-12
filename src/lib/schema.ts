@@ -65,7 +65,7 @@ export function articleFaqSchema(a: Article) {
   return faqSchema(a.faq);
 }
 
-/** ItemList d'articles (hub + pages catégories) — item COMPLET obligatoire. */
+/** ItemList d'articles (hub + pages catégories) : item COMPLET obligatoire. */
 export function articleListSchema(list: Article[], opts: { name: string; url: string }) {
   return {
     "@context": "https://schema.org",

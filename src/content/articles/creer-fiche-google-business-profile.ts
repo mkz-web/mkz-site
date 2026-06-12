@@ -1,6 +1,6 @@
 // Article généré depuis _content-staging/creer-fiche-google-business-profile.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
-// de l'image dans public/images/conseils/) — penser à mettre à jour dateModified.
+// de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
 import type { Article } from "@/lib/articles/types";
 
 const article: Article = {
@@ -18,7 +18,7 @@ const article: Article = {
     "Seule 1 entreprise sur 2 utilise un service de référencement gratuit comme la fiche Google (Baromètre France Num 2025) : la créer vous place devant la moitié de vos concurrents.",
     "La catégorie principale est le réglage qui pèse le plus sur votre classement : choisissez votre métier exact (« Plombier », pas « Entreprise de plomberie générale »).",
     "Artisan sans boutique ? La zone d'intervention vous rend visible dans toutes vos villes, en masquant votre adresse personnelle.",
-    "Ensuite, 15 minutes par mois suffisent : répondre aux avis, ajouter des photos (+35 % de clics — Custplace, 2025), vérifier les horaires."
+    "Ensuite, 15 minutes par mois suffisent : répondre aux avis, ajouter des photos (+35 % de clics selon Custplace, 2025), vérifier les horaires."
   ],
   "blocks": [
     {
@@ -31,7 +31,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Chaque étape est chronométrée, chaque terme traduit en français normal — y compris le cas le plus courant chez les artisans : travailler chez ses clients, sans boutique."
+      "text": "Chaque étape est chronométrée, chaque terme traduit en français normal, y compris le cas le plus courant chez les artisans : travailler chez ses clients, sans boutique."
     },
     {
       "type": "h2",
@@ -112,7 +112,7 @@ const article: Article = {
     {
       "type": "ol",
       "items": [
-        "Un **compte Google** (Gmail) dédié à l'entreprise — pas celui d'un proche.",
+        "Un **compte Google** (Gmail) dédié à l'entreprise, pas celui d'un proche.",
         "Le **nom exact** : celui de la devanture, des factures ou du Kbis, sans mots-clés ajoutés.",
         "Votre **adresse**, ou la liste des **villes où vous intervenez**.",
         "Un **téléphone** auquel vous répondez vraiment.",
@@ -131,7 +131,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Indiquez votre adresse exacte, visible sur la carte — écrite partout de la même façon (site, annuaires, factures)."
+      "text": "Indiquez votre adresse exacte, visible sur la carte, et écrite partout de la même façon (site, annuaires, factures)."
     },
     {
       "type": "h3",
@@ -148,7 +148,7 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Étape 1 — Connectez-vous sur business.google.com (2 min)"
+      "text": "Étape 1 : Connectez-vous sur business.google.com (2 min)"
     },
     {
       "type": "p",
@@ -161,7 +161,7 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Étape 2 — Nom et catégorie principale : le choix qui pèse le plus (3 min)"
+      "text": "Étape 2 : Nom et catégorie principale, le choix qui pèse le plus (3 min)"
     },
     {
       "type": "p",
@@ -184,7 +184,7 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Étape 3 — Adresse ou zone d'intervention (3 min)"
+      "text": "Étape 3 : Adresse ou zone d'intervention (3 min)"
     },
     {
       "type": "p",
@@ -197,7 +197,7 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Étape 4 — Téléphone, site internet et horaires (2 min)"
+      "text": "Étape 4 : Téléphone, site internet et horaires (2 min)"
     },
     {
       "type": "p",
@@ -205,7 +205,7 @@ const article: Article = {
     },
     {
       "type": "h3",
-      "text": "Étape 5 — Description et photos : donnez envie d'appeler (5 min)"
+      "text": "Étape 5 : Description et photos, donnez envie d'appeler (5 min)"
     },
     {
       "type": "p",
@@ -229,7 +229,7 @@ const article: Article = {
     {
       "type": "h2",
       "id": "etape-6-verification",
-      "text": "Étape 6 — Valider sa fiche : réussir la vérification du premier coup"
+      "text": "Étape 6 : Valider sa fiche et réussir la vérification du premier coup"
     },
     {
       "type": "callout",
@@ -242,13 +242,13 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Sur la plupart des nouvelles fiches, Google propose d'abord la **vérification par vidéo** — devenue le passage obligé, et que les autres guides survolent. Le principe : filmer en continu, au smartphone, des preuves que l'entreprise est la vôtre. Une seule prise, sans montage :"
+      "text": "Sur la plupart des nouvelles fiches, Google propose d'abord la **vérification par vidéo**, devenue le passage obligé, et que les autres guides survolent. Le principe : filmer en continu, au smartphone, des preuves que l'entreprise est la vôtre. Une seule prise, sans montage :"
     },
     {
       "type": "ul",
       "items": [
         "**Le lieu** : la rue, une plaque ou un commerce voisin reconnaissable.",
-        "**Le local ou le véhicule floqué** au nom de l'entreprise — pour un artisan à domicile, véhicule et outillage font foi.",
+        "**Le local ou le véhicule floqué** au nom de l'entreprise : pour un artisan à domicile, véhicule et outillage font foi.",
         "**L'activité** : atelier, outils, stock, machines.",
         "**Une preuve de gestion** : ouvrir avec vos clés, montrer un devis ou une facture (masquez les infos clients)."
       ]
@@ -362,7 +362,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "93 % des consommateurs affirment que les avis en ligne influencent leurs décisions (Geolid, 2025). Demandez un avis à la fin du chantier, quand le client est content : « Si vous êtes satisfait, un avis Google nous aide énormément — voici le lien, ça prend 30 secondes. » La fiche fournit ce lien, imprimable en QR code sur vos factures."
+      "text": "93 % des consommateurs affirment que les avis en ligne influencent leurs décisions (Geolid, 2025). Demandez un avis à la fin du chantier, quand le client est content : « Si vous êtes satisfait, un avis Google nous aide énormément : voici le lien, ça prend 30 secondes. » La fiche fournit ce lien, imprimable en QR code sur vos factures."
     },
     {
       "type": "p",
@@ -374,7 +374,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un avant/après de chantier, une réalisation, une nouveauté en vitrine : 2 ou 3 photos par mois entretiennent le **+35 % de clics** constaté (Custplace, 2025). Ajoutez un **post Google** mensuel — une actu courte avec photo, publiée depuis la fiche."
+      "text": "Un avant/après de chantier, une réalisation, une nouveauté en vitrine : 2 ou 3 photos par mois entretiennent le **+35 % de clics** constaté (Custplace, 2025). Ajoutez un **post Google** mensuel : une actu courte avec photo, publiée depuis la fiche."
     },
     {
       "type": "h3",
@@ -451,12 +451,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Pas le temps, ou peur de mal faire ? C'est notre métier : nous créons et optimisons des fiches pour les artisans et commerçants de Seine-et-Marne et d'Île-de-France, en vous montrant tout — vous restez maître de votre fiche. Écrivez-nous via la [page contact](/contact/), ou réservez un créneau ci-dessous."
+      "text": "Pas le temps, ou peur de mal faire ? C'est notre métier : nous créons et optimisons des fiches pour les artisans et commerçants de Seine-et-Marne et d'Île-de-France, en vous montrant tout : vous restez maître de votre fiche. Écrivez-nous via la [page contact](/contact/), ou réservez un créneau ci-dessous."
     },
     {
       "type": "cta",
       "title": "Audit gratuit de 30 minutes",
-      "text": "On regarde ensemble votre fiche, votre site et votre visibilité locale. Vous repartez avec un plan d'action clair — que vous travailliez avec nous ou non.",
+      "text": "On regarde ensemble votre fiche, votre site et votre visibilité locale. Vous repartez avec un plan d'action clair, que vous travailliez avec nous ou non.",
       "button": "Réserver mon créneau gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     }

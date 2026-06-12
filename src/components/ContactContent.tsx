@@ -48,7 +48,7 @@ export default function ContactContent() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <CalendlyCard href={CALENDLY} target="_blank" rel="noopener noreferrer">
             <CalendlyTitle>&#128197; R&eacute;server un cr&eacute;neau</CalendlyTitle>
-            <CalendlyDesc>Audit gratuit de 30 min &mdash; sans engagement</CalendlyDesc>
+            <CalendlyDesc>Audit gratuit de 30 min, sans engagement</CalendlyDesc>
           </CalendlyCard>
           <InfoCard>
             <InfoIcon>&#128222;</InfoIcon>

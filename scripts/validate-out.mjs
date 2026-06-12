@@ -10,6 +10,8 @@
 // 4. <title> ≤ 65 caractères ; meta description ≤ 165 et ≥ 80 caractères.
 // 5. Tous les liens internes href="/…" pointent vers un fichier existant de out/.
 // 6. Présence de canonical sur chaque page indexable.
+// 7. AUCUN tiret long « — » / demi-cadratin « – » (règle d'écriture Mickaël, 12/06/2026),
+//    y compris dans llms.txt et llms-full.txt.
 
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { resolve, dirname, join, relative } from "node:path";
@@ -54,6 +56,10 @@ for (const file of htmlFiles(outDir)) {
   const html = readFileSync(file, "utf8");
   const isErrorPage = rel === "404.html" || rel.startsWith("404/");
 
+  // 7. Tirets longs interdits
+  const dashes = (html.match(/—|–|&mdash;|&ndash;/g) ?? []).length;
+  if (dashes > 0) errors.push(`${rel} : ${dashes} tiret(s) long(s) « — / – » (interdits)`);
+
   // 1-3. JSON-LD
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     jsonLdBlocks++;
@@ -61,7 +67,7 @@ for (const file of htmlFiles(outDir)) {
     try {
       data = JSON.parse(m[1]);
     } catch (e) {
-      errors.push(`${rel} : JSON-LD invalide — ${e.message}`);
+      errors.push(`${rel} : JSON-LD invalide : ${e.message}`);
       continue;
     }
     const nodes = Array.isArray(data) ? data : [data];
@@ -69,9 +75,9 @@ for (const file of htmlFiles(outDir)) {
       if (node["@type"] === "ItemList") {
         for (const el of node.itemListElement ?? []) {
           if (!el.item || typeof el.item !== "object") {
-            errors.push(`${rel} : ItemList — itemListElement #${el.position} sans objet item`);
+            errors.push(`${rel} : ItemList, itemListElement #${el.position} sans objet item`);
           } else if (!el.item["@type"] || !el.item.name || !el.item.url) {
-            errors.push(`${rel} : ItemList — item #${el.position} incomplet (@type/name/url requis)`);
+            errors.push(`${rel} : ItemList, item #${el.position} incomplet (@type/name/url requis)`);
           }
         }
       }
@@ -80,7 +86,7 @@ for (const file of htmlFiles(outDir)) {
         els.forEach((el, i) => {
           const isLast = i === els.length - 1;
           if (!isLast && !el.item) {
-            errors.push(`${rel} : BreadcrumbList — maillon #${i + 1} (non terminal) sans item`);
+            errors.push(`${rel} : BreadcrumbList, maillon #${i + 1} (non terminal) sans item`);
           }
         });
       }
@@ -92,7 +98,7 @@ for (const file of htmlFiles(outDir)) {
   // 4. Title / meta description
   const title = decodeEntities(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "");
   if (!title) errors.push(`${rel} : <title> manquant`);
-  else if (title.length > 65) errors.push(`${rel} : title ${title.length} car. (> 65) — « ${title} »`);
+  else if (title.length > 65) errors.push(`${rel} : title ${title.length} car. (> 65) : « ${title} »`);
   const desc = decodeEntities(html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "");
   if (!desc) errors.push(`${rel} : meta description manquante`);
   else {
@@ -119,6 +125,16 @@ for (const file of htmlFiles(outDir)) {
       errors.push(`${rel} : lien interne cassé ${href}`);
     }
   }
+}
+
+for (const txt of ["llms.txt", "llms-full.txt", "sitemap.xml"]) {
+  const p = join(outDir, txt);
+  if (!existsSync(p)) {
+    errors.push(`${txt} : fichier absent de out/`);
+    continue;
+  }
+  const dashes = (readFileSync(p, "utf8").match(/—|–/g) ?? []).length;
+  if (dashes > 0) errors.push(`${txt} : ${dashes} tiret(s) long(s) « — / – » (interdits)`);
 }
 
 console.log(`Pages analysées : ${pages} · blocs JSON-LD valides reparsés : ${jsonLdBlocks}`);

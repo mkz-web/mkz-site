@@ -6,16 +6,16 @@ const pillar: PillarPage = {
   "title": "Création de site internet artisan : un site qui ramène des devis",
   "metaTitle": "Création site internet artisan : votre site, vos clients",
   "metaDescription": "Création de site internet pour artisans et TPE : un site rapide, bien référencé et 100 % à vous. Tarifs clairs, aides régionales, audit gratuit 30 min.",
-  "heroBadge": "Création de sites internet — Artisans & TPE — Seine-et-Marne",
+  "heroBadge": "Création de sites internet pour artisans & TPE en Seine-et-Marne",
   "heroLead": "Un site rapide, visible sur Google et dont vous êtes propriétaire à 100 %. Conçu pour une seule chose : faire sonner votre téléphone. Audit gratuit de 30 minutes, devis clair, site en ligne sous 4 semaines.",
   "blocks": [
     {
       "type": "p",
-      "text": "Un **site internet pour artisan**, c'est une vitrine ouverte 24 h/24 qui transforme les recherches Google de vos voisins en demandes de devis. Concrètement : un client tape « plombier Meaux », il vous trouve, il vous appelle. Chez MKZ, la création de votre site internet d'artisan prend 4 semaines environ — et le site vous appartient à 100 % : nom de domaine, contenus, photos."
+      "text": "Un **site internet pour artisan**, c'est une vitrine ouverte 24 h/24 qui transforme les recherches Google de vos voisins en demandes de devis. Concrètement : un client tape « plombier Meaux », il vous trouve, il vous appelle. Chez MKZ, la création de votre site internet d'artisan prend 4 semaines environ, et le site vous appartient à 100 % : nom de domaine, contenus, photos."
     },
     {
       "type": "p",
-      "text": "Sur cette page, vous trouverez ce qu'un patron de TPE doit savoir avant de signer : les types de sites, les vrais prix du marché et les aides disponibles. Avec un comparatif des coûts sur 3 ans, et la question que trop peu de prestataires acceptent de poser — à qui appartient votre site ?"
+      "text": "Sur cette page, vous trouverez ce qu'un patron de TPE doit savoir avant de signer : les types de sites, les vrais prix du marché et les aides disponibles. Avec un comparatif des coûts sur 3 ans, et la question que trop peu de prestataires acceptent de poser : à qui appartient votre site ?"
     },
     {
       "type": "h2",
@@ -33,18 +33,18 @@ const pillar: PillarPage = {
     {
       "type": "ul",
       "items": [
-        "**48 % des TPE-PME** citent l'acquisition de nouveaux clients comme premier bénéfice de leur site, loin devant l'image de modernité (39 %) — Baromètre France Num 2025.",
-        "**51 % des TPE-PME** obtiennent au moins 5 % de leurs clients via internet, soit 8 points de plus qu'en 2022 — Baromètre France Num 2025.",
+        "**48 % des TPE-PME** citent l'acquisition de nouveaux clients comme premier bénéfice de leur site, loin devant l'image de modernité (39 %), selon le Baromètre France Num 2025.",
+        "**51 % des TPE-PME** obtiennent au moins 5 % de leurs clients via internet, soit 8 points de plus qu'en 2022 (Baromètre France Num 2025).",
         "Un site n'est donc pas une dépense d'image : c'est un outil qui ramène des chantiers."
       ]
     },
     {
       "type": "h3",
-      "text": "Votre fiche Google ne suffit plus — et elle ne vous appartient pas"
+      "text": "Votre fiche Google ne suffit plus, et elle ne vous appartient pas"
     },
     {
       "type": "p",
-      "text": "En 2025, pour la première fois, les réseaux sociaux (66 %) devancent le site internet (65 %) comme outil de visibilité des TPE-PME — Baromètre France Num 2025. Faut-il en conclure qu'une page Facebook et une **fiche d'établissement Google** suffisent ? Non. Ces canaux sont utiles, mais ils ne vous appartiennent pas : Google ou Meta peuvent changer les règles, suspendre votre fiche ou noyer votre page du jour au lendemain."
+      "text": "En 2025, pour la première fois, les réseaux sociaux (66 %) devancent le site internet (65 %) comme outil de visibilité des TPE-PME (Baromètre France Num 2025). Faut-il en conclure qu'une page Facebook et une **fiche d'établissement Google** suffisent ? Non. Ces canaux sont utiles, mais ils ne vous appartiennent pas : Google ou Meta peuvent changer les règles, suspendre votre fiche ou noyer votre page du jour au lendemain."
     },
     {
       "type": "p",
@@ -82,7 +82,7 @@ const pillar: PillarPage = {
         [
           "Site vitrine multi-pages",
           "Une page par métier et par commune d'intervention",
-          "Être trouvé sur Google dans toute votre zone — notre recommandation"
+          "Être trouvé sur Google dans toute votre zone : notre recommandation"
         ],
         [
           "Boutique en ligne",
@@ -106,7 +106,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "La création d'un site internet pour artisan coûte de 290 € (site une page low-cost) à 2 000 € (site vitrine professionnel), selon les prix constatés sur Google en juin 2026. Les offres « sans frais de création » à 29 €/mois semblent imbattables… mais dépassent 1 000 € sur 3 ans — sans que vous possédiez quoi que ce soit."
+      "text": "La création d'un site internet pour artisan coûte de 290 € (site une page low-cost) à 2 000 € (site vitrine professionnel), selon les prix constatés sur Google en juin 2026. Les offres « sans frais de création » à 29 €/mois semblent imbattables… mais dépassent 1 000 € sur 3 ans, sans que vous possédiez quoi que ce soit."
     },
     {
       "type": "h3",
@@ -145,7 +145,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Le détail poste par poste — domaine, hébergement, rédaction, maintenance — est dans notre article [combien coûte un site internet](/conseils/creation-site-internet/combien-coute-un-site-internet/)."
+      "text": "Le détail poste par poste (domaine, hébergement, rédaction, maintenance) est dans notre article [combien coûte un site internet](/conseils/creation-site-internet/combien-coute-un-site-internet/)."
     },
     {
       "type": "h3",
@@ -172,7 +172,7 @@ const pillar: PillarPage = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "Ne comparez jamais les prix de création seuls : comparez le coût total sur 3 ans ET qui possède le site à la fin. Un abonnement à 29 €/mois coûte plus de 1 000 € en 3 ans — sans que le site vous appartienne."
+      "text": "Ne comparez jamais les prix de création seuls : comparez le coût total sur 3 ans ET qui possède le site à la fin. Un abonnement à 29 €/mois coûte plus de 1 000 € en 3 ans, sans que le site vous appartienne."
     },
     {
       "type": "h2",
@@ -181,7 +181,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "C'est le piège n°1 des offres pas chères : avec un site en location, le jour où vous arrêtez de payer, tout disparaît. Le site, parfois le nom de domaine, et même les textes. Vous repartez de zéro — et votre ancien prestataire garde les clés."
+      "text": "C'est le piège n°1 des offres pas chères : avec un site en location, le jour où vous arrêtez de payer, tout disparaît. Le site, parfois le nom de domaine, et même les textes. Vous repartez de zéro, et votre ancien prestataire garde les clés."
     },
     {
       "type": "p",
@@ -213,8 +213,8 @@ const pillar: PillarPage = {
         "**Audit gratuit de 30 minutes** : vos métiers, vos communes d'intervention, vos concurrents, vos objectifs. Sans engagement.",
         "**Maquette et plan du site** : vous validez l'apparence et la liste des pages avant tout développement. Pas de surprise.",
         "**Rédaction et photos** : nous écrivons vos pages métiers avec vos mots, et intégrons vos photos de chantiers.",
-        "**Mise en ligne** : un site rapide — 1,2 s de chargement en moyenne sur nos sites. Nous le connectons à votre fiche d'établissement et à Google Search Console (l'outil gratuit qui mesure votre visibilité sur Google).",
-        "**Suivi et résultats** : reporting mensuel clair — visites, appels, demandes de devis. Vous voyez tout."
+        "**Mise en ligne** : un site rapide (1,2 s de chargement en moyenne sur nos sites). Nous le connectons à votre fiche d'établissement et à Google Search Console (l'outil gratuit qui mesure votre visibilité sur Google).",
+        "**Suivi et résultats** : reporting mensuel clair (visites, appels, demandes de devis). Vous voyez tout."
       ]
     },
     {
@@ -243,7 +243,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Chaque prestation mérite sa page : « rénovation de salle de bain », « dépannage chauffe-eau », « ravalement de façade »… C'est exactement ce que vos clients tapent dans Google. Et rien ne rassure plus qu'un avant/après de VOS chantiers — pas des photos d'illustration vues sur dix autres sites."
+      "text": "Chaque prestation mérite sa page : « rénovation de salle de bain », « dépannage chauffe-eau », « ravalement de façade »… C'est exactement ce que vos clients tapent dans Google. Et rien ne rassure plus qu'un avant/après de VOS chantiers, pas des photos d'illustration vues sur dix autres sites."
     },
     {
       "type": "h3",
@@ -259,7 +259,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Le **référencement naturel** — le fait d'apparaître dans les résultats Google sans payer de publicité — se travaille dès la construction du site. Concrètement : une page par commune stratégique, des textes qui répondent aux vraies questions de vos clients, une fiche Google reliée au site. C'est le cœur de notre offre de [référencement SEO](/referencement-seo/), et notre guide du [référencement local](/conseils/seo/referencement-local/) explique la méthode pas à pas."
+      "text": "Le **référencement naturel** (le fait d'apparaître dans les résultats Google sans payer de publicité) se travaille dès la construction du site. Concrètement : une page par commune stratégique, des textes qui répondent aux vraies questions de vos clients, une fiche Google reliée au site. C'est le cœur de notre offre de [référencement SEO](/referencement-seo/), et notre guide du [référencement local](/conseils/seo/referencement-local/) explique la méthode pas à pas."
     },
     {
       "type": "h3",
@@ -267,7 +267,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "26 % des TPE-PME utilisaient une solution d'intelligence artificielle en 2025, soit le double de 2024 (13 %) — Baromètre France Num 2025. Vos clients suivent le même chemin : ils demandent à ChatGPT « un bon carreleur près de Meaux ». Nos sites sont construits pour être compris et cités par ces moteurs de réponse — un critère que la plupart des prestataires ignorent encore."
+      "text": "26 % des TPE-PME utilisaient une solution d'intelligence artificielle en 2025, soit le double de 2024 (13 %), selon le Baromètre France Num 2025. Vos clients suivent le même chemin : ils demandent à ChatGPT « un bon carreleur près de Meaux ». Nos sites sont construits pour être compris et cités par ces moteurs de réponse, un critère que la plupart des prestataires ignorent encore."
     },
     {
       "type": "callout",
@@ -282,16 +282,16 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "MKZ est basée à Dammartin-en-Goële, au nord de la Seine-et-Marne. Plombier à Meaux, électricien du côté de Roissy, maçon dans le 77 ou ailleurs en Île-de-France : nous connaissons vos zones, vos clients et vos concurrents — et nous nous déplaçons. C'est tout l'intérêt d'une [agence web en Seine-et-Marne](/agence-web-77/) : un interlocuteur unique, joignable, qui parle votre langue."
+      "text": "MKZ est basée à Dammartin-en-Goële, au nord de la Seine-et-Marne. Plombier à Meaux, électricien du côté de Roissy, maçon dans le 77 ou ailleurs en Île-de-France : nous connaissons vos zones, vos clients et vos concurrents, et nous nous déplaçons. C'est tout l'intérêt d'une [agence web en Seine-et-Marne](/agence-web-77/) : un interlocuteur unique, joignable, qui parle votre langue."
     },
     {
       "type": "p",
-      "text": "Vous avez déjà un site, mais il est lent, daté ou invisible sur Google ? Une [refonte de site internet](/conseils/creation-site-internet/refonte-site-internet/) est souvent plus rapide — et plus rentable — qu'une création de zéro. On vous dit honnêtement ce qui mérite d'être gardé."
+      "text": "Vous avez déjà un site, mais il est lent, daté ou invisible sur Google ? Une [refonte de site internet](/conseils/creation-site-internet/refonte-site-internet/) est souvent plus rapide (et plus rentable) qu'une création de zéro. On vous dit honnêtement ce qui mérite d'être gardé."
     },
     {
       "type": "cta",
       "title": "Votre site, vos clients, votre propriété",
-      "text": "Réservez votre audit gratuit de 30 minutes : nous chiffrons votre projet, vérifions vos aides régionales et vous repartez avec un plan clair — que vous signiez avec nous ou non.",
+      "text": "Réservez votre audit gratuit de 30 minutes : nous chiffrons votre projet, vérifions vos aides régionales et vous repartez avec un plan clair, que vous signiez avec nous ou non.",
       "button": "Réserver mon audit gratuit (30 min)",
       "href": "https://calendly.com/mkz-consulting/30min"
     }
@@ -299,7 +299,7 @@ const pillar: PillarPage = {
   "faq": [
     {
       "q": "Combien coûte la création d'un site internet pour artisan ?",
-      "a": "La création d'un site internet pour artisan coûte de 290 € (site une page, plus 120 € de frais annuels) à 1 500-2 000 € (site vitrine professionnel) — prix constatés en juin 2026. Les abonnements à 29 €/mois dépassent 1 000 € sur 3 ans, sans que le site vous appartienne. Chez MKZ, le devis est gratuit et vous êtes propriétaire à 100 %."
+      "a": "La création d'un site internet pour artisan coûte de 290 € (site une page, plus 120 € de frais annuels) à 1 500-2 000 € (site vitrine professionnel), selon les prix constatés en juin 2026. Les abonnements à 29 €/mois dépassent 1 000 € sur 3 ans, sans que le site vous appartienne. Chez MKZ, le devis est gratuit et vous êtes propriétaire à 100 %."
     },
     {
       "q": "Quel est le délai pour créer un site internet d'artisan ?",
@@ -315,7 +315,7 @@ const pillar: PillarPage = {
     },
     {
       "q": "Qui s'occupe de la maintenance et des modifications du site ?",
-      "a": "Chez MKZ, la maintenance du site — mises à jour de sécurité, sauvegardes, corrections — est assurée avec un reporting mensuel, et les modifications courantes se font sur simple demande. Vous restez libre : le site, le nom de domaine et les contenus vous appartiennent, vous pouvez donc changer de prestataire à tout moment sans rien perdre."
+      "a": "Chez MKZ, la maintenance du site (mises à jour de sécurité, sauvegardes, corrections) est assurée avec un reporting mensuel, et les modifications courantes se font sur simple demande. Vous restez libre : le site, le nom de domaine et les contenus vous appartiennent, vous pouvez donc changer de prestataire à tout moment sans rien perdre."
     },
     {
       "q": "Quelles aides pour financer la création de mon site internet ?",

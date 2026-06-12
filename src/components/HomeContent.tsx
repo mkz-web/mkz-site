@@ -214,12 +214,12 @@ export default function HomeContent() {
             ))}
           </MetricsGrid>
           <MetricsNote>
-            Moyennes constat&eacute;es sur les clients MKZ accompagn&eacute;s en 2025 &mdash; plus de 50 entreprises, 97&nbsp;% de clients satisfaits.
+            Moyennes constat&eacute;es sur les clients MKZ accompagn&eacute;s en 2025 : plus de 50 entreprises, 97&nbsp;% de clients satisfaits.
           </MetricsNote>
         </Container>
       </Section>
 
-      {/* Problems — BLEU MKZ */}
+      {/* Problems (bleu MKZ) */}
       <Section variant="accent" className="accent-section">
         <Container>
           <SectionHeader>
@@ -261,7 +261,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* M&eacute;thode — BLEU MKZ */}
+      {/* M&eacute;thode (bleu MKZ) */}
       <Section variant="accent" className="accent-section" id="methode">
         <Container>
           <SectionHeader>
@@ -366,7 +366,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* CTA Final — BLEU MKZ */}
+      {/* CTA Final (bleu MKZ) */}
       <Section variant="accent" className="accent-section">
         <Container style={{ textAlign: "center" }}>
           <CTABadge>Places limit&eacute;es ce mois-ci</CTABadge>

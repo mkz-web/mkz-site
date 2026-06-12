@@ -15,7 +15,7 @@ export const categories: Category[] = [
       "Des guides pas à pas, avec captures d'écran, pour reprendre la main sur vos outils : Search Console, fiche Google, WordPress…",
     intro: [
       "Chez MKZ, nous pensons qu'un client autonome est un client serein. Ces tutoriels sont les mêmes que ceux que nous partageons avec nos clients : des **guides pas à pas, sans jargon**, illustrés de captures d'écran, pour gérer vous-même les outils essentiels de votre visibilité en ligne.",
-      "Suivez-les dans l'ordre qui vous arrange : chaque tutoriel est autonome et se termine par une checklist. Et si vous bloquez, [appelez-nous](/contact/) — on décroche.",
+      "Suivez-les dans l'ordre qui vous arrange : chaque tutoriel est autonome et se termine par une checklist. Et si vous bloquez, [appelez-nous](/contact/) : on décroche.",
     ],
     icon: "🧰",
     pillar: { href: "/services/", label: "Découvrir nos services" },
@@ -30,7 +30,7 @@ export const categories: Category[] = [
     description:
       "Prix, refonte, site vitrine : tout ce qu'il faut savoir avant d'investir dans un site qui vous rapporte des clients.",
     intro: [
-      "Un site internet est un investissement, pas une dépense — à condition de prendre les bonnes décisions dès le départ. Ce cocon rassemble nos guides sur la **création et la refonte de site internet** : combien ça coûte vraiment, quand refondre, quel type de site choisir.",
+      "Un site internet est un investissement, pas une dépense, à condition de prendre les bonnes décisions dès le départ. Ce cocon rassemble nos guides sur la **création et la refonte de site internet** : combien ça coûte vraiment, quand refondre, quel type de site choisir.",
       "Ces conseils s'appuient sur les projets que nous menons pour des artisans, commerçants et TPE en Seine-et-Marne et partout en France. Pour passer à l'action, découvrez notre service de [création de site internet](/creation-site-internet/).",
     ],
     icon: "💻",
@@ -47,7 +47,7 @@ export const categories: Category[] = [
       "Référencement local, audit SEO, visibilité Google : des guides concrets pour apparaître devant vos clients.",
     intro: [
       "97 % des consommateurs cherchent une entreprise locale sur internet avant de la contacter. Le **référencement naturel (SEO)** est le levier le plus rentable pour capter ces recherches : un trafic gratuit, durable, qui travaille pour vous jour et nuit.",
-      "Ce cocon rassemble nos guides SEO pensés pour les artisans, commerçants et TPE : référencement local, audit, méthodes concrètes — sans jargon. Pour aller plus vite, notre service de [référencement SEO](/referencement-seo/) s'occupe de tout.",
+      "Ce cocon rassemble nos guides SEO pensés pour les artisans, commerçants et TPE : référencement local, audit, méthodes concrètes, sans jargon. Pour aller plus vite, notre service de [référencement SEO](/referencement-seo/) s'occupe de tout.",
     ],
     icon: "🔍",
     pillar: { href: "/referencement-seo/", label: "Notre service SEO" },

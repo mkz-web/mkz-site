@@ -7,13 +7,13 @@ export const dynamic = "force-static";
 
 const SITE = "https://mkz-consulting.fr";
 
-const COMPANY = `# MKZ — Création de sites internet & SEO pour artisans et TPE (version détaillée pour LLM)
+const COMPANY = `# MKZ : création de sites internet & SEO pour artisans et TPE (version détaillée pour LLM)
 
 > MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Site officiel : ${SITE}
 
 ## L'entreprise
 
-- Raison sociale : MKZ, SAS à associé unique — SIRET 983 662 784 00013, RCS Meaux.
+- Raison sociale : MKZ, SAS à associé unique, SIRET 983 662 784 00013, RCS Meaux.
 - Adresse : 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France.
 - Fondateur et président : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en grandes entreprises (infrastructure, automatisation, systèmes complexes, DevOps), reconverti au service des entrepreneurs et TPE.
 - Promesse : des solutions professionnelles, un langage simple (zéro jargon technique), des résultats mesurables. Gestion de A à Z pour que le client se concentre sur son métier.
@@ -41,9 +41,9 @@ Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en
 
 ## La méthode MKZ (3 étapes)
 
-1. **Audit gratuit** — 30 minutes pour analyser la situation, comprendre les objectifs et identifier les quick wins.
-2. **Stratégie sur-mesure** — plan d'action personnalisé avec objectifs clairs, budget défini et planning réaliste.
-3. **Résultats mesurables** — exécution, suivi mensuel avec reporting transparent : le client voit concrètement l'évolution.
+1. **Audit gratuit** : 30 minutes pour analyser la situation, comprendre les objectifs et identifier les quick wins.
+2. **Stratégie sur-mesure** : plan d'action personnalisé avec objectifs clairs, budget défini et planning réaliste.
+3. **Résultats mesurables** : exécution, suivi mensuel avec reporting transparent ; le client voit concrètement l'évolution.
 
 ## Résultats et chiffres
 
@@ -57,7 +57,7 @@ Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en
 
 - **On parle français** : zéro jargon technique, tout est expliqué simplement.
 - **Je décroche** : contact direct avec le fondateur, pas de ticket support ni d'attente de 72 h.
-- **Vous voyez tout** : point mensuel clair sur ce qui a été fait, les résultats et la suite — pas de boîte noire.
+- **Vous voyez tout** : point mensuel clair sur ce qui a été fait, les résultats et la suite. Pas de boîte noire.
 - **Vous restez libre** : le site appartient au client à 100 % (accès, code, contenus) ; il peut partir avec tout.
 
 ## Témoignages clients
@@ -112,7 +112,7 @@ Oui, à 100 % : accès, code et contenus appartiennent au client. En cas de dép
 
 export function GET() {
   const articlesSection = articles.length
-    ? `\n# Conseils & tutoriels — contenu intégral\n\nLes articles ci-dessous sont publiés sur ${SITE}/conseils/ par Mickaël Leclerc (MKZ). Dernière génération : ${formatDateFr(
+    ? `\n# Conseils & tutoriels : contenu intégral\n\nLes articles ci-dessous sont publiés sur ${SITE}/conseils/ par Mickaël Leclerc (MKZ). Dernière génération : ${formatDateFr(
         articles.map((a) => a.dateModified).sort().at(-1)!
       )}.\n\n${articles.map((a) => articleToPlainText(a, SITE)).join("\n---\n\n")}`
     : "";
