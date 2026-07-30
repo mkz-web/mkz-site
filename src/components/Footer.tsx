@@ -43,7 +43,8 @@ const Tagline = styled.p`
 
   em {
     font-style: italic;
-    color: ${theme.colors.cta};
+    // Fond sombre : orange VIF (4,86:1). L'orange encre y tomberait a 3,17:1.
+  color: ${theme.colors.cta};
   }
 `;
 
@@ -64,7 +65,7 @@ const TopPhone = styled.a`
   color: ${theme.colors.textOnDarkSecondary};
 
   strong { color: ${theme.colors.textOnDark}; font-weight: 500; }
-  &:hover strong { color: ${theme.colors.cta}; }
+  &:hover strong { color: ${theme.colors.ctaInk}; }
 `;
 
 const Grid = styled.div`
@@ -103,6 +104,7 @@ const GroupTitle = styled.h3`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  // Fond sombre : orange VIF (4,86:1). L'orange encre y tomberait a 3,17:1.
   color: ${theme.colors.cta};
   margin-bottom: 18px;
 `;

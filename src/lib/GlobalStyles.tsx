@@ -91,12 +91,12 @@ export default function GlobalStyles() {
         }
 
         ::selection {
-          background-color: ${theme.colors.cta};
+          background-color: ${theme.colors.ctaInk};
           color: white;
         }
 
         :focus-visible {
-          outline: 2px solid ${theme.colors.cta};
+          outline: 2px solid ${theme.colors.ctaInk};
           outline-offset: 2px;
         }
 

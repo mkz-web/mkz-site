@@ -29,7 +29,7 @@ const Kicker = styled.p`
     content: "";
     width: 10px;
     height: 10px;
-    background: ${theme.colors.cta};
+    background: ${theme.colors.ctaInk};
   }
 `;
 
@@ -72,7 +72,7 @@ const CardKicker = styled.p`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const CardTitle = styled.h2`
@@ -84,7 +84,7 @@ const CardTitle = styled.h2`
 
 const CardDesc = styled.p`
   margin-top: 14px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.75;
   color: ${theme.colors.textSecondary};
 `;
@@ -108,7 +108,7 @@ const CardLink = styled(Link)`
   transition: color 0.18s ${theme.easing};
 
   &::after { content: "→"; transition: transform 0.18s ${theme.easing}; }
-  &:hover { color: ${theme.colors.cta}; &::after { transform: translateX(5px); } }
+  &:hover { color: ${theme.colors.ctaInk}; &::after { transform: translateX(5px); } }
 `;
 
 const MoreBand = styled.div`
@@ -141,7 +141,7 @@ const MoreTitle = styled.span`
 const MoreDesc = styled.span`
   display: block;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textSecondary};
 `;
@@ -163,7 +163,7 @@ const CTATitle = styled.h2`
 const CTAText = styled.p`
   margin-top: 14px;
   max-width: 54ch;
-  font-size: 15.5px;
+  font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textOnDarkSecondary};
 `;

@@ -23,7 +23,7 @@ const TextLink = styled(Link)`
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 3px;
-  &:hover { color: ${theme.colors.cta}; }
+  &:hover { color: ${theme.colors.ctaInk}; }
 `;
 
 const TextA = TextLink.withComponent("a");
@@ -68,7 +68,7 @@ const Wrapper = styled.article`
   padding: 48px 24px 96px;
 `;
 const Inner = styled.div`
-  max-width: 760px;
+  max-width: 680px;
   margin: 0 auto;
 `;
 
@@ -96,7 +96,7 @@ const CategoryBadge = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border-radius: ${theme.radius.sm};
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
   border: 1.5px solid ${theme.colors.cta};
   &:hover { background: ${theme.colors.cta}; color: white; }
 `;
@@ -133,15 +133,17 @@ const MetaRow = styled.div`
 
 /* ─── Blocs ─── */
 
+// 18px et bloc de 680px : ramène la ligne de 95-104 caractères (mesuré le
+// 30/07/2026) sous 80, l'optimum de lisibilité étant 45 à 75.
 const Body = styled.div`
-  font-size: 16.5px;
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 1.75;
   color: ${theme.colors.text};
 
   p { margin-top: 20px; }
   ul, ol { margin-top: 20px; padding-left: 26px; }
   li { margin-top: 8px; }
-  li::marker { color: ${theme.colors.cta}; font-weight: 600; }
+  li::marker { color: ${theme.colors.ctaInk}; font-weight: 600; }
 `;
 
 const H2 = styled.h2`
@@ -170,8 +172,8 @@ const TldrBox = styled.aside`
   background: ${theme.colors.accent};
   color: white;
   ul { margin-top: 12px; padding-left: 22px; }
-  li { margin-top: 8px; line-height: 1.65; font-size: 15px; }
-  li::marker { color: ${theme.colors.cta}; }
+  li { margin-top: 8px; line-height: 1.65; font-size: 16.5px; }
+  li::marker { color: ${theme.colors.ctaInk}; }
   a { color: white; }
 `;
 const TldrTitle = styled.p`
@@ -219,7 +221,7 @@ const CalloutBox = styled.aside<{ variant: keyof typeof calloutStyles }>`
   border-radius: ${theme.radius.md};
   border-left: 4px solid ${({ variant }) => calloutStyles[variant].border};
   background: ${({ variant }) => calloutStyles[variant].bg};
-  font-size: 15px;
+  font-size: 16.5px;
   line-height: 1.7;
   p { margin-top: 8px; }
   ul { margin-top: 8px; padding-left: 22px; }
@@ -243,7 +245,7 @@ const TableWrap = styled.div`
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
-  font-size: 14.5px;
+  font-size: 16px;
   background: ${theme.colors.surface};
   caption { caption-side: bottom; padding: 10px; font-size: 12.5px; color: ${theme.colors.textSecondary}; }
   th { background: ${theme.colors.accent}; color: white; text-align: left; padding: 12px 16px; font-weight: 600; white-space: nowrap; }
@@ -291,7 +293,7 @@ const CtaCard = styled.aside`
   background: ${theme.colors.dark};
   color: white;
   text-align: center;
-  p { margin-top: 10px; color: rgba(255, 255, 255, 0.75); font-size: 15px; a { color: white; } }
+  p { margin-top: 10px; color: rgba(255, 255, 255, 0.85); font-size: 16.5px; a { color: white; } }
 `;
 const CtaTitle = styled.p`
   font-size: 20px;
@@ -332,7 +334,7 @@ const FaqItem = styled.details`
     justify-content: space-between;
     gap: 12px;
     &::-webkit-details-marker { display: none; }
-    &::after { content: "+"; color: ${theme.colors.cta}; font-weight: 700; font-size: 18px; }
+    &::after { content: "+"; color: ${theme.colors.ctaInk}; font-weight: 700; font-size: 18px; }
   }
   &[open] summary::after { content: "−"; }
   p { padding: 0 20px 16px; font-size: 15px; line-height: 1.7; color: ${theme.colors.textSecondary}; margin-top: 0; }
@@ -358,7 +360,7 @@ const AuthorName = styled.p`
 `;
 const AuthorRole = styled.p`
   font-size: 13px;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
   font-weight: 600;
   margin-top: 2px !important;
 `;
@@ -392,7 +394,7 @@ const RelatedTag = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 const RelatedTitle = styled.span`
   display: block;

@@ -49,7 +49,7 @@ const Kicker = styled.span<{ onDark?: boolean }>`
   color: ${({ onDark }) => (onDark ? theme.colors.textOnDarkSecondary : theme.colors.textSecondary)};
 
   strong {
-    color: ${theme.colors.cta};
+    color: ${({ onDark }) => (onDark ? theme.colors.cta : theme.colors.ctaInk)};
     font-weight: 500;
   }
 `;
@@ -107,7 +107,7 @@ const MarqueeItem = styled.span`
     content: "";
     width: 7px;
     height: 7px;
-    background: ${theme.colors.cta};
+    background: ${theme.colors.ctaInk};
     opacity: 0.55;
   }
 `;
@@ -185,7 +185,7 @@ const ProblemNum = styled.span`
   font-size: 44px;
   font-weight: 500;
   line-height: 1;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const ProblemTitle = styled.h3`
@@ -197,7 +197,7 @@ const ProblemTitle = styled.h3`
 
 const ProblemDesc = styled.p`
   margin-top: 10px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.75;
   color: ${theme.colors.textOnDarkSecondary};
 `;
@@ -233,7 +233,7 @@ const ServiceBlock = styled(Link)`
     transform: translate(-3px, -3px);
     box-shadow: 6px 6px 0 rgba(34, 31, 26, 0.16);
 
-    .go { color: ${theme.colors.cta}; }
+    .go { color: ${theme.colors.ctaInk}; }
     .go::after { transform: translateX(5px); }
   }
 `;
@@ -244,7 +244,7 @@ const ServiceKicker = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const ServiceTitle = styled.h3`
@@ -257,7 +257,7 @@ const ServiceTitle = styled.h3`
 
 const ServiceDesc = styled.p`
   margin-top: 12px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textSecondary};
   max-width: 58ch;
@@ -276,7 +276,7 @@ const ServiceGo = styled.span`
   align-items: center;
   gap: 8px;
   margin-top: 20px;
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 600;
   color: ${theme.colors.text};
   transition: color 0.18s ${theme.easing};
@@ -306,7 +306,7 @@ const StepNumber = styled.span`
   font-size: clamp(64px, 7vw, 88px);
   font-weight: 500;
   line-height: 0.9;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const StepTitle = styled.h3`
@@ -318,7 +318,7 @@ const StepTitle = styled.h3`
 
 const StepDesc = styled.p`
   margin-top: 10px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.75;
   color: ${theme.colors.textOnDarkSecondary};
 `;
@@ -356,8 +356,8 @@ const ResultTag = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: ${theme.colors.cta};
-  border: 1.5px solid ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
+  border: 1.5px solid ${theme.colors.ctaInk};
   border-radius: ${theme.radius.sm};
   padding: 6px 10px;
 `;
@@ -399,7 +399,7 @@ const DiffNum = styled.span`
   font-family: ${theme.fonts.mono};
   font-size: 12px;
   font-weight: 500;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const DiffTitle = styled.h3`
@@ -411,7 +411,7 @@ const DiffTitle = styled.h3`
 
 const DiffDesc = styled.p`
   margin-top: 8px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textSecondary};
 `;
@@ -436,7 +436,7 @@ const ConseilCard = styled(Link)`
   &:hover {
     transform: translate(-3px, -3px);
     box-shadow: 6px 6px 0 rgba(34, 31, 26, 0.16);
-    .go { color: ${theme.colors.cta}; }
+    .go { color: ${theme.colors.ctaInk}; }
     .go::after { transform: translateX(5px); }
   }
 `;
@@ -447,7 +447,7 @@ const ConseilKicker = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const ConseilTitle = styled.h3`
@@ -460,7 +460,7 @@ const ConseilTitle = styled.h3`
 
 const ConseilDesc = styled.p`
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textSecondary};
   flex: 1;
@@ -483,7 +483,7 @@ const ZonesLink = styled(Link)`
   align-items: center;
   gap: 8px;
   margin-top: 24px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: ${theme.colors.text};
   text-decoration: underline;
@@ -505,7 +505,7 @@ const FinalTitle = styled.h2`
 
   em {
     font-style: italic;
-    color: ${theme.colors.cta};
+    color: ${theme.colors.ctaInk};
   }
 `;
 
@@ -629,7 +629,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 01 — Problèmes */}
+      {/* 01. Problèmes */}
       <Section variant="dark">
         <Container>
           <ChapterHead onDark>
@@ -654,7 +654,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 02 — Services */}
+      {/* 02. Services */}
       <Section>
         <Container>
           <ChapterHead>
@@ -691,7 +691,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 03 — Méthode */}
+      {/* 03. Méthode */}
       <Section variant="dark" id="methode">
         <Container>
           <ChapterHead onDark>
@@ -715,7 +715,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 04 — Témoignages */}
+      {/* 04. Témoignages */}
       <Section id="temoignages">
         <Container>
           <ChapterHead>
@@ -749,7 +749,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 05 — La différence */}
+      {/* 05. La différence */}
       <Section variant="alt">
         <Container>
           <ChapterHead>
@@ -768,7 +768,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 06 — Conseils */}
+      {/* 06. Conseils */}
       <Section>
         <Container>
           <ChapterHead>
@@ -794,7 +794,7 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 07 — Zones */}
+      {/* 07. Zones */}
       <Section variant="alt">
         <Container>
           <ChapterHead>

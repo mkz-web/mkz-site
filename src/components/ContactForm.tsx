@@ -77,7 +77,7 @@ const Textarea = styled.textarea`
 
 const SubmitButton = styled.button<{ disabled?: boolean }>`
   padding: 15px 30px;
-  background: ${theme.colors.cta};
+  background: ${theme.colors.ctaInk};
   color: white;
   box-shadow: ${theme.shadows.cta};
   font-size: 14px;

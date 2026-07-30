@@ -16,8 +16,17 @@ export const theme = {
     textOnDarkSecondary: "rgba(246, 241, 231, 0.72)",
     accent: "#003764", // navy MKZ
     accentLight: "#0B5394",
-    cta: "#E8590C", // orange MKZ, budget strict
-    ctaHover: "#C84A05",
+    // Orange MKZ, budget strict. DEUX tons, imposés par le contraste mesuré le
+    // 30/07/2026 : aucun orange unique ne passe le seuil WCAG AA (4,5:1) à la
+    // fois sur le papier et sur l'encre de nuit.
+    //   #E8590C : 4,86:1 sur dark, mais 3,0 à 3,5:1 sur les fonds clairs.
+    //   #B8420A : 4,6 à 5,4:1 sur tous les fonds clairs, mais 3,17:1 sur dark.
+    // Règle : `cta` sur fond SOMBRE et pour les aplats décoratifs ≥ 24px
+    // (seuil 3:1, atteint), `ctaInk` pour tout texte orange sur fond CLAIR et
+    // pour les fonds de bouton portant du texte blanc.
+    cta: "#E8590C", // orange vif : fond sombre, gros numéraux
+    ctaInk: "#B8420A", // orange encre : texte sur papier, fond de bouton
+    ctaHover: "#AD3E03", // survol de bouton (6,06:1 avec du blanc)
     border: "#E3DACA", // filet discret (papier)
     borderInk: "#221F1A", // filet fort (chapitres)
     hoverSurface: "#F1EBDF",

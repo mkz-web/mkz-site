@@ -12,7 +12,7 @@ import { CALENDLY } from "@/lib/i18n";
 // à savoir que la personne qui fera le travail est réellement française et sait
 // mesurer. C'est aussi la page E-E-A-T que les moteurs de réponse citent.
 
-const Wrapper = styled.article`padding: 96px 24px 24px; max-width: 820px; margin: 0 auto;`;
+const Wrapper = styled.article`padding: 96px 24px 24px; max-width: 680px; margin: 0 auto;`;
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
@@ -80,7 +80,7 @@ const IdentityRole = styled.p`
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const IdentityFacts = styled.ul`
@@ -90,7 +90,7 @@ const IdentityFacts = styled.ul`
   line-height: 1.9;
   color: ${theme.colors.textSecondary};
 
-  li::before { content: "· "; color: ${theme.colors.cta}; }
+  li::before { content: "· "; color: ${theme.colors.ctaInk}; }
 `;
 
 const H2 = styled.h2`
@@ -103,7 +103,7 @@ const H2 = styled.h2`
 
 const Text = styled.p`
   margin-top: 16px;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.78;
   color: ${theme.colors.textSecondary};
 
@@ -114,7 +114,7 @@ const Text = styled.p`
 const List = styled.ul`
   margin-top: 16px;
   padding-left: 22px;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.78;
   color: ${theme.colors.textSecondary};
 

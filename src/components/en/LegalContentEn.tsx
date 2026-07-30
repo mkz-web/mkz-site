@@ -18,7 +18,7 @@ import { theme } from "@/lib/theme";
 // La LCEN art. 6-III-1 d) impose le nom, l'adresse ET le téléphone de
 // l'hébergeur. Ne pas retirer la ligne « Phone » de la section Hosting.
 
-const PageWrapper = styled.section`padding: 96px 24px; max-width: 800px; margin: 0 auto;`;
+const PageWrapper = styled.section`padding: 96px 24px; max-width: 680px; margin: 0 auto;`;
 const Title = styled.h1`font-size: 36px; font-weight: 700; margin-bottom: 16px;`;
 const Notice = styled.p`
   font-size: 16px;
