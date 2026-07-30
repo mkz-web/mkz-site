@@ -10,11 +10,11 @@ import {
   renderInline,
 } from "@/components/article/ArticleRenderer";
 import type { Block } from "@/lib/articles/types";
+import { ui, CALENDLY, type Locale } from "@/lib/i18n";
 
-// Gabarit des pages piliers transactionnelles
-// (/creation-site-internet/, /referencement-seo/, /agence-web-77/).
-
-const CALENDLY = "https://calendly.com/mkz-consulting/30min";
+// Gabarit des pages piliers transactionnelles, dans les deux langues
+// (/creation-site-internet/, /referencement-seo/, /agence-web-77/ côté français ;
+// /en/french-seo/, /en/ai-search-optimization/, /en/website-design/ côté anglais).
 
 const Hero = styled.header`
   padding: 72px 24px 56px;
@@ -108,13 +108,22 @@ export interface PillarData {
   finalCta: { title: string; text: string; button: string };
 }
 
-export default function PillarContent({ data }: { data: PillarData }) {
+export default function PillarContent({
+  data,
+  locale = "fr",
+}: {
+  data: PillarData;
+  locale?: Locale;
+}) {
+  const t = ui[locale];
+  const homeHref = locale === "en" ? "/en/" : "/";
+
   return (
     <>
       <Hero>
         <HeroInner>
-          <Crumbs aria-label="Fil d'Ariane">
-            <CrumbLink href="/">Accueil</CrumbLink>
+          <Crumbs aria-label={t.pillar.breadcrumbAria}>
+            <CrumbLink href={homeHref}>{t.pillar.home}</CrumbLink>
             <span>›</span>
             <span>{data.badge}</span>
           </Crumbs>
@@ -122,20 +131,22 @@ export default function PillarContent({ data }: { data: PillarData }) {
           <HeroTitle>{data.title}</HeroTitle>
           <HeroLead>{renderInline(data.lead)}</HeroLead>
           <HeroCtas>
-            <Button href={CALENDLY}>Réserver mon audit gratuit</Button>
-            <HeroPhone href="tel:0769093909">ou 07 69 09 39 09</HeroPhone>
+            <Button href={CALENDLY}>{t.pillar.ctaPrimary}</Button>
+            <HeroPhone href={t.header.phoneHref}>
+              {t.pillar.phonePrefix} {t.header.phoneLabel}
+            </HeroPhone>
           </HeroCtas>
         </HeroInner>
       </Hero>
 
       <Main>
         <Inner>
-          <BlocksRenderer blocks={data.blocks} />
+          <BlocksRenderer blocks={data.blocks} locale={locale} />
         </Inner>
 
         {data.faq.length > 0 && (
           <FaqSection id="faq">
-            <FaqTitle>Questions fréquentes</FaqTitle>
+            <FaqTitle>{t.pillar.faqTitle}</FaqTitle>
             <FaqList faq={data.faq} />
           </FaqSection>
         )}
@@ -146,7 +157,8 @@ export default function PillarContent({ data }: { data: PillarData }) {
         <FinalText>{data.finalCta.text}</FinalText>
         <Button href={CALENDLY}>{data.finalCta.button}</Button>
         <FinalFallback>
-          Ou appelez directement : <a href="tel:0769093909">07 69 09 39 09</a>. On décroche.
+          {t.pillar.fallbackPrefix}{" "}
+          <a href={t.header.phoneHref}>{t.header.phoneLabel}</a>. {t.pillar.fallbackSuffix}
         </FinalFallback>
       </FinalCta>
     </>

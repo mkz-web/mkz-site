@@ -3,8 +3,7 @@
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import ContactForm from "@/components/ContactForm";
-
-const CALENDLY = "https://calendly.com/mkz-consulting/30min";
+import { ui, CALENDLY, type Locale } from "@/lib/i18n";
 
 const PageHeader = styled.section`
   padding: 96px 24px 48px;
@@ -129,43 +128,50 @@ const CalendlyDesc = styled.span`
   color: rgba(255, 255, 255, 0.78);
 `;
 
-export default function ContactContent() {
+export default function ContactContent({ locale = "fr" }: { locale?: Locale }) {
+  const t = ui[locale].contact;
+  const phone = ui[locale].header;
   return (
     <>
       <PageHeader>
-        <Kicker>Contact</Kicker>
-        <Title>Parlons de votre projet.</Title>
-        <Subtitle>
-          Remplissez le formulaire ou contactez-moi directement. Je r&eacute;ponds sous 24 h,
-          et c&rsquo;est bien moi qui d&eacute;croche.
-        </Subtitle>
+        <Kicker>{t.kicker}</Kicker>
+        <Title>{t.title}</Title>
+        <Subtitle>{t.subtitle}</Subtitle>
       </PageHeader>
 
       <ContentGrid>
-        <FormCard><ContactForm /></FormCard>
+        <FormCard><ContactForm locale={locale} /></FormCard>
         <SideStack>
           <CalendlyCell href={CALENDLY} target="_blank" rel="noopener noreferrer">
-            <CalendlyTitle>R&eacute;server un cr&eacute;neau</CalendlyTitle>
-            <CalendlyDesc>Audit gratuit de 30 min, sans engagement</CalendlyDesc>
+            <CalendlyTitle>{t.calendlyTitle}</CalendlyTitle>
+            <CalendlyDesc>{t.calendlyDesc}</CalendlyDesc>
           </CalendlyCell>
           <InfoCell>
-            <InfoLabel>T&eacute;l&eacute;phone</InfoLabel>
-            <InfoLink href="tel:0769093909">07 69 09 39 09</InfoLink>
+            <InfoLabel>{t.labels.phone}</InfoLabel>
+            <InfoLink href={phone.phoneHref}>{phone.phoneLabel}</InfoLink>
           </InfoCell>
           <InfoCell>
-            <InfoLabel>Email</InfoLabel>
+            <InfoLabel>{t.labels.email}</InfoLabel>
             <InfoLink href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</InfoLink>
           </InfoCell>
           <InfoCell>
-            <InfoLabel>Adresse</InfoLabel>
-            <InfoValue>1 rue Fran&ccedil;oise Sagan<br />77230 Dammartin-en-Go&euml;le</InfoValue>
+            <InfoLabel>{t.labels.address}</InfoLabel>
+            <InfoValue>
+              {t.addressLines.map((l, i) => (
+                <span key={i}>{i > 0 && <br />}{l}</span>
+              ))}
+            </InfoValue>
             <InfoLink href="https://maps.app.goo.gl/8afecUcXiR92QEAm6" target="_blank" rel="noopener noreferrer">
-              Voir sur Google Maps
+              {t.mapsLabel}
             </InfoLink>
           </InfoCell>
           <InfoCell>
-            <InfoLabel>Horaires</InfoLabel>
-            <InfoValue>Lundi - vendredi : 9h - 18h<br />R&eacute;ponse sous 24 h garantie</InfoValue>
+            <InfoLabel>{t.labels.hours}</InfoLabel>
+            <InfoValue>
+              {t.hoursLines.map((l, i) => (
+                <span key={i}>{i > 0 && <br />}{l}</span>
+              ))}
+            </InfoValue>
           </InfoCell>
         </SideStack>
       </ContentGrid>

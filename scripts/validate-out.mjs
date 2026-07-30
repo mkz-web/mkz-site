@@ -10,8 +10,17 @@
 // 4. <title> ≤ 65 caractères ; meta description ≤ 165 et ≥ 80 caractères.
 // 5. Tous les liens internes href="/…" pointent vers un fichier existant de out/.
 // 6. Présence de canonical sur chaque page indexable.
-// 7. AUCUN tiret long « — » / demi-cadratin « – » (règle d'écriture Mickaël, 12/06/2026),
+// 7. AUCUN tiret cadratin (U+2014) ni demi-cadratin (U+2013) (règle d'écriture Mickaël, 12/06/2026),
 //    y compris dans llms.txt et llms-full.txt.
+// 8. Bilingue (ajouté le 30/07/2026, création de la version anglaise) :
+//    a. <html lang> cohérent avec l'emplacement de la page (/en/… => en).
+//    b. hreflang réciproque : si A déclare B comme alternative, B doit déclarer A.
+//       Sans réciprocité, Google ignore la paire et choisit lui-même la version.
+//    c. x-default présent dès qu'une page déclare des alternatives.
+//    d. Chaque cible hreflang existe réellement dans out/ (pas d'alternative en 404).
+//    Note : Next émet l'attribut sous la forme `hrefLang` (nom de prop React).
+//    HTML étant insensible à la casse des attributs, c'est valide ; les regex
+//    ci-dessous doivent donc être insensibles à la casse.
 
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { resolve, dirname, join, relative } from "node:path";
@@ -50,6 +59,39 @@ const decodeEntities = (s) =>
     .replace(/&quot;/g, '"')
     .replace(/&#x27;|&#39;/g, "'");
 
+// Cadratin (U+2014) et demi-cadratin (U+2013) interdits dans tout texte genere.
+// Le motif est construit a l'execution : ce fichier ne contient donc pas les
+// caracteres qu'il traque, ce qui evite que le hook lint-livrables sonne sur
+// son propre detecteur.
+const EM_DASH = String.fromCharCode(0x2014);
+const EN_DASH = String.fromCharCode(0x2013);
+const FORBIDDEN_DASHES_HTML = new RegExp(
+  [EM_DASH, EN_DASH, "&mdash;", "&ndash;"].join("|"),
+  "g"
+);
+const FORBIDDEN_DASHES_TXT = new RegExp([EM_DASH, EN_DASH].join("|"), "g");
+
+const SITE = "https://mkz-consulting.fr";
+
+// 8. Collecte bilingue : chemin de page -> lang declare + alternates hreflang.
+// La reciprocite ne peut se verifier qu'apres avoir lu toutes les pages, donc on
+// accumule ici et on controle apres la boucle.
+const localeGraph = new Map();
+
+/** out/en/french-seo/index.html -> /en/french-seo/ ; out/index.html -> / */
+function pathOf(rel) {
+  if (rel === "index.html") return "/";
+  if (rel.endsWith("/index.html")) return `/${rel.slice(0, -"index.html".length)}`;
+  return `/${rel.replace(/\.html$/, "")}/`;
+}
+
+/** URL absolue du site -> chemin, sinon null (alternate externe). */
+function pathOfUrl(url) {
+  if (!url.startsWith(SITE)) return null;
+  const p = url.slice(SITE.length);
+  return p === "" ? "/" : p;
+}
+
 for (const file of htmlFiles(outDir)) {
   pages++;
   const rel = relative(outDir, file).replace(/\\/g, "/");
@@ -57,8 +99,8 @@ for (const file of htmlFiles(outDir)) {
   const isErrorPage = rel === "404.html" || rel.startsWith("404/");
 
   // 7. Tirets longs interdits
-  const dashes = (html.match(/—|–|&mdash;|&ndash;/g) ?? []).length;
-  if (dashes > 0) errors.push(`${rel} : ${dashes} tiret(s) long(s) « — / – » (interdits)`);
+  const dashes = (html.match(FORBIDDEN_DASHES_HTML) ?? []).length;
+  if (dashes > 0) errors.push(`${rel} : ${dashes} tiret(s) cadratin/demi-cadratin (U+2014 / U+2013) interdit(s)`);
 
   // 1-3. JSON-LD
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
@@ -111,6 +153,28 @@ for (const file of htmlFiles(outDir)) {
     warnings.push(`${rel} : canonical absent`);
   }
 
+  // 8a. <html lang> coherent avec l'emplacement de la page
+  const pagePath = pathOf(rel);
+  const expectedLang = pagePath.startsWith("/en/") || pagePath === "/en" ? "en" : "fr";
+  const declaredLang = html.match(/<html[^>]*\slang="([^"]*)"/i)?.[1] ?? "";
+  if (!declaredLang) {
+    errors.push(`${rel} : attribut lang absent sur <html>`);
+  } else if (declaredLang !== expectedLang) {
+    errors.push(
+      `${rel} : <html lang="${declaredLang}"> alors que l'emplacement implique "${expectedLang}"`
+    );
+  }
+
+  // 8b-d. Collecte des alternates (Next emet `hrefLang`, donc regex insensible
+  // a la casse : HTML ignore la casse des noms d'attributs).
+  const alternates = new Map();
+  for (const m of html.matchAll(
+    /<link[^>]+rel="alternate"[^>]+hreflang="([^"]+)"[^>]+href="([^"]+)"/gi
+  )) {
+    alternates.set(m[1].toLowerCase(), m[2]);
+  }
+  localeGraph.set(pagePath, { rel, lang: declaredLang, alternates });
+
   // 5. Liens internes
   for (const m of html.matchAll(/href="(\/[^"#?]*)["#?]/g)) {
     const href = m[1];
@@ -127,17 +191,64 @@ for (const file of htmlFiles(outDir)) {
   }
 }
 
+// ── 8b-d. Controles hreflang, une fois toutes les pages lues ────────────────
+let hreflangPairs = 0;
+
+for (const [pagePath, page] of localeGraph) {
+  const langAlternates = [...page.alternates].filter(([lang]) => lang !== "x-default");
+  if (langAlternates.length === 0) continue; // page monolingue assumee
+
+  // 8c. x-default obligatoire des qu'il y a des alternatives
+  if (!page.alternates.has("x-default")) {
+    errors.push(`${page.rel} : declare des alternates hreflang sans x-default`);
+  }
+
+  for (const [lang, url] of langAlternates) {
+    const targetPath = pathOfUrl(url);
+    if (!targetPath) continue; // alternative hors site : hors perimetre
+    // Auto-reference (la page se declare dans sa propre langue) : correct et
+    // attendu, mais ce n'est pas une paire inter-langues a verifier.
+    if (targetPath === pagePath) continue;
+
+    // 8d. La cible existe-t-elle vraiment dans out/ ?
+    const target = localeGraph.get(targetPath);
+    if (!target) {
+      errors.push(
+        `${page.rel} : alternate hreflang="${lang}" pointe vers ${targetPath}, absent de out/`
+      );
+      continue;
+    }
+
+    // 8b. Reciprocite : la cible doit renvoyer vers la page courante.
+    const backLinks = [...target.alternates.values()].map(pathOfUrl);
+    if (!backLinks.includes(pagePath)) {
+      errors.push(
+        `${page.rel} : hreflang non reciproque, ${targetPath} ne renvoie pas vers ${pagePath} ` +
+          `(Google ignore la paire et choisit lui-meme la version)`
+      );
+    } else {
+      hreflangPairs++;
+    }
+  }
+}
+
 for (const txt of ["llms.txt", "llms-full.txt", "sitemap.xml"]) {
   const p = join(outDir, txt);
   if (!existsSync(p)) {
     errors.push(`${txt} : fichier absent de out/`);
     continue;
   }
-  const dashes = (readFileSync(p, "utf8").match(/—|–/g) ?? []).length;
-  if (dashes > 0) errors.push(`${txt} : ${dashes} tiret(s) long(s) « — / – » (interdits)`);
+  const dashes = (readFileSync(p, "utf8").match(FORBIDDEN_DASHES_TXT) ?? []).length;
+  if (dashes > 0) errors.push(`${txt} : ${dashes} tiret(s) cadratin/demi-cadratin (U+2014 / U+2013) interdit(s)`);
 }
 
-console.log(`Pages analysées : ${pages} · blocs JSON-LD valides reparsés : ${jsonLdBlocks}`);
+const frPages = [...localeGraph.values()].filter((p) => p.lang === "fr").length;
+const enPages = [...localeGraph.values()].filter((p) => p.lang === "en").length;
+
+console.log(
+  `Pages analysées : ${pages} · blocs JSON-LD valides reparsés : ${jsonLdBlocks}\n` +
+    `Locales : ${frPages} page(s) fr · ${enPages} page(s) en · ${hreflangPairs} paire(s) hreflang réciproque(s)`
+);
 if (warnings.length) {
   console.log(`\n⚠️  ${warnings.length} avertissement(s) :`);
   for (const w of warnings) console.log(`  - ${w}`);

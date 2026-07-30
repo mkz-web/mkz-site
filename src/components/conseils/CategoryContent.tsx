@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { ui, type Locale } from "@/lib/i18n";
 import Button from "@/components/Button";
 import { renderInline } from "@/components/article/ArticleRenderer";
 import { ArticleCard, CardsGrid, type ArticleCardData } from "./cards";
@@ -80,18 +81,21 @@ const PillarText = styled.p`
 export default function CategoryContent({
   category,
   articles,
+  locale = "fr",
 }: {
   category: CategoryPageData;
   articles: ArticleCardData[];
+  locale?: Locale;
 }) {
+  const t = ui[locale];
   return (
     <>
       <Hero>
         <HeroInner>
-          <Crumbs aria-label="Fil d'Ariane">
-            <CrumbLink href="/">Accueil</CrumbLink>
+          <Crumbs aria-label={t.article.breadcrumbAria}>
+            <CrumbLink href={locale === "en" ? "/en/" : "/"}>{t.article.home}</CrumbLink>
             <span>/</span>
-            <CrumbLink href="/conseils/">Conseils</CrumbLink>
+            <CrumbLink href={t.article.hubHref}>{t.article.hub}</CrumbLink>
             <span>/</span>
             <span>{category.name}</span>
           </Crumbs>
@@ -108,11 +112,11 @@ export default function CategoryContent({
         <Container>
           <CardsGrid>
             {articles.map((a) => (
-              <ArticleCard key={a.url} article={a} />
+              <ArticleCard key={a.url} article={a} locale={locale} />
             ))}
           </CardsGrid>
           <PillarBand>
-            <PillarText>Envie de d&eacute;l&eacute;guer plut&ocirc;t que de tout faire vous-m&ecirc;me ?</PillarText>
+            <PillarText>{t.newsroom.pillarPrompt}</PillarText>
             <Button href={category.pillar.href}>{category.pillar.label}</Button>
           </PillarBand>
         </Container>
