@@ -69,13 +69,15 @@ export default function ConfidentialiteContent() {
       <Text>Elles peuvent &ecirc;tre trait&eacute;es par les sous-traitants suivants, strictement n&eacute;cessaires au fonctionnement du service :</Text>
       <List>
         <ListItem><strong>Cloudflare, Inc.</strong> : h&eacute;bergement et diffusion du site web (&Eacute;tats-Unis)</ListItem>
+        <ListItem><strong>Web3Forms</strong> (Web3Creative) : acheminement des messages envoy&eacute;s via le formulaire de contact (Inde)</ListItem>
         <ListItem><strong>Calendly LLC</strong> : gestion de la prise de rendez-vous en ligne (&Eacute;tats-Unis)</ListItem>
       </List>
 
       <SectionTitle>Transferts de donn&eacute;es hors Union europ&eacute;enne</SectionTitle>
       <Text>
-        Nos deux sous-traitants, <strong>Cloudflare, Inc.</strong> et <strong>Calendly LLC</strong>, sont &eacute;tablis aux
-        &Eacute;tats-Unis. L&rsquo;h&eacute;bergement du site et la prise de rendez-vous impliquent donc un transfert de
+        Nos trois sous-traitants sont &eacute;tablis hors de l&rsquo;Union europ&eacute;enne : <strong>Cloudflare, Inc.</strong>
+        et <strong>Calendly LLC</strong> aux &Eacute;tats-Unis, <strong>Web3Forms</strong> en Inde. L&rsquo;h&eacute;bergement
+        du site, l&rsquo;envoi du formulaire de contact et la prise de rendez-vous impliquent donc un transfert de
         donn&eacute;es personnelles hors de l&rsquo;Union europ&eacute;enne.
       </Text>
       <Text>
@@ -87,19 +89,23 @@ export default function ConfidentialiteContent() {
           l&rsquo;article 28 du RGPD ;
         </ListItem>
         <ListItem>
-          les <strong>clauses contractuelles types</strong> de la Commission europ&eacute;enne (article 46 du RGPD) ;
+          les <strong>clauses contractuelles types</strong> de la Commission europ&eacute;enne (article 46 du RGPD). Elles
+          constituent le seul fondement du transfert vers <strong>Web3Forms</strong>, l&rsquo;Inde ne b&eacute;n&eacute;ficiant
+          d&rsquo;aucune d&eacute;cision d&rsquo;ad&eacute;quation ;
         </ListItem>
         <ListItem>
-          la certification des deux soci&eacute;t&eacute;s au <strong>Data Privacy Framework UE&nbsp;-&nbsp;&Eacute;tats-Unis</strong>,
-          qui fait l&rsquo;objet d&rsquo;une d&eacute;cision d&rsquo;ad&eacute;quation de la Commission europ&eacute;enne
-          du 10&nbsp;juillet 2023 (article 45 du RGPD).
+          pour les deux prestataires am&eacute;ricains uniquement, leur certification au
+          <strong> Data Privacy Framework UE&nbsp;-&nbsp;&Eacute;tats-Unis</strong>, qui fait l&rsquo;objet d&rsquo;une
+          d&eacute;cision d&rsquo;ad&eacute;quation de la Commission europ&eacute;enne du 10&nbsp;juillet 2023
+          (article 45 du RGPD).
         </ListItem>
       </List>
       <Text>
         Le d&eacute;tail de ces engagements est consultable sur&nbsp;
-        <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformit&eacute; de Cloudflare</Link>
-        &nbsp;et sur&nbsp;
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Calendly</Link>.
+        <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformit&eacute; de Cloudflare</Link>,&nbsp;
+        <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Web3Forms</Link>
+        &nbsp;et&nbsp;
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">celui de Calendly</Link>.
         Le d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es de Cloudflare est joignable &agrave;&nbsp;
         <Link href="mailto:dpo@cloudflare.com">dpo@cloudflare.com</Link>.
       </Text>
