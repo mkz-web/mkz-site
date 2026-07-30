@@ -68,9 +68,41 @@ export default function ConfidentialiteContent() {
       </Text>
       <Text>Elles peuvent &ecirc;tre trait&eacute;es par les sous-traitants suivants, strictement n&eacute;cessaires au fonctionnement du service :</Text>
       <List>
-        <ListItem><strong>OVH</strong> : h&eacute;bergement du site web (France)</ListItem>
-        <ListItem><strong>Calendly</strong> : gestion de la prise de rendez-vous en ligne</ListItem>
+        <ListItem><strong>Cloudflare, Inc.</strong> : h&eacute;bergement et diffusion du site web (&Eacute;tats-Unis)</ListItem>
+        <ListItem><strong>Calendly LLC</strong> : gestion de la prise de rendez-vous en ligne (&Eacute;tats-Unis)</ListItem>
       </List>
+
+      <SectionTitle>Transferts de donn&eacute;es hors Union europ&eacute;enne</SectionTitle>
+      <Text>
+        Nos deux sous-traitants, <strong>Cloudflare, Inc.</strong> et <strong>Calendly LLC</strong>, sont &eacute;tablis aux
+        &Eacute;tats-Unis. L&rsquo;h&eacute;bergement du site et la prise de rendez-vous impliquent donc un transfert de
+        donn&eacute;es personnelles hors de l&rsquo;Union europ&eacute;enne.
+      </Text>
+      <Text>
+        Ces transferts sont encadr&eacute;s par les garanties pr&eacute;vues au chapitre V du RGPD :
+      </Text>
+      <List>
+        <ListItem>
+          un <strong>accord de traitement des donn&eacute;es</strong> (DPA) conclu avec chaque sous-traitant, au sens de
+          l&rsquo;article 28 du RGPD ;
+        </ListItem>
+        <ListItem>
+          les <strong>clauses contractuelles types</strong> de la Commission europ&eacute;enne (article 46 du RGPD) ;
+        </ListItem>
+        <ListItem>
+          la certification des deux soci&eacute;t&eacute;s au <strong>Data Privacy Framework UE&nbsp;-&nbsp;&Eacute;tats-Unis</strong>,
+          qui fait l&rsquo;objet d&rsquo;une d&eacute;cision d&rsquo;ad&eacute;quation de la Commission europ&eacute;enne
+          du 10&nbsp;juillet 2023 (article 45 du RGPD).
+        </ListItem>
+      </List>
+      <Text>
+        Le d&eacute;tail de ces engagements est consultable sur&nbsp;
+        <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformit&eacute; de Cloudflare</Link>
+        &nbsp;et sur&nbsp;
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Calendly</Link>.
+        Le d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es de Cloudflare est joignable &agrave;&nbsp;
+        <Link href="mailto:dpo@cloudflare.com">dpo@cloudflare.com</Link>.
+      </Text>
 
       <SectionTitle>Vos droits</SectionTitle>
       <Text>
@@ -104,7 +136,7 @@ export default function ConfidentialiteContent() {
       <Text>
         MKZ met en &oelig;uvre des mesures techniques et organisationnelles appropri&eacute;es pour prot&eacute;ger vos donn&eacute;es
         contre tout acc&egrave;s non autoris&eacute;, perte, destruction ou alt&eacute;ration. Le site est h&eacute;berg&eacute;
-        en France chez OVH et utilise le protocole HTTPS pour s&eacute;curiser les &eacute;changes.
+        sur l&rsquo;infrastructure de Cloudflare, Inc. et utilise le protocole HTTPS pour s&eacute;curiser les &eacute;changes.
       </Text>
 
       <SectionTitle>Modifications</SectionTitle>
@@ -113,7 +145,7 @@ export default function ConfidentialiteContent() {
         Toute modification sera publi&eacute;e sur cette page avec une date de mise &agrave; jour.
       </Text>
 
-      <LastUpdate>Derni&egrave;re mise &agrave; jour : avril 2026</LastUpdate>
+      <LastUpdate>Derni&egrave;re mise &agrave; jour : juillet 2026</LastUpdate>
     </PageWrapper>
   );
 }
