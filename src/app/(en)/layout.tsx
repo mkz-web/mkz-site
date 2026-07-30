@@ -44,6 +44,12 @@ export default function EnRootLayout({
         <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
         <Footer locale="en" />
         <WhatsAppButton locale="en" />
+        {/* `currentLanguage: "en"` est bien transmis, verifie dans le DOM, mais
+            le bandeau hu-manity reste rendu en francais : la localisation est
+            une option payante de leur offre. Choix de Mickael le 30/07/2026 de
+            ne pas la souscrire. Le parametre reste en place pour que le
+            basculement soit immediat le jour ou l offre change. Ne pas
+            rediagnostiquer : ce n est pas un defaut du code. */}
         <Script id="hu-options" strategy="beforeInteractive">
           {`var huOptions = {"appID":"mkz-consultingfr-9f08d00","currentLanguage":"en","blocking":true,"globalCookie":false}`}
         </Script>
