@@ -25,10 +25,13 @@ export default function MentionsContent() {
       <InfoLine>Directeur de la publication : Micka&euml;l Leclerc, Pr&eacute;sident</InfoLine>
 
       <SectionTitle>H&eacute;bergement</SectionTitle>
-      <InfoLine><strong>OVH SAS</strong></InfoLine>
-      <InfoLine>2 rue Kellermann, 59100 Roubaix, France</InfoLine>
-      <InfoLine>T&eacute;l&eacute;phone : 1007</InfoLine>
-      <InfoLine>Site web : <a href="https://www.ovhcloud.com" style={{ color: theme.colors.accent }} target="_blank" rel="noopener noreferrer">www.ovhcloud.com</a></InfoLine>
+      <InfoLine><strong>Cloudflare, Inc.</strong> (Cloudflare Pages)</InfoLine>
+      <InfoLine>101 Townsend Street, San Francisco, CA 94107, &Eacute;tats-Unis</InfoLine>
+      <InfoLine>T&eacute;l&eacute;phone : +1 650 319 8930</InfoLine>
+      <InfoLine>Site web : <a href="https://www.cloudflare.com" style={{ color: theme.colors.accent }} target="_blank" rel="noopener noreferrer">www.cloudflare.com</a></InfoLine>
+      <Text>
+        L&rsquo;h&eacute;bergeur est &eacute;tabli hors de l&rsquo;Union europ&eacute;enne. Les conditions de ce transfert et les garanties associ&eacute;es sont d&eacute;taill&eacute;es dans notre <a href="/politique-confidentialite" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.
+      </Text>
 
       <SectionTitle>Propri&eacute;t&eacute; intellectuelle</SectionTitle>
       <Text>
