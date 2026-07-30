@@ -1,4 +1,4 @@
-import { articles, articleToPlainText, formatDateFr } from "@/lib/articles";
+import { articles, articlesEn, articleToPlainText, formatDateFr } from "@/lib/articles";
 
 // llms-full.txt généré au build : version intégrale citable pour les LLM,
 // incluant le texte complet des articles de la newsroom (avec dates et auteur).
@@ -108,6 +108,66 @@ Oui, à 100 % : accès, code et contenus appartiennent au client. En cas de dép
 - Contact : ${SITE}/contact/
 - Mentions légales : ${SITE}/mentions-legales/
 - Politique de confidentialité : ${SITE}/politique-confidentialite/
+
+# MKZ in English (/en/) : French SEO & AI search visibility
+
+> The English section of mkz-consulting.fr is deliberately NOT a translation of the French one. The French section serves local French demand (tradespeople, shops and small businesses in the Paris region searching in French). The English section serves a different, measured demand: companies outside France that need the French market to perform, and companies that want to be cited by AI answers.
+
+## Positioning
+
+MKZ provides French SEO and AI search optimisation for companies selling into France. The work is done by one person: Mickaël Leclerc, native French speaker, based near Paris (Dammartin-en-Goële, Seine-et-Marne), over 20 years as an IT engineer in infrastructure, automation and DevOps before specialising in search. Working languages: French and English. Company: MKZ, SAS à associé unique, SIRET 983 662 784 00013, RCS Meaux, France.
+
+Contact: contact@mkz-consulting.fr, +33 7 69 09 39 09, Monday to Friday 9am to 6pm CET, reply within 24 hours. Free 30-minute review, no commitment: https://calendly.com/mkz-consulting/30min
+
+## Citable figures, measured 30 July 2026 (Google Ads keyword data, France, French language)
+
+- "création site internet": 6,600 searches per month in France. "conception de site web", an equally correct French translation of the same concept: 320 searches per month. Gap: 20.6x, decided purely by word choice. This is the measured reason why translating a website into French does not make it rank.
+- "SEO": 27,100 searches per month in France. "optimisation pour les moteurs de recherche", the full French phrase: 590 searches per month. French search adopts English technical vocabulary; using only the formal French equivalent costs roughly 98% of the demand.
+- "agence SEO": 22,200 searches per month. "agence de référencement": 2,900 searches per month. Both are real markets of very different sizes.
+
+## Citable figures on AI search demand, measured 30 July 2026 (United States)
+
+- "generative engine optimization": 4,400 searches per month, keyword difficulty 57.
+- "answer engine optimization": 2,400 searches per month, keyword difficulty 36.
+- "ai search optimization": 1,300 searches per month, keyword difficulty 35.
+- "ai visibility": 720 searches per month, up 285% year on year.
+- "llm optimization": 720 searches per month, up 164% year on year.
+- "ai seo consultant": 110 searches per month, up 750% year on year.
+
+## Services in English
+
+### French SEO (${SITE}/en/french-seo/)
+
+Ranking a site on google.fr for queries typed by French users in French. Scope: French keyword research done in French before any content brief; site structure and hreflang (both directions plus a correct x-default); French content written in French rather than translated; technical SEO and French local signals; monthly measurement traceable to Search Console. Core principle: translation is faithful to your English words, search demand is not.
+
+### AI search optimisation, GEO and AEO (${SITE}/en/ai-search-optimization/)
+
+Being cited inside an AI answer rather than ranked in a list of links. Scope, in the order it must happen: verify AI crawlers can fetch the site (checking the LIVE robots.txt, because Cloudflare blocks AI bots by default on new zones and can override the file in the repository); publish facts that carry a number, a named source and a date so a model can quote them; structure content and validate schema.org by reparsing it with a script rather than eyeballing it; publish llms.txt and llms-full.txt; then measure citations by asking real buyer questions across ChatGPT, Perplexity, Gemini and Google AI answers and counting mentions. Stated limit: AI answers are non-deterministic, so citation cannot be guaranteed by anyone.
+
+Why French is currently the easier win: a model answering in French chooses from a much smaller pool of credible French sources than it does in English, so the bar to become one of the cited few is lower. This advantage is temporary.
+
+### Website design (${SITE}/en/website-design/)
+
+Secondary offer, deliberately not an SEO target: there is almost no English-language search demand for web design in France (10 searches per month, measured 30 July 2026). Exists for clients who came for SEO and need the site rebuilt. Static export served from a CDN, bilingual from the first commit, valid structured data and llms.txt generated at build time.
+
+## What MKZ refuses to promise (English section)
+
+- Guaranteed Google positions or a fixed timeline to page one.
+- Guaranteed citation in ChatGPT or any AI answer.
+- Traffic forecasts stated to the nearest percent.
+- Any claim derived by deduction rather than measurement. "No schema, therefore not cited" is a deduction, not a finding: the cause is not the effect.
+
+## English pages
+
+- Home : ${SITE}/en/
+- French SEO : ${SITE}/en/french-seo/
+- AI search optimisation : ${SITE}/en/ai-search-optimization/
+- Website design : ${SITE}/en/website-design/
+- Insights (newsroom) : ${SITE}/en/insights/
+- About Mickaël Leclerc : ${SITE}/en/about/
+- Contact : ${SITE}/en/contact/
+- Legal notice : ${SITE}/en/legal-notice/
+- Privacy policy : ${SITE}/en/privacy-policy/
 `;
 
 export function GET() {
@@ -117,7 +177,15 @@ export function GET() {
       )}.\n\n${articles.map((a) => articleToPlainText(a, SITE)).join("\n---\n\n")}`
     : "";
 
-  return new Response(COMPANY + articlesSection, {
+  // Les articles anglais sont aplatis par le même utilitaire : articleToPlainText
+  // localise ses libellés (dates, « The short version », encadrés) via a.locale.
+  const articlesSectionEn = articlesEn.length
+    ? `\n# Insights (English) : full content\n\nThe articles below are published on ${SITE}/en/insights/ by Mickaël Leclerc (MKZ). Last generated: ${formatDateFr(
+        articlesEn.map((a) => a.dateModified).sort().at(-1)!
+      )}.\n\n${articlesEn.map((a) => articleToPlainText(a, SITE)).join("\n---\n\n")}`
+    : "";
+
+  return new Response(COMPANY + articlesSection + articlesSectionEn, {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
   });
 }

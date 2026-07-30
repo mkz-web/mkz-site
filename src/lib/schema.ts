@@ -1,13 +1,12 @@
 import type { Article } from "./articles/types";
-import { articleUrl, formatDateFr, stripInline, AUTHOR } from "./articles";
+import { articleUrl, formatDateFr, stripInline, authorOf, localeOf } from "./articles";
+import { SITE, inLanguageOf, type Locale } from "./i18n";
 
-// Générateurs JSON-LD de la newsroom.
+// Générateurs JSON-LD de la newsroom (bilingue).
 // Règles GSC à respecter impérativement (vérifiées par scripts/validate-out.mjs) :
 // - BreadcrumbList : chaque maillon porte `item`, SAUF le dernier.
 // - ItemList : CHAQUE itemListElement porte un objet `item` complet
 //   (@type concret + name + url + propriétés disponibles).
-
-const SITE = "https://mkz-consulting.fr";
 
 const authorRef = { "@id": `${SITE}/#mickael-leclerc` };
 const orgRef = { "@id": `${SITE}/#organization` };
@@ -34,7 +33,7 @@ export function articleSchema(a: Article) {
     "@id": `${url}#article`,
     headline: a.title,
     description: a.metaDescription,
-    inLanguage: "fr-FR",
+    inLanguage: inLanguageOf[localeOf(a)],
     datePublished: a.datePublished,
     dateModified: a.dateModified,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -73,20 +72,24 @@ export function articleListSchema(list: Article[], opts: { name: string; url: st
     name: opts.name,
     url: `${SITE}${opts.url}`,
     numberOfItems: list.length,
-    itemListElement: list.map((a, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      item: {
-        "@type": "Article",
-        name: a.title,
-        url: `${SITE}${articleUrl(a)}`,
-        description: stripInline(a.excerpt),
-        datePublished: a.datePublished,
-        dateModified: a.dateModified,
-        author: { "@type": "Person", name: AUTHOR.name, url: `${SITE}${AUTHOR.href}` },
-        inLanguage: "fr-FR",
-      },
-    })),
+    itemListElement: list.map((a, i) => {
+      const locale = localeOf(a);
+      const author = authorOf(locale);
+      return {
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Article",
+          name: a.title,
+          url: `${SITE}${articleUrl(a)}`,
+          description: stripInline(a.excerpt),
+          datePublished: a.datePublished,
+          dateModified: a.dateModified,
+          author: { "@type": "Person", name: author.name, url: `${SITE}${author.href}` },
+          inLanguage: inLanguageOf[locale],
+        },
+      };
+    }),
   };
 }
 
@@ -95,6 +98,7 @@ export function collectionPageSchema(opts: {
   description: string;
   url: string;
   dateModified?: string;
+  locale?: Locale;
 }) {
   return {
     "@context": "https://schema.org",
@@ -102,7 +106,7 @@ export function collectionPageSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: `${SITE}${opts.url}`,
-    inLanguage: "fr-FR",
+    inLanguage: inLanguageOf[opts.locale ?? "fr"],
     isPartOf: { "@id": `${SITE}/#website` },
     ...(opts.dateModified ? { dateModified: opts.dateModified } : {}),
   };

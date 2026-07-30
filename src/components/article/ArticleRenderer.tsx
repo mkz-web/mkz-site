@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
 import type { Article, Block, Inline } from "@/lib/articles/types";
+import { ui, type Locale } from "@/lib/i18n";
 
 /* ─── Rendu inline (mini-markdown : **gras**, [lien](url), `code`) ─── */
 
@@ -203,11 +204,13 @@ const TocTitle = styled.p`
   color: ${theme.colors.text};
 `;
 
+// Couleurs seules : les libellés des encadrés sont localisés
+// (ui[locale].article.callouts).
 const calloutStyles = {
-  retenir: { border: theme.colors.accent, bg: `${theme.colors.accent}0A`, label: "À retenir" },
-  astuce: { border: theme.colors.success, bg: "#1E7A4F12", label: "Astuce" },
-  attention: { border: theme.colors.cta, bg: `${theme.colors.cta}0D`, label: "Attention" },
-  definition: { border: theme.colors.accentLight, bg: `${theme.colors.accentLight}0D`, label: "Définition" },
+  retenir: { border: theme.colors.accent, bg: `${theme.colors.accent}0A` },
+  astuce: { border: theme.colors.success, bg: "#1E7A4F12" },
+  attention: { border: theme.colors.cta, bg: `${theme.colors.cta}0D` },
+  definition: { border: theme.colors.accentLight, bg: `${theme.colors.accentLight}0D` },
 } as const;
 
 const CalloutBox = styled.aside<{ variant: keyof typeof calloutStyles }>`
@@ -408,7 +411,7 @@ const SectionTitle = styled.h2`
 
 /* ─── Rendu d'un bloc ─── */
 
-function renderBlock(block: Block, key: number): React.ReactNode {
+function renderBlock(block: Block, key: number, locale: Locale): React.ReactNode {
   switch (block.type) {
     case "p":
       return <p key={key}>{renderInline(block.text)}</p>;
@@ -437,10 +440,11 @@ function renderBlock(block: Block, key: number): React.ReactNode {
         </TableWrap>
       );
     case "callout": {
-      const style = calloutStyles[block.variant];
       return (
         <CalloutBox key={key} variant={block.variant}>
-          <CalloutTitle>{block.title ?? style.label}</CalloutTitle>
+          <CalloutTitle>
+            {block.title ?? ui[locale].article.callouts[block.variant]}
+          </CalloutTitle>
           {block.text && <p>{renderInline(block.text)}</p>}
           {block.items && <ul>{block.items.map((it, i) => <li key={i}>{renderInline(it)}</li>)}</ul>}
         </CalloutBox>
@@ -457,7 +461,7 @@ function renderBlock(block: Block, key: number): React.ReactNode {
                 <path d="M14.5 4h-5L7.5 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3z" />
                 <circle cx="12" cy="13" r="3.5" />
               </svg>
-              Capture d&apos;écran à venir
+              {locale === "en" ? "Screenshot coming soon" : "Capture d’écran à venir"}
             </Placeholder>
           )}
           <figcaption>{block.caption}</figcaption>
@@ -466,7 +470,7 @@ function renderBlock(block: Block, key: number): React.ReactNode {
     case "quote":
       return (
         <QuoteBlock key={key}>
-          « {block.text} »
+          {locale === "en" ? `“${block.text}”` : `« ${block.text} »`}
           {block.author && <footer>{block.author}</footer>}
         </QuoteBlock>
       );
@@ -487,8 +491,14 @@ function renderBlock(block: Block, key: number): React.ReactNode {
 
 /* ─── Sous-composants réutilisables (pages piliers) ─── */
 
-export function BlocksRenderer({ blocks }: { blocks: Block[] }) {
-  return <Body>{blocks.map((b, i) => renderBlock(b, i))}</Body>;
+export function BlocksRenderer({
+  blocks,
+  locale = "fr",
+}: {
+  blocks: Block[];
+  locale?: Locale;
+}) {
+  return <Body>{blocks.map((b, i) => renderBlock(b, i, locale))}</Body>;
 }
 
 export function FaqList({ faq }: { faq: { q: string; a: string }[] }) {
@@ -520,6 +530,7 @@ export interface ArticleRendererProps {
   dateModifiedLabel: string;
   related: RelatedLink[];
   author: { name: string; role: string; bio: string; image: string; href: string };
+  locale?: Locale;
 }
 
 export default function ArticleRenderer({
@@ -530,7 +541,9 @@ export default function ArticleRenderer({
   dateModifiedLabel,
   related,
   author,
+  locale = "fr",
 }: ArticleRendererProps) {
+  const t = ui[locale].article;
   const tocEntries = article.blocks.filter(
     (b): b is Extract<Block, { type: "h2" }> => b.type === "h2"
   );
@@ -538,10 +551,10 @@ export default function ArticleRenderer({
   return (
     <Wrapper>
       <Inner>
-        <Crumbs aria-label="Fil d'Ariane">
-          <CrumbLink href="/">Accueil</CrumbLink>
+        <Crumbs aria-label={t.breadcrumbAria}>
+          <CrumbLink href={locale === "en" ? "/en/" : "/"}>{t.home}</CrumbLink>
           <span>›</span>
-          <CrumbLink href="/conseils/">Conseils</CrumbLink>
+          <CrumbLink href={t.hubHref}>{t.hub}</CrumbLink>
           <span>›</span>
           <CrumbLink href={categoryUrl}>{categoryName}</CrumbLink>
         </Crumbs>
@@ -551,21 +564,23 @@ export default function ArticleRenderer({
         <Lead>{renderInline(article.excerpt)}</Lead>
         <MetaRow>
           <span>{author.name}</span>
-          <span>Publié le {datePublishedLabel}</span>
-          {dateModifiedLabel !== datePublishedLabel && <span>Mis à jour le {dateModifiedLabel}</span>}
-          <span>{article.readingMinutes} min de lecture</span>
+          <span>{t.published} {datePublishedLabel}</span>
+          {dateModifiedLabel !== datePublishedLabel && (
+            <span>{t.updated} {dateModifiedLabel}</span>
+          )}
+          <span>{article.readingMinutes} {t.readingSuffix}</span>
         </MetaRow>
 
         <TldrBox>
-          <TldrTitle>L&apos;essentiel en {article.tldr.length} points</TldrTitle>
+          <TldrTitle>{t.tldrTitle(article.tldr.length)}</TldrTitle>
           <ul>
-            {article.tldr.map((t, i) => <li key={i}>{renderInline(t)}</li>)}
+            {article.tldr.map((x, i) => <li key={i}>{renderInline(x)}</li>)}
           </ul>
         </TldrBox>
 
         {tocEntries.length >= 3 && (
-          <TocBox aria-label="Sommaire">
-            <TocTitle>Sommaire</TocTitle>
+          <TocBox aria-label={t.tocTitle}>
+            <TocTitle>{t.tocTitle}</TocTitle>
             <ol>
               {tocEntries.map((h) => (
                 <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>
@@ -574,11 +589,11 @@ export default function ArticleRenderer({
           </TocBox>
         )}
 
-        <Body>{article.blocks.map((b, i) => renderBlock(b, i))}</Body>
+        <Body>{article.blocks.map((b, i) => renderBlock(b, i, locale))}</Body>
 
         {article.faq.length > 0 && (
           <FaqSection id="faq">
-            <SectionTitle>Questions fréquentes</SectionTitle>
+            <SectionTitle>{t.faqTitle}</SectionTitle>
             {article.faq.map((f, i) => (
               <FaqItem key={i}>
                 <summary>{f.q}</summary>
@@ -595,14 +610,14 @@ export default function ArticleRenderer({
             <AuthorName>{author.name}</AuthorName>
             <AuthorRole>{author.role}</AuthorRole>
             <AuthorBio>
-              {author.bio} <Link href={author.href}>En savoir plus</Link>
+              {author.bio} <Link href={author.href}>{t.authorMore}</Link>
             </AuthorBio>
           </div>
         </AuthorBox>
 
         {related.length > 0 && (
           <RelatedSection>
-            <SectionTitle>À lire ensuite</SectionTitle>
+            <SectionTitle>{t.relatedTitle}</SectionTitle>
             <RelatedGrid>
               {related.map((r) => (
                 <RelatedCard key={r.url} href={r.url}>

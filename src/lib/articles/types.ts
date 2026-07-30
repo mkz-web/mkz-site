@@ -2,7 +2,13 @@
 // Un article = métadonnées SEO + suite de blocs typés rendus par ArticleRenderer.
 // Le texte "inline" accepte un mini-markdown : **gras**, [lien](/url/), `code`.
 
-export type CategorySlug = "tutoriels" | "creation-site-internet" | "seo";
+// Cocons français (/conseils/) et anglais (/en/insights/).
+// Les cocons anglais ne sont pas les cocons français traduits : ils suivent la
+// demande mesurée en anglais (SEO du marché français, visibilité IA), pas la
+// demande locale française (artisans, TPE, Seine-et-Marne).
+export type FrCategorySlug = "tutoriels" | "creation-site-internet" | "seo";
+export type EnCategorySlug = "french-seo" | "ai-search";
+export type CategorySlug = FrCategorySlug | EnCategorySlug;
 
 export type Inline = string;
 
@@ -45,6 +51,8 @@ export interface ArticleFaqItem {
 
 export interface Article {
   slug: string;
+  /** Locale de rédaction. Absent = "fr" (articles historiques). */
+  locale?: "fr" | "en";
   category: CategorySlug;
   title: string; // H1
   metaTitle: string; // ≤ 65 caractères, suffixe " | MKZ" ajouté par le template
@@ -74,6 +82,7 @@ export interface PillarPage {
 
 export interface Category {
   slug: CategorySlug;
+  locale?: "fr" | "en"; // absent = "fr"
   name: string; // libellé court (badge, breadcrumb)
   title: string; // H1 de la page catégorie
   metaTitle: string;

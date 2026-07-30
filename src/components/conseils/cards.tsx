@@ -3,8 +3,10 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { ui, type Locale } from "@/lib/i18n";
 
-// Cartes partagées entre le hub /conseils/ et les pages catégories.
+// Cartes partagées entre les hubs /conseils/ et /en/insights/ et leurs
+// pages catégories.
 
 export interface ArticleCardData {
   title: string;
@@ -79,16 +81,25 @@ const CardRead = styled.span`
   &::after { content: "→"; transition: transform 0.18s ${theme.easing}; }
 `;
 
-export function ArticleCard({ article }: { article: ArticleCardData }) {
+export function ArticleCard({
+  article,
+  locale = "fr",
+}: {
+  article: ArticleCardData;
+  locale?: Locale;
+}) {
+  const t = ui[locale].article;
   return (
     <Card href={article.url}>
       <CardTag>{article.categoryName}</CardTag>
       <CardTitle>{article.title}</CardTitle>
       <CardExcerpt>{article.excerpt}</CardExcerpt>
       <CardMeta>
-        {article.dateLabel} · {article.readingMinutes} min de lecture
+        {article.dateLabel} · {article.readingMinutes} {t.readingSuffix}
       </CardMeta>
-      <CardRead className="go">Lire l&apos;article</CardRead>
+      <CardRead className="go">
+        {locale === "en" ? "Read the article" : "Lire l’article"}
+      </CardRead>
     </Card>
   );
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { ui, type Locale } from "@/lib/i18n";
 import Button from "@/components/Button";
 import { ArticleCard, CardsGrid, type ArticleCardData } from "./cards";
 
@@ -167,38 +168,39 @@ const CtaText = styled.p`
 export default function ConseilsContent({
   categories,
   latest,
+  locale = "fr",
 }: {
   categories: CategoryCardData[];
   latest: ArticleCardData[];
+  locale?: Locale;
 }) {
+  const t = ui[locale].newsroom;
   return (
     <>
       <Hero>
         <HeroInner>
-          <Kicker>Conseils &amp; tutoriels</Kicker>
+          <Kicker>{t.kicker}</Kicker>
           <HeroTitle>
-            Nos m&eacute;thodes, <em>en acc&egrave;s libre</em>.
+            {t.titleBefore}
+            <em>{t.titleEm}</em>
+            {t.titleAfter}
           </HeroTitle>
-          <HeroSub>
-            Guides pratiques, tutoriels pas &agrave; pas et conseils SEO pour artisans,
-            commer&ccedil;ants et TPE. Exactement ce que nous appliquons pour nos clients,
-            dat&eacute; et mis &agrave; jour.
-          </HeroSub>
+          <HeroSub>{t.sub}</HeroSub>
         </HeroInner>
       </Hero>
 
       <Section>
         <Container>
           <GroupHead>
-            <GroupTitle>Explorez par th&eacute;matique</GroupTitle>
+            <GroupTitle>{t.byTopic}</GroupTitle>
           </GroupHead>
           <CatGrid>
             {categories.map((c) => (
               <CatCard key={c.slug} href={c.url}>
-                <CatCount>{c.count} article{c.count > 1 ? "s" : ""}</CatCount>
+                <CatCount>{t.articleCount(c.count)}</CatCount>
                 <CatName>{c.name}</CatName>
                 <CatDesc>{c.description}</CatDesc>
-                <CatGo className="go">Explorer</CatGo>
+                <CatGo className="go">{t.explore}</CatGo>
               </CatCard>
             ))}
           </CatGrid>
@@ -208,11 +210,11 @@ export default function ConseilsContent({
       <Section style={{ paddingTop: 16 }}>
         <Container>
           <GroupHead>
-            <GroupTitle>Derniers articles</GroupTitle>
+            <GroupTitle>{t.latest}</GroupTitle>
           </GroupHead>
           <CardsGrid>
             {latest.map((a) => (
-              <ArticleCard key={a.url} article={a} />
+              <ArticleCard key={a.url} article={a} locale={locale} />
             ))}
           </CardsGrid>
         </Container>
@@ -220,13 +222,13 @@ export default function ConseilsContent({
 
       <CtaBand>
         <CtaInner>
-          <CtaTitle>Besoin d&rsquo;un <em>coup de main</em> ?</CtaTitle>
-          <CtaText>
-            R&eacute;servez un audit gratuit de 30 minutes : on analyse votre visibilit&eacute;
-            Google et vous repartez avec un plan d&rsquo;action concret, que vous travailliez
-            avec nous ou non.
-          </CtaText>
-          <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+          <CtaTitle>
+            {t.ctaTitleBefore}
+            <em>{t.ctaTitleEm}</em>
+            {t.ctaTitleAfter}
+          </CtaTitle>
+          <CtaText>{t.ctaText}</CtaText>
+          <Button href={CALENDLY}>{t.ctaButton}</Button>
         </CtaInner>
       </CtaBand>
     </>
