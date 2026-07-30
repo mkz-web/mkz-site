@@ -2,9 +2,14 @@
 
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { ui, type Locale } from "@/lib/i18n";
 
 const PHONE = "33769093909";
-const MESSAGE = "Bonjour, je souhaite en savoir plus sur vos services.";
+
+const MESSAGE: Record<Locale, string> = {
+  fr: "Bonjour, je souhaite en savoir plus sur vos services.",
+  en: "Hello, I would like to know more about your services.",
+};
 
 const FloatingLink = styled.a`
   position: fixed;
@@ -41,13 +46,13 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ locale = "fr" }: { locale?: Locale }) {
   return (
     <FloatingLink
-      href={`https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`}
+      href={`https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE[locale])}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Nous contacter sur WhatsApp"
+      aria-label={ui[locale].whatsapp}
     >
       <WhatsAppIcon />
     </FloatingLink>

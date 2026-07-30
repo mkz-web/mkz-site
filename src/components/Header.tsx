@@ -3,19 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { theme } from "@/lib/theme";
-
-const CALENDLY = "https://calendly.com/mkz-consulting/30min";
-
-const navigation = [
-  { name: "Accueil", href: "/" },
-  { name: "Création de site", href: "/creation-site-internet" },
-  { name: "SEO", href: "/referencement-seo" },
-  { name: "Conseils", href: "/conseils" },
-  { name: "Témoignages", href: "/#temoignages" },
-  { name: "Contact", href: "/contact" },
-];
+import { ui, CALENDLY, homeOf, switcherTargetFor, type Locale } from "@/lib/i18n";
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -66,7 +57,19 @@ const NavLink = styled(Link)`
   }
 `;
 
+// Toujours affiché : le sélecteur de langue doit rester atteignable sans ouvrir
+// le menu burger. Le téléphone et le CTA, eux, restent réservés au desktop.
 const RightSide = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    gap: 20px;
+  }
+`;
+
+const DesktopOnly = styled.div`
   display: none;
   align-items: center;
   gap: 20px;
@@ -167,13 +170,79 @@ const MobileCTA = styled.a`
   text-decoration: none;
 `;
 
-export default function Header() {
+// Sélecteur de langue : lien franc (pas de <select>), crawlable et indexable,
+// vers la traduction de la page courante. C'est un `<a>` et non un `<Link>` :
+// changer de root layout impose de toute façon un rechargement complet.
+//
+// Forme « FR / EN » avec la langue courante en encre pleine : le visiteur voit
+// que le site est bilingue AVANT de cliquer, ce qu'un simple libellé « English »
+// ne dit pas. Encre franche et filet fort (borderInk), sinon le bouton disparaît
+// à côté du CTA orange : c'est ce qui s'était passé, mesuré le 30/07/2026.
+const LangSwitch = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ${theme.fonts.mono};
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: ${theme.colors.textSecondary};
+  background: ${theme.colors.surface};
+  border: 1.5px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.sm};
+  padding: 7px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.18s ${theme.easing};
+
+  /* Langue actuellement servie */
+  .actif {
+    color: ${theme.colors.text};
+    font-weight: 700;
+  }
+
+  .sep {
+    color: ${theme.colors.border};
+  }
+
+  &:hover {
+    background: ${theme.colors.surfaceAlt};
+    .cible { color: ${theme.colors.cta}; }
+  }
+`;
+
+/** Rend « FR / EN » avec la locale courante mise en avant. */
+function LangPair({ locale }: { locale: Locale }) {
+  return (
+    <>
+      <span className={locale === "fr" ? "actif" : "cible"}>FR</span>
+      <span className="sep" aria-hidden>
+        /
+      </span>
+      <span className={locale === "en" ? "actif" : "cible"}>EN</span>
+    </>
+  );
+}
+
+export default function Header({ locale = "fr" }: { locale?: Locale }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const t = ui[locale];
+  const homeHref = homeOf(locale);
+  const otherLocale: Locale = locale === "en" ? "fr" : "en";
+
+  // Le sélecteur pointe vers la traduction de la page courante quand elle
+  // existe. `usePathname` est renseigné dès le prerender (pas de rewrite ni de
+  // proxy dans ce projet), donc le bon href est déjà dans le HTML statique :
+  // il fonctionne pour les crawlers et sans JavaScript.
+  const langTarget = switcherTargetFor(pathname ?? homeHref, locale);
+  const langTitle = langTarget.isCounterpart ? undefined : t.switcher.noCounterpart;
 
   return (
     <HeaderWrapper>
       <Nav>
-        <Link href="/">
+        <Link href={homeHref}>
           <Image
             src="/images/mkz-logo.svg"
             alt="MKZ"
@@ -184,7 +253,7 @@ export default function Header() {
         </Link>
 
         <NavLinks>
-          {navigation.map((item) => (
+          {t.nav.map((item) => (
             <li key={item.name}>
               <NavLink href={item.href}>{item.name}</NavLink>
             </li>
@@ -192,15 +261,26 @@ export default function Header() {
         </NavLinks>
 
         <RightSide>
-          <Phone href="tel:0769093909">07 69 09 39 09</Phone>
-          <CTALink href={CALENDLY} target="_blank" rel="noopener noreferrer">
-            Audit gratuit
-          </CTALink>
+          <DesktopOnly>
+            <Phone href={t.header.phoneHref}>{t.header.phoneLabel}</Phone>
+            <CTALink href={CALENDLY} target="_blank" rel="noopener noreferrer">
+              {t.header.cta}
+            </CTALink>
+          </DesktopOnly>
+          <LangSwitch
+            href={langTarget.href}
+            hrefLang={otherLocale}
+            lang={otherLocale}
+            title={langTitle}
+            aria-label={`${t.switcher.label} : ${t.switcher.otherName}`}
+          >
+            <LangPair locale={locale} />
+          </LangSwitch>
         </RightSide>
 
         <MenuButton
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menu"
+          aria-label={t.header.menu}
         >
           <MenuBar open={mobileOpen} position="top" />
           <MenuBar open={mobileOpen} position="mid" />
@@ -211,7 +291,7 @@ export default function Header() {
       {mobileOpen && (
         <MobileMenu>
           <MobileLinks>
-            {navigation.map((item) => (
+            {t.nav.map((item) => (
               <li key={item.name}>
                 <NavLink href={item.href} onClick={() => setMobileOpen(false)}>
                   {item.name}
@@ -219,11 +299,14 @@ export default function Header() {
               </li>
             ))}
             <li>
-              <MobilePhone href="tel:0769093909">07 69 09 39 09</MobilePhone>
+              <MobilePhone href={t.header.phoneHref}>{t.header.phoneLabel}</MobilePhone>
             </li>
+            {/* Pas de sélecteur de langue ici : il vit désormais dans la barre,
+                visible sans ouvrir le menu. Le dupliquer ferait deux boutons
+                identiques à l'écran quand le menu est ouvert. */}
             <li>
               <MobileCTA href={CALENDLY} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
-                Audit gratuit
+                {t.header.cta}
               </MobileCTA>
             </li>
           </MobileLinks>

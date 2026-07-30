@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { ui, type Locale } from "@/lib/i18n";
 
 const WEB3FORMS_KEY = "5f80cd7f-a0fb-484c-995c-a6a1a5534c34";
 
@@ -133,7 +134,8 @@ const ErrorBox = styled.div`
   text-align: center;
 `;
 
-export default function ContactForm() {
+export default function ContactForm({ locale = "fr" }: { locale?: Locale }) {
+  const t = ui[locale].contact.form;
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -151,7 +153,7 @@ export default function ContactForm() {
           access_key: WEB3FORMS_KEY,
           name: data.name,
           email: data.email,
-          subject: "Nouveau message mkz-consulting.fr : " + (data.subject || "Contact"),
+          subject: t.mailSubjectPrefix + (data.subject || t.defaultSubject),
           message: data.message,
           from_name: "MKZ Site Web",
         }),
@@ -176,10 +178,8 @@ export default function ContactForm() {
     return (
       <SuccessBox>
         <SuccessIcon>&#10003;</SuccessIcon>
-        <SuccessTitle>Message envoy&eacute; !</SuccessTitle>
-        <SuccessText>
-          Merci pour votre message. Je vous recontacte dans les 24h.
-        </SuccessText>
+        <SuccessTitle>{t.successTitle}</SuccessTitle>
+        <SuccessText>{t.successText}</SuccessText>
       </SuccessBox>
     );
   }
@@ -188,31 +188,29 @@ export default function ContactForm() {
     <Form onSubmit={handleSubmit}>
       <Row>
         <div>
-          <Label htmlFor="name">Nom complet</Label>
-          <Input type="text" id="name" name="name" required placeholder="Jean Dupont" />
+          <Label htmlFor="name">{t.name}</Label>
+          <Input type="text" id="name" name="name" required placeholder={t.namePlaceholder} />
         </div>
         <div>
-          <Label htmlFor="email">Email</Label>
-          <Input type="email" id="email" name="email" required placeholder="jean@exemple.fr" />
+          <Label htmlFor="email">{t.email}</Label>
+          <Input type="email" id="email" name="email" required placeholder={t.emailPlaceholder} />
         </div>
       </Row>
       <div>
-        <Label htmlFor="subject">Sujet</Label>
-        <Input type="text" id="subject" name="subject" required placeholder="Nouveau projet web" />
+        <Label htmlFor="subject">{t.subject}</Label>
+        <Input type="text" id="subject" name="subject" required placeholder={t.subjectPlaceholder} />
       </div>
       <div>
-        <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" rows={5} required placeholder="D&eacute;crivez votre projet..." />
+        <Label htmlFor="message">{t.message}</Label>
+        <Textarea id="message" name="message" rows={5} required placeholder={t.messagePlaceholder} />
       </div>
 
       {status === "error" && (
-        <ErrorBox>
-          Une erreur est survenue. Veuillez r&eacute;essayer ou contactez-moi au 07 69 09 39 09.
-        </ErrorBox>
+        <ErrorBox>{t.errorText}</ErrorBox>
       )}
 
       <SubmitButton type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Envoi en cours..." : "Envoyer le message"}
+        {status === "sending" ? t.sending : t.submit}
       </SubmitButton>
     </Form>
   );

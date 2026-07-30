@@ -1,55 +1,133 @@
 import type { MetadataRoute } from "next";
-import { articles, articlesByCategory, articleUrl, categories } from "@/lib/articles";
+import {
+  articles,
+  articlesEn,
+  articlesByCategory,
+  articleUrl,
+  categories,
+  categoriesEn,
+  categoryUrl,
+} from "@/lib/articles";
+import { SITE, counterpartOf, hreflangOf, type Locale } from "@/lib/i18n";
 
-// Sitemap généré au build depuis le registre de contenu (jamais à la main).
+// Sitemap généré au build depuis les registres de contenu (jamais à la main).
+// Bilingue : chaque URL qui possède un équivalent dans l'autre langue déclare
+// ses alternates, ce qui double le signal hreflang déjà présent dans le <head>.
 
 export const dynamic = "force-static";
 
-const SITE = "https://mkz-consulting.fr";
+/** Bloc `alternates.languages` du sitemap pour un chemin, s'il a un pendant. */
+function alternates(path: string, locale: Locale) {
+  const counterpart = counterpartOf(path, locale);
+  if (!counterpart) return {};
+  const other: Locale = locale === "fr" ? "en" : "fr";
+  return {
+    alternates: {
+      languages: {
+        [hreflangOf[locale]]: `${SITE}${path}`,
+        [hreflangOf[other]]: `${SITE}${counterpart}`,
+      },
+    },
+  };
+}
+
+function entry(
+  path: string,
+  locale: Locale,
+  opts: { priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; lastModified?: string }
+): MetadataRoute.Sitemap[number] {
+  return {
+    url: `${SITE}${path}`,
+    changeFrequency: opts.changeFrequency,
+    priority: opts.priority,
+    ...(opts.lastModified ? { lastModified: opts.lastModified } : {}),
+    ...alternates(path, locale),
+  };
+}
+
+const latest = (list: { dateModified: string }[]) =>
+  list.length ? list.map((a) => a.dateModified).sort().at(-1) : undefined;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: `${SITE}/`, changeFrequency: "monthly", priority: 1.0 },
-    { url: `${SITE}/services/`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${SITE}/creation-site-internet/`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE}/referencement-seo/`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE}/agence-web-77/`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${SITE}/about/`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE}/contact/`, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE}/mentions-legales/`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE}/politique-confidentialite/`, changeFrequency: "yearly", priority: 0.3 },
+  // ── Français ──
+  const frStatic: MetadataRoute.Sitemap = [
+    entry("/", "fr", { priority: 1.0, changeFrequency: "monthly" }),
+    entry("/services/", "fr", { priority: 0.8, changeFrequency: "monthly" }),
+    entry("/creation-site-internet/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/referencement-seo/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/agence-web-77/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/about/", "fr", { priority: 0.7, changeFrequency: "monthly" }),
+    entry("/contact/", "fr", { priority: 0.6, changeFrequency: "monthly" }),
+    // Les deux pages légales françaises sont passées en index, follow le
+    // 30/07/2026 : elles reviennent donc dans le sitemap. Ne les y laisser
+    // qu'aussi longtemps qu'elles restent indexables, sinon GSC remonte
+    // « URL envoyée avec balise noindex ».
+    entry("/mentions-legales/", "fr", { priority: 0.3, changeFrequency: "yearly" }),
+    entry("/politique-confidentialite/", "fr", { priority: 0.3, changeFrequency: "yearly" }),
   ];
 
-  const hubLastMod = articles.length
-    ? articles.map((a) => a.dateModified).sort().at(-1)
-    : undefined;
-
-  const conseils: MetadataRoute.Sitemap = [
-    {
-      url: `${SITE}/conseils/`,
-      changeFrequency: "weekly",
+  const frNewsroom: MetadataRoute.Sitemap = [
+    entry("/conseils/", "fr", {
       priority: 0.8,
-      ...(hubLastMod ? { lastModified: hubLastMod } : {}),
-    },
-    ...categories.map((c) => {
-      const list = articlesByCategory(c.slug);
-      const lastMod = list.length
-        ? list.map((a) => a.dateModified).sort().at(-1)
-        : undefined;
-      return {
-        url: `${SITE}/conseils/${c.slug}/`,
-        changeFrequency: "weekly" as const,
-        priority: 0.7,
-        ...(lastMod ? { lastModified: lastMod } : {}),
-      };
+      changeFrequency: "weekly",
+      lastModified: latest(articles),
     }),
-    ...articles.map((a) => ({
-      url: `${SITE}${articleUrl(a)}`,
-      lastModified: a.dateModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
+    ...categories.map((c) =>
+      entry(categoryUrl(c.slug, "fr"), "fr", {
+        priority: 0.7,
+        changeFrequency: "weekly",
+        lastModified: latest(articlesByCategory(c.slug, "fr")),
+      })
+    ),
+    ...articles.map((a) =>
+      entry(articleUrl(a), "fr", {
+        priority: 0.7,
+        changeFrequency: "monthly",
+        lastModified: a.dateModified,
+      })
+    ),
   ];
 
-  return [...staticPages, ...conseils];
+  // ── Anglais ──
+  // Pas d'équivalent de /agence-web-77/ ni de /services/ : décision fondée sur
+  // les volumes mesurés, pas un oubli (voir src/content/en/pillars/*).
+  const enStatic: MetadataRoute.Sitemap = [
+    entry("/en/", "en", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/en/french-seo/", "en", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/en/ai-search-optimization/", "en", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/en/website-design/", "en", { priority: 0.7, changeFrequency: "monthly" }),
+    entry("/en/about/", "en", { priority: 0.7, changeFrequency: "monthly" }),
+    entry("/en/contact/", "en", { priority: 0.6, changeFrequency: "monthly" }),
+    // Pendants anglais des deux pages légales : même indexabilité que le
+    // français, sinon une paire hreflang déclarerait une alternative que Google
+    // n'a pas le droit d'indexer.
+    entry("/en/legal-notice/", "en", { priority: 0.3, changeFrequency: "yearly" }),
+    entry("/en/privacy-policy/", "en", { priority: 0.3, changeFrequency: "yearly" }),
+  ];
+
+  const enNewsroom: MetadataRoute.Sitemap = [
+    entry("/en/insights/", "en", {
+      priority: 0.8,
+      changeFrequency: "weekly",
+      lastModified: latest(articlesEn),
+    }),
+    ...categoriesEn.map((c) =>
+      entry(categoryUrl(c.slug, "en"), "en", {
+        priority: 0.7,
+        changeFrequency: "weekly",
+        lastModified: latest(articlesByCategory(c.slug, "en")),
+      })
+    ),
+    ...articlesEn.map((a) =>
+      entry(articleUrl(a), "en", {
+        priority: 0.7,
+        changeFrequency: "monthly",
+        lastModified: a.dateModified,
+      })
+    ),
+  ];
+
+  // Les pages légales anglaises restent en noindex (la version française fait
+  // foi) : elles n'entrent pas dans le sitemap, contrairement aux françaises.
+  return [...frStatic, ...frNewsroom, ...enStatic, ...enNewsroom];
 }

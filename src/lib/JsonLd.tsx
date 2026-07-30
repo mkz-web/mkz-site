@@ -39,10 +39,47 @@ export const websiteSchema = {
   name: "MKZ",
   alternateName: "MKZ Consulting",
   url: SITE,
-  inLanguage: "fr-FR",
+  inLanguage: ["fr-FR", "en"],
   description:
     "Création de sites web et SEO pour artisans, commerçants et indépendants en Île-de-France et partout en France.",
   publisher: { "@id": `${SITE}/#organization` },
+};
+
+// ── Variantes anglaises ──────────────────────────────────────────────────────
+// Même entité, donc même @id : un seul nœud dans le graphe, décrit dans la
+// langue de la page servie. Seules name/description/knowsAbout changent.
+
+export const websiteSchemaEn = {
+  ...websiteSchema,
+  description:
+    "French SEO and AI search visibility for companies selling into the French market. Run from the Paris region by Mickaël Leclerc.",
+};
+
+export const personSchemaEn = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE}/#mickael-leclerc`,
+  name: "Mickaël Leclerc",
+  jobTitle: "Founder, French SEO & AI search consultant",
+  description:
+    "Native French SEO consultant based near Paris, with over 20 years as an IT engineer in infrastructure, automation and DevOps. Helps companies rank and get cited in the French market.",
+  image: `${SITE}/images/mickael-leclerc.jpg`,
+  url: `${SITE}/en/about/`,
+  worksFor: { "@id": `${SITE}/#organization` },
+  knowsLanguage: [
+    { "@type": "Language", name: "French", alternateName: "fr" },
+    { "@type": "Language", name: "English", alternateName: "en" },
+  ],
+  knowsAbout: [
+    "French SEO",
+    "Multilingual SEO",
+    "Generative Engine Optimization (GEO)",
+    "Answer Engine Optimization (AEO)",
+    "LLM visibility",
+    "Technical SEO",
+    "Core Web Vitals",
+    "Web development",
+  ],
 };
 
 export const organizationSchema = {
@@ -76,6 +113,12 @@ export const organizationSchema = {
     "@type": "Country",
     name: "France",
   },
+  // Les prestations sont livrées en français et en anglais (clients
+  // internationaux qui visent le marché français).
+  availableLanguage: [
+    { "@type": "Language", name: "French", alternateName: "fr" },
+    { "@type": "Language", name: "English", alternateName: "en" },
+  ],
   sameAs: [
     "https://maps.google.com/?cid=6891196325972723134",
     "https://www.pappers.fr/entreprise/mkz-983662784",
@@ -147,6 +190,80 @@ export const serviceSchemas = [
     serviceType: "Référencement naturel SEO",
   },
 ];
+
+export const serviceSchemasEn = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "French SEO",
+    description:
+      "SEO for the French market: French keyword research done in French, on-page and technical work, French content and local signals. For companies that already rank in English and need France to work too.",
+    provider: { "@id": `${SITE}/#organization` },
+    url: `${SITE}/en/french-seo/`,
+    areaServed: { "@type": "Country", name: "France" },
+    availableLanguage: ["en", "fr"],
+    serviceType: "French SEO",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI search optimisation (GEO / AEO)",
+    description:
+      "Getting cited by ChatGPT, Perplexity, Gemini and Google AI answers, in French and in English: crawler access, citable structured content, llms.txt, schema.org, and measured share of voice.",
+    provider: { "@id": `${SITE}/#organization` },
+    url: `${SITE}/en/ai-search-optimization/`,
+    areaServed: { "@type": "Country", name: "France" },
+    availableLanguage: ["en", "fr"],
+    serviceType: "Generative Engine Optimization",
+  },
+];
+
+export const faqSchemaEn = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can I just translate my English site into French and rank?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No, and this is the single most common reason foreign sites fail in France. Translation carries your English keywords across; it does not carry French search demand. French users phrase queries differently, use different intent words, and often search terms that have no direct English equivalent. The work is French keyword research done in French first, then content built on what people actually type.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you work with companies based outside France?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, that is the main use case. Typical clients are UK, US, or European companies that already perform in English and need the French market to work: an existing site to adapt, a French subfolder or subdomain to set up, hreflang to get right, and French content that reads as if it was written in French, because it was.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does French SEO take to show results?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "First movements usually appear between 3 and 6 months, depending on your existing authority and how competitive your French keywords are. A site that already has authority in English often moves faster in France than a brand new domain, because the domain-level signals carry over.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is GEO and is it different from SEO?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "GEO (Generative Engine Optimization), also called AEO (Answer Engine Optimization), is being cited inside AI answers rather than ranking in a list of links. It overlaps with SEO but adds specific work: letting AI crawlers in, publishing facts that can be quoted with a figure and a date, clean schema.org, and llms.txt. It matters in France because French-language AI answers have far fewer credible sources to pick from than English ones.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are you an agency or a freelance consultant?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "MKZ is a French company with one consultant doing the work: Mickaël Leclerc. You talk to the person running your account, not an account manager relaying to a junior. That is a deliberate trade: less capacity, no layers.",
+      },
+    },
+  ],
+};
 
 export const faqSchema = {
   "@context": "https://schema.org",

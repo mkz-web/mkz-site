@@ -5,9 +5,9 @@ import { theme } from "@/lib/theme";
 
 const PageWrapper = styled.section`padding: 96px 24px; max-width: 800px; margin: 0 auto;`;
 const Title = styled.h1`font-size: 36px; font-weight: 700; margin-bottom: 48px;`;
-const SectionTitle = styled.h2`font-size: 20px; font-weight: 600; margin-top: 40px; margin-bottom: 16px; color: ${theme.colors.text};`;
-const Text = styled.p`font-size: 14px; line-height: 1.8; color: ${theme.colors.textSecondary}; margin-bottom: 12px;`;
-const InfoLine = styled.p`font-size: 14px; color: ${theme.colors.text}; margin-bottom: 6px;`;
+const SectionTitle = styled.h2`font-size: 24px; font-weight: 600; margin-top: 40px; margin-bottom: 16px; color: ${theme.colors.text};`;
+const Text = styled.p`font-size: 16.5px; line-height: 1.8; color: ${theme.colors.textSecondary}; margin-bottom: 12px;`;
+const InfoLine = styled.p`font-size: 16.5px; line-height: 1.7; color: ${theme.colors.text}; margin-bottom: 6px;`;
 
 export default function MentionsContent() {
   return (

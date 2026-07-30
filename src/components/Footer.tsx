@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import { usePathname } from "next/navigation";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
-
-const CALENDLY = "https://calendly.com/mkz-consulting/30min";
+import { ui, CALENDLY, homeOf, switcherTargetFor, type Locale } from "@/lib/i18n";
 
 // Méga-footer « second héros » : accroche éditoriale + colonnes + signature.
 
@@ -165,25 +165,36 @@ const LegalLinks = styled.div`
   gap: 24px;
 `;
 
-export default function Footer() {
+export default function Footer({ locale = "fr" }: { locale?: Locale }) {
+  const pathname = usePathname();
+  const t = ui[locale].footer;
+  const homeHref = homeOf(locale);
+  const otherLocale: Locale = locale === "en" ? "fr" : "en";
+
+  // Même cible que le sélecteur du header : la traduction de la page courante.
+  const langTarget = switcherTargetFor(pathname ?? homeHref, locale);
+  const switcher = ui[locale].switcher;
+
   return (
     <FooterWrapper>
       <Container>
         <TopBlock>
           <Tagline>
-            Votre t&eacute;l&eacute;phone devrait <em>sonner</em> plus souvent.
+            {t.taglineBefore}
+            <em>{t.taglineEm}</em>
+            {t.taglineAfter}
           </Tagline>
           <TopActions>
-            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
-            <TopPhone href="tel:0769093909">
-              ou directement : <strong>07 69 09 39 09</strong>
+            <Button href={CALENDLY}>{t.cta}</Button>
+            <TopPhone href={ui[locale].header.phoneHref}>
+              {t.phonePrefix} <strong>{ui[locale].header.phoneLabel}</strong>
             </TopPhone>
           </TopActions>
         </TopBlock>
 
         <Grid>
           <div>
-            <Link href="/">
+            <Link href={homeHref}>
               <Image
                 src="/images/mkz-logo-footer.svg"
                 alt="MKZ"
@@ -191,62 +202,71 @@ export default function Footer() {
                 height={45}
               />
             </Link>
-            <BrandDescription>
-              Cr&eacute;ation de sites web et SEO pour artisans, commer&ccedil;ants
-              et ind&eacute;pendants. Bas&eacute;s en Seine-et-Marne, partout en France.
-            </BrandDescription>
+            <BrandDescription>{t.description}</BrandDescription>
             <BrandLegal>
-              MKZ · SIRET 983 662 784 00013 · RCS Meaux
-              <br />
-              1 rue Fran&ccedil;oise Sagan, 77230 Dammartin-en-Go&euml;le
+              {t.legal.map((line, i) => (
+                <span key={i}>
+                  {i > 0 && <br />}
+                  {line}
+                </span>
+              ))}
             </BrandLegal>
           </div>
 
-          <div>
-            <GroupTitle>Services</GroupTitle>
-            <LinkList>
-              <li><FooterLink href="/creation-site-internet">Cr&eacute;ation de site internet</FooterLink></li>
-              <li><FooterLink href="/referencement-seo">R&eacute;f&eacute;rencement SEO</FooterLink></li>
-              <li><FooterLink href="/agence-web-77">Agence web Seine-et-Marne</FooterLink></li>
-              <li><FooterExtLink href={CALENDLY} target="_blank" rel="noopener noreferrer">Audit gratuit</FooterExtLink></li>
-            </LinkList>
-          </div>
-
-          <div>
-            <GroupTitle>Conseils</GroupTitle>
-            <LinkList>
-              <li><FooterLink href="/conseils/tutoriels">Tutoriels pas &agrave; pas</FooterLink></li>
-              <li><FooterLink href="/conseils/creation-site-internet">Cr&eacute;ation de site</FooterLink></li>
-              <li><FooterLink href="/conseils/seo">SEO &amp; visibilit&eacute;</FooterLink></li>
-              <li><FooterLink href="/conseils">Tous les conseils</FooterLink></li>
-            </LinkList>
-          </div>
-
-          <div>
-            <GroupTitle>Contact</GroupTitle>
-            <LinkList>
-              <li><FooterExtLink href="tel:0769093909">07 69 09 39 09</FooterExtLink></li>
-              <li><FooterExtLink href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</FooterExtLink></li>
-              <li><ContactInfo>Lun-ven 9h-18h<br />R&eacute;ponse sous 24 h</ContactInfo></li>
-            </LinkList>
-          </div>
-
-          <div>
-            <GroupTitle>Liens</GroupTitle>
-            <LinkList>
-              <li><FooterLink href="/">Accueil</FooterLink></li>
-              <li><FooterLink href="/services">Services</FooterLink></li>
-              <li><FooterLink href="/about">&Agrave; propos</FooterLink></li>
-              <li><FooterLink href="/contact">Contact</FooterLink></li>
-            </LinkList>
-          </div>
+          {t.groups.map((group) => (
+            <div key={group.title}>
+              <GroupTitle>{group.title}</GroupTitle>
+              <LinkList>
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    {link.external ? (
+                      <FooterExtLink
+                        href={link.href}
+                        {...(link.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {link.label}
+                      </FooterExtLink>
+                    ) : (
+                      <FooterLink href={link.href}>{link.label}</FooterLink>
+                    )}
+                  </li>
+                ))}
+                {group.showHours && (
+                  <li>
+                    <ContactInfo>
+                      {t.contact.hours}
+                      <br />
+                      {t.contact.reply}
+                    </ContactInfo>
+                  </li>
+                )}
+                {group.showLangLink && (
+                  <li>
+                    <FooterExtLink
+                      href={langTarget.href}
+                      hrefLang={otherLocale}
+                      lang={otherLocale}
+                      title={langTarget.isCounterpart ? undefined : switcher.noCounterpart}
+                    >
+                      {switcher.otherName}
+                    </FooterExtLink>
+                  </li>
+                )}
+              </LinkList>
+            </div>
+          ))}
         </Grid>
 
         <BottomBar>
-          <p>&copy; 2026 MKZ · Tous droits r&eacute;serv&eacute;s</p>
+          <p>{t.copyright}</p>
           <LegalLinks>
-            <FooterLink href="/mentions-legales">Mentions l&eacute;gales</FooterLink>
-            <FooterLink href="/politique-confidentialite">Politique de confidentialit&eacute;</FooterLink>
+            {t.legalLinks.map((l) => (
+              <FooterLink key={l.href} href={l.href}>
+                {l.name}
+              </FooterLink>
+            ))}
           </LegalLinks>
         </BottomBar>
       </Container>

@@ -1,6 +1,16 @@
-import { articles, articleUrl, categories, articlesByCategory, stripInline } from "@/lib/articles";
+import {
+  articles,
+  articlesEn,
+  articleUrl,
+  categories,
+  categoriesEn,
+  articlesByCategory,
+  stripInline,
+} from "@/lib/articles";
 
-// llms.txt (format llmstxt.org) généré au build depuis le registre de contenu.
+// llms.txt (format llmstxt.org) généré au build depuis les registres de contenu.
+// Bilingue : le fichier servi à l'emplacement conventionnel couvre les deux
+// langues, pour qu'un modèle qui ne fetche que /llms.txt voie aussi l'anglais.
 
 export const dynamic = "force-static";
 
@@ -10,6 +20,16 @@ export function GET() {
   const conseilsSection = categories
     .map((c) => {
       const list = articlesByCategory(c.slug);
+      const lines = list.map(
+        (a) => `- [${a.title}](${SITE}${articleUrl(a)}): ${stripInline(a.excerpt)}`
+      );
+      return `### ${c.name}\n\n${lines.join("\n")}`;
+    })
+    .join("\n\n");
+
+  const insightsSection = categoriesEn
+    .map((c) => {
+      const list = articlesByCategory(c.slug, "en");
       const lines = list.map(
         (a) => `- [${a.title}](${SITE}${articleUrl(a)}): ${stripInline(a.excerpt)}`
       );
@@ -54,10 +74,39 @@ ${conseilsSection}
 - SEO ou SEA ? Le SEO produit un trafic gratuit et durable ; le SEA (publicité) s'arrête dès qu'on cesse de payer. MKZ privilégie le SEO pour le ROI long terme.
 - Propriété du site ? Le client garde 100 % de la propriété : accès, code et contenus.
 
+## English version (/en/)
+
+Le site est bilingue. La section anglaise n'est pas une traduction : elle cible une autre demande, mesurée en anglais (le SEO du marché français vu de l'étranger, et la visibilité dans les moteurs de réponse IA), là où la section française cible la demande locale française (artisans, commerçants, TPE d'Île-de-France).
+
+MKZ in English: French SEO and AI search visibility for companies selling into France. Native French consultant (Mickaël Leclerc), based near Paris, working in French and English. Free 30-minute review, reply within 24 hours.
+
+Key citable figures, measured 30 July 2026 via Google Ads keyword data (France, French language):
+
+- "création site internet" gets 6,600 searches a month in France; "conception de site web", an equally correct translation of the same idea, gets 320. A 20.6x gap decided purely by word choice, which is why translating a site into French does not make it rank.
+- "SEO" gets 27,100 searches a month in France; the full French phrase "optimisation pour les moteurs de recherche" gets 590. French search absorbs English technical vocabulary.
+- "agence SEO" gets 22,200 searches a month; "agence de référencement" gets 2,900. Both are live markets, of very different sizes.
+
+English pages:
+
+- [Home, French SEO & AI search](${SITE}/en/): positioning, the three usual causes of invisibility in France, method, and what is never promised
+- [French SEO](${SITE}/en/french-seo/): service page (French keyword research, hreflang, French content, technical work, monthly measurement) plus how to judge a French SEO supplier
+- [AI search optimisation](${SITE}/en/ai-search-optimization/): GEO and AEO (crawler access, quotable facts, schema.org, llms.txt, measured share of voice), and why French AI answers are an easier win
+- [Website design](${SITE}/en/website-design/): secondary conversion page, when a rebuild is actually justified
+- [About Mickaël Leclerc](${SITE}/en/about/): background, method, and what is refused
+- [Contact](${SITE}/en/contact/): form, phone, email, hours
+
+## Insights (English newsroom)
+
+Newsroom: [Insights](${SITE}/en/insights/), guides on French SEO and AI search, dated and measured.
+
+${insightsSection}
+
 ## Optional
 
 - [Mentions légales](${SITE}/mentions-legales/)
 - [Politique de confidentialité](${SITE}/politique-confidentialite/)
+- [Legal notice (EN)](${SITE}/en/legal-notice/)
+- [Privacy policy (EN)](${SITE}/en/privacy-policy/)
 - [Version détaillée pour LLM](${SITE}/llms-full.txt)
 `;
 
