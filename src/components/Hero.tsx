@@ -43,7 +43,7 @@ const Kicker = styled.p`
     content: "";
     width: 10px;
     height: 10px;
-    background: ${theme.colors.cta};
+    background: ${theme.colors.ctaInk};
     flex-shrink: 0;
   }
 `;
@@ -59,7 +59,7 @@ const Title = styled.h1`
   em {
     font-style: italic;
     font-weight: 550;
-    color: ${theme.colors.cta};
+    color: ${theme.colors.ctaInk};
   }
 `;
 
@@ -176,9 +176,9 @@ const Stamp = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
   background: ${theme.colors.background};
-  border: 1.5px solid ${theme.colors.cta};
+  border: 1.5px solid ${theme.colors.ctaInk};
   border-radius: ${theme.radius.sm};
   padding: 7px 12px;
 `;

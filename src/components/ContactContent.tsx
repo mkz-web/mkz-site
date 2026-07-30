@@ -101,7 +101,7 @@ const InfoLink = styled.a`
   font-size: 15px;
   font-weight: 600;
   color: ${theme.colors.accent};
-  &:hover { color: ${theme.colors.cta}; }
+  &:hover { color: ${theme.colors.ctaInk}; }
 `;
 
 const CalendlyCell = styled.a`

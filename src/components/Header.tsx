@@ -85,17 +85,17 @@ const Phone = styled.a`
   font-weight: 500;
   color: ${theme.colors.text};
 
-  &:hover { color: ${theme.colors.cta}; }
+  &:hover { color: ${theme.colors.ctaInk}; }
 `;
 
 const CTALink = styled.a`
   display: inline-flex;
   padding: 10px 18px;
-  background: ${theme.colors.cta};
+  background: ${theme.colors.ctaInk};
   color: white;
   font-size: 13.5px;
   font-weight: 600;
-  border: 1px solid ${theme.colors.cta};
+  border: 1px solid ${theme.colors.ctaInk};
   border-radius: ${theme.radius.sm};
   transition: all 0.18s ${theme.easing};
   text-decoration: none;
@@ -162,7 +162,7 @@ const MobilePhone = styled.a`
 const MobileCTA = styled.a`
   display: inline-flex;
   padding: 12px 20px;
-  background: ${theme.colors.cta};
+  background: ${theme.colors.ctaInk};
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -208,7 +208,7 @@ const LangSwitch = styled.a`
 
   &:hover {
     background: ${theme.colors.surfaceAlt};
-    .cible { color: ${theme.colors.cta}; }
+    .cible { color: ${theme.colors.ctaInk}; }
   }
 `;
 

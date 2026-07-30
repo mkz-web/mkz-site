@@ -30,7 +30,7 @@ const Card = styled(Link)`
     transform: translate(-3px, -3px);
     box-shadow: 6px 6px 0 rgba(34, 31, 26, 0.16);
 
-    .go { color: ${theme.colors.cta}; }
+    .go { color: ${theme.colors.ctaInk}; }
     .go::after { transform: translateX(5px); }
   }
 `;
@@ -41,7 +41,7 @@ const CardTag = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const CardTitle = styled.h3`
@@ -55,7 +55,7 @@ const CardTitle = styled.h3`
 
 const CardExcerpt = styled.p`
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textSecondary};
   flex: 1;

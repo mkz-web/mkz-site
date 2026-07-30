@@ -29,7 +29,7 @@ const Kicker = styled.p`
     content: "";
     width: 10px;
     height: 10px;
-    background: ${theme.colors.cta};
+    background: ${theme.colors.ctaInk};
   }
 `;
 
@@ -120,7 +120,7 @@ const ArgNum = styled.span`
   font-family: ${theme.fonts.mono};
   font-size: 12px;
   font-weight: 500;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const ArgTitle = styled.h3`
@@ -149,7 +149,7 @@ const CTATitle = styled.h2`
   font-weight: 600;
   color: ${theme.colors.textOnDark};
 
-  em { font-style: italic; color: ${theme.colors.cta}; }
+  em { font-style: italic; color: ${theme.colors.ctaInk}; }
 `;
 
 const CTAText = styled.p`
