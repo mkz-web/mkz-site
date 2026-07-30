@@ -51,7 +51,7 @@ const HeroTitle = styled.h1`
   line-height: 1.06;
   color: ${theme.colors.accent};
 
-  em { font-style: italic; color: ${theme.colors.cta}; }
+  em { font-style: italic; color: ${theme.colors.ctaInk}; }
 `;
 
 const HeroSub = styled.p`
@@ -98,7 +98,7 @@ const CatCard = styled(Link)`
   &:hover {
     transform: translate(-3px, -3px);
     box-shadow: 6px 6px 0 rgba(34, 31, 26, 0.16);
-    .go { color: ${theme.colors.cta}; }
+    .go { color: ${theme.colors.ctaInk}; }
     .go::after { transform: translateX(5px); }
   }
 `;
@@ -109,7 +109,7 @@ const CatCount = styled.span`
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: ${theme.colors.cta};
+  color: ${theme.colors.ctaInk};
 `;
 
 const CatName = styled.h2`
@@ -154,7 +154,7 @@ const CtaTitle = styled.h2`
   font-weight: 600;
   color: ${theme.colors.textOnDark};
 
-  em { font-style: italic; color: ${theme.colors.cta}; }
+  em { font-style: italic; color: ${theme.colors.ctaInk}; }
 `;
 
 const CtaText = styled.p`

@@ -76,10 +76,10 @@ const HeroPhone = styled.a`
 `;
 
 const Main = styled.section`padding: 24px 24px 64px;`;
-const Inner = styled.div`max-width: 760px; margin: 0 auto;`;
+const Inner = styled.div`max-width: 680px; margin: 0 auto;`;
 
 const FaqSection = styled.section`
-  max-width: 760px;
+  max-width: 680px;
   margin: 56px auto 0;
 `;
 const FaqTitle = styled.h2`

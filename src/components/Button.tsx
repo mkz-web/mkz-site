@@ -28,9 +28,9 @@ const baseStyles = `
 `;
 
 const primaryStyles = `
-  background-color: ${theme.colors.cta};
+  background-color: ${theme.colors.ctaInk};
   color: white;
-  border: 1px solid ${theme.colors.cta};
+  border: 1px solid ${theme.colors.ctaInk};
   &:hover {
     background-color: ${theme.colors.ctaHover};
     border-color: ${theme.colors.ctaHover};
