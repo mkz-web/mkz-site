@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ClarityScript from "@/components/ClarityScript";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -48,6 +49,7 @@ export default function FrRootLayout({
           src="https://cdn.hu-manity.co/hu-banner.min.js"
           strategy="afterInteractive"
         />
+        <ClarityScript />
       </body>
     </html>
   );

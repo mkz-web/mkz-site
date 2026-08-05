@@ -86,8 +86,10 @@ export function LegalNoticeEn() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        This site uses no tracking or advertising cookies. Only technical cookies strictly
-        necessary for the site to function may be used.
+        With your consent, this site uses Microsoft Clarity for audience measurement.
+        Unless you accept it in the cookie banner, only technical cookies strictly
+        necessary for the site to function are used. Details are in the{" "}
+        <a href="/en/privacy-policy/">privacy policy</a>.
       </Text>
     </PageWrapper>
   );
@@ -116,6 +118,12 @@ export function PrivacyPolicyEn() {
         content of your message through the contact form, plus your name and email address
         if you book a slot. No account, no profiling, no data bought from third parties.
       </Text>
+      <Text>
+        With your consent, given through the cookie banner, we also measure how the site is
+        used (pages viewed, clicks, scrolling) with Microsoft Clarity, in order to improve
+        it. Until you accept, the tool is not loaded and no usage data is collected (see the
+        Cookies section below).
+      </Text>
 
       <SectionTitle>Why we process it</SectionTitle>
       <Text>
@@ -125,8 +133,9 @@ export function PrivacyPolicyEn() {
 
       <SectionTitle>Legal basis</SectionTitle>
       <Text>
-        Your consent, given when you submit the contact form (GDPR Article 6.1.a), and our
-        legitimate interest in answering a business enquiry (Article 6.1.f).
+        Your consent, given when you submit the contact form or when you accept audience
+        measurement in the cookie banner (GDPR Article 6.1.a), and our legitimate interest
+        in answering a business enquiry (Article 6.1.f).
       </Text>
 
       <SectionTitle>How long we keep it</SectionTitle>
@@ -137,31 +146,35 @@ export function PrivacyPolicyEn() {
 
       <SectionTitle>Who else sees it</SectionTitle>
       <Text>
-        Three processors, and no one else. Your data is never sold.
+        Four processors, and no one else. Your data is never sold.
       </Text>
       <Text>
         <strong>Cloudflare, Inc.</strong> hosts and delivers the site (United States).{" "}
         <strong>Web3Forms</strong> (Web3Creative) transmits contact form submissions, and
         nothing else (India). <strong>Calendly LLC</strong> handles online booking if you
-        reserve a slot (United States).
+        reserve a slot (United States). <strong>Microsoft Corporation</strong> processes
+        audience measurement data through Microsoft Clarity, only after your consent
+        (United States).
       </Text>
 
       <SectionTitle>Transfers outside the European Union</SectionTitle>
       <Text>
-        All three processors are established outside the EU, so using this site involves
+        All four processors are established outside the EU, so using this site involves
         transferring personal data outside the European Union. These transfers rely on the
         safeguards set out in Chapter V of the GDPR: a data processing agreement with each
         processor (Article 28), and the European Commission&rsquo;s Standard Contractual
         Clauses (Article 46).
       </Text>
       <Text>
-        Cloudflare and Calendly are additionally certified under the EU&nbsp;-&nbsp;US Data
-        Privacy Framework, covered by the European Commission adequacy decision of
-        10&nbsp;July 2023 (Article 45). India has no adequacy decision, so the Standard
-        Contractual Clauses are the sole basis for the transfer to Web3Forms. Details are in{" "}
+        Cloudflare, Calendly and Microsoft are additionally certified under the
+        EU&nbsp;-&nbsp;US Data Privacy Framework, covered by the European Commission
+        adequacy decision of 10&nbsp;July 2023 (Article 45). India has no adequacy
+        decision, so the Standard Contractual Clauses are the sole basis for the transfer
+        to Web3Forms. Details are in{" "}
         <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">Cloudflare&rsquo;s compliance hub</Link>,{" "}
-        <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">the Web3Forms DPA</Link> and{" "}
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">the Calendly DPA</Link>.
+        <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">the Web3Forms DPA</Link>,{" "}
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">the Calendly DPA</Link> and{" "}
+        <Link href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">the Microsoft privacy statement</Link>.
       </Text>
 
       <SectionTitle>Your rights</SectionTitle>
@@ -176,9 +189,21 @@ export function PrivacyPolicyEn() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        No tracking or advertising cookies, and no analytics. Only technical cookies
-        strictly necessary for the site to function may be set. Those require no consent
-        under the applicable rules, which is why this site shows no cookie banner.
+        With your <strong>consent</strong>, this site uses <strong>Microsoft Clarity</strong>,
+        an audience measurement tool that analyses how visitors use the site (pages viewed,
+        clicks, scrolling) in order to improve it. Clarity then sets cookies: _clck (one
+        year lifetime), _clsk (one day) and MUID (one year).
+      </Text>
+      <Text>
+        These cookies are only set if you accept the corresponding category in the banner
+        shown on your first visit. Without your consent, the tool is not loaded and no
+        measurement cookie is set. You can withdraw your consent at any time through the
+        cookie banner icon at the bottom of the page: tracking then stops immediately.
+      </Text>
+      <Text>
+        This site shows no advertising. Technical cookies strictly necessary for the site
+        to function, including the storage of your consent choices, may be set without
+        consent under the applicable rules.
       </Text>
 
       <SectionTitle>Security</SectionTitle>
