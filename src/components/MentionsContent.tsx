@@ -45,7 +45,10 @@ export default function MentionsContent() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        Ce site n&rsquo;utilise pas de cookies de suivi ou de publicit&eacute;. Seuls des cookies techniques strictement n&eacute;cessaires au fonctionnement du site peuvent &ecirc;tre utilis&eacute;s.
+        Avec votre consentement, ce site utilise l&rsquo;outil de mesure d&rsquo;audience Microsoft Clarity.
+        Sans votre accord, donn&eacute; via le bandeau cookies, seuls des cookies techniques strictement
+        n&eacute;cessaires au fonctionnement du site sont utilis&eacute;s. Le d&eacute;tail figure dans
+        notre <a href="/politique-confidentialite" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.
       </Text>
     </PageWrapper>
   );

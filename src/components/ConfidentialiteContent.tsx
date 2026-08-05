@@ -37,8 +37,11 @@ export default function ConfidentialiteContent() {
         <ListItem><strong>Les appels t&eacute;l&eacute;phoniques :</strong> num&eacute;ro de t&eacute;l&eacute;phone et informations &eacute;chang&eacute;es</ListItem>
       </List>
       <Text>
-        Aucune donn&eacute;e n&rsquo;est collect&eacute;e automatiquement &agrave; des fins de suivi publicitaire.
-        Ce site n&rsquo;utilise pas de cookies de tracking, de publicit&eacute; ou d&rsquo;analyse comportementale.
+        Aucune donn&eacute;e n&rsquo;est collect&eacute;e automatiquement &agrave; des fins publicitaires.
+        Avec votre consentement, recueilli via le bandeau cookies, nous mesurons en revanche l&rsquo;usage
+        du site (pages visit&eacute;es, clics, d&eacute;filement) au moyen de l&rsquo;outil Microsoft Clarity,
+        afin d&rsquo;am&eacute;liorer le site. Tant que vous n&rsquo;avez pas accept&eacute;, cet outil n&rsquo;est
+        pas charg&eacute; et aucune donn&eacute;e de mesure n&rsquo;est collect&eacute;e (voir la section Cookies ci-dessous).
       </Text>
 
       <SectionTitle>Finalit&eacute;s du traitement</SectionTitle>
@@ -52,7 +55,8 @@ export default function ConfidentialiteContent() {
 
       <SectionTitle>Base l&eacute;gale</SectionTitle>
       <Text>
-        Le traitement de vos donn&eacute;es repose sur votre <strong>consentement</strong> (formulaire de contact, prise de rendez-vous)
+        Le traitement de vos donn&eacute;es repose sur votre <strong>consentement</strong> (formulaire de contact,
+        prise de rendez-vous, mesure d&rsquo;audience via le bandeau cookies)
         et sur l&rsquo;<strong>int&eacute;r&ecirc;t l&eacute;gitime</strong> de MKZ &agrave; r&eacute;pondre aux demandes commerciales.
       </Text>
 
@@ -66,18 +70,21 @@ export default function ConfidentialiteContent() {
       <Text>
         Vos donn&eacute;es personnelles ne sont jamais vendues, lou&eacute;es ou transmises &agrave; des tiers &agrave; des fins commerciales.
       </Text>
-      <Text>Elles peuvent &ecirc;tre trait&eacute;es par les sous-traitants suivants, strictement n&eacute;cessaires au fonctionnement du service :</Text>
+      <Text>Elles peuvent &ecirc;tre trait&eacute;es par les sous-traitants suivants :</Text>
       <List>
         <ListItem><strong>Cloudflare, Inc.</strong> : h&eacute;bergement et diffusion du site web (&Eacute;tats-Unis)</ListItem>
         <ListItem><strong>Web3Forms</strong> (Web3Creative) : acheminement des messages envoy&eacute;s via le formulaire de contact (Inde)</ListItem>
         <ListItem><strong>Calendly LLC</strong> : gestion de la prise de rendez-vous en ligne (&Eacute;tats-Unis)</ListItem>
+        <ListItem><strong>Microsoft Corporation</strong> : mesure d&rsquo;audience et analyse de l&rsquo;usage du site
+        via Microsoft Clarity, uniquement apr&egrave;s votre consentement (&Eacute;tats-Unis)</ListItem>
       </List>
 
       <SectionTitle>Transferts de donn&eacute;es hors Union europ&eacute;enne</SectionTitle>
       <Text>
-        Nos trois sous-traitants sont &eacute;tablis hors de l&rsquo;Union europ&eacute;enne : <strong>Cloudflare, Inc.</strong>
-        et <strong>Calendly LLC</strong> aux &Eacute;tats-Unis, <strong>Web3Forms</strong> en Inde. L&rsquo;h&eacute;bergement
-        du site, l&rsquo;envoi du formulaire de contact et la prise de rendez-vous impliquent donc un transfert de
+        Nos quatre sous-traitants sont &eacute;tablis hors de l&rsquo;Union europ&eacute;enne : <strong>Cloudflare, Inc.</strong>,
+        <strong> Calendly LLC</strong> et <strong>Microsoft Corporation</strong> aux &Eacute;tats-Unis,
+        <strong> Web3Forms</strong> en Inde. L&rsquo;h&eacute;bergement du site, l&rsquo;envoi du formulaire de contact,
+        la prise de rendez-vous et la mesure d&rsquo;audience impliquent donc un transfert de
         donn&eacute;es personnelles hors de l&rsquo;Union europ&eacute;enne.
       </Text>
       <Text>
@@ -94,7 +101,7 @@ export default function ConfidentialiteContent() {
           d&rsquo;aucune d&eacute;cision d&rsquo;ad&eacute;quation ;
         </ListItem>
         <ListItem>
-          pour les deux prestataires am&eacute;ricains uniquement, leur certification au
+          pour les trois prestataires am&eacute;ricains uniquement, leur certification au
           <strong> Data Privacy Framework UE&nbsp;-&nbsp;&Eacute;tats-Unis</strong>, qui fait l&rsquo;objet d&rsquo;une
           d&eacute;cision d&rsquo;ad&eacute;quation de la Commission europ&eacute;enne du 10&nbsp;juillet 2023
           (article 45 du RGPD).
@@ -103,9 +110,10 @@ export default function ConfidentialiteContent() {
       <Text>
         Le d&eacute;tail de ces engagements est consultable sur&nbsp;
         <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformit&eacute; de Cloudflare</Link>,&nbsp;
-        <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Web3Forms</Link>
+        <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Web3Forms</Link>,&nbsp;
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">celui de Calendly</Link>
         &nbsp;et&nbsp;
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">celui de Calendly</Link>.
+        <Link href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">la d&eacute;claration de confidentialit&eacute; de Microsoft</Link>.
         Le d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es de Cloudflare est joignable &agrave;&nbsp;
         <Link href="mailto:dpo@cloudflare.com">dpo@cloudflare.com</Link>.
       </Text>
@@ -133,9 +141,22 @@ export default function ConfidentialiteContent() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        Ce site n&rsquo;utilise <strong>aucun cookie de suivi, de publicit&eacute; ou d&rsquo;analyse</strong>.
-        Seuls des cookies techniques strictement n&eacute;cessaires au fonctionnement du site peuvent &ecirc;tre d&eacute;pos&eacute;s
-        par votre navigateur. Ils ne n&eacute;cessitent pas votre consentement conform&eacute;ment &agrave; la r&eacute;glementation en vigueur.
+        Avec votre <strong>consentement</strong>, ce site utilise <strong>Microsoft Clarity</strong>, un outil
+        de mesure d&rsquo;audience qui analyse la fa&ccedil;on dont les visiteurs utilisent le site (pages vues,
+        clics, d&eacute;filement) afin de l&rsquo;am&eacute;liorer. Clarity d&eacute;pose alors des cookies :
+        _clck (dur&eacute;e de vie d&rsquo;un an), _clsk (un jour) et MUID (un an).
+      </Text>
+      <Text>
+        Ces cookies ne sont d&eacute;pos&eacute;s que si vous acceptez la cat&eacute;gorie correspondante dans le
+        bandeau affich&eacute; lors de votre premi&egrave;re visite. Sans votre accord, l&rsquo;outil n&rsquo;est
+        pas charg&eacute; et aucun cookie de mesure n&rsquo;est d&eacute;pos&eacute;. Vous pouvez retirer votre
+        consentement &agrave; tout moment via l&rsquo;ic&ocirc;ne du bandeau cookies, en bas de page : le suivi
+        s&rsquo;arr&ecirc;te alors imm&eacute;diatement.
+      </Text>
+      <Text>
+        Ce site n&rsquo;affiche aucune publicit&eacute;. Des cookies techniques strictement n&eacute;cessaires
+        au fonctionnement du site, dont la m&eacute;morisation de vos choix de consentement, peuvent &ecirc;tre
+        d&eacute;pos&eacute;s sans consentement, conform&eacute;ment &agrave; la r&eacute;glementation en vigueur.
       </Text>
 
       <SectionTitle>S&eacute;curit&eacute;</SectionTitle>
@@ -151,7 +172,7 @@ export default function ConfidentialiteContent() {
         Toute modification sera publi&eacute;e sur cette page avec une date de mise &agrave; jour.
       </Text>
 
-      <LastUpdate>Derni&egrave;re mise &agrave; jour : juillet 2026</LastUpdate>
+      <LastUpdate>Derni&egrave;re mise &agrave; jour : ao&ucirc;t 2026</LastUpdate>
     </PageWrapper>
   );
 }
