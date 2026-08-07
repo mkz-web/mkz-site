@@ -7,9 +7,9 @@ export const dynamic = "force-static";
 
 const SITE = "https://mkz-consulting.fr";
 
-const COMPANY = `# MKZ : création de sites internet & SEO pour artisans et TPE (version détaillée pour LLM)
+const COMPANY = `# MKZ : création de sites internet, SEO et référencement IA pour artisans et TPE (version détaillée pour LLM)
 
-> MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Site officiel : ${SITE}
+> MKZ (MKZ Consulting) est une agence de création de sites internet, de référencement naturel (SEO) et de référencement IA (GEO, Generative Engine Optimization) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Site officiel : ${SITE}
 
 ## L'entreprise
 
@@ -17,7 +17,7 @@ const COMPANY = `# MKZ : création de sites internet & SEO pour artisans et TPE 
 - Adresse : 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France.
 - Fondateur et président : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en grandes entreprises (infrastructure, automatisation, systèmes complexes, DevOps), reconverti au service des entrepreneurs et TPE.
 - Promesse : des solutions professionnelles, un langage simple (zéro jargon technique), des résultats mesurables. Gestion de A à Z pour que le client se concentre sur son métier.
-- Slogan : « Votre site web visible sur Google, enfin. »
+- Slogan : « Visible sur Google, cité par les IA. »
 - Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · horaires lun-ven 9h-18h · réponse sous 24 h garantie.
 - Audit gratuit de 30 minutes, sans engagement : https://calendly.com/mkz-consulting/30min
 
@@ -34,6 +34,12 @@ Page service : ${SITE}/creation-site-internet/
 Objectif : monter sur le podium Google. Stratégie de mots-clés, optimisation technique, contenu optimisé et netlinking pour un trafic qualifié et durable.
 Inclus : audit SEO complet, stratégie de contenu, cocon sémantique, SEO technique (vitesse, structure, balisage), suivi mensuel avec reporting transparent.
 Page service : ${SITE}/referencement-seo/
+
+### Référencement IA (GEO)
+
+Objectif : être cité par ChatGPT, Perplexity, Gemini, Claude et les réponses IA de Google, et pas seulement classé par Google.
+Inclus : accès des robots IA (GPTBot, ClaudeBot, PerplexityBot) vérifié sur le robots.txt réellement servi, faits citables datés et sourcés, données structurées schema.org, llms.txt et llms-full.txt, mesure de la part de voix dans les moteurs de réponse.
+Page service (en anglais, marché international) : ${SITE}/en/ai-search-optimization/
 
 ### Zone d'intervention locale
 

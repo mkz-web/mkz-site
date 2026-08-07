@@ -39,7 +39,7 @@ export function GET() {
 
   const body = `# MKZ
 
-> MKZ (MKZ Consulting) est une agence de création de sites internet et de référencement naturel (SEO) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Fondateur : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps.
+> MKZ (MKZ Consulting) est une agence de création de sites internet, de référencement naturel (SEO) et de référencement IA (GEO, Generative Engine Optimization) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Fondateur : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps.
 
 Faits clés :
 

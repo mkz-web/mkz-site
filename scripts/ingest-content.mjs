@@ -17,15 +17,16 @@ const stagingDir = resolve(root, "_content-staging");
 const outDir = resolve(root, "src", "content", "articles");
 
 const PILLAR_SLUGS = new Set(["creation-site-internet", "referencement-seo", "agence-web-77"]);
-const CATEGORIES = new Set(["tutoriels", "creation-site-internet", "seo"]);
+const CATEGORIES = new Set(["tutoriels", "creation-site-internet", "seo", "referencement-ia"]);
 const BLOCK_TYPES = new Set(["p", "h2", "h3", "ul", "ol", "table", "callout", "screenshot", "quote", "cta", "code"]);
 const CALLOUT_VARIANTS = new Set(["retenir", "astuce", "attention", "definition"]);
 
 const INTERNAL_ALLOWED = new Set([
   "/", "/services/", "/about/", "/contact/",
   "/mentions-legales/", "/politique-confidentialite/",
-  "/creation-site-internet/", "/referencement-seo/", "/agence-web-77/",
+  "/creation-site-internet/", "/referencement-seo/", "/agence-web-77/", "/referencement-ia/",
   "/conseils/", "/conseils/tutoriels/", "/conseils/creation-site-internet/", "/conseils/seo/",
+  "/conseils/referencement-ia/",
 ]);
 
 const allJson = readdirSync(stagingDir).filter((f) => f.endsWith(".json"));

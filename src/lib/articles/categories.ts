@@ -52,6 +52,22 @@ export const categories: Category[] = [
     icon: "🔍",
     pillar: { href: "/referencement-seo/", label: "Notre service SEO" },
   },
+  {
+    slug: "referencement-ia",
+    name: "Référencement IA",
+    title: "Référencement IA : être cité quand un client interroge une IA",
+    metaTitle: "Référencement IA (GEO) : guides pour TPE et artisans",
+    metaDescription:
+      "GEO, robots IA, llms.txt, mesure de citation : nos guides pour être repris par ChatGPT, Perplexity et les réponses IA de Google. Sans jargon, avec les chiffres.",
+    description:
+      "ChatGPT, Perplexity, les réponses IA de Google : comment être la source citée, pas celle qu'on oublie.",
+    intro: [
+      "Vos clients ne tapent plus seulement des mots-clés, ils posent des questions à une IA. Et l'IA ne renvoie pas dix liens : elle donne **une réponse, avec deux ou trois sources**. Être la source citée, c'est le nouveau podium.",
+      "Ce cocon rassemble nos guides sur le **référencement IA**, aussi appelé GEO (Generative Engine Optimization) : autoriser les robots des IA, produire des faits citables, mesurer si vous êtes réellement repris. Pour déléguer, voyez notre service de [référencement IA](/referencement-ia/).",
+    ],
+    icon: "🤖",
+    pillar: { href: "/referencement-ia/", label: "Notre service référencement IA" },
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {
