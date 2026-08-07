@@ -189,13 +189,17 @@ export default function Hero() {
       <Grid>
         <div>
           <Kicker>Agence web &amp; SEO · Seine-et-Marne (77)</Kicker>
+          {/* Le H1 porte les deux moitiés du métier depuis le 07/08/2026 : la
+              position sur Google, et la citation dans les réponses IA. Le
+              sous-titre soutient la seconde, sinon la promesse est en l'air. */}
           <Title>
-            Votre site web <em>visible sur Google</em>, enfin.
+            Votre site web <em>visible sur Google</em>. Et cit&eacute; par les IA.
           </Title>
           <Subtitle>
             Nous cr&eacute;ons des sites internet qui ram&egrave;nent des clients aux artisans,
-            commer&ccedil;ants et TPE. Vous restez propri&eacute;taire de tout, vous voyez
-            tout, et vous parlez directement &agrave; celui qui fait le travail.
+            commer&ccedil;ants et TPE, et nous les rendons lisibles par ChatGPT comme par
+            Google. Vous restez propri&eacute;taire de tout, vous voyez tout, et vous
+            parlez directement &agrave; celui qui fait le travail.
           </Subtitle>
           <Actions>
             <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
