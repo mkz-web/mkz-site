@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import { ui, type Locale } from "@/lib/i18n";
+import { renderInline } from "@/components/article/ArticleRenderer";
 
 // Cartes partagées entre les hubs /conseils/ et /en/insights/ et leurs
 // pages catégories.
@@ -93,7 +94,10 @@ export function ArticleCard({
     <Card href={article.url}>
       <CardTag>{article.categoryName}</CardTag>
       <CardTitle>{article.title}</CardTitle>
-      <CardExcerpt>{article.excerpt}</CardExcerpt>
+      {/* Même rendu inline que le corps d'article, sinon le lecteur voit les
+          astérisques du gras en clair. `links: false` car la carte est déjà
+          un <Link> : un <a> imbriqué serait invalide. */}
+      <CardExcerpt>{renderInline(article.excerpt, { links: false })}</CardExcerpt>
       <CardMeta>
         {article.dateLabel} · {article.readingMinutes} {t.readingSuffix}
       </CardMeta>

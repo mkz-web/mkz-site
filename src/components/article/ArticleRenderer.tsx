@@ -29,7 +29,19 @@ const TextLink = styled(Link)`
 
 const TextA = TextLink.withComponent("a");
 
-export function renderInline(text: Inline): React.ReactNode {
+/**
+ * Rend le mini-markdown inline.
+ *
+ * `options.links: false` restitue le libellé d'un lien en texte simple au lieu
+ * d'une balise <a>. Indispensable dans un contexte déjà cliquable : les cartes
+ * de la newsroom sont elles-mêmes un <Link>, et un <a> imbriqué dans un <a>
+ * est du HTML invalide que les navigateurs réparent en cassant la carte.
+ */
+export function renderInline(
+  text: Inline,
+  options?: { links?: boolean }
+): React.ReactNode {
+  const avecLiens = options?.links !== false;
   const parts: React.ReactNode[] = [];
   const regex = /(`[^`]+`)|(\*\*[^*]+?\*\*)|(\[[^\]]+\]\([^)\s]+\))/g;
   let last = 0;
@@ -46,13 +58,17 @@ export function renderInline(text: Inline): React.ReactNode {
       const lm = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(tok);
       if (lm) {
         const [, label, href] = lm;
-        parts.push(
-          href.startsWith("/") || href.startsWith("#") ? (
-            <TextLink key={key++} href={href}>{label}</TextLink>
-          ) : (
-            <TextA key={key++} href={href} target="_blank" rel="noopener noreferrer">{label}</TextA>
-          )
-        );
+        if (!avecLiens) {
+          parts.push(label);
+        } else {
+          parts.push(
+            href.startsWith("/") || href.startsWith("#") ? (
+              <TextLink key={key++} href={href}>{label}</TextLink>
+            ) : (
+              <TextA key={key++} href={href} target="_blank" rel="noopener noreferrer">{label}</TextA>
+            )
+          );
+        }
       } else {
         parts.push(tok);
       }
