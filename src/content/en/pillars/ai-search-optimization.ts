@@ -29,7 +29,7 @@ const pillar: PillarPage = {
   title: "AI search optimisation: be the source the answer quotes",
   metaTitle: "AI search optimisation: GEO & AEO for the French market",
   metaDescription:
-    "Get cited by ChatGPT, Perplexity, Gemini and Google AI answers, in French and English. Crawler access, citable facts, llms.txt, schema.org, measured share of voice.",
+    "Get cited by ChatGPT, Perplexity, Gemini and Google AI answers, in French and English. Crawler access, citable facts, llms.txt, schema.org, share of voice.",
   heroBadge: "AI search",
   heroLead:
     "Half of search still returns ten links. The other half returns an answer with three or four sources. Ranking eleventh in the first half is survivable. Not being cited in the second half is invisibility, and unlike most things in marketing, **it can be counted today**.",

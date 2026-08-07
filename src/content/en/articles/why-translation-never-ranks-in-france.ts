@@ -16,7 +16,7 @@ const article: Article = {
   title: "Why translating your site into French never makes it rank",
   metaTitle: "Why translation never ranks in France (with numbers)",
   metaDescription:
-    "A translated French page targets your English keywords, in French. Measured proof: two correct translations of one idea, 320 vs 6,600 searches a month in France.",
+    "A translated French page targets your English keywords, in French. Measured: two correct translations of one idea, 320 vs 6,600 searches a month in France.",
   datePublished: "2026-07-30",
   dateModified: "2026-07-30",
   readingMinutes: 7,

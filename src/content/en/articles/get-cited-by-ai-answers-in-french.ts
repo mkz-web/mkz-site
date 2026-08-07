@@ -20,7 +20,7 @@ const article: Article = {
   title: "How to get cited by AI answers, and why French is the easier win",
   metaTitle: "Get cited by AI answers: the French shortcut",
   metaDescription:
-    "Five steps to being quoted by ChatGPT, Perplexity and Google AI answers, plus why French-language answers have far fewer credible sources competing for the slot.",
+    "Five steps to being quoted by ChatGPT, Perplexity and Google AI answers, plus why French-language answers have fewer credible sources competing for the slot.",
   datePublished: "2026-07-30",
   dateModified: "2026-07-30",
   readingMinutes: 9,
