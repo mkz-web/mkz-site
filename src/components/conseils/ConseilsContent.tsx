@@ -6,6 +6,7 @@ import { theme } from "@/lib/theme";
 import { ui, type Locale } from "@/lib/i18n";
 import Button from "@/components/Button";
 import { ArticleCard, CardsGrid, type ArticleCardData } from "./cards";
+import { renderInline } from "@/components/article/ArticleRenderer";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
@@ -199,7 +200,10 @@ export default function ConseilsContent({
               <CatCard key={c.slug} href={c.url}>
                 <CatCount>{t.articleCount(c.count)}</CatCount>
                 <CatName>{c.name}</CatName>
-                <CatDesc>{c.description}</CatDesc>
+                {/* Même traitement que les extraits d'article : ces libellés
+                    acceptent le mini-markdown, ils doivent donc être rendus,
+                    pas affichés bruts. La carte étant un <Link>, pas de lien. */}
+                <CatDesc>{renderInline(c.description, { links: false })}</CatDesc>
                 <CatGo className="go">{t.explore}</CatGo>
               </CatCard>
             ))}
