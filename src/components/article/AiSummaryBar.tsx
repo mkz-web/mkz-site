@@ -40,14 +40,13 @@ const REL_DEFAUT = "noopener nofollow";
 
 // Ordre : les trois majeurs d'abord, puis Mistral et Gemini.
 //
-// État mesuré le 07/08/2026 : quatre patterns sur cinq vont au bout, invite
-// intacte à l'arrivée (URL canonique, apostrophe, accents, deux-points).
-// Deux passent sans compte, deux ont été mesurés dans un Chrome connecté.
-// Claude reste le seul non bouclé, faute de session ouverte pour le vérifier.
+// État au 07/08/2026 : les CINQ patterns vont au bout, invite intacte à
+// l'arrivée (URL canonique, apostrophe, accents, deux-points). Deux passent
+// sans compte, trois ont été vérifiés depuis un navigateur connecté.
 const ASSISTANTS: Assistant[] = [
-  // ⚠️ NON BOUCLÉ : /new?q= redirige vers /login?from=logout et `q` disparaît
-  // de l'URL visible. Le pré-remplissage ne s'observe que connecté, et aucun
-  // des deux navigateurs testés n'avait de session Claude. À revérifier.
+  // ✅ VÉRIFIÉ par Mickaël depuis sa session : le composer est pré-rempli.
+  // Sans session, /new?q= redirige vers /login et `q` disparaît de l'URL
+  // visible : c'est le comportement normal, PAS un bouton mort.
   { name: "Claude", href: (q) => `https://claude.ai/new?q=${q}` },
   // ✅ MESURÉ (Chrome connecté, clic sur la vraie puce en prod) : invite
   // envoyée mot pour mot, ChatGPT ouvre l'URL de lui-même et répond
