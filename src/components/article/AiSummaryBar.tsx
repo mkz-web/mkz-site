@@ -5,8 +5,8 @@ import { theme } from "@/lib/theme";
 import { SITE, ui, type Locale } from "@/lib/i18n";
 
 /**
- * Barre « Résumer avec l'IA » : cinq liens profonds qui ouvrent l'assistant du
- * visiteur avec une invite pré-remplie contenant l'URL canonique de la page.
+ * Barre « Résumer avec l'IA » : quatre liens profonds qui ouvrent l'assistant
+ * du visiteur avec une invite pré-remplie contenant l'URL canonique de la page.
  *
  * Double rôle : service au lecteur pressé, et GEO. Chaque clic fait lire l'URL
  * par un moteur IA, avec citation à la clé : prolongement direct du déblocage
@@ -29,20 +29,25 @@ interface Assistant {
   href: (encodedPrompt: string) => string;
   /**
    * `rel` du lien. Par défaut « noopener nofollow », valeur sous laquelle
-   * Perplexity, Mistral et le Mode IA de Google ont été mesurés verts : ne pas
-   * la changer pour eux sans les remesurer. ChatGPT, lui, EXIGE `noreferrer`
-   * (voir son commentaire ci-dessous).
+   * Claude, Perplexity et Mistral ont été mesurés verts : ne pas la changer
+   * pour eux sans les remesurer. ChatGPT, lui, EXIGE `noreferrer` (voir son
+   * commentaire ci-dessous).
    */
   rel?: string;
 }
 
 const REL_DEFAUT = "noopener nofollow";
 
-// Ordre : les trois majeurs d'abord, puis Mistral et Gemini.
+// Ordre : les trois majeurs d'abord, puis Mistral.
 //
-// État au 07/08/2026 : les CINQ patterns vont au bout, invite intacte à
+// État au 07/08/2026 : les QUATRE patterns vont au bout, invite intacte à
 // l'arrivée (URL canonique, apostrophe, accents, deux-points). Deux passent
-// sans compte, trois ont été vérifiés depuis un navigateur connecté.
+// sans compte, deux ont été vérifiés depuis un navigateur connecté.
+//
+// Le Mode IA de Google (`google.com/search?udm=50&q=`) a été retiré le
+// 07/08/2026 sur décision de Mickaël. Il était pourtant mesuré vert : si on
+// veut le remettre, le pattern est là, et surtout PAS `gemini.google.com/app`,
+// qui est mort (composer vide).
 const ASSISTANTS: Assistant[] = [
   // ✅ VÉRIFIÉ par Mickaël depuis sa session : le composer est pré-rempli.
   // Sans session, /new?q= redirige vers /login et `q` disparaît de l'URL
@@ -69,19 +74,13 @@ const ASSISTANTS: Assistant[] = [
   // ✅ MESURÉ : réécrit vers /search/<uuid>, requête exécutée, SANS COMPTE.
   { name: "Perplexity", href: (q) => `https://www.perplexity.ai/search?q=${q}` },
   // ✅ MESURÉ : invite ENVOYÉE automatiquement, page ouverte et lue
-  // (« Ouverture de la page »), le tout SANS COMPTE. Le meilleur des cinq.
+  // (« Ouverture de la page »), le tout SANS COMPTE. Le meilleur des quatre.
   { name: "Mistral", href: (q) => `https://chat.mistral.ai/chat?q=${q}` },
-  // ✅ MESURÉ (Chrome connecté) : « Conversation en Mode IA », Google ajoute
-  // ses paramètres atvm/mstk/mtid et rend une réponse qui cite l'article. Un
-  // navigateur automatisé, lui, tombe sur /sorry/index (anti-bot) : ce n'est
-  // pas un défaut du pattern, ne pas conclure de là que le bouton est mort.
-  // ⚠️ gemini.google.com/app?q= est MORT (composer vide) : jamais l'utiliser.
-  { name: "Gemini", href: (q) => `https://www.google.com/search?udm=50&q=${q}` },
 ];
 
-// Libellé sur sa propre ligne : dans la colonne d'article (680 px), les cinq
-// puces tiennent alors sur UNE rangée, là où un libellé en ligne les cassait en
-// 3 + 2 (mesuré à 1280 px). À 375 px, deux rangées de puces, sans débordement.
+// Libellé sur sa propre ligne : dans la colonne d'article (680 px), les puces
+// tiennent alors sur UNE rangée, là où un libellé en ligne les cassait
+// (mesuré à 1280 px). À 375 px, deux rangées de puces, sans débordement.
 const Bar = styled.div`
   margin-top: 24px;
   padding: 14px 18px 16px;
