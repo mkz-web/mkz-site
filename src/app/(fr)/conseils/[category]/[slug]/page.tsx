@@ -75,6 +75,7 @@ export default async function ArticlePage({
         article={article}
         categoryName={cat.name}
         categoryUrl={`/conseils/${cat.slug}/`}
+        path={articleUrl(article)}
         datePublishedLabel={formatDateFr(article.datePublished)}
         dateModifiedLabel={formatDateFr(article.dateModified)}
         related={relatedArticles(article).map((r) => ({
