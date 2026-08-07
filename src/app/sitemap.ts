@@ -55,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/services/", "fr", { priority: 0.8, changeFrequency: "monthly" }),
     entry("/creation-site-internet/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/referencement-seo/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
+    entry("/referencement-ia/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/agence-web-77/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/about/", "fr", { priority: 0.7, changeFrequency: "monthly" }),
     entry("/contact/", "fr", { priority: 0.6, changeFrequency: "monthly" }),

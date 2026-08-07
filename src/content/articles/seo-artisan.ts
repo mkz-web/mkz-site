@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "SEO artisan : le plan simple pour être visible sur Google",
   "metaDescription": "Plombier, électricien, menuisier : le plan SEO artisan en 2 h par semaine. Fiche Google, avis, pages locales : soyez visible et décrochez des chantiers.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-07",
   "readingMinutes": 10,
   "excerpt": "Plombier, électricien, menuisier… vos clients tapent votre métier et leur ville dans Google avant d'appeler. Pas besoin d'être un expert du web pour apparaître devant eux. Voici le plan **SEO** de l'artisan qui n'a pas le temps : concret, sans jargon, honnête sur les prix.",
   "tldr": [
@@ -354,7 +354,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Faire en sorte qu'une IA vous recommande porte un nom : le **GEO** (Generative Engine Optimization). Bonne nouvelle : les IA s'appuient largement sur les mêmes sources que Google (votre fiche, vos avis, votre site). Ce guide vous prépare donc déjà aux deux."
+      "text": "Faire en sorte qu'une IA vous recommande porte un nom : le [référencement IA, ou GEO](/referencement-ia/) (Generative Engine Optimization). Bonne nouvelle : les IA s'appuient largement sur les mêmes sources que Google (votre fiche, vos avis, votre site). Ce guide vous prépare donc déjà aux deux."
     },
     {
       "type": "ul",

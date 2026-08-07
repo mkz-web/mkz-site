@@ -4,9 +4,9 @@ import JsonLd, { serviceSchemas, faqSchema } from "@/lib/JsonLd";
 import HomeContent from "@/components/HomeContent";
 
 export const metadata: Metadata = createMetadata("fr", {
-  title: "Création de site internet & SEO pour artisans et TPE | MKZ",
+  title: "Création de site internet, SEO et référencement IA | MKZ",
   description:
-    "Votre site web visible sur Google, enfin. Création de sites internet et référencement SEO pour artisans, commerçants et TPE. Audit gratuit de 30 minutes.",
+    "Sites internet, SEO et référencement IA pour artisans, commerçants et TPE. Être trouvé sur Google et cité par ChatGPT. Audit gratuit de 30 minutes.",
   path: "/",
 });
 

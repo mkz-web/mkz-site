@@ -6,7 +6,11 @@
 // Les cocons anglais ne sont pas les cocons français traduits : ils suivent la
 // demande mesurée en anglais (SEO du marché français, visibilité IA), pas la
 // demande locale française (artisans, TPE, Seine-et-Marne).
-export type FrCategorySlug = "tutoriels" | "creation-site-internet" | "seo";
+export type FrCategorySlug =
+  | "tutoriels"
+  | "creation-site-internet"
+  | "seo"
+  | "referencement-ia";
 export type EnCategorySlug = "french-seo" | "ai-search";
 export type CategorySlug = FrCategorySlug | EnCategorySlug;
 

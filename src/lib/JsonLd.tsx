@@ -88,11 +88,11 @@ export const organizationSchema = {
   "@id": `${SITE}/#organization`,
   name: "MKZ",
   legalName: "MKZ",
-  slogan: "Votre site web visible sur Google, enfin.",
+  slogan: "Visible sur Google, cité par les IA.",
   url: SITE,
   logo: `${SITE}/images/mkz-logo.svg`,
   description:
-    "Création de sites web et SEO pour artisans, commerçants et indépendants.",
+    "Création de sites internet, référencement SEO et référencement IA pour artisans, commerçants et TPE.",
   telephone: "+33769093909",
   email: "contact@mkz-consulting.fr",
   identifier: {

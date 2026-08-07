@@ -43,6 +43,10 @@ export const ogLocaleOf: Record<Locale, string> = {
 export const pagePairs: { fr: string; en: string }[] = [
   { fr: "/", en: "/en/" },
   { fr: "/referencement-seo/", en: "/en/french-seo/" },
+  // Seule paire où les deux versions visent la même prestation : le GEO. Elles
+  // ne visent pas le même client (TPE françaises ici, entreprises étrangères
+  // là), mais l'intention de recherche est la même dans les deux langues.
+  { fr: "/referencement-ia/", en: "/en/ai-search-optimization/" },
   { fr: "/creation-site-internet/", en: "/en/website-design/" },
   { fr: "/conseils/", en: "/en/insights/" },
   { fr: "/about/", en: "/en/about/" },
@@ -241,8 +245,11 @@ export const ui: Record<Locale, UiStrings> = {
       { name: "Accueil", href: "/" },
       { name: "Création de site", href: "/creation-site-internet" },
       { name: "SEO", href: "/referencement-seo" },
+      // « Témoignages » (ancre vers une section de l'accueil) a laissé sa place
+      // au pilier référencement IA : une page de service qui se positionne vaut
+      // mieux qu'une ancre interne dans une barre à 6 entrées.
+      { name: "Référencement IA", href: "/referencement-ia" },
       { name: "Conseils", href: "/conseils" },
-      { name: "Témoignages", href: "/#temoignages" },
       { name: "Contact", href: "/contact" },
     ],
     header: {
@@ -312,6 +319,7 @@ export const ui: Record<Locale, UiStrings> = {
           links: [
             { label: "Création de site internet", href: "/creation-site-internet" },
             { label: "Référencement SEO", href: "/referencement-seo" },
+            { label: "Référencement IA (GEO)", href: "/referencement-ia" },
             { label: "Agence web Seine-et-Marne", href: "/agence-web-77" },
             { label: "Audit gratuit", href: CALENDLY, external: true },
           ],
@@ -322,6 +330,7 @@ export const ui: Record<Locale, UiStrings> = {
             { label: "Tutoriels pas à pas", href: "/conseils/tutoriels" },
             { label: "Création de site", href: "/conseils/creation-site-internet" },
             { label: "SEO & visibilité", href: "/conseils/seo" },
+            { label: "Référencement IA", href: "/conseils/referencement-ia" },
             { label: "Tous les conseils", href: "/conseils" },
           ],
         },
