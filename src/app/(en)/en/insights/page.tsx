@@ -17,7 +17,7 @@ const PATH = "/en/insights/";
 export const metadata: Metadata = createMetadata("en", {
   title: "Insights: French SEO and AI search, measured",
   description:
-    "Field notes on ranking in France and getting cited by AI answers, written from inside the French market, with the figures behind each claim and the date measured.",
+    "Field notes on ranking in France and getting cited by AI answers, from inside the French market, with the figures behind each claim and the date measured.",
   path: PATH,
 });
 

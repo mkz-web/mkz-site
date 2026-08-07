@@ -8,7 +8,7 @@ import ConseilsContent from "@/components/conseils/ConseilsContent";
 export const metadata: Metadata = createMetadata("fr", {
   title: "Conseils & tutoriels web pour artisans, commerçants et TPE",
   description:
-    "Guides SEO, tutoriels pas à pas et conseils création de site pour artisans, commerçants et TPE. Les méthodes que nous appliquons pour nos clients, en accès libre.",
+    "Guides SEO, référencement IA, tutoriels et création de site pour artisans, commerçants et TPE. Les méthodes appliquées chez nos clients, en accès libre.",
   path: "/conseils/",
 });
 
