@@ -150,6 +150,14 @@ export interface UiStrings {
     authorMore: string;
     relatedTitle: string;
     callouts: { retenir: string; astuce: string; attention: string; definition: string };
+    /** Barre « Résumer avec l'IA » (composant AiSummaryBar). */
+    aiBar: {
+      label: string;
+      groupAria: string;
+      chipAria: (assistant: string) => string;
+      /** Invite pré-remplie, dans la langue de la page, avec l'URL canonique. */
+      prompt: (url: string) => string;
+    };
   };
   footer: {
     taglineBefore: string;
@@ -275,6 +283,15 @@ export const ui: Record<Locale, UiStrings> = {
         astuce: "Astuce",
         attention: "Attention",
         definition: "Définition",
+      },
+      aiBar: {
+        label: "Pressé ? Faites-le lire à votre assistant IA :",
+        groupAria: "Résumer cette page avec une intelligence artificielle",
+        chipAria: (a) => `Résumer avec ${a} (nouvel onglet)`,
+        // Triplet adapté au domaine : à qui ça s'adresse, les chiffres, les
+        // étapes. C'est ce que vient chercher un artisan ou un dirigeant de TPE.
+        prompt: (url) =>
+          `Lis ${url} et fais-m'en un résumé clair : qui est concerné, les chiffres clés, et les étapes concrètes à suivre. Puis réponds à mes questions dessus.`,
       },
     },
     footer: {
@@ -441,6 +458,16 @@ export const ui: Record<Locale, UiStrings> = {
         astuce: "Tip",
         attention: "Watch out",
         definition: "Definition",
+      },
+      aiBar: {
+        label: "In a hurry? Have your AI assistant read it:",
+        groupAria: "Summarise this page with an AI assistant",
+        chipAria: (a) => `Summarise with ${a} (opens in a new tab)`,
+        // Lectorat anglais : des entreprises étrangères qui ont besoin que le
+        // marché français fonctionne. Elles veulent savoir si ça les concerne,
+        // ce que ça coûte, et par quoi commencer.
+        prompt: (url) =>
+          `Read ${url} and give me a clear summary: who it applies to, the key numbers, and the concrete steps to follow. Then answer my questions about it.`,
       },
     },
     footer: {

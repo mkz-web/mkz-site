@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
+import AiSummaryBar from "@/components/article/AiSummaryBar";
 import type { Article, Block, Inline } from "@/lib/articles/types";
 import { ui, type Locale } from "@/lib/i18n";
 
@@ -528,6 +529,8 @@ export interface ArticleRendererProps {
   article: Article;
   categoryName: string;
   categoryUrl: string;
+  /** Chemin canonique de l'article : alimente la barre « Résumer avec l'IA ». */
+  path: string;
   datePublishedLabel: string;
   dateModifiedLabel: string;
   related: RelatedLink[];
@@ -539,6 +542,7 @@ export default function ArticleRenderer({
   article,
   categoryName,
   categoryUrl,
+  path,
   datePublishedLabel,
   dateModifiedLabel,
   related,
@@ -579,6 +583,10 @@ export default function ArticleRenderer({
             {article.tldr.map((x, i) => <li key={i}>{renderInline(x)}</li>)}
           </ul>
         </TldrBox>
+
+        {/* Après notre propre résumé, avant le sommaire et le corps : le lecteur
+            pressé lit d'abord l'essentiel, puis délègue s'il veut creuser. */}
+        <AiSummaryBar path={path} locale={locale} />
 
         {tocEntries.length >= 3 && (
           <TocBox aria-label={t.tocTitle}>

@@ -77,6 +77,7 @@ export default async function EnArticlePage({
         article={article}
         categoryName={cat.name}
         categoryUrl={categoryUrl(cat.slug, "en")}
+        path={articleUrl(article)}
         datePublishedLabel={formatDateEn(article.datePublished)}
         dateModifiedLabel={formatDateEn(article.dateModified)}
         related={relatedArticles(article).map((r) => ({
