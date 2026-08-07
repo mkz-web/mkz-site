@@ -35,6 +35,16 @@ const NavLinks = styled.ul`
   gap: 28px;
   list-style: none;
 
+  /* Le <ul> et les <li> sont bien centrés sur l'axe du header, mais le lien
+     est un élément inline de 14 px posé sur la ligne de base d'un <li> dont
+     l'interlignage est calculé sur 16 px : il retombait 2 px plus bas que le
+     logo, le téléphone et le CTA. On centre donc le lien dans son <li> au
+     lieu de le laisser suivre la ligne de base. */
+  li {
+    display: flex;
+    align-items: center;
+  }
+
   @media (min-width: ${theme.breakpoints.lg}) {
     display: flex;
   }
