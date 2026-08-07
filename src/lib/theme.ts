@@ -33,10 +33,12 @@ export const theme = {
     success: "#1E7A4F",
     star: "#E8590C",
   },
+  // Le repli « X Fallback » vient juste après la police web : il porte les
+  // métriques ajustées (voir GlobalStyles), donc le swap ne déplace plus rien.
   fonts: {
-    sans: "'Archivo', 'Segoe UI', system-ui, -apple-system, sans-serif",
-    display: "'Fraunces', Georgia, 'Times New Roman', serif",
-    mono: "'IBM Plex Mono', Consolas, 'Courier New', monospace",
+    sans: "'Archivo', 'Archivo Fallback', 'Segoe UI', system-ui, -apple-system, sans-serif",
+    display: "'Fraunces', 'Fraunces Fallback', Georgia, 'Times New Roman', serif",
+    mono: "'IBM Plex Mono', 'Plex Mono Fallback', Consolas, 'Courier New', monospace",
   },
   breakpoints: {
     sm: "640px",
