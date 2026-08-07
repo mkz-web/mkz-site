@@ -48,6 +48,49 @@ export default function GlobalStyles() {
           font-display: swap;
         }
 
+        /* Replis calés pour que l'arrivée des polices web ne redistribue plus
+           les lignes. Sans eux, le H1 de l'accueil s'affiche sur 4 lignes en
+           Georgia puis retombe à 3 en Fraunces : tout le hero remonte de 43 px,
+           soit 0,125 de CLS à lui seul (mesuré le 08/08/2026).
+
+           Les valeurs sont TROUVÉES PAR BALAYAGE sur les hauteurs réellement
+           rendues, jamais calculées depuis des largeurs au canvas : Fraunces a
+           un axe de taille optique, donc ses proportions à 1000 px ne sont pas
+           celles à 42 px, et un ratio mesuré hors contexte donne 76 % là où il
+           faut 105 %. Chaque valeur est le centre d'un plateau où les 140
+           éléments de l'accueil retrouvent leur hauteur exacte. Une seule face
+           par famille : l'italique est obtenue par oblique synthétique, c'est
+           la configuration qui a été mesurée.
+
+           Le calage vise la première police locale citée, celle du poste de
+           mesure. Ailleurs, l'ajustement reste une approximation.
+           Refaire la mesure si une famille change :
+           node scripts/mesurer-metriques-polices.mjs */
+        @font-face {
+          font-family: "Fraunces Fallback";
+          src: local("Georgia"), local("Times New Roman");
+          size-adjust: 105%;
+          ascent-override: 93.14%;
+          descent-override: 24.29%;
+          line-gap-override: 0%;
+        }
+        @font-face {
+          font-family: "Archivo Fallback";
+          src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+          size-adjust: 101%;
+          ascent-override: 86.93%;
+          descent-override: 20.79%;
+          line-gap-override: 0%;
+        }
+        @font-face {
+          font-family: "Plex Mono Fallback";
+          src: local("Consolas"), local("Menlo"), local("Courier New");
+          size-adjust: 109%;
+          ascent-override: 94.04%;
+          descent-override: 25.23%;
+          line-gap-override: 0%;
+        }
+
         *,
         *::before,
         *::after {

@@ -43,7 +43,7 @@ export default function GlobalNotFound() {
             <span
               style={{
                 display: "block",
-                fontFamily: "'Fraunces', Georgia, serif",
+                fontFamily: "'Fraunces', 'Fraunces Fallback', Georgia, serif",
                 fontSize: 96,
                 fontWeight: 600,
                 lineHeight: 1,
