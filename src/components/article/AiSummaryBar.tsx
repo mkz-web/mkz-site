@@ -27,7 +27,16 @@ interface Assistant {
   name: string;
   /** Reçoit l'invite DÉJÀ encodée (encodeURIComponent). */
   href: (encodedPrompt: string) => string;
+  /**
+   * `rel` du lien. Par défaut « noopener nofollow », valeur sous laquelle
+   * Perplexity, Mistral et le Mode IA de Google ont été mesurés verts : ne pas
+   * la changer pour eux sans les remesurer. ChatGPT, lui, EXIGE `noreferrer`
+   * (voir son commentaire ci-dessous).
+   */
+  rel?: string;
 }
+
+const REL_DEFAUT = "noopener nofollow";
 
 // Ordre : les trois majeurs d'abord, puis Mistral et Gemini.
 //
@@ -40,11 +49,24 @@ const ASSISTANTS: Assistant[] = [
   // de l'URL visible. Le pré-remplissage ne s'observe que connecté, et aucun
   // des deux navigateurs testés n'avait de session Claude. À revérifier.
   { name: "Claude", href: (q) => `https://claude.ai/new?q=${q}` },
-  // ✅ MESURÉ (Chrome connecté) : invite envoyée, réponse produite. `hints`
-  // arme bien la recherche : pill `__composer-pill` sur le composer, libellée
-  // « Rechercher, cliquez pour supprimer ». Anonyme, c'est le mur de connexion,
-  // dont le `next=` conserve l'invite entière.
-  { name: "ChatGPT", href: (q) => `https://chatgpt.com/?hints=search&q=${q}` },
+  // ✅ MESURÉ (Chrome connecté, clic sur la vraie puce en prod) : invite
+  // envoyée mot pour mot, ChatGPT ouvre l'URL de lui-même et répond
+  // « J'ai lu l'article demandé ». DEUX conditions, toutes deux nécessaires,
+  // isolées une à une après un « KO chez moi » de Mickaël le 07/08/2026 :
+  //   1. `?q=` SEUL. Pas de `hints=search`, que recommandait le skill :
+  //      ChatGPT le consomme, réécrit l'URL pour l'en retirer, et emporte `q`
+  //      au passage.
+  //   2. `noreferrer`. Avec un referrer tiers, ChatGPT REFUSE de soumettre :
+  //      la page d'accueil s'ouvre, composer vide (reproduit 18 s puis 12 s,
+  //      0 tour de conversation). Referrer vide, la même URL part aussitôt.
+  //      C'est visiblement une garde anti-abus : sans elle, n'importe quel
+  //      site posterait des invites dans le compte de son visiteur.
+  // Symptôme à reconnaître : la page d'accueil au lieu du composer rempli.
+  {
+    name: "ChatGPT",
+    href: (q) => `https://chatgpt.com/?q=${q}`,
+    rel: "noopener noreferrer nofollow",
+  },
   // ✅ MESURÉ : réécrit vers /search/<uuid>, requête exécutée, SANS COMPTE.
   { name: "Perplexity", href: (q) => `https://www.perplexity.ai/search?q=${q}` },
   // ✅ MESURÉ : invite ENVOYÉE automatiquement, page ouverte et lue
@@ -122,7 +144,7 @@ export default function AiSummaryBar({
             key={a.name}
             href={a.href(encoded)}
             target="_blank"
-            rel="noopener nofollow"
+            rel={a.rel ?? REL_DEFAUT}
             aria-label={t.chipAria(a.name)}
           >
             {a.name}
