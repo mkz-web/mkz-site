@@ -106,14 +106,36 @@ const CTALink = styled.a`
   }
 `;
 
+// Cible tactile de 44 px de haut. Mesuré avant correction : 72 x 37 px, la
+// boîte du lien épousait exactement l'image. L'image garde ses 72 x 37, c'est
+// la zone cliquable qui grandit, et align-items la recentre dedans.
+const LogoLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+`;
+
+// Cible tactile de 44 px minimum : c'est le bouton qui grandit, pas l'icône.
+// Les trois barres gardent leurs 22 px de large, le doigt gagne la surface.
+// Mesuré avant correction : 30 x 24 px, sous le seuil.
 const MenuButton = styled.button`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  /* L'élargissement se fait vers l'extérieur, sinon l'icône se décale vers la
+     gauche. Valeur calculée : le bouton fait 44 px, l'icône 22, donc 11 px de
+     marge interne de chaque côté. Un margin-right de -11 px place l'icône à
+     24 px du bord droit, soit exactement l'écart du logo à gauche. L'ancien
+     bouton la laissait à 28 px : asymétrie de 4 px, corrigée au passage. */
+  margin-right: -11px;
 
   @media (min-width: ${theme.breakpoints.lg}) {
     display: none;
@@ -178,9 +200,13 @@ const MobileCTA = styled.a`
 // que le site est bilingue AVANT de cliquer, ce qu'un simple libellé « English »
 // ne dit pas. Encre franche et filet fort (borderInk), sinon le bouton disparaît
 // à côté du CTA orange : c'est ce qui s'était passé, mesuré le 30/07/2026.
+// Cible tactile de 44 px de haut. Mesuré avant correction : 76 x 36 px.
+// min-height plutôt qu'un padding vertical plus épais : la pastille garde son
+// aspect, seule sa boîte grandit, et le texte reste centré par align-items.
 const LangSwitch = styled.a`
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: 6px;
   font-family: ${theme.fonts.mono};
   font-size: 12.5px;
@@ -242,7 +268,7 @@ export default function Header({ locale = "fr" }: { locale?: Locale }) {
   return (
     <HeaderWrapper>
       <Nav>
-        <Link href={homeHref}>
+        <LogoLink href={homeHref}>
           <Image
             src="/images/mkz-logo.svg"
             alt="MKZ"
@@ -250,7 +276,7 @@ export default function Header({ locale = "fr" }: { locale?: Locale }) {
             height={37}
             priority
           />
-        </Link>
+        </LogoLink>
 
         <NavLinks>
           {t.nav.map((item) => (
