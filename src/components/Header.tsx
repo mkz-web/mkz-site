@@ -181,7 +181,26 @@ const MobileLinks = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  /* L'écart passe de 16 à 4 px pour compenser des entrées plus hautes :
+     l'espace entre deux textes reste comparable, la surface tapable double. */
+  gap: 4px;
+
+  /* Cible tactile de 44 px. Mesuré avant correction : 19 px de haut pour les
+     six liens de navigation, 18 px pour le téléphone, et seule la longueur du
+     mot était tapable. Chaque entrée occupe désormais toute la largeur du
+     menu, donc la ligne entière répond au doigt. */
+  li > a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Exception assumée pour la dernière entrée, le bouton d'audit : il fait
+     déjà 46 px et doit garder sa forme compacte plutôt que de s'étirer sur
+     toute la largeur comme les entrées de navigation. */
+  li:last-child > a {
+    width: fit-content;
+  }
 `;
 
 const MobilePhone = styled.a`
