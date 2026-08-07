@@ -57,10 +57,13 @@ export default function GlobalStyles() {
            rendues, jamais calculées depuis des largeurs au canvas : Fraunces a
            un axe de taille optique, donc ses proportions à 1000 px ne sont pas
            celles à 42 px, et un ratio mesuré hors contexte donne 76 % là où il
-           faut 105 %. Chaque valeur est le centre d'un plateau où les 140
-           éléments de l'accueil retrouvent leur hauteur exacte. Une seule face
-           par famille : l'italique est obtenue par oblique synthétique, c'est
-           la configuration qui a été mesurée.
+           faut 104 %. Chaque valeur est le centre de l'INTERSECTION des
+           plateaux mesurés à 375 px ET à 412 px, où les 152 éléments de
+           l'accueil retrouvent leur hauteur exacte. Croiser deux largeurs n'est
+           pas du zèle : réglé sur la seule largeur 412, le repli d'Archivo
+           tombait à 101 %, hors du plateau de 375 px, et un paragraphe y
+           gagnait une ligne. Une seule face par famille : l'italique est
+           obtenue par oblique synthétique, c'est la configuration mesurée.
 
            Le calage vise la première police locale citée, celle du poste de
            mesure. Ailleurs, l'ajustement reste une approximation.
@@ -69,25 +72,25 @@ export default function GlobalStyles() {
         @font-face {
           font-family: "Fraunces Fallback";
           src: local("Georgia"), local("Times New Roman");
-          size-adjust: 105%;
-          ascent-override: 93.14%;
-          descent-override: 24.29%;
+          size-adjust: 104%;
+          ascent-override: 93.99%;
+          descent-override: 24.52%;
           line-gap-override: 0%;
         }
         @font-face {
           font-family: "Archivo Fallback";
           src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
-          size-adjust: 101%;
-          ascent-override: 86.93%;
-          descent-override: 20.79%;
+          size-adjust: 99.5%;
+          ascent-override: 88.19%;
+          descent-override: 21.11%;
           line-gap-override: 0%;
         }
         @font-face {
           font-family: "Plex Mono Fallback";
           src: local("Consolas"), local("Menlo"), local("Courier New");
-          size-adjust: 109%;
-          ascent-override: 94.04%;
-          descent-override: 25.23%;
+          size-adjust: 110.5%;
+          ascent-override: 92.76%;
+          descent-override: 24.89%;
           line-gap-override: 0%;
         }
 
