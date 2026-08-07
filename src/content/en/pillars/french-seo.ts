@@ -22,7 +22,7 @@ const pillar: PillarPage = {
   title: "French SEO: make France work for a site that was built in English",
   metaTitle: "French SEO agency & consultant for the French market",
   metaDescription:
-    "French SEO for companies selling into France: keyword research done in French, hreflang, French content. Native French consultant near Paris. Free 30-min review.",
+    "French SEO for companies selling into France: keyword research in French, hreflang, French content. Native French consultant near Paris. Free 30-min review.",
   heroBadge: "French SEO",
   heroLead:
     "You already rank in English. France is flat. In nine cases out of ten that is not a translation problem, it is a **research** problem: your French pages target your English keywords, in French. Here is what the work actually involves, and how to judge whoever does it for you.",

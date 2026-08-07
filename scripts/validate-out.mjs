@@ -7,7 +7,10 @@
 // 1. Chaque bloc <script type="application/ld+json"> doit reparser en JSON valide.
 // 2. ItemList : CHAQUE itemListElement porte un objet `item` complet (@type, name, url).
 // 3. BreadcrumbList : `item` requis sur tous les maillons SAUF le dernier.
-// 4. <title> ≤ 65 caractères ; meta description ≤ 165 et ≥ 80 caractères.
+// 4. <title> ≤ 65 caractères ; meta description ≤ 160 et ≥ 80 caractères.
+//    Seuil ramené de 165 à 160 le 07/08/2026 : le validateur était plus
+//    permissif que la règle du standard, et 7 métas anglaises vivaient dans
+//    l'écart, vertes ici et fautives au contrôle de livraison.
 // 5. Tous les liens internes href="/…" pointent vers un fichier existant de out/.
 // 6. Présence de canonical sur chaque page indexable.
 // 7. AUCUN tiret cadratin (U+2014) ni demi-cadratin (U+2013) (règle d'écriture Mickaël, 12/06/2026),
@@ -144,7 +147,7 @@ for (const file of htmlFiles(outDir)) {
   const desc = decodeEntities(html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "");
   if (!desc) errors.push(`${rel} : meta description manquante`);
   else {
-    if (desc.length > 165) errors.push(`${rel} : meta description ${desc.length} car. (> 165)`);
+    if (desc.length > 160) errors.push(`${rel} : meta description ${desc.length} car. (> 160)`);
     if (desc.length < 80) warnings.push(`${rel} : meta description courte (${desc.length} car.)`);
   }
 

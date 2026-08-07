@@ -7,7 +7,7 @@ import AboutContentEn from "@/components/en/AboutContentEn";
 export const metadata: Metadata = createMetadata("en", {
   title: "Mickaël Leclerc: French SEO & AI search consultant",
   description:
-    "Native French SEO consultant based near Paris, 20+ years as an IT engineer. Who does the work on your French market, how it is measured, and what is never promised.",
+    "Native French SEO consultant near Paris, 20+ years as an IT engineer. Who does the work on your French market, how it is measured, and what is never promised.",
   path: "/en/about/",
 });
 
