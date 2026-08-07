@@ -87,6 +87,10 @@ audit-data.json
 # Rapports d'analyse datés (extractions GSC, GA4...) : matière de travail, pas du site
 /rapports/
 
+# Captures d'écran de travail : matière de travail, pas des assets du site
+# (les vraies images du site vivent dans public/images/)
+/Image/
+
 # Misc
 *.log
 *.bak
