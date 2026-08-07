@@ -84,6 +84,9 @@ audit-data.json
 /_research/
 /_content-staging/
 
+# Rapports d'analyse datés (extractions GSC, GA4...) : matière de travail, pas du site
+/rapports/
+
 # Misc
 *.log
 *.bak
