@@ -4,6 +4,7 @@ import ClarityScript from "@/components/ClarityScript";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import EmotionRegistry from "@/lib/EmotionRegistry";
 import GlobalStyles from "@/lib/GlobalStyles";
 import JsonLd, {
   organizationSchema,
@@ -40,11 +41,13 @@ export default function EnRootLayout({
         <JsonLd data={personSchemaEn} />
       </head>
       <body>
-        <GlobalStyles />
-        <Header locale="en" />
-        <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
-        <Footer locale="en" />
-        <WhatsAppButton locale="en" />
+        <EmotionRegistry>
+          <GlobalStyles />
+          <Header locale="en" />
+          <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
+          <Footer locale="en" />
+          <WhatsAppButton locale="en" />
+        </EmotionRegistry>
         {/* `currentLanguage: "en"` est bien transmis, verifie dans le DOM, mais
             le bandeau hu-manity reste rendu en francais : la localisation est
             une option payante de leur offre. Choix de Mickael le 30/07/2026 de

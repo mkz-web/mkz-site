@@ -11,6 +11,7 @@
     "deploy:build": "next build && node scripts/deploy.mjs"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "next": "16.2.3",

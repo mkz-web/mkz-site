@@ -26,10 +26,10 @@ const Section = styled.section<{ variant?: "paper" | "alt" | "dark" }>`
 
 const Container = styled.div`max-width: 1280px; margin: 0 auto;`;
 
-const ChapterHead = styled.header<{ onDark?: boolean }>`
+const ChapterHead = styled.header<{ surSombre?: boolean }>`
   display: grid;
   gap: 16px;
-  border-top: 2px solid ${({ onDark }) => (onDark ? "rgba(246,241,231,0.4)" : theme.colors.borderInk)};
+  border-top: 2px solid ${({ surSombre }) => (surSombre ? "rgba(246,241,231,0.4)" : theme.colors.borderInk)};
   padding-top: 22px;
   margin-bottom: 56px;
 
@@ -39,35 +39,35 @@ const ChapterHead = styled.header<{ onDark?: boolean }>`
   }
 `;
 
-const Kicker = styled.span<{ onDark?: boolean }>`
+const Kicker = styled.span<{ surSombre?: boolean }>`
   font-family: ${theme.fonts.mono};
   font-size: 12.5px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-variant-numeric: tabular-nums;
-  color: ${({ onDark }) => (onDark ? theme.colors.textOnDarkSecondary : theme.colors.textSecondary)};
+  color: ${({ surSombre }) => (surSombre ? theme.colors.textOnDarkSecondary : theme.colors.textSecondary)};
 
   strong {
-    color: ${({ onDark }) => (onDark ? theme.colors.cta : theme.colors.ctaInk)};
+    color: ${({ surSombre }) => (surSombre ? theme.colors.cta : theme.colors.ctaInk)};
     font-weight: 500;
   }
 `;
 
-const ChapterTitle = styled.h2<{ onDark?: boolean }>`
+const ChapterTitle = styled.h2<{ surSombre?: boolean }>`
   font-size: clamp(30px, 4vw, 46px);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.01em;
-  color: ${({ onDark }) => (onDark ? theme.colors.textOnDark : theme.colors.accent)};
+  color: ${({ surSombre }) => (surSombre ? theme.colors.textOnDark : theme.colors.accent)};
 `;
 
-const ChapterLede = styled.p<{ onDark?: boolean }>`
+const ChapterLede = styled.p<{ surSombre?: boolean }>`
   margin-top: 14px;
   max-width: 60ch;
   font-size: 16px;
   line-height: 1.7;
-  color: ${({ onDark }) => (onDark ? theme.colors.textOnDarkSecondary : theme.colors.textSecondary)};
+  color: ${({ surSombre }) => (surSombre ? theme.colors.textOnDarkSecondary : theme.colors.textSecondary)};
 `;
 
 /* ─── Marquee villes (pur CSS) ─── */
@@ -632,11 +632,11 @@ export default function HomeContent() {
       {/* 01. Problèmes */}
       <Section variant="dark">
         <Container>
-          <ChapterHead onDark>
-            <Kicker onDark><strong>01</strong>&ensp;Vos gal&egrave;res</Kicker>
+          <ChapterHead surSombre>
+            <Kicker surSombre><strong>01</strong>&ensp;Vos gal&egrave;res</Kicker>
             <div>
-              <ChapterTitle onDark>Ces probl&egrave;mes vous parlent ?</ChapterTitle>
-              <ChapterLede onDark>
+              <ChapterTitle surSombre>Ces probl&egrave;mes vous parlent ?</ChapterTitle>
+              <ChapterLede surSombre>
                 Vous n&rsquo;&ecirc;tes pas seul : la plupart des ind&eacute;pendants et petites
                 entreprises butent exactement sur les m&ecirc;mes obstacles.
               </ChapterLede>
@@ -694,11 +694,11 @@ export default function HomeContent() {
       {/* 03. Méthode */}
       <Section variant="dark" id="methode">
         <Container>
-          <ChapterHead onDark>
-            <Kicker onDark><strong>03</strong>&ensp;La m&eacute;thode</Kicker>
+          <ChapterHead surSombre>
+            <Kicker surSombre><strong>03</strong>&ensp;La m&eacute;thode</Kicker>
             <div>
-              <ChapterTitle onDark>Trois &eacute;tapes, z&eacute;ro jargon.</ChapterTitle>
-              <ChapterLede onDark>
+              <ChapterTitle surSombre>Trois &eacute;tapes, z&eacute;ro jargon.</ChapterTitle>
+              <ChapterLede surSombre>
                 Un accompagnement simple et transparent, du premier appel au reporting mensuel.
               </ChapterLede>
             </div>
