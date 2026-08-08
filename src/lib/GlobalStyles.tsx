@@ -67,8 +67,15 @@ export default function GlobalStyles() {
 
            Le calage vise la première police locale citée, celle du poste de
            mesure. Ailleurs, l'ajustement reste une approximation.
-           Refaire la mesure si une famille change :
-           node scripts/mesurer-metriques-polices.mjs */
+
+           Refaire la mesure si une famille, une graisse ou une pile de repli
+           change. L'outil vit dans le skill cls-polices-web, qui détecte seul
+           les familles de la page et croise les largeurs :
+           node ~/.claude/skills/cls-polices-web/scripts/caler-replis-polices.js <url>
+           Vérification du résultat, avant et après, sur chargement froid :
+           node ~/.claude/skills/cls-polices-web/scripts/sonde-cls.js <url> 5
+           (barres obliques : ce commentaire vit dans un littéral de gabarit JS,
+           où les antislashs d'un chemin Windows seraient mangés en silence) */
         @font-face {
           font-family: "Fraunces Fallback";
           src: local("Georgia"), local("Times New Roman");
