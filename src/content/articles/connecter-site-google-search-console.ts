@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Google Search Console : connecter son site pas à pas",
   "metaDescription": "Ajoutez votre site à Google Search Console en 15 minutes : propriété, vérification, sitemap, indexation. Tutoriel illustré, zéro jargon, 100 % gratuit.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-08",
   "readingMinutes": 9,
   "excerpt": "Vous avez un site, mais aucune idée de ce que Google en fait ? **Google Search Console** vous montre gratuitement les recherches qui amènent vos clients. Ce tutoriel pas-à-pas, écrit pour les artisans, commerçants et TPE, vous connecte en 15 minutes, sans jargon et sans rien casser.",
   "tldr": [
@@ -120,12 +120,15 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Rendez-vous sur [search.google.com/search-console](https://search.google.com/search-console), connectez-vous avec votre compte Google et cliquez sur **Commencer maintenant**. Une **propriété**, c'est simplement votre site déclaré dans l'outil : rien à acheter, rien à installer."
+      "text": "Rendez-vous sur [search.google.com/search-console](https://search.google.com/search-console), connectez-vous avec votre compte Google et cliquez sur **Ajouter un site Web** (le bouton s'appelle **Commencer maintenant** tant que vous n'êtes pas connecté). Une **propriété**, c'est simplement votre site déclaré dans l'outil : rien à acheter, rien à installer."
     },
     {
       "type": "screenshot",
-      "caption": "L'accueil de la Search Console et son bouton « Commencer maintenant »",
-      "alt": "Page d'accueil de search.google.com/search-console affichant le bouton bleu Commencer maintenant"
+      "caption": "L'accueil de la Search Console et son bouton « Ajouter un site Web »",
+      "alt": "Page d'accueil de search.google.com/search-console affichant le bouton Ajouter un site Web",
+      "src": "/images/conseils/gsc-accueil-ajouter-un-site.webp",
+      "width": 997,
+      "height": 445
     },
     {
       "type": "h3",
@@ -164,7 +167,10 @@ const article: Article = {
     {
       "type": "screenshot",
       "caption": "Le choix du type de propriété : Domaine à gauche, Préfixe d'URL à droite",
-      "alt": "Écran de Google Search Console présentant les deux cartes Domaine et Préfixe d'URL pour créer une propriété"
+      "alt": "Écran de Google Search Console présentant les deux cartes Domaine et Préfixe d'URL pour créer une propriété",
+      "src": "/images/conseils/gsc-type-de-propriete.webp",
+      "width": 1339,
+      "height": 1013
     },
     {
       "type": "callout",
@@ -236,7 +242,10 @@ const article: Article = {
     {
       "type": "screenshot",
       "caption": "L'écran des méthodes de vérification, avec la balise HTML dépliée",
-      "alt": "Fenêtre de vérification de la propriété dans Google Search Console montrant la méthode balise HTML avec son code à copier"
+      "alt": "Fenêtre de vérification de la propriété dans Google Search Console montrant la méthode balise HTML avec son code à copier",
+      "src": "/images/conseils/gsc-balise-html.webp",
+      "width": 700,
+      "height": 557
     },
     {
       "type": "h3",
@@ -266,16 +275,14 @@ const article: Article = {
     {
       "type": "screenshot",
       "caption": "Ajout de l'enregistrement TXT de Google dans la zone DNS, ici chez OVH",
-      "alt": "Interface OVH de la zone DNS montrant l'ajout d'une entrée TXT contenant le code google-site-verification"
+      "alt": "Interface OVH de la zone DNS montrant l'ajout d'une entrée TXT contenant le code google-site-verification",
+      "src": "/images/conseils/gsc-enregistrement-txt-ovh.webp",
+      "width": 1400,
+      "height": 632
     },
     {
       "type": "p",
       "text": "Chez Ionos ou o2switch, même principe : rubrique DNS, nouvelle entrée TXT, coller le code. Au besoin, le support de votre hébergeur le fait en quelques minutes."
-    },
-    {
-      "type": "screenshot",
-      "caption": "Le message de confirmation : « La propriété a été validée »",
-      "alt": "Fenêtre de Google Search Console confirmant la validation de la propriété avec une coche verte"
     },
     {
       "type": "callout",
@@ -305,19 +312,22 @@ const article: Article = {
         "Trouvez son adresse : essayez `votresite.fr/sitemap.xml` (avec Yoast sur WordPress : souvent `sitemap_index.xml`).",
         "Dans le menu de gauche de la Search Console, cliquez sur **Sitemaps**.",
         "Saisissez la fin de l'adresse (ex. `sitemap.xml`), puis cliquez sur **Envoyer**.",
-        "Vérifiez que le statut affiche **Opération réussie**."
+        "Vérifiez que le statut affiche **Opération effectuée**."
       ]
     },
     {
       "type": "screenshot",
-      "caption": "Le sitemap soumis, avec le statut « Opération réussie »",
-      "alt": "Rapport Sitemaps de Google Search Console listant sitemap.xml avec le statut vert Opération réussie"
+      "caption": "Le sitemap envoyé, avec le statut « Opération effectuée »",
+      "alt": "Rapport Sitemaps de Google Search Console listant sitemap.xml avec le statut vert Opération effectuée",
+      "src": "/images/conseils/gsc-sitemap-envoye.webp",
+      "width": 817,
+      "height": 325
     },
     {
       "type": "callout",
       "variant": "astuce",
       "title": "Ne paniquez pas devant le compteur",
-      "text": "Le compteur de pages « indexées » du rapport Sitemaps peut rester à zéro alors que tout va bien. Fiez-vous au statut « Opération réussie » et à l'inspection d'URL de l'étape 4."
+      "text": "Le compteur de pages « indexées » du rapport Sitemaps peut rester à zéro alors que tout va bien. Fiez-vous au statut « Opération effectuée » et à l'inspection d'URL de l'étape 4."
     },
     {
       "type": "h2",
@@ -340,7 +350,10 @@ const article: Article = {
     {
       "type": "screenshot",
       "caption": "L'outil d'inspection d'URL et le bouton « Demander une indexation »",
-      "alt": "Résultat d'inspection d'URL dans Google Search Console avec le bouton Demander une indexation visible sous le verdict"
+      "alt": "Résultat d'inspection d'URL dans Google Search Console indiquant que l'URL n'est pas indexée, avec le bouton Demander une indexation sous le verdict",
+      "src": "/images/conseils/gsc-demander-indexation.webp",
+      "width": 1306,
+      "height": 295
     },
     {
       "type": "p",
@@ -403,8 +416,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "Le rapport Performances annoté : clics, impressions et position moyenne, avec des requêtes types d'artisan",
-      "alt": "Rapport Performances de Google Search Console montrant les courbes de clics et impressions et la liste des requêtes avec leur position"
+      "caption": "Le rapport Performances sur 3 mois : clics, impressions, CTR et position moyenne",
+      "alt": "Rapport Performances de Google Search Console affichant les tuiles clics, impressions, CTR moyen et position moyenne au-dessus des courbes",
+      "src": "/images/conseils/gsc-rapport-performances.webp",
+      "width": 1219,
+      "height": 719
     },
     {
       "type": "callout",
@@ -424,7 +440,7 @@ const article: Article = {
       "items": [
         "Propriété créée : type Préfixe d'URL, avec l'adresse exacte du site",
         "Vérification validée : balise ou enregistrement DNS laissé en place",
-        "Sitemap envoyé : statut « Opération réussie »",
+        "Sitemap envoyé : statut « Opération effectuée »",
         "Indexation demandée pour les 3 à 5 pages clés",
         "Rendez-vous dans une semaine : rapport Performances, onglet Requêtes"
       ]

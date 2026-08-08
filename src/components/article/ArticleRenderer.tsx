@@ -287,7 +287,12 @@ const Placeholder = styled.div`
   letter-spacing: 0.08em;
 `;
 const ShotImg = styled.img`
+  display: block;
   width: 100%;
+  height: auto; /* neutralise l'attribut height, qui ne sert qu'à réserver le ratio */
+  /* jamais au-delà de sa taille réelle : une capture agrandie devient floue */
+  max-width: ${(p) => (p.width ? `${p.width}px` : "100%")};
+  margin-inline: auto;
   border-radius: ${theme.radius.lg};
   border: 1px solid ${theme.colors.border};
   box-shadow: ${theme.shadows.md};
@@ -473,7 +478,7 @@ function renderBlock(block: Block, key: number, locale: Locale): React.ReactNode
       return (
         <Figure key={key}>
           {block.src ? (
-            <ShotImg src={block.src} alt={block.alt} loading="lazy" />
+            <ShotImg src={block.src} alt={block.alt} width={block.width} height={block.height} loading="lazy" decoding="async" />
           ) : (
             <Placeholder role="img" aria-label={block.alt}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "block", margin: "0 auto 10px" }} aria-hidden>
