@@ -142,7 +142,7 @@ export default function ContactContent({ locale = "fr" }: { locale?: Locale }) {
       <ContentGrid>
         <FormCard><ContactForm locale={locale} /></FormCard>
         <SideStack>
-          <CalendlyCell href={CALENDLY} target="_blank" rel="noopener noreferrer">
+          <CalendlyCell href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">
             <CalendlyTitle>{t.calendlyTitle}</CalendlyTitle>
             <CalendlyDesc>{t.calendlyDesc}</CalendlyDesc>
           </CalendlyCell>

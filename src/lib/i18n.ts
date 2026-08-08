@@ -243,14 +243,14 @@ export const ui: Record<Locale, UiStrings> = {
   fr: {
     nav: [
       { name: "Accueil", href: "/" },
-      { name: "Création de site", href: "/creation-site-internet" },
-      { name: "SEO", href: "/referencement-seo" },
+      { name: "Création de site", href: "/creation-site-internet/" },
+      { name: "SEO", href: "/referencement-seo/" },
       // « Témoignages » (ancre vers une section de l'accueil) a laissé sa place
       // au pilier référencement IA : une page de service qui se positionne vaut
       // mieux qu'une ancre interne dans une barre à 6 entrées.
-      { name: "Référencement IA", href: "/referencement-ia" },
-      { name: "Conseils", href: "/conseils" },
-      { name: "Contact", href: "/contact" },
+      { name: "Référencement IA", href: "/referencement-ia/" },
+      { name: "Conseils", href: "/conseils/" },
+      { name: "Contact", href: "/contact/" },
     ],
     header: {
       cta: "Audit gratuit",
@@ -283,7 +283,10 @@ export const ui: Record<Locale, UiStrings> = {
       tldrTitle: (n) => `L'essentiel en ${n} points`,
       tocTitle: "Sommaire",
       faqTitle: "Questions fréquentes",
-      authorMore: "En savoir plus",
+      // Ancre descriptive de sa cible, et non de son emplacement : « En savoir
+      // plus » se répétait à l'identique sur les 15 articles et ne disait rien
+      // à Google du contenu de /about/.
+      authorMore: "Qui est Mickaël Leclerc",
       relatedTitle: "À lire ensuite",
       callouts: {
         retenir: "À retenir",
@@ -317,21 +320,21 @@ export const ui: Record<Locale, UiStrings> = {
         {
           title: "Services",
           links: [
-            { label: "Création de site internet", href: "/creation-site-internet" },
-            { label: "Référencement SEO", href: "/referencement-seo" },
-            { label: "Référencement IA (GEO)", href: "/referencement-ia" },
-            { label: "Agence web Seine-et-Marne", href: "/agence-web-77" },
+            { label: "Création de site internet", href: "/creation-site-internet/" },
+            { label: "Référencement SEO", href: "/referencement-seo/" },
+            { label: "Référencement IA (GEO)", href: "/referencement-ia/" },
+            { label: "Agence web Seine-et-Marne", href: "/agence-web-77/" },
             { label: "Audit gratuit", href: CALENDLY, external: true },
           ],
         },
         {
           title: "Conseils",
           links: [
-            { label: "Tutoriels pas à pas", href: "/conseils/tutoriels" },
-            { label: "Création de site", href: "/conseils/creation-site-internet" },
-            { label: "SEO & visibilité", href: "/conseils/seo" },
-            { label: "Référencement IA", href: "/conseils/referencement-ia" },
-            { label: "Tous les conseils", href: "/conseils" },
+            { label: "Tutoriels pas à pas", href: "/conseils/tutoriels/" },
+            { label: "Création de site", href: "/conseils/creation-site-internet/" },
+            { label: "SEO & visibilité", href: "/conseils/seo/" },
+            { label: "Référencement IA", href: "/conseils/referencement-ia/" },
+            { label: "Tous les conseils", href: "/conseils/" },
           ],
         },
         {
@@ -351,17 +354,17 @@ export const ui: Record<Locale, UiStrings> = {
           showLangLink: true,
           links: [
             { label: "Accueil", href: "/" },
-            { label: "Services", href: "/services" },
-            { label: "À propos", href: "/about" },
-            { label: "Contact", href: "/contact" },
+            { label: "Services", href: "/services/" },
+            { label: "À propos", href: "/about/" },
+            { label: "Contact", href: "/contact/" },
           ],
         },
       ],
       contact: { hours: "Lun-ven 9h-18h", reply: "Réponse sous 24 h" },
       copyright: "© 2026 MKZ · Tous droits réservés",
       legalLinks: [
-        { name: "Mentions légales", href: "/mentions-legales" },
-        { name: "Politique de confidentialité", href: "/politique-confidentialite" },
+        { name: "Mentions légales", href: "/mentions-legales/" },
+        { name: "Politique de confidentialité", href: "/politique-confidentialite/" },
       ],
     },
     newsroom: {
@@ -423,11 +426,11 @@ export const ui: Record<Locale, UiStrings> = {
   en: {
     nav: [
       { name: "Home", href: "/en/" },
-      { name: "French SEO", href: "/en/french-seo" },
-      { name: "AI search", href: "/en/ai-search-optimization" },
-      { name: "Websites", href: "/en/website-design" },
-      { name: "Insights", href: "/en/insights" },
-      { name: "Contact", href: "/en/contact" },
+      { name: "French SEO", href: "/en/french-seo/" },
+      { name: "AI search", href: "/en/ai-search-optimization/" },
+      { name: "Websites", href: "/en/website-design/" },
+      { name: "Insights", href: "/en/insights/" },
+      { name: "Contact", href: "/en/contact/" },
     ],
     header: {
       cta: "Free 30-min review",
@@ -460,7 +463,7 @@ export const ui: Record<Locale, UiStrings> = {
       tldrTitle: (n) => `The short version, in ${n} points`,
       tocTitle: "On this page",
       faqTitle: "Frequently asked questions",
-      authorMore: "More about me",
+      authorMore: "More about Mickaël Leclerc",
       relatedTitle: "Read next",
       callouts: {
         retenir: "Key takeaway",
@@ -495,18 +498,18 @@ export const ui: Record<Locale, UiStrings> = {
         {
           title: "Services",
           links: [
-            { label: "French SEO", href: "/en/french-seo" },
-            { label: "AI search optimisation", href: "/en/ai-search-optimization" },
-            { label: "Website design", href: "/en/website-design" },
+            { label: "French SEO", href: "/en/french-seo/" },
+            { label: "AI search optimisation", href: "/en/ai-search-optimization/" },
+            { label: "Website design", href: "/en/website-design/" },
             { label: "Free 30-min review", href: CALENDLY, external: true },
           ],
         },
         {
           title: "Insights",
           links: [
-            { label: "French SEO guides", href: "/en/insights/french-seo" },
-            { label: "AI search guides", href: "/en/insights/ai-search" },
-            { label: "All insights", href: "/en/insights" },
+            { label: "French SEO guides", href: "/en/insights/french-seo/" },
+            { label: "AI search guides", href: "/en/insights/ai-search/" },
+            { label: "All insights", href: "/en/insights/" },
           ],
         },
         {
@@ -526,16 +529,16 @@ export const ui: Record<Locale, UiStrings> = {
           showLangLink: true,
           links: [
             { label: "Home", href: "/en/" },
-            { label: "About Mickaël", href: "/en/about" },
-            { label: "Contact", href: "/en/contact" },
+            { label: "About Mickaël", href: "/en/about/" },
+            { label: "Contact", href: "/en/contact/" },
           ],
         },
       ],
       contact: { hours: "Mon-Fri, 9am-6pm CET", reply: "Reply within 24h" },
       copyright: "© 2026 MKZ · All rights reserved",
       legalLinks: [
-        { name: "Legal notice", href: "/en/legal-notice" },
-        { name: "Privacy policy", href: "/en/privacy-policy" },
+        { name: "Legal notice", href: "/en/legal-notice/" },
+        { name: "Privacy policy", href: "/en/privacy-policy/" },
       ],
     },
     newsroom: {

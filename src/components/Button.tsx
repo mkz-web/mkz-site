@@ -92,7 +92,13 @@ export default function Button({
         href={href}
         variant={variant}
         target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        // nofollow sur les CTA externes (Calendly, WhatsApp) : ce sont des
+        // outils de prise de contact, pas des sources citées. Ils sont rendus
+        // sur presque toutes les pages, soit 48 liens suivis vers calendly.com
+        // mesurés le 08/08/2026, autant d'autorité transmise pour rien. Les
+        // liens éditoriaux vers de vraies sources, eux, passent par le contenu
+        // des articles et gardent leur dofollow.
+        rel={href.startsWith("http") ? "noopener noreferrer nofollow" : undefined}
       >
         {children}
       </StyledExternalLink>

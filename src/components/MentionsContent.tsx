@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 
@@ -13,6 +14,14 @@ export default function MentionsContent() {
   return (
     <PageWrapper>
       <Title>Mentions l&eacute;gales</Title>
+
+      {/* Pendant du lien que /en/legal-notice/ pose déjà vers cette page.
+          Sans lui, la version anglaise n'avait aucun lien contextuel entrant :
+          elle n'existait que par le sitemap et le pied de page. */}
+      <Text>
+        An <Link href="/en/legal-notice/" style={{ color: theme.colors.accent }}>English translation of this legal notice</Link>{" "}
+        is available for convenience. Seule la version fran&ccedil;aise ci-dessous fait foi.
+      </Text>
 
       <SectionTitle>&Eacute;diteur du site</SectionTitle>
       <InfoLine><strong>MKZ</strong>, SAS &agrave; associ&eacute; unique</InfoLine>
@@ -30,7 +39,7 @@ export default function MentionsContent() {
       <InfoLine>T&eacute;l&eacute;phone : +1 650 319 8930</InfoLine>
       <InfoLine>Site web : <a href="https://www.cloudflare.com" style={{ color: theme.colors.accent }} target="_blank" rel="noopener noreferrer">www.cloudflare.com</a></InfoLine>
       <Text>
-        L&rsquo;h&eacute;bergeur est &eacute;tabli hors de l&rsquo;Union europ&eacute;enne. Les conditions de ce transfert et les garanties associ&eacute;es sont d&eacute;taill&eacute;es dans notre <a href="/politique-confidentialite" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.
+        L&rsquo;h&eacute;bergeur est &eacute;tabli hors de l&rsquo;Union europ&eacute;enne. Les conditions de ce transfert et les garanties associ&eacute;es sont d&eacute;taill&eacute;es dans notre <a href="/politique-confidentialite/" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.
       </Text>
 
       <SectionTitle>Propri&eacute;t&eacute; intellectuelle</SectionTitle>
@@ -48,7 +57,7 @@ export default function MentionsContent() {
         Avec votre consentement, ce site utilise l&rsquo;outil de mesure d&rsquo;audience Microsoft Clarity.
         Sans votre accord, donn&eacute; via le bandeau cookies, seuls des cookies techniques strictement
         n&eacute;cessaires au fonctionnement du site sont utilis&eacute;s. Le d&eacute;tail figure dans
-        notre <a href="/politique-confidentialite" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.
+        notre <a href="/politique-confidentialite/" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.
       </Text>
     </PageWrapper>
   );
