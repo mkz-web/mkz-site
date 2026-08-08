@@ -318,7 +318,7 @@ export default function Header({ locale = "fr" }: { locale?: Locale }) {
         <RightSide>
           <DesktopOnly>
             <Phone href={t.header.phoneHref}>{t.header.phoneLabel}</Phone>
-            <CTALink href={CALENDLY} target="_blank" rel="noopener noreferrer">
+            <CTALink href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">
               {t.header.cta}
             </CTALink>
           </DesktopOnly>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
@@ -88,6 +89,14 @@ const BioText = styled.p`
   margin-bottom: 18px;
 
   strong { color: ${theme.colors.accent}; }
+`;
+
+const BioLink = styled(Link)`
+  color: ${theme.colors.accent};
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover { text-decoration: none; }
 `;
 
 const BioTags = styled.p`
@@ -207,6 +216,17 @@ export default function AboutContent() {
             <BioText>
               Que vous soyez artisan, commer&ccedil;ant, coach ou profession lib&eacute;rale,
               je comprends vos enjeux et je m&rsquo;adapte &agrave; votre r&eacute;alit&eacute;.
+            </BioText>
+            {/* La page ne renvoyait vers aucune autre : elle recevait 15 liens et
+                n'en rendait aucun. Trois ancres descriptives vers les piliers,
+                dans une phrase qui a sa place ici de toute façon. */}
+            <BioText>
+              Concr&egrave;tement, j&rsquo;interviens sur trois terrains :{" "}
+              <BioLink href="/creation-site-internet/">la cr&eacute;ation de site internet</BioLink>,{" "}
+              <BioLink href="/referencement-seo/">le r&eacute;f&eacute;rencement naturel</BioLink> et{" "}
+              <BioLink href="/referencement-ia/">le r&eacute;f&eacute;rencement IA</BioLink>, celui qui
+              vous rend citable par ChatGPT et Perplexity. Le d&eacute;tail est sur la page{" "}
+              <BioLink href="/services/">prestations et tarifs</BioLink>.
             </BioText>
             <BioTags>ing&eacute;nieur IT · expert SEO · automatisation · DevOps</BioTags>
           </BioContent>

@@ -51,7 +51,9 @@ export default function WhatsAppButton({ locale = "fr" }: { locale?: Locale }) {
     <FloatingLink
       href={`https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE[locale])}`}
       target="_blank"
-      rel="noopener noreferrer"
+      // Bouton flottant présent sur toutes les pages : 44 liens suivis vers
+      // wa.me mesurés le 08/08/2026. C'est un canal de contact, pas une source.
+      rel="noopener noreferrer nofollow"
       aria-label={ui[locale].whatsapp}
     >
       <WhatsAppIcon />

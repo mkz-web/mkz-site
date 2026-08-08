@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Combien coûte un site internet en 2026 ? Prix réels TPE",
   "metaDescription": "Combien coûte un site internet en 2026 ? Les vrais prix pour un artisan ou une TPE : devis décortiqué ligne par ligne et budget complet sur 3 ans.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-08",
   "readingMinutes": 11,
   "excerpt": "Entre l'offre à 29 €/mois, le neveu « qui s'y connaît » et le devis d'agence à 5 000 €, difficile d'y voir clair. Voici les **vrais prix 2026** d'un site internet pour un artisan ou une TPE : fourchettes sourcées, devis décortiqué ligne par ligne et budget complet sur 3 ans.",
   "tldr": [
@@ -156,7 +156,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "En France, un freelance facture en moyenne **38 €/h pour un développeur web et 40 €/h pour un spécialiste WordPress** (Codeur.com, tarifs mis à jour en mars 2025). Une semaine de travail effectif représente donc environ 1 400 € : c'est l'ordre de grandeur d'un site vitrine simple chez un indépendant sérieux."
+      "text": "En France, un freelance facture en moyenne **38 €/h pour un développeur web et 40 €/h pour un spécialiste WordPress** (Codeur.com, tarifs mis à jour en mars 2025). Une semaine de travail effectif représente donc environ 1 400 € : c'est l'ordre de grandeur d'un site vitrine simple chez un indépendant sérieux. Si vous voulez comprendre comment ce prix se construit côté prestataire, nous avons détaillé [le calcul du TJM d'un consultant SEO freelance](/conseils/seo/consultant-seo-freelance-tjm-comptabilite/) : charges, jours réellement facturables et marge."
     },
     {
       "type": "p",
