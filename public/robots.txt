@@ -6,6 +6,7 @@
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
+Disallow: /demo/
 
 # Crawlers IA — accès explicitement autorisé (GEO)
 User-agent: GPTBot
