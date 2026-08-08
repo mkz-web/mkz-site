@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Créer sa fiche d'établissement Google (gratuit, 30 min)",
   "metaDescription": "Créez votre fiche d'établissement Google gratuitement en 30 minutes : tutoriel pas à pas pour artisans et commerçants, vérification vidéo incluse.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-08",
   "readingMinutes": 9,
   "excerpt": "Vous êtes artisan ou commerçant et vous voulez apparaître sur Google et sur Maps sans débourser un centime ? La **fiche d'établissement Google** (ex-Google My Business) est gratuite et se crée en 30 minutes. Voici le tutoriel pas à pas 2026, vérification vidéo et cas « sans boutique » inclus.",
   "tldr": [
@@ -156,8 +156,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "La page d'accueil de business.google.com et son bouton « Gérer ma fiche »",
-      "alt": "Page d'accueil Google Business Profile avec le bouton Gérer ma fiche mis en évidence"
+      "caption": "Une fois connecté : la liste de vos établissements et le bouton « Ajouter un établissement »",
+      "alt": "Interface Google Business Profile listant les établissements du compte, avec l'état Validé et le bouton Ajouter un établissement",
+      "src": "/images/conseils/gbp-liste-etablissements.webp",
+      "width": 1400,
+      "height": 413
     },
     {
       "type": "h3",
@@ -173,8 +176,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "Saisie du nom et choix de la catégorie principale de l'établissement",
-      "alt": "Formulaire de création de la fiche avec le champ nom d'établissement et le menu déroulant de catégorie affichant Plombier"
+      "caption": "Le nom de l'entreprise et ses catégories : une seule porte la mention PRINCIPAL",
+      "alt": "Écran À propos de votre établissement affichant le nom MKZ et trois catégories, Concepteur de sites Web étant la catégorie principale",
+      "src": "/images/conseils/gbp-nom-et-categorie.webp",
+      "width": 397,
+      "height": 316
     },
     {
       "type": "callout",
@@ -192,8 +198,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "Le réglage de la zone d'intervention, adresse personnelle masquée",
-      "alt": "Écran de sélection de la zone d'intervention avec une liste de villes de Seine-et-Marne, sans adresse affichée"
+      "caption": "Les zones desservies, sans établissement physique : aucune adresse n'est affichée",
+      "alt": "Écran Emplacement et zones desservies indiquant aucun établissement physique, suivi de la liste des villes couvertes",
+      "src": "/images/conseils/gbp-zones-desservies.webp",
+      "width": 748,
+      "height": 534
     },
     {
       "type": "h3",
@@ -217,8 +226,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "Rédaction de la description (750 caractères) et ajout des premières photos",
-      "alt": "Écran d'ajout de la description et des photos dans la fiche d'établissement Google"
+      "caption": "La description de la fiche, 750 caractères pour dire qui vous êtes, ce que vous faites et où",
+      "alt": "Champ Description d'une fiche d'établissement Google contenant la présentation de l'entreprise",
+      "src": "/images/conseils/gbp-description.webp",
+      "width": 1059,
+      "height": 340
     },
     {
       "type": "callout",
@@ -256,11 +268,6 @@ const article: Article = {
     {
       "type": "p",
       "text": "Google examine la vidéo sous quelques jours. En cas de refus, refilmez avec plus de preuves : c'est presque toujours un manque d'éléments, pas une sanction."
-    },
-    {
-      "type": "screenshot",
-      "caption": "Le choix de la méthode de vérification, avec l'option vidéo en premier",
-      "alt": "Écran Google de sélection de la méthode de vérification proposant l'enregistrement vidéo et l'envoi de courrier"
     },
     {
       "type": "h3",
@@ -383,11 +390,6 @@ const article: Article = {
     {
       "type": "p",
       "text": "Votre fiche compte les **appels**, les **demandes d'itinéraire** et les **clics vers votre site**. Consultez-les une fois par mois ; les premiers appels arrivent en général dans les semaines qui suivent la validation."
-    },
-    {
-      "type": "screenshot",
-      "caption": "Les statistiques de la fiche : appels, itinéraires et clics vers le site",
-      "alt": "Tableau de bord des performances de la fiche d'établissement Google montrant le nombre d'appels, de demandes d'itinéraire et de clics"
     },
     {
       "type": "table",

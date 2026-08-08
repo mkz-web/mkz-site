@@ -36,13 +36,21 @@ export type Block =
       items?: Inline[];
     }
   | {
-      // Emplacement de capture d'écran : affiche un cadre légendé tant que
-      // `src` est absent ; passe à une vraie image dès que `src` est renseigné
-      // (fichier à déposer dans public/images/conseils/).
+      // Capture d'écran. Sans `src`, le bloc affiche un cadre légendé
+      // « Capture d'écran à venir » : c'est l'emplacement réservé, gardé sur
+      // les articles de fond. Les 3 tutoriels, eux, n'ont plus aucun bloc sans
+      // image (08/08/2026) : leurs captures existent toutes.
+      // Ajouter une image : convertir avec scripts/convertir-captures.mjs,
+      // déposer dans public/images/conseils/, puis renseigner src + width +
+      // height (dimensions réelles, sinon la page saute au chargement).
+      // `width` et `height` sont les dimensions réelles du fichier : elles
+      // réservent la place avant chargement, donc zéro décalage (CLS).
       type: "screenshot";
       caption: string;
       alt: string;
       src?: string;
+      width?: number;
+      height?: number;
     }
   | { type: "quote"; text: string; author?: string }
   | { type: "cta"; title: string; text: Inline; button: string; href: string }

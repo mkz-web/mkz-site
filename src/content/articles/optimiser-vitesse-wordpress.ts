@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Optimiser WordPress : accélérer votre site sans coder",
   "metaDescription": "Site WordPress lent ? Mesurez avec PageSpeed Insights, puis appliquez 7 gestes simples (images, cache, PHP) pour optimiser WordPress sans coder.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-08",
   "readingMinutes": 9,
   "excerpt": "Votre site WordPress rame et vous n'osez pas y toucher de peur de tout casser ? Bonne nouvelle : les gestes qui font vraiment la différence ne demandent **ni code ni compétence technique**. Suivez ce check-up en 30 minutes, conçu pour les artisans, commerçants et patrons de TPE.",
   "tldr": [
@@ -87,7 +87,10 @@ const article: Article = {
     {
       "type": "screenshot",
       "caption": "La page d'accueil de PageSpeed Insights : collez l'adresse de votre site et cliquez sur Analyser.",
-      "alt": "Page d'accueil de PageSpeed Insights avec le champ de saisie d'URL et le bouton Analyser mis en évidence."
+      "alt": "Page d'accueil de PageSpeed Insights avec le champ de saisie d'URL et le bouton Analyser mis en évidence.",
+      "src": "/images/conseils/wp-pagespeed-accueil.webp",
+      "width": 1265,
+      "height": 274
     },
     {
       "type": "h3",
@@ -125,8 +128,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "Un rapport PageSpeed Insights : repérez la note globale mobile et les trois Core Web Vitals, ici encadrés.",
-      "alt": "Rapport PageSpeed Insights affichant la note globale mobile et les indicateurs LCP, INP et CLS annotés."
+      "caption": "Un rapport PageSpeed Insights : la note globale, puis les scores Accessibilité, Bonnes pratiques et SEO. Le bandeau du haut bascule entre Mobile et Bureau.",
+      "alt": "Rapport PageSpeed Insights sur l'onglet Bureau affichant les notes Performances 100, Accessibilité 97, Bonnes pratiques 96 et SEO 100.",
+      "src": "/images/conseils/wp-pagespeed-rapport.webp",
+      "width": 1400,
+      "height": 503
     },
     {
       "type": "h3",
@@ -214,14 +220,17 @@ const article: Article = {
       "items": [
         "Dans votre tableau de bord WordPress, allez dans **Extensions → Ajouter une extension**, cherchez « UpdraftPlus », cliquez sur **Installer** puis **Activer**.",
         "Ouvrez **Réglages → Sauvegardes UpdraftPlus**.",
-        "Cliquez sur le bouton bleu **Sauvegarder maintenant**, en laissant cochées la base de données et les fichiers.",
+        "Dans l'onglet **Sauvegarder/restaurer**, cliquez sur le bouton bleu **Sauvegarder**, en laissant cochées la base de données et les fichiers.",
         "Quand la sauvegarde apparaît dans la liste, téléchargez-la sur votre ordinateur ou connectez UpdraftPlus à votre Google Drive : une copie stockée hors du site, c'est la vraie sécurité."
       ]
     },
     {
       "type": "screenshot",
-      "caption": "UpdraftPlus : le bouton « Sauvegarder maintenant » crée une copie complète du site en quelques minutes.",
-      "alt": "Écran de réglages de l'extension UpdraftPlus dans WordPress, avec le bouton Sauvegarder maintenant mis en évidence."
+      "caption": "UpdraftPlus : le bouton « Sauvegarder » crée une copie complète du site en quelques minutes.",
+      "alt": "Onglet Sauvegarder/restaurer de l'extension UpdraftPlus dans WordPress, avec le bouton bleu Sauvegarder à droite.",
+      "src": "/images/conseils/wp-updraftplus-sauvegarde.webp",
+      "width": 1400,
+      "height": 294
     },
     {
       "type": "p",
@@ -245,11 +254,6 @@ const article: Article = {
       "text": "**Temps : 10 min · Difficulté : facile · Impact : fort.** Une photo qui sort d'un smartphone pèse plusieurs mégaoctets : beaucoup trop pour le web. Redimensionnez vos images avant de les envoyer : 1 920 pixels de large suffisent largement. Installez ensuite une extension de compression comme **Imagify** ou **Smush**. Elle réduit le poids des images déjà en ligne et les convertit au format **WebP**, un format moderne nettement plus léger à qualité visuelle égale."
     },
     {
-      "type": "screenshot",
-      "caption": "Imagify : l'optimisation en masse compresse toutes les images déjà présentes sur le site.",
-      "alt": "Écran d'optimisation en masse de l'extension Imagify dans WordPress, montrant la progression de la compression des images."
-    },
-    {
       "type": "h3",
       "text": "2. Faites le ménage dans vos extensions"
     },
@@ -265,7 +269,10 @@ const article: Article = {
     {
       "type": "screenshot",
       "caption": "La liste des extensions installées : repérez celles que vous n'utilisez plus avant de les désactiver puis de les supprimer.",
-      "alt": "Page Extensions installées de WordPress montrant la liste des extensions actives et inactives."
+      "alt": "Page Extensions de WordPress listant les extensions installées, chacune avec son lien Désactiver.",
+      "src": "/images/conseils/wp-extensions-installees.webp",
+      "width": 807,
+      "height": 543
     },
     {
       "type": "h3",
@@ -295,8 +302,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "WP Super Cache : cochez « Caching activé », enregistrez, c'est tout.",
-      "alt": "Réglages de l'extension WP Super Cache dans WordPress avec l'option d'activation du cache sélectionnée."
+      "caption": "WP Super Cache, onglet Avancé : cochez « Activer le cache », enregistrez, c'est tout.",
+      "alt": "Réglages avancés de l'extension WP Super Cache dans WordPress, avec la case Activer le cache cochée.",
+      "src": "/images/conseils/wp-super-cache.webp",
+      "width": 823,
+      "height": 442
     },
     {
       "type": "h3",
@@ -313,8 +323,11 @@ const article: Article = {
     },
     {
       "type": "screenshot",
-      "caption": "Chez OVH, la version PHP se change dans l'espace client, rubrique Hébergement, onglet PHP.",
-      "alt": "Espace client d'un hébergeur web montrant le menu de sélection de la version PHP pour un hébergement mutualisé."
+      "caption": "Chez OVH, la version PHP de l'hébergement se lit et se change dans l'espace client, onglet Informations générales.",
+      "alt": "Espace client OVH affichant la page d'un hébergement web et sa version PHP globale.",
+      "src": "/images/conseils/wp-version-php-ovh.webp",
+      "width": 1400,
+      "height": 380
     },
     {
       "type": "h3",
