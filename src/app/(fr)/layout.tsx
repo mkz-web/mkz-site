@@ -4,6 +4,7 @@ import ClarityScript from "@/components/ClarityScript";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import EmotionRegistry from "@/lib/EmotionRegistry";
 import GlobalStyles from "@/lib/GlobalStyles";
 import JsonLd, {
   organizationSchema,
@@ -37,11 +38,13 @@ export default function FrRootLayout({
         <JsonLd data={personSchema} />
       </head>
       <body>
-        <GlobalStyles />
-        <Header locale="fr" />
-        <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
-        <Footer locale="fr" />
-        <WhatsAppButton locale="fr" />
+        <EmotionRegistry>
+          <GlobalStyles />
+          <Header locale="fr" />
+          <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
+          <Footer locale="fr" />
+          <WhatsAppButton locale="fr" />
+        </EmotionRegistry>
         <Script id="hu-options" strategy="beforeInteractive">
           {`var huOptions = {"appID":"mkz-consultingfr-9f08d00","currentLanguage":"fr","blocking":true,"globalCookie":false}`}
         </Script>
