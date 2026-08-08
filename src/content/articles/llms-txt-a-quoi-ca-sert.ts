@@ -10,14 +10,14 @@ const article: Article = {
   "metaTitle": "llms.txt : à quoi ça sert vraiment ? Le point honnête",
   "metaDescription": "llms.txt : ce que c'est, qui le lit réellement aujourd'hui, comment en créer un en 10 minutes, et pourquoi ce n'est pas le raccourci qu'on vous vend.",
   "datePublished": "2026-08-07",
-  "dateModified": "2026-08-07",
-  "readingMinutes": 8,
+  "dateModified": "2026-08-08",
+  "readingMinutes": 9,
   "excerpt": "Sur ce sujet, le web se partage entre « fichier miracle » et « fichier inutile ». Les deux camps ont des arguments, et vous n'avez ni le temps ni l'envie d'arbitrer. Voici ce que le fichier fait réellement aujourd'hui, ce qu'il ne fait pas, et dans quel cas les dix minutes de mise en place se justifient.",
   "tldr": [
     "Le fichier **llms.txt** est une proposition de format, publiée en septembre 2024 sur llmstxt.org : un résumé de votre site en Markdown, placé à sa racine, destiné aux modèles d'IA.",
     "Ce n'est **pas** un robots.txt : il n'autorise ni n'interdit rien, il présente et il oriente.",
     "Ce n'est pas un standard officiel. La réponse générée par Google sur cette requête indique elle-même qu'il est « encore très peu, voire jamais, sollicité par les robots d'exploration actuels » (relevé le 07/08/2026).",
-    "Signal inverse à ne pas ignorer : Chrome documente un audit Lighthouse dédié à llms.txt dans sa section navigation agentique.",
+    "Signal inverse à ne pas ignorer : Chrome ne se contente pas de documenter un audit llms.txt, il le **note**. Mesuré le 08/08/2026 : dans la catégorie « navigation agentique » de Lighthouse, ce fichier pèse **un tiers** du score réellement applicable.",
     "Verdict pour une TPE : dix minutes bien employées, mais **après** les chantiers qui rapportent réellement, jamais à leur place."
   ],
   "blocks": [
@@ -114,7 +114,22 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le signal inverse mérite pourtant d'être noté, parce qu'il vient d'un acteur sérieux : **Chrome documente un audit Lighthouse dédié à llms.txt**, dans sa section consacrée à la navigation agentique. Quand l'outil de diagnostic web le plus utilisé se met à vérifier un fichier, c'est que la question n'est pas close."
+      "text": "Le signal inverse mérite pourtant d'être noté, parce qu'il ne vient pas d'une déclaration d'intention mais d'un outil qui tranche : **Chrome ne se contente pas de documenter un audit llms.txt, il le note.** Nous avons fait tourner la catégorie « Agentic Browsing » de Lighthouse 13.4.1 sur ce site, en Chrome 151, le 08/08/2026. L'audit `llms-txt` existe, il s'exécute, il rend un verdict binaire, et sur mkz-consulting.fr il passe. Ce n'est plus une ligne de documentation, c'est une note."
+    },
+    {
+      "type": "p",
+      "text": "Le détail compte plus que l'existence de l'audit. Cette catégorie contient six contrôles, mais trois portent sur WebMCP, un standard encore en incubation : ils sortent en « non applicable », avec un poids de zéro, tant que le site ne déclare aucun outil. Restent trois contrôles qui pèsent réellement : l'arbre d'accessibilité, la stabilité visuelle de la page, et llms.txt. **Autrement dit, dans le seul score que Google publie aujourd'hui sur la préparation d'un site aux agents IA, ce fichier compte pour un tiers.**"
+    },
+    {
+      "type": "callout",
+      "variant": "retenir",
+      "title": "Un piège de mesure va avec",
+      "text": "Cette catégorie exige Chrome 150 ou plus. Lancée sur une version antérieure, elle renvoie un résultat qui a toutes les apparences de la validité. Le 07/08/2026, le même site à la même heure était noté 1 sur 1 par un Lighthouse tiers tournant en Chrome 132 en mode ordinateur, et pris en défaut par notre Chrome 151 en mode mobile. Si vous faites vérifier ce point par un prestataire, demandez-lui la version de Chrome utilisée, pas seulement le score.",
+      "items": []
+    },
+    {
+      "type": "p",
+      "text": "Reste que tout cela mesure la **présence** du fichier, pas son **effet**. Un contrôle qui vérifie qu'un fichier existe ne dit rien de ce qu'il rapporte. C'est la distinction que la plupart des articles sur le sujet ne font jamais, et c'est pourtant la seule qui vous intéresse."
     },
     {
       "type": "callout",
