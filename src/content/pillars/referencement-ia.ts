@@ -236,7 +236,7 @@ const pillar: PillarPage = {
         "**On mesure, on ne déduit pas.** Un chiffre annoncé est un chiffre relevé, avec sa date et sa source. Y compris quand il ne va pas dans notre sens.",
         "**Je décroche.** Contact direct avec le fondateur, Mickaël Leclerc, ingénieur IT depuis plus de 20 ans. Pas de ticket, pas de 72 heures d'attente.",
         "**Vous restez propriétaire à 100 %.** Nom de domaine, site, contenus, comptes. On travaille ensemble parce que ça marche, pas parce que vous êtes coincé.",
-        "**On applique ce qu'on vend.** Ce site publie ses propres `llms.txt`, ses données structurées et ses mesures. Vous pouvez tout vérifier avant de nous appeler.",
+        "**On applique ce qu'on vend.** Ce site publie ses propres `llms.txt`, ses données structurées, ses mesures, et même un [simulateur d'empreinte d'une requête IA](/empreinte-ia/) au jeu de données sourcé et versionné. Vous pouvez tout vérifier avant de nous appeler.",
       ],
     },
     {
