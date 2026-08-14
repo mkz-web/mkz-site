@@ -57,6 +57,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/referencement-seo/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/referencement-ia/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/agence-web-77/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
+    // Page outil « Empreinte d'une requête IA », générée hors Next (dépôt
+    // Projet/Mon empreinte ia, copiée dans public/empreinte-ia/ avec son
+    // llms.txt dédié). Pas de version anglaise à ce stade : arbitrage ouvert,
+    // voir le CLAUDE.md du projet source.
+    entry("/empreinte-ia/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-15" }),
     entry("/about/", "fr", { priority: 0.7, changeFrequency: "monthly" }),
     entry("/contact/", "fr", { priority: 0.6, changeFrequency: "monthly" }),
     // Les deux pages légales françaises sont passées en index, follow le

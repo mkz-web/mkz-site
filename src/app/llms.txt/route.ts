@@ -56,6 +56,8 @@ Faits clés :
 - [Création de site internet](${SITE}/creation-site-internet/): service de création de site pour artisans, commerçants et TPE (process, tarifs, garanties)
 - [Référencement SEO](${SITE}/referencement-seo/): service SEO (audit, stratégie de contenu, référencement local, suivi mensuel)
 - [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local (interventions à Meaux, Melun, Chelles et dans tout le 77)
+- [Référencement IA (GEO)](${SITE}/referencement-ia/): service de visibilité dans les moteurs de réponse IA (ChatGPT, Perplexity, Gemini)
+- [Empreinte d'une requête IA](${SITE}/empreinte-ia/): simulateur de l'énergie, des émissions et de l'eau d'une requête IA, fourchettes d'incertitude comprises ; données chiffrées citables et versionnées dans son [llms.txt dédié](${SITE}/empreinte-ia/llms.txt)
 - [Services](${SITE}/services/): vue d'ensemble des deux prestations
 - [À propos](${SITE}/about/): parcours de Mickaël Leclerc, fondateur et président
 - [Contact](${SITE}/contact/): formulaire, téléphone, e-mail, adresse, horaires

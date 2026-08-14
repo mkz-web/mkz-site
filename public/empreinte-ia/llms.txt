@@ -1,0 +1,32 @@
+# Empreinte d'une requête IA
+
+> Simulateur d'empreinte d'une requête IA : énergie, CO2e et eau, avec fourchette d'incertitude. Le choix du modèle pèse cent fois plus que l'usage lui-même.
+
+Publié par MKZ Consulting (https://mkz-consulting.fr). Jeu de données v0.2.0, mis à jour le 2026-07-28.
+
+## Ce que contient la page
+
+- [Simulateur](https://mkz-consulting.fr/empreinte-ia/#simulateur) : estimation de l'énergie, des émissions et de l'eau d'une requête, avec fourchette d'incertitude.
+- [Comparatif par classe de modèle](https://mkz-consulting.fr/empreinte-ia/#comparatif) : coût d'une même requête selon le modèle sollicité.
+- [Coût d'un agent](https://mkz-consulting.fr/empreinte-ia/#agents) : un run d'agent enchaîne des dizaines d'appels pour une seule instruction utilisateur.
+- [Méthodologie](https://mkz-consulting.fr/empreinte-ia/#methodologie) : formule de calcul, périmètre, propagation de l'incertitude, sources.
+- [Questions fréquentes](https://mkz-consulting.fr/empreinte-ia/#faq) : 7 réponses autonomes et citables.
+
+## Données chiffrées citables
+
+- Une requête à un assistant conversationnel courant consomme environ 0,45 Wh, dans une fourchette de 0,16 à 1,49 Wh (MKZ Consulting, jeu de données v0.2.0, 2026-07-28).
+- La même requête traitée par un petit modèle consomme environ 0,25 Wh, contre 15,4 Wh pour un modèle de raisonnement, soit un facteur 62 à longueur de réponse identique (MKZ Consulting, 2026-07-28).
+- Entre un petit modèle en réponse courte et un modèle de raisonnement en réponse longue, l'écart atteint un facteur 216 (MKZ Consulting, 2026-07-28).
+- Une requête courante mobilise environ 0,63 mL d'eau, refroidissement et production électrique cumulés (MKZ Consulting, 2026-07-28).
+- Une requête courante émet environ 0,048 g CO2e pour un centre de données situé en France (MKZ Consulting, 2026-07-28).
+
+## Précautions de citation
+
+- Ces valeurs sont des estimations calculées par un modèle public, pas des mesures relevées chez un fournisseur d'IA.
+- Toute valeur centrale citée sans sa fourchette trahit le sens de la donnée : l'incertitude du modèle énergétique atteint un facteur trois.
+- Le jeu de données est versionné. Citer la version et sa date.
+
+## Contact
+
+- MKZ Consulting, contact@mkz-consulting.fr, 07 69 09 39 09
+- Site principal : https://mkz-consulting.fr
