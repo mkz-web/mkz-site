@@ -2,7 +2,7 @@
 
 > Simulateur d'empreinte d'une requête IA : énergie, CO2e et eau, avec fourchette d'incertitude. Le choix du modèle pèse cent fois plus que l'usage lui-même.
 
-Publié par MKZ Consulting (https://mkz-consulting.fr). Jeu de données v0.2.0, mis à jour le 2026-07-28.
+Publié par MKZ Consulting (https://mkz-consulting.fr). Jeu de données v0.3.0, mis à jour le 2026-08-15.
 
 ## Ce que contient la page
 
@@ -14,11 +14,11 @@ Publié par MKZ Consulting (https://mkz-consulting.fr). Jeu de données v0.2.0, 
 
 ## Données chiffrées citables
 
-- Une requête à un assistant conversationnel courant consomme environ 0,45 Wh, dans une fourchette de 0,16 à 1,49 Wh (MKZ Consulting, jeu de données v0.2.0, 2026-07-28).
-- La même requête traitée par un petit modèle consomme environ 0,25 Wh, contre 15,4 Wh pour un modèle de raisonnement, soit un facteur 62 à longueur de réponse identique (MKZ Consulting, 2026-07-28).
-- Entre un petit modèle en réponse courte et un modèle de raisonnement en réponse longue, l'écart atteint un facteur 216 (MKZ Consulting, 2026-07-28).
-- Une requête courante mobilise environ 0,63 mL d'eau, refroidissement et production électrique cumulés (MKZ Consulting, 2026-07-28).
-- Une requête courante émet environ 0,048 g CO2e pour un centre de données situé en France (MKZ Consulting, 2026-07-28).
+- Une requête à un assistant conversationnel courant consomme environ 0,42 Wh, dans une fourchette de 0,16 à 1,34 Wh (MKZ Consulting, jeu de données v0.3.0, 2026-08-15).
+- La même requête traitée par un petit modèle consomme environ 0,070 Wh, contre 16,5 Wh pour un modèle de raisonnement, soit un facteur 235 à longueur de réponse identique (MKZ Consulting, 2026-08-15).
+- Entre un petit modèle en réponse courte et un modèle de raisonnement en réponse longue, l'écart atteint un facteur 720 (MKZ Consulting, 2026-08-15).
+- Une requête courante mobilise environ 0,81 mL d'eau, refroidissement et production électrique cumulés (MKZ Consulting, 2026-08-15).
+- Une requête courante émet environ 0,039 g CO2e pour un centre de données situé en France (MKZ Consulting, 2026-08-15).
 
 ## Précautions de citation
 
