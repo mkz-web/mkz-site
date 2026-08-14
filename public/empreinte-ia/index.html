@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combien consomme une requête à une IA ? Simulateur d'empreinte</title>
+<meta name="description" content="Simulateur d'empreinte d'une requête IA : énergie, CO2e et eau, avec fourchette d'incertitude. Le choix du modèle pèse cent fois plus que l'usage lui-même.">
+<link rel="canonical" href="https://mkz-consulting.fr/empreinte-ia/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MKZ Consulting">
+<meta property="og:url" content="https://mkz-consulting.fr/empreinte-ia/">
+<meta property="og:title" content="Combien consomme une requête à une IA ?">
+<meta property="og:description" content="Énergie, CO2e et eau d'une requête IA, avec la fourchette d'incertitude. Le choix du modèle pèse un facteur 216.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="MKZ Consulting">
+<meta name="theme-color" content="#2C5F7C">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mkz-consulting.fr/#organization",
+      "name": "MKZ Consulting",
+      "url": "https://mkz-consulting.fr",
+      "email": "contact@mkz-consulting.fr",
+      "telephone": "+33769093909",
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "knowsAbout": [
+        "Empreinte environnementale de l'intelligence artificielle",
+        "Sobriété numérique",
+        "Consommation énergétique des modèles de langage",
+        "Référencement génératif",
+        "Audit de consommation IA"
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://mkz-consulting.fr/empreinte-ia/#application",
+      "name": "Simulateur d'empreinte d'une requête IA",
+      "url": "https://mkz-consulting.fr/empreinte-ia/",
+      "description": "Simulateur d'empreinte d'une requête IA : énergie, CO2e et eau, avec fourchette d'incertitude. Le choix du modèle pèse cent fois plus que l'usage lui-même.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Tout navigateur web",
+      "inLanguage": "fr-FR",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@id": "https://mkz-consulting.fr/#organization"
+      },
+      "softwareVersion": "0.2.0",
+      "dateModified": "2026-07-28"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mkz-consulting.fr/empreinte-ia/#faq",
+      "inLanguage": "fr-FR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien consomme une requête à ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une requête à un assistant conversationnel comme ChatGPT consomme de l'ordre de 0,45 Wh d'électricité pour une réponse d'une demi-page, avec une fourchette réaliste de 0,16 à 1,49 Wh. C'est l'équivalent d'une ampoule LED de 9 W allumée quelques minutes. Ce chiffre dépend beaucoup moins de la marque que du modèle réellement sollicité derrière l'interface. La même question posée à un petit modèle coûte environ 0,25 Wh, alors qu'un modèle de raisonnement, qui produit une longue réflexion invisible avant de répondre, monte à 15,4 Wh, soit un facteur 62 pour une réponse de même longueur. Ces valeurs sont des estimations issues d'un modèle public, pas des mesures relevées chez un fournisseur. Aucun éditeur ne publie à ce jour la consommation réelle par requête de ses modèles en production."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi les estimations de consommation de l'IA varient-elles autant d'une source à l'autre ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les estimations de consommation de l'IA varient d'un facteur dix à cent d'une publication à l'autre pour quatre raisons cumulées : le modèle mesuré n'est presque jamais le même, le périmètre retenu diffère (calcul seul, ou calcul plus refroidissement plus fabrication des serveurs), la longueur de la réponse est rarement précisée, et le taux d'utilisation des cartes graphiques au moment de la mesure change tout. S'ajoute un cinquième facteur, plus gênant : les entreprises qui possèdent les données ne les publient pas. Les chiffres disponibles sont donc soit des mesures partielles sur des modèles ouverts, soit des communications d'éditeurs sans méthode vérifiable. C'est pourquoi toute estimation sérieuse s'affiche avec une fourchette. Un chiffre unique, présenté sans borne basse ni borne haute, indique que la personne qui le publie n'a pas mesuré l'incertitude, pas qu'elle a mesuré précisément."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Une requête à une IA consomme-t-elle vraiment de l'eau ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, mais indirectement, et en quantité très faible par requête : de l'ordre de 0,63 mL pour une requête courante, soit une fourchette de 0,078 à 5,23 mL. Une cuillère à café contient 5 mL. Cette eau se répartit sur deux postes. Le premier est le refroidissement du centre de données lui même, qui évapore de l'eau dans les installations à circuit ouvert. Le second, souvent oublié, est l'eau mobilisée pour produire l'électricité consommée : les centrales thermiques et nucléaires en utilisent beaucoup. La nuance qui compte est géographique. Une requête traitée dans un centre de données situé en zone de stress hydrique n'a pas le même impact réel qu'une requête traitée dans une région où l'eau est abondante, à consommation strictement identique. Le litre d'eau n'est pas fongible comme l'est le kilowattheure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Choisir un modèle d'IA plus petit change-t-il vraiment quelque chose ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, et c'est de très loin le levier le plus efficace. Entre un petit modèle répondant brièvement et un modèle de raisonnement produisant une réponse longue, l'écart mesuré atteint un facteur 216. À longueur de réponse identique, le seul changement de classe de modèle pèse déjà un facteur 62. Autrement dit, la question « faut-il utiliser l'IA ou non » pèse cent fois moins lourd que la question « quel modèle pour quelle tâche ». Reformuler une phrase, extraire une date ou classer un message ne demandent pas la même puissance que raisonner sur un contrat de cinquante pages, exactement comme on ne prend pas un semi remorque pour livrer une lettre. La limite à connaître est qu'un modèle trop petit qui échoue coûte deux fois : une première fois pour sa réponse inutilisable, une seconde pour la reprise sur un modèle plus grand. Le bon réflexe n'est pas de prendre systématiquement le plus petit, mais d'arrêter de prendre systématiquement le plus gros par défaut."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un agent IA consomme-t-il plus qu'une conversation classique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un agent IA consomme beaucoup plus qu'une conversation classique, parce qu'une seule demande y déclenche des dizaines d'appels au modèle au lieu d'un seul. Un agent qui lit des fichiers, appelle des outils, vérifie son travail et recommence peut enchaîner 20 à 120 appels pour une tâche que l'utilisateur perçoit comme une question unique. L'écart n'est pas dans le coût d'un appel, qui reste identique, mais dans leur nombre. Un run de 60 appels sur un modèle courant consomme autant que 60 conversations, alors que l'utilisateur n'a rédigé qu'une seule instruction. C'est le principal angle mort des compteurs d'empreinte disponibles aujourd'hui : ils observent une fenêtre de discussion, alors que le volume réel se déplace vers des agents outillés dont personne ne compte les appels intermédiaires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment mesurer la consommation d'IA de mon entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mesurer la consommation d'IA d'une entreprise demande de partir des volumes réels de tokens, et non du nombre d'utilisateurs. Trois sources suffisent à démarrer : les relevés de consommation des interfaces d'API, qui donnent les tokens d'entrée et de sortie par modèle, les journaux des applications internes qui appellent ces modèles, et l'inventaire des abonnements aux assistants grand public souscrits par les équipes. La difficulté n'est pas le calcul, qui reste une multiplication, mais la collecte : dans la plupart des organisations, une partie significative des usages passe par des comptes personnels et des abonnements payés en note de frais, totalement invisibles du système d'information. Un ordre de grandeur utile pour se lancer, entièrement vérifiable : dix personnes, dix requêtes par jour chacune, vingt jours ouvrés, environ 500 tokens par réponse, cela fait un million de tokens de sortie par mois. Sur un modèle courant, ce volume représente environ 0,85 kWh, soit 3,54 journées de box internet allumée. À cette échelle, l'empreinte de l'IA se discute encore en watt heures, pas en tonnes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il arrêter d'utiliser l'IA pour réduire son empreinte ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Arrêter d'utiliser l'IA n'est ni la réponse la plus efficace, ni la plus réaliste. L'écart entre un usage réfléchi et un usage par défaut atteint un facteur 216 sur la même tâche, quand l'écart entre utiliser l'IA et ne pas l'utiliser se compte, lui, en fractions de watt heure par requête. Le sujet est un problème de conception, pas de renoncement. Choisir la bonne classe de modèle pour chaque tâche, limiter la longueur des réponses générées, éviter de relancer un agent complet pour une correction de virgule et arbitrer la région d'hébergement produisent des gains immédiats, sans rien retirer aux équipes. La comparaison honnête doit d'ailleurs intégrer ce que l'usage remplace. Vingt minutes de recherche documentaire sur un ordinateur portable de 30 W consomment 10 Wh, soit environ 22 fois une requête courante. L'enjeu n'est pas de faire moins, il est de ne pas faire n'importe comment."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* ------------------------------------------------------------------------
+   Direction artistique : instrument de mesure.
+   La page a l'allure d'un appareil, pas d'une brochure. Le graphisme porte
+   l'incertitude : un indicateur sans ses deux bornes est impossible a
+   dessiner ici. Polices systeme uniquement, aucune requete reseau.
+   ------------------------------------------------------------------------ */
+
+:root {
+  --encre: #10202A;
+  --encre-doux: #46606E;
+  --bleu: #2C5F7C;
+  --bleu-fonce: #1E4459;
+  --bleu-pale: #E3EDF2;
+  --bleu-bande: #5B8FA8;
+  --papier: #F7FAFB;
+  --blanc: #FFFFFF;
+  --repere: #B8621B;
+  --repere-texte: #9A5216;
+  --filet: #C9D8E0;
+
+  --ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", monospace;
+
+  --largeur: 72rem;
+  --lecture: 44rem;
+  --rayon: 3px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--ui);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.6em; font-weight: 650; letter-spacing: -0.01em; }
+h1 { font-size: clamp(1.85rem, 1.25rem + 2.6vw, 3rem); letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); letter-spacing: -0.02em; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--bleu-fonce); text-underline-offset: 2px; }
+a:hover { color: var(--repere-texte); }
+
+:focus-visible {
+  outline: 3px solid var(--repere);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+.contenu { width: 100%; max-width: var(--largeur); margin: 0 auto; padding: 0 1.15rem; }
+.lecture { max-width: var(--lecture); }
+.discret { color: var(--encre-doux); font-size: 0.9rem; }
+.saut { position: absolute; left: -9999px; }
+.saut:focus { position: static; display: inline-block; padding: 0.5rem 1rem; background: var(--bleu); color: var(--blanc); }
+
+/* ----------------------------------------------------------------- entete */
+
+.entete {
+  background: var(--blanc);
+  border-bottom: 1px solid var(--filet);
+}
+.entete-barre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.marque {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--encre);
+  font-size: 1.05rem;
+}
+.marque span { color: var(--bleu); }
+.entete-version {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.775rem;
+  color: var(--encre-doux);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+}
+
+.bandeau-statut {
+  background: #FCF4EC;
+  border-bottom: 1px solid #E8D3BC;
+  color: #6E4415;
+  font-size: 0.85rem;
+}
+.bandeau-statut div { padding: 0.5rem 1.15rem; }
+.bandeau-statut strong { font-weight: 650; }
+
+/* --------------------------------------------------------------- sections */
+
+section { padding: clamp(2.5rem, 1.5rem + 4vw, 5rem) 0; }
+section + section { border-top: 1px solid var(--filet); }
+.section-titre::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  background: var(--bleu);
+  margin-bottom: 1.1rem;
+}
+.section-chapeau { color: var(--encre-doux); font-size: 1.075rem; max-width: var(--lecture); }
+
+/* ------------------------------------------------------------- simulateur */
+
+.simulateur { padding-top: clamp(2rem, 1rem + 3vw, 3.5rem); }
+.accroche { max-width: 34ch; }
+.sous-accroche {
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  color: var(--encre-doux);
+  max-width: var(--lecture);
+  margin-bottom: 2rem;
+}
+.sous-accroche strong { color: var(--encre); font-weight: 650; }
+
+.cartouche {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-top: 4px solid var(--bleu);
+  border-radius: var(--rayon);
+  box-shadow: 0 1px 2px rgba(16, 32, 42, 0.04), 0 8px 24px -12px rgba(16, 32, 42, 0.15);
+}
+.cartouche-corps { padding: clamp(1.1rem, 0.7rem + 1.4vw, 2rem); }
+.cartouche-pied {
+  padding: 0.85rem clamp(1.1rem, 0.7rem + 1.4vw, 2rem);
+  border-top: 1px solid var(--filet);
+  background: #FBFDFD;
+  border-radius: 0 0 var(--rayon) var(--rayon);
+  font-size: 0.85rem;
+  color: var(--encre-doux);
+}
+
+.champ-libelle {
+  display: block;
+  font-weight: 650;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--encre);
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  resize: vertical;
+}
+textarea:hover { border-color: var(--bleu-bande); }
+
+.compteur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--encre-doux);
+}
+.compteur b { color: var(--encre); font-weight: 600; }
+
+.reglages {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 46rem) {
+  .reglages { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+}
+
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend {
+  padding: 0;
+  font-weight: 650;
+  font-size: 0.9rem;
+  margin-bottom: 0.45rem;
+}
+.options { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.options input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.options label {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  background: var(--papier);
+  color: var(--encre-doux);
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.options label:hover { border-color: var(--bleu-bande); color: var(--encre); }
+.options input:checked + label {
+  background: var(--bleu);
+  border-color: var(--bleu);
+  color: var(--blanc);
+  font-weight: 600;
+}
+.options input:focus-visible + label {
+  outline: 3px solid var(--repere);
+  outline-offset: 2px;
+}
+.reglage-note { margin: 0.45rem 0 0; font-size: 0.8rem; color: var(--encre-doux); }
+
+/* ------------------------------------------------------------ indicateurs */
+
+.indicateurs {
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 1.9rem;
+  padding-top: 1.7rem;
+  border-top: 4px solid var(--bleu-pale);
+}
+@media (min-width: 52rem) {
+  .indicateurs { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+.indicateur-titre {
+  margin: 0 0 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--encre-doux);
+}
+/* Chiffre principal en police d'interface, pas en mono : a cette taille, la
+   chasse fixe de la mono creuse un trou beant autour de la virgule. Les
+   chiffres tabulaires suffisent a empecher la valeur de danser. */
+.indicateur-valeur {
+  margin: 0;
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.indicateur-valeur .unite {
+  font-size: 0.42em;
+  font-weight: 500;
+  color: var(--encre-doux);
+  margin-left: 0.3em;
+  letter-spacing: 0;
+}
+.indicateur-fourchette {
+  margin: 0.55rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--encre-doux);
+}
+.indicateur-equivalence {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--encre);
+  border-left: 3px solid var(--bleu-pale);
+  padding-left: 0.6rem;
+}
+
+/* --------------------------------------------------- jauge, element signature */
+
+.jauge { display: block; margin-top: 0.85rem; }
+.jauge-piste {
+  position: relative;
+  display: block;
+  height: 14px;
+  background: #EDF3F6;
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(var(--pas, 20%) - 1px),
+    #D3E1E9 calc(var(--pas, 20%) - 1px),
+    #D3E1E9 var(--pas, 20%)
+  );
+  border: 1px solid var(--filet);
+  border-radius: 2px;
+}
+.jauge-bande {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 2px;
+  background: var(--bleu-bande);
+  transition: left 0.18s ease, width 0.18s ease;
+}
+.jauge-repere {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--repere);
+  box-shadow: 0 0 0 1.5px var(--blanc);
+  transition: left 0.18s ease;
+}
+.jauge-axe {
+  position: relative;
+  display: block;
+  height: 1.25rem;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--encre-doux);
+}
+.axe-graduation {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.axe-graduation--debut { transform: translateX(0); }
+.axe-graduation--fin { transform: translateX(-100%); }
+.axe-graduation--debut::before { left: 0; }
+.axe-graduation--fin::before { left: auto; right: 0; }
+.axe-graduation::before {
+  content: "";
+  position: absolute;
+  top: -0.45rem;
+  left: 50%;
+  width: 1px;
+  height: 0.3rem;
+  background: var(--filet);
+}
+
+/* --------------------------------------------------------------- tableau */
+
+.tableau-cadre { overflow-x: auto; margin-top: 2rem; }
+.tableau-comparatif {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+}
+.tableau-comparatif caption {
+  caption-side: bottom;
+  padding-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--encre-doux);
+  text-align: left;
+}
+.tableau-comparatif th, .tableau-comparatif td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--filet);
+}
+.tableau-comparatif thead th {
+  background: var(--bleu);
+  color: var(--blanc);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-bottom: 0;
+}
+.tableau-comparatif tbody tr:last-child th,
+.tableau-comparatif tbody tr:last-child td { border-bottom: 0; }
+.tableau-comparatif tbody tr:nth-child(odd) { background: #FCFDFE; }
+.tableau-comparatif tbody th { font-weight: 650; width: 15rem; }
+.ligne-titre { display: block; }
+.ligne-detail {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--encre-doux);
+  margin-top: 0.15rem;
+}
+.cellule-mesure .valeur {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.cellule-mesure .unite { font-size: 0.7em; font-weight: 500; color: var(--encre-doux); }
+.cellule-mesure .fourchette {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  color: var(--encre-doux);
+}
+.cellule-mesure .jauge { margin-top: 0.5rem; }
+.cellule-mesure .jauge-piste { height: 10px; }
+
+/* ---------------------------------------------------------------- encarts */
+
+.encarts { display: grid; gap: 1.1rem; margin-top: 2rem; }
+@media (min-width: 46rem) { .encarts { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 62rem) { .encarts.quatre { grid-template-columns: repeat(2, 1fr); } }
+
+.encart {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-left: 4px solid var(--bleu);
+  border-radius: var(--rayon);
+  padding: 1.15rem 1.25rem;
+}
+.encart h3 { margin-bottom: 0.4rem; }
+.encart p { font-size: 0.95rem; }
+.encart-chiffre {
+  display: block;
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--bleu-fonce);
+  margin-bottom: 0.35rem;
+}
+.encart.accent { border-left-color: var(--repere); }
+.encart.accent .encart-chiffre { color: var(--repere-texte); }
+
+/* ----------------------------------------------------------------- agents */
+
+.agent-panneau { margin-top: 2rem; }
+.curseur-ligne { display: grid; gap: 0.6rem; }
+input[type="range"] {
+  width: 100%;
+  height: 2.75rem;
+  accent-color: var(--bleu);
+  cursor: pointer;
+}
+.curseur-valeur {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+/* Seul le mot "appels" est reduit, pas le nombre : sans le :not, la regle
+   rapetissait aussi la valeur. */
+.curseur-valeur span:not([data-champ]) {
+  font-size: 0.55em;
+  color: var(--encre-doux);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.agent-resultats {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.7rem;
+  padding-top: 1.5rem;
+  border-top: 4px solid var(--bleu-pale);
+}
+@media (min-width: 46rem) { .agent-resultats { grid-template-columns: 1fr 1fr; } }
+
+/* -------------------------------------------------------------- sources */
+
+.sources { margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.sources li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--filet);
+  font-size: 0.95rem;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources b { font-weight: 650; }
+.sources span { display: block; color: var(--encre-doux); font-size: 0.875rem; }
+
+/* ------------------------------------------------------------------- FAQ */
+
+.faq-liste { margin-top: 1.8rem; max-width: var(--lecture); }
+.faq-item {
+  background: var(--blanc);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  margin-bottom: 0.6rem;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--bleu);
+  flex: none;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item summary h3 { margin: 0; font-size: 1rem; font-weight: 650; }
+.faq-item summary:hover h3 { color: var(--bleu-fonce); }
+.faq-reponse { padding: 0 1.1rem 1.1rem; }
+.faq-reponse p { font-size: 0.97rem; color: #1B3140; }
+.faq-reponse p:not(:last-child) { margin-bottom: 0.8rem; }
+
+/* ------------------------------------------------------------------ pied */
+
+.pied {
+  background: var(--bleu-fonce);
+  color: #D8E6EE;
+  padding: clamp(2.5rem, 1.5rem + 3vw, 4rem) 0 2rem;
+}
+.pied h2 { color: var(--blanc); }
+.pied a { color: var(--blanc); }
+.pied-offre { max-width: var(--lecture); }
+.pied-coordonnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid rgba(216, 230, 238, 0.25);
+  font-size: 0.95rem;
+}
+.pied-mentions {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(216, 230, 238, 0.25);
+  font-size: 0.83rem;
+  color: #B4CBD8;
+  max-width: 60rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<a class="saut" href="#simulateur">Aller au simulateur</a>
+
+<header class="entete">
+  <div class="contenu entete-barre">
+    <a class="marque" href="https://mkz-consulting.fr">MKZ <span>Consulting</span></a>
+    <span class="entete-version" title="Version du jeu de données utilisé pour tous les calculs de cette page">jeu de données v0.2.0 · 28 juillet 2026</span>
+  </div>
+</header>
+
+<div class="bandeau-statut">
+  <div class="contenu">
+    <strong>Jeu de données de préfiguration.</strong> Les coefficients de la version 0.2.0 sont dérivés de chiffres publics et n'ont pas encore été remplacés par un jeu sourcé pièce par pièce. Les ordres de grandeur sont exploitables, les valeurs exactes ne sont pas opposables.
+  </div>
+</div>
+
+<main>
+
+<section class="simulateur" id="simulateur">
+  <div class="contenu">
+    <h1 class="accroche">Combien consomme une requête à une IA&nbsp;?</h1>
+    <p class="sous-accroche">Ce simulateur ne vous dira pas d'arrêter d'utiliser l'IA. Il montre une chose plus utile&nbsp;: entre le modèle le plus léger et le plus lourd, l'écart atteint <strong>un facteur 216</strong> sur la même tâche. Le sujet est un problème de conception, pas de renoncement.</p>
+
+    <div class="cartouche">
+      <div class="cartouche-corps">
+        <label class="champ-libelle" for="requete">Votre requête</label>
+        <textarea id="requete" rows="3" spellcheck="false">Rédige un compte rendu de la réunion de lancement à partir de mes notes, en dégageant les décisions prises et les points restés en suspens.</textarea>
+        <p class="compteur" id="compteur">
+          <span>entrée <b data-champ="tokens-in">39</b> tokens</span>
+          <span>sortie <b data-champ="tokens-out">500</b> tokens</span>
+          <span data-champ="tokens-caches"></span>
+        </p>
+
+        <div class="reglages">
+          <fieldset id="reglage-modele">
+            <legend>Classe de modèle</legend>
+            <div class="options"><input type="radio" name="modele" id="modele-petit" value="petit"><label for="modele-petit">Petit modèle</label><input type="radio" name="modele" id="modele-moyen" value="moyen" checked><label for="modele-moyen">Modèle courant</label><input type="radio" name="modele" id="modele-grand" value="grand"><label for="modele-grand">Grand modèle</label><input type="radio" name="modele" id="modele-raisonnement" value="raisonnement"><label for="modele-raisonnement">Modèle de raisonnement</label></div>
+            <p class="reglage-note" data-champ="note-modele">GPT-4o, Gemini Pro, Claude Sonnet, Mistral Large</p>
+          </fieldset>
+
+          <fieldset id="reglage-region">
+            <legend>Région du centre de données</legend>
+            <div class="options"><input type="radio" name="region" id="region-fr" value="fr" checked><label for="region-fr">France</label><input type="radio" name="region" id="region-eu" value="eu"><label for="region-eu">Union européenne</label><input type="radio" name="region" id="region-us" value="us"><label for="region-us">États-Unis</label><input type="radio" name="region" id="region-monde" value="monde"><label for="region-monde">Moyenne mondiale</label></div>
+            <p class="reglage-note" data-champ="note-region">Mix majoritairement nucléaire et renouvelable</p>
+          </fieldset>
+
+          <fieldset id="reglage-longueur">
+            <legend>Longueur de la réponse</legend>
+            <div class="options"><input type="radio" name="longueur" id="longueur-courte" value="courte"><label for="longueur-courte">Courte</label><input type="radio" name="longueur" id="longueur-standard" value="standard" checked><label for="longueur-standard">Standard</label><input type="radio" name="longueur" id="longueur-longue" value="longue"><label for="longueur-longue">Longue</label></div>
+            <p class="reglage-note">Une réponse longue coûte proportionnellement plus cher&nbsp;: ce sont les tokens produits qui pèsent.</p>
+          </fieldset>
+        </div>
+
+        <div class="indicateurs" id="indicateurs"><article class="indicateur" data-indicateur="energyWh" data-echelle="energyWh"><h3 class="indicateur-titre">Énergie</h3><p class="indicateur-valeur"><span data-champ="valeur">0,45</span><span class="unite">Wh</span></p><span class="jauge" role="img" aria-label="Énergie : 0,45 Wh, fourchette de 0,16 à 1,49 Wh"><span class="jauge-piste" style="--pas:20.0000%"><span class="jauge-bande" style="left:23.89%;width:19.60%"></span><span class="jauge-repere" style="left:33.05%"></span></span></span><span class="jauge-axe" aria-hidden="true"><span class="axe-graduation axe-graduation--debut" style="left:0.00%">0,01</span><span class="axe-graduation" style="left:40.00%">1</span><span class="axe-graduation" style="left:80.00%">100</span><span class="axe-graduation axe-graduation--fin" style="left:100.00%">1k</span></span><p class="indicateur-fourchette">de <span data-champ="min">0,16</span> à <span data-champ="max">1,49</span> Wh</p><p class="indicateur-equivalence" data-champ="equivalence">soit 2,99 minutes d'ampoule LED allumée</p></article>
+<article class="indicateur" data-indicateur="co2eG" data-echelle="co2eG"><h3 class="indicateur-titre">Émissions</h3><p class="indicateur-valeur"><span data-champ="valeur">0,048</span><span class="unite">g CO2e</span></p><span class="jauge" role="img" aria-label="Émissions : 0,048 g CO2e, fourchette de 0,0070 à 0,33 g CO2e"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:14.13%;width:27.82%"></span><span class="jauge-repere" style="left:27.96%"></span></span></span><span class="jauge-axe" aria-hidden="true"><span class="axe-graduation axe-graduation--debut" style="left:0.00%">0,001</span><span class="axe-graduation" style="left:33.33%">0,1</span><span class="axe-graduation" style="left:66.67%">10</span><span class="axe-graduation axe-graduation--fin" style="left:100.00%">1k</span></span><p class="indicateur-fourchette">de <span data-champ="min">0,0070</span> à <span data-champ="max">0,33</span> g CO2e</p><p class="indicateur-equivalence" data-champ="equivalence">soit 0,25 mètre parcouru en voiture thermique</p></article>
+<article class="indicateur" data-indicateur="waterMl" data-echelle="waterMl"><h3 class="indicateur-titre">Eau</h3><p class="indicateur-valeur"><span data-champ="valeur">0,63</span><span class="unite">mL</span></p><span class="jauge" role="img" aria-label="Eau : 0,63 mL, fourchette de 0,078 à 5,23 mL"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:14.89%;width:30.42%"></span><span class="jauge-repere" style="left:29.98%"></span></span></span><span class="jauge-axe" aria-hidden="true"><span class="axe-graduation axe-graduation--debut" style="left:0.00%">0,01</span><span class="axe-graduation" style="left:33.33%">1</span><span class="axe-graduation" style="left:66.67%">100</span><span class="axe-graduation axe-graduation--fin" style="left:100.00%">10k</span></span><p class="indicateur-fourchette">de <span data-champ="min">0,078</span> à <span data-champ="max">5,23</span> mL</p><p class="indicateur-equivalence" data-champ="equivalence">soit 0,13 cuillère à café d'eau</p></article></div>
+      </div>
+      <p class="cartouche-pied">Estimation, pas mesure. Les valeurs centrales s'accompagnent toujours de leur fourchette&nbsp;: l'incertitude du modèle énergétique atteint un facteur trois. Aucune donnée saisie ici ne quitte votre navigateur, et rien n'est enregistré.</p>
+    </div>
+  </div>
+</section>
+
+<section id="comparatif">
+  <div class="contenu">
+    <h2 class="section-titre">Le logo ne change rien, le modèle change tout</h2>
+    <p class="section-chapeau">La marque affichée sur l'interface ne dit rien de ce qui tourne derrière. Voici le coût d'une même requête, réponse d'une demi-page, selon ce qui la traite réellement.</p>
+
+    <div class="tableau-cadre">
+<table class="tableau-comparatif">
+<caption>Coût comparé d'une même requête selon le modèle sollicité, réponse d'une demi-page, centre de données en France. Valeur centrale et fourchette d'incertitude.</caption>
+<thead><tr>
+<th scope="col">Ce qui traite la requête</th>
+<th scope="col">Énergie</th>
+<th scope="col">Émissions</th>
+<th scope="col">Eau</th>
+</tr></thead>
+<tbody><tr><th scope="row"><span class="ligne-titre">Recherche web classique</span><span class="ligne-detail">Repère hors modèle de langage</span></th><td class="cellule-mesure"><span class="valeur">0,30<span class="unite"> Wh</span></span><span class="jauge" role="img" aria-label="Énergie, Recherche web classique : 0,30 Wh, fourchette de 0,15 à 0,60 Wh"><span class="jauge-piste" style="--pas:20.0000%"><span class="jauge-bande" style="left:23.52%;width:12.04%"></span><span class="jauge-repere" style="left:29.54%"></span></span></span><span class="fourchette">0,15 à 0,60</span></td><td class="cellule-mesure"><span class="valeur">0,032<span class="unite"> g</span></span><span class="jauge" role="img" aria-label="Émissions, Recherche web classique : 0,032 g, fourchette de 0,0067 à 0,13 g"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:13.82%;width:21.52%"></span><span class="jauge-repere" style="left:25.04%"></span></span></span><span class="fourchette">0,0067 à 0,13</span></td><td class="cellule-mesure"><span class="valeur">0,42<span class="unite"> mL</span></span><span class="jauge" role="img" aria-label="Eau, Recherche web classique : 0,42 mL, fourchette de 0,075 à 2,10 mL"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:14.58%;width:24.12%"></span><span class="jauge-repere" style="left:27.05%"></span></span></span><span class="fourchette">0,075 à 2,10</span></td></tr>
+<tr><th scope="row"><span class="ligne-titre">Petit modèle</span><span class="ligne-detail">GPT-4o mini, Gemini Flash, Mistral Small, Llama 3 8B<br>500 tokens produits</span></th><td class="cellule-mesure"><span class="valeur">0,25<span class="unite"> Wh</span></span><span class="jauge" role="img" aria-label="Énergie, Petit modèle : 0,25 Wh, fourchette de 0,096 à 0,64 Wh"><span class="jauge-piste" style="--pas:20.0000%"><span class="jauge-bande" style="left:19.63%;width:16.43%"></span><span class="jauge-repere" style="left:27.86%"></span></span></span><span class="fourchette">0,096 à 0,64</span></td><td class="cellule-mesure"><span class="valeur">0,026<span class="unite"> g</span></span><span class="jauge" role="img" aria-label="Émissions, Petit modèle : 0,026 g, fourchette de 0,0043 à 0,14 g"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:10.58%;width:25.18%"></span><span class="jauge-repere" style="left:23.64%"></span></span></span><span class="fourchette">0,0043 à 0,14</span></td><td class="cellule-mesure"><span class="valeur">0,35<span class="unite"> mL</span></span><span class="jauge" role="img" aria-label="Eau, Petit modèle : 0,35 mL, fourchette de 0,048 à 2,22 mL"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:11.34%;width:27.77%"></span><span class="jauge-repere" style="left:25.65%"></span></span></span><span class="fourchette">0,048 à 2,22</span></td></tr>
+<tr><th scope="row"><span class="ligne-titre">Modèle courant</span><span class="ligne-detail">GPT-4o, Gemini Pro, Claude Sonnet, Mistral Large<br>500 tokens produits</span></th><td class="cellule-mesure"><span class="valeur">0,45<span class="unite"> Wh</span></span><span class="jauge" role="img" aria-label="Énergie, Modèle courant : 0,45 Wh, fourchette de 0,16 à 1,49 Wh"><span class="jauge-piste" style="--pas:20.0000%"><span class="jauge-bande" style="left:23.89%;width:19.60%"></span><span class="jauge-repere" style="left:33.05%"></span></span></span><span class="fourchette">0,16 à 1,49</span></td><td class="cellule-mesure"><span class="valeur">0,048<span class="unite"> g</span></span><span class="jauge" role="img" aria-label="Émissions, Modèle courant : 0,048 g, fourchette de 0,0070 à 0,33 g"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:14.13%;width:27.82%"></span><span class="jauge-repere" style="left:27.96%"></span></span></span><span class="fourchette">0,0070 à 0,33</span></td><td class="cellule-mesure"><span class="valeur">0,63<span class="unite"> mL</span></span><span class="jauge" role="img" aria-label="Eau, Modèle courant : 0,63 mL, fourchette de 0,078 à 5,23 mL"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:14.89%;width:30.42%"></span><span class="jauge-repere" style="left:29.98%"></span></span></span><span class="fourchette">0,078 à 5,23</span></td></tr>
+<tr><th scope="row"><span class="ligne-titre">Grand modèle</span><span class="ligne-detail">GPT-4.5, Claude Opus, Llama 3 405B<br>500 tokens produits</span></th><td class="cellule-mesure"><span class="valeur">1,43<span class="unite"> Wh</span></span><span class="jauge" role="img" aria-label="Énergie, Grand modèle : 1,43 Wh, fourchette de 0,46 à 4,37 Wh"><span class="jauge-piste" style="--pas:20.0000%"><span class="jauge-bande" style="left:33.24%;width:19.57%"></span><span class="jauge-repere" style="left:43.13%"></span></span></span><span class="fourchette">0,46 à 4,37</span></td><td class="cellule-mesure"><span class="valeur">0,15<span class="unite"> g</span></span><span class="jauge" role="img" aria-label="Émissions, Grand modèle : 0,15 g, fourchette de 0,021 à 0,96 g"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:21.92%;width:27.79%"></span><span class="jauge-repere" style="left:36.36%"></span></span></span><span class="fourchette">0,021 à 0,96</span></td><td class="cellule-mesure"><span class="valeur">2,01<span class="unite"> mL</span></span><span class="jauge" role="img" aria-label="Eau, Grand modèle : 2,01 mL, fourchette de 0,23 à 15,3 mL"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:22.69%;width:30.39%"></span><span class="jauge-repere" style="left:38.38%"></span></span></span><span class="fourchette">0,23 à 15,3</span></td></tr>
+<tr><th scope="row"><span class="ligne-titre">Modèle de raisonnement</span><span class="ligne-detail">o3, Gemini Thinking, DeepSeek R1, Claude en mode réflexion<br>5 500 tokens produits, dont 5 000 jamais affichés</span></th><td class="cellule-mesure"><span class="valeur">15,4<span class="unite"> Wh</span></span><span class="jauge" role="img" aria-label="Énergie, Modèle de raisonnement : 15,4 Wh, fourchette de 4,96 à 46,9 Wh"><span class="jauge-piste" style="--pas:20.0000%"><span class="jauge-bande" style="left:53.91%;width:19.51%"></span><span class="jauge-repere" style="left:63.77%"></span></span></span><span class="fourchette">4,96 à 46,9</span></td><td class="cellule-mesure"><span class="valeur">1,64<span class="unite"> g</span></span><span class="jauge" role="img" aria-label="Émissions, Modèle de raisonnement : 1,64 g, fourchette de 0,22 à 10,3 g"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:39.14%;width:27.74%"></span><span class="jauge-repere" style="left:53.56%"></span></span></span><span class="fourchette">0,22 à 10,3</span></td><td class="cellule-mesure"><span class="valeur">21,6<span class="unite"> mL</span></span><span class="jauge" role="img" aria-label="Eau, Modèle de raisonnement : 21,6 mL, fourchette de 2,48 à 164 mL"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:39.91%;width:30.34%"></span><span class="jauge-repere" style="left:55.58%"></span></span></span><span class="fourchette">2,48 à 164</span></td></tr></tbody>
+</table>
+</div>
+
+    <div class="encarts">
+      <div class="encart accent">
+        <h3>Le facteur cent</h3>
+        <span class="encart-chiffre">&times;216</span>
+        <p>Entre un petit modèle répondant brièvement et un modèle de raisonnement produisant une réponse longue, l'écart mesuré atteint un facteur 216. À longueur de réponse identique, le seul changement de classe pèse déjà un facteur 62. Aucun autre levier n'approche ce rendement.</p>
+      </div>
+      <div class="encart">
+        <h3>Le bon modèle suffit</h3>
+        <span class="encart-chiffre">&minus;27,8&nbsp;%</span>
+        <p>Une étude publiée en octobre 2025 estime que généraliser le bon choix de modèle, tâche par tâche, réduirait la consommation mondiale de l'IA de 27,8&nbsp;%. Sans réduire aucun usage, sans renoncer à aucune fonctionnalité. Le gain vient du dimensionnement, pas de la privation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="contenu">
+    <h2 class="section-titre">Vous ne faites plus une requête, vous lancez un agent</h2>
+    <p class="section-chapeau">Les compteurs d'empreinte existants observent une fenêtre de discussion. Le volume réel, lui, s'est déplacé vers des agents outillés qui enchaînent des dizaines d'appels pour une seule instruction. Personne ne compte les appels intermédiaires.</p>
+
+    <div class="cartouche agent-panneau">
+      <div class="cartouche-corps">
+        <div class="curseur-ligne">
+          <label class="champ-libelle" for="appels">Appels au modèle dans un seul run d'agent</label>
+          <p class="curseur-valeur"><span data-champ="appels-valeur">40</span> <span>appels</span></p>
+          <input type="range" id="appels" min="1" max="120" step="1" value="40"
+                 aria-describedby="appels-aide">
+          <p class="reglage-note" id="appels-aide">Un agent qui lit des fichiers, appelle des outils, vérifie son travail et recommence dépasse couramment cinquante appels. L'utilisateur, lui, n'a écrit qu'une phrase.</p>
+        </div>
+        <div class="agent-resultats" id="agent-resultats"><article class="indicateur" data-agent="energyWh" data-echelle="energyWhRun"><h3 class="indicateur-titre">Énergie du run complet</h3><p class="indicateur-valeur"><span data-champ="valeur">18,0</span><span class="unite">Wh</span></p><span class="jauge" role="img" aria-label="Énergie du run complet : 18,0 Wh, fourchette de 6,26 à 59,7 Wh"><span class="jauge-piste" style="--pas:16.6667%"><span class="jauge-bande" style="left:29.94%;width:16.33%"></span><span class="jauge-repere" style="left:37.57%"></span></span></span><span class="jauge-axe" aria-hidden="true"><span class="axe-graduation axe-graduation--debut" style="left:0.00%">0,1</span><span class="axe-graduation" style="left:33.33%">10</span><span class="axe-graduation" style="left:66.67%">1k</span><span class="axe-graduation axe-graduation--fin" style="left:100.00%">100k</span></span><p class="indicateur-fourchette">de <span data-champ="min">6,26</span> à <span data-champ="max">59,7</span> Wh</p><p class="indicateur-equivalence" data-champ="equivalence">soit 1,50 charge complète de smartphone</p></article>
+<article class="indicateur" data-agent="co2eG" data-echelle="co2eGRun"><h3 class="indicateur-titre">Émissions du run complet</h3><p class="indicateur-valeur"><span data-champ="valeur">1,90</span><span class="unite">g CO2e</span></p><span class="jauge" role="img" aria-label="Émissions du run complet : 1,90 g CO2e, fourchette de 0,28 à 13,1 g CO2e"><span class="jauge-piste" style="--pas:14.2857%"><span class="jauge-bande" style="left:20.71%;width:23.84%"></span><span class="jauge-repere" style="left:32.57%"></span></span></span><span class="jauge-axe" aria-hidden="true"><span class="axe-graduation axe-graduation--debut" style="left:0.00%">0,01</span><span class="axe-graduation" style="left:28.57%">1</span><span class="axe-graduation" style="left:57.14%">100</span><span class="axe-graduation" style="left:85.71%">10k</span><span class="axe-graduation axe-graduation--fin" style="left:100.00%">100k</span></span><p class="indicateur-fourchette">de <span data-champ="min">0,28</span> à <span data-champ="max">13,1</span> g CO2e</p><p class="indicateur-equivalence" data-champ="equivalence">soit 0,79 kilomètre parcouru en TGV</p></article></div>
+      </div>
+      <p class="cartouche-pied">Le calcul reprend la requête, le modèle et la région choisis dans le simulateur ci-dessus. Changez de classe de modèle et regardez ce que devient le total.</p>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="contenu">
+    <h2 class="section-titre">Méthodologie</h2>
+    <p class="section-chapeau">Tout est calculé dans votre navigateur, à partir d'un jeu de coefficients versionné et publié avec la page. Voici ce qui entre dans le calcul, et ce qui n'y entre pas.</p>
+
+    <div class="encarts quatre">
+      <div class="encart">
+        <h3>Impacts d'usage</h3>
+        <p>L'électricité consommée par les serveurs pendant le traitement de la requête, à laquelle s'ajoute un surcoût fixe couvrant le routage, l'orchestration et les serveurs hors calcul. Ce surcoût existe même pour une requête d'un seul mot&nbsp;: une requête ne coûte jamais zéro.</p>
+      </div>
+      <div class="encart">
+        <h3>Impacts de fabrication</h3>
+        <p>La fabrication des serveurs, des cartes graphiques et du bâtiment, amortie sur la durée de vie du matériel et ramenée à l'énergie consommée. Ce poste ne dépend pas de la région&nbsp;: une carte fabriquée à Taïwan porte le même sac à dos où qu'elle tourne ensuite.</p>
+      </div>
+      <div class="encart">
+        <h3>Le prefill n'est pas le decode</h3>
+        <p>Les tokens de votre question sont traités en parallèle, ceux de la réponse sont produits un par un. Un token d'entrée coûte donc environ un huitième d'un token de sortie. Additionner les deux au même tarif, comme le font la plupart des compteurs, surestime lourdement le poids de la question.</p>
+      </div>
+      <div class="encart">
+        <h3>Propagation de l'incertitude</h3>
+        <p>Chaque coefficient est un triplet minimum, central, maximum. Les trois branches sont calculées séparément jusqu'à l'affichage. C'est pourquoi aucune valeur n'apparaît ici sans ses deux bornes&nbsp;: un chiffre unique laisserait croire à une précision qui n'existe pas.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Sources de référence du domaine</h3>
+    <p class="lecture discret">Ces travaux font autorité sur le sujet et constituent la cible de sourçage du jeu de données. La version 0.2.0 publiée aujourd'hui en dérive les ordres de grandeur sans encore reprendre leurs coefficients pièce par pièce.</p>
+    <ul class="sources lecture">
+      <li><b>Google</b> <span>Mesure de la consommation d'une requête Gemini, publiée en août 2025. Première communication d'un éditeur majeur assortie d'un périmètre explicite.</span></li>
+      <li><b>OpenAI</b> <span>Chiffre public communiqué sans méthode ni périmètre vérifiables. Cité pour mémoire, inutilisable tel quel dans un calcul.</span></li>
+      <li><b>Mistral AI</b> <span>Analyse de cycle de vie de Mistral Large 2, juillet 2025. Rare publication couvrant entraînement, inférence et fabrication.</span></li>
+      <li><b>EcoLogits et GenAI Impact</b> <span>Méthodologie ouverte d'estimation des impacts de l'inférence, avec coefficients par famille de modèles. Cible principale de sourçage.</span></li>
+      <li><b>Boavizta</b> <span>Référentiel ouvert d'impacts de fabrication du matériel numérique, utilisé pour la part amortie.</span></li>
+      <li><b>RTE éCO2mix</b> <span>Facteur d'émission du réseau électrique français en temps réel. Non branché dans cette version&nbsp;: les facteurs régionaux sont fixes.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="contenu">
+    <h2 class="section-titre">Questions fréquentes</h2>
+    <p class="section-chapeau">Chaque réponse est rédigée pour rester juste sortie de son contexte.</p>
+    <div class="faq-liste"><details class="faq-item" id="faq-combien-consomme-chatgpt"><summary><h3>Combien consomme une requête à ChatGPT ?</h3></summary><div class="faq-reponse"><p>Une requête à un assistant conversationnel comme ChatGPT consomme de l'ordre de 0,45 Wh d'électricité pour une réponse d'une demi-page, avec une fourchette réaliste de 0,16 à 1,49 Wh. C'est l'équivalent d'une ampoule LED de 9 W allumée quelques minutes.</p><p>Ce chiffre dépend beaucoup moins de la marque que du modèle réellement sollicité derrière l'interface. La même question posée à un petit modèle coûte environ 0,25 Wh, alors qu'un modèle de raisonnement, qui produit une longue réflexion invisible avant de répondre, monte à 15,4 Wh, soit un facteur 62 pour une réponse de même longueur.</p><p>Ces valeurs sont des estimations issues d'un modèle public, pas des mesures relevées chez un fournisseur. Aucun éditeur ne publie à ce jour la consommation réelle par requête de ses modèles en production.</p></div></details>
+<details class="faq-item" id="faq-pourquoi-les-estimations-varient"><summary><h3>Pourquoi les estimations de consommation de l'IA varient-elles autant d'une source à l'autre ?</h3></summary><div class="faq-reponse"><p>Les estimations de consommation de l'IA varient d'un facteur dix à cent d'une publication à l'autre pour quatre raisons cumulées : le modèle mesuré n'est presque jamais le même, le périmètre retenu diffère (calcul seul, ou calcul plus refroidissement plus fabrication des serveurs), la longueur de la réponse est rarement précisée, et le taux d'utilisation des cartes graphiques au moment de la mesure change tout.</p><p>S'ajoute un cinquième facteur, plus gênant : les entreprises qui possèdent les données ne les publient pas. Les chiffres disponibles sont donc soit des mesures partielles sur des modèles ouverts, soit des communications d'éditeurs sans méthode vérifiable.</p><p>C'est pourquoi toute estimation sérieuse s'affiche avec une fourchette. Un chiffre unique, présenté sans borne basse ni borne haute, indique que la personne qui le publie n'a pas mesuré l'incertitude, pas qu'elle a mesuré précisément.</p></div></details>
+<details class="faq-item" id="faq-consommation-eau-ia"><summary><h3>Une requête à une IA consomme-t-elle vraiment de l'eau ?</h3></summary><div class="faq-reponse"><p>Oui, mais indirectement, et en quantité très faible par requête : de l'ordre de 0,63 mL pour une requête courante, soit une fourchette de 0,078 à 5,23 mL. Une cuillère à café contient 5 mL.</p><p>Cette eau se répartit sur deux postes. Le premier est le refroidissement du centre de données lui même, qui évapore de l'eau dans les installations à circuit ouvert. Le second, souvent oublié, est l'eau mobilisée pour produire l'électricité consommée : les centrales thermiques et nucléaires en utilisent beaucoup.</p><p>La nuance qui compte est géographique. Une requête traitée dans un centre de données situé en zone de stress hydrique n'a pas le même impact réel qu'une requête traitée dans une région où l'eau est abondante, à consommation strictement identique. Le litre d'eau n'est pas fongible comme l'est le kilowattheure.</p></div></details>
+<details class="faq-item" id="faq-choisir-un-modele-plus-petit"><summary><h3>Choisir un modèle d'IA plus petit change-t-il vraiment quelque chose ?</h3></summary><div class="faq-reponse"><p>Oui, et c'est de très loin le levier le plus efficace. Entre un petit modèle répondant brièvement et un modèle de raisonnement produisant une réponse longue, l'écart mesuré atteint un facteur 216. À longueur de réponse identique, le seul changement de classe de modèle pèse déjà un facteur 62.</p><p>Autrement dit, la question « faut-il utiliser l'IA ou non » pèse cent fois moins lourd que la question « quel modèle pour quelle tâche ». Reformuler une phrase, extraire une date ou classer un message ne demandent pas la même puissance que raisonner sur un contrat de cinquante pages, exactement comme on ne prend pas un semi remorque pour livrer une lettre.</p><p>La limite à connaître est qu'un modèle trop petit qui échoue coûte deux fois : une première fois pour sa réponse inutilisable, une seconde pour la reprise sur un modèle plus grand. Le bon réflexe n'est pas de prendre systématiquement le plus petit, mais d'arrêter de prendre systématiquement le plus gros par défaut.</p></div></details>
+<details class="faq-item" id="faq-agent-ia-consommation"><summary><h3>Un agent IA consomme-t-il plus qu'une conversation classique ?</h3></summary><div class="faq-reponse"><p>Un agent IA consomme beaucoup plus qu'une conversation classique, parce qu'une seule demande y déclenche des dizaines d'appels au modèle au lieu d'un seul. Un agent qui lit des fichiers, appelle des outils, vérifie son travail et recommence peut enchaîner 20 à 120 appels pour une tâche que l'utilisateur perçoit comme une question unique.</p><p>L'écart n'est pas dans le coût d'un appel, qui reste identique, mais dans leur nombre. Un run de 60 appels sur un modèle courant consomme autant que 60 conversations, alors que l'utilisateur n'a rédigé qu'une seule instruction.</p><p>C'est le principal angle mort des compteurs d'empreinte disponibles aujourd'hui : ils observent une fenêtre de discussion, alors que le volume réel se déplace vers des agents outillés dont personne ne compte les appels intermédiaires.</p></div></details>
+<details class="faq-item" id="faq-mesurer-consommation-ia-entreprise"><summary><h3>Comment mesurer la consommation d'IA de mon entreprise ?</h3></summary><div class="faq-reponse"><p>Mesurer la consommation d'IA d'une entreprise demande de partir des volumes réels de tokens, et non du nombre d'utilisateurs. Trois sources suffisent à démarrer : les relevés de consommation des interfaces d'API, qui donnent les tokens d'entrée et de sortie par modèle, les journaux des applications internes qui appellent ces modèles, et l'inventaire des abonnements aux assistants grand public souscrits par les équipes.</p><p>La difficulté n'est pas le calcul, qui reste une multiplication, mais la collecte : dans la plupart des organisations, une partie significative des usages passe par des comptes personnels et des abonnements payés en note de frais, totalement invisibles du système d'information.</p><p>Un ordre de grandeur utile pour se lancer, entièrement vérifiable : dix personnes, dix requêtes par jour chacune, vingt jours ouvrés, environ 500 tokens par réponse, cela fait un million de tokens de sortie par mois. Sur un modèle courant, ce volume représente environ 0,85 kWh, soit 3,54 journées de box internet allumée. À cette échelle, l'empreinte de l'IA se discute encore en watt heures, pas en tonnes.</p></div></details>
+<details class="faq-item" id="faq-faut-il-arreter-utiliser-ia"><summary><h3>Faut-il arrêter d'utiliser l'IA pour réduire son empreinte ?</h3></summary><div class="faq-reponse"><p>Non. Arrêter d'utiliser l'IA n'est ni la réponse la plus efficace, ni la plus réaliste. L'écart entre un usage réfléchi et un usage par défaut atteint un facteur 216 sur la même tâche, quand l'écart entre utiliser l'IA et ne pas l'utiliser se compte, lui, en fractions de watt heure par requête.</p><p>Le sujet est un problème de conception, pas de renoncement. Choisir la bonne classe de modèle pour chaque tâche, limiter la longueur des réponses générées, éviter de relancer un agent complet pour une correction de virgule et arbitrer la région d'hébergement produisent des gains immédiats, sans rien retirer aux équipes.</p><p>La comparaison honnête doit d'ailleurs intégrer ce que l'usage remplace. Vingt minutes de recherche documentaire sur un ordinateur portable de 30 W consomment 10 Wh, soit environ 22 fois une requête courante. L'enjeu n'est pas de faire moins, il est de ne pas faire n'importe comment.</p></div></details></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="contenu">
+    <div class="pied-offre">
+      <h2>Vous voulez le chiffre de votre entreprise, pas celui d'une page de démonstration</h2>
+      <p>Cette page estime une requête. Un audit d'empreinte IA part de vos volumes réels de tokens, identifie les usages surdimensionnés et chiffre le gain d'un redimensionnement, tâche par tâche. Sans retirer un seul outil aux équipes.</p>
+      <p><a href="mailto:contact@mkz-consulting.fr?subject=Audit%20d%27empreinte%20IA">Écrire à MKZ Consulting</a> pour en discuter.</p>
+    </div>
+    <p class="pied-coordonnees">
+      <span><a href="https://mkz-consulting.fr">mkz-consulting.fr</a></span>
+      <span><a href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</a></span>
+      <span><a href="tel:+33769093909">07 69 09 39 09</a></span>
+      <span>jeu de données v0.2.0 · 28 juillet 2026</span>
+    </p>
+    <p class="pied-mentions">Les valeurs présentées sur cette page sont des estimations produites par un modèle de calcul public, à partir de coefficients versionnés. Elles ne constituent pas une mesure, ne sont pas opposables à un tiers et ne constituent pas une donnée officielle communiquée par un fournisseur d'intelligence artificielle. Elles ne peuvent servir de base à une déclaration réglementaire. MKZ Consulting ne saurait être tenu responsable d'un usage de ces estimations hors de leur cadre pédagogique.</p>
+  </div>
+</footer>
+
+<script>
+const DATASET = {"models":{"version":"0.2.0","updated":"2026-07-28","status":"amorcage","ratio_prefill":8,"chars_per_token":3.6,"base_tokens_out":500,"fixed_overhead_wh":[0.005,0.02,0.08],"classes":{"petit":{"label":"Petit modèle","examples":"GPT-4o mini, Gemini Flash, Mistral Small, Llama 3 8B","wh_per_output_token":[0.00018,0.00045,0.0011],"output_multiplier":1},"moyen":{"label":"Modèle courant","examples":"GPT-4o, Gemini Pro, Claude Sonnet, Mistral Large","wh_per_output_token":[0.0003,0.00085,0.0028],"output_multiplier":1},"grand":{"label":"Grand modèle","examples":"GPT-4.5, Claude Opus, Llama 3 405B","wh_per_output_token":[0.0009,0.0028,0.0085],"output_multiplier":1},"raisonnement":{"label":"Modèle de raisonnement","examples":"o3, Gemini Thinking, DeepSeek R1, Claude en mode réflexion","wh_per_output_token":[0.0009,0.0028,0.0085],"output_multiplier":11}},"reference_web_search":{"label":"Recherche web classique","wh_per_query":[0.15,0.3,0.6]}},"grid":{"version":"0.2.0","updated":"2026-07-28","status":"amorcage","dynamic":{"supported":false,"candidate_source":"RTE eCO2mix","note":"Hors perimetre v1. Remplir hourly_override pour injecter une mesure."},"regions":{"fr":{"label":"France","detail":"Mix majoritairement nucléaire et renouvelable","factors_g_per_kwh":[30,56,90],"hourly_override":null},"eu":{"label":"Union européenne","detail":"Moyenne des 27 États membres","factors_g_per_kwh":[150,230,320],"hourly_override":null},"us":{"label":"États-Unis","detail":"Moyenne nationale, forte part de gaz et de charbon","factors_g_per_kwh":[330,400,500],"hourly_override":null},"monde":{"label":"Moyenne mondiale","detail":"Valeur par défaut quand la région du centre de données est inconnue","factors_g_per_kwh":[400,480,580],"hourly_override":null}}},"embodied":{"version":"0.2.0","updated":"2026-07-28","status":"amorcage","manufacturing_g_per_kwh":[15,50,130],"note":"Écart large assumé. Les analyses de cycle de vie publiées divergent surtout sur la durée d'amortissement retenue pour les accélérateurs, entre trois et six ans, et sur le taux d'utilisation moyen des parcs."},"water":{"version":"0.2.0","updated":"2026-07-28","status":"amorcage","litres_per_kwh":[0.5,1.4,3.5],"breakdown":{"refroidissement_direct":"Dépend du mode de refroidissement et du climat local","production_electrique":"Dépend du mix, le thermique et le nucléaire consomment le plus"},"note":"Un centre de données en circuit fermé peut descendre très bas sur le refroidissement direct tout en restant exposé sur la production électrique. L'écart entre les bornes traduit cette variabilité géographique."},"equivalences":{"version":"0.2.0","updated":"2026-07-28","status":"amorcage","energy":[{"id":"led","singular":"minute d'ampoule LED allumée","plural":"minutes d'ampoule LED allumée","value_wh":0.15,"basis":"Ampoule LED de 9 W pendant une minute"},{"id":"smartphone","singular":"charge complète de smartphone","plural":"charges complètes de smartphone","value_wh":12,"basis":"Batterie de 4500 mAh sous 3,85 V, pertes de charge incluses"},{"id":"bouilloire","singular":"litre d'eau porté à ébullition","plural":"litres d'eau portés à ébullition","value_wh":100,"basis":"Élévation de 1 L de 15 à 100 degrés, rendement bouilloire 90 %"},{"id":"box","singular":"journée de box internet allumée","plural":"journées de box internet allumée","value_wh":240,"basis":"Box de 10 W en fonctionnement continu pendant 24 h"}],"co2e":[{"id":"voiture","singular":"mètre parcouru en voiture thermique","plural":"mètres parcourus en voiture thermique","value_g":0.193,"basis":"193 g CO2e par km, moyenne voiture particulière"},{"id":"tgv","singular":"kilomètre parcouru en TGV","plural":"kilomètres parcourus en TGV","value_g":2.4,"basis":"Train à grande vitesse, mix électrique français"},{"id":"cafe","singular":"tasse de café","plural":"tasses de café","value_g":60,"basis":"Café filtre, culture et transport inclus, hors machine"}],"water":[{"id":"cuillere","singular":"cuillère à café d'eau","plural":"cuillères à café d'eau","value_ml":5,"basis":"Volume usuel d'une cuillère à café"},{"id":"verre","singular":"verre d'eau","plural":"verres d'eau","value_ml":250,"basis":"Verre standard de 25 cL"},{"id":"bouteille","singular":"bouteille d'eau","plural":"bouteilles d'eau","value_ml":500,"basis":"Bouteille de 50 cL"},{"id":"chasse","singular":"chasse d'eau","plural":"chasses d'eau","value_ml":6000,"basis":"Reservoir de 6 L, modele courant"}]},"version":"0.2.0","updated":"2026-07-28"};
+/**
+ * engine.js : moteur d'estimation de l'empreinte d'une requete a un modele.
+ *
+ * Runtime     : navigateur et Node >= 14, sans transpilation
+ * Dependances : aucune
+ *
+ * Contrat : fonction pure. Aucun acces au DOM, aucun fetch, aucune date
+ * systeme, aucun etat global mutable. Le jeu de donnees est injecte, ce qui
+ * permet de reutiliser ce fichier tel quel dans un module PowerShell ou une
+ * API sans toucher a une ligne.
+ *
+ * Toute grandeur incertaine circule sous forme de triplet [min, central, max]
+ * du debut a la fin du calcul. Une valeur affichee sans ses deux bornes est
+ * un bug, pas un choix de mise en page.
+ */
+
+
+/** Longueurs de reponse proposees dans l'interface. */
+const LENGTH_PRESETS = {
+  courte: 0.6,
+  standard: 1,
+  longue: 2.2
+};
+
+const BRANCHES = [0, 1, 2];
+
+function isFiniteNumber(value) {
+  return typeof value === 'number' && Number.isFinite(value);
+}
+
+/**
+ * Garantit un triplet exploitable meme si le jeu de donnees est incomplet.
+ * Un triplet mal forme doit casser au build, pas produire un NaN a l'ecran.
+ */
+function asTriplet(value, label) {
+  if (!Array.isArray(value) || value.length !== 3 || !value.every(isFiniteNumber)) {
+    throw new TypeError(`Coefficient "${label}" invalide : triplet [min, central, max] attendu`);
+  }
+  return value;
+}
+
+/** Les bornes sortent toujours ordonnees, quelle que soit la saisie du YAML. */
+function sortTriplet(triplet) {
+  return triplet.slice().sort((a, b) => a - b);
+}
+
+/**
+ * Estime le cout d'une requete unique.
+ *
+ * @param {{text?: string, modelClass?: string, region?: string, lengthMultiplier?: number}} input
+ * @param {object} [dataset] jeu de donnees injecte, celui du build par defaut
+ * @returns {{
+ *   tokensIn: number, tokensOut: number,
+ *   tokensOutVisible: number, tokensOutReasoning: number,
+ *   energyWh: number[], co2eG: number[], waterMl: number[],
+ *   datasetVersion: string, meta: object
+ * }}
+ */
+function estimate(input, dataset = DATASET) {
+  const params = input || {};
+  const models = dataset.models;
+  const text = typeof params.text === 'string' ? params.text : '';
+
+  const classKey = Object.prototype.hasOwnProperty.call(models.classes, params.modelClass)
+    ? params.modelClass
+    : 'moyen';
+  const regionKey = Object.prototype.hasOwnProperty.call(dataset.grid.regions, params.region)
+    ? params.region
+    : 'fr';
+  const lengthMultiplier =
+    isFiniteNumber(params.lengthMultiplier) && params.lengthMultiplier > 0
+      ? params.lengthMultiplier
+      : LENGTH_PRESETS.standard;
+
+  const modelClass = models.classes[classKey];
+  const region = dataset.grid.regions[regionKey];
+
+  const wh = asTriplet(modelClass.wh_per_output_token, `models.classes.${classKey}`);
+  const fixed = asTriplet(models.fixed_overhead_wh, 'models.fixed_overhead_wh');
+  const grid = asTriplet(
+    region.hourly_override || region.factors_g_per_kwh,
+    `grid.regions.${regionKey}`
+  );
+  const embodied = asTriplet(dataset.embodied.manufacturing_g_per_kwh, 'embodied');
+  const water = asTriplet(dataset.water.litres_per_kwh, 'water');
+
+  // Estimation des tokens. Heuristique caracteres / 3,6 pour le francais :
+  // l'erreur de 10 % est negligeable face a l'incertitude du modele energetique.
+  const tokensIn = text.length > 0 ? Math.max(1, Math.round(text.length / models.chars_per_token)) : 0;
+
+  // Pas de requete, pas de reponse. Le surcout fixe empeche malgre tout
+  // l'affichage d'un zero, qui serait faux : un aller retour serveur coute.
+  const tokensOutVisible = tokensIn > 0 ? Math.round(models.base_tokens_out * lengthMultiplier) : 0;
+
+  // Les modeles de raisonnement produisent des tokens que l'utilisateur ne
+  // voit jamais. Le token ne coute pas plus cher, il y en a simplement plus.
+  const tokensOut = Math.round(tokensOutVisible * modelClass.output_multiplier);
+  const tokensOutReasoning = tokensOut - tokensOutVisible;
+
+  // Le prefill n'est pas le decode : les tokens d'entree sont traites en
+  // parallele, ceux de sortie un par un. Jamais le meme coefficient.
+  const energyWh = sortTriplet(
+    BRANCHES.map((b) => fixed[b] + tokensOut * wh[b] + (tokensIn * wh[b]) / models.ratio_prefill)
+  );
+
+  // Impacts d'usage et impacts de fabrication amortis s'additionnent.
+  const co2eG = sortTriplet(BRANCHES.map((b) => (energyWh[b] / 1000) * (grid[b] + embodied[b])));
+
+  // Litres par kWh ramenes en millilitres, plus lisibles a cette echelle.
+  const waterMl = sortTriplet(BRANCHES.map((b) => (energyWh[b] / 1000) * water[b] * 1000));
+
+  return {
+    tokensIn,
+    tokensOut,
+    tokensOutVisible,
+    tokensOutReasoning,
+    energyWh,
+    co2eG,
+    waterMl,
+    datasetVersion: dataset.version,
+    meta: {
+      modelClass: classKey,
+      region: regionKey,
+      lengthMultiplier,
+      ratioPrefill: models.ratio_prefill,
+      charsPerToken: models.chars_per_token
+    }
+  };
+}
+
+/**
+ * Multiplie une estimation par un nombre d'appels.
+ * Sert la section agent : un run outille n'est pas une requete, c'est n
+ * requetes enchainees dont l'utilisateur ne voit que la derniere.
+ */
+function scaleEstimate(result, calls) {
+  const factor = isFiniteNumber(calls) && calls > 0 ? Math.round(calls) : 1;
+  const multiply = (triplet) => triplet.map((v) => v * factor);
+  return {
+    ...result,
+    calls: factor,
+    tokensIn: result.tokensIn * factor,
+    tokensOut: result.tokensOut * factor,
+    tokensOutVisible: result.tokensOutVisible * factor,
+    tokensOutReasoning: result.tokensOutReasoning * factor,
+    energyWh: multiply(result.energyWh),
+    co2eG: multiply(result.co2eG),
+    waterMl: multiply(result.waterMl)
+  };
+}
+
+/**
+ * Domaines des jauges, en echelle logarithmique fixe.
+ *
+ * Fixe et non adaptatif, volontairement : c'est ce qui rend le deplacement
+ * perceptible quand on change de classe de modele. Une echelle qui se
+ * recadre a chaque calcul donnerait toujours la meme image, donc aucune
+ * information. Logarithmique parce que la fourchette min-max couvre un
+ * facteur dix : en lineaire, la borne basse serait ecrasee contre zero.
+ */
+const GAUGE_SCALES = {
+  energyWh: { min: 0.01, max: 1000, unit: 'Wh' },
+  co2eG: { min: 0.001, max: 1000, unit: 'g' },
+  waterMl: { min: 0.01, max: 10000, unit: 'mL' },
+  energyWhRun: { min: 0.1, max: 100000, unit: 'Wh' },
+  co2eGRun: { min: 0.01, max: 100000, unit: 'g' }
+};
+
+function clamp(value, low, high) {
+  return Math.min(Math.max(value, low), high);
+}
+
+/**
+ * Convertit un triplet en positions de jauge, en pourcentage de la piste.
+ * Utilise a la fois par le build, pour le tableau comparatif statique, et par
+ * l'interface : une seule implementation, donc aucune divergence possible
+ * entre le HTML genere et le HTML calcule.
+ */
+function gaugePositions(triplet, scale) {
+  const low = Math.log10(scale.min);
+  const high = Math.log10(scale.max);
+  const position = (value) =>
+    clamp(((Math.log10(clamp(value, scale.min, scale.max)) - low) / (high - low)) * 100, 0, 100);
+
+  const start = position(triplet[0]);
+  const mid = position(triplet[1]);
+  const end = position(triplet[2]);
+  return { start, mid, end, width: Math.max(end - start, 0.6) };
+}
+
+/** Graduations en puissances de dix, pour l'axe sous la piste. */
+function gaugeTicks(scale) {
+  const ticks = [];
+  for (let exponent = Math.log10(scale.min); exponent <= Math.log10(scale.max) + 1e-9; exponent++) {
+    ticks.push(Math.pow(10, Math.round(exponent)));
+  }
+  return ticks;
+}
+
+/**
+ * Choisit le repere du quotidien dont le rapport tombe le plus pres de 1,
+ * pour eviter les formulations absurdes du type "0,0004 charge de smartphone".
+ *
+ * @returns {{item: object, ratio: number}|null}
+ */
+function pickEquivalence(value, items, unitKey) {
+  if (!isFiniteNumber(value) || value <= 0 || !Array.isArray(items) || items.length === 0) {
+    return null;
+  }
+  let best = null;
+  for (const item of items) {
+    const unit = item[unitKey];
+    if (!isFiniteNumber(unit) || unit <= 0) continue;
+    const ratio = value / unit;
+    const distance = Math.abs(Math.log10(ratio));
+    if (!best || distance < best.distance) best = { item, ratio, distance };
+  }
+  if (!best) return null;
+  return { item: best.item, ratio: best.ratio };
+}
+
+/* -------------------------------------------------------------- formatage */
+
+/*
+ * Le formatage vit dans le moteur, et non dans l'interface, pour une raison
+ * precise : le tableau comparatif est produit au build par Node, les
+ * indicateurs sont produits dans le navigateur. Deux implementations du meme
+ * arrondi finiraient par diverger, et la page afficherait deux chiffres
+ * differents pour la meme grandeur. Une seule fonction, donc.
+ */
+
+// Espace insecable, en echappement pour rester visible dans le source : sans
+// lui, `12 100` se couperait en fin de ligne. Une seule definition pour les
+// deux formateurs, sinon l'un des deux finit avec un espace ordinaire.
+const SEPARATEUR_MILLIERS = '\u00A0';
+
+/** Nombre au format francais : virgule decimale, espace insecable aux milliers. */
+function formatValue(value) {
+  if (!isFiniteNumber(value)) return '0';
+  const abs = Math.abs(value);
+  let digits;
+  if (abs >= 100) digits = 0;
+  else if (abs >= 10) digits = 1;
+  else if (abs >= 0.1) digits = 2;
+  else if (abs >= 0.01) digits = 3;
+  else if (abs >= 0.001) digits = 4;
+  else digits = 5;
+
+  const parts = value.toFixed(digits).split('.');
+  const grouped = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, SEPARATEUR_MILLIERS);
+  return parts[1] ? `${grouped},${parts[1]}` : grouped;
+}
+
+/** Comptage entier : un token, un appel, cela ne se compte pas en decimales. */
+function formatCount(value) {
+  if (!isFiniteNumber(value)) return '0';
+  return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, SEPARATEUR_MILLIERS);
+}
+
+/** Rapport lisible : au dela de dix, les decimales n'apportent plus rien. */
+function formatRatio(ratio) {
+  if (!isFiniteNumber(ratio)) return '0';
+  return ratio >= 10 ? formatCount(ratio) : formatValue(ratio);
+}
+
+/** Phrase d'equivalence complete : "2,1 charges completes de smartphone". */
+function describeEquivalence(value, items, unitKey) {
+  const choix = pickEquivalence(value, items, unitKey);
+  if (!choix) return null;
+  const libelle = choix.ratio >= 1.995 ? choix.item.plural : choix.item.singular;
+  return `${formatRatio(choix.ratio)} ${libelle}`;
+}
+/**
+ * ui.js : liaison entre le moteur et le document.
+ *
+ * Runtime     : navigateur, sans transpilation
+ * Dependances : aucune
+ *
+ * Ce fichier ne calcule rien et ne formate rien lui meme : il lit les
+ * controles, appelle le moteur, et repose le resultat dans le document. Tout
+ * arrondi et toute tournure de phrase viennent d'engine.js, afin que le
+ * tableau produit au build et les indicateurs produits ici affichent
+ * exactement les memes chiffres.
+ *
+ * Aucun stockage navigateur, aucun cookie, aucun appel reseau : ce qui est
+ * saisi dans la page ne quitte jamais le navigateur et rien n'y survit a la
+ * fermeture de l'onglet. Le nom des API concernees est volontairement absent
+ * de ce fichier pour que la verification du cahier des charges, un simple
+ * grep sur les sources, retourne zero sans exception a expliquer.
+ */
+
+
+
+const EQUIVALENCES = {
+  energyWh: { liste: 'energy', unite: 'value_wh' },
+  co2eG: { liste: 'co2e', unite: 'value_g' },
+  waterMl: { liste: 'water', unite: 'value_ml' }
+};
+
+const requete = document.getElementById('requete');
+const curseurAppels = document.getElementById('appels');
+const indicateurs = Array.from(document.querySelectorAll('#indicateurs [data-indicateur]'));
+const blocsAgent = Array.from(document.querySelectorAll('#agent-resultats [data-agent]'));
+
+// Sans les elements attendus, on laisse la page telle que le build l'a rendue :
+// elle est deja complete et juste, seulement figee sur l'exemple.
+if (requete && indicateurs.length) {
+  brancher();
+}
+
+function brancher() {
+  let timer = null;
+  const differer = () => {
+    if (timer) clearTimeout(timer);
+    // La frappe declenche un recalcul, pas un rendu par caractere. Le calcul
+    // coute une fraction de milliseconde, le rendu du document beaucoup plus.
+    timer = setTimeout(rendre, 60);
+  };
+
+  requete.addEventListener('input', differer);
+  for (const nom of ['modele', 'region', 'longueur']) {
+    for (const input of document.querySelectorAll(`input[name="${nom}"]`)) {
+      input.addEventListener('change', rendre);
+    }
+  }
+  if (curseurAppels) curseurAppels.addEventListener('input', rendre);
+
+  rendre();
+}
+
+function valeurChoisie(nom, defaut) {
+  const coche = document.querySelector(`input[name="${nom}"]:checked`);
+  return coche ? coche.value : defaut;
+}
+
+function texte(selecteur, contenu, racine = document) {
+  const cible = racine.querySelector(selecteur);
+  if (cible) cible.textContent = contenu;
+}
+
+/** Repose un triplet dans un bloc indicateur, jauge comprise. */
+function majIndicateur(article, triplet) {
+  const scale = GAUGE_SCALES[article.dataset.echelle];
+  if (!scale) return;
+
+  const positions = gaugePositions(triplet, scale);
+  const unite = article.querySelector('.unite');
+  const libelle = article.querySelector('.indicateur-titre');
+
+  texte('[data-champ="valeur"]', formatValue(triplet[1]), article);
+  texte('[data-champ="min"]', formatValue(triplet[0]), article);
+  texte('[data-champ="max"]', formatValue(triplet[2]), article);
+
+  const bande = article.querySelector('.jauge-bande');
+  const repere = article.querySelector('.jauge-repere');
+  if (bande) {
+    bande.style.left = `${positions.start.toFixed(2)}%`;
+    bande.style.width = `${positions.width.toFixed(2)}%`;
+  }
+  if (repere) repere.style.left = `${positions.mid.toFixed(2)}%`;
+
+  const jauge = article.querySelector('.jauge');
+  if (jauge && unite && libelle) {
+    const u = unite.textContent.trim();
+    jauge.setAttribute(
+      'aria-label',
+      `${libelle.textContent} : ${formatValue(triplet[1])} ${u}, fourchette de ${formatValue(triplet[0])} à ${formatValue(triplet[2])} ${u}`
+    );
+  }
+
+  const config = EQUIVALENCES[article.dataset.indicateur || article.dataset.agent];
+  if (config) {
+    const phrase = describeEquivalence(triplet[1], DATASET.equivalences[config.liste], config.unite);
+    texte('[data-champ="equivalence"]', phrase ? `soit ${phrase}` : '', article);
+  }
+}
+
+function rendre() {
+  const modelClass = valeurChoisie('modele', 'moyen');
+  const region = valeurChoisie('region', 'fr');
+  const longueur = valeurChoisie('longueur', 'standard');
+
+  const resultat = estimate(
+    {
+      text: requete.value,
+      modelClass,
+      region,
+      lengthMultiplier: LENGTH_PRESETS[longueur] || LENGTH_PRESETS.standard
+    },
+    DATASET
+  );
+
+  texte('[data-champ="tokens-in"]', formatCount(resultat.tokensIn));
+  texte('[data-champ="tokens-out"]', formatCount(resultat.tokensOut));
+  texte(
+    '[data-champ="tokens-caches"]',
+    resultat.tokensOutReasoning > 0
+      ? `dont ${formatCount(resultat.tokensOutReasoning)} jamais affichés`
+      : ''
+  );
+
+  const classe = DATASET.models.classes[modelClass];
+  const zone = DATASET.grid.regions[region];
+  if (classe) texte('[data-champ="note-modele"]', classe.examples);
+  if (zone) texte('[data-champ="note-region"]', zone.detail);
+
+  for (const article of indicateurs) {
+    majIndicateur(article, resultat[article.dataset.indicateur]);
+  }
+
+  if (curseurAppels && blocsAgent.length) {
+    const appels = Number(curseurAppels.value) || 1;
+    const run = scaleEstimate(resultat, appels);
+    texte('[data-champ="appels-valeur"]', formatCount(appels));
+    for (const article of blocsAgent) {
+      majIndicateur(article, run[article.dataset.agent]);
+    }
+  }
+}
+</script>
+</body>
+</html>
