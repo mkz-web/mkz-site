@@ -14,7 +14,7 @@
 <meta property="og:description" content="Énergie, CO2e et eau d'une requête IA, avec la fourchette d'incertitude. Le choix du modèle pèse un facteur 216.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="MKZ Consulting">
-<meta name="theme-color" content="#2C5F7C">
+<meta name="theme-color" content="#003764">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,31 +127,110 @@
 </script>
 <style>
 /* ------------------------------------------------------------------------
-   Direction artistique : instrument de mesure.
-   La page a l'allure d'un appareil, pas d'une brochure. Le graphisme porte
-   l'incertitude : un indicateur sans ses deux bornes est impossible a
-   dessiner ici. Polices systeme uniquement, aucune requete reseau.
+   Habillage aligne sur le design system du site MKZ v2 : « papier & encre,
+   editorial chantier ». Fond papier chaud, encre quasi noire, navy en encre
+   de titre, orange rationne (deux tons, budget contraste mesure sur le site),
+   filets 1px, angles francs, ombres dures decalees, jamais de flou.
+   La page reste un instrument de mesure : le graphisme porte l'incertitude,
+   un indicateur sans ses deux bornes est impossible a dessiner ici.
+   Polices : celles du site, servies same-origin depuis /fonts/ (la page vit
+   sur mkz-consulting.fr, decision du 15/08/2026). Hors ligne, les replis
+   « X Fallback » aux metriques calees prennent le relais sans deplacer une
+   ligne. Aucun domaine externe n'est appele.
    ------------------------------------------------------------------------ */
 
-:root {
-  --encre: #10202A;
-  --encre-doux: #46606E;
-  --bleu: #2C5F7C;
-  --bleu-fonce: #1E4459;
-  --bleu-pale: #E3EDF2;
-  --bleu-bande: #5B8FA8;
-  --papier: #F7FAFB;
-  --blanc: #FFFFFF;
-  --repere: #B8621B;
-  --repere-texte: #9A5216;
-  --filet: #C9D8E0;
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-italic-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/archivo-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Replis aux metriques calees, repris tels quels de GlobalStyles.tsx du site
+   (valeurs trouvees par balayage le 08/08/2026, CLS 0,1412 -> 0,0012).
+   Une seule face par famille, le repli vient juste apres la police web. */
+@font-face {
+  font-family: "Fraunces Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 104%;
+  ascent-override: 93.99%;
+  descent-override: 24.52%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Archivo Fallback";
+  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+  size-adjust: 99.5%;
+  ascent-override: 88.19%;
+  descent-override: 21.11%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Plex Mono Fallback";
+  src: local("Consolas"), local("Menlo"), local("Courier New");
+  size-adjust: 110.5%;
+  ascent-override: 92.76%;
+  descent-override: 24.89%;
+  line-gap-override: 0%;
+}
 
-  --ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", monospace;
+:root {
+  --papier: #FAF7F1;
+  --surface: #FFFDF8;
+  --sable: #F1EBDF;
+  --encre: #221F1A;
+  --encre-doux: #5E574B;
+  --navy: #003764;
+  --navy-clair: #0B5394;
+  --nuit: #0C1B2A;
+  --nuit-filet: rgba(255, 255, 255, 0.14);
+  --blanc-casse: #F6F1E7;
+  --blanc-casse-doux: rgba(246, 241, 231, 0.72);
+  /* Orange MKZ, budget strict herite du site : --orange (#E8590C) sur fond
+     sombre et gros numeraux >= 24px uniquement ; --orange-encre (#B8420A)
+     pour tout texte orange sur fond clair et les fonds de bouton. */
+  --orange: #E8590C;
+  --orange-encre: #B8420A;
+  --orange-survol: #AD3E03;
+  --filet: #E3DACA;
+  --blanc: #FFFFFF;
+
+  --ui: "Archivo", "Archivo Fallback", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --titre: "Fraunces", "Fraunces Fallback", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", "Plex Mono Fallback", Consolas, "Courier New", monospace;
 
   --largeur: 72rem;
   --lecture: 44rem;
-  --rayon: 3px;
+  --rayon: 2px;
+  --ombre: 4px 4px 0 rgba(34, 31, 26, 0.10);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -169,18 +248,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.6em; font-weight: 650; letter-spacing: -0.01em; }
-h1 { font-size: clamp(1.85rem, 1.25rem + 2.6vw, 3rem); letter-spacing: -0.025em; }
-h2 { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); letter-spacing: -0.02em; }
+h1, h2 { font-family: var(--titre); line-height: 1.15; margin: 0 0 0.6em; font-weight: 600; letter-spacing: -0.01em; color: var(--encre); }
+h1 { font-size: clamp(1.85rem, 1.25rem + 2.6vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); }
+h3, h4 { line-height: 1.25; margin: 0 0 0.6em; font-weight: 650; letter-spacing: -0.005em; }
 h3 { font-size: 1.1rem; }
 p { margin: 0 0 1em; }
 p:last-child { margin-bottom: 0; }
 
-a { color: var(--bleu-fonce); text-underline-offset: 2px; }
-a:hover { color: var(--repere-texte); }
+a { color: var(--navy); text-underline-offset: 2px; }
+a:hover { color: var(--orange-encre); }
 
 :focus-visible {
-  outline: 3px solid var(--repere);
+  outline: 3px solid var(--orange-encre);
   outline-offset: 2px;
   border-radius: 1px;
 }
@@ -189,12 +269,12 @@ a:hover { color: var(--repere-texte); }
 .lecture { max-width: var(--lecture); }
 .discret { color: var(--encre-doux); font-size: 0.9rem; }
 .saut { position: absolute; left: -9999px; }
-.saut:focus { position: static; display: inline-block; padding: 0.5rem 1rem; background: var(--bleu); color: var(--blanc); }
+.saut:focus { position: static; display: inline-block; padding: 0.5rem 1rem; background: var(--navy); color: var(--blanc); }
 
 /* ----------------------------------------------------------------- entete */
 
 .entete {
-  background: var(--blanc);
+  background: var(--surface);
   border-bottom: 1px solid var(--filet);
 }
 .entete-barre {
@@ -206,13 +286,14 @@ a:hover { color: var(--repere-texte); }
   padding-bottom: 0.9rem;
 }
 .marque {
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-family: var(--titre);
+  font-weight: 600;
+  letter-spacing: 0.01em;
   text-decoration: none;
   color: var(--encre);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
-.marque span { color: var(--bleu); }
+.marque span { color: var(--navy); }
 .entete-version {
   margin-left: auto;
   font-family: var(--mono);
@@ -222,16 +303,17 @@ a:hover { color: var(--repere-texte); }
   border-radius: var(--rayon);
   padding: 0.15rem 0.5rem;
   white-space: nowrap;
+  background: var(--papier);
 }
 
 .bandeau-statut {
-  background: #FCF4EC;
-  border-bottom: 1px solid #E8D3BC;
-  color: #6E4415;
+  background: var(--sable);
+  border-bottom: 1px solid var(--filet);
+  color: var(--encre-doux);
   font-size: 0.85rem;
 }
 .bandeau-statut div { padding: 0.5rem 1.15rem; }
-.bandeau-statut strong { font-weight: 650; }
+.bandeau-statut strong { font-weight: 650; color: var(--encre); }
 
 /* --------------------------------------------------------------- sections */
 
@@ -242,7 +324,7 @@ section + section { border-top: 1px solid var(--filet); }
   display: block;
   width: 3.5rem;
   height: 4px;
-  background: var(--bleu);
+  background: var(--orange-encre);
   margin-bottom: 1.1rem;
 }
 .section-chapeau { color: var(--encre-doux); font-size: 1.075rem; max-width: var(--lecture); }
@@ -260,17 +342,17 @@ section + section { border-top: 1px solid var(--filet); }
 .sous-accroche strong { color: var(--encre); font-weight: 650; }
 
 .cartouche {
-  background: var(--blanc);
+  background: var(--surface);
   border: 1px solid var(--filet);
-  border-top: 4px solid var(--bleu);
+  border-top: 4px solid var(--navy);
   border-radius: var(--rayon);
-  box-shadow: 0 1px 2px rgba(16, 32, 42, 0.04), 0 8px 24px -12px rgba(16, 32, 42, 0.15);
+  box-shadow: var(--ombre);
 }
 .cartouche-corps { padding: clamp(1.1rem, 0.7rem + 1.4vw, 2rem); }
 .cartouche-pied {
   padding: 0.85rem clamp(1.1rem, 0.7rem + 1.4vw, 2rem);
   border-top: 1px solid var(--filet);
-  background: #FBFDFD;
+  background: var(--sable);
   border-radius: 0 0 var(--rayon) var(--rayon);
   font-size: 0.85rem;
   color: var(--encre-doux);
@@ -295,7 +377,7 @@ textarea {
   border-radius: var(--rayon);
   resize: vertical;
 }
-textarea:hover { border-color: var(--bleu-bande); }
+textarea:hover { border-color: var(--navy-clair); }
 
 .compteur {
   display: flex;
@@ -306,7 +388,7 @@ textarea:hover { border-color: var(--bleu-bande); }
   font-size: 0.8rem;
   color: var(--encre-doux);
 }
-.compteur b { color: var(--encre); font-weight: 600; }
+.compteur b { color: var(--encre); font-weight: 500; }
 
 .reglages {
   display: grid;
@@ -347,15 +429,15 @@ legend {
   cursor: pointer;
   transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
-.options label:hover { border-color: var(--bleu-bande); color: var(--encre); }
+.options label:hover { border-color: var(--navy-clair); color: var(--encre); }
 .options input:checked + label {
-  background: var(--bleu);
-  border-color: var(--bleu);
+  background: var(--navy);
+  border-color: var(--navy);
   color: var(--blanc);
   font-weight: 600;
 }
 .options input:focus-visible + label {
-  outline: 3px solid var(--repere);
+  outline: 3px solid var(--orange-encre);
   outline-offset: 2px;
 }
 .reglage-note { margin: 0.45rem 0 0; font-size: 0.8rem; color: var(--encre-doux); }
@@ -367,7 +449,7 @@ legend {
   gap: 1.6rem;
   margin-top: 1.9rem;
   padding-top: 1.7rem;
-  border-top: 4px solid var(--bleu-pale);
+  border-top: 1px solid var(--filet);
 }
 @media (min-width: 52rem) {
   .indicateurs { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
@@ -375,11 +457,12 @@ legend {
 
 .indicateur-titre {
   margin: 0 0 0.15rem;
+  font-family: var(--mono);
   font-size: 0.8rem;
-  font-weight: 650;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: var(--encre-doux);
+  color: var(--orange-encre);
 }
 /* Chiffre principal en police d'interface, pas en mono : a cette taille, la
    chasse fixe de la mono creuse un trou beant autour de la virgule. Les
@@ -408,7 +491,7 @@ legend {
   margin: 0.5rem 0 0;
   font-size: 0.9rem;
   color: var(--encre);
-  border-left: 3px solid var(--bleu-pale);
+  border-left: 3px solid var(--orange-encre);
   padding-left: 0.6rem;
 }
 
@@ -419,23 +502,23 @@ legend {
   position: relative;
   display: block;
   height: 14px;
-  background: #EDF3F6;
+  background: var(--sable);
   background-image: repeating-linear-gradient(
     to right,
     transparent 0,
     transparent calc(var(--pas, 20%) - 1px),
-    #D3E1E9 calc(var(--pas, 20%) - 1px),
-    #D3E1E9 var(--pas, 20%)
+    var(--filet) calc(var(--pas, 20%) - 1px),
+    var(--filet) var(--pas, 20%)
   );
   border: 1px solid var(--filet);
-  border-radius: 2px;
+  border-radius: var(--rayon);
 }
 .jauge-bande {
   position: absolute;
   top: 0;
   bottom: 0;
   min-width: 2px;
-  background: var(--bleu-bande);
+  background: var(--navy-clair);
   transition: left 0.18s ease, width 0.18s ease;
 }
 .jauge-repere {
@@ -444,8 +527,8 @@ legend {
   bottom: -4px;
   width: 3px;
   margin-left: -1.5px;
-  background: var(--repere);
-  box-shadow: 0 0 0 1.5px var(--blanc);
+  background: var(--orange-encre);
+  box-shadow: 0 0 0 1.5px var(--surface);
   transition: left 0.18s ease;
 }
 .jauge-axe {
@@ -484,8 +567,9 @@ legend {
   width: 100%;
   min-width: 44rem;
   border-collapse: collapse;
-  background: var(--blanc);
+  background: var(--surface);
   border: 1px solid var(--filet);
+  box-shadow: var(--ombre);
 }
 .tableau-comparatif caption {
   caption-side: bottom;
@@ -501,7 +585,7 @@ legend {
   border-bottom: 1px solid var(--filet);
 }
 .tableau-comparatif thead th {
-  background: var(--bleu);
+  background: var(--navy);
   color: var(--blanc);
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -510,7 +594,7 @@ legend {
 }
 .tableau-comparatif tbody tr:last-child th,
 .tableau-comparatif tbody tr:last-child td { border-bottom: 0; }
-.tableau-comparatif tbody tr:nth-child(odd) { background: #FCFDFE; }
+.tableau-comparatif tbody tr:nth-child(odd) { background: var(--papier); }
 .tableau-comparatif tbody th { font-weight: 650; width: 15rem; }
 .ligne-titre { display: block; }
 .ligne-detail {
@@ -524,7 +608,7 @@ legend {
   display: block;
   font-family: var(--mono);
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 .cellule-mesure .unite { font-size: 0.7em; font-weight: 500; color: var(--encre-doux); }
 .cellule-mesure .fourchette {
@@ -544,11 +628,12 @@ legend {
 @media (min-width: 62rem) { .encarts.quatre { grid-template-columns: repeat(2, 1fr); } }
 
 .encart {
-  background: var(--blanc);
+  background: var(--surface);
   border: 1px solid var(--filet);
-  border-left: 4px solid var(--bleu);
+  border-left: 4px solid var(--navy);
   border-radius: var(--rayon);
   padding: 1.15rem 1.25rem;
+  box-shadow: var(--ombre);
 }
 .encart h3 { margin-bottom: 0.4rem; }
 .encart p { font-size: 0.95rem; }
@@ -556,13 +641,15 @@ legend {
   display: block;
   font-family: var(--mono);
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
-  color: var(--bleu-fonce);
+  color: var(--navy);
   margin-bottom: 0.35rem;
 }
-.encart.accent { border-left-color: var(--repere); }
-.encart.accent .encart-chiffre { color: var(--repere-texte); }
+/* Gros numeral orange vif : autorise par le budget du site au-dela de 24px
+   (seuil 3:1 mesure), jamais sur du texte courant. */
+.encart.accent { border-left-color: var(--orange-encre); }
+.encart.accent .encart-chiffre { color: var(--orange); }
 
 /* ----------------------------------------------------------------- agents */
 
@@ -571,7 +658,7 @@ legend {
 input[type="range"] {
   width: 100%;
   height: 2.75rem;
-  accent-color: var(--bleu);
+  accent-color: var(--navy);
   cursor: pointer;
 }
 .curseur-valeur {
@@ -593,7 +680,7 @@ input[type="range"] {
   gap: 1.5rem;
   margin-top: 1.7rem;
   padding-top: 1.5rem;
-  border-top: 4px solid var(--bleu-pale);
+  border-top: 1px solid var(--filet);
 }
 @media (min-width: 46rem) { .agent-resultats { grid-template-columns: 1fr 1fr; } }
 
@@ -613,7 +700,7 @@ input[type="range"] {
 
 .faq-liste { margin-top: 1.8rem; max-width: var(--lecture); }
 .faq-item {
-  background: var(--blanc);
+  background: var(--surface);
   border: 1px solid var(--filet);
   border-radius: var(--rayon);
   margin-bottom: 0.6rem;
@@ -634,41 +721,56 @@ input[type="range"] {
   font-family: var(--mono);
   font-size: 1.25rem;
   line-height: 1;
-  color: var(--bleu);
+  color: var(--orange-encre);
   flex: none;
 }
 .faq-item[open] summary::after { content: "\2212"; }
 .faq-item summary h3 { margin: 0; font-size: 1rem; font-weight: 650; }
-.faq-item summary:hover h3 { color: var(--bleu-fonce); }
+.faq-item summary:hover h3 { color: var(--navy); }
 .faq-reponse { padding: 0 1.1rem 1.1rem; }
-.faq-reponse p { font-size: 0.97rem; color: #1B3140; }
+.faq-reponse p { font-size: 0.97rem; color: var(--encre); }
 .faq-reponse p:not(:last-child) { margin-bottom: 0.8rem; }
 
 /* ------------------------------------------------------------------ pied */
 
 .pied {
-  background: var(--bleu-fonce);
-  color: #D8E6EE;
+  background: var(--nuit);
+  color: var(--blanc-casse);
   padding: clamp(2.5rem, 1.5rem + 3vw, 4rem) 0 2rem;
 }
-.pied h2 { color: var(--blanc); }
-.pied a { color: var(--blanc); }
+.pied h2 { color: var(--blanc-casse); }
+.pied a { color: var(--blanc-casse); }
+.pied a:hover { color: var(--orange); }
 .pied-offre { max-width: var(--lecture); }
+.pied-cta { margin-top: 1.4rem; }
+.bouton {
+  display: inline-block;
+  background: var(--orange-encre);
+  color: var(--blanc);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--rayon);
+  transition: background 0.12s ease;
+}
+.pied .bouton { color: var(--blanc); }
+.pied .bouton:hover { background: var(--orange-survol); color: var(--blanc); }
+.bouton:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 .pied-coordonnees {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.75rem;
   margin: 1.5rem 0 0;
   padding: 1.25rem 0 0;
-  border-top: 1px solid rgba(216, 230, 238, 0.25);
+  border-top: 1px solid var(--nuit-filet);
   font-size: 0.95rem;
 }
 .pied-mentions {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(216, 230, 238, 0.25);
+  border-top: 1px solid var(--nuit-filet);
   font-size: 0.83rem;
-  color: #B4CBD8;
+  color: var(--blanc-casse-doux);
   max-width: 60rem;
 }
 
@@ -859,9 +961,10 @@ input[type="range"] {
 <footer class="pied">
   <div class="contenu">
     <div class="pied-offre">
-      <h2>Vous voulez le chiffre de votre entreprise, pas celui d'une page de démonstration</h2>
-      <p>Cette page estime une requête. Un audit d'empreinte IA part de vos volumes réels de tokens, identifie les usages surdimensionnés et chiffre le gain d'un redimensionnement, tâche par tâche. Sans retirer un seul outil aux équipes.</p>
-      <p><a href="mailto:contact@mkz-consulting.fr?subject=Audit%20d%27empreinte%20IA">Écrire à MKZ Consulting</a> pour en discuter.</p>
+      <h2>Le chiffre qui compte, c'est le vôtre</h2>
+      <p>Cette page estime une requête. Une seule. Votre entreprise en envoie des milliers par jour, entre les assistants, les copilotes et les agents. Et personne ne les compte.</p>
+      <p>Un audit d'empreinte IA part de vos volumes réels de tokens, c'est-à-dire ce que vos équipes consomment vraiment. Il repère les usages surdimensionnés (le grand modèle qui fait le travail d'un petit) et chiffre ce que rapporte un redimensionnement, tâche par tâche. Sans retirer un seul outil à personne. On ne renonce à rien, on dimensionne.</p>
+      <p class="pied-cta"><a class="bouton" href="mailto:contact@mkz-consulting.fr?subject=Audit%20d%27empreinte%20IA">Parlons de vos volumes réels</a></p>
     </div>
     <p class="pied-coordonnees">
       <span><a href="https://mkz-consulting.fr">mkz-consulting.fr</a></span>
