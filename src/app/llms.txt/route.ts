@@ -4,6 +4,7 @@ import {
   articleUrl,
   categories,
   categoriesEn,
+  categoryUrl,
   articlesByCategory,
   stripInline,
 } from "@/lib/articles";
@@ -23,7 +24,10 @@ export function GET() {
       const lines = list.map(
         (a) => `- [${a.title}](${SITE}${articleUrl(a)}): ${stripInline(a.excerpt)}`
       );
-      return `### ${c.name}\n\n${lines.join("\n")}`;
+      // Le titre de section EST le lien vers la page de cocon : sans lui, les
+      // 4 hubs français et les 2 anglais sont au sitemap mais absents du llms.txt,
+      // donc invisibles pour un modèle qui ne lit que ce fichier (mesuré le 15/08/2026).
+      return `### [${c.name}](${SITE}${categoryUrl(c.slug)}): ${c.description}\n\n${lines.join("\n")}`;
     })
     .join("\n\n");
 
@@ -33,7 +37,7 @@ export function GET() {
       const lines = list.map(
         (a) => `- [${a.title}](${SITE}${articleUrl(a)}): ${stripInline(a.excerpt)}`
       );
-      return `### ${c.name}\n\n${lines.join("\n")}`;
+      return `### [${c.name}](${SITE}${categoryUrl(c.slug, "en")}): ${c.description}\n\n${lines.join("\n")}`;
     })
     .join("\n\n");
 
