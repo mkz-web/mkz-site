@@ -94,8 +94,16 @@ Oui, même en le faisant soi-même : domaine et hébergement restent à votre ch
 
 - **seo_title** (si demandé) : « Prix d'un site internet : arrêtez de le comparer à zéro » (55 caractères)
 - **meta** (si demandée) : « Le prix d'un site internet ne se compare pas au gratuit des réseaux : fourchettes sourcées, coût réel sur 5 ans et les 3 questions à poser avant de signer. » (156 caractères)
-- **Images (1 à 2, le spot exige au moins 1)** :
-  1. Illustration « louer ou posséder » : un stand de marché face à une boutique en propre. Alt : « Réseaux sociaux ou site internet : audience louée contre actif possédé ».
-  2. (Optionnelle) Le tableau des fourchettes de prix en visuel. Alt : « Prix d'un site internet : fourchettes constatées par type de site ».
+- **Image (le spot en exige 1 à 2, une seule est fournie et elle suffit)** :
+  `images/reseaux-sociaux-ou-site-internet.webp` (1344 × 714, 164 Ko). Photographie
+  éditoriale : à gauche un étal de marché démonté et vide sous sa bâche, à droite une
+  boutique en pierre à la vitrine éclairée. Générée avec Gemini `gemini-2.5-flash-image` le
+  15/08/2026, watermark recadré, aucun texte lisible. Master PNG conservé à côté.
+  **Alt à utiliser** : « Étal de marché démonté face à une boutique en dur éclairée,
+  l'audience louée contre l'actif possédé ».
+  La seconde image envisagée (tableau des fourchettes de prix) est **abandonnée** : un
+  générateur d'images produit du texte approximatif, et le tableau est déjà dans le corps de
+  l'article en HTML, donc lisible par les moteurs et par les IA. Le fabriquer en image
+  l'aurait rendu illisible pour les deux.
 - **Traçabilité FAQ → SERP du 15/08/2026** : « Quel est le prix moyen d'un site internet ? » (PAA), « Quel est le prix d'un site vitrine ? » (PAA), « Quel budget pour créer un site internet ? » (PAA), « Est-ce payant de mettre un site en ligne ? » (PAA).
 - **Sources des chiffres** : 1 165 800 créations d'entreprises en 2025 : INSEE Première n° 2092, publié le 28 janvier 2026. Fourchettes de prix : France Num « Combien payer pour un site web » (mai 2021) ; Wise « Combien coûte la création d'un site internet » (30 juin 2025). CPC 18,67 EUR sur « créer une entreprise », volumes et difficultés : DataForSEO, relevés juillet 2026. Amortissement 42 EUR/mois : hypothèse de travail (2 500 EUR / 60 mois), balisée comme telle dans le corps.

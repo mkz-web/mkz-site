@@ -84,6 +84,12 @@ Oui, à condition de traiter le référencement comme un périmètre du projet :
 
 - **seo_title** (si demandé) : « Refonte de site internet : ce qu'il ne faut pas perdre » (52 caractères)
 - **meta** (si demandée) : « Une refonte se juge sur ce qu'elle conserve : URLs, contenus, maillage. Check-list en 5 points avant de signer, et les 4 pertes classiques à éviter. » (149 caractères)
-- **Image (exactement 1, exigée par le spot)** : schéma avant/après d'une refonte avec les redirections 301 figurées en panneaux de déviation entre anciennes et nouvelles URLs. Alt : « Plan de redirections 301 lors d'une refonte de site internet ».
+- **Image (exactement 1, exigée par le spot)** : `images/refonte-redirections-301.webp`
+  (1344 × 714, 93 Ko). Photographie éditoriale : à gauche une devanture fermée rideau
+  baissé, à droite une devanture rénovée et éclairée, des passants qui vont vers la droite.
+  Générée avec Gemini `gemini-2.5-flash-image` le 15/08/2026, watermark recadré, aucun texte
+  lisible. Master PNG conservé à côté.
+  **Alt à utiliser** : « Ancienne devanture fermée et nouvelle boutique éclairée, le flux de
+  visiteurs redirigé de l'une vers l'autre ».
 - **Traçabilité FAQ → SERP du 15/08/2026** : « C'est quoi la refonte d'un site web ? » (PAA), « Quel est le prix d'une refonte de site internet ? » (PAA), « Moderniser un site internet » (recherche associée).
 - **Sources des chiffres** : CPC 19,75 EUR et volume 880/mois sur « refonte site internet », volume 590/mois sur « redirection 301 » : DataForSEO, relevés juillet 2026. Fourchette 900 à 5 000 EUR : France Num, « Combien payer pour un site web », guide daté mai 2021.
