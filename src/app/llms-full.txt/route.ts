@@ -1,4 +1,12 @@
-import { articles, articlesEn, articleToPlainText, formatDateFr } from "@/lib/articles";
+import {
+  articles,
+  articlesEn,
+  articleToPlainText,
+  formatDateFr,
+  categories,
+  categoriesEn,
+  categoryUrl,
+} from "@/lib/articles";
 
 // llms-full.txt généré au build : version intégrale citable pour les LLM,
 // incluant le texte complet des articles de la newsroom (avec dates et auteur).
@@ -6,6 +14,16 @@ import { articles, articlesEn, articleToPlainText, formatDateFr } from "@/lib/ar
 export const dynamic = "force-static";
 
 const SITE = "https://mkz-consulting.fr";
+
+// Les pages de cocon sont listées depuis le registre, jamais à la main : sinon
+// elles restent au sitemap et absentes des fichiers llms (mesuré le 15/08/2026).
+const coconsFr = categories
+  .map((c) => `- Cocon « ${c.name} » : ${SITE}${categoryUrl(c.slug)} : ${c.description}`)
+  .join("\n");
+
+const coconsEn = categoriesEn
+  .map((c) => `- Topic hub "${c.name}" : ${SITE}${categoryUrl(c.slug, "en")} : ${c.description}`)
+  .join("\n");
 
 const COMPANY = `# MKZ : création de sites internet, SEO et référencement IA pour artisans et TPE (version détaillée pour LLM)
 
@@ -110,6 +128,7 @@ Oui, à 100 % : accès, code et contenus appartiennent au client. En cas de dép
 - Agence web Seine-et-Marne (77) : ${SITE}/agence-web-77/
 - Services : ${SITE}/services/
 - Conseils & tutoriels : ${SITE}/conseils/
+${coconsFr}
 - À propos (Mickaël Leclerc) : ${SITE}/about/
 - Contact : ${SITE}/contact/
 - Mentions légales : ${SITE}/mentions-legales/
@@ -170,6 +189,7 @@ Secondary offer, deliberately not an SEO target: there is almost no English-lang
 - AI search optimisation : ${SITE}/en/ai-search-optimization/
 - Website design : ${SITE}/en/website-design/
 - Insights (newsroom) : ${SITE}/en/insights/
+${coconsEn}
 - About Mickaël Leclerc : ${SITE}/en/about/
 - Contact : ${SITE}/en/contact/
 - Legal notice : ${SITE}/en/legal-notice/
