@@ -70,6 +70,15 @@ function dimensionsPng(buffer, chemin) {
 /* ─── Navigateur Chromium local (encodeur WebP) ─── */
 
 function trouverChromium() {
+  // CHROME_PATH d'abord : même convention que le skill generate-image-gemini.
+  // Nécessaire parce qu'un Chromium peut être présent ET défaillant. Mesuré le
+  // 15/08/2026 sur ce poste : msedge.exe accepte --headless, sort en code 0 et
+  // n'écrit aucun encodage, ce qui faisait échouer tout le lot alors que Chrome
+  // installé à côté fonctionnait. Sans surcharge possible, le premier candidat
+  // trouvé était aussi le seul essayé.
+  const force = process.env.CHROME_PATH;
+  if (force && fs.existsSync(force)) return force;
+
   const candidats =
     process.platform === "win32"
       ? [
