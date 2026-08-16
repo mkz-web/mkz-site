@@ -349,7 +349,7 @@ const FaqItem = styled.details`
   summary {
     padding: 16px 20px;
     font-weight: 600;
-    font-size: 15.5px;
+    font-size: 16px;
     cursor: pointer;
     list-style: none;
     display: flex;
