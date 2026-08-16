@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "SEO artisan : le plan simple pour être visible sur Google",
   "metaDescription": "Plombier, électricien, menuisier : le plan SEO artisan en 2 h par semaine. Fiche Google, avis, pages locales : soyez visible et décrochez des chantiers.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-07",
+  "dateModified": "2026-08-16",
   "readingMinutes": 10,
   "excerpt": "Plombier, électricien, menuisier… vos clients tapent votre métier et leur ville dans Google avant d'appeler. Pas besoin d'être un expert du web pour apparaître devant eux. Voici le plan **SEO** de l'artisan qui n'a pas le temps : concret, sans jargon, honnête sur les prix.",
   "tldr": [
@@ -378,6 +378,10 @@ const article: Article = {
     }
   ],
   "faq": [
+    {
+      "q": "Comment être visible sur Google quand on est artisan ?",
+      "a": "Trois leviers, dans cet ordre. Un : votre fiche Google Business Profile, gratuite, qui vous fait apparaître dans le pack local et sur Google Maps. Deux : un site avec une page par métier et une page par ville d'intervention, jamais une seule page fourre-tout. Trois : des avis clients demandés régulièrement. Inutile de viser la France entière, vos clients habitent à 20 ou 30 kilomètres. Et visez le trio de tête, pas la première page : les trois premiers résultats Google concentrent 54,4 % des clics (Backlinko, 2023)."
+    },
     {
       "q": "Combien de temps faut-il pour voir les premiers résultats SEO quand on est artisan ?",
       "a": "Une fiche Google Business optimisée produit ses premiers effets en 1 à 3 mois. Pour un site avec des pages métier et ville, comptez 3 à 6 mois, et 6 à 12 mois pour des positions durables. Méfiez-vous des résultats « garantis » en quelques semaines : le référencement naturel est un marathon, pas un sprint."

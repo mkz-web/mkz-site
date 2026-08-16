@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Création site vitrine : prix, étapes et pièges (2026)",
   "metaDescription": "Combien coûte vraiment un site vitrine ? Prix 2026, étapes, propriété du site : le guide honnête pour artisans et TPE, avec des chiffres sourcés.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-16",
   "readingMinutes": 10,
   "excerpt": "Vous êtes artisan, commerçant ou à la tête d'une TPE, et on vous répète qu'il vous faut un **site vitrine**, sans jamais vous dire combien ça coûte vraiment, ni à qui il appartiendra. Voici le guide honnête : prix réels 2026, étapes concrètes et pièges à déjouer avant de signer.",
   "tldr": [
@@ -470,6 +470,10 @@ const article: Article = {
     }
   ],
   "faq": [
+    {
+      "q": "Comment créer un site vitrine quand on est artisan ?",
+      "a": "Cinq pages suffisent : accueil, prestations, réalisations avec des photos avant et après, une page par ville d'intervention, contact. Comptez de 2 jours à 6 semaines selon la formule, de 0 à 35 € par mois en le faisant vous-même, et de 1 500 à 5 000 € avec un freelance ou une agence de proximité. Deux conditions non négociables : le nom de domaine déposé à votre nom, et le référencement local pensé dès la conception, pas ajouté après coup."
+    },
     {
       "q": "Peut-on créer un site vitrine gratuit ?",
       "a": "Oui, certains outils en ligne proposent une formule gratuite, mais avec des limites fortes : adresse en sous-domaine (votre-nom.wixsite.com), publicités imposées, options de référencement réduites. Pour un usage professionnel, c'est déconseillé : l'image renvoyée est celle du provisoire. Un nom de domaine et une formule payante d'entrée de gamme restent accessibles pour quelques euros par mois."
