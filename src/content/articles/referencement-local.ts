@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Référencement local : le guide pour artisans et TPE (2026)",
   "metaDescription": "Référencement local : la méthode en 5 étapes pour être trouvé sur Google dans votre ville. Fiche Google, avis, prix honnêtes, plan 90 jours. Sans jargon.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-16",
   "readingMinutes": 11,
   "excerpt": "Vous êtes artisan, commerçant ou patron de TPE, et vos concurrents passent devant vous sur Google ? Ce guide vous donne la méthode complète : **fiche Google**, avis, site web, annuaires et IA, dans l'ordre, avec le temps et le budget réels de chaque action. Sans jargon, promis.",
   "tldr": [
@@ -290,7 +290,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les **données structurées** sont des étiquettes invisibles dans le code de votre site, qui disent aux moteurs : « ceci est une entreprise locale, voici son adresse et ses horaires ». Le format s'appelle LocalBusiness. Demandez à votre prestataire si c'est en place ; chez MKZ, c'est inclus dans toute prestation de [référencement naturel](/referencement-seo/)."
+      "text": "Les **données structurées** sont des étiquettes invisibles dans le code de votre site, qui disent aux moteurs : « ceci est une entreprise locale, voici son adresse et ses horaires ». Le format s'appelle LocalBusiness. Demandez à votre prestataire si c'est en place ; chez MKZ, votre [consultant SEO en Seine-et-Marne](/referencement-seo/) les installe dans toute prestation de référencement."
     },
     {
       "type": "h2",

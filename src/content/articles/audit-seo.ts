@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Audit SEO : guide simple + checklist gratuite (2026)",
   "metaDescription": "Comprenez l'audit SEO sans jargon : checklist gratuite en 10 points pour tester votre site en 30 minutes, prix réels d'un audit pro et pièges à éviter.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-06-12",
+  "dateModified": "2026-08-16",
   "readingMinutes": 10,
   "excerpt": "Le téléphone ne sonne plus et votre site reste invisible sur Google ? Avant de payer qui que ce soit, passez-le au contrôle technique vous-même. Nous vous expliquons l'**audit SEO** sans jargon : checklist gratuite en 30 minutes, vrais prix d'un audit pro et pièges à éviter.",
   "tldr": [
@@ -408,7 +408,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est cette dernière formule que nous pratiquons : le diagnostic initial est offert lors d'un rendez-vous de 30 minutes. Il sert ensuite de base à notre [accompagnement en référencement naturel](/referencement-seo/) si, et seulement si, il révèle un vrai potentiel pour votre activité."
+      "text": "C'est cette dernière formule que nous pratiquons : le diagnostic initial est offert lors d'un rendez-vous de 30 minutes. Il sert ensuite de base à notre [accompagnement SEO en Seine-et-Marne](/referencement-seo/) si, et seulement si, il révèle un vrai potentiel pour votre activité."
     },
     {
       "type": "h3",
