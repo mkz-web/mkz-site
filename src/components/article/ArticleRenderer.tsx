@@ -359,7 +359,7 @@ const FaqItem = styled.details`
     &::after { content: "+"; color: ${theme.colors.ctaInk}; font-weight: 700; font-size: 18px; }
   }
   &[open] summary::after { content: "−"; }
-  p { padding: 0 20px 16px; font-size: 15px; line-height: 1.7; color: ${theme.colors.textSecondary}; margin-top: 0; }
+  p { padding: 0 20px 16px; font-size: 16px; line-height: 1.7; color: ${theme.colors.textSecondary}; margin-top: 0; }
 `;
 
 /* ─── Auteur + articles liés ─── */
