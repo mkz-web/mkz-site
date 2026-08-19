@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Consultant SEO freelance : fixer son TJM et sa compta",
   "metaDescription": "Consultant SEO freelance, ton TJM n'est pas ton salaire divisé par 20. La méthode pour le calculer juste, te situer sur le marché et automatiser ta compta.",
   "datePublished": "2026-06-25",
-  "dateModified": "2026-08-19",
+  "dateModified": "2026-06-25",
   "readingMinutes": 8,
   "excerpt": "Consultant SEO freelance, ton TJM n'est pas ton ancien salaire divisé par 20 : c'est le prix de toute ton entreprise ramené à une journée. Voici la méthode pour le calculer juste, te situer face au marché et automatiser ta **comptabilité** au lieu d'y laisser tes dimanches.",
   "tldr": [
@@ -18,7 +18,7 @@ const article: Article = {
     "Formule : TJM = (salaire net annuel visé + charges annuelles) / jours réellement facturés. Compte 12 à 15 jours par mois, jamais 20.",
     "TJM indicatif d'un consultant SEO : 350 à 700 € par jour selon l'expérience (estimation terrain MKZ Consulting, 2026). Un junior démarre à 300-400 €, un expert dépasse 800 € (L'Expert-Comptable, 2026).",
     "« TJM » est recherché environ 5 400 fois par mois sur Google, « TJM freelance » environ 1 000 fois (DataForSEO, juin 2026) : la plupart des indépendants se sous-évaluent.",
-    "Automatiser sa compta récupère des jours facturables : 2 jours/mois de compta à 300 € de TJM, c'est 7 200 € de CA non facturé par an."
+    "Automatiser sa compta (ex. Indy, plus de 350 000 indépendants accompagnés, 2026) récupère des jours facturables : 2 jours/mois de compta à 300 € de TJM, c'est 7 200 € de CA non facturé par an."
   ],
   "blocks": [
     {
@@ -95,7 +95,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un exemple concret. Tu es en entreprise individuelle, tu veux 3 000 euros net par mois et tu factures 15 jours. Tu ajoutes tes cotisations (environ +44 % selon ton statut), ta mutuelle, ton assurance, et tu arrives autour de 4 430 euros à sortir chaque mois. Tu divises par 15 : ton TJM, c'est 295 euros. Pas 150."
+      "text": "Un exemple concret. Tu es en entreprise individuelle, tu veux 3 000 euros net par mois et tu factures 15 jours. Tu ajoutes tes cotisations (environ +44 % selon ton statut), ta mutuelle, ton assurance, et tu arrives autour de 4 430 euros à sortir chaque mois. Tu divises par 15 : ton TJM, c'est 295 euros. Pas 150. (Exemple tiré du guide d'Indy, 2025.)"
+    },
+    {
+      "type": "p",
+      "text": "Pour dérouler le calcul pas à pas selon ton statut, Indy a publié un guide complet sur le [TJM freelance](https://www.indy.fr/guide/freelance/salaire/tjm/) avec la formule et un exemple chiffré. C'est le genre de ressource que je recommande pour ne pas te planter sur tes hypothèses de départ."
     },
     {
       "type": "callout",
@@ -149,9 +153,9 @@ const article: Article = {
           "Estimation terrain MKZ Consulting, 2026"
         ],
         [
-          "Exemple calculé (3 000 € net, EI, 15 j facturés)",
+          "Exemple Indy (3 000 € net, EI, 15 j facturés)",
           "295 €",
-          "Calcul MKZ Consulting, 2026"
+          "Guide Indy, 2025"
         ]
       ]
     },
@@ -192,7 +196,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est exactement pour ça que je recommande un outil de compta pensé pour les indépendants, pas un fichier que tu remplis à la main. Tu connectes ton compte pro, l'appli catégorise tes opérations, prépare tes déclarations et te les sort en quelques clics. Tu récupères tes soirées, et surtout tu récupères des jours facturables. C'est ça, raisonner en chef d'entreprise : tu gardes ton énergie pour ce qui crée de la valeur, et tu industrialises le reste."
+      "text": "C'est exactement pour ça que je recommande un outil de compta pensé pour les indépendants, comme Indy, qui accompagne déjà plus de 350 000 indépendants en France (source : Indy, 2026). Tu connectes ton compte pro, l'appli catégorise tes opérations, prépare tes déclarations et te les sort en quelques clics. Tu récupères tes soirées, et surtout tu récupères des jours facturables. C'est ça, raisonner en chef d'entreprise : tu gardes ton énergie pour ce qui crée de la valeur, et tu industrialises le reste."
     },
     {
       "type": "callout",
@@ -254,7 +258,7 @@ const article: Article = {
     },
     {
       "q": "Comment calculer son TJM en freelance ?",
-      "a": "Tu appliques la formule : TJM = (salaire net annuel souhaité + charges annuelles) / nombre de jours réellement facturés. L'erreur classique, c'est de surestimer tes jours facturés. Compte 12 à 15 jours par mois, pas 20. Et compte tes charges réelles, cotisations comprises, pas seulement le salaire net que tu vises."
+      "a": "Tu appliques la formule : TJM = (salaire net annuel souhaité + charges annuelles) / nombre de jours réellement facturés. L'erreur classique, c'est de surestimer tes jours facturés. Compte 12 à 15 jours par mois, pas 20. Le détail du calcul selon ton statut est déroulé dans le guide TJM freelance d'Indy."
     },
     {
       "q": "Quel salaire net pour un TJM de 400 ou 500 euros ?",
@@ -270,7 +274,7 @@ const article: Article = {
     },
     {
       "q": "Comment gérer sa comptabilité quand on est consultant SEO freelance ?",
-      "a": "Le plus simple est d'automatiser. Un logiciel de comptabilité pensé pour les indépendants connecte ton compte pro, catégorise tes opérations et prépare tes déclarations en quelques clics. Tu évites l'erreur, tu gagnes du temps, et tu récupères des jours facturables au lieu de les passer dans un tableur."
+      "a": "Le plus simple est d'automatiser. Un logiciel de comptabilité pour indépendants comme Indy connecte ton compte pro, catégorise tes opérations et prépare tes déclarations en quelques clics. Tu évites l'erreur, tu gagnes du temps, et tu récupères des jours facturables au lieu de les passer dans un tableur."
     }
   ],
   "related": [
