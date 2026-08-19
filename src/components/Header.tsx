@@ -360,7 +360,7 @@ export default function Header({ locale = "fr" }: { locale?: Locale }) {
                 visible sans ouvrir le menu. Le dupliquer ferait deux boutons
                 identiques à l'écran quand le menu est ouvert. */}
             <li>
-              <MobileCTA href={CALENDLY} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+              <MobileCTA href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow" onClick={() => setMobileOpen(false)}>
                 {t.header.cta}
               </MobileCTA>
             </li>

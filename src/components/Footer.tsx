@@ -224,8 +224,12 @@ export default function Footer({ locale = "fr" }: { locale?: Locale }) {
                     {link.external ? (
                       <FooterExtLink
                         href={link.href}
+                        // nofollow comme dans Button : la nav du pied de page est rendue
+                        // sur toutes les pages, donc son lien externe (Calendly) sortait
+                        // 44 fois en suivi, mesuré le 19/08/2026. Les entrées tel: et
+                        // mailto: ne sont pas concernées, elles ne transmettent rien.
                         {...(link.href.startsWith("http")
-                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          ? { target: "_blank", rel: "noopener noreferrer nofollow" }
                           : {})}
                       >
                         {link.label}
