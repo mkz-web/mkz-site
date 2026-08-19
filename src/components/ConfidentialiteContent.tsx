@@ -111,7 +111,7 @@ export default function ConfidentialiteContent() {
         Le d&eacute;tail de ces engagements est consultable sur&nbsp;
         <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformit&eacute; de Cloudflare</Link>,&nbsp;
         <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Web3Forms</Link>,&nbsp;
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">celui de Calendly</Link>
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">celui de Calendly</Link>
         &nbsp;et&nbsp;
         <Link href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">la d&eacute;claration de confidentialit&eacute; de Microsoft</Link>.
         Le d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es de Cloudflare est joignable &agrave;&nbsp;

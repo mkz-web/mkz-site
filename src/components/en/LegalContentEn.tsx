@@ -173,7 +173,7 @@ export function PrivacyPolicyEn() {
         to Web3Forms. Details are in{" "}
         <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">Cloudflare&rsquo;s compliance hub</Link>,{" "}
         <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">the Web3Forms DPA</Link>,{" "}
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">the Calendly DPA</Link> and{" "}
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">the Calendly DPA</Link> and{" "}
         <Link href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">the Microsoft privacy statement</Link>.
       </Text>
 
