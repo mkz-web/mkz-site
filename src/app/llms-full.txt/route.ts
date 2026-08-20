@@ -98,11 +98,44 @@ Basé à Dammartin-en-Goële (77), MKZ intervient dans toute l'Île-de-France et
 Villes : Paris, Meaux, Chelles, Melun, Roissy, Senlis, Marne-la-Vallée, Serris, Provins, Fontainebleau, Créteil, Saint-Denis, Bobigny, Montreuil, Cergy, Pontoise, Versailles, Évry, Nanterre.
 Départements : Seine-et-Marne (77), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d'Oise (95), Hauts-de-Seine (92), Yvelines (78), Essonne (91).
 
+## Tarifs 2026 (euros HT, grille publique : ${SITE}/tarifs/)
+
+Prix de base publiés le 20 août 2026. Devis fixe écrit avant toute signature ; prestations mensuelles sans engagement de durée (préavis de 30 jours). TVA 20 % en sus.
+
+Création de site :
+
+- Site une page « Présence » : 590 €. Livré en 2 semaines.
+- Site vitrine « Pro », 5 à 8 pages : 1 490 €, rédaction des textes incluse. Le format recommandé pour un artisan ou une TPE.
+- Site vitrine « Premium », 10 à 15 pages : 2 490 €, design personnalisé, version anglaise possible.
+- Site e-commerce (WooCommerce) : à partir de 2 990 €.
+- Refonte de site existant : à partir de 990 €, prix fixé après le diagnostic gratuit.
+- Inclus dans chaque site (service packagé, pas un site nu) : optimisation SEO complète dès la livraison (mots-clés mesurés, balises, vitesse, sitemap, Google Search Console), premiers liens entrants (fiche Google Business reliée, annuaires de référence du métier et de la ville), mobile-first, balisage JSON-LD + fichier llms.txt (lisibilité par les moteurs IA), conformité RGPD, formation d'1 h, 30 jours de corrections, nom de domaine déposé au nom du client.
+- Maintenance : Essentiel 29 €/mois, Sérénité 59 €/mois (+ 1 h de modifications), Partenaire 99 €/mois (+ 3 h d'évolutions, point trimestriel).
+
+Référencement SEO :
+
+- Diagnostic de 30 minutes : gratuit, avec premier relevé chiffré de visibilité.
+- Audit SEO complet : 490 € (sites jusqu'à 30 pages), déduit de la première facture si un accompagnement démarre sous 30 jours.
+- Audit SEO + visibilité IA : 690 €.
+- Pack visibilité locale (fiche Google Business, annuaires, avis) : 390 €, option suivi mensuel 99 €/mois.
+- Accompagnement mensuel : Fondations 390 €/mois (1 article, optimisations, rapport), Croissance 690 €/mois (2 articles, 1 à 2 liens, 1 h de conseil), Référence 1 190 €/mois (4 contenus, netlinking renforcé, référencement IA inclus).
+- Article SEO à l'unité : 199 €. Netlinking : prix d'achat réel refacturé + 70 € de sélection et pose par lien.
+
+Référencement IA (GEO) :
+
+- Audit de visibilité IA (citations mesurées sur ChatGPT, Perplexity, Gemini, Mistral) : 490 €.
+- Socle technique IA (llms.txt, données structurées, robots IA, données citables) : 390 €, inclus dans tout site créé par MKZ.
+- Option IA sur un accompagnement mensuel : +200 €/mois, incluse dans la formule Référence.
+
+Pack Décollage (site vitrine Pro + visibilité locale) : 1 690 € au lieu de 1 880 €.
+
+Repères de marché à la même date : site vitrine 900 à 5 000 € (grille France Num/Afnic, juin 2025) et 3 000 à 8 000 € en agence ; audit SEO 500 à 3 000 € ; accompagnement SEO 500 à 2 500 €/mois (seo.fr, juin 2026) ; audit GEO 1 500 à 3 000 € (relevés août 2026).
+
 ## FAQ
 
 ### Combien coûte un site internet pour un artisan ?
 
-Le prix varie selon les besoins. MKZ propose des solutions sur mesure adaptées au budget des TPE et indépendants. Un audit gratuit de 30 minutes permet d'obtenir un devis personnalisé.
+Chez MKZ, les tarifs 2026 sont publics : site une page 590 € HT, site vitrine 5 à 8 pages 1 490 € HT rédaction incluse, e-commerce à partir de 2 990 € HT. Grille complète : ${SITE}/tarifs/. Un diagnostic gratuit de 30 minutes aboutit à un devis fixe écrit.
 
 ### Combien de temps faut-il pour être visible sur Google ?
 
@@ -127,6 +160,7 @@ Oui, à 100 % : accès, code et contenus appartiennent au client. En cas de dép
 - Référencement SEO : ${SITE}/referencement-seo/
 - Agence web Seine-et-Marne (77) : ${SITE}/agence-web-77/
 - Services : ${SITE}/services/
+- Tarifs 2026 : ${SITE}/tarifs/
 - Conseils & tutoriels : ${SITE}/conseils/
 ${coconsFr}
 - À propos (Mickaël Leclerc) : ${SITE}/about/

@@ -250,6 +250,9 @@ export const ui: Record<Locale, UiStrings> = {
       // mieux qu'une ancre interne dans une barre à 6 entrées.
       { name: "Référencement IA", href: "/referencement-ia/" },
       { name: "Conseils", href: "/conseils/" },
+      // Tarifs en 6e position le 20/08/2026 : la grille est publique, autant
+      // l'assumer dans la barre. 7 entrées : re-mesuré à 1 280 et 375 px.
+      { name: "Tarifs", href: "/tarifs/" },
       { name: "Contact", href: "/contact/" },
     ],
     header: {
@@ -355,6 +358,7 @@ export const ui: Record<Locale, UiStrings> = {
           links: [
             { label: "Accueil", href: "/" },
             { label: "Services", href: "/services/" },
+            { label: "Tarifs", href: "/tarifs/" },
             { label: "À propos", href: "/about/" },
             { label: "Contact", href: "/contact/" },
           ],
