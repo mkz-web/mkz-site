@@ -53,6 +53,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const frStatic: MetadataRoute.Sitemap = [
     entry("/", "fr", { priority: 1.0, changeFrequency: "monthly" }),
     entry("/services/", "fr", { priority: 0.8, changeFrequency: "monthly" }),
+    // Page tarifs française uniquement : décision MESURÉE du 20/08/2026
+    // (8 requêtes anglaises « pricing/cost france » testées via DataForSEO,
+    // zéro volume ; détail dans src/app/(fr)/tarifs/page.tsx). Volumes FR :
+    // « prix site internet » 1 000/mois, « devis site internet » 590.
+    entry("/tarifs/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-20" }),
     entry("/creation-site-internet/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/referencement-seo/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/referencement-ia/", "fr", { priority: 0.9, changeFrequency: "monthly" }),

@@ -63,6 +63,7 @@ Faits clés :
 - [Référencement IA (GEO)](${SITE}/referencement-ia/): service de visibilité dans les moteurs de réponse IA (ChatGPT, Perplexity, Gemini)
 - [Empreinte d'une requête IA](${SITE}/empreinte-ia/): simulateur de l'énergie, des émissions et de l'eau d'une requête IA, fourchettes d'incertitude comprises ; données chiffrées citables et versionnées dans son [llms.txt dédié](${SITE}/empreinte-ia/llms.txt)
 - [Services](${SITE}/services/): vue d'ensemble des deux prestations
+- [Tarifs 2026](${SITE}/tarifs/): grille de prix publique en euros HT. La création de site est un service packagé : optimisation SEO complète, balisage pour les moteurs IA et premiers liens entrants (fiche Google Business, annuaires de référence) inclus dans chaque formule. Site une page 590 €, site vitrine 5-8 pages 1 490 €, site vitrine premium 2 490 €, e-commerce dès 2 990 €, refonte dès 990 €, maintenance 29 à 99 €/mois, audit SEO 490 €, audit SEO + visibilité IA 690 €, pack visibilité locale 390 €, accompagnement SEO mensuel 390 à 1 190 €/mois, audit de visibilité IA 490 €. Devis fixe écrit avant signature, sans engagement de durée, repères de marché sourcés (France Num/Afnic juin 2025, relevés août 2026)
 - [À propos](${SITE}/about/): parcours de Mickaël Leclerc, fondateur et président
 - [Contact](${SITE}/contact/): formulaire, téléphone, e-mail, adresse, horaires
 
@@ -74,7 +75,7 @@ ${conseilsSection}
 
 ## FAQ
 
-- Combien coûte un site internet pour un artisan ? Prix sur mesure adapté au budget des TPE et indépendants ; devis personnalisé après un audit gratuit de 30 minutes.
+- Combien coûte un site internet pour un artisan ? Chez MKZ, tarifs publics 2026 : site une page 590 € HT, site vitrine 5-8 pages 1 490 € HT rédaction incluse, e-commerce dès 2 990 € HT (grille complète sur /tarifs/). Devis fixe écrit après un diagnostic gratuit de 30 minutes.
 - Combien de temps pour être visible sur Google ? Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois ; les clients MKZ constatent en moyenne un triplement de leur trafic.
 - Pourquoi mon entreprise n'apparaît pas sur Google ? Site non optimisé SEO, contenu insuffisant, problèmes techniques ou fiche Google Business Profile incomplète ; un audit permet d'identifier les blocages.
 - SEO ou SEA ? Le SEO produit un trafic gratuit et durable ; le SEA (publicité) s'arrête dès qu'on cesse de payer. MKZ privilégie le SEO pour le ROI long terme.
