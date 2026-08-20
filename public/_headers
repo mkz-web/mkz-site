@@ -2,6 +2,15 @@
 # HTTPS forcé, compression (brotli/gzip), clean URLs et 404.html
 # sont gérés nativement par Cloudflare Pages.
 
+# Le sous-domaine technique pages.dev sert une copie complète du site : il ne
+# doit jamais être indexable (doublon de mkz-consulting.fr, risque de citation
+# IA sous la mauvaise URL). Blocs limités à l'hôte, la prod n'est pas touchée.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
