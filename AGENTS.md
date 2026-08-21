@@ -67,6 +67,60 @@ Sur la même période le **jargon anglais s'effondre** : llmo 235 → 90 (-62 %)
 
 **Navigation.** « Témoignages » (ancre vers une section de l'accueil) a laissé sa place au pilier dans la barre de navigation. « Tarifs » ajouté en 6e position le 20/08/2026 : la barre est à **7 entrées**, re-mesurée ce jour-là à 1 280 px (une seule ligne, 105 px d'air avant le bloc téléphone/CTA) et à 375 px (burger, cible 44 px, zéro débordement).
 
+# Outil d'audit SEO + IA (/audit-seo/), créé le 21/08/2026
+
+Machine à leads en libre-service : scan gratuit sans inscription, 17 mesures
+réelles faites sur le site du visiteur au moment du test, score sur 100
+(70 points actifs + 30 d'autorité « à venir »), capture d'email contre le
+rapport complet. Cadrage et décisions : dossier `Projet/Seo-referencement/`
+(`cadrage-mvp-outil-audit-2026-08-21.md`).
+
+- **Échelle commerciale à ne pas casser** : scan gratuit -> rapport gratuit
+  envoyé PAR MICKAËL sous 24 h (léger : détail du scan + 3 priorités + un
+  aperçu IA) -> audit complet PAYANT de `/tarifs/` (490 €, 690 € avec la
+  mesure des citations IA). Le rapport gratuit ne contient jamais la mesure
+  complète des citations : c'est le produit payant.
+- **Fichiers** : moteur `functions/api/_engine.mjs` (portable Workers et
+  Node >= 18, zéro dépendance), route `functions/api/scan.js` (POST /api/scan,
+  une phase par appel : origin, robots, page, notfound), front
+  `src/components/audit/` (AuditScan interactif + AuditContent gabarit),
+  pages `(fr)/audit-seo/` et `(en)/en/seo-audit/` (conversion assumée, volumes
+  EN mesurés à zéro le 21/08/2026), textes du chrome dans `ui.audit` (i18n).
+- **Sondes = code de production** : harnais de vérité terrain
+  `node scripts/test-audit-engine.mjs --attendu-mkz` (mesuré vert le
+  21/08/2026, 69/70, seul manque HSTS). Toute évolution du moteur repasse par
+  le harnais AVANT d'être crue. Chaque check mesure et sait répondre « non
+  mesurable » ; jamais d'estimation.
+- **Leads** : Web3Forms (la clé du formulaire de contact), sujet préfixé
+  « Lead audit SEO : », consentement RGPD par case non pré-cochée (les deux
+  politiques de confidentialité décrivent la collecte depuis le 21/08/2026).
+  Pas d'envoi automatique du rapport : choix du cadrage, l'humain convertit.
+- **Déploiement** : `npx wrangler pages deploy out` bundle AUSSI le dossier
+  `functions/` (cwd = racine du dépôt dans deploy.mjs). Invariant à mesurer
+  après chaque déploiement : POST https://mkz-consulting.fr/api/scan
+  {"phase":"origin","url":"mkz-consulting.fr"} répond 200 avec une origine.
+  Test local complet : `npx wrangler pages dev out` puis la page /audit-seo/.
+- **DÉPLOYÉ le 21/08/2026**, recette `livraison-web` complète : pré-publication
+  0 erreur, passe mobile 375 px mesurée au DOM (0 débordement avant ET après
+  scan, cibles 52 px), live 0 erreur (miroir pages.dev en 302 Access, la seule
+  ATTENTION est le faux positif Content-Signal documenté plus haut), sitemap
+  48 URLs resoumis, « Indexation demandée » CONFIRMÉE sur modale visible pour
+  /audit-seo/ et /en/seo-audit/ le jour même.
+- ⚠️ **Piège d'auto-scan, payé au premier déploiement** : depuis le Worker, un
+  fetch `http://` vers SA PROPRE zone part à l'origine sans la redirection de
+  bord : http répondait 200 en 0 saut vu du Worker (301 vu de l'extérieur),
+  d'où un faux « site accessible en double » sur mkz-consulting.fr. Corrigé :
+  `phaseOrigin(url, self)` ne teste que les variantes https quand la cible est
+  l'hôte de l'outil, et le détail affiche « variantes http non testables en
+  auto-scan ». Ne pas « simplifier » ce paramètre.
+- **Reste à faire (S2 à S4 du cadrage)** : Tier 1 DataForSEO (autorité, 30
+  points, avec plafond quotidien dur et clé en secret Worker), Turnstile et
+  limites par IP, entrée dans la nav ou le footer (la barre à 7 entrées est
+  mesurée : re-mesurer avant d'y toucher ; le lien footer « Audit gratuit »
+  pointe vers Calendly, décision à prendre), maillage contextuel depuis les
+  piliers, et la 301 seo-referencement.fr vers la page (hors périmètre du
+  dépôt : zone OVH du domaine).
+
 # Polices et stabilité visuelle
 
 Trois familles web auto-hébergées dans `public/fonts/`, déclarées dans `src/lib/GlobalStyles.tsx`, piles dans `src/lib/theme.ts` : Fraunces en titrage, Archivo en corps, IBM Plex Mono en accent.

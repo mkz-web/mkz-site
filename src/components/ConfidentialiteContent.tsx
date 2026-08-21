@@ -35,6 +35,9 @@ export default function ConfidentialiteContent() {
         <ListItem><strong>Le formulaire de contact :</strong> nom, adresse email, sujet et message</ListItem>
         <ListItem><strong>La prise de rendez-vous :</strong> nom et adresse email (via Calendly)</ListItem>
         <ListItem><strong>Les appels t&eacute;l&eacute;phoniques :</strong> num&eacute;ro de t&eacute;l&eacute;phone et informations &eacute;chang&eacute;es</ListItem>
+        <ListItem><strong>L&rsquo;outil d&rsquo;audit SEO gratuit :</strong> adresse email et adresse du site analys&eacute;,
+        uniquement si vous demandez le rapport et cochez la case de consentement. Le scan lui-m&ecirc;me ne
+        traite qu&rsquo;une adresse de site publique et ne collecte aucune donn&eacute;e personnelle</ListItem>
       </List>
       <Text>
         Aucune donn&eacute;e n&rsquo;est collect&eacute;e automatiquement &agrave; des fins publicitaires.
@@ -49,6 +52,8 @@ export default function ConfidentialiteContent() {
       <List>
         <ListItem>R&eacute;pondre &agrave; vos demandes de contact ou de devis</ListItem>
         <ListItem>Planifier et r&eacute;aliser un audit gratuit</ListItem>
+        <ListItem>Vous envoyer le rapport d&rsquo;audit que vous avez demand&eacute; via l&rsquo;outil gratuit,
+        et vous recontacter &agrave; son sujet</ListItem>
         <ListItem>Assurer le suivi de la relation commerciale</ListItem>
         <ListItem>Vous envoyer des informations li&eacute;es &agrave; votre projet (uniquement si vous en avez fait la demande)</ListItem>
       </List>
@@ -73,7 +78,8 @@ export default function ConfidentialiteContent() {
       <Text>Elles peuvent &ecirc;tre trait&eacute;es par les sous-traitants suivants :</Text>
       <List>
         <ListItem><strong>Cloudflare, Inc.</strong> : h&eacute;bergement et diffusion du site web (&Eacute;tats-Unis)</ListItem>
-        <ListItem><strong>Web3Forms</strong> (Web3Creative) : acheminement des messages envoy&eacute;s via le formulaire de contact (Inde)</ListItem>
+        <ListItem><strong>Web3Forms</strong> (Web3Creative) : acheminement des messages envoy&eacute;s via le
+        formulaire de contact et des demandes de rapport de l&rsquo;outil d&rsquo;audit (Inde)</ListItem>
         <ListItem><strong>Calendly LLC</strong> : gestion de la prise de rendez-vous en ligne (&Eacute;tats-Unis)</ListItem>
         <ListItem><strong>Microsoft Corporation</strong> : mesure d&rsquo;audience et analyse de l&rsquo;usage du site
         via Microsoft Clarity, uniquement apr&egrave;s votre consentement (&Eacute;tats-Unis)</ListItem>

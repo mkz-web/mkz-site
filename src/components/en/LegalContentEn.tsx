@@ -116,7 +116,10 @@ export function PrivacyPolicyEn() {
       <Text>
         Only what you send us yourself: your name, your email address, the subject and the
         content of your message through the contact form, plus your name and email address
-        if you book a slot. No account, no profiling, no data bought from third parties.
+        if you book a slot. The free SEO audit tool only asks for a public website address;
+        your email is collected there solely if you request the full report and tick the
+        consent box, together with the address of the site scanned. No account, no
+        profiling, no data bought from third parties.
       </Text>
       <Text>
         With your consent, given through the cookie banner, we also measure how the site is
@@ -127,8 +130,9 @@ export function PrivacyPolicyEn() {
 
       <SectionTitle>Why we process it</SectionTitle>
       <Text>
-        To answer your enquiry and, where relevant, to prepare a proposal. Nothing else.
-        Your data is never used for advertising and never sold.
+        To answer your enquiry, to send you the audit report you asked for and follow up
+        about it and, where relevant, to prepare a proposal. Nothing else. Your data is
+        never used for advertising and never sold.
       </Text>
 
       <SectionTitle>Legal basis</SectionTitle>
@@ -150,8 +154,8 @@ export function PrivacyPolicyEn() {
       </Text>
       <Text>
         <strong>Cloudflare, Inc.</strong> hosts and delivers the site (United States).{" "}
-        <strong>Web3Forms</strong> (Web3Creative) transmits contact form submissions, and
-        nothing else (India). <strong>Calendly LLC</strong> handles online booking if you
+        <strong>Web3Forms</strong> (Web3Creative) transmits contact form submissions and
+        audit report requests, and nothing else (India). <strong>Calendly LLC</strong> handles online booking if you
         reserve a slot (United States). <strong>Microsoft Corporation</strong> processes
         audience measurement data through Microsoft Clarity, only after your consent
         (United States).
