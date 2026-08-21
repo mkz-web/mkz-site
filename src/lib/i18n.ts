@@ -219,6 +219,10 @@ export interface UiStrings {
     addressLines: string[];
     hoursLines: string[];
     mapsLabel: string;
+    /** Maillage contextuel sortant : la page contact était un cul-de-sac
+     *  (carte-maillage du 21/08/2026, zéro lien sortant dans le corps).
+     *  Rendu en cellule dans la pile latérale par ContactContent. */
+    explore: { label: string; links: { label: string; href: string }[] };
     form: {
       name: string;
       namePlaceholder: string;
@@ -368,7 +372,10 @@ export const ui: Record<Locale, UiStrings> = {
             { label: "Référencement SEO", href: "/referencement-seo/" },
             { label: "Référencement IA (GEO)", href: "/referencement-ia/" },
             { label: "Agence web Seine-et-Marne", href: "/agence-web-77/" },
-            { label: "Audit gratuit", href: CALENDLY, external: true },
+            // Depuis le 21/08/2026, cette entrée pointe vers l'outil d'audit en
+            // libre-service et non plus vers Calendly : le CTA du bloc du haut
+            // couvre déjà la prise de rendez-vous, et le lien devient interne.
+            { label: "Audit SEO gratuit en ligne", href: "/audit-seo/" },
           ],
         },
         {
@@ -441,6 +448,14 @@ export const ui: Record<Locale, UiStrings> = {
       addressLines: ["1 rue Françoise Sagan", "77230 Dammartin-en-Goële"],
       hoursLines: ["Lundi - vendredi : 9h - 18h", "Réponse sous 24 h garantie"],
       mapsLabel: "Voir sur Google Maps",
+      explore: {
+        label: "Avant de nous écrire",
+        links: [
+          { label: "La grille des tarifs", href: "/tarifs/" },
+          { label: "Tester votre site : audit SEO gratuit", href: "/audit-seo/" },
+          { label: "Nos services en détail", href: "/services/" },
+        ],
+      },
       form: {
         name: "Nom complet",
         namePlaceholder: "Jean Dupont",
@@ -710,7 +725,9 @@ export const ui: Record<Locale, UiStrings> = {
             { label: "French SEO", href: "/en/french-seo/" },
             { label: "AI search optimisation", href: "/en/ai-search-optimization/" },
             { label: "Website design", href: "/en/website-design/" },
-            { label: "Free 30-min review", href: CALENDLY, external: true },
+            // Même bascule que côté français le 21/08/2026 : l'entrée vise
+            // l'outil d'audit, Calendly reste servi par le CTA du bloc du haut.
+            { label: "Free SEO & AI audit", href: "/en/seo-audit/" },
           ],
         },
         {
@@ -779,6 +796,14 @@ export const ui: Record<Locale, UiStrings> = {
       addressLines: ["1 rue Françoise Sagan", "77230 Dammartin-en-Goële, France"],
       hoursLines: ["Monday to Friday, 9am - 6pm CET", "Reply within 24 hours"],
       mapsLabel: "View on Google Maps",
+      explore: {
+        label: "Before you write",
+        links: [
+          { label: "Run the free SEO & AI audit", href: "/en/seo-audit/" },
+          { label: "French SEO, the service", href: "/en/french-seo/" },
+          { label: "AI search optimisation", href: "/en/ai-search-optimization/" },
+        ],
+      },
       form: {
         name: "Full name",
         namePlaceholder: "Jane Smith",

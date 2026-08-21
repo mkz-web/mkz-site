@@ -106,7 +106,7 @@ const pillar: PillarPage = {
       type: "callout",
       variant: "attention",
       title: "Always judge the live robots.txt, never the one in your repo",
-      text: "Fetch https://yourdomain.com/robots.txt in a browser and read what is actually served. If GPTBot, ClaudeBot, PerplexityBot or Google-Extended are disallowed there, nothing else on this page matters yet. This is the single most common blocker, and it is a config change, not a project.",
+      text: "Fetch https://yourdomain.com/robots.txt in a browser and read what is actually served. If GPTBot, ClaudeBot, PerplexityBot or Google-Extended are disallowed there, nothing else on this page matters yet. This is the single most common blocker, and it is a config change, not a project. Or have it read for you: the [free SEO & AI audit](/en/seo-audit/) fetches your live robots.txt and tells you in one minute whether those crawlers get through.",
     },
     {
       type: "h3",

@@ -75,6 +75,14 @@ const content: AuditPageContent = {
     "The scan is the express version of our audit method. The full version goes further: competitor analysis, the keywords worth targeting in French search, the real measurement of what ChatGPT, Perplexity and Gemini say about you, and a prioritised action plan. The scan tells you where you stand. The full audit tells you what to do, in what order, and why.",
   ],
   faqTitle: "Frequently asked questions",
+  nextLinks: {
+    intro: "Keep reading:",
+    links: [
+      { label: "French SEO, the service", href: "/en/french-seo/" },
+      { label: "AI search optimisation", href: "/en/ai-search-optimization/" },
+      { label: "field notes on French search", href: "/en/insights/" },
+    ],
+  },
   ctaTitle: "Rather talk to a human?",
   ctaText: "A free 30-minute review with Mickaël, in English: we go through your scan together and you leave with a concrete plan for the French market, whether or not you work with us.",
   ctaButton: "Book a free 30-min review",

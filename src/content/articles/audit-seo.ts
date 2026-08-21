@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Audit SEO : guide simple + checklist gratuite (2026)",
   "metaDescription": "Comprenez l'audit SEO sans jargon : checklist gratuite en 10 points pour tester votre site en 30 minutes, prix réels d'un audit pro et pièges à éviter.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-08-21",
   "readingMinutes": 10,
   "excerpt": "Le téléphone ne sonne plus et votre site reste invisible sur Google ? Avant de payer qui que ce soit, passez-le au contrôle technique vous-même. Nous vous expliquons l'**audit SEO** sans jargon : checklist gratuite en 30 minutes, vrais prix d'un audit pro et pièges à éviter.",
   "tldr": [
@@ -356,6 +356,10 @@ const article: Article = {
       "variant": "attention",
       "title": "Un score n'est pas un diagnostic",
       "text": "Un 60/100 ne veut pas dire que votre site est « cassé » : ces notes n'ont aucune valeur officielle, Google n'attribue aucun score global. Servez-vous des outils gratuits pour débroussailler, jamais pour décider d'un investissement sous le coup de la peur."
+    },
+    {
+      "type": "p",
+      "text": "C'est précisément pour corriger ces défauts que nous avons construit notre propre [audit SEO gratuit en ligne](/audit-seo/) : 17 mesures réelles faites sur votre site au moment où vous cliquez (HTTPS, robots des IA, données structurées, vraie page 404...), un score affiché sans laisser votre e-mail, et chaque point expliqué en français. Débroussaillez en une minute, puis déroulez la checklist en 10 points ci-dessus : les deux se complètent."
     },
     {
       "type": "h2",

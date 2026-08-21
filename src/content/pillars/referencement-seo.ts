@@ -148,6 +148,10 @@ const pillar: PillarPage = {
       "text": "Trente minutes, gratuites, sans engagement : nous analysons votre site, votre fiche Google et vos concurrents, puis nous vous disons franchement ce qui bloque. Pour savoir ce que nous regardons, lisez notre article sur l'[audit SEO](/conseils/seo/audit-seo/)."
     },
     {
+      "type": "p",
+      "text": "Pressé ? Commencez tout de suite par notre [audit SEO gratuit en ligne](/audit-seo/) : 17 mesures réelles faites sur votre site au moment du test, un score sur 100 et vos priorités, en une minute, sans inscription. On reprend ensuite ces résultats ensemble pendant les 30 minutes."
+    },
+    {
       "type": "h3",
       "text": "2. Corrections techniques : un site rapide que Google comprend"
     },

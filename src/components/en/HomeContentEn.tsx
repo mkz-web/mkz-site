@@ -713,6 +713,12 @@ export default function HomeContentEn() {
                 <Link href="/en/insights/">insights</Link>. Take them and do it
                 yourself if you prefer.
               </p>
+              <p>
+                Want to know where you stand first? The{" "}
+                <Link href="/en/seo-audit/">free SEO &amp; AI audit</Link> runs 17
+                real checks on your site and scores it out of 100. One minute, no
+                signup.
+              </p>
             </ServicesAside>
             <div>
               {services.map((s) => (
@@ -816,6 +822,9 @@ export default function HomeContentEn() {
           </FinalActions>
           <FinalMeta>
             Or directly: <a href="tel:+33769093909">+33 7 69 09 39 09</a> · reply within 24h
+            <br />
+            Not ready to talk? Run the <a href="/en/seo-audit/">free SEO &amp; AI audit</a> first:
+            17 checks, one minute, no signup.
           </FinalMeta>
         </Container>
       </Section>

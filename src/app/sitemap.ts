@@ -72,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 15/08/2026 (volumes US en chute de ~75 % entre S2 2025 et S1 2026,
     // SERP tenue par Epoch AI/IEEE/grands médias, intention hors doctrine
     // de la section EN). Détail : CLAUDE.md du projet source.
-    entry("/empreinte-ia/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-15" }),
+    entry("/empreinte-ia/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-21" }),
     entry("/about/", "fr", { priority: 0.7, changeFrequency: "monthly" }),
     entry("/contact/", "fr", { priority: 0.6, changeFrequency: "monthly" }),
     // Les deux pages légales françaises sont passées en index, follow le

@@ -699,6 +699,16 @@ input[type="range"] {
 /* ------------------------------------------------------------------- FAQ */
 
 .faq-liste { margin-top: 1.8rem; max-width: var(--lecture); }
+/* Maillage sortant vers le cocon IA du site : la page était un cul-de-sac
+   (carte-maillage du 21/08/2026, zéro lien contextuel sortant). Le bloc vit
+   dans le CORPS (fin de la section FAQ), pas dans le pied de page : les sondes
+   de maillage retirent le chrome avant de compter les liens contextuels.
+   Ne jamais écrire une balise de chrome en toutes lettres dans ce commentaire :
+   payé le 21/08/2026, la chaîne déclenchait le strip regex d'une sonde qui
+   avalait 37 Ko de page depuis le head. */
+.suite-liens { margin-top: 1.8rem; max-width: var(--lecture); font-size: 0.97rem; color: var(--encre); }
+.suite-liens a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+.suite-liens a:hover { color: var(--orange-encre); }
 .faq-item {
   background: var(--surface);
   border: 1px solid var(--filet);
@@ -955,6 +965,7 @@ input[type="range"] {
 <details class="faq-item" id="faq-agent-ia-consommation"><summary><h3>Un agent IA consomme-t-il plus qu'une conversation classique ?</h3></summary><div class="faq-reponse"><p>Un agent IA consomme beaucoup plus qu'une conversation classique, parce qu'une seule demande y déclenche des dizaines d'appels au modèle au lieu d'un seul. Un agent qui lit des fichiers, appelle des outils, vérifie son travail et recommence peut enchaîner 20 à 120 appels pour une tâche que l'utilisateur perçoit comme une question unique.</p><p>L'écart n'est pas dans le coût d'un appel, qui reste identique, mais dans leur nombre. Un run de 60 appels sur un modèle courant consomme autant que 60 conversations, alors que l'utilisateur n'a rédigé qu'une seule instruction.</p><p>C'est le principal angle mort des compteurs d'empreinte disponibles aujourd'hui : ils observent une fenêtre de discussion, alors que le volume réel se déplace vers des agents outillés dont personne ne compte les appels intermédiaires.</p></div></details>
 <details class="faq-item" id="faq-mesurer-consommation-ia-entreprise"><summary><h3>Comment mesurer la consommation d'IA de mon entreprise ?</h3></summary><div class="faq-reponse"><p>Mesurer la consommation d'IA d'une entreprise demande de partir des volumes réels de tokens, et non du nombre d'utilisateurs. Trois sources suffisent à démarrer : les relevés de consommation des interfaces d'API, qui donnent les tokens d'entrée et de sortie par modèle, les journaux des applications internes qui appellent ces modèles, et l'inventaire des abonnements aux assistants grand public souscrits par les équipes.</p><p>La difficulté n'est pas le calcul, qui reste une multiplication, mais la collecte : dans la plupart des organisations, une partie significative des usages passe par des comptes personnels et des abonnements payés en note de frais, totalement invisibles du système d'information.</p><p>Un ordre de grandeur utile pour se lancer, entièrement vérifiable : dix personnes, dix requêtes par jour chacune, vingt jours ouvrés, environ 500 tokens par réponse, cela fait un million de tokens de sortie par mois. Sur un modèle courant, ce volume représente environ 0,80 kWh, soit 3,33 journées de box internet allumée. À cette échelle, l'empreinte de l'IA se discute encore en watt heures, pas en tonnes.</p></div></details>
 <details class="faq-item" id="faq-faut-il-arreter-utiliser-ia"><summary><h3>Faut-il arrêter d'utiliser l'IA pour réduire son empreinte ?</h3></summary><div class="faq-reponse"><p>Non. Arrêter d'utiliser l'IA n'est ni la réponse la plus efficace, ni la plus réaliste. L'écart entre un usage réfléchi et un usage par défaut atteint un facteur 720 sur la même tâche, quand l'écart entre utiliser l'IA et ne pas l'utiliser se compte, lui, en fractions de watt heure par requête.</p><p>Le sujet est un problème de conception, pas de renoncement. Choisir la bonne classe de modèle pour chaque tâche, limiter la longueur des réponses générées, éviter de relancer un agent complet pour une correction de virgule et arbitrer la région d'hébergement produisent des gains immédiats, sans rien retirer aux équipes.</p><p>La comparaison honnête doit d'ailleurs intégrer ce que l'usage remplace. Vingt minutes de recherche documentaire sur un ordinateur portable de 30 W consomment 10 Wh, soit environ 24 fois une requête courante. L'enjeu n'est pas de faire moins, il est de ne pas faire n'importe comment.</p></div></details></div>
+    <p class="suite-liens">Pour aller plus loin : la prestation de <a href="https://mkz-consulting.fr/referencement-ia/">référencement IA (GEO)</a>, les <a href="https://mkz-consulting.fr/conseils/referencement-ia/">guides du cocon référencement IA</a> et l'<a href="https://mkz-consulting.fr/audit-seo/">audit SEO + IA gratuit en ligne</a>.</p>
   </div>
 </section>
 

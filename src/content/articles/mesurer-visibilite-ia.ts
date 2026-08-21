@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Outil GEO : mesurer si les IA parlent de vous",
   "metaDescription": "Outils GEO payants ou protocole gratuit ? La méthode pour mesurer votre part de voix dans ChatGPT et Perplexity, et les pièges qui faussent la mesure.",
   "datePublished": "2026-08-07",
-  "dateModified": "2026-08-07",
+  "dateModified": "2026-08-21",
   "readingMinutes": 9,
   "excerpt": "Il n'existe pas de Search Console pour les IA. Personne ne vous enverra de rapport disant combien de fois ChatGPT a prononcé votre nom. Voici le protocole gratuit qui vous donne ce chiffre en une heure, les pièges qui le faussent, et le moment où un outil payant devient justifié.",
   "tldr": [
@@ -256,6 +256,10 @@ const article: Article = {
     {
       "type": "p",
       "text": "Et surtout, ne changez qu'une chose à la fois entre deux mesures. Si vous ouvrez les robots, réécrivez vos pages et publiez un [llms.txt](/conseils/referencement-ia/llms-txt-a-quoi-ca-sert/) le même mois, vous saurez que ça a bougé, jamais grâce à quoi."
+    },
+    {
+      "type": "p",
+      "text": "Pour le socle, c'est-à-dire vérifier que les robots des IA passent et que votre balisage tient debout, notre [audit SEO + IA gratuit en ligne](/audit-seo/) fait le relevé en une minute : robots.txt réellement servi, GPTBot, ClaudeBot et PerplexityBot, llms.txt, données structurées. C'est le prérequis de la visibilité, pas sa mesure : la part de voix, elle, se compte avec le protocole ci-dessus."
     },
     {
       "type": "p",

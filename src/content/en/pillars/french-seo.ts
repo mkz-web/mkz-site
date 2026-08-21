@@ -131,6 +131,10 @@ const pillar: PillarPage = {
       text: "Indexation, internal linking in French, schema.org, Core Web Vitals, and a Google Business profile in French if you have any physical presence. Nothing exotic. It is the same technical SEO you already know, applied to the French side of the site, which is usually the side nobody audited.",
     },
     {
+      type: "p",
+      text: "You can get a first reading in one minute: the [free SEO & AI audit](/en/seo-audit/) runs 17 real checks against the site you actually serve (HTTPS, AI crawlers, structured data, real 404) and scores it out of 100. No signup.",
+    },
+    {
       type: "h3",
       text: "5. Monthly measurement",
     },
