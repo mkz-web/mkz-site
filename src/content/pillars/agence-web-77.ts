@@ -218,7 +218,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "Mon ancien site ne s'affichait même pas correctement sur téléphone. Mickaël a refait le site, remis ma fiche Google d'aplomb et branché la réservation en ligne. Et quand j'appelle avec une question, il décroche. Pour moi c'est ça, la différence.",
+      "text": "J'ai appelé Mickaël un mardi, le site était en ligne trois semaines plus tard, avec la réservation qui marche enfin sur téléphone. Depuis, le samedi soir se remplit presque tout seul ! Et quand j'ai une question, même pour une bêtise, il répond. Je l'ai déjà recommandé à deux collègues du coin.",
       "author": "Pierre D., restaurateur à Dammartin-en-Goële (réservations en ligne doublées en 4 mois)"
     },
     {
@@ -231,7 +231,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "J'avais un site fait en 2016 que personne ne trouvait. Mickaël a tout refait en trois semaines, en m'expliquant chaque étape sans me noyer dans le jargon. Aujourd'hui les appels viennent de Meaux et des communes autour, et surtout pour le type de chantiers que je voulais.",
+      "text": "Moi, les sites internet, c'est pas mon truc. J'ai donné mes photos et mes tarifs, MKZ s'est occupé du reste et m'a appelé quand il manquait quelque chose. Ce que je vois, c'est que le téléphone sonne, et pour des chantiers à Meaux, pas à l'autre bout du département.",
       "author": "Marc T., plombier chauffagiste à Meaux (8 à 10 demandes par mois via le site)"
     },
     {
@@ -244,7 +244,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "Mon ancien site datait de mes débuts et mes photos y étaient compressées à mort. Mickaël a compris tout de suite que la priorité c'était l'image, pas les effets. Le nouveau site est sobre et rapide, et plusieurs clients m'ont dit avoir eu envie d'appeler en le voyant.",
+      "text": "Je redoutais un site qui en fait trop, avec des animations partout et mes photos réduites à des vignettes. On a fait l'inverse : beaucoup de blanc, des images en grand, rien qui bouge. On m'a écoutée, sans chercher à m'imposer un modèle. Mes clientes me disent qu'elles ont eu l'impression de voir mon travail avant même de m'appeler.",
       "author": "Anne-Laure M., photographe à Melun (site refait en 3 semaines)"
     },
     {
@@ -257,7 +257,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "Je mettais 150 € par mois dans des pubs Facebook sans savoir ce que ça rapportait. Six mois après la mise en ligne du site et le travail sur ma fiche Google, je les ai arrêtées : les gens me trouvent directement en cherchant un coach sur Chelles, et ils arrivent déjà convaincus.",
+      "text": "Franchement, je n'y croyais pas trop. Je mettais 150 € par mois dans des pubs Facebook sans savoir si ça servait à quelque chose. Six mois après la mise en ligne du site et la remise à plat de ma fiche Google, je les ai coupées : les gens me trouvent en cherchant un coach sur Chelles et ils m'écrivent déjà décidés. Seul bémol : il faut envoyer les infos dans les temps, sinon on se fait relancer !",
       "author": "Caroline B., coach sportif à Chelles (dans les 3 premiers résultats locaux)"
     },
     {
