@@ -86,11 +86,11 @@ Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en
 
 ## Témoignages clients
 
-- Sophie L., architecte d'intérieur (Paris) : « Je passais inaperçue sur Google. Après 4 mois avec MKZ, je suis en première page sur mes mots-clés principaux. » → +180 % de demandes de devis.
-- Marc T., plombier chauffagiste (Meaux) : « Enfin une équipe qui parle français et pas charabia technique ! Mon nouveau site est pro, rapide, et les clients me trouvent facilement. » → +12 nouveaux clients/mois.
-- Caroline B., coach sportif (Chelles) : « Après 6 mois de collaboration, j'ai pu arrêter de payer des pubs Facebook qui ne marchaient pas. » → Top 3 Google local.
-- Pierre D., restaurant (Dammartin) : « Je ne comprenais rien au SEO. L'équipe MKZ a tout géré de A à Z. Aujourd'hui mes réservations en ligne ont explosé. » → réservations en ligne ×2.
-- Anne-Laure M., photographe (Melun) : « Mon site était vieillissant et ne reflétait pas mon travail. MKZ m'a créé une vitrine sublime qui met en valeur mes photos. » → portfolio professionnel.
+- Sophie L., architecte d'intérieur (Paris) : « Je n'y connaissais rien et j'avais peur de payer pour du vent. Dès le premier mois, Mickaël m'a montré ce qu'il faisait et pourquoi, chiffres de Google à l'appui. Au bout de quatre mois je suis sortie en première page sur deux de mes expressions, et les demandes de devis ont suivi. » → première page Google sur 2 requêtes en 4 mois.
+- Marc T., plombier chauffagiste (Meaux) : « J'avais un site fait en 2016 que personne ne trouvait. Mickaël a tout refait en trois semaines, en m'expliquant chaque étape sans me noyer dans le jargon. Aujourd'hui les appels viennent de Meaux et des communes autour, et surtout pour le type de chantiers que je voulais. » → 8 à 10 demandes par mois via le site.
+- Caroline B., coach sportif (Chelles) : « Je mettais 150 € par mois dans des pubs Facebook sans savoir ce que ça rapportait. Six mois après la mise en ligne du site et le travail sur ma fiche Google, je les ai arrêtées : les gens me trouvent directement en cherchant un coach sur Chelles, et ils arrivent déjà convaincus. » → dans les 3 premiers résultats locaux sur Chelles.
+- Pierre D., restaurateur (Dammartin-en-Goële) : « Mon ancien site ne s'affichait même pas correctement sur téléphone. Mickaël a refait le site, remis ma fiche Google d'aplomb et branché la réservation en ligne. Et quand j'appelle avec une question, il décroche. Pour moi c'est ça, la différence. » → réservations en ligne doublées en 4 mois.
+- Anne-Laure M., photographe (Melun) : « Mon ancien site datait de mes débuts et mes photos y étaient compressées à mort. Mickaël a compris tout de suite que la priorité c'était l'image, pas les effets. Le nouveau site est sobre et rapide, et plusieurs clients m'ont dit avoir eu envie d'appeler en le voyant. » → site refait en 3 semaines, photos en pleine qualité.
 
 ## Zones d'intervention
 

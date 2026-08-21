@@ -323,17 +323,33 @@ const StepDesc = styled.p`
   color: ${theme.colors.textOnDarkSecondary};
 `;
 
-/* ─── Témoignages (pull quote magazine) ─── */
+/* ─── Témoignages : trois voix, même format ───
+   Remplace la « pull quote magazine » (40 px sur 4 lignes, moitié gauche de
+   l'écran) suivie de deux citations en 15,5 px : la première écrasait tout,
+   les deux autres passaient pour des paragraphes. Même gabarit pour les
+   trois, en 3 colonnes à partir de 1024 px, empilées en dessous. */
 
-const PullQuote = styled.blockquote`
+const QuoteGrid = styled.div`
+  display: grid;
+  gap: 40px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+`;
+
+const Quote = styled.blockquote`
+  border-top: 1px solid ${theme.colors.borderInk};
+  padding-top: 24px;
+  max-width: 60ch;
   font-family: ${theme.fonts.display};
   font-style: italic;
-  font-size: clamp(24px, 3.4vw, 40px);
+  font-size: clamp(19px, 1.7vw, 22px);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.45;
   letter-spacing: -0.005em;
   color: ${theme.colors.accent};
-  max-width: 26ch;
 `;
 
 const QuoteAttribution = styled.p`
@@ -360,21 +376,6 @@ const ResultTag = styled.span`
   border: 1.5px solid ${theme.colors.ctaInk};
   border-radius: ${theme.radius.sm};
   padding: 6px 10px;
-`;
-
-const QuotesRow = styled.div`
-  margin-top: 64px;
-  display: grid;
-  gap: 32px;
-  @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); gap: 48px; }
-`;
-
-const SmallQuote = styled.blockquote`
-  border-top: 1px solid ${theme.colors.borderInk};
-  padding-top: 20px;
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: ${theme.colors.text};
 `;
 
 /* ─── Différenciateurs (grille filets) ─── */
@@ -576,9 +577,12 @@ const methodSteps = [
   { num: "03", title: "Résultats mesurables", desc: "Exécution, suivi mensuel avec reporting transparent. Vous voyez concrètement l'évolution." },
 ];
 
-const smallQuotes = [
-  { quote: "Je passais inaperçue sur Google. Après 4 mois avec MKZ, je suis en première page sur mes mots-clés principaux.", name: "Sophie L.", role: "Architecte d'intérieur, Paris", result: "+180 % de demandes de devis" },
-  { quote: "Je ne comprenais rien au SEO. MKZ a tout géré de A à Z. Aujourd'hui mes réservations en ligne ont explosé.", name: "Pierre D.", role: "Restaurateur, Dammartin-en-Goële", result: "Réservations × 2" },
+// Les mêmes cinq clients parlent dans le pilier agence-web-77 et dans
+// llms-full.txt : toute retouche ici se reporte là-bas (et dans _content-staging/).
+const testimonials = [
+  { quote: "J'avais un site fait en 2016 que personne ne trouvait. Mickaël a tout refait en trois semaines, en m'expliquant chaque étape sans me noyer dans le jargon. Aujourd'hui les appels viennent de Meaux et des communes autour, et surtout pour le type de chantiers que je voulais.", name: "Marc T.", role: "Plombier chauffagiste, Meaux", result: "8 à 10 demandes par mois" },
+  { quote: "Je n'y connaissais rien et j'avais peur de payer pour du vent. Dès le premier mois, Mickaël m'a montré ce qu'il faisait et pourquoi, chiffres de Google à l'appui. Au bout de quatre mois je suis sortie en première page sur deux de mes expressions, et les demandes de devis ont suivi.", name: "Sophie L.", role: "Architecte d'intérieur, Paris", result: "Page 1 Google en 4 mois" },
+  { quote: "Mon ancien site ne s'affichait même pas correctement sur téléphone. Mickaël a refait le site, remis ma fiche Google d'aplomb et branché la réservation en ligne. Et quand j'appelle avec une question, il décroche. Pour moi c'est ça, la différence.", name: "Pierre D.", role: "Restaurateur, Dammartin-en-Goële", result: "Réservations en ligne × 2" },
 ];
 
 const differentiators = [
@@ -732,29 +736,17 @@ export default function HomeContent() {
             <ChapterTitle>Des artisans et commer&ccedil;ants, comme vous.</ChapterTitle>
           </ChapterHead>
 
-          <PullQuote>
-            &laquo;&nbsp;Enfin une &eacute;quipe qui parle fran&ccedil;ais et pas charabia
-            technique ! Mon nouveau site est pro, rapide, et les clients me trouvent
-            facilement.&nbsp;&raquo;
-          </PullQuote>
-          <QuoteAttribution>
-            <strong>Marc T.</strong> · plombier chauffagiste, Meaux
-          </QuoteAttribution>
-          <div>
-            <ResultTag>+12 nouveaux clients / mois</ResultTag>
-          </div>
-
-          <QuotesRow>
-            {smallQuotes.map((t) => (
+          <QuoteGrid>
+            {testimonials.map((t) => (
               <div key={t.name}>
-                <SmallQuote>&laquo;&nbsp;{t.quote}&nbsp;&raquo;</SmallQuote>
+                <Quote>&laquo;&nbsp;{t.quote}&nbsp;&raquo;</Quote>
                 <QuoteAttribution>
                   <strong>{t.name}</strong> · {t.role}
                 </QuoteAttribution>
                 <div><ResultTag>{t.result}</ResultTag></div>
               </div>
             ))}
-          </QuotesRow>
+          </QuoteGrid>
         </Container>
       </Section>
 
