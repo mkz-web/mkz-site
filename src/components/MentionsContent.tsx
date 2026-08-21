@@ -54,7 +54,7 @@ export default function MentionsContent() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        Avec votre consentement, ce site utilise l&rsquo;outil de mesure d&rsquo;audience Microsoft Clarity.
+        Avec votre consentement, ce site utilise les outils de mesure d&rsquo;audience Google Analytics 4 et Microsoft Clarity.
         Sans votre accord, donn&eacute; via le bandeau cookies, seuls des cookies techniques strictement
         n&eacute;cessaires au fonctionnement du site sont utilis&eacute;s. Le d&eacute;tail figure dans
         notre <a href="/politique-confidentialite/" style={{ color: theme.colors.accent }}>politique de confidentialit&eacute;</a>.

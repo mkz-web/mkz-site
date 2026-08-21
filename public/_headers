@@ -1,4 +1,4 @@
-# En-têtes Cloudflare Pages — équivalent de l'ancien .htaccess OVH.
+# En-têtes Cloudflare Pages : équivalent de l'ancien .htaccess OVH.
 # HTTPS forcé, compression (brotli/gzip), clean URLs et 404.html
 # sont gérés nativement par Cloudflare Pages.
 
@@ -13,11 +13,16 @@ https://:version.:project.pages.dev/*
 
 # HSTS et CSP ajoutés le 21/08/2026, sur inventaire mesuré des ressources (rien au jugé) :
 # - script : inline (Next + chargeur Clarity) via 'unsafe-inline', cdn.hu-manity.co (bandeau,
-#   seule ressource externe du HTML statique), *.clarity.ms (tag injecté après consentement) ;
+#   seule ressource externe du HTML statique), *.clarity.ms (tag injecté après consentement),
+#   www.googletagmanager.com (gtag.js GA4, injecté après consentement, ajouté le 21/08/2026) ;
 # - connect : api.web3forms.com (formulaires en fetch), *.clarity.ms + c.bing.com (balises
-#   Clarity, domaines documentés par Microsoft), *.hu-manity.co (le bandeau appelle
+#   Clarity, domaines documentés par Microsoft), www.googletagmanager.com + *.google-analytics.com
+#   + *.analytics.google.com (GA4 : /g/collect, y compris les hôtes régionaux region1.*),
+#   *.hu-manity.co (le bandeau appelle
 #   transactional-api et designer-api : URLs construites dynamiquement, INVISIBLES dans un grep
 #   de hu-banner.min.js, mesurées en violations console le 21/08/2026) ;
+# - img : c.bing.com ajouté le 21/08/2026, pixel de synchronisation MUID de Clarity (c.gif) qui était
+#   déclaré en connect mais pas en img, mesuré bloqué en console sur le build local servi par wrangler ;
 # - style : Emotion injecte des <style> inline, d'où 'unsafe-inline'.
 # ⚠️ form-action reste 'self' parce que les formulaires partent en fetch : si un jour un <form>
 #   poste NATIVEMENT vers Web3Forms, ajouter https://api.web3forms.com à form-action.
@@ -27,7 +32,7 @@ https://:version.:project.pages.dev/*
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.hu-manity.co https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.hu-manity.co; img-src 'self' data: https://cdn.hu-manity.co https://*.clarity.ms; font-src 'self'; connect-src 'self' https://api.web3forms.com https://*.clarity.ms https://c.bing.com https://*.hu-manity.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.hu-manity.co https://*.clarity.ms https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.hu-manity.co; img-src 'self' data: https://cdn.hu-manity.co https://*.clarity.ms https://c.bing.com https://www.googletagmanager.com https://*.google-analytics.com; font-src 'self'; connect-src 'self' https://api.web3forms.com https://*.clarity.ms https://c.bing.com https://*.hu-manity.co https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 # Assets Next.js fingerprintés (hash dans le nom de fichier) → 1 an immuable
 /_next/static/*
