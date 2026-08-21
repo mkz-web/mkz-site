@@ -11,10 +11,23 @@ https://:project.pages.dev/*
 https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex
 
+# HSTS et CSP ajoutés le 21/08/2026, sur inventaire mesuré des ressources (rien au jugé) :
+# - script : inline (Next + chargeur Clarity) via 'unsafe-inline', cdn.hu-manity.co (bandeau,
+#   seule ressource externe du HTML statique), *.clarity.ms (tag injecté après consentement) ;
+# - connect : api.web3forms.com (formulaires en fetch), *.clarity.ms + c.bing.com (balises
+#   Clarity, domaines documentés par Microsoft), *.hu-manity.co (le bandeau appelle
+#   transactional-api et designer-api : URLs construites dynamiquement, INVISIBLES dans un grep
+#   de hu-banner.min.js, mesurées en violations console le 21/08/2026) ;
+# - style : Emotion injecte des <style> inline, d'où 'unsafe-inline'.
+# ⚠️ form-action reste 'self' parce que les formulaires partent en fetch : si un jour un <form>
+#   poste NATIVEMENT vers Web3Forms, ajouter https://api.web3forms.com à form-action.
+# HSTS sans includeSubDomains : la zone porte des sous-domaines mail OVH, on ne durcit que l'apex.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.hu-manity.co https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.hu-manity.co; img-src 'self' data: https://cdn.hu-manity.co https://*.clarity.ms; font-src 'self'; connect-src 'self' https://api.web3forms.com https://*.clarity.ms https://c.bing.com https://*.hu-manity.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 # Assets Next.js fingerprintés (hash dans le nom de fichier) → 1 an immuable
 /_next/static/*
