@@ -42,9 +42,10 @@ export default function ConfidentialiteContent() {
       <Text>
         Aucune donn&eacute;e n&rsquo;est collect&eacute;e automatiquement &agrave; des fins publicitaires.
         Avec votre consentement, recueilli via le bandeau cookies, nous mesurons en revanche l&rsquo;usage
-        du site (pages visit&eacute;es, clics, d&eacute;filement) au moyen de l&rsquo;outil Microsoft Clarity,
-        afin d&rsquo;am&eacute;liorer le site. Tant que vous n&rsquo;avez pas accept&eacute;, cet outil n&rsquo;est
-        pas charg&eacute; et aucune donn&eacute;e de mesure n&rsquo;est collect&eacute;e (voir la section Cookies ci-dessous).
+        du site (pages visit&eacute;es, clics, d&eacute;filement) au moyen des outils Google Analytics 4 et
+        Microsoft Clarity, afin d&rsquo;am&eacute;liorer le site. Tant que vous n&rsquo;avez pas accept&eacute;,
+        ces outils ne sont pas charg&eacute;s et aucune donn&eacute;e de mesure n&rsquo;est collect&eacute;e
+        (voir la section Cookies ci-dessous).
       </Text>
 
       <SectionTitle>Finalit&eacute;s du traitement</SectionTitle>
@@ -83,13 +84,17 @@ export default function ConfidentialiteContent() {
         <ListItem><strong>Calendly LLC</strong> : gestion de la prise de rendez-vous en ligne (&Eacute;tats-Unis)</ListItem>
         <ListItem><strong>Microsoft Corporation</strong> : mesure d&rsquo;audience et analyse de l&rsquo;usage du site
         via Microsoft Clarity, uniquement apr&egrave;s votre consentement (&Eacute;tats-Unis)</ListItem>
+        <ListItem><strong>Google Ireland Limited</strong> : mesure d&rsquo;audience via Google Analytics 4,
+        uniquement apr&egrave;s votre consentement (Irlande, avec transfert possible vers Google LLC aux
+        &Eacute;tats-Unis)</ListItem>
       </List>
 
       <SectionTitle>Transferts de donn&eacute;es hors Union europ&eacute;enne</SectionTitle>
       <Text>
-        Nos quatre sous-traitants sont &eacute;tablis hors de l&rsquo;Union europ&eacute;enne : <strong>Cloudflare, Inc.</strong>,
+        Quatre de nos cinq sous-traitants sont &eacute;tablis hors de l&rsquo;Union europ&eacute;enne : <strong>Cloudflare, Inc.</strong>,
         <strong> Calendly LLC</strong> et <strong>Microsoft Corporation</strong> aux &Eacute;tats-Unis,
-        <strong> Web3Forms</strong> en Inde. L&rsquo;h&eacute;bergement du site, l&rsquo;envoi du formulaire de contact,
+        <strong> Web3Forms</strong> en Inde ; <strong>Google Ireland Limited</strong> est &eacute;tabli en Irlande
+        mais peut transf&eacute;rer les donn&eacute;es de Google Analytics vers Google LLC aux &Eacute;tats-Unis. L&rsquo;h&eacute;bergement du site, l&rsquo;envoi du formulaire de contact,
         la prise de rendez-vous et la mesure d&rsquo;audience impliquent donc un transfert de
         donn&eacute;es personnelles hors de l&rsquo;Union europ&eacute;enne.
       </Text>
@@ -107,7 +112,7 @@ export default function ConfidentialiteContent() {
           d&rsquo;aucune d&eacute;cision d&rsquo;ad&eacute;quation ;
         </ListItem>
         <ListItem>
-          pour les trois prestataires am&eacute;ricains uniquement, leur certification au
+          pour les trois prestataires am&eacute;ricains et Google LLC uniquement, leur certification au
           <strong> Data Privacy Framework UE&nbsp;-&nbsp;&Eacute;tats-Unis</strong>, qui fait l&rsquo;objet d&rsquo;une
           d&eacute;cision d&rsquo;ad&eacute;quation de la Commission europ&eacute;enne du 10&nbsp;juillet 2023
           (article 45 du RGPD).
@@ -117,9 +122,10 @@ export default function ConfidentialiteContent() {
         Le d&eacute;tail de ces engagements est consultable sur&nbsp;
         <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformit&eacute; de Cloudflare</Link>,&nbsp;
         <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l&rsquo;accord de traitement de Web3Forms</Link>,&nbsp;
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">celui de Calendly</Link>
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">celui de Calendly</Link>,&nbsp;
+        <Link href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">la d&eacute;claration de confidentialit&eacute; de Microsoft</Link>
         &nbsp;et&nbsp;
-        <Link href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">la d&eacute;claration de confidentialit&eacute; de Microsoft</Link>.
+        <Link href="https://business.safety.google/adsprocessorterms/" target="_blank" rel="noopener noreferrer">les conditions de traitement des donn&eacute;es de Google</Link>.
         Le d&eacute;l&eacute;gu&eacute; &agrave; la protection des donn&eacute;es de Cloudflare est joignable &agrave;&nbsp;
         <Link href="mailto:dpo@cloudflare.com">dpo@cloudflare.com</Link>.
       </Text>
@@ -147,15 +153,17 @@ export default function ConfidentialiteContent() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        Avec votre <strong>consentement</strong>, ce site utilise <strong>Microsoft Clarity</strong>, un outil
-        de mesure d&rsquo;audience qui analyse la fa&ccedil;on dont les visiteurs utilisent le site (pages vues,
-        clics, d&eacute;filement) afin de l&rsquo;am&eacute;liorer. Clarity d&eacute;pose alors des cookies :
-        _clck (dur&eacute;e de vie d&rsquo;un an), _clsk (un jour) et MUID (un an).
+        Avec votre <strong>consentement</strong>, ce site utilise deux outils de mesure d&rsquo;audience qui
+        analysent la fa&ccedil;on dont les visiteurs utilisent le site (pages vues, clics, d&eacute;filement)
+        afin de l&rsquo;am&eacute;liorer : <strong>Google Analytics 4</strong>, qui d&eacute;pose les cookies
+        _ga et _ga_* (dur&eacute;e de vie de 13 mois, adresse IP non conserv&eacute;e, aucun signal
+        publicitaire), et <strong>Microsoft Clarity</strong>, qui d&eacute;pose les cookies _clck (un an),
+        _clsk (un jour) et MUID (un an).
       </Text>
       <Text>
         Ces cookies ne sont d&eacute;pos&eacute;s que si vous acceptez la cat&eacute;gorie correspondante dans le
-        bandeau affich&eacute; lors de votre premi&egrave;re visite. Sans votre accord, l&rsquo;outil n&rsquo;est
-        pas charg&eacute; et aucun cookie de mesure n&rsquo;est d&eacute;pos&eacute;. Vous pouvez retirer votre
+        bandeau affich&eacute; lors de votre premi&egrave;re visite. Sans votre accord, ces outils ne sont
+        pas charg&eacute;s et aucun cookie de mesure n&rsquo;est d&eacute;pos&eacute;. Vous pouvez retirer votre
         consentement &agrave; tout moment via l&rsquo;ic&ocirc;ne du bandeau cookies, en bas de page : le suivi
         s&rsquo;arr&ecirc;te alors imm&eacute;diatement.
       </Text>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import ClarityScript from "@/components/ClarityScript";
+import GaScript from "@/components/GaScript";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -62,6 +63,7 @@ export default function EnRootLayout({
           strategy="afterInteractive"
         />
         <ClarityScript />
+        <GaScript />
       </body>
     </html>
   );

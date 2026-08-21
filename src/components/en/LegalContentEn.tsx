@@ -86,7 +86,7 @@ export function LegalNoticeEn() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        With your consent, this site uses Microsoft Clarity for audience measurement.
+        With your consent, this site uses Google Analytics 4 and Microsoft Clarity for audience measurement.
         Unless you accept it in the cookie banner, only technical cookies strictly
         necessary for the site to function are used. Details are in the{" "}
         <a href="/en/privacy-policy/">privacy policy</a>.
@@ -123,9 +123,9 @@ export function PrivacyPolicyEn() {
       </Text>
       <Text>
         With your consent, given through the cookie banner, we also measure how the site is
-        used (pages viewed, clicks, scrolling) with Microsoft Clarity, in order to improve
-        it. Until you accept, the tool is not loaded and no usage data is collected (see the
-        Cookies section below).
+        used (pages viewed, clicks, scrolling) with Google Analytics 4 and Microsoft Clarity,
+        in order to improve it. Until you accept, these tools are not loaded and no usage data
+        is collected (see the Cookies section below).
       </Text>
 
       <SectionTitle>Why we process it</SectionTitle>
@@ -158,27 +158,31 @@ export function PrivacyPolicyEn() {
         audit report requests, and nothing else (India). <strong>Calendly LLC</strong> handles online booking if you
         reserve a slot (United States). <strong>Microsoft Corporation</strong> processes
         audience measurement data through Microsoft Clarity, only after your consent
-        (United States).
+        (United States). <strong>Google Ireland Limited</strong> processes audience measurement
+        data through Google Analytics 4, only after your consent (Ireland, with possible
+        transfer to Google LLC in the United States).
       </Text>
 
       <SectionTitle>Transfers outside the European Union</SectionTitle>
       <Text>
-        All four processors are established outside the EU, so using this site involves
+        Four of the five processors are established outside the EU, and Google Ireland Limited
+        may transfer Analytics data to Google LLC in the United States, so using this site involves
         transferring personal data outside the European Union. These transfers rely on the
         safeguards set out in Chapter V of the GDPR: a data processing agreement with each
         processor (Article 28), and the European Commission&rsquo;s Standard Contractual
         Clauses (Article 46).
       </Text>
       <Text>
-        Cloudflare, Calendly and Microsoft are additionally certified under the
+        Cloudflare, Calendly, Microsoft and Google LLC are additionally certified under the
         EU&nbsp;-&nbsp;US Data Privacy Framework, covered by the European Commission
         adequacy decision of 10&nbsp;July 2023 (Article 45). India has no adequacy
         decision, so the Standard Contractual Clauses are the sole basis for the transfer
         to Web3Forms. Details are in{" "}
         <Link href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">Cloudflare&rsquo;s compliance hub</Link>,{" "}
         <Link href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">the Web3Forms DPA</Link>,{" "}
-        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">the Calendly DPA</Link> and{" "}
-        <Link href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">the Microsoft privacy statement</Link>.
+        <Link href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">the Calendly DPA</Link>,{" "}
+        <Link href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">the Microsoft privacy statement</Link> and{" "}
+        <Link href="https://business.safety.google/adsprocessorterms/" target="_blank" rel="noopener noreferrer">the Google data processing terms</Link>.
       </Text>
 
       <SectionTitle>Your rights</SectionTitle>
@@ -193,14 +197,15 @@ export function PrivacyPolicyEn() {
 
       <SectionTitle>Cookies</SectionTitle>
       <Text>
-        With your <strong>consent</strong>, this site uses <strong>Microsoft Clarity</strong>,
-        an audience measurement tool that analyses how visitors use the site (pages viewed,
-        clicks, scrolling) in order to improve it. Clarity then sets cookies: _clck (one
-        year lifetime), _clsk (one day) and MUID (one year).
+        With your <strong>consent</strong>, this site uses two audience measurement tools that
+        analyse how visitors use the site (pages viewed, clicks, scrolling) in order to improve
+        it: <strong>Google Analytics 4</strong>, which sets the _ga and _ga_* cookies (13-month
+        lifetime, IP address not stored, no advertising signal), and <strong>Microsoft
+        Clarity</strong>, which sets _clck (one year), _clsk (one day) and MUID (one year).
       </Text>
       <Text>
         These cookies are only set if you accept the corresponding category in the banner
-        shown on your first visit. Without your consent, the tool is not loaded and no
+        shown on your first visit. Without your consent, these tools are not loaded and no
         measurement cookie is set. You can withdraw your consent at any time through the
         cookie banner icon at the bottom of the page: tracking then stops immediately.
       </Text>
