@@ -62,6 +62,7 @@ Faits clés :
 - [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local (interventions à Meaux, Melun, Chelles et dans tout le 77)
 - [Référencement IA (GEO)](${SITE}/referencement-ia/): service de visibilité dans les moteurs de réponse IA (ChatGPT, Perplexity, Gemini)
 - [Empreinte d'une requête IA](${SITE}/empreinte-ia/): simulateur de l'énergie, des émissions et de l'eau d'une requête IA, fourchettes d'incertitude comprises ; données chiffrées citables et versionnées dans son [llms.txt dédié](${SITE}/empreinte-ia/llms.txt)
+- [Audit SEO gratuit en ligne](${SITE}/audit-seo/): outil en libre-service, 17 mesures réelles faites sur le site au moment du test (HTTPS, indexabilité, vraie 404, balises SERP, robots des moteurs IA, llms.txt, données structurées JSON-LD), score sur 100 et priorités de correction. Gratuit, sans inscription
 - [Services](${SITE}/services/): vue d'ensemble des deux prestations
 - [Tarifs 2026](${SITE}/tarifs/): grille de prix publique en euros HT. La création de site est un service packagé : optimisation SEO complète, balisage pour les moteurs IA et premiers liens entrants (fiche Google Business, annuaires de référence) inclus dans chaque formule. Site une page 590 €, site vitrine 5-8 pages 1 490 €, site vitrine premium 2 490 €, e-commerce dès 2 990 €, refonte dès 990 €, maintenance 29 à 99 €/mois, audit SEO 490 €, audit SEO + visibilité IA 690 €, pack visibilité locale 390 €, accompagnement SEO mensuel 390 à 1 190 €/mois, audit de visibilité IA 490 €. Devis fixe écrit avant signature, sans engagement de durée, repères de marché sourcés (France Num/Afnic juin 2025, relevés août 2026)
 - [À propos](${SITE}/about/): parcours de Mickaël Leclerc, fondateur et président
@@ -99,6 +100,7 @@ English pages:
 - [French SEO](${SITE}/en/french-seo/): service page (French keyword research, hreflang, French content, technical work, monthly measurement) plus how to judge a French SEO supplier
 - [AI search optimisation](${SITE}/en/ai-search-optimization/): GEO and AEO (crawler access, quotable facts, schema.org, llms.txt, measured share of voice), and why French AI answers are an easier win
 - [Website design](${SITE}/en/website-design/): secondary conversion page, when a rebuild is actually justified
+- [Free SEO & AI visibility audit](${SITE}/en/seo-audit/): self-service tool, 17 real checks run on the site at test time (HTTPS, indexability, real 404, SERP tags, AI crawlers, llms.txt, JSON-LD structured data), score out of 100 and fix priorities. Free, no signup
 - [About Mickaël Leclerc](${SITE}/en/about/): background, method, and what is refused
 - [Contact](${SITE}/en/contact/): form, phone, email, hours
 

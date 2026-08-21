@@ -48,6 +48,11 @@ export const pagePairs: { fr: string; en: string }[] = [
   // là), mais l'intention de recherche est la même dans les deux langues.
   { fr: "/referencement-ia/", en: "/en/ai-search-optimization/" },
   { fr: "/creation-site-internet/", en: "/en/website-design/" },
+  // Outil d'audit : la page FR vise « audit seo (gratuit) » (1 600 + 880/mois,
+  // DataForSEO 20/08/2026) ; la page EN est une page de conversion assumée
+  // (« french seo audit » : zéro volume mesuré le 21/08/2026), même logique
+  // que /en/website-design/.
+  { fr: "/audit-seo/", en: "/en/seo-audit/" },
   { fr: "/conseils/", en: "/en/insights/" },
   { fr: "/about/", en: "/en/about/" },
   { fr: "/contact/", en: "/en/contact/" },
@@ -232,6 +237,42 @@ export interface UiStrings {
       mailSubjectPrefix: string;
       defaultSubject: string;
     };
+  };
+  /** Chrome de l'outil d'audit (/audit-seo/ et /en/seo-audit/). Le contenu
+   *  éditorial des deux pages vit dans leurs page.tsx : deux discours,
+   *  pas deux traductions. */
+  audit: {
+    urlLabel: string;
+    urlPlaceholder: string;
+    start: string;
+    phases: { origin: string; robots: string; page: string; notfound: string };
+    scoreTitle: string;
+    scoreCaption: (points: number, max: number) => string;
+    scoreScale: string;
+    blocs: { technique: string; ia: string; autorite: string };
+    autoriteSoon: string;
+    status: { ok: string; warn: string; fail: string; na: string };
+    topTitle: string;
+    allTitle: string;
+    checkLabels: Record<string, string>;
+    /** Détail mesuré d'un check, construit depuis ses données brutes. */
+    checkDetail: (id: string, data: Record<string, unknown>) => string;
+    errors: { cible: string; injoignable: string; serveur: string };
+    emailBox: {
+      title: string;
+      text: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      consentBefore: string;
+      consentLink: string;
+      submit: string;
+      sending: string;
+      successTitle: string;
+      successText: string;
+      errorText: string;
+      mailSubjectPrefix: string;
+    };
+    rescan: string;
   };
   notFound: { title: string; text: string; back: string };
   whatsapp: string;
@@ -419,6 +460,170 @@ export const ui: Record<Locale, UiStrings> = {
         defaultSubject: "Contact",
       },
     },
+    audit: {
+      urlLabel: "L'adresse de votre site",
+      urlPlaceholder: "votre-site.fr",
+      start: "Lancer l'audit gratuit",
+      phases: {
+        origin: "Connexion au site : HTTPS et redirections...",
+        robots: "Lecture du robots.txt servi, des robots IA et du llms.txt...",
+        page: "Analyse de la page d'accueil : balises, données structurées, en-têtes...",
+        notfound: "Test d'une adresse inventée : vraie 404 ou soft-404...",
+      },
+      scoreTitle: "Votre score",
+      scoreCaption: (points, max) => `${points} points sur ${max} mesurés à l'instant`,
+      scoreScale:
+        "Chaque point correspond à une mesure réelle faite sur votre site il y a quelques secondes. Rien n'est estimé.",
+      blocs: {
+        technique: "Technique et hygiène SEO",
+        ia: "Lisibilité par les IA",
+        autorite: "Autorité et positions Google",
+      },
+      autoriteSoon:
+        "Mesure en cours d'activation : domaines référents, mots-clés positionnés et trafic estimé arrivent dans le rapport complet.",
+      status: { ok: "OK", warn: "À améliorer", fail: "Défaut", na: "À venir" },
+      topTitle: "Vos priorités",
+      allTitle: "Le détail des mesures",
+      checkLabels: {
+        "https-redirections": "HTTPS et redirections",
+        "robots-txt": "robots.txt",
+        "crawlers-ia": "Robots des moteurs IA",
+        "llms-txt": "Fichier llms.txt",
+        sitemap: "Sitemap",
+        indexabilite: "Indexabilité",
+        title: "Balise title",
+        "meta-description": "Meta description",
+        "h1-hn": "Titres H1 à H6",
+        viewport: "Affichage mobile (viewport)",
+        "json-ld": "Données structurées JSON-LD",
+        "images-alt": "Textes alternatifs des images",
+        "en-tetes-securite": "En-têtes de sécurité",
+        hygiene: "Hygiène de base",
+        poids: "Poids de la page",
+        "vraie-404": "Vraie page 404",
+        page: "Page d'accueil",
+        "domaines-referents": "Domaines référents",
+        "spam-score": "Score de spam des liens",
+        "mots-cles": "Mots-clés positionnés",
+        "trafic-estime": "Trafic organique estimé",
+      },
+      checkDetail: (id, d) => {
+        switch (id) {
+          case "https-redirections":
+            return d.origin
+              ? (d.distinctOrigins as string[]).length === 1
+                ? d.selfScan
+                  ? `HTTPS servi, les variantes convergent vers ${d.origin} (variantes http non testables en auto-scan)`
+                  : `HTTPS servi, toutes les variantes convergent vers ${d.origin}`
+                : `HTTPS servi, mais ${(d.distinctOrigins as string[]).length} adresses finales distinctes répondent : le site existe en double`
+              : "aucune variante HTTPS ne répond en 200 : le site n'est pas servi en sécurisé";
+          case "robots-txt":
+            return d.absent
+              ? "fichier absent : tout est autorisé par défaut, mais les moteurs préfèrent le trouver"
+              : d.starBlocked
+                ? "Disallow: / bloque tout le site pour tous les robots"
+                : `servi (${d.bytes} octets), pas de blocage global`;
+          case "crawlers-ia": {
+            const v = d.verdicts as Record<string, string>;
+            const blocked = Object.keys(v).filter((b) => v[b] === "blocked");
+            return blocked.length === 0
+              ? "les 6 robots IA testés peuvent lire le site (GPTBot, ClaudeBot, PerplexityBot...)"
+              : `bloqués : ${blocked.join(", ")}. Un robot bloqué, c'est un moteur de réponse qui ne peut pas vous citer`;
+          }
+          case "llms-txt":
+            return d.status === 200 && !d.looksHtml
+              ? `servi (${d.bytes} octets) : les IA disposent d'un plan du site en clair`
+              : `absent (HTTP ${d.status || "aucune réponse"})`;
+          case "sitemap":
+            return d.url
+              ? `${d.urlCount} URL(s), ${d.declared ? "déclaré dans le robots.txt" : "trouvé à /sitemap.xml sans être déclaré"}`
+              : "introuvable : les moteurs découvrent vos pages au hasard des liens";
+          case "indexabilite":
+            return d.xRobotsTag || (d.metaRobots && /noindex/i.test(String(d.metaRobots)))
+              ? `noindex détecté (${d.xRobotsTag ? "en-tête X-Robots-Tag" : "meta robots"}) : la page demande à ne pas apparaître sur Google`
+              : "indexable : aucune balise noindex";
+          case "title":
+            return d.title
+              ? `${d.length} caractères (plafond SERP : 65)${Number(d.length) > 65 ? " : Google le tronquera" : ""}`
+              : "balise absente : Google invente votre titre à votre place";
+          case "meta-description":
+            return d.description
+              ? `${d.length} caractères (plafond : 160)${Number(d.length) > 160 ? " : elle sera tronquée" : ""}`
+              : "absente : Google choisit lui-même l'extrait affiché";
+          case "h1-hn":
+            return d.h1Count === 1
+              ? d.levelSkip
+                ? "un seul H1, mais la hiérarchie saute un niveau"
+                : "un seul H1, hiérarchie propre"
+              : d.h1Count === 0
+                ? "aucun H1 : la page n'annonce pas son sujet"
+                : `${d.h1Count} balises H1 : une seule attendue`;
+          case "viewport":
+            return d.present
+              ? "balise viewport présente"
+              : "balise viewport absente : le rendu mobile n'est pas maîtrisé";
+          case "json-ld":
+            return Number(d.blocks) === 0
+              ? "aucune donnée structurée : vous ne dites rien aux moteurs de qui vous êtes"
+              : `${d.blocks} bloc(s), ${d.parsed} lisible(s)${(d.itemProblems as string[])?.length ? `, ${(d.itemProblems as string[]).length} défaut(s) de structure` : ""}. Types : ${(d.types as string[])?.join(", ") || "aucun"}`;
+          case "images-alt":
+            return Number(d.images) === 0
+              ? "pas d'image sur la page d'accueil"
+              : `${d.images} image(s), ${d.sansAlt} sans texte alternatif`;
+          case "en-tetes-securite": {
+            const manque = [
+              !d.nosniff && "X-Content-Type-Options",
+              !d.frameProtection && "X-Frame-Options ou CSP",
+              !d.hsts && "HSTS",
+            ].filter(Boolean);
+            return manque.length ? `manquant(s) : ${manque.join(", ")}` : "les 3 en-têtes de base sont servis";
+          }
+          case "hygiene": {
+            const manque = [
+              !d.lang && "attribut lang",
+              !d.charset && "charset",
+              !d.favicon && "favicon",
+              !d.openGraph && "balises Open Graph",
+            ].filter(Boolean);
+            return manque.length ? `manquant(s) : ${manque.join(", ")}` : "lang, charset, favicon et Open Graph présents";
+          }
+          case "poids":
+            return `HTML de ${d.htmlKb} Ko, ${d.resources} ressources référencées`;
+          case "vraie-404":
+            return d.soft
+              ? "une adresse inventée répond 200 : c'est un soft-404, Google s'en méfie"
+              : d.status === 404 || d.status === 410
+                ? `une adresse inventée répond bien ${d.status}`
+                : `réponse inattendue : HTTP ${d.status}`;
+          case "page":
+            return `la page d'accueil ne répond pas en 200 (HTTP ${d.status})`;
+          default:
+            return "";
+        }
+      },
+      errors: {
+        cible: "Cette adresse n'est pas analysable : donnez un nom de domaine public, par exemple votre-site.fr.",
+        injoignable:
+          "Impossible de joindre ce site en HTTPS. Vérifiez l'adresse ; si elle est bonne, c'est déjà un constat : votre site n'est pas servi correctement.",
+        serveur: "L'outil a rencontré un problème. Réessayez dans une minute.",
+      },
+      emailBox: {
+        title: "Recevez le rapport complet",
+        text: "Le détail de chaque mesure, vos 3 priorités expliquées et un premier aperçu de ce que les IA disent de votre secteur. Préparé et envoyé par Mickaël sous 24 h ouvrées, gratuitement.",
+        emailLabel: "Votre email",
+        emailPlaceholder: "vous@entreprise.fr",
+        consentBefore:
+          "J'accepte que MKZ utilise mon email et l'adresse de mon site pour m'envoyer ce rapport et me recontacter à son sujet. Détails et droits : ",
+        consentLink: "politique de confidentialité",
+        submit: "Recevoir mon rapport",
+        sending: "Envoi...",
+        successTitle: "C'est noté !",
+        successText: "Votre rapport arrive sous 24 h ouvrées, préparé par un humain qui a regardé votre site.",
+        errorText: "L'envoi a échoué. Réessayez, ou écrivez à contact@mkz-consulting.fr.",
+        mailSubjectPrefix: "Lead audit SEO : ",
+      },
+      rescan: "Tester un autre site",
+    },
     notFound: {
       title: "Page introuvable",
       text: "Désolé, la page que vous recherchez n'existe pas.",
@@ -592,6 +797,170 @@ export const ui: Record<Locale, UiStrings> = {
         mailSubjectPrefix: "[EN] New message mkz-consulting.fr: ",
         defaultSubject: "Contact",
       },
+    },
+    audit: {
+      urlLabel: "Your website address",
+      urlPlaceholder: "your-site.com",
+      start: "Run the free audit",
+      phases: {
+        origin: "Connecting: HTTPS and redirects...",
+        robots: "Reading the live robots.txt, AI crawlers and llms.txt...",
+        page: "Analysing the homepage: tags, structured data, headers...",
+        notfound: "Testing a made-up URL: real 404 or soft-404...",
+      },
+      scoreTitle: "Your score",
+      scoreCaption: (points, max) => `${points} points out of ${max} measured just now`,
+      scoreScale:
+        "Every point is a real measurement taken on your site seconds ago. Nothing is estimated.",
+      blocs: {
+        technique: "Technical and SEO hygiene",
+        ia: "Readability by AI engines",
+        autorite: "Authority and Google rankings",
+      },
+      autoriteSoon:
+        "Being activated: referring domains, ranked keywords and estimated traffic will land in the full report.",
+      status: { ok: "OK", warn: "Improve", fail: "Issue", na: "Coming" },
+      topTitle: "Your priorities",
+      allTitle: "Every measurement in detail",
+      checkLabels: {
+        "https-redirections": "HTTPS and redirects",
+        "robots-txt": "robots.txt",
+        "crawlers-ia": "AI engine crawlers",
+        "llms-txt": "llms.txt file",
+        sitemap: "Sitemap",
+        indexabilite: "Indexability",
+        title: "Title tag",
+        "meta-description": "Meta description",
+        "h1-hn": "H1 to H6 headings",
+        viewport: "Mobile viewport",
+        "json-ld": "JSON-LD structured data",
+        "images-alt": "Image alt texts",
+        "en-tetes-securite": "Security headers",
+        hygiene: "Basic hygiene",
+        poids: "Page weight",
+        "vraie-404": "Real 404 page",
+        page: "Homepage",
+        "domaines-referents": "Referring domains",
+        "spam-score": "Link spam score",
+        "mots-cles": "Ranked keywords",
+        "trafic-estime": "Estimated organic traffic",
+      },
+      checkDetail: (id, d) => {
+        switch (id) {
+          case "https-redirections":
+            return d.origin
+              ? (d.distinctOrigins as string[]).length === 1
+                ? d.selfScan
+                  ? `HTTPS served, variants converge to ${d.origin} (http variants not testable in self-scan)`
+                  : `HTTPS served, every variant converges to ${d.origin}`
+                : `HTTPS served, but ${(d.distinctOrigins as string[]).length} distinct final addresses respond: the site exists in duplicate`
+              : "no HTTPS variant answers with a 200: the site is not served securely";
+          case "robots-txt":
+            return d.absent
+              ? "file missing: everything is allowed by default, but engines prefer to find it"
+              : d.starBlocked
+                ? "Disallow: / blocks the whole site for every crawler"
+                : `served (${d.bytes} bytes), no global block`;
+          case "crawlers-ia": {
+            const v = d.verdicts as Record<string, string>;
+            const blocked = Object.keys(v).filter((b) => v[b] === "blocked");
+            return blocked.length === 0
+              ? "all 6 AI crawlers tested can read the site (GPTBot, ClaudeBot, PerplexityBot...)"
+              : `blocked: ${blocked.join(", ")}. A blocked crawler is an answer engine that cannot cite you`;
+          }
+          case "llms-txt":
+            return d.status === 200 && !d.looksHtml
+              ? `served (${d.bytes} bytes): AI engines get a plain-text map of the site`
+              : `missing (HTTP ${d.status || "no response"})`;
+          case "sitemap":
+            return d.url
+              ? `${d.urlCount} URL(s), ${d.declared ? "declared in robots.txt" : "found at /sitemap.xml without being declared"}`
+              : "not found: engines discover your pages by chance";
+          case "indexabilite":
+            return d.xRobotsTag || (d.metaRobots && /noindex/i.test(String(d.metaRobots)))
+              ? `noindex detected (${d.xRobotsTag ? "X-Robots-Tag header" : "robots meta"}): the page asks not to appear on Google`
+              : "indexable: no noindex directive";
+          case "title":
+            return d.title
+              ? `${d.length} characters (SERP ceiling: 65)${Number(d.length) > 65 ? ": Google will truncate it" : ""}`
+              : "missing: Google invents your title for you";
+          case "meta-description":
+            return d.description
+              ? `${d.length} characters (ceiling: 160)${Number(d.length) > 160 ? ": it will be truncated" : ""}`
+              : "missing: Google picks the snippet itself";
+          case "h1-hn":
+            return d.h1Count === 1
+              ? d.levelSkip
+                ? "a single H1, but the hierarchy skips a level"
+                : "a single H1, clean hierarchy"
+              : d.h1Count === 0
+                ? "no H1: the page does not state its topic"
+                : `${d.h1Count} H1 tags: exactly one expected`;
+          case "viewport":
+            return d.present
+              ? "viewport meta present"
+              : "viewport meta missing: mobile rendering is not under control";
+          case "json-ld":
+            return Number(d.blocks) === 0
+              ? "no structured data: you tell engines nothing about who you are"
+              : `${d.blocks} block(s), ${d.parsed} parseable${(d.itemProblems as string[])?.length ? `, ${(d.itemProblems as string[]).length} structure issue(s)` : ""}. Types: ${(d.types as string[])?.join(", ") || "none"}`;
+          case "images-alt":
+            return Number(d.images) === 0
+              ? "no image on the homepage"
+              : `${d.images} image(s), ${d.sansAlt} without alt text`;
+          case "en-tetes-securite": {
+            const missing = [
+              !d.nosniff && "X-Content-Type-Options",
+              !d.frameProtection && "X-Frame-Options or CSP",
+              !d.hsts && "HSTS",
+            ].filter(Boolean);
+            return missing.length ? `missing: ${missing.join(", ")}` : "the 3 baseline headers are served";
+          }
+          case "hygiene": {
+            const missing = [
+              !d.lang && "lang attribute",
+              !d.charset && "charset",
+              !d.favicon && "favicon",
+              !d.openGraph && "Open Graph tags",
+            ].filter(Boolean);
+            return missing.length ? `missing: ${missing.join(", ")}` : "lang, charset, favicon and Open Graph present";
+          }
+          case "poids":
+            return `HTML weighs ${d.htmlKb} KB, ${d.resources} referenced resources`;
+          case "vraie-404":
+            return d.soft
+              ? "a made-up URL answers 200: that is a soft-404, Google distrusts it"
+              : d.status === 404 || d.status === 410
+                ? `a made-up URL correctly answers ${d.status}`
+                : `unexpected response: HTTP ${d.status}`;
+          case "page":
+            return `the homepage does not answer with a 200 (HTTP ${d.status})`;
+          default:
+            return "";
+        }
+      },
+      errors: {
+        cible: "This address cannot be analysed: enter a public domain name, e.g. your-site.com.",
+        injoignable:
+          "This site cannot be reached over HTTPS. Check the address; if it is correct, that is already a finding: your site is not served properly.",
+        serveur: "The tool ran into a problem. Please try again in a minute.",
+      },
+      emailBox: {
+        title: "Get the full report",
+        text: "Every measurement explained, your top 3 priorities, and a first look at what AI engines say about your market. Prepared and sent by Mickaël within 24 business hours, free.",
+        emailLabel: "Your email",
+        emailPlaceholder: "you@company.com",
+        consentBefore:
+          "I agree that MKZ uses my email and my site address to send me this report and follow up about it. Details and rights: ",
+        consentLink: "privacy policy",
+        submit: "Send me my report",
+        sending: "Sending...",
+        successTitle: "Done!",
+        successText: "Your report is on its way within 24 business hours, prepared by a human who actually looked at your site.",
+        errorText: "Sending failed. Try again, or write to contact@mkz-consulting.fr.",
+        mailSubjectPrefix: "[EN] SEO audit lead: ",
+      },
+      rescan: "Test another site",
     },
     notFound: {
       title: "Page not found",
