@@ -84,6 +84,15 @@ const content: AuditPageContent = {
     "Le scan est la version express de notre méthode d'audit. La version complète va plus loin : analyse de la concurrence, mots-clés à viser, mesure réelle de ce que ChatGPT, Perplexity et Gemini disent de vous, et plan d'action priorisé. Le scan vous dit où vous en êtes. L'audit complet vous dit quoi faire, dans quel ordre, et pourquoi.",
   ],
   faqTitle: "Questions fréquentes",
+  nextLinks: {
+    intro: "Pour aller plus loin :",
+    links: [
+      { label: "notre guide complet de l'audit SEO", href: "/conseils/seo/audit-seo/" },
+      { label: "la prestation de référencement SEO", href: "/referencement-seo/" },
+      { label: "le référencement IA (GEO)", href: "/referencement-ia/" },
+      { label: "les tarifs de l'audit complet", href: "/tarifs/" },
+    ],
+  },
   ctaTitle: "Un humain plutôt qu'un outil ?",
   ctaText: "30 minutes gratuites avec Mickaël : on regarde votre scan ensemble, vous repartez avec un plan d'action concret. Que vous travailliez avec nous ou non.",
   ctaButton: "Réserver mes 30 minutes gratuites",

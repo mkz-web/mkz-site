@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { theme } from "@/lib/theme";
 import ContactForm from "@/components/ContactForm";
 import { ui, CALENDLY, type Locale } from "@/lib/i18n";
@@ -104,6 +105,10 @@ const InfoLink = styled.a`
   &:hover { color: ${theme.colors.ctaInk}; }
 `;
 
+// Liens internes de la cellule « explore » : mêmes styles que InfoLink,
+// mais en <Link> Next (cibles internes).
+const InfoNavLink = InfoLink.withComponent(Link);
+
 const CalendlyCell = styled.a`
   display: block;
   background: ${theme.colors.accent};
@@ -172,6 +177,14 @@ export default function ContactContent({ locale = "fr" }: { locale?: Locale }) {
                 <span key={i}>{i > 0 && <br />}{l}</span>
               ))}
             </InfoValue>
+          </InfoCell>
+          <InfoCell>
+            <InfoLabel>{t.explore.label}</InfoLabel>
+            {t.explore.links.map((l) => (
+              <InfoNavLink key={l.href} href={l.href}>
+                {l.label}
+              </InfoNavLink>
+            ))}
           </InfoCell>
         </SideStack>
       </ContentGrid>

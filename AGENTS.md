@@ -113,13 +113,34 @@ rapport complet. Cadrage et décisions : dossier `Projet/Seo-referencement/`
   `phaseOrigin(url, self)` ne teste que les variantes https quand la cible est
   l'hôte de l'outil, et le détail affiche « variantes http non testables en
   auto-scan ». Ne pas « simplifier » ce paramètre.
+- **Mise en avant FAITE le 21/08/2026** (déployée, mesurée sur le live) :
+  l'entrée footer « Audit gratuit » (groupe Services) pointe désormais vers
+  `/audit-seo/` au lieu de Calendly, dans les deux langues (Calendly reste
+  servi par le CTA du haut du footer et celui du header) ; la barre de nav à
+  7 entrées n'a PAS été touchée. Maillage contextuel mesuré au build par
+  `carte-maillage.js` : **7 liens entrants** vers `/audit-seo/` (accueil ×2,
+  piliers referencement-seo et referencement-ia, articles `audit-seo` et
+  `mesurer-visibilite-ia` ; ces deux articles sont édités dans le `.ts` ET
+  dans `_content-staging/`, dateModified 2026-08-21) et **4 liens** vers
+  `/en/seo-audit/` (accueil EN ×2, piliers french-seo et
+  ai-search-optimization). Les deux pages outil ne sont plus des culs-de-sac :
+  bloc « Pour aller plus loin » / « Keep reading » (`nextLinks` dans
+  `AuditContent`, 4 sortants FR, 3 EN). Les trois derniers culs-de-sac ont été
+  réglés le jour même (deuxième passe, déployée et mesurée : « aucun
+  cul-de-sac », 328 liens contextuels) : /contact/ et /en/contact/ via la
+  cellule `explore` de la pile latérale (champ `ui.contact.explore`, i18n),
+  /empreinte-ia/ via le bloc `.suite-liens` en fin de section FAQ, édité DANS
+  LE PROJET SOURCE (Projet/Mon empreinte ia, template + rebuild + copie dans
+  public/empreinte-ia/, jamais la copie seule). ⚠️ Piège de sonde payé sur
+  cette passe : carte-maillage déclarait /empreinte-ia/ toujours cul-de-sac
+  parce qu'un commentaire CSS contenait « <footer » en toutes lettres, que son
+  strip regex avalait 37 Ko de corps depuis le head ; sonde durcie
+  (commentaires, style et script retirés d'abord) et leçon consignée dans le
+  skill maillage-interne.
 - **Reste à faire (S2 à S4 du cadrage)** : Tier 1 DataForSEO (autorité, 30
   points, avec plafond quotidien dur et clé en secret Worker), Turnstile et
-  limites par IP, entrée dans la nav ou le footer (la barre à 7 entrées est
-  mesurée : re-mesurer avant d'y toucher ; le lien footer « Audit gratuit »
-  pointe vers Calendly, décision à prendre), maillage contextuel depuis les
-  piliers, et la 301 seo-referencement.fr vers la page (hors périmètre du
-  dépôt : zone OVH du domaine).
+  limites par IP, et la 301 seo-referencement.fr vers la page (hors périmètre
+  du dépôt : zone OVH du domaine).
 
 # Polices et stabilité visuelle
 

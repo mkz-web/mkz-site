@@ -6,6 +6,7 @@
 // deux discours, pas deux traductions.
 
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { theme } from "@/lib/theme";
 import { CALENDLY, type Locale } from "@/lib/i18n";
 import AuditScan from "./AuditScan";
@@ -26,6 +27,9 @@ export interface AuditPageContent {
   methodTitle: string;
   methodParagraphs: string[];
   faqTitle: string;
+  /** Maillage contextuel sortant : la page outil ne doit pas être un
+   *  cul-de-sac (mesuré le 21/08/2026 : 0 lien sortant dans le corps). */
+  nextLinks: { intro: string; links: { label: string; href: string }[] };
   ctaTitle: string;
   ctaText: string;
   ctaButton: string;
@@ -121,6 +125,23 @@ const Paragraph = styled.p`
   font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.text};
+`;
+
+const NextReads = styled.p`
+  margin-top: ${theme.spacing.md};
+  max-width: 700px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: ${theme.colors.text};
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    &:hover {
+      color: ${theme.colors.ctaInk};
+    }
+  }
 `;
 
 const FaqList = styled.div`
@@ -229,6 +250,15 @@ export default function AuditContent({
         {content.methodParagraphs.map((p, i) => (
           <Paragraph key={i}>{p}</Paragraph>
         ))}
+        <NextReads>
+          {content.nextLinks.intro}{" "}
+          {content.nextLinks.links.map((l, i) => (
+            <span key={l.href}>
+              {i > 0 && " · "}
+              <Link href={l.href}>{l.label}</Link>
+            </span>
+          ))}
+        </NextReads>
 
         <H2>{content.faqTitle}</H2>
         <FaqList>

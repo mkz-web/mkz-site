@@ -675,6 +675,15 @@ export default function HomeContent() {
                   conseils &amp; tutoriels
                 </Link>.
               </p>
+              <p>
+                Envie de savoir o&ugrave; vous en &ecirc;tes avant de nous parler ?
+                Notre{" "}
+                <Link href="/audit-seo/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  audit SEO gratuit en ligne
+                </Link>{" "}
+                fait 17 mesures r&eacute;elles sur votre site et vous rend un score
+                sur 100. Une minute, sans inscription.
+              </p>
             </ServicesAside>
             <div>
               {services.map((s) => (
@@ -829,6 +838,10 @@ export default function HomeContent() {
           </FinalActions>
           <FinalMeta>
             Ou directement : <a href="tel:0769093909">07 69 09 39 09</a> · r&eacute;ponse sous 24 h
+            <br />
+            Pas encore pr&ecirc;t &agrave; appeler ? Lancez d&rsquo;abord
+            l&rsquo;<a href="/audit-seo/">audit SEO gratuit en ligne</a> : 17 mesures,
+            une minute, sans inscription.
           </FinalMeta>
         </Container>
       </Section>
