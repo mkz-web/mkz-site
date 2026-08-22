@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
 import { ui, CALENDLY, homeOf, switcherTargetFor, type Locale } from "@/lib/i18n";
+import { openConsent } from "@/lib/consent";
 
 // Méga-footer « second héros » : accroche éditoriale + colonnes + signature.
 
@@ -164,7 +165,25 @@ const BottomBar = styled.div`
 
 const LegalLinks = styled.div`
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+`;
+
+// Rouvre le bandeau de consentement : le retrait doit être aussi simple que
+// l'octroi. Un bouton, pas un lien : il n'y a aucune page derrière.
+const ManageCookies = styled.button`
+  padding: 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 14px;
+  color: ${theme.colors.textOnDarkSecondary};
+  cursor: pointer;
+  transition: color 0.18s ${theme.easing};
+
+  &:hover {
+    color: ${theme.colors.textOnDark};
+  }
 `;
 
 export default function Footer({ locale = "fr" }: { locale?: Locale }) {
@@ -273,6 +292,9 @@ export default function Footer({ locale = "fr" }: { locale?: Locale }) {
                 {l.name}
               </FooterLink>
             ))}
+            <ManageCookies type="button" onClick={openConsent}>
+              {ui[locale].consent.manage}
+            </ManageCookies>
           </LegalLinks>
         </BottomBar>
       </Container>

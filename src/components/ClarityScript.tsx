@@ -3,18 +3,15 @@ import Script from "next/script";
 // Microsoft Clarity (projet xxtffll8xk), chargé UNIQUEMENT après consentement.
 //
 // Pourquoi pas le snippet officiel tel quel : le HTML est statique (output:
-// "export"), un script inline s'exécute au parse, avant que le moteur
-// d'autoblocking du bandeau hu-manity (chargé en afterInteractive) ait posé ses
-// hooks. Clarity partirait donc sans consentement au premier affichage, et
-// l'autoblocking ne sait pas rattraper un script déjà exécuté.
+// "export"), un script inline s'exécute au parse, avant que le bandeau (un
+// composant React monté après hydratation) ait pu recueillir un choix. Clarity
+// partirait donc sans consentement au premier affichage.
 //
-// Contrat mesuré dans hu-banner.min.js le 05/08/2026 :
-// - cookie « hu-consent » : JSON {categories:{1:bool,2:bool,3:bool,4:bool}} ;
-// - à chaque choix, document.dispatchEvent(CustomEvent("set-consent.hu",
-//   {detail})) avec le même objet en detail ;
-// - la table de vendors du bandeau classe Clarity (clarity.ms/tag/) en
-//   catégorie 4 : c'est donc elle qui fait foi ici aussi. Si le bandeau
-//   reclasse Clarity un jour, aligner CLARITY_CATEGORY.
+// Contrat du bandeau maison (src/lib/consent.ts, depuis le 21/08/2026) :
+// - cookie « mkz-consent » : JSON encodé {v:1, id, date, audience:bool} ;
+// - à chaque choix, document.dispatchEvent(CustomEvent("mkz-consent",
+//   {detail:{audience:bool}})).
+// Jusqu'au 21/08/2026 : bandeau hu-manity, cookie « hu-consent », catégorie 4.
 //
 // Clarity applique son Consent Mode au trafic EEA (obligatoire depuis le
 // 31/10/2025) : sans signal explicite via son Consent API, il tourne en mode
@@ -29,15 +26,14 @@ import Script from "next/script";
 const clarityLoader = `(function () {
   var w = window, d = document, loaded = false;
   var TAG = "https://www.clarity.ms/tag/xxtffll8xk";
-  var CLARITY_CATEGORY = 4;
   function consented() {
-    var m = d.cookie.match(/(?:^|;\\s*)hu-consent=([^;]*)/);
+    var m = d.cookie.match(/(?:^|;\\s*)mkz-consent=([^;]*)/);
     if (!m) return false;
     var raw = m[1];
     try { raw = decodeURIComponent(raw); } catch (e) {}
     try {
       var c = JSON.parse(raw);
-      return !!(c && c.categories && c.categories[CLARITY_CATEGORY]);
+      return !!(c && c.v === 1 && c.audience === true);
     } catch (e) { return false; }
   }
   function signalGranted() {
@@ -58,10 +54,10 @@ const clarityLoader = `(function () {
     if (loaded && typeof w.clarity === "function") w.clarity("consent", false);
   }
   if (consented()) load();
-  d.addEventListener("set-consent.hu", function (e) {
-    var c = e && e.detail && e.detail.categories;
-    if (!c) return;
-    if (c[CLARITY_CATEGORY]) load(); else halt();
+  d.addEventListener("mkz-consent", function (e) {
+    var dt = e && e.detail;
+    if (!dt || typeof dt.audience !== "boolean") return;
+    if (dt.audience) load(); else halt();
   });
 })();`;
 

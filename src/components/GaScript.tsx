@@ -4,15 +4,16 @@ import Script from "next/script";
 // UNIQUEMENT après consentement, sur le modèle exact de ClarityScript.tsx.
 //
 // Pourquoi pas le snippet officiel tel quel : le HTML est statique (output:
-// "export"), un script inline s'exécute au parse, avant que l'autoblocking du
-// bandeau hu-manity (afterInteractive) ait posé ses hooks. gtag.js partirait
-// donc sans consentement au premier affichage. Ici, rien n'est injecté tant que
-// la catégorie 4 (mesure d'audience, la même que Clarity) n'est pas accordée.
+// "export"), un script inline s'exécute au parse, avant que le bandeau (un
+// composant React monté après hydratation) ait pu recueillir un choix. gtag.js
+// partirait donc sans consentement au premier affichage. Ici, rien n'est injecté
+// tant que la mesure d'audience n'est pas accordée.
 //
-// Contrat du bandeau, mesuré dans hu-banner.min.js le 05/08/2026 :
-// - cookie « hu-consent » : JSON {categories:{1:bool,2:bool,3:bool,4:bool}} ;
-// - à chaque choix, document.dispatchEvent(CustomEvent("set-consent.hu",
-//   {detail})) avec le même objet en detail.
+// Contrat du bandeau maison (src/lib/consent.ts, depuis le 21/08/2026) :
+// - cookie « mkz-consent » : JSON encodé {v:1, id, date, audience:bool} ;
+// - à chaque choix, document.dispatchEvent(CustomEvent("mkz-consent",
+//   {detail:{audience:bool}})).
+// Jusqu'au 21/08/2026 : bandeau hu-manity, cookie « hu-consent », catégorie 4.
 //
 // Consent Mode v2 : comme le tag n'est injecté qu'APRÈS acceptation, le
 // « default » est posé à granted pour analytics_storage et denied pour tout ce
@@ -34,15 +35,14 @@ const GA_ID = "G-YE680NFBYZ";
 const gaLoader = `(function () {
   var w = window, d = document, loaded = false;
   var ID = "${GA_ID}";
-  var CATEGORY = 4;
   function consented() {
-    var m = d.cookie.match(/(?:^|;\\s*)hu-consent=([^;]*)/);
+    var m = d.cookie.match(/(?:^|;\\s*)mkz-consent=([^;]*)/);
     if (!m) return false;
     var raw = m[1];
     try { raw = decodeURIComponent(raw); } catch (e) {}
     try {
       var c = JSON.parse(raw);
-      return !!(c && c.categories && c.categories[CATEGORY]);
+      return !!(c && c.v === 1 && c.audience === true);
     } catch (e) { return false; }
   }
   function gtag() { (w.dataLayer = w.dataLayer || []).push(arguments); }
@@ -84,10 +84,10 @@ const gaLoader = `(function () {
     });
   }
   if (consented()) load();
-  d.addEventListener("set-consent.hu", function (e) {
-    var c = e && e.detail && e.detail.categories;
-    if (!c) return;
-    if (c[CATEGORY]) load(); else halt();
+  d.addEventListener("mkz-consent", function (e) {
+    var dt = e && e.detail;
+    if (!dt || typeof dt.audience !== "boolean") return;
+    if (dt.audience) load(); else halt();
   });
 })();`;
 

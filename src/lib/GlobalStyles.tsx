@@ -153,6 +153,12 @@ export default function GlobalStyles() {
           outline-offset: 2px;
         }
 
+        /* Bandeau de consentement ouvert (ConsentBanner) : la bulle WhatsApp
+           s'efface, sinon elle se superpose aux boutons du bandeau sur mobile. */
+        html[data-consent-open="1"] [data-whatsapp] {
+          display: none;
+        }
+
         input,
         textarea,
         button {

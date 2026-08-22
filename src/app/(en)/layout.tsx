@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import ClarityScript from "@/components/ClarityScript";
+import ConsentBanner from "@/components/ConsentBanner";
 import GaScript from "@/components/GaScript";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -48,20 +48,12 @@ export default function EnRootLayout({
           <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
           <Footer locale="en" />
           <WhatsAppButton locale="en" />
+          <ConsentBanner locale="en" />
         </EmotionRegistry>
-        {/* `currentLanguage: "en"` est bien transmis, verifie dans le DOM, mais
-            le bandeau hu-manity reste rendu en francais : la localisation est
-            une option payante de leur offre. Choix de Mickael le 30/07/2026 de
-            ne pas la souscrire. Le parametre reste en place pour que le
-            basculement soit immediat le jour ou l offre change. Ne pas
-            rediagnostiquer : ce n est pas un defaut du code. */}
-        <Script id="hu-options" strategy="beforeInteractive">
-          {`var huOptions = {"appID":"mkz-consultingfr-9f08d00","currentLanguage":"en","blocking":true,"globalCookie":false}`}
-        </Script>
-        <Script
-          src="https://cdn.hu-manity.co/hu-banner.min.js"
-          strategy="afterInteractive"
-        />
+        {/* Bandeau de consentement : composant maison ConsentBanner (dans le
+            EmotionRegistry ci-dessus), bilingue, qui a remplacé hu-manity le
+            21/08/2026 (son bandeau restait en français, la localisation étant
+            une option payante). Les deux chargeurs lisent « mkz-consent ». */}
         <ClarityScript />
         <GaScript />
       </body>

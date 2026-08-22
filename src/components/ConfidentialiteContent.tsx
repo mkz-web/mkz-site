@@ -164,8 +164,10 @@ export default function ConfidentialiteContent() {
         Ces cookies ne sont d&eacute;pos&eacute;s que si vous acceptez la cat&eacute;gorie correspondante dans le
         bandeau affich&eacute; lors de votre premi&egrave;re visite. Sans votre accord, ces outils ne sont
         pas charg&eacute;s et aucun cookie de mesure n&rsquo;est d&eacute;pos&eacute;. Vous pouvez retirer votre
-        consentement &agrave; tout moment via l&rsquo;ic&ocirc;ne du bandeau cookies, en bas de page : le suivi
-        s&rsquo;arr&ecirc;te alors imm&eacute;diatement.
+        consentement &agrave; tout moment via le lien &laquo;&nbsp;G&eacute;rer les cookies&nbsp;&raquo; en pied de page : le suivi
+        s&rsquo;arr&ecirc;te alors imm&eacute;diatement. Votre choix, accord ou refus, est conserv&eacute; six mois dans un
+        cookie technique (mkz-consent) avec sa date et un identifiant al&eacute;atoire qui en tient lieu de preuve ;
+        pass&eacute; ce d&eacute;lai, la question vous est repos&eacute;e.
       </Text>
       <Text>
         Ce site n&rsquo;affiche aucune publicit&eacute;. Des cookies techniques strictement n&eacute;cessaires
