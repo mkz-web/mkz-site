@@ -55,6 +55,7 @@ export default function WhatsAppButton({ locale = "fr" }: { locale?: Locale }) {
       // wa.me mesurés le 08/08/2026. C'est un canal de contact, pas une source.
       rel="noopener noreferrer nofollow"
       aria-label={ui[locale].whatsapp}
+      data-whatsapp=""
     >
       <WhatsAppIcon />
     </FloatingLink>

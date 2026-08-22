@@ -280,6 +280,23 @@ export interface UiStrings {
   };
   notFound: { title: string; text: string; back: string };
   whatsapp: string;
+  /** Bandeau de consentement maison (ConsentBanner), contrat dans src/lib/consent.ts. */
+  consent: {
+    title: string;
+    text: string;
+    privacy: string;
+    privacyHref: string;
+    acceptAll: string;
+    refuseAll: string;
+    customise: string;
+    save: string;
+    necessaryLabel: string;
+    necessaryDesc: string;
+    audienceLabel: string;
+    audienceDesc: string;
+    /** Lien du pied de page qui rouvre le bandeau. */
+    manage: string;
+  };
 }
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
@@ -645,6 +662,21 @@ export const ui: Record<Locale, UiStrings> = {
       back: "Retour à l'accueil",
     },
     whatsapp: "Nous contacter sur WhatsApp",
+    consent: {
+      title: "Vos données, votre choix",
+      text: "Ce site utilise des cookies de mesure d'audience (Google Analytics 4 et Microsoft Clarity) pour comprendre comment il est utilisé et l'améliorer. Rien n'est déposé sans votre accord, et vous pouvez changer d'avis à tout moment. Détails :",
+      privacy: "politique de confidentialité",
+      privacyHref: "/politique-confidentialite/",
+      acceptAll: "Tout accepter",
+      refuseAll: "Tout refuser",
+      customise: "Personnaliser mes choix",
+      save: "Enregistrer mes choix",
+      necessaryLabel: "Nécessaires",
+      necessaryDesc: "Fonctionnement du site et mémorisation de votre choix. Toujours actifs.",
+      audienceLabel: "Mesure d'audience",
+      audienceDesc: "Google Analytics 4 et Microsoft Clarity : pages vues, clics, défilement, jamais de publicité. Cookies _ga (13 mois), _clck et _clsk (1 an).",
+      manage: "Gérer les cookies",
+    },
   },
 
   en: {
@@ -993,6 +1025,21 @@ export const ui: Record<Locale, UiStrings> = {
       back: "Back to home",
     },
     whatsapp: "Contact us on WhatsApp",
+    consent: {
+      title: "Your data, your call",
+      text: "This site uses audience measurement cookies (Google Analytics 4 and Microsoft Clarity) to understand how it is used and improve it. Nothing is set without your consent, and you can change your mind at any time. Details:",
+      privacy: "privacy policy",
+      privacyHref: "/en/privacy-policy/",
+      acceptAll: "Accept all",
+      refuseAll: "Refuse all",
+      customise: "Customise my choices",
+      save: "Save my choices",
+      necessaryLabel: "Necessary",
+      necessaryDesc: "Site operation and remembering your choice. Always on.",
+      audienceLabel: "Audience measurement",
+      audienceDesc: "Google Analytics 4 and Microsoft Clarity: pages viewed, clicks, scrolling, never advertising. Cookies _ga (13 months), _clck and _clsk (1 year).",
+      manage: "Manage cookies",
+    },
   },
 };
 

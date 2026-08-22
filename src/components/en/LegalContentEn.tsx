@@ -207,7 +207,10 @@ export function PrivacyPolicyEn() {
         These cookies are only set if you accept the corresponding category in the banner
         shown on your first visit. Without your consent, these tools are not loaded and no
         measurement cookie is set. You can withdraw your consent at any time through the
-        cookie banner icon at the bottom of the page: tracking then stops immediately.
+        &ldquo;Manage cookies&rdquo; link in the footer: tracking then stops immediately. Your
+        choice, consent or refusal, is kept for six months in a technical cookie (mkz-consent)
+        with its date and a random identifier that serves as proof; after that, you are asked
+        again.
       </Text>
       <Text>
         This site shows no advertising. Technical cookies strictly necessary for the site
