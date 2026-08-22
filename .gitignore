@@ -84,6 +84,9 @@ audit-data.json
 /_research/
 /_content-staging/
 
+# Matière de travail de l'audit netlinking (lots de spots, audits de fermes) : pas du site
+/_backlinks/
+
 # Rapports d'analyse datés (extractions GSC, GA4...) : matière de travail, pas du site
 /rapports/
 
