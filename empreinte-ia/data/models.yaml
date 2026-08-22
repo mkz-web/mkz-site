@@ -1,0 +1,90 @@
+# models.yaml : coefficients energetiques par classe de modele
+# Toute valeur incertaine est un triplet [min, central, max].
+# Unite : Wh par token de SORTIE (le prefill est derive via ratio_prefill).
+#
+# SOURCAGE v0.3.0 (15 aout 2026). Les triplets par classe sont derives du
+# modele parametrique publie par EcoLogits (GenAI Impact), lui-meme ajuste
+# sur les mesures du ML.ENERGY Leaderboard (vLLM, NVIDIA H100 80GB) :
+#
+#   E_GPU/token  = alpha * exp(beta*B) * P_active + gamma   (Wh, par GPU)
+#     alpha = 1,17e-6 ; beta = -1,12e-2 ; gamma = 4,05e-5 ; B = taille de lot
+#   E_srv/token  = f_L(P_active, B) * 1,2 kW * (nGPU/8) / B (serveur hors GPU)
+#     f_L = 6,78e-4 * P_active + 3,12e-4 * B + 1,94e-2      (s par token)
+#   E_total/token = PUE * (nGPU * E_GPU + E_srv)
+#
+# Source : ecologits.ai/latest/methodology/llm_inference/ (constantes citees
+# telles quelles, releve du 15/08/2026). Licences verifiees le 15/08/2026 :
+# EcoLogits logiciel MPL-2.0 (usage commercial autorise), documentation
+# CC BY-SA 4.0 (citee avec attribution). PUE 1,09 a 1,20 et nombre de GPU par
+# modele : hypotheses fournisseurs de la meme page.
+#
+# Chaque borne ci-dessous porte en commentaire les hypotheses injectees dans
+# ces formules (P_active en milliards, nGPU, B, PUE). Le detail du calcul et
+# les verifications golden sont dans data/CHANGELOG.md.
+
+version: "0.3.0"
+updated: "2026-08-15"
+status: "sourced"
+
+# Un token d'entree coute 1/8 d'un token de sortie : le prefill est parallelise,
+# le decode est sequentiel. Ne jamais sommer entree et sortie au meme cout.
+ratio_prefill: 8
+
+# Heuristique de tokenisation pour le francais. Erreur +/- 10 %, negligeable
+# face a l'incertitude du modele energetique.
+chars_per_token: 3.6
+
+# Tokens de sortie visibles pour une reponse "standard" (lengthMultiplier = 1).
+base_tokens_out: 500
+
+# Surcout fixe par requete en Wh : routage, orchestration, serveur hors calcul.
+# Ordre de grandeur coherent avec la part serveur hors GPU du modele EcoLogits
+# (1,2 kW partages entre 8 GPU et un lot de 64 requetes). Empeche
+# l'effondrement a zero d'une requete d'un mot. Non mesure isolement.
+fixed_overhead_wh: [0.005, 0.02, 0.08]
+
+classes:
+  petit:
+    label: "Petit modèle"
+    examples: "GPT-4o mini, Gemini Flash, Mistral Small, Llama 3 8B"
+    # min : P=7, 1 GPU, B=128, PUE 1,09. central : P=15, 1 GPU, B=64, PUE 1,15.
+    # max : P=30, 1 GPU, B=32, PUE 1,20. (EcoLogits, releve 15/08/2026)
+    wh_per_output_token: [0.00007, 0.0001, 0.0002]
+    output_multiplier: 1
+  moyen:
+    label: "Modèle courant"
+    examples: "GPT-4o, Gemini Pro, Claude Sonnet, Mistral Large"
+    # min : P=60, 2 GPU, B=128, PUE 1,09. central : P=100, 4 GPU, B=64,
+    # PUE 1,20 (0,0008 : coherent avec les 0,34 Wh/requete moyenne annonces
+    # par OpenAI en juin 2025 et les ~0,3 Wh estimes par Epoch AI en 2025).
+    # max : P=130 dense a 200B MoE, 4 a 8 GPU, B=32, PUE 1,20.
+    wh_per_output_token: [0.0003, 0.0008, 0.0025]
+    output_multiplier: 1
+  grand:
+    label: "Grand modèle"
+    examples: "GPT-4.5, Claude Opus, Llama 3 405B"
+    # min : P=150 (MoE), 8 GPU, B=128, PUE 1,09. central : P=250, 8 GPU, B=64,
+    # PUE 1,20. max : P=400 dense, 16 GPU, B=32, PUE 1,20.
+    wh_per_output_token: [0.0012, 0.003, 0.012]
+    output_multiplier: 1
+  raisonnement:
+    label: "Modèle de raisonnement"
+    examples: "o3, Gemini Thinking, DeepSeek R1, Claude en mode réflexion"
+    # Un raisonneur tourne sur une architecture de grand modele : son token
+    # coute donc exactement le prix d'un token de grand modele, ni plus ni
+    # moins. Tout le surcout vient du NOMBRE de tokens produits : sur onze
+    # tokens generes, dix ne sont jamais affiches a l'utilisateur.
+    # Multiplicateur 11 : arbitrage v0.2.0 cale sur le cas golden public de
+    # 33 Wh (voir CHANGELOG), dans la plage des ratios de tokens de
+    # raisonnement observes publiquement (5 a 15 selon les taches).
+    wh_per_output_token: [0.0012, 0.003, 0.012]
+    output_multiplier: 11
+
+# Repere non modelisable par les classes ci-dessus, utilise dans le tableau
+# comparatif statique. Source : Google, blog officiel "Powering a Google
+# search" (2009) : 0,3 Wh par recherche. Epoch AI (fevrier 2025) reprend ce
+# meme ordre de grandeur comme reference courante. Aucun chiffre officiel
+# plus recent : bornes a un facteur deux autour de la valeur publiee.
+reference_web_search:
+  label: "Recherche web classique"
+  wh_per_query: [0.15, 0.30, 0.60]

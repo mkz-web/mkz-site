@@ -1,0 +1,28 @@
+# embodied.yaml : impacts de fabrication amortis
+# Unite : g CO2e par kWh consomme, c'est a dire la part de la fabrication des
+# serveurs, des GPU et du batiment, ramenee a l'energie consommee sur la duree
+# de vie du materiel.
+#
+# SOURCAGE v0.3.0 (15 aout 2026). Derivation :
+# - Serveur de reference hors GPU : AWS p5.48xlarge, 5 700 kg CO2e embarques
+#   (BoaviztAPI, hypothese de la methodologie EcoLogits, relevee 15/08/2026).
+# - GPU : NVIDIA H100 80GB, 273 kg CO2e piece (Lees-Perasso et al. 2026,
+#   ACV de GPU publiee par l'ADEME, citee par EcoLogits) ; 8 par serveur.
+# - Total 7 884 kg CO2e, amorti sur 3 a 6 ans (duree de vie GPU : Ostrouchov
+#   et al. 2020 et retours d'exploitants) a 40-80 % d'utilisation d'un
+#   serveur d'environ 6,8 kW : 27 a 110 g CO2e par kWh.
+# - Enveloppe arrondie [15, 50, 130] pour couvrir les parcs mieux et moins
+#   bien utilises. Ce facteur s'AJOUTE au facteur reseau de grid.yaml et ne
+#   depend pas de la region : un GPU fabrique a Taiwan porte le meme sac a
+#   dos ou qu'il tourne.
+
+version: "0.3.0"
+updated: "2026-08-15"
+status: "sourced"
+
+manufacturing_g_per_kwh: [15, 50, 130]
+
+note: >
+  Écart large assumé. Les analyses de cycle de vie publiées divergent surtout
+  sur la durée d'amortissement retenue pour les accélérateurs, entre trois et
+  six ans, et sur le taux d'utilisation moyen des parcs.

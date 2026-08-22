@@ -1,0 +1,48 @@
+# grid.yaml : facteur d'emission du reseau electrique par region
+# Unite : g CO2e par kWh consomme (impacts d'usage uniquement).
+# La fabrication amortie vit dans embodied.yaml et s'ajoute a ce facteur.
+#
+# SOURCAGE v0.3.0 (15 aout 2026). Valeurs centrales : intensite carbone du
+# cycle de vie de l'electricite, serie "Lifecycle carbon intensity of
+# electricity" d'Our World in Data (donnees Ember + facteurs cycle de vie),
+# edition 2025, relevee le 15/08/2026 :
+#   France 41,4 ; Etats-Unis 384,4 ; Union europeenne (27) 209,9 ; monde 477,3.
+# C'est la source GWP utilisee par EcoLogits, ce qui garde le jeu coherent
+# avec models.yaml. Bornes min/max : enveloppe de variabilite horaire et
+# annuelle du mix (heures creuses nucleaire/renouvelable contre pointes
+# thermiques), observable pour la France sur RTE eCO2mix.
+#
+# Structure prevue pour accepter une injection horaire (RTE eCO2mix) sans
+# changer le contrat du moteur : hourly_override reste null en v1, et un
+# consommateur peut y placer un triplet mesure pour l'heure courante.
+
+version: "0.3.0"
+updated: "2026-08-15"
+status: "sourced"
+
+dynamic:
+  supported: false
+  candidate_source: "RTE eCO2mix"
+  note: "Hors perimetre v1. Remplir hourly_override pour injecter une mesure."
+
+regions:
+  fr:
+    label: "France"
+    detail: "Mix majoritairement nucléaire et renouvelable"
+    factors_g_per_kwh: [25, 41, 90]
+    hourly_override: null
+  eu:
+    label: "Union européenne"
+    detail: "Moyenne des 27 États membres"
+    factors_g_per_kwh: [150, 210, 320]
+    hourly_override: null
+  us:
+    label: "États-Unis"
+    detail: "Moyenne nationale, forte part de gaz et de charbon"
+    factors_g_per_kwh: [330, 384, 500]
+    hourly_override: null
+  monde:
+    label: "Moyenne mondiale"
+    detail: "Valeur par défaut quand la région du centre de données est inconnue"
+    factors_g_per_kwh: [400, 477, 580]
+    hourly_override: null

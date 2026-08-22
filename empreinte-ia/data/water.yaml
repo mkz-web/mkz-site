@@ -1,0 +1,38 @@
+# water.yaml : coefficient hydrique
+# Unite : litres d'eau CONSOMMES par kWh (pas les prelevements).
+# Somme de deux postes : refroidissement direct du centre de donnees (WUE
+# on-site) et eau mobilisee par la production de l'electricite (WUE off-site).
+#
+# SOURCAGE v0.3.0 (15 aout 2026). Cadre de calcul : Li et al. 2025, "Making AI
+# Less Thirsty" (arXiv:2304.03271, v5 du 26/03/2025) :
+#   eau = E_serveur x (WUE_on-site + PUE x WUE_off-site)
+# - min 0,8  : configuration sobre type Mistral AI en Suede : WUE on-site 0,09
+#   + PUE 1,16 x off-site nordique bas (table fournisseurs EcoLogits, relevee
+#   le 15/08/2026).
+# - max 4,3  : Etats-Unis moyens : WUE on-site hyperscaler 0,55 (OpenAI/Azure,
+#   EcoLogits) + PUE 1,20 x 3,1 L/kWh de consommation d'eau moyenne du reseau
+#   americain (Li et al. 2025, section 2.2.2, hydraulique inclus).
+# - central 1,9 : moyenne geometrique des deux bornes. Encadree par les deux
+#   seuls chiffres d'editeurs disponibles : 0,32 mL pour 0,34 Wh annonces par
+#   OpenAI en juin 2025 (~0,94 L/kWh, perimetre non detaille) et le "500 mL
+#   pour 10 a 50 reponses" de GPT-3 chez Li et al. (~4 L/kWh d'epoque).
+#
+# La consommation d'eau ne depend pas du facteur carbone : une region bas
+# carbone n'est pas automatiquement sobre en eau.
+
+version: "0.3.0"
+updated: "2026-08-15"
+status: "sourced"
+
+litres_per_kwh: [0.8, 1.9, 4.3]
+
+breakdown:
+  refroidissement_direct: "WUE on-site 0,09 à 0,99 L/kWh selon le fournisseur (EcoLogits, 2026)"
+  production_electrique: "Jusqu'à 3,1 L/kWh consommés par le réseau américain, hydraulique inclus (Li et al. 2025)"
+
+note: >
+  Un centre de données en circuit fermé peut descendre très bas sur le
+  refroidissement direct tout en restant exposé sur la production électrique.
+  L'écart entre les bornes traduit cette variabilité géographique, et le
+  traitement comptable de l'évaporation des barrages explique une grande part
+  des divergences entre publications.

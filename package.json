@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:empreinte": "node empreinte-ia/build/build.mjs",
+    "build": "npm run build:empreinte && next build",
     "start": "next start",
     "lint": "eslint",
+    "test:empreinte": "node empreinte-ia/src/engine.test.js",
     "deploy": "node scripts/deploy.mjs",
-    "deploy:build": "next build && node scripts/deploy.mjs"
+    "deploy:build": "npm run build && node scripts/deploy.mjs"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
