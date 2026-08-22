@@ -55,6 +55,7 @@ const Subtitle = styled.p`
 `;
 
 const Section = styled.section`
+  scroll-margin-top: 90px;
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px 24px 8px;
@@ -164,6 +165,7 @@ const OfferName = styled.h3`
 
 const OfferDesc = styled.p`
   margin-top: 8px;
+  max-width: 70ch; /* 131 à 158 caractères par ligne mesurés à 1 280 px le 21/08/2026 */
   font-size: 16px;
   line-height: 1.7;
   color: ${theme.colors.textSecondary};
@@ -308,6 +310,7 @@ const IncludedGrid = styled.ul`
 /* ── Pack ─────────────────────────────────────────────────────────────── */
 
 const PackBand = styled.div`
+  scroll-margin-top: 90px;
   max-width: 1280px;
   margin: 48px auto 0;
   padding: 0 24px;
@@ -468,6 +471,39 @@ const CTAText = styled.p`
   color: ${theme.colors.textOnDarkSecondary};
 `;
 
+// Sommaire ancré sous le titre : la page fait 21 écrans mobiles (mesuré le 21/08/2026).
+const Sommaire = styled.nav`
+  max-width: 1280px;
+  margin: 22px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 6px 14px;
+    border: 1px solid ${theme.colors.borderInk};
+    border-radius: ${theme.radius.sm};
+    font-size: 14px;
+    font-weight: 600;
+    color: ${theme.colors.text};
+    text-decoration: none;
+    &:hover { background: ${theme.colors.text}; color: ${theme.colors.background}; }
+  }
+`;
+
+// Une action par groupe de prix : avant, 14 prix et 14 800 px sans aucun bouton entre le
+// lien de l'introduction et le bloc final (mesuré le 21/08/2026).
+const GroupCta = styled.div`
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  span { font-size: 14.5px; color: ${theme.colors.textSecondary}; a { color: ${theme.colors.accent}; font-weight: 600; } }
+`;
+
 const InlineLink = styled(Link)`
   color: inherit;
   text-decoration: underline;
@@ -491,6 +527,15 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           <InlineLink href="/contact/">diagnostic gratuit de 30 minutes</InlineLink>, sans engagement.
         </Subtitle>
       </PageHeader>
+
+      <Sommaire aria-label="Sommaire des tarifs">
+        <a href="#creation-site">Création de site</a>
+        <a href="#seo">Référencement SEO</a>
+        <a href="#referencement-ia">Référencement IA</a>
+        <a href="#pack">Pack Décollage</a>
+        <a href="#marche">Repères marché</a>
+        <a href="#faq">Questions</a>
+      </Sommaire>
 
       <PromiseBand>
         <PromiseCard>
@@ -637,6 +682,10 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           Sans engagement de durée. Repère marché 2026&nbsp;: de 39 à 290&nbsp;€/mois,
           et de 100 à 500&nbsp;€/mois en agence.
         </Note>
+        <GroupCta>
+          <Button href={CALENDLY}>Parler de mon site, 30 min gratuites</Button>
+          <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
+        </GroupCta>
       </Section>
 
       {/* ── 2. SEO ── */}
@@ -744,6 +793,10 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
             <li><strong>Netlinking en toute transparence</strong>&nbsp;: chaque lien choisi à la main, son prix d&rsquo;achat refacturé à l&rsquo;euro près, plus <strong>70&nbsp;€ de sélection et de pose par lien</strong>. Budget conseillé&nbsp;: 150 à 500&nbsp;€/mois selon votre concurrence.</li>
           </IncludedGrid>
         </IncludedBand>
+        <GroupCta>
+          <Button href={CALENDLY}>Parler de mon SEO, 30 min gratuites</Button>
+          <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
+        </GroupCta>
       </Section>
 
       {/* ── 3. Référencement IA ── */}
@@ -793,10 +846,14 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
             </OfferPrice>
           </OfferRow>
         </OfferList>
+        <GroupCta>
+          <Button href={CALENDLY}>Parler de référencement IA, 30 min gratuites</Button>
+          <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
+        </GroupCta>
       </Section>
 
       {/* ── Pack ── */}
-      <PackBand>
+      <PackBand id="pack">
         <PackInner>
           <PackBody>
             <PackTitle>Pack Décollage&nbsp;: site + visibilité locale</PackTitle>
@@ -805,6 +862,9 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
               déjà compris dans le site. L&rsquo;équipement complet d&rsquo;un artisan ou
               d&rsquo;un commerce qui démarre sa visibilité.
             </PackText>
+            <div style={{ marginTop: 18 }}>
+              <Button href={CALENDLY}>Réserver mon diagnostic gratuit</Button>
+            </div>
           </PackBody>
           <PackPrice>
             1&nbsp;690&nbsp;€<small>au lieu de 1&nbsp;880&nbsp;€</small>
@@ -861,6 +921,10 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           Positionnement volontaire&nbsp;: des prix d&rsquo;indépendant expérimenté, sous les
           grilles d&rsquo;agence, pour des livrables mesurés et vérifiables.
         </Note>
+        <GroupCta>
+          <Button href={CALENDLY}>Parler de mon projet, 30 min gratuites</Button>
+          <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
+        </GroupCta>
       </Section>
 
       {/* ── FAQ ── */}

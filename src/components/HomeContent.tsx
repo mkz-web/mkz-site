@@ -539,13 +539,6 @@ const FinalMeta = styled.p`
 
 const cities = ["Meaux", "Melun", "Chelles", "Dammartin-en-Goële", "Roissy", "Marne-la-Vallée", "Senlis", "Provins", "Fontainebleau", "Serris", "Mitry-Mory", "Claye-Souilly"];
 
-const proof = [
-  { value: "+247 %", label: "trafic organique moyen" },
-  { value: "Top 3", label: "position moyenne Google" },
-  { value: "+89 %", label: "leads qualifiés" },
-  { value: "1,2 s", label: "temps de chargement" },
-];
-
 const problems = [
   { num: "01", title: "Votre site est invisible", desc: "Vous avez investi dans un beau site, mais il n'apparaît nulle part sur Google. Vos concurrents trustent les premières positions." },
   { num: "02", title: "Pas le temps pour le digital", desc: "Entre vos clients, la gestion et le reste, impossible de trouver du temps pour votre présence en ligne. Le marketing passe à la trappe." },
@@ -568,6 +561,17 @@ const services = [
     tags: "audit SEO complet · stratégie de contenu · SEO technique · cocon sémantique · suivi mensuel",
     href: "/referencement-seo/",
     linkLabel: "Découvrir le référencement SEO",
+  },
+  // Troisième service, ajouté le 21/08/2026 : le pilier /referencement-ia/ était dans la
+  // barre de navigation depuis le 07/08 mais absent du corps de l'accueil (règle parcours :
+  // chaque entrée de la barre est présentée ET liée dans le corps des hubs).
+  {
+    kicker: "Service 03",
+    title: "Référencement IA (GEO)",
+    desc: "Être cité par ChatGPT, Perplexity et Gemini quand un client leur demande un artisan ou une entreprise près de chez lui. Robots autorisés, faits citables, données structurées, part de voix mesurée.",
+    tags: "robots IA · llms.txt · JSON-LD · contenu citable · part de voix mesurée",
+    href: "/referencement-ia/",
+    linkLabel: "Découvrir le référencement IA",
   },
 ];
 
@@ -616,22 +620,9 @@ export default function HomeContent() {
         </MarqueeTrack>
       </MarqueeBand>
 
-      {/* Preuve */}
-      <Section>
-        <Container>
-          <ProofStrip>
-            {proof.map((p) => (
-              <ProofCell key={p.label}>
-                <ProofValue>{p.value}</ProofValue>
-                <ProofLabel>{p.label}</ProofLabel>
-              </ProofCell>
-            ))}
-          </ProofStrip>
-          <ProofNote>
-            Moyennes constat&eacute;es sur les clients MKZ accompagn&eacute;s en 2025 · +50 entreprises · 97&thinsp;% de clients satisfaits
-          </ProofNote>
-        </Container>
-      </Section>
+      {/* Le bandeau de chiffres qui suivait le hero a été retiré le 21/08/2026 : il répétait
+          les trois chiffres de la carte du hero (+247 %, Top 3, 1,2 s) à un écran d'écart.
+          Un chiffre se montre une fois par page (règle parcours de livraison-web). */}
 
       {/* 01. Problèmes */}
       <Section variant="dark">
@@ -663,14 +654,14 @@ export default function HomeContent() {
         <Container>
           <ChapterHead>
             <Kicker><strong>02</strong>&ensp;Nos services</Kicker>
-            <ChapterTitle>Deux m&eacute;tiers, une mission : que votre t&eacute;l&eacute;phone sonne.</ChapterTitle>
+            <ChapterTitle>Trois m&eacute;tiers, une mission : que votre t&eacute;l&eacute;phone sonne.</ChapterTitle>
           </ChapterHead>
           <ServicesGrid>
             <ServicesAside>
               <p>
                 Pas d&rsquo;usine &agrave; sites, pas d&rsquo;options incompr&eacute;hensibles.
-                Nous construisons votre vitrine, puis nous la rendons visible aupr&egrave;s
-                des clients de votre zone. Les deux se renforcent.
+                Nous construisons votre vitrine, puis nous la rendons visible sur Google
+                et cit&eacute;e par les IA aupr&egrave;s des clients de votre zone. Les trois se renforcent.
               </p>
               <p>
                 Et parce qu&rsquo;un client autonome est un client serein, nos
@@ -687,6 +678,13 @@ export default function HomeContent() {
                 </Link>{" "}
                 fait 17 mesures r&eacute;elles sur votre site et vous rend un score
                 sur 100. Une minute, sans inscription.
+              </p>
+              <p>
+                Et les prix sont publics, sans devis &agrave; demander :{" "}
+                <Link href="/tarifs/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  la grille des tarifs
+                </Link>{" "}
+                est en ligne, en euros HT.
               </p>
             </ServicesAside>
             <div>
@@ -725,6 +723,11 @@ export default function HomeContent() {
               </StepItem>
             ))}
           </MethodGrid>
+          {/* Rappel d'action à mi-page : 10 écrans mobiles sans action entre la section
+              services et le bloc final, mesurés le 21/08/2026 (règle parcours livraison-web). */}
+          <div style={{ marginTop: 40 }}>
+            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+          </div>
         </Container>
       </Section>
 
@@ -766,6 +769,11 @@ export default function HomeContent() {
               </DiffCell>
             ))}
           </DiffGrid>
+          {/* Action après la section confiance : 5 445 px (6,7 écrans mobiles) sans action
+              entre la méthode et le bloc final, mesurés le 21/08/2026. */}
+          <div style={{ marginTop: 36 }}>
+            <Button href={CALENDLY}>Parler de mon projet, 30 min gratuites</Button>
+          </div>
         </Container>
       </Section>
 
