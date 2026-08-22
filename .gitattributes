@@ -1,0 +1,12 @@
+# Fins de ligne : LF dans le dépôt ET dans la copie de travail, quel que soit le
+# core.autocrlf du poste. Sur ce poste Windows, autocrlf=true (réglage système de
+# Git for Windows) faisait apparaître 6 articles comme modifiés sans une seule
+# ligne de différence (22/08/2026). Les binaires sont déclarés explicitement
+# pour que git ne tente jamais de les convertir.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.woff2 binary
+*.docx binary
