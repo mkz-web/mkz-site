@@ -551,6 +551,16 @@ const services = [
     href: "/en/ai-search-optimization/",
     linkLabel: "See how AI search works",
   },
+  // Third service, added 21/08/2026: /en/website-design/ sat in the navigation bar but had no
+  // link in the home body (journey rule: every nav entry is presented AND linked in the hubs).
+  {
+    kicker: "Service 03",
+    title: "Websites built for France",
+    desc: "A site structured for French search from day one: French-first pages, hreflang done right, fast, and readable by AI answer engines. Built to rank on Google.fr, not just to look good.",
+    tags: "French-first structure · hreflang · speed · llms.txt & schema.org · you own everything",
+    href: "/en/website-design/",
+    linkLabel: "See how we build for France",
+  },
 ];
 
 const methodSteps = [
@@ -693,7 +703,7 @@ export default function HomeContentEn() {
         <Container>
           <ChapterHead>
             <Kicker><strong>02</strong>&ensp;What I do</Kicker>
-            <ChapterTitle>Two jobs, one goal: France stops being your dead market.</ChapterTitle>
+            <ChapterTitle>Three jobs, one goal: France stops being your dead market.</ChapterTitle>
           </ChapterHead>
           <ServicesGrid>
             <ServicesAside>
@@ -757,6 +767,11 @@ export default function HomeContentEn() {
               </StepItem>
             ))}
           </MethodGrid>
+          {/* Mid-page action: 7 mobile screens without one between the services section and
+              the final block, measured 21/08/2026 (livraison-web journey rule). */}
+          <div style={{ marginTop: 40 }}>
+            <Button href={CALENDLY}>Book a free 30-min review</Button>
+          </div>
         </Container>
       </Section>
 

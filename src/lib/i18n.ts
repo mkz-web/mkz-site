@@ -144,6 +144,11 @@ export interface UiStrings {
     phonePrefix: string;
     fallbackPrefix: string;
     fallbackSuffix: string;
+    /** Rappel d'action à mi-parcours des piliers (PillarContent) : before + titre de section + after. */
+    midCtaBefore: string;
+    midCtaAfter: string;
+    /** Rappel d'action avant la FAQ, formulé autrement : deux blocs identiques = bloc répété. */
+    preFaqCtaText: string;
   };
   article: {
     breadcrumbAria: string;
@@ -336,6 +341,9 @@ export const ui: Record<Locale, UiStrings> = {
       phonePrefix: "ou",
       fallbackPrefix: "Ou appelez directement :",
       fallbackSuffix: "On décroche.",
+      midCtaBefore: "Une question sur « ",
+      midCtaAfter: " » ? Trente minutes au téléphone, sans engagement, et vous repartez avec un avis clair.",
+      preFaqCtaText: "Votre question n'est pas dans la liste ci-dessous ? Posez-la de vive voix, on y répond en trente minutes.",
     },
     article: {
       breadcrumbAria: "Fil d'Ariane",
@@ -703,6 +711,9 @@ export const ui: Record<Locale, UiStrings> = {
       breadcrumbAria: "Breadcrumb",
       home: "Home",
       faqTitle: "Frequently asked questions",
+      midCtaBefore: "A question about “",
+      midCtaAfter: "”? Thirty minutes on the phone, no strings, and you leave with a clear answer.",
+      preFaqCtaText: "Your question is not in the list below? Ask it out loud: thirty minutes, answered.",
       ctaPrimary: "Book a free 30-min review",
       phonePrefix: "or",
       fallbackPrefix: "Or call directly:",
