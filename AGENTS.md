@@ -130,9 +130,10 @@ rapport complet. Cadrage et décisions : dossier `Projet/Seo-referencement/`
   réglés le jour même (deuxième passe, déployée et mesurée : « aucun
   cul-de-sac », 328 liens contextuels) : /contact/ et /en/contact/ via la
   cellule `explore` de la pile latérale (champ `ui.contact.explore`, i18n),
-  /empreinte-ia/ via le bloc `.suite-liens` en fin de section FAQ, édité DANS
-  LE PROJET SOURCE (Projet/Mon empreinte ia, template + rebuild + copie dans
-  public/empreinte-ia/, jamais la copie seule). ⚠️ Piège de sonde payé sur
+  /empreinte-ia/ via le bloc `.suite-liens` en fin de section FAQ, édité dans
+  le sous-projet `empreinte-ia/` du dépôt (template + `npm run build:empreinte`,
+  qui écrit directement public/empreinte-ia/, jamais la sortie seule ; section
+  dédiée plus bas). ⚠️ Piège de sonde payé sur
   cette passe : carte-maillage déclarait /empreinte-ia/ toujours cul-de-sac
   parce qu'un commentaire CSS contenait « <footer » en toutes lettres, que son
   strip regex avalait 37 Ko de corps depuis le head ; sonde durcie
@@ -150,6 +151,33 @@ Cinq personas (Marc T. plombier à Meaux, Sophie L. architecte d'intérieur à P
 - **Gabarit** : trois blocs identiques (Fraunces italique `clamp(19px, 1.7vw, 22px)`, filet, attribution, étiquette résultat), 3 colonnes à partir de 1 024 px, empilés en dessous. La « pull quote magazine » de 40 px suivie de deux citations en 15,5 px a été retirée : le lecteur voyait « un très gros, un invisible ». Invariant mesuré à 1 280 px : même corps, même largeur, même ligne de départ ; les hauteurs diffèrent, c'est voulu.
 - **Écriture** : une voix par personne (registre, attaque, longueur, tics), sinon « on a l'impression que c'est la même personne qui les a écrits ». **« Mickaël » n'est nommé que dans UN témoignage sur les cinq** (Pierre), les autres disent MKZ, « on », ou rien. Jamais « l'équipe MKZ » (le site dit « Je décroche »). Chiffres modestes, un détail concret chacun, un bémol chez Caroline. Contrôle rejouable : premiers mots tous différents, occurrences de « Mickaël » = 1 sur les cinq textes.
 - **Réserve** : ce sont des personas. À remplacer par de vrais retours dès qu'il y en a trois (un faux avis est une pratique commerciale trompeuse). Le rédactionnel ne passe jamais sur la GBP.
+
+# Empreinte d'une requête IA (/empreinte-ia/) : sous-projet intégré le 21/08/2026
+
+- **Source dans `empreinte-ia/` à la racine du dépôt** (anciennement
+  `Projet/Mon empreinte ia`, hors git ; un `DEPLACE.md` y renvoie ici).
+  Données `data/*.yaml`, moteur `src/engine.js` (fonction pure), gabarit
+  `build/index.template.html`, générateur `build/build.mjs` : Node natif, zéro
+  dépendance. Son `package.json` ne déclare rien d'autre que le mode module
+  pour ses `.js` (le dépôt racine est en CommonJS) : ne pas le supprimer.
+- **Le build écrit directement dans `public/empreinte-ia/`** (index.html +
+  llms.txt) et `npm run build` l'enchaîne avant `next build` : plus de copie à
+  la main. `public/empreinte-ia/` est une SORTIE, régénérée à chaque build,
+  jamais éditée. Sortie déterministe (aucune date, aucun aléa dans le
+  générateur) : un build à vide ne produit aucun diff git, invariant à mesurer
+  après toute modification du générateur ou du gabarit.
+- Commandes : `npm run build:empreinte` (page seule), `npm run test:empreinte`
+  (tests golden du moteur, à rejouer avant tout changement de coefficient).
+  Le build refuse une page dégradée (marqueur non remplacé, plusieurs h1,
+  title ou meta trop longs, canonical absent, JSON-LD incomplet, FAQ qui
+  diverge du HTML) : une erreur ici bloque le build du site entier, c'est
+  voulu.
+- Décisions de fond (publication sur le domaine du site et non sur
+  mon-empreinte-ia.fr, pas de version anglaise, règles de rédaction) :
+  `empreinte-ia/CLAUDE.md`, lu automatiquement quand on travaille dans ce
+  sous-dossier. ⚠️ Ne jamais écrire une balise de chrome (`<footer`...) en
+  toutes lettres dans un commentaire CSS du gabarit : piège de sonde payé le
+  21/08/2026 (section outil d'audit ci-dessus).
 
 # Polices et stabilité visuelle
 

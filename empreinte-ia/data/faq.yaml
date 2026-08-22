@@ -1,0 +1,82 @@
+# faq.yaml : source unique de la FAQ.
+#
+# Le build genere a partir de ce fichier, et de lui seul, le HTML visible ET
+# le bloc JSON-LD FAQPage. Une divergence entre les deux est donc impossible
+# par construction : c'est une penalite au referencement, pas un detail.
+#
+# REGLE DE REDACTION : chaque reponse doit rester comprehensible sortie de son
+# contexte, parce que c'est ainsi qu'un moteur generatif la recopiera.
+#   - le sujet est nomme explicitement, jamais un pronom sans antecedent
+#   - un chiffre au moins, avec son unite
+#   - une nuance, pour ne pas etre attaquable
+#   - aucun renvoi du type "comme vu plus haut"
+#
+# Les valeurs entre doubles accolades sont injectees au build depuis le moteur.
+# Aucun chiffre n'est ecrit en dur ici : le texte ne peut pas diverger du calcul.
+
+version: "0.3.0"
+updated: "2026-08-15"
+
+questions:
+  - id: combien-consomme-chatgpt
+    question: "Combien consomme une requête à ChatGPT ?"
+    answer: |
+      Une requête à un assistant conversationnel comme ChatGPT consomme de l'ordre de {{E_MOYEN}} Wh d'électricité pour une réponse d'une demi-page, avec une fourchette réaliste de {{E_MOYEN_MIN}} à {{E_MOYEN_MAX}} Wh. C'est l'équivalent d'une ampoule LED de 9 W allumée quelques minutes.
+
+      Ce chiffre dépend beaucoup moins de la marque que du modèle réellement sollicité derrière l'interface. La même question posée à un petit modèle coûte environ {{E_PETIT}} Wh, alors qu'un modèle de raisonnement, qui produit une longue réflexion invisible avant de répondre, monte à {{E_RAISONNEMENT}} Wh, soit un facteur {{FACTEUR_MODELE}} pour une réponse de même longueur.
+
+      Ces valeurs sont des estimations issues d'un modèle public, pas des mesures relevées chez un fournisseur. Aucun éditeur ne publie à ce jour la consommation réelle par requête de ses modèles en production.
+
+  - id: pourquoi-les-estimations-varient
+    question: "Pourquoi les estimations de consommation de l'IA varient-elles autant d'une source à l'autre ?"
+    answer: |
+      Les estimations de consommation de l'IA varient d'un facteur dix à cent d'une publication à l'autre pour quatre raisons cumulées : le modèle mesuré n'est presque jamais le même, le périmètre retenu diffère (calcul seul, ou calcul plus refroidissement plus fabrication des serveurs), la longueur de la réponse est rarement précisée, et le taux d'utilisation des cartes graphiques au moment de la mesure change tout.
+
+      S'ajoute un cinquième facteur, plus gênant : les entreprises qui possèdent les données ne les publient pas. Les chiffres disponibles sont donc soit des mesures partielles sur des modèles ouverts, soit des communications d'éditeurs sans méthode vérifiable.
+
+      C'est pourquoi toute estimation sérieuse s'affiche avec une fourchette. Un chiffre unique, présenté sans borne basse ni borne haute, indique que la personne qui le publie n'a pas mesuré l'incertitude, pas qu'elle a mesuré précisément.
+
+  - id: consommation-eau-ia
+    question: "Une requête à une IA consomme-t-elle vraiment de l'eau ?"
+    answer: |
+      Oui, mais indirectement, et en quantité très faible par requête : de l'ordre de {{EAU_MOYEN}} mL pour une requête courante, soit une fourchette de {{EAU_MOYEN_MIN}} à {{EAU_MOYEN_MAX}} mL. Une cuillère à café contient 5 mL.
+
+      Cette eau se répartit sur deux postes. Le premier est le refroidissement du centre de données lui même, qui évapore de l'eau dans les installations à circuit ouvert. Le second, souvent oublié, est l'eau mobilisée pour produire l'électricité consommée : les centrales thermiques et nucléaires en utilisent beaucoup.
+
+      La nuance qui compte est géographique. Une requête traitée dans un centre de données situé en zone de stress hydrique n'a pas le même impact réel qu'une requête traitée dans une région où l'eau est abondante, à consommation strictement identique. Le litre d'eau n'est pas fongible comme l'est le kilowattheure.
+
+  - id: choisir-un-modele-plus-petit
+    question: "Choisir un modèle d'IA plus petit change-t-il vraiment quelque chose ?"
+    answer: |
+      Oui, et c'est de très loin le levier le plus efficace. Entre un petit modèle répondant brièvement et un modèle de raisonnement produisant une réponse longue, l'écart mesuré atteint un facteur {{FACTEUR_TOTAL}}. À longueur de réponse identique, le seul changement de classe de modèle pèse déjà un facteur {{FACTEUR_MODELE}}.
+
+      Autrement dit, la question « faut-il utiliser l'IA ou non » pèse cent fois moins lourd que la question « quel modèle pour quelle tâche ». Reformuler une phrase, extraire une date ou classer un message ne demandent pas la même puissance que raisonner sur un contrat de cinquante pages, exactement comme on ne prend pas un semi remorque pour livrer une lettre.
+
+      La limite à connaître est qu'un modèle trop petit qui échoue coûte deux fois : une première fois pour sa réponse inutilisable, une seconde pour la reprise sur un modèle plus grand. Le bon réflexe n'est pas de prendre systématiquement le plus petit, mais d'arrêter de prendre systématiquement le plus gros par défaut.
+
+  - id: agent-ia-consommation
+    question: "Un agent IA consomme-t-il plus qu'une conversation classique ?"
+    answer: |
+      Un agent IA consomme beaucoup plus qu'une conversation classique, parce qu'une seule demande y déclenche des dizaines d'appels au modèle au lieu d'un seul. Un agent qui lit des fichiers, appelle des outils, vérifie son travail et recommence peut enchaîner 20 à 120 appels pour une tâche que l'utilisateur perçoit comme une question unique.
+
+      L'écart n'est pas dans le coût d'un appel, qui reste identique, mais dans leur nombre. Un run de 60 appels sur un modèle courant consomme autant que 60 conversations, alors que l'utilisateur n'a rédigé qu'une seule instruction.
+
+      C'est le principal angle mort des compteurs d'empreinte disponibles aujourd'hui : ils observent une fenêtre de discussion, alors que le volume réel se déplace vers des agents outillés dont personne ne compte les appels intermédiaires.
+
+  - id: mesurer-consommation-ia-entreprise
+    question: "Comment mesurer la consommation d'IA de mon entreprise ?"
+    answer: |
+      Mesurer la consommation d'IA d'une entreprise demande de partir des volumes réels de tokens, et non du nombre d'utilisateurs. Trois sources suffisent à démarrer : les relevés de consommation des interfaces d'API, qui donnent les tokens d'entrée et de sortie par modèle, les journaux des applications internes qui appellent ces modèles, et l'inventaire des abonnements aux assistants grand public souscrits par les équipes.
+
+      La difficulté n'est pas le calcul, qui reste une multiplication, mais la collecte : dans la plupart des organisations, une partie significative des usages passe par des comptes personnels et des abonnements payés en note de frais, totalement invisibles du système d'information.
+
+      Un ordre de grandeur utile pour se lancer, entièrement vérifiable : dix personnes, dix requêtes par jour chacune, vingt jours ouvrés, environ 500 tokens par réponse, cela fait un million de tokens de sortie par mois. Sur un modèle courant, ce volume représente environ {{EQUIPE_KWH}} kWh, soit {{EQUIPE_EQUIV}}. À cette échelle, l'empreinte de l'IA se discute encore en watt heures, pas en tonnes.
+
+  - id: faut-il-arreter-utiliser-ia
+    question: "Faut-il arrêter d'utiliser l'IA pour réduire son empreinte ?"
+    answer: |
+      Non. Arrêter d'utiliser l'IA n'est ni la réponse la plus efficace, ni la plus réaliste. L'écart entre un usage réfléchi et un usage par défaut atteint un facteur {{FACTEUR_TOTAL}} sur la même tâche, quand l'écart entre utiliser l'IA et ne pas l'utiliser se compte, lui, en fractions de watt heure par requête.
+
+      Le sujet est un problème de conception, pas de renoncement. Choisir la bonne classe de modèle pour chaque tâche, limiter la longueur des réponses générées, éviter de relancer un agent complet pour une correction de virgule et arbitrer la région d'hébergement produisent des gains immédiats, sans rien retirer aux équipes.
+
+      La comparaison honnête doit d'ailleurs intégrer ce que l'usage remplace. Vingt minutes de recherche documentaire sur un ordinateur portable de 30 W consomment 10 Wh, soit environ {{FACTEUR_RECHERCHE}} fois une requête courante. L'enjeu n'est pas de faire moins, il est de ne pas faire n'importe comment.

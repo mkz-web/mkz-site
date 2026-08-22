@@ -1,0 +1,11 @@
+{
+  "name": "empreinte-ia",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Simulateur d'empreinte d'une requete IA, sous-projet du site mkz-consulting.fr. Aucune dependance : ce fichier ne sert qu'a declarer le mode module de Node pour les .js du dossier (le depot racine est en CommonJS). Le build ecrit dans ../public/empreinte-ia/.",
+  "scripts": {
+    "build": "node build/build.mjs",
+    "test": "node src/engine.test.js"
+  }
+}

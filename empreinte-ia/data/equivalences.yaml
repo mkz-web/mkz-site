@@ -1,0 +1,58 @@
+# equivalences.yaml : reperes du quotidien
+# Objectif : rendre lisible un ordre de grandeur, pas produire une mesure.
+# Chaque repere porte sa valeur, son unite et l'origine du chiffre.
+#
+# SOURCAGE v0.3.0 (15 aout 2026) : les reperes CO2e viennent d'impactco2.fr
+# (outil officiel ADEME, Base Empreinte), releves le 15/08/2026. Les reperes
+# energie sont des calculs physiques directs, poses en clair dans "basis".
+# La v0.2.0 portait deux incoherences corrigees ici : un smartphone a 12 Wh
+# contredisant sa propre base de calcul (17,3 Wh de batterie), et une
+# bouilloire a 100 Wh dont le rendement annonce n'etait pas applique.
+#
+# Regle d'usage dans l'interface : choisir le repere dont le ratio tombe le
+# plus pres de 1, afin d'eviter les formulations absurdes du type
+# "0,0004 charge de smartphone".
+
+version: "0.3.0"
+updated: "2026-08-15"
+status: "sourced"
+
+energy:
+  - id: led
+    singular: "minute d'ampoule LED allumée"
+    plural: "minutes d'ampoule LED allumée"
+    value_wh: 0.15
+    basis: "Ampoule LED de 9 W pendant une minute (calcul direct)"
+  - id: smartphone
+    singular: "charge complète de smartphone"
+    plural: "charges complètes de smartphone"
+    value_wh: 18
+    basis: "Batterie de 15 Wh (4 000 mAh sous 3,85 V) rechargée du mur, pertes de charge d'environ 20 % incluses"
+  - id: bouilloire
+    singular: "litre d'eau porté à ébullition"
+    plural: "litres d'eau portés à ébullition"
+    value_wh: 110
+    basis: "Élévation de 1 L de 15 à 100 degrés (99 Wh utiles), rendement bouilloire 90 %"
+  - id: box
+    singular: "journée de box internet allumée"
+    plural: "journées de box internet allumée"
+    value_wh: 240
+    basis: "Box de 10 W en fonctionnement continu pendant 24 h (calcul direct)"
+
+co2e:
+  - id: voiture
+    singular: "mètre parcouru en voiture thermique"
+    plural: "mètres parcourus en voiture thermique"
+    value_g: 0.142
+    basis: "142 g CO2e par km en voiture thermique, impactco2.fr (ADEME), relevé le 15/08/2026"
+  - id: tgv
+    singular: "kilomètre parcouru en TGV"
+    plural: "kilomètres parcourus en TGV"
+    value_g: 2.9
+    basis: "2,9 g CO2e par km par passager en TGV, impactco2.fr (ADEME), relevé le 15/08/2026"
+  - id: voiture_km
+    singular: "kilomètre parcouru en voiture thermique"
+    plural: "kilomètres parcourus en voiture thermique"
+    value_g: 142
+    basis: "142 g CO2e par km en voiture thermique, impactco2.fr (ADEME), relevé le 15/08/2026. Remplace la tasse de café de la v0.2.0, restée sans source vérifiable"
+

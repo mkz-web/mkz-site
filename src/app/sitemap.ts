@@ -66,12 +66,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/referencement-seo/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/referencement-ia/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/agence-web-77/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
-    // Page outil « Empreinte d'une requête IA », générée hors Next (dépôt
-    // Projet/Mon empreinte ia, copiée dans public/empreinte-ia/ avec son
-    // llms.txt dédié). Pas de version anglaise : décision MESURÉE du
-    // 15/08/2026 (volumes US en chute de ~75 % entre S2 2025 et S1 2026,
-    // SERP tenue par Epoch AI/IEEE/grands médias, intention hors doctrine
-    // de la section EN). Détail : CLAUDE.md du projet source.
+    // Page outil « Empreinte d'une requête IA », générée hors Next par le
+    // sous-projet empreinte-ia/ du dépôt (npm run build:empreinte, enchaîné
+    // par npm run build), qui écrit public/empreinte-ia/ avec son llms.txt
+    // dédié. Pas de version anglaise : décision MESURÉE du 15/08/2026
+    // (volumes US en chute de ~75 % entre S2 2025 et S1 2026, SERP tenue par
+    // Epoch AI/IEEE/grands médias, intention hors doctrine de la section EN).
+    // Détail : empreinte-ia/CLAUDE.md.
     entry("/empreinte-ia/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-21" }),
     entry("/about/", "fr", { priority: 0.7, changeFrequency: "monthly" }),
     entry("/contact/", "fr", { priority: 0.6, changeFrequency: "monthly" }),

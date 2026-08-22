@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combien consomme une requête à une IA ? Simulateur d'empreinte</title>
+<meta name="description" content="Simulateur d'empreinte d'une requête IA : énergie, CO2e et eau, avec fourchette d'incertitude. Le choix du modèle pèse cent fois plus que l'usage lui-même.">
+<link rel="canonical" href="__CANONICAL__">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="MKZ Consulting">
+<meta property="og:url" content="__CANONICAL__">
+<meta property="og:title" content="Combien consomme une requête à une IA ?">
+<meta property="og:description" content="Énergie, CO2e et eau d'une requête IA, avec la fourchette d'incertitude. Le choix du modèle pèse un facteur {{FACTEUR_TOTAL}}.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="MKZ Consulting">
+<meta name="theme-color" content="#003764">
+<script type="application/ld+json">
+<!--__JSONLD__-->
+</script>
+<style>
+/* ------------------------------------------------------------------------
+   Habillage aligne sur le design system du site MKZ v2 : « papier & encre,
+   editorial chantier ». Fond papier chaud, encre quasi noire, navy en encre
+   de titre, orange rationne (deux tons, budget contraste mesure sur le site),
+   filets 1px, angles francs, ombres dures decalees, jamais de flou.
+   La page reste un instrument de mesure : le graphisme porte l'incertitude,
+   un indicateur sans ses deux bornes est impossible a dessiner ici.
+   Polices : celles du site, servies same-origin depuis /fonts/ (la page vit
+   sur mkz-consulting.fr, decision du 15/08/2026). Hors ligne, les replis
+   « X Fallback » aux metriques calees prennent le relais sans deplacer une
+   ligne. Aucun domaine externe n'est appele.
+   ------------------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-italic-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/archivo-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Replis aux metriques calees, repris tels quels de GlobalStyles.tsx du site
+   (valeurs trouvees par balayage le 08/08/2026, CLS 0,1412 -> 0,0012).
+   Une seule face par famille, le repli vient juste apres la police web. */
+@font-face {
+  font-family: "Fraunces Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 104%;
+  ascent-override: 93.99%;
+  descent-override: 24.52%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Archivo Fallback";
+  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+  size-adjust: 99.5%;
+  ascent-override: 88.19%;
+  descent-override: 21.11%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Plex Mono Fallback";
+  src: local("Consolas"), local("Menlo"), local("Courier New");
+  size-adjust: 110.5%;
+  ascent-override: 92.76%;
+  descent-override: 24.89%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --papier: #FAF7F1;
+  --surface: #FFFDF8;
+  --sable: #F1EBDF;
+  --encre: #221F1A;
+  --encre-doux: #5E574B;
+  --navy: #003764;
+  --navy-clair: #0B5394;
+  --nuit: #0C1B2A;
+  --nuit-filet: rgba(255, 255, 255, 0.14);
+  --blanc-casse: #F6F1E7;
+  --blanc-casse-doux: rgba(246, 241, 231, 0.72);
+  /* Orange MKZ, budget strict herite du site : --orange (#E8590C) sur fond
+     sombre et gros numeraux >= 24px uniquement ; --orange-encre (#B8420A)
+     pour tout texte orange sur fond clair et les fonds de bouton. */
+  --orange: #E8590C;
+  --orange-encre: #B8420A;
+  --orange-survol: #AD3E03;
+  --filet: #E3DACA;
+  --blanc: #FFFFFF;
+
+  --ui: "Archivo", "Archivo Fallback", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --titre: "Fraunces", "Fraunces Fallback", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", "Plex Mono Fallback", Consolas, "Courier New", monospace;
+
+  --largeur: 72rem;
+  --lecture: 44rem;
+  --rayon: 2px;
+  --ombre: 4px 4px 0 rgba(34, 31, 26, 0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--ui);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 { font-family: var(--titre); line-height: 1.15; margin: 0 0 0.6em; font-weight: 600; letter-spacing: -0.01em; color: var(--encre); }
+h1 { font-size: clamp(1.85rem, 1.25rem + 2.6vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); }
+h3, h4 { line-height: 1.25; margin: 0 0 0.6em; font-weight: 650; letter-spacing: -0.005em; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--navy); text-underline-offset: 2px; }
+a:hover { color: var(--orange-encre); }
+
+:focus-visible {
+  outline: 3px solid var(--orange-encre);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+.contenu { width: 100%; max-width: var(--largeur); margin: 0 auto; padding: 0 1.15rem; }
+.lecture { max-width: var(--lecture); }
+.discret { color: var(--encre-doux); font-size: 0.9rem; }
+.saut { position: absolute; left: -9999px; }
+.saut:focus { position: static; display: inline-block; padding: 0.5rem 1rem; background: var(--navy); color: var(--blanc); }
+
+/* ----------------------------------------------------------------- entete */
+
+.entete {
+  background: var(--surface);
+  border-bottom: 1px solid var(--filet);
+}
+.entete-barre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.marque {
+  font-family: var(--titre);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--encre);
+  font-size: 1.1rem;
+}
+.marque span { color: var(--navy); }
+.entete-version {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.775rem;
+  color: var(--encre-doux);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+  background: var(--papier);
+}
+
+.bandeau-statut {
+  background: var(--sable);
+  border-bottom: 1px solid var(--filet);
+  color: var(--encre-doux);
+  font-size: 0.85rem;
+}
+.bandeau-statut div { padding: 0.5rem 1.15rem; }
+.bandeau-statut strong { font-weight: 650; color: var(--encre); }
+
+/* --------------------------------------------------------------- sections */
+
+section { padding: clamp(2.5rem, 1.5rem + 4vw, 5rem) 0; }
+section + section { border-top: 1px solid var(--filet); }
+.section-titre::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  background: var(--orange-encre);
+  margin-bottom: 1.1rem;
+}
+.section-chapeau { color: var(--encre-doux); font-size: 1.075rem; max-width: var(--lecture); }
+
+/* ------------------------------------------------------------- simulateur */
+
+.simulateur { padding-top: clamp(2rem, 1rem + 3vw, 3.5rem); }
+.accroche { max-width: 34ch; }
+.sous-accroche {
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  color: var(--encre-doux);
+  max-width: var(--lecture);
+  margin-bottom: 2rem;
+}
+.sous-accroche strong { color: var(--encre); font-weight: 650; }
+
+.cartouche {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-top: 4px solid var(--navy);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+}
+.cartouche-corps { padding: clamp(1.1rem, 0.7rem + 1.4vw, 2rem); }
+.cartouche-pied {
+  padding: 0.85rem clamp(1.1rem, 0.7rem + 1.4vw, 2rem);
+  border-top: 1px solid var(--filet);
+  background: var(--sable);
+  border-radius: 0 0 var(--rayon) var(--rayon);
+  font-size: 0.85rem;
+  color: var(--encre-doux);
+}
+
+.champ-libelle {
+  display: block;
+  font-weight: 650;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--encre);
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  resize: vertical;
+}
+textarea:hover { border-color: var(--navy-clair); }
+
+.compteur {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--encre-doux);
+}
+.compteur b { color: var(--encre); font-weight: 500; }
+
+.reglages {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 46rem) {
+  .reglages { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+}
+
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend {
+  padding: 0;
+  font-weight: 650;
+  font-size: 0.9rem;
+  margin-bottom: 0.45rem;
+}
+.options { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.options input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+.options label {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  background: var(--papier);
+  color: var(--encre-doux);
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.options label:hover { border-color: var(--navy-clair); color: var(--encre); }
+.options input:checked + label {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--blanc);
+  font-weight: 600;
+}
+.options input:focus-visible + label {
+  outline: 3px solid var(--orange-encre);
+  outline-offset: 2px;
+}
+.reglage-note { margin: 0.45rem 0 0; font-size: 0.8rem; color: var(--encre-doux); }
+
+/* ------------------------------------------------------------ indicateurs */
+
+.indicateurs {
+  display: grid;
+  gap: 1.6rem;
+  margin-top: 1.9rem;
+  padding-top: 1.7rem;
+  border-top: 1px solid var(--filet);
+}
+@media (min-width: 52rem) {
+  .indicateurs { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+.indicateur-titre {
+  margin: 0 0 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--orange-encre);
+}
+/* Chiffre principal en police d'interface, pas en mono : a cette taille, la
+   chasse fixe de la mono creuse un trou beant autour de la virgule. Les
+   chiffres tabulaires suffisent a empecher la valeur de danser. */
+.indicateur-valeur {
+  margin: 0;
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.indicateur-valeur .unite {
+  font-size: 0.42em;
+  font-weight: 500;
+  color: var(--encre-doux);
+  margin-left: 0.3em;
+  letter-spacing: 0;
+}
+.indicateur-fourchette {
+  margin: 0.55rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--encre-doux);
+}
+.indicateur-equivalence {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--encre);
+  border-left: 3px solid var(--orange-encre);
+  padding-left: 0.6rem;
+}
+
+/* --------------------------------------------------- jauge, element signature */
+
+.jauge { display: block; margin-top: 0.85rem; }
+.jauge-piste {
+  position: relative;
+  display: block;
+  height: 14px;
+  background: var(--sable);
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(var(--pas, 20%) - 1px),
+    var(--filet) calc(var(--pas, 20%) - 1px),
+    var(--filet) var(--pas, 20%)
+  );
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+}
+.jauge-bande {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 2px;
+  background: var(--navy-clair);
+  transition: left 0.18s ease, width 0.18s ease;
+}
+.jauge-repere {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--orange-encre);
+  box-shadow: 0 0 0 1.5px var(--surface);
+  transition: left 0.18s ease;
+}
+.jauge-axe {
+  position: relative;
+  display: block;
+  height: 1.25rem;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--encre-doux);
+}
+.axe-graduation {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.axe-graduation--debut { transform: translateX(0); }
+.axe-graduation--fin { transform: translateX(-100%); }
+.axe-graduation--debut::before { left: 0; }
+.axe-graduation--fin::before { left: auto; right: 0; }
+.axe-graduation::before {
+  content: "";
+  position: absolute;
+  top: -0.45rem;
+  left: 50%;
+  width: 1px;
+  height: 0.3rem;
+  background: var(--filet);
+}
+
+/* --------------------------------------------------------------- tableau */
+
+.tableau-cadre { overflow-x: auto; margin-top: 2rem; }
+.tableau-comparatif {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  box-shadow: var(--ombre);
+}
+.tableau-comparatif caption {
+  caption-side: bottom;
+  padding-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--encre-doux);
+  text-align: left;
+}
+.tableau-comparatif th, .tableau-comparatif td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--filet);
+}
+.tableau-comparatif thead th {
+  background: var(--navy);
+  color: var(--blanc);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-bottom: 0;
+}
+.tableau-comparatif tbody tr:last-child th,
+.tableau-comparatif tbody tr:last-child td { border-bottom: 0; }
+.tableau-comparatif tbody tr:nth-child(odd) { background: var(--papier); }
+.tableau-comparatif tbody th { font-weight: 650; width: 15rem; }
+.ligne-titre { display: block; }
+.ligne-detail {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--encre-doux);
+  margin-top: 0.15rem;
+}
+.cellule-mesure .valeur {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.cellule-mesure .unite { font-size: 0.7em; font-weight: 500; color: var(--encre-doux); }
+.cellule-mesure .fourchette {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  color: var(--encre-doux);
+}
+.cellule-mesure .jauge { margin-top: 0.5rem; }
+.cellule-mesure .jauge-piste { height: 10px; }
+
+/* ---------------------------------------------------------------- encarts */
+
+.encarts { display: grid; gap: 1.1rem; margin-top: 2rem; }
+@media (min-width: 46rem) { .encarts { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 62rem) { .encarts.quatre { grid-template-columns: repeat(2, 1fr); } }
+
+.encart {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-left: 4px solid var(--navy);
+  border-radius: var(--rayon);
+  padding: 1.15rem 1.25rem;
+  box-shadow: var(--ombre);
+}
+.encart h3 { margin-bottom: 0.4rem; }
+.encart p { font-size: 0.95rem; }
+.encart-chiffre {
+  display: block;
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+/* Gros numeral orange vif : autorise par le budget du site au-dela de 24px
+   (seuil 3:1 mesure), jamais sur du texte courant. */
+.encart.accent { border-left-color: var(--orange-encre); }
+.encart.accent .encart-chiffre { color: var(--orange); }
+
+/* ----------------------------------------------------------------- agents */
+
+.agent-panneau { margin-top: 2rem; }
+.curseur-ligne { display: grid; gap: 0.6rem; }
+input[type="range"] {
+  width: 100%;
+  height: 2.75rem;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+.curseur-valeur {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+/* Seul le mot "appels" est reduit, pas le nombre : sans le :not, la regle
+   rapetissait aussi la valeur. */
+.curseur-valeur span:not([data-champ]) {
+  font-size: 0.55em;
+  color: var(--encre-doux);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.agent-resultats {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.7rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--filet);
+}
+@media (min-width: 46rem) { .agent-resultats { grid-template-columns: 1fr 1fr; } }
+
+/* -------------------------------------------------------------- sources */
+
+.sources { margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.sources li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--filet);
+  font-size: 0.95rem;
+}
+.sources li:last-child { border-bottom: 0; }
+.sources b { font-weight: 650; }
+.sources span { display: block; color: var(--encre-doux); font-size: 0.875rem; }
+
+/* ------------------------------------------------------------------- FAQ */
+
+.faq-liste { margin-top: 1.8rem; max-width: var(--lecture); }
+/* Maillage sortant vers le cocon IA du site : la page était un cul-de-sac
+   (carte-maillage du 21/08/2026, zéro lien contextuel sortant). Le bloc vit
+   dans le CORPS (fin de la section FAQ), pas dans le pied de page : les sondes
+   de maillage retirent le chrome avant de compter les liens contextuels.
+   Ne jamais écrire une balise de chrome en toutes lettres dans ce commentaire :
+   payé le 21/08/2026, la chaîne déclenchait le strip regex d'une sonde qui
+   avalait 37 Ko de page depuis le head. */
+.suite-liens { margin-top: 1.8rem; max-width: var(--lecture); font-size: 0.97rem; color: var(--encre); }
+.suite-liens a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+.suite-liens a:hover { color: var(--orange-encre); }
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  margin-bottom: 0.6rem;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--orange-encre);
+  flex: none;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item summary h3 { margin: 0; font-size: 1rem; font-weight: 650; }
+.faq-item summary:hover h3 { color: var(--navy); }
+.faq-reponse { padding: 0 1.1rem 1.1rem; }
+.faq-reponse p { font-size: 0.97rem; color: var(--encre); }
+.faq-reponse p:not(:last-child) { margin-bottom: 0.8rem; }
+
+/* ------------------------------------------------------------------ pied */
+
+.pied {
+  background: var(--nuit);
+  color: var(--blanc-casse);
+  padding: clamp(2.5rem, 1.5rem + 3vw, 4rem) 0 2rem;
+}
+.pied h2 { color: var(--blanc-casse); }
+.pied a { color: var(--blanc-casse); }
+.pied a:hover { color: var(--orange); }
+.pied-offre { max-width: var(--lecture); }
+.pied-cta { margin-top: 1.4rem; }
+.bouton {
+  display: inline-block;
+  background: var(--orange-encre);
+  color: var(--blanc);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--rayon);
+  transition: background 0.12s ease;
+}
+.pied .bouton { color: var(--blanc); }
+.pied .bouton:hover { background: var(--orange-survol); color: var(--blanc); }
+.bouton:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.pied-coordonnees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--nuit-filet);
+  font-size: 0.95rem;
+}
+.pied-mentions {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--nuit-filet);
+  font-size: 0.83rem;
+  color: var(--blanc-casse-doux);
+  max-width: 60rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<a class="saut" href="#simulateur">Aller au simulateur</a>
+
+<header class="entete">
+  <div class="contenu entete-barre">
+    <a class="marque" href="https://mkz-consulting.fr">MKZ <span>Consulting</span></a>
+    <span class="entete-version" title="Version du jeu de données utilisé pour tous les calculs de cette page">__DATASET_LABEL__</span>
+  </div>
+</header>
+
+<div class="bandeau-statut">
+  <div class="contenu">
+    <strong>Jeu de données v__DATASET_VERSION__ sourcé.</strong> Chaque coefficient est dérivé d'une source publique citée en méthodologie, avec sa date de relevé. Les fourchettes portent l'incertitude réelle : ce sont des estimations, pas des mesures.
+  </div>
+</div>
+
+<main>
+
+<section class="simulateur" id="simulateur">
+  <div class="contenu">
+    <h1 class="accroche">Combien consomme une requête à une IA&nbsp;?</h1>
+    <p class="sous-accroche">Ce simulateur ne vous dira pas d'arrêter d'utiliser l'IA. Il montre une chose plus utile&nbsp;: entre le modèle le plus léger et le plus lourd, l'écart atteint <strong>un facteur {{FACTEUR_TOTAL}}</strong> sur la même tâche. Le sujet est un problème de conception, pas de renoncement.</p>
+
+    <div class="cartouche">
+      <div class="cartouche-corps">
+        <label class="champ-libelle" for="requete">Votre requête</label>
+        <textarea id="requete" rows="3" spellcheck="false">{{PROMPT_EXEMPLE}}</textarea>
+        <p class="compteur" id="compteur">
+          <span>entrée <b data-champ="tokens-in">{{TOKENS_EXEMPLE}}</b> tokens</span>
+          <span>sortie <b data-champ="tokens-out">{{TOKENS_SORTIE_EXEMPLE}}</b> tokens</span>
+          <span data-champ="tokens-caches"></span>
+        </p>
+
+        <div class="reglages">
+          <fieldset id="reglage-modele">
+            <legend>Classe de modèle</legend>
+            <div class="options"><!--__OPTIONS_MODELE--></div>
+            <p class="reglage-note" data-champ="note-modele">{{NOTE_MODELE}}</p>
+          </fieldset>
+
+          <fieldset id="reglage-region">
+            <legend>Région du centre de données</legend>
+            <div class="options"><!--__OPTIONS_REGION--></div>
+            <p class="reglage-note" data-champ="note-region">{{NOTE_REGION}}</p>
+          </fieldset>
+
+          <fieldset id="reglage-longueur">
+            <legend>Longueur de la réponse</legend>
+            <div class="options"><!--__OPTIONS_LONGUEUR--></div>
+            <p class="reglage-note">Une réponse longue coûte proportionnellement plus cher&nbsp;: ce sont les tokens produits qui pèsent.</p>
+          </fieldset>
+        </div>
+
+        <div class="indicateurs" id="indicateurs"><!--__INDICATEURS--></div>
+      </div>
+      <p class="cartouche-pied">Estimation, pas mesure. Les valeurs centrales s'accompagnent toujours de leur fourchette&nbsp;: l'incertitude du modèle énergétique atteint un facteur trois. Aucune donnée saisie ici ne quitte votre navigateur, et rien n'est enregistré.</p>
+    </div>
+  </div>
+</section>
+
+<section id="comparatif">
+  <div class="contenu">
+    <h2 class="section-titre">Le logo ne change rien, le modèle change tout</h2>
+    <p class="section-chapeau">La marque affichée sur l'interface ne dit rien de ce qui tourne derrière. Voici le coût d'une même requête, réponse d'une demi-page, selon ce qui la traite réellement.</p>
+
+    <!--__COMPARATIF-->
+
+    <div class="encarts">
+      <div class="encart accent">
+        <h3>Le facteur cent</h3>
+        <span class="encart-chiffre">&times;{{FACTEUR_TOTAL}}</span>
+        <p>Entre un petit modèle répondant brièvement et un modèle de raisonnement produisant une réponse longue, l'écart mesuré atteint un facteur {{FACTEUR_TOTAL}}. À longueur de réponse identique, le seul changement de classe pèse déjà un facteur {{FACTEUR_MODELE}}. Aucun autre levier n'approche ce rendement.</p>
+      </div>
+      <div class="encart">
+        <h3>Le bon modèle suffit</h3>
+        <span class="encart-chiffre">&minus;27,8&nbsp;%</span>
+        <p>Une étude publiée en octobre 2025 estime que généraliser le bon choix de modèle, tâche par tâche, réduirait la consommation mondiale de l'IA de 27,8&nbsp;%. Sans réduire aucun usage, sans renoncer à aucune fonctionnalité. Le gain vient du dimensionnement, pas de la privation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="contenu">
+    <h2 class="section-titre">Vous ne faites plus une requête, vous lancez un agent</h2>
+    <p class="section-chapeau">Les compteurs d'empreinte existants observent une fenêtre de discussion. Le volume réel, lui, s'est déplacé vers des agents outillés qui enchaînent des dizaines d'appels pour une seule instruction. Personne ne compte les appels intermédiaires.</p>
+
+    <div class="cartouche agent-panneau">
+      <div class="cartouche-corps">
+        <div class="curseur-ligne">
+          <label class="champ-libelle" for="appels">Appels au modèle dans un seul run d'agent</label>
+          <p class="curseur-valeur"><span data-champ="appels-valeur">40</span> <span>appels</span></p>
+          <input type="range" id="appels" min="1" max="120" step="1" value="40"
+                 aria-describedby="appels-aide">
+          <p class="reglage-note" id="appels-aide">Un agent qui lit des fichiers, appelle des outils, vérifie son travail et recommence dépasse couramment cinquante appels. L'utilisateur, lui, n'a écrit qu'une phrase.</p>
+        </div>
+        <div class="agent-resultats" id="agent-resultats"><!--__AGENT--></div>
+      </div>
+      <p class="cartouche-pied">Le calcul reprend la requête, le modèle et la région choisis dans le simulateur ci-dessus. Changez de classe de modèle et regardez ce que devient le total.</p>
+    </div>
+  </div>
+</section>
+
+<section id="methodologie">
+  <div class="contenu">
+    <h2 class="section-titre">Méthodologie</h2>
+    <p class="section-chapeau">Tout est calculé dans votre navigateur, à partir d'un jeu de coefficients versionné et publié avec la page. Voici ce qui entre dans le calcul, et ce qui n'y entre pas.</p>
+
+    <div class="encarts quatre">
+      <div class="encart">
+        <h3>Impacts d'usage</h3>
+        <p>L'électricité consommée par les serveurs pendant le traitement de la requête, à laquelle s'ajoute un surcoût fixe couvrant le routage, l'orchestration et les serveurs hors calcul. Ce surcoût existe même pour une requête d'un seul mot&nbsp;: une requête ne coûte jamais zéro.</p>
+      </div>
+      <div class="encart">
+        <h3>Impacts de fabrication</h3>
+        <p>La fabrication des serveurs, des cartes graphiques et du bâtiment, amortie sur la durée de vie du matériel et ramenée à l'énergie consommée. Ce poste ne dépend pas de la région&nbsp;: une carte fabriquée à Taïwan porte le même sac à dos où qu'elle tourne ensuite.</p>
+      </div>
+      <div class="encart">
+        <h3>Le prefill n'est pas le decode</h3>
+        <p>Les tokens de votre question sont traités en parallèle, ceux de la réponse sont produits un par un. Un token d'entrée coûte donc environ un huitième d'un token de sortie. Additionner les deux au même tarif, comme le font la plupart des compteurs, surestime lourdement le poids de la question.</p>
+      </div>
+      <div class="encart">
+        <h3>Propagation de l'incertitude</h3>
+        <p>Chaque coefficient est un triplet minimum, central, maximum. Les trois branches sont calculées séparément jusqu'à l'affichage. C'est pourquoi aucune valeur n'apparaît ici sans ses deux bornes&nbsp;: un chiffre unique laisserait croire à une précision qui n'existe pas.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Sources de référence du domaine</h3>
+    <p class="lecture discret">Ces travaux font autorité sur le sujet. La version __DATASET_VERSION__ du jeu de données en dérive ses coefficients&nbsp;: chaque valeur porte sa source et sa date de relevé dans le dépôt de données versionné.</p>
+    <ul class="sources lecture">
+      <li><b>EcoLogits et GenAI Impact</b> <span>Méthodologie ouverte d'estimation des impacts de l'inférence, ajustée sur les mesures du ML.ENERGY Leaderboard (vLLM, NVIDIA H100). Source principale des coefficients énergétiques de cette page, constantes relevées le 15 août 2026, licence MPL-2.0 vérifiée.</span></li>
+      <li><b>Our World in Data et Ember</b> <span>Intensité carbone du cycle de vie de l'électricité par pays, édition 2025. Source des facteurs réseau des quatre régions, relevés le 15 août 2026.</span></li>
+      <li><b>Li et al. 2025, «&nbsp;Making AI Less Thirsty&nbsp;»</b> <span>Cadre de calcul de l'empreinte hydrique des centres de données, eau du réseau électrique comprise. Source des coefficients d'eau.</span></li>
+      <li><b>Boavizta et ADEME</b> <span>Référentiel ouvert d'impacts de fabrication du matériel numérique et analyse de cycle de vie de GPU. Source de la part fabrication amortie, et des équivalences du quotidien via impactco2.fr.</span></li>
+      <li><b>Google</b> <span>Mesure de la consommation d'une requête Gemini, publiée en août 2025. Première communication d'un éditeur majeur assortie d'un périmètre explicite.</span></li>
+      <li><b>OpenAI</b> <span>Chiffre public de juin 2025&nbsp;: 0,34 Wh et 0,32 mL par requête moyenne, communiqué sans méthode détaillée. Utilisé comme recoupement de la classe «&nbsp;modèle courant&nbsp;», pas comme coefficient.</span></li>
+      <li><b>Mistral AI</b> <span>Analyse de cycle de vie de Mistral Large 2, juillet 2025. Rare publication couvrant entraînement, inférence et fabrication.</span></li>
+      <li><b>RTE éCO2mix</b> <span>Facteur d'émission du réseau électrique français en temps réel. Non branché dans cette version&nbsp;: les facteurs régionaux sont fixes.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="contenu">
+    <h2 class="section-titre">Questions fréquentes</h2>
+    <p class="section-chapeau">Chaque réponse est rédigée pour rester juste sortie de son contexte.</p>
+    <div class="faq-liste"><!--__FAQ--></div>
+    <p class="suite-liens">Pour aller plus loin : la prestation de <a href="https://mkz-consulting.fr/referencement-ia/">référencement IA (GEO)</a>, les <a href="https://mkz-consulting.fr/conseils/referencement-ia/">guides du cocon référencement IA</a> et l'<a href="https://mkz-consulting.fr/audit-seo/">audit SEO + IA gratuit en ligne</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="contenu">
+    <div class="pied-offre">
+      <h2>Le chiffre qui compte, c'est le vôtre</h2>
+      <p>Cette page estime une requête. Une seule. Votre entreprise en envoie des milliers par jour, entre les assistants, les copilotes et les agents. Et personne ne les compte.</p>
+      <p>Un audit d'empreinte IA part de vos volumes réels de tokens, c'est-à-dire ce que vos équipes consomment vraiment. Il repère les usages surdimensionnés (le grand modèle qui fait le travail d'un petit) et chiffre ce que rapporte un redimensionnement, tâche par tâche. Sans retirer un seul outil à personne. On ne renonce à rien, on dimensionne.</p>
+      <p class="pied-cta"><a class="bouton" href="mailto:contact@mkz-consulting.fr?subject=Audit%20d%27empreinte%20IA">Parlons de vos volumes réels</a></p>
+    </div>
+    <p class="pied-coordonnees">
+      <span><a href="https://mkz-consulting.fr">mkz-consulting.fr</a></span>
+      <span><a href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</a></span>
+      <span><a href="tel:+33769093909">07 69 09 39 09</a></span>
+      <span>__DATASET_LABEL__</span>
+    </p>
+    <p class="pied-mentions">Les valeurs présentées sur cette page sont des estimations produites par un modèle de calcul public, à partir de coefficients versionnés. Elles ne constituent pas une mesure, ne sont pas opposables à un tiers et ne constituent pas une donnée officielle communiquée par un fournisseur d'intelligence artificielle. Elles ne peuvent servir de base à une déclaration réglementaire. MKZ Consulting ne saurait être tenu responsable d'un usage de ces estimations hors de leur cadre pédagogique.</p>
+  </div>
+</footer>
+
+<script>
+/*__DATASET__*/
+/*__ENGINE__*/
+/*__UI__*/
+</script>
+</body>
+</html>
