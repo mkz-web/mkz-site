@@ -182,7 +182,10 @@ export default function ConsentBanner({ locale = "fr" }: { locale?: Locale }) {
   useEffect(() => {
     if (!open) return;
     document.documentElement.dataset.consentOpen = "1";
-    ref.current?.focus();
+    // preventScroll : sans lui, focus() fait défiler le document hôte quand la page
+    // est rendue dans un cadre plus haut que l'écran (capture pleine page, iframe de
+    // mesure) : toutes les tranches de capturer-page.js montraient le pied de page.
+    ref.current?.focus({ preventScroll: true });
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };

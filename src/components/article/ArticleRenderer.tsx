@@ -259,6 +259,13 @@ const TableWrap = styled.div`
   border: 1px solid ${theme.colors.border};
   border-radius: ${theme.radius.md};
 `;
+// Sous 768 px, le tableau est EMPILÉ : chaque ligne devient une carte et l'en-tête
+// de colonne devient l'étiquette de chaque cellule (attribut data-label). Mesuré le
+// 21/08/2026 avant correction : 10 tableaux de 332 à 561 px dans un cadre de 312 px,
+// cellules de 71 à 121 px (7 à 11 caractères par ligne), 3e colonne hors écran sans
+// aucun indice de défilement. Les rôles ARIA explicites (table, row, cell...) gardent
+// la sémantique de tableau quand display:block la retire. Au-dessus de 768 px, rien
+// ne change : la colonne de lecture (680 px) contient le plus large des tableaux.
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
@@ -268,6 +275,30 @@ const StyledTable = styled.table`
   th { background: ${theme.colors.accent}; color: white; text-align: left; padding: 12px 16px; font-weight: 600; white-space: nowrap; }
   td { padding: 12px 16px; border-top: 1px solid ${theme.colors.border}; vertical-align: top; line-height: 1.6; }
   tr:nth-of-type(even) td { background: ${theme.colors.surfaceAlt}; }
+
+  @media (max-width: 767px) {
+    display: block;
+    caption, thead, tbody, tr, th, td { display: block; }
+    caption { text-align: left; padding: 10px 14px; border-bottom: 1px solid ${theme.colors.border}; }
+    thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    tr { padding: 6px 14px 10px; border-top: 1px solid ${theme.colors.border}; }
+    tbody tr:first-of-type { border-top: 0; }
+    tbody tr:nth-of-type(even) { background: ${theme.colors.surfaceAlt}; }
+    tr:nth-of-type(even) td { background: transparent; }
+    td { padding: 8px 0; border-top: 1px solid ${theme.colors.border}; line-height: 1.5; }
+    td:first-of-type { border-top: 0; font-weight: 600; }
+    td::before {
+      content: attr(data-label);
+      display: block;
+      margin-bottom: 2px;
+      font-family: ${theme.fonts.mono};
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: ${theme.colors.textSecondary};
+    }
+  }
 `;
 
 const Figure = styled.figure`
@@ -450,14 +481,22 @@ function renderBlock(block: Block, key: number, locale: Locale): React.ReactNode
     case "table":
       return (
         <TableWrap key={key}>
-          <StyledTable>
+          <StyledTable role="table">
             {block.caption && <caption>{block.caption}</caption>}
-            <thead>
-              <tr>{block.headers.map((h, i) => <th key={i}>{h}</th>)}</tr>
+            <thead role="rowgroup">
+              <tr role="row">
+                {block.headers.map((h, i) => (
+                  <th key={i} role="columnheader" scope="col">{h}</th>
+                ))}
+              </tr>
             </thead>
-            <tbody>
+            <tbody role="rowgroup">
               {block.rows.map((row, i) => (
-                <tr key={i}>{row.map((cell, j) => <td key={j}>{renderInline(cell)}</td>)}</tr>
+                <tr key={i} role="row">
+                  {row.map((cell, j) => (
+                    <td key={j} role="cell" data-label={block.headers[j] ?? ""}>{renderInline(cell)}</td>
+                  ))}
+                </tr>
               ))}
             </tbody>
           </StyledTable>
