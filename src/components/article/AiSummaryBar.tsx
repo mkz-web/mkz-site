@@ -91,7 +91,7 @@ const Bar = styled.div`
 
 const Label = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 1.5;
   color: ${theme.colors.text};
 `;

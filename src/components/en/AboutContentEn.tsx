@@ -16,7 +16,7 @@ const Wrapper = styled.article`padding: 96px 24px 24px; max-width: 680px; margin
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -77,7 +77,7 @@ const IdentityName = styled.p`
 const IdentityRole = styled.p`
   margin-top: 4px;
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: ${theme.colors.ctaInk};
@@ -168,6 +168,11 @@ export default function AboutContentEn() {
           what they claim? Here is my answer to both, with enough detail that you can
           check it.
         </Lead>
+        {/* Une action dans le premier écran, comme sur la page française :
+            avant, le seul CTA de la page vivait dans le bandeau final. */}
+        <div style={{ marginTop: 28 }}>
+          <Button href={CALENDLY}>Book a free 30-min review</Button>
+        </div>
 
         <IdentityCard>
           {/* eslint-disable-next-line @next/next/no-img-element */}

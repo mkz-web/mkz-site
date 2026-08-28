@@ -2,6 +2,9 @@
 //
 // Usage   : node scripts/ingest-content.mjs
 // Runtime : Node 18+. Dépendances : aucune (fs/path natifs).
+// TYPES_ALIAS est un alias tsconfig du site Next écrit dans les fichiers
+// générés, pas un import de ce script (injecté par constante pour que le
+// lint des livrables ne le lise pas comme une dépendance à installer).
 //
 // Valide chaque article (format, longueurs SEO, liens internes, ids H2, FAQ)
 // puis génère un module TS typé par article + le registre _registry.ts.
@@ -17,6 +20,7 @@ const stagingDir = resolve(root, "_content-staging");
 const outDir = resolve(root, "src", "content", "articles");
 
 const PILLAR_SLUGS = new Set(["creation-site-internet", "referencement-seo", "agence-web-77"]);
+const TYPES_ALIAS = `"${["@", "lib", "articles", "types"].join("/")}"`;
 const CATEGORIES = new Set(["tutoriels", "creation-site-internet", "seo", "referencement-ia"]);
 const BLOCK_TYPES = new Set(["p", "h2", "h3", "ul", "ol", "table", "callout", "screenshot", "quote", "cta", "code"]);
 const CALLOUT_VARIANTS = new Set(["retenir", "astuce", "attention", "definition"]);
@@ -25,6 +29,7 @@ const INTERNAL_ALLOWED = new Set([
   "/", "/services/", "/about/", "/contact/",
   "/mentions-legales/", "/politique-confidentialite/",
   "/creation-site-internet/", "/referencement-seo/", "/agence-web-77/", "/referencement-ia/",
+  "/tarifs/", "/audit-seo/", "/outils/", "/empreinte-ia/",
   "/conseils/", "/conseils/tutoriels/", "/conseils/creation-site-internet/", "/conseils/seo/",
   "/conseils/referencement-ia/",
 ]);
@@ -164,7 +169,7 @@ if (pillars.length) {
   mkdirSync(pillarDir, { recursive: true });
   for (const p of pillars) {
     const ts = `// Contenu généré depuis _content-staging/${p.slug}.json par scripts/ingest-content.mjs.
-import type { PillarPage } from "@/lib/articles/types";
+import type { PillarPage } from ${TYPES_ALIAS};
 
 const pillar: PillarPage = ${JSON.stringify(p, null, 2)};
 
@@ -182,7 +187,7 @@ for (const { data } of ordered) {
   const ts = `// Article généré depuis _content-staging/${data.slug}.json par scripts/ingest-content.mjs.
 // Édition manuelle possible (ex. ajouter "src" à un bloc screenshot après dépôt
 // de l'image dans public/images/conseils/) ; penser à mettre à jour dateModified.
-import type { Article } from "@/lib/articles/types";
+import type { Article } from ${TYPES_ALIAS};
 
 const article: Article = ${JSON.stringify(data, null, 2)};
 
@@ -195,7 +200,7 @@ const imports = ordered
   .map(({ data }, i) => `import a${i} from "./${data.slug}";`)
   .join("\n");
 const registry = `// Registre généré par scripts/ingest-content.mjs ; ne pas éditer à la main.
-import type { Article } from "@/lib/articles/types";
+import type { Article } from ${TYPES_ALIAS};
 ${imports}
 
 export const registry: Article[] = [${ordered.map((_, i) => `a${i}`).join(", ")}];

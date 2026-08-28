@@ -167,7 +167,10 @@ const FaqItem = styled.details`
 
   p {
     padding: 0 ${theme.spacing.lg} ${theme.spacing.md};
-    font-size: 14px;
+    /* 70ch : les réponses couraient sur 911px, soit 90 à 107 caractères par
+       ligne (mesuré les 21 et 28/08/2026), au-delà des 80 où l'œil décroche. */
+    max-width: 70ch;
+    font-size: 15px;
     line-height: 1.7;
     color: ${theme.colors.textSecondary};
   }
@@ -200,7 +203,9 @@ const CtaButton = styled.a`
   margin-top: ${theme.spacing.lg};
   min-height: 52px;
   padding: 14px 32px;
-  background: ${theme.colors.cta};
+  /* ctaInk et pas cta : règle des deux oranges (theme.ts), le blanc sur cta ne
+     fait que 3,6:1 (mesuré 28/08/2026 sur ce bouton). */
+  background: ${theme.colors.ctaInk};
   color: white;
   font-size: 16px;
   font-weight: 600;

@@ -14,6 +14,11 @@ import { ui } from "@/lib/i18n";
 //
 // Elle est en français : c'est la langue par défaut du site. Un visiteur perdu
 // dans /en/ obtient la 404 anglaise via src/app/(en)/en/not-found.tsx.
+//
+// En-tête et pied maison en styles inline, PAS les composants Header/Footer :
+// ils supposent l'EmotionRegistry des layouts, absent ici. Constat P3 du check
+// UX du 21/08/2026 : la page servait 21 mots sans aucune navigation. Bouton en
+// #B8420A (ctaInk) et pas #E8590C : blanc sur E8590C = 3,6:1, mesuré le 28/08.
 
 export const metadata: Metadata = {
   title: "Page introuvable | MKZ",
@@ -22,6 +27,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+const navLinks = [
+  ["/conseils/", "Conseils"],
+  ["/outils/", "Outils"],
+  ["/tarifs/", "Tarifs"],
+  ["/contact/", "Contact"],
+] as const;
+
 export default function GlobalNotFound() {
   const t = ui.fr.notFound;
 
@@ -29,13 +41,53 @@ export default function GlobalNotFound() {
     <html lang="fr">
       <body>
         <GlobalStyles />
+        <header style={{ background: "#FAF7F1", borderBottom: "1px solid #E3DACA" }}>
+          <nav
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              padding: "8px 24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 16,
+              flexWrap: "wrap",
+            }}
+          >
+            <a href="/" style={{ display: "inline-flex", alignItems: "center", minHeight: 44 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/mkz-logo.svg" alt="MKZ" width={72} height={37} />
+            </a>
+            <span style={{ display: "inline-flex", flexWrap: "wrap" }}>
+              {navLinks.map(([href, label]) => (
+                <a
+                  key={href}
+                  href={href}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    minHeight: 44,
+                    padding: "0 12px",
+                    color: "#221F1A",
+                    fontSize: 14,
+                    fontWeight: 500,
+                    textDecoration: "none",
+                  }}
+                >
+                  {label}
+                </a>
+              ))}
+            </span>
+          </nav>
+        </header>
+
         <section
           style={{
-            minHeight: "100vh",
+            minHeight: "calc(100vh - 220px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "0 24px",
+            padding: "48px 24px",
             textAlign: "center",
           }}
         >
@@ -61,8 +113,8 @@ export default function GlobalNotFound() {
                 href="/"
                 style={{
                   display: "inline-flex",
-                  padding: "13px 22px",
-                  background: "#E8590C",
+                  padding: "14px 24px",
+                  background: "#B8420A",
                   color: "white",
                   fontSize: 14.5,
                   fontWeight: 600,
@@ -73,21 +125,60 @@ export default function GlobalNotFound() {
                 {t.back}
               </a>
             </p>
-            <p style={{ marginTop: 28, fontSize: 13, color: "#5E574B" }}>
-              <a href="/conseils/" style={{ color: "#003764" }}>
-                Conseils &amp; tutoriels
-              </a>
-              {" · "}
-              <a href="/contact/" style={{ color: "#003764" }}>
-                Contact
-              </a>
-              {" · "}
-              <a href="/en/" hrefLang="en" lang="en" style={{ color: "#003764" }}>
-                English
-              </a>
-            </p>
           </div>
         </section>
+
+        <footer style={{ background: "#FAF7F1", borderTop: "1px solid #E3DACA" }}>
+          <p
+            style={{
+              maxWidth: 1280,
+              margin: "0 auto",
+              padding: "8px 24px",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: "0 8px",
+              fontSize: 13,
+              color: "#5E574B",
+            }}
+          >
+            {(
+              [
+                ["/", "Accueil"],
+                ["/mentions-legales/", "Mentions légales"],
+                ["/politique-confidentialite/", "Politique de confidentialité"],
+              ] as const
+            ).map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  minHeight: 44,
+                  padding: "0 4px",
+                  color: "#5E574B",
+                }}
+              >
+                {label}
+              </a>
+            ))}
+            <a
+              href="/en/"
+              hrefLang="en"
+              lang="en"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                minHeight: 44,
+                padding: "0 4px",
+                color: "#5E574B",
+              }}
+            >
+              English
+            </a>
+          </p>
+        </footer>
       </body>
     </html>
   );

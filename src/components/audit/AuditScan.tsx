@@ -13,6 +13,7 @@
 import { useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { gaEvent } from "@/lib/ga";
 import { ui, type Locale } from "@/lib/i18n";
 
 const WEB3FORMS_KEY = "5f80cd7f-a0fb-484c-995c-a6a1a5534c34";
@@ -206,7 +207,7 @@ const StatusChip = styled("span", {
 })<{ tint: string }>`
   align-self: start;
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -335,6 +336,7 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
     setOrigin(null);
     setError(null);
     setMailStatus("idle");
+    gaEvent("scan_lance", { domaine: url });
 
     try {
       setPhase("origin");
@@ -354,6 +356,12 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
         all = [...all, ...(r.checks ?? [])];
         setChecks(all);
       }
+      const mesurables = all.filter((c) => c.status !== "na");
+      gaEvent("scan_termine", {
+        domaine: first.origin,
+        score: mesurables.reduce((s, c) => s + c.points, 0),
+        score_max: mesurables.reduce((s, c) => s + c.max, 0),
+      });
       setStatus("done");
     } catch (err) {
       setError(
@@ -389,6 +397,7 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
         }),
       });
       const result = await res.json();
+      if (result.success) gaEvent("envoi_rapport", { domaine: origin ?? "" });
       setMailStatus(result.success ? "success" : "error");
     } catch {
       setMailStatus("error");

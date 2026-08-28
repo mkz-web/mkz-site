@@ -29,7 +29,7 @@ export const categoriesEn: Category[] = [
       "Ranking in France when your site was built for English. Keyword research in French, hreflang, and what translation alone will never fix.",
     intro: [
       "Most foreign sites that fail in France fail for the same reason: they were **translated, not researched**. Translation carries your English keywords into French. It does not carry French search demand, because French users do not phrase things the way your English users do.",
-      "These guides cover what actually moves the needle: doing keyword research in French before writing a word, getting hreflang right, and judging a French SEO partner on measurement rather than promises. If you would rather hand it over, see the [French SEO service](/en/french-seo/).",
+      "These guides cover what actually moves the needle: doing keyword research in French before writing a word, getting hreflang right, and judging a French SEO partner on measurement rather than promises. For a first reading in one minute, the [free SEO & AI audit](/en/seo-audit/) runs 17 checks on the site you actually serve. If you would rather hand it over, see the [French SEO service](/en/french-seo/).",
     ],
     icon: "🇫🇷",
     pillar: { href: "/en/french-seo/", label: "Our French SEO service" },
@@ -46,7 +46,7 @@ export const categoriesEn: Category[] = [
       "Being the source an AI answer quotes, not the tenth blue link. GEO, AEO, llms.txt and how to measure whether it worked.",
     intro: [
       "Search is splitting in two. One half still returns a list of links. The other half returns **an answer, with a handful of sources**. Ranking eleventh in the first half is survivable. Not being cited in the second half is invisibility.",
-      "These guides cover the concrete work: letting AI crawlers reach you, publishing facts that can be quoted with a figure and a date, clean structured data, and measuring your actual share of voice instead of assuming. For the service version, see [AI search optimisation](/en/ai-search-optimization/).",
+      "These guides cover the concrete work: letting AI crawlers reach you, publishing facts that can be quoted with a figure and a date, clean structured data, and measuring your actual share of voice instead of assuming. To check the crawler part right now, the [free SEO & AI audit](/en/seo-audit/) reads your live robots.txt in one minute. For the service version, see [AI search optimisation](/en/ai-search-optimization/).",
     ],
     icon: "🤖",
     pillar: { href: "/en/ai-search-optimization/", label: "Our AI search service" },

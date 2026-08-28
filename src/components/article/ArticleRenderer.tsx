@@ -91,7 +91,7 @@ const Inner = styled.div`
 
 const Crumbs = styled.nav`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   color: ${theme.colors.textSecondary};
   display: flex;
   flex-wrap: wrap;
@@ -108,14 +108,15 @@ const CategoryBadge = styled(Link)`
   align-items: center;
   padding: 6px 12px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border-radius: ${theme.radius.sm};
   color: ${theme.colors.ctaInk};
   border: 1.5px solid ${theme.colors.cta};
-  &:hover { background: ${theme.colors.cta}; color: white; }
+  /* ctaInk et pas cta : blanc sur cta = 3,6:1, sous le seuil (règle theme.ts). */
+  &:hover { background: ${theme.colors.ctaInk}; color: white; }
 `;
 
 const Title = styled.h1`
@@ -144,7 +145,7 @@ const MetaRow = styled.div`
   padding-bottom: 24px;
   border-bottom: 2px solid ${theme.colors.borderInk};
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   color: ${theme.colors.textSecondary};
 `;
 
@@ -195,7 +196,7 @@ const TldrBox = styled.aside`
 `;
 const TldrTitle = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -216,7 +217,7 @@ const TocBox = styled.nav`
 `;
 const TocTitle = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -247,7 +248,7 @@ const CalloutBox = styled.aside<{ variant: keyof typeof calloutStyles }>`
 const CalloutTitle = styled.p`
   font-family: ${theme.fonts.mono};
   font-weight: 500;
-  font-size: 11.5px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 0 !important;
@@ -271,7 +272,7 @@ const StyledTable = styled.table`
   border-collapse: collapse;
   font-size: 16px;
   background: ${theme.colors.surface};
-  caption { caption-side: bottom; padding: 10px; font-size: 12.5px; color: ${theme.colors.textSecondary}; }
+  caption { caption-side: bottom; padding: 10px; font-size: 13px; color: ${theme.colors.textSecondary}; }
   th { background: ${theme.colors.accent}; color: white; text-align: left; padding: 12px 16px; font-weight: 600; white-space: nowrap; }
   td { padding: 12px 16px; border-top: 1px solid ${theme.colors.border}; vertical-align: top; line-height: 1.6; }
   tr:nth-of-type(even) td { background: ${theme.colors.surfaceAlt}; }
@@ -292,7 +293,7 @@ const StyledTable = styled.table`
       display: block;
       margin-bottom: 2px;
       font-family: ${theme.fonts.mono};
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -313,7 +314,7 @@ const Placeholder = styled.div`
   text-align: center;
   color: ${theme.colors.textSecondary};
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 `;
@@ -443,7 +444,7 @@ const RelatedCard = styled(Link)`
 `;
 const RelatedTag = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;

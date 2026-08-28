@@ -47,7 +47,7 @@ export const categories: Category[] = [
       "Référencement local, audit SEO, visibilité Google : des guides concrets pour apparaître devant vos clients.",
     intro: [
       "97 % des consommateurs cherchent une entreprise locale sur internet avant de la contacter. Le **référencement naturel (SEO)** est le levier le plus rentable pour capter ces recherches : un trafic gratuit, durable, qui travaille pour vous jour et nuit.",
-      "Ce cocon rassemble nos guides SEO pensés pour les artisans, commerçants et TPE : référencement local, audit, méthodes concrètes, sans jargon. Pour aller plus vite, notre service de [référencement SEO](/referencement-seo/) s'occupe de tout.",
+      "Ce cocon rassemble nos guides SEO pensés pour les artisans, commerçants et TPE : référencement local, audit, méthodes concrètes, sans jargon. Pour un premier état des lieux tout de suite, notre [audit SEO gratuit en ligne](/audit-seo/) fait 17 mesures sur votre site en une minute. Pour aller plus vite, notre service de [référencement SEO](/referencement-seo/) s'occupe de tout.",
     ],
     icon: "🔍",
     pillar: { href: "/referencement-seo/", label: "Notre service SEO" },
@@ -63,7 +63,7 @@ export const categories: Category[] = [
       "ChatGPT, Perplexity, les réponses IA de Google : comment être la source citée, pas celle qu'on oublie.",
     intro: [
       "Vos clients ne tapent plus seulement des mots-clés, ils posent des questions à une IA. Et l'IA ne renvoie pas dix liens : elle donne **une réponse, avec deux ou trois sources**. Être la source citée, c'est le nouveau podium.",
-      "Ce cocon rassemble nos guides sur le **référencement IA**, aussi appelé GEO (Generative Engine Optimization) : autoriser les robots des IA, produire des faits citables, mesurer si vous êtes réellement repris. Pour déléguer, voyez notre service de [référencement IA](/referencement-ia/).",
+      "Ce cocon rassemble nos guides sur le **référencement IA**, aussi appelé GEO (Generative Engine Optimization) : autoriser les robots des IA, produire des faits citables, mesurer si vous êtes réellement repris. Deux outils gratuits pour toucher le sujet du doigt : l'[audit SEO + IA](/audit-seo/), qui dit en une minute si les robots des IA vous lisent, et le [simulateur d'empreinte d'une requête IA](/empreinte-ia/). Pour déléguer, voyez notre service de [référencement IA](/referencement-ia/).",
     ],
     icon: "🤖",
     pillar: { href: "/referencement-ia/", label: "Notre service référencement IA" },

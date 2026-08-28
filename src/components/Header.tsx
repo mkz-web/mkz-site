@@ -19,6 +19,28 @@ const HeaderWrapper = styled.header`
   border-bottom: 1px solid ${theme.colors.border};
 `;
 
+// Lien d'évitement : premier élément focalisable de la page, invisible hors
+// focus clavier (le site n'en avait aucun : 11 liens d'en-tête à tabuler avant
+// le contenu, constat P3 du check UX du 21/08/2026). Cible : #main-content,
+// posé sur le <main> des deux root layouts.
+const SkipLink = styled.a`
+  position: absolute;
+  top: -56px;
+  left: 12px;
+  z-index: 60;
+  padding: 13px 20px;
+  background: ${theme.colors.ctaInk};
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: ${theme.radius.sm};
+  text-decoration: none;
+
+  &:focus {
+    top: 12px;
+  }
+`;
+
 const Nav = styled.nav`
   max-width: 1280px;
   margin: 0 auto;
@@ -238,7 +260,7 @@ const LangSwitch = styled.a`
   min-height: 44px;
   gap: 6px;
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -296,6 +318,7 @@ export default function Header({ locale = "fr" }: { locale?: Locale }) {
 
   return (
     <HeaderWrapper>
+      <SkipLink href="#main-content">{t.header.skip}</SkipLink>
       <Nav>
         <LogoLink href={homeHref}>
           <Image

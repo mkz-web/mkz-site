@@ -28,7 +28,7 @@ const HeroInner = styled.div`max-width: 1280px; margin: 0 auto;`;
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -106,7 +106,7 @@ const CatCard = styled(Link)`
 
 const CatCount = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -164,6 +164,24 @@ const CtaText = styled.p`
   font-size: 15.5px;
   line-height: 1.7;
   color: ${theme.colors.textOnDarkSecondary};
+`;
+
+// Renvoi vers les outils gratuits sous le CTA (22/08/2026) : le lecteur des
+// conseils est en phase « je me renseigne », l'outil est la marche d'avant.
+const CtaAlt = styled.p`
+  margin-top: 22px;
+  max-width: 60ch;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: ${theme.colors.textOnDarkSecondary};
+
+  a {
+    color: ${theme.colors.textOnDark};
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    &:hover { color: ${theme.colors.cta}; }
+  }
 `;
 
 export default function ConseilsContent({
@@ -233,6 +251,9 @@ export default function ConseilsContent({
           </CtaTitle>
           <CtaText>{t.ctaText}</CtaText>
           <Button href={CALENDLY}>{t.ctaButton}</Button>
+          <CtaAlt>
+            {t.tools.before} <a href={t.tools.href}>{t.tools.label}</a>.
+          </CtaAlt>
         </CtaInner>
       </CtaBand>
     </>

@@ -24,7 +24,7 @@ const Hero = styled.header`
 const HeroInner = styled.div`max-width: 860px; margin: 0 auto;`;
 const Crumbs = styled.nav`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(246, 241, 231, 0.7);
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +41,7 @@ const Badge = styled.span`
   border-radius: ${theme.radius.sm};
   border: 1.5px solid rgba(246, 241, 231, 0.5);
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -125,7 +125,7 @@ const Toc = styled.nav`
   border: 1px solid ${theme.colors.border};
   border-radius: ${theme.radius.lg};
   background: ${theme.colors.surfaceAlt};
-  p { margin: 0 0 8px; font-family: ${theme.fonts.mono}; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: ${theme.colors.textSecondary}; }
+  p { margin: 0 0 8px; font-family: ${theme.fonts.mono}; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: ${theme.colors.textSecondary}; }
   ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
   li { font-size: 14.5px; line-height: 1.45; }
   a { color: ${theme.colors.accent}; text-decoration: none; &:hover { text-decoration: underline; } }

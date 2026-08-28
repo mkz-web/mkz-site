@@ -38,7 +38,7 @@ const Card = styled(Link)`
 
 const CardTag = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -65,7 +65,7 @@ const CardExcerpt = styled.p`
 const CardMeta = styled.p`
   margin-top: 16px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   color: ${theme.colors.textSecondary};
 `;
 

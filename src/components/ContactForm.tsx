@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
+import { gaEvent } from "@/lib/ga";
 import { ui, type Locale } from "@/lib/i18n";
 
 const WEB3FORMS_KEY = "5f80cd7f-a0fb-484c-995c-a6a1a5534c34";
@@ -32,8 +33,9 @@ const Label = styled.label`
 
 const Input = styled.input`
   width: 100%;
+  min-height: 48px;
   padding: 12px 16px;
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid ${theme.colors.border};
   border-radius: ${theme.radius.md};
   background: ${theme.colors.background};
@@ -54,8 +56,9 @@ const Input = styled.input`
 
 const Textarea = styled.textarea`
   width: 100%;
+  min-height: 48px;
   padding: 12px 16px;
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid ${theme.colors.border};
   border-radius: ${theme.radius.md};
   background: ${theme.colors.background};
@@ -76,6 +79,7 @@ const Textarea = styled.textarea`
 `;
 
 const SubmitButton = styled.button<{ disabled?: boolean }>`
+  min-height: 48px;
   padding: 15px 30px;
   background: ${theme.colors.ctaInk};
   color: white;
@@ -163,6 +167,7 @@ export default function ContactForm({ locale = "fr" }: { locale?: Locale }) {
 
       if (result.success) {
         setStatus("success");
+        gaEvent("envoi_contact");
         form.reset();
       } else {
         console.error("Web3Forms error:", result);

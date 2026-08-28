@@ -20,7 +20,7 @@ const PageHeader = styled.section`
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -63,7 +63,7 @@ const Section = styled.section`
 
 const SectionKicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -147,7 +147,7 @@ const OfferBadge = styled.span`
   margin-left: 10px;
   padding: 2px 10px;
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #ffffff;
@@ -386,7 +386,7 @@ const MarketRow = styled.div`
 const MarketCellLabel = styled.span`
   display: block;
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: ${theme.colors.textSecondary};
@@ -525,6 +525,8 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           un <strong>devis fixe écrit avant toute signature</strong>&nbsp;: le prix annoncé
           est le prix payé. Et tout commence par un{" "}
           <InlineLink href="/contact/">diagnostic gratuit de 30 minutes</InlineLink>, sans engagement.
+          Pressé&nbsp;? Notre <InlineLink href="/audit-seo/">audit SEO gratuit en ligne</InlineLink>{" "}
+          mesure votre site en une minute, sans inscription.
         </Subtitle>
       </PageHeader>
 

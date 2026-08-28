@@ -45,7 +45,7 @@ export default function EnRootLayout({
         <EmotionRegistry>
           <GlobalStyles />
           <Header locale="en" />
-          <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
+          <main id="main-content" tabIndex={-1} style={{ flex: 1, paddingTop: 73 }}>{children}</main>
           <Footer locale="en" />
           <WhatsAppButton locale="en" />
           <ConsentBanner locale="en" />

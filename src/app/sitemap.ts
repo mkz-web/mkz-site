@@ -63,6 +63,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Cible « audit seo (gratuit) », 1 600 + 880/mois (DataForSEO 20/08/2026) ;
     // détail et échelle commerciale en tête de src/app/(fr)/audit-seo/page.tsx.
     entry("/audit-seo/", "fr", { priority: 0.9, changeFrequency: "monthly", lastModified: "2026-08-21" }),
+    // Hub des outils gratuits (22/08/2026) : page de navigation, pas une page
+    // SEO ; détail en tête de src/app/(fr)/outils/page.tsx.
+    entry("/outils/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-22" }),
     entry("/referencement-seo/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/referencement-ia/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     entry("/agence-web-77/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
@@ -117,6 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Pendant hreflang de /audit-seo/ : page de conversion assumée, volumes
     // anglais mesurés à zéro le 21/08/2026 (en-tête de la page pour le détail).
     entry("/en/seo-audit/", "en", { priority: 0.7, changeFrequency: "monthly", lastModified: "2026-08-21" }),
+    entry("/en/tools/", "en", { priority: 0.7, changeFrequency: "monthly", lastModified: "2026-08-22" }),
     entry("/en/about/", "en", { priority: 0.7, changeFrequency: "monthly" }),
     entry("/en/contact/", "en", { priority: 0.6, changeFrequency: "monthly" }),
     // Pendants anglais des deux pages légales : même indexabilité que le

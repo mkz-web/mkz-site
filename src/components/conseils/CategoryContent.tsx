@@ -26,7 +26,7 @@ const HeroInner = styled.div`max-width: 880px; margin: 0 auto;`;
 
 const Crumbs = styled.nav`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   color: ${theme.colors.textSecondary};
   display: flex;
   flex-wrap: wrap;

@@ -59,7 +59,7 @@ const HeroGrid = styled.div`
 
 const HeroKicker = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -110,7 +110,7 @@ const QuietLink = styled(Link)`
 const HeroMeta = styled.p`
   margin-top: 28px;
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 1.9;
   color: ${theme.colors.textSecondary};
 
@@ -128,7 +128,7 @@ const Sheet = styled.aside`
 
 const SheetLabel = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -167,7 +167,7 @@ const SheetNote = styled.p`
   padding-top: 14px;
   border-top: 1px solid ${theme.colors.border};
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.6;
   color: ${theme.colors.textSecondary};
 `;
@@ -178,7 +178,7 @@ const Stamp = styled.span`
   right: 18px;
   transform: rotate(-2deg);
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -206,7 +206,7 @@ const ChapterHead = styled.header<{ dark?: boolean }>`
 
 const Kicker = styled.span<{ dark?: boolean }>`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -307,7 +307,7 @@ const ServiceBlock = styled(Link)`
 
 const ServiceKicker = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -333,7 +333,7 @@ const ServiceDesc = styled.p`
 const ServiceTags = styled.p`
   margin-top: 18px;
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   line-height: 2;
   color: ${theme.colors.textSecondary};
 `;
@@ -407,7 +407,7 @@ const DiffCell = styled.div`
 
 const DiffNum = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: ${theme.colors.ctaInk};
 `;
@@ -453,7 +453,7 @@ const InsightCard = styled(Link)`
 
 const InsightKicker = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -619,6 +619,27 @@ const insights = [
   },
 ];
 
+// Free tools as section 02 since 22/08/2026: the audit tool sat three screens
+// down the French home and nowhere on this one. Facts are those of the tool
+// pages (17 checks, one minute, no signup; energy, CO2 and water with
+// uncertainty ranges): nothing promised here that is not measured there.
+const tools = [
+  {
+    kicker: "Tool 01 · one minute",
+    title: "Free SEO & AI audit",
+    desc: "Enter your address: 17 real checks on the site you actually serve (HTTPS, real 404, SERP tags, AI crawlers, llms.txt, structured data), a score out of 100 and your priorities. No signup.",
+    href: "/en/seo-audit/",
+    go: "Test my site",
+  },
+  {
+    kicker: "Tool 02 · simulator, in French",
+    title: "Footprint of one AI query",
+    desc: "How much energy, CO2 and water does one question to an AI cost? Type a query, pick the model class and the region: the simulator gives a figure with its uncertainty range and its sources.",
+    href: "/empreinte-ia/",
+    go: "Open the simulator",
+  },
+];
+
 /* ─── PAGE ─── */
 
 export default function HomeContentEn() {
@@ -639,6 +660,9 @@ export default function HomeContentEn() {
             </HeroSubtitle>
             <HeroActions>
               <Button href={CALENDLY}>Book a free 30-min review</Button>
+              {/* Second button since 22/08/2026, same reason as the French
+                  hero: the audit tool was three screens down and invisible. */}
+              <Button href="/en/seo-audit/" variant="secondary">Test my site in 1 minute</Button>
               <QuietLink href="/en/french-seo/">How French SEO works</QuietLink>
             </HeroActions>
             <HeroMeta>
@@ -698,11 +722,41 @@ export default function HomeContentEn() {
         </Container>
       </Section>
 
-      {/* 02. Services */}
+      {/* 06. Services */}
+      {/* 02. Free tools: right after the causes, the immediate answer.
+          Section added 22/08/2026, both tools were invisible on this page. */}
+      <Section variant="alt" id="tools">
+        <Container>
+          <ChapterHead>
+            <Kicker><strong>02</strong>&ensp;Free tools</Kicker>
+            <div>
+              <ChapterTitle>Measure first. Then decide.</ChapterTitle>
+              <ChapterLede>
+                Two self-service tools, no signup. They measure, they do not
+                estimate: the same ones we use on client work.{" "}
+                <Link href="/en/tools/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  All the free tools
+                </Link>.
+              </ChapterLede>
+            </div>
+          </ChapterHead>
+          <InsightGrid>
+            {tools.map((c) => (
+              <InsightCard key={c.title} href={c.href}>
+                <InsightKicker>{c.kicker}</InsightKicker>
+                <InsightTitle>{c.title}</InsightTitle>
+                <InsightDesc>{c.desc}</InsightDesc>
+                <ServiceGo className="go">{c.go}</ServiceGo>
+              </InsightCard>
+            ))}
+          </InsightGrid>
+        </Container>
+      </Section>
+
       <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>02</strong>&ensp;What I do</Kicker>
+            <Kicker><strong>03</strong>&ensp;What I do</Kicker>
             <ChapterTitle>Three jobs, one goal: France stops being your dead market.</ChapterTitle>
           </ChapterHead>
           <ServicesGrid>
@@ -749,7 +803,7 @@ export default function HomeContentEn() {
       <Section variant="dark" id="method">
         <Container>
           <ChapterHead dark>
-            <Kicker dark><strong>03</strong>&ensp;How it runs</Kicker>
+            <Kicker dark><strong>04</strong>&ensp;How it runs</Kicker>
             <div>
               <ChapterTitle dark>Three steps, and you can stop after the first.</ChapterTitle>
               <ChapterLede dark>
@@ -779,7 +833,7 @@ export default function HomeContentEn() {
       <Section variant="alt">
         <Container>
           <ChapterHead>
-            <Kicker><strong>04</strong>&ensp;Why me</Kicker>
+            <Kicker><strong>05</strong>&ensp;Why me</Kicker>
             <ChapterTitle>A French consultant, not a French-speaking department.</ChapterTitle>
           </ChapterHead>
           <DiffGrid>
@@ -798,7 +852,7 @@ export default function HomeContentEn() {
       <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>05</strong>&ensp;In the open</Kicker>
+            <Kicker><strong>06</strong>&ensp;In the open</Kicker>
             <div>
               <ChapterTitle>The methods, published.</ChapterTitle>
               <ChapterLede>

@@ -53,6 +53,9 @@ export const pagePairs: { fr: string; en: string }[] = [
   // (« french seo audit » : zéro volume mesuré le 21/08/2026), même logique
   // que /en/website-design/.
   { fr: "/audit-seo/", en: "/en/seo-audit/" },
+  // Hub des outils gratuits (22/08/2026) : page de navigation dans les deux
+  // langues, pas une page SEO (aucune requête visée, voir l'en-tête des pages).
+  { fr: "/outils/", en: "/en/tools/" },
   { fr: "/conseils/", en: "/en/insights/" },
   { fr: "/about/", en: "/en/about/" },
   { fr: "/contact/", en: "/en/contact/" },
@@ -129,7 +132,7 @@ export interface NavItem {
 
 export interface UiStrings {
   nav: NavItem[];
-  header: { cta: string; menu: string; phoneHref: string; phoneLabel: string };
+  header: { cta: string; menu: string; phoneHref: string; phoneLabel: string; skip: string };
   switcher: {
     label: string;
     otherName: string;
@@ -213,6 +216,8 @@ export interface UiStrings {
     ctaText: string;
     ctaButton: string;
     pillarPrompt: string;
+    /** Ligne sous le CTA du hub conseils : renvoi vers les outils gratuits. */
+    tools: { before: string; label: string; href: string };
   };
   contact: {
     kicker: string;
@@ -317,8 +322,12 @@ export const ui: Record<Locale, UiStrings> = {
       // mieux qu'une ancre interne dans une barre à 6 entrées.
       { name: "Référencement IA", href: "/referencement-ia/" },
       { name: "Conseils", href: "/conseils/" },
-      // Tarifs en 6e position le 20/08/2026 : la grille est publique, autant
-      // l'assumer dans la barre. 7 entrées : re-mesuré à 1 280 et 375 px.
+      // Outils en 6e position le 22/08/2026 : les deux outils gratuits étaient
+      // invisibles (mesuré sur l'accueil en prod : premier lien à 2 067 px du
+      // haut, aucun dans la barre). 8 entrées : re-mesuré à 1 280 et 375 px.
+      { name: "Outils", href: "/outils/" },
+      // Tarifs ajouté le 20/08/2026 : la grille est publique, autant
+      // l'assumer dans la barre.
       { name: "Tarifs", href: "/tarifs/" },
       { name: "Contact", href: "/contact/" },
     ],
@@ -327,6 +336,7 @@ export const ui: Record<Locale, UiStrings> = {
       menu: "Menu",
       phoneHref: "tel:0769093909",
       phoneLabel: "07 69 09 39 09",
+      skip: "Aller au contenu",
     },
     switcher: {
       label: "Langue",
@@ -401,6 +411,7 @@ export const ui: Record<Locale, UiStrings> = {
             // libre-service et non plus vers Calendly : le CTA du bloc du haut
             // couvre déjà la prise de rendez-vous, et le lien devient interne.
             { label: "Audit SEO gratuit en ligne", href: "/audit-seo/" },
+            { label: "Empreinte d'une requête IA", href: "/empreinte-ia/" },
           ],
         },
         {
@@ -431,6 +442,7 @@ export const ui: Record<Locale, UiStrings> = {
           links: [
             { label: "Accueil", href: "/" },
             { label: "Services", href: "/services/" },
+            { label: "Outils gratuits", href: "/outils/" },
             { label: "Tarifs", href: "/tarifs/" },
             { label: "À propos", href: "/about/" },
             { label: "Contact", href: "/contact/" },
@@ -461,6 +473,11 @@ export const ui: Record<Locale, UiStrings> = {
         "Réservez un audit gratuit de 30 minutes : on analyse votre visibilité Google et vous repartez avec un plan d'action concret, que vous travailliez avec nous ou non.",
       ctaButton: "Réserver mon audit gratuit",
       pillarPrompt: "Envie de déléguer plutôt que de tout faire vous-même ?",
+      tools: {
+        before: "Pas encore prêt à nous parler ? Deux outils gratuits mesurent votre situation sans inscription :",
+        label: "audit SEO + IA et empreinte d'une requête IA",
+        href: "/outils/",
+      },
     },
     contact: {
       kicker: "Contact",
@@ -694,6 +711,8 @@ export const ui: Record<Locale, UiStrings> = {
       { name: "AI search", href: "/en/ai-search-optimization/" },
       { name: "Websites", href: "/en/website-design/" },
       { name: "Insights", href: "/en/insights/" },
+      // Même bascule que côté français le 22/08/2026 : 7 entrées.
+      { name: "Free tools", href: "/en/tools/" },
       { name: "Contact", href: "/en/contact/" },
     ],
     header: {
@@ -701,6 +720,7 @@ export const ui: Record<Locale, UiStrings> = {
       menu: "Menu",
       phoneHref: "tel:+33769093909",
       phoneLabel: "+33 7 69 09 39 09",
+      skip: "Skip to content",
     },
     switcher: {
       label: "Language",
@@ -771,6 +791,7 @@ export const ui: Record<Locale, UiStrings> = {
             // Même bascule que côté français le 21/08/2026 : l'entrée vise
             // l'outil d'audit, Calendly reste servi par le CTA du bloc du haut.
             { label: "Free SEO & AI audit", href: "/en/seo-audit/" },
+            { label: "Free tools", href: "/en/tools/" },
           ],
         },
         {
@@ -827,6 +848,11 @@ export const ui: Record<Locale, UiStrings> = {
         "Book a free 30-minute review. We look at where you stand in French search and in AI answers, and you leave with a concrete plan, whether or not you work with us.",
       ctaButton: "Book a free 30-min review",
       pillarPrompt: "Would you rather hand this over than do it yourself?",
+      tools: {
+        before: "Not ready to talk? Two free tools measure where you stand, no signup:",
+        label: "SEO & AI audit, and the footprint of one AI query",
+        href: "/en/tools/",
+      },
     },
     contact: {
       kicker: "Contact",

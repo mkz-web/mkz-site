@@ -10,8 +10,10 @@ const Section = styled.section`
   padding: 88px 24px 72px;
   border-bottom: 1px solid ${theme.colors.border};
 
+  /* 80px et pas 128px : à 128px, le bouton principal chevauchait le pli d'un
+     viewport de 720px (mesuré le 28/08/2026 : bouton de 671 à 726px). */
   @media (min-width: ${theme.breakpoints.lg}) {
-    padding: 128px 24px 96px;
+    padding: 80px 24px 96px;
   }
 `;
 
@@ -30,7 +32,7 @@ const Grid = styled.div`
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -119,7 +121,7 @@ const Sheet = styled.aside`
 
 const SheetLabel = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -161,7 +163,7 @@ const SheetNote = styled.p`
   padding-top: 14px;
   border-top: 1px solid ${theme.colors.border};
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.6;
   color: ${theme.colors.textSecondary};
 `;
@@ -172,7 +174,7 @@ const Stamp = styled.span`
   right: 18px;
   transform: rotate(-2deg);
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -203,6 +205,11 @@ export default function Hero() {
           </Subtitle>
           <Actions>
             <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+            {/* Second bouton depuis le 22/08/2026 : l'outil d'audit était à
+                2 067 px du haut de l'accueil (mesuré en prod à 1 280 × 720),
+                soit invisible. Le premier écran porte désormais les deux
+                entrées : l'humain (Calendly) et l'outil (une minute). */}
+            <Button href="/audit-seo/" variant="secondary">Tester mon site en 1 minute</Button>
             <QuietLink href="/#methode">Voir la m&eacute;thode</QuietLink>
           </Actions>
           <MetaLine>

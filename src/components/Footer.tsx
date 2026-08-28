@@ -94,14 +94,14 @@ const BrandDescription = styled.p`
 const BrandLegal = styled.p`
   margin-top: 14px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 1.8;
   color: ${theme.colors.textOnDarkSecondary};
 `;
 
 const GroupTitle = styled.h3`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -153,7 +153,7 @@ const BottomBar = styled.div`
   justify-content: space-between;
   gap: 14px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   color: ${theme.colors.textOnDarkSecondary};
   text-align: center;
 

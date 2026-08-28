@@ -15,7 +15,7 @@ const PageHeader = styled.section`
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -58,21 +58,36 @@ const ContentGrid = styled.div`
   @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: 2fr 1fr; gap: 48px; }
 `;
 
+/* Sous lg, les canaux directs (téléphone, Calendly) passent AVANT le
+   formulaire : sur téléphone, l'appel est le canal naturel et il tombait à
+   1 198px, derrière 4 champs à remplir (mesuré les 21 et 28/08/2026).
+   Le padding réduit rend aux champs 30px de large sur un écran de 375. */
 const FormCard = styled.div`
-  padding: 36px;
+  order: 2;
+  padding: 24px 20px;
   border: 1px solid ${theme.colors.borderInk};
   border-radius: ${theme.radius.lg};
   background: ${theme.colors.surface};
   box-shadow: ${theme.shadows.md};
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    order: 1;
+    padding: 36px;
+  }
 `;
 
 const SideStack = styled.div`
+  order: 1;
   display: grid;
   gap: 1px;
   background: ${theme.colors.border};
   border: 1px solid ${theme.colors.border};
   border-radius: ${theme.radius.lg};
   overflow: hidden;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    order: 2;
+  }
 `;
 
 const InfoCell = styled.div`
@@ -82,7 +97,7 @@ const InfoCell = styled.div`
 
 const InfoLabel = styled.h3`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;

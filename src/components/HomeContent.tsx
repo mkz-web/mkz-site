@@ -41,7 +41,7 @@ const ChapterHead = styled.header<{ surSombre?: boolean }>`
 
 const Kicker = styled.span<{ surSombre?: boolean }>`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -152,7 +152,7 @@ const ProofValue = styled.dd`
 const ProofLabel = styled.dt`
   margin-top: 12px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -162,7 +162,7 @@ const ProofLabel = styled.dt`
 const ProofNote = styled.p`
   margin-top: 16px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   color: ${theme.colors.textSecondary};
 `;
 
@@ -240,7 +240,7 @@ const ServiceBlock = styled(Link)`
 
 const ServiceKicker = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -266,7 +266,7 @@ const ServiceDesc = styled.p`
 const ServiceTags = styled.p`
   margin-top: 18px;
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   line-height: 2;
   color: ${theme.colors.textSecondary};
 `;
@@ -355,7 +355,7 @@ const Quote = styled.blockquote`
 const QuoteAttribution = styled.p`
   margin-top: 24px;
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -368,7 +368,7 @@ const ResultTag = styled.span`
   display: inline-block;
   margin-top: 14px;
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -398,7 +398,7 @@ const DiffCell = styled.div`
 
 const DiffNum = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: ${theme.colors.ctaInk};
 `;
@@ -425,6 +425,13 @@ const ConseilGrid = styled.div`
   @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(3, 1fr); }
 `;
 
+// Deux outils, deux colonnes : les cartes reprennent le gabarit des conseils.
+const ToolGrid = styled.div`
+  display: grid;
+  gap: 24px;
+  @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }
+`;
+
 const ConseilCard = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -444,7 +451,7 @@ const ConseilCard = styled(Link)`
 
 const ConseilKicker = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -602,6 +609,15 @@ const conseils = [
   { kicker: "SEO & visibilité", title: "Être trouvé sur Google", desc: "Référencement local, audit SEO, visibilité : des guides concrets, sans jargon.", href: "/conseils/seo/" },
 ];
 
+// Outils gratuits en section 02 depuis le 22/08/2026. Les faits sont repris
+// des pages des outils (17 mesures, une minute, sans inscription ; énergie, CO2
+// et eau avec fourchettes d'incertitude) : rien n'est promis ici qui ne soit
+// mesuré là-bas.
+const tools = [
+  { kicker: "Outil 01 · une minute", title: "Audit SEO + IA gratuit", desc: "Entrez votre adresse : 17 mesures réelles sur votre site (HTTPS, vraie 404, balises, robots des IA, llms.txt, données structurées), un score sur 100 et vos priorités. Sans inscription.", href: "/audit-seo/", go: "Tester mon site" },
+  { kicker: "Outil 02 · simulateur", title: "Empreinte d'une requête IA", desc: "Combien d'énergie, de CO2 et d'eau coûte une question posée à une IA ? Tapez votre requête, choisissez le modèle et la région : le simulateur chiffre, fourchettes d'incertitude comprises, sources à l'appui.", href: "/empreinte-ia/", go: "Simuler une requête" },
+];
+
 /* ─── PAGE ─── */
 
 export default function HomeContent() {
@@ -649,11 +665,41 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 02. Services */}
+      {/* 02. Outils gratuits : juste après les galères, la réponse immédiate.
+          Section ajoutée le 22/08/2026, les deux outils étaient invisibles. */}
+      <Section variant="alt" id="outils">
+        <Container>
+          <ChapterHead>
+            <Kicker><strong>02</strong>&ensp;Outils gratuits</Kicker>
+            <div>
+              <ChapterTitle>Avant de nous parler, mesurez.</ChapterTitle>
+              <ChapterLede>
+                Deux outils en libre-service, sans inscription. Ils mesurent, ils
+                n&rsquo;estiment pas : ce sont ceux que nous utilisons pour nos clients.{" "}
+                <Link href="/outils/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  Tous nos outils gratuits
+                </Link>.
+              </ChapterLede>
+            </div>
+          </ChapterHead>
+          <ToolGrid>
+            {tools.map((c) => (
+              <ConseilCard key={c.title} href={c.href}>
+                <ConseilKicker>{c.kicker}</ConseilKicker>
+                <ConseilTitle>{c.title}</ConseilTitle>
+                <ConseilDesc>{c.desc}</ConseilDesc>
+                <ServiceGo className="go">{c.go}</ServiceGo>
+              </ConseilCard>
+            ))}
+          </ToolGrid>
+        </Container>
+      </Section>
+
+      {/* 03. Services */}
       <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>02</strong>&ensp;Nos services</Kicker>
+            <Kicker><strong>03</strong>&ensp;Nos services</Kicker>
             <ChapterTitle>Trois m&eacute;tiers, une mission : que votre t&eacute;l&eacute;phone sonne.</ChapterTitle>
           </ChapterHead>
           <ServicesGrid>
@@ -702,11 +748,11 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 03. Méthode */}
+      {/* 04. Méthode */}
       <Section variant="dark" id="methode">
         <Container>
           <ChapterHead surSombre>
-            <Kicker surSombre><strong>03</strong>&ensp;La m&eacute;thode</Kicker>
+            <Kicker surSombre><strong>04</strong>&ensp;La m&eacute;thode</Kicker>
             <div>
               <ChapterTitle surSombre>Trois &eacute;tapes, z&eacute;ro jargon.</ChapterTitle>
               <ChapterLede surSombre>
@@ -731,11 +777,11 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 04. Témoignages */}
+      {/* 05. Témoignages */}
       <Section id="temoignages">
         <Container>
           <ChapterHead>
-            <Kicker><strong>04</strong>&ensp;Ils en parlent</Kicker>
+            <Kicker><strong>05</strong>&ensp;Ils en parlent</Kicker>
             <ChapterTitle>Des artisans et commer&ccedil;ants, comme vous.</ChapterTitle>
           </ChapterHead>
 
@@ -753,11 +799,11 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 05. La différence */}
+      {/* 06. La différence */}
       <Section variant="alt">
         <Container>
           <ChapterHead>
-            <Kicker><strong>05</strong>&ensp;La diff&eacute;rence MKZ</Kicker>
+            <Kicker><strong>06</strong>&ensp;La diff&eacute;rence MKZ</Kicker>
             <ChapterTitle>On travaille autrement.</ChapterTitle>
           </ChapterHead>
           <DiffGrid>
@@ -777,11 +823,11 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 06. Conseils */}
+      {/* 07. Conseils */}
       <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>06</strong>&ensp;On partage</Kicker>
+            <Kicker><strong>07</strong>&ensp;On partage</Kicker>
             <div>
               <ChapterTitle>Nos m&eacute;thodes, en acc&egrave;s libre.</ChapterTitle>
               <ChapterLede>
@@ -803,11 +849,11 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 07. Zones */}
+      {/* 08. Zones */}
       <Section variant="alt">
         <Container>
           <ChapterHead>
-            <Kicker><strong>07</strong>&ensp;O&ugrave; nous travaillons</Kicker>
+            <Kicker><strong>08</strong>&ensp;O&ugrave; nous travaillons</Kicker>
             <ChapterTitle>Bas&eacute;s dans le 77, partout en France.</ChapterTitle>
           </ChapterHead>
           <ZonesText>

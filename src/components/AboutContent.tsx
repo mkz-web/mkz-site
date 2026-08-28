@@ -17,7 +17,7 @@ const PageHeader = styled.section`
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -49,6 +49,26 @@ const Subtitle = styled.p`
   color: ${theme.colors.textSecondary};
 `;
 
+/* Un CTA dans le premier écran : /about/ est la 2e page d'entrée Google du
+   site (position 5,3, requête de marque) et n'offrait une action qu'en pied
+   de page (constat P3 des checks UX des 21 et 28/08/2026). */
+const HeaderActions = styled.div`
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+`;
+
+const ActionPhone = styled.a`
+  font-family: ${theme.fonts.mono};
+  font-size: 14px;
+  font-weight: 500;
+  color: ${theme.colors.text};
+
+  &:hover { color: ${theme.colors.ctaInk}; }
+`;
+
 const Container = styled.div`max-width: 880px; margin: 0 auto; padding: 0 24px;`;
 
 const ProfileSection = styled.div`
@@ -74,7 +94,7 @@ const PhotoWrapper = styled.div`
 
 const PhotoCaption = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.6;
   color: ${theme.colors.textSecondary};
   margin-top: 10px;
@@ -101,7 +121,7 @@ const BioLink = styled(Link)`
 
 const BioTags = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 2;
   color: ${theme.colors.textSecondary};
   border-top: 1px solid ${theme.colors.border};
@@ -127,7 +147,7 @@ const ArgCell = styled.div`
 
 const ArgNum = styled.span`
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: ${theme.colors.ctaInk};
 `;
@@ -183,6 +203,10 @@ export default function AboutContent() {
         <Kicker>&Agrave; propos</Kicker>
         <Title>Micka&euml;l Leclerc</Title>
         <Subtitle>Pr&eacute;sident de MKZ · ing&eacute;nieur IT, +20 ans d&rsquo;exp&eacute;rience</Subtitle>
+        <HeaderActions>
+          <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+          <ActionPhone href="tel:0769093909">ou 07 69 09 39 09</ActionPhone>
+        </HeaderActions>
       </PageHeader>
 
       <Container>
@@ -208,10 +232,36 @@ export default function AboutContent() {
               des grands groupes.
             </BioText>
             <BioText>
+              De ces ann&eacute;es d&rsquo;ing&eacute;nierie, j&rsquo;ai gard&eacute; un r&eacute;flexe :
+              on ne d&eacute;clare pas, on mesure. C&rsquo;est-&agrave;-dire que chaque rapport
+              que je vous envoie montre d&rsquo;o&ugrave; vient le chiffre : positions relev&eacute;es
+              sur Google, visites compt&eacute;es, citations par les IA v&eacute;rifi&eacute;es une
+              par une. Et quand quelque chose ne se mesure pas, je vous l&rsquo;&eacute;cris,
+              au lieu de le remplacer en douce par une estimation.
+            </BioText>
+            <BioText>
               <strong>Ma promesse :</strong> des solutions professionnelles, un langage simple,
               et des r&eacute;sultats mesurables. Pas de blabla, que du concret. Je g&egrave;re tout
               de A &agrave; Z pour que vous puissiez vous concentrer sur ce que vous faites de
               mieux : votre m&eacute;tier.
+            </BioText>
+            <BioText>
+              Un site que personne ne trouve, en fait, c&rsquo;est une boutique ouverte dans
+              une rue o&ugrave; personne ne passe. Mon travail, c&rsquo;est de d&eacute;placer la
+              boutique : l&agrave; o&ugrave; vos clients cherchent d&eacute;j&agrave;, sur Google
+              quand ils tapent votre m&eacute;tier et votre ville, et maintenant dans les
+              r&eacute;ponses de ChatGPT ou de Perplexity quand ils posent directement la
+              question &agrave; une IA.
+            </BioText>
+            <BioText>
+              Deux r&egrave;gles ne bougent jamais ici. Un : tout est &agrave; vous. Le site,
+              les contenus, les acc&egrave;s, le nom de domaine ; le jour o&ugrave; vous voulez
+              reprendre la main, vous reprenez tout, sans frais ni chantage technique. Deux :
+              je ne vous promettrai jamais la premi&egrave;re place garantie, ni sur Google ni
+              dans ChatGPT. Personne ne contr&ocirc;le ces algorithmes, et ceux qui vous la
+              garantissent vendent du vent. Ce que je garantis : le travail pos&eacute; noir sur
+              blanc dans un devis fixe, un rapport clair chaque mois, et un coup de fil honn&ecirc;te
+              quand quelque chose ne marche pas.
             </BioText>
             <BioText>
               Que vous soyez artisan, commer&ccedil;ant, coach ou profession lib&eacute;rale,

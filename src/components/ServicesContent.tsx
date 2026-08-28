@@ -16,7 +16,7 @@ const PageHeader = styled.section`
 
 const Kicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -68,7 +68,7 @@ const Card = styled.div`
 
 const CardKicker = styled.p`
   font-family: ${theme.fonts.mono};
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -92,7 +92,7 @@ const CardDesc = styled.p`
 const CardTags = styled.p`
   margin-top: 18px;
   font-family: ${theme.fonts.mono};
-  font-size: 12px;
+  font-size: 13px;
   line-height: 2;
   color: ${theme.colors.textSecondary};
 `;
@@ -225,6 +225,13 @@ export default function ServicesContent() {
             Site vitrine 1&nbsp;490&nbsp;&euro;, audit SEO 490&nbsp;&euro;, accompagnement d&egrave;s
             390&nbsp;&euro;/mois&hellip; Les prix de base sont publics, le devis fixe est
             &eacute;crit avant signature.
+          </MoreDesc>
+        </MoreCard>
+        <MoreCard href="/outils/">
+          <MoreTitle>Deux outils gratuits, sans inscription</MoreTitle>
+          <MoreDesc>
+            L&rsquo;audit SEO + IA qui mesure votre site en une minute, et le simulateur
+            d&rsquo;empreinte d&rsquo;une requ&ecirc;te IA. Pour mesurer avant de nous parler.
           </MoreDesc>
         </MoreCard>
       </MoreBand>

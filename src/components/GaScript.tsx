@@ -83,6 +83,35 @@ const gaLoader = `(function () {
       d.cookie = n + "=; Max-Age=0; path=/; domain=." + bare;
     });
   }
+  // Événements de conversion (28/08/2026). track() ne part que si le tag est
+  // chargé (donc consenti) et non désactivé : sans consentement, silence.
+  // Exposé en w.mkzTrack pour les composants React (src/lib/ga.ts).
+  function track(name, params) {
+    if (!loaded || w["ga-disable-" + ID]) return;
+    var p = params || {};
+    p.transport_type = "beacon";
+    gtag("event", name, p);
+  }
+  w.mkzTrack = track;
+  // Clics sortants de contact, délégués au document : Calendly, téléphone,
+  // WhatsApp, où que soit le lien (header, footer, corps). Comparaison par
+  // HOSTNAME, jamais par sous-chaîne (les liens de la barre « Résumer avec
+  // l'IA » portent l'URL canonique en paramètre).
+  d.addEventListener("click", function (ev) {
+    var t = ev.target;
+    if (!t || typeof t.closest !== "function") return;
+    var a = t.closest("a[href]");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (href.indexOf("tel:") === 0) { track("clic_tel", { page: location.pathname }); return; }
+    var host;
+    try { host = new URL(a.href, location.href).hostname; } catch (err) { return; }
+    if (host === "calendly.com" || host.slice(-13) === ".calendly.com") {
+      track("clic_calendly", { page: location.pathname });
+    } else if (host === "wa.me" || host === "api.whatsapp.com") {
+      track("clic_whatsapp", { page: location.pathname });
+    }
+  }, true);
   if (consented()) load();
   d.addEventListener("mkz-consent", function (e) {
     var dt = e && e.detail;

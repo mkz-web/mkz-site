@@ -42,7 +42,7 @@ export default function FrRootLayout({
         <EmotionRegistry>
           <GlobalStyles />
           <Header locale="fr" />
-          <main style={{ flex: 1, paddingTop: 73 }}>{children}</main>
+          <main id="main-content" tabIndex={-1} style={{ flex: 1, paddingTop: 73 }}>{children}</main>
           <Footer locale="fr" />
           <WhatsAppButton locale="fr" />
           <ConsentBanner locale="fr" />
