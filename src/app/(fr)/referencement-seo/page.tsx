@@ -43,6 +43,7 @@ export default function ReferencementSeoPage() {
         ])}
       />
       <PillarContent
+        visual={{ src: "/images/piliers/pilier-referencement-seo.webp", w: 896, h: 1071, alt: "Un artisan fier debout sur la première marche d'un podium, gravure à l'encre" }}
         data={{
           badge: pillar.heroBadge,
           title: pillar.title,

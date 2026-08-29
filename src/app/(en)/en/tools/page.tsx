@@ -45,6 +45,7 @@ const content: ToolsPageContent = {
       cta: "Run the free audit",
       href: "/en/seo-audit/",
       note: "No signup. The detailed report, also free, arrives within 24 business hours if you ask for it.",
+      img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 414, alt: "A real scan result: mkz-consulting.fr, 70/70, technical 35/35, AI readability 35/35" },
     },
     {
       kicker: "Tool 02 · simulator, in French",
@@ -58,6 +59,7 @@ const content: ToolsPageContent = {
       cta: "Open the simulator (French)",
       href: "/empreinte-ia/",
       note: "Published in French only, by a measured decision. Educational estimates, not an enforceable measurement.",
+      img: { src: "/images/outils/empreinte-apercu.webp", w: 1400, h: 901, alt: "The simulator (in French): query, model class, region, and the result in energy, CO2 and water with uncertainty ranges" },
     },
   ],
   whyTitle: "Why free tools?",

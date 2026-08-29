@@ -43,6 +43,7 @@ export default function AiSearchPage() {
       />
       <PillarContent
         locale="en"
+        visual={{ src: "/images/piliers/pilier-referencement-ia.webp", w: 896, h: 1071, alt: "An open book with a single line highlighted in orange, ink engraving" }}
         data={{
           badge: "AI search",
           title: pillar.title,

@@ -22,6 +22,41 @@ const Hero = styled.header`
   color: white;
 `;
 const HeroInner = styled.div`max-width: 860px; margin: 0 auto;`;
+
+/* Visuel d'ouverture (29/08/2026, plan images du check UX) : illustration
+   gravure deux encres passée en prop `visual` par chaque page pilier, jamais
+   par les fichiers de contenu (l'ingest les régénère). Rendu APRÈS les CTA
+   dans le DOM : sur mobile, l'action reste au-dessus de l'image. */
+const HeroGrid = styled.div`
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: 32px;
+  align-items: center;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: minmax(0, 860px) 300px;
+    justify-content: center;
+  }
+`;
+
+const HeroArt = styled.figure`
+  max-width: 240px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    max-width: 300px;
+    justify-self: end;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(246, 241, 231, 0.4);
+    border-radius: ${theme.radius.lg};
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+  }
+`;
 const Crumbs = styled.nav`
   font-family: ${theme.fonts.mono};
   font-size: 13px;
@@ -189,9 +224,12 @@ export interface PillarData {
 export default function PillarContent({
   data,
   locale = "fr",
+  visual,
 }: {
   data: PillarData;
   locale?: Locale;
+  /** Illustration du hero, passée par la PAGE (jamais par le contenu ingéré). */
+  visual?: { src: string; w: number; h: number; alt: string };
 }) {
   const t = ui[locale];
   const homeHref = locale === "en" ? "/en/" : "/";
@@ -220,22 +258,30 @@ export default function PillarContent({
   return (
     <>
       <Hero>
-        <HeroInner>
-          <Crumbs aria-label={t.pillar.breadcrumbAria}>
-            <CrumbLink href={homeHref}>{t.pillar.home}</CrumbLink>
-            <span>›</span>
-            <span>{data.badge}</span>
-          </Crumbs>
-          <Badge>{data.badge}</Badge>
-          <HeroTitle>{data.title}</HeroTitle>
-          <HeroLead>{renderInline(data.lead)}</HeroLead>
-          <HeroCtas>
-            <Button href={CALENDLY}>{t.pillar.ctaPrimary}</Button>
-            <HeroPhone href={t.header.phoneHref}>
-              {t.pillar.phonePrefix} {t.header.phoneLabel}
-            </HeroPhone>
-          </HeroCtas>
-        </HeroInner>
+        <HeroGrid>
+          <HeroInner style={visual ? { margin: 0, maxWidth: "none" } : undefined}>
+            <Crumbs aria-label={t.pillar.breadcrumbAria}>
+              <CrumbLink href={homeHref}>{t.pillar.home}</CrumbLink>
+              <span>›</span>
+              <span>{data.badge}</span>
+            </Crumbs>
+            <Badge>{data.badge}</Badge>
+            <HeroTitle>{data.title}</HeroTitle>
+            <HeroLead>{renderInline(data.lead)}</HeroLead>
+            <HeroCtas>
+              <Button href={CALENDLY}>{t.pillar.ctaPrimary}</Button>
+              <HeroPhone href={t.header.phoneHref}>
+                {t.pillar.phonePrefix} {t.header.phoneLabel}
+              </HeroPhone>
+            </HeroCtas>
+          </HeroInner>
+          {visual && (
+            <HeroArt>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={visual.src} width={visual.w} height={visual.h} alt={visual.alt} />
+            </HeroArt>
+          )}
+        </HeroGrid>
       </Hero>
 
       <Main>

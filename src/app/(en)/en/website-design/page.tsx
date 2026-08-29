@@ -43,6 +43,7 @@ export default function WebsiteDesignPage() {
       />
       <PillarContent
         locale="en"
+        visual={{ src: "/images/piliers/pilier-creation-site.webp", w: 896, h: 1071, alt: "A lit artisan storefront drawing two passers-by, ink engraving" }}
         data={{
           badge: "Website design",
           title: pillar.title,

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
@@ -203,25 +204,82 @@ const TldrTitle = styled.p`
   color: rgba(255, 255, 255, 0.85);
 `;
 
+/* Sommaire en <details> depuis le 29/08/2026 (lot 2 du check UX) : à 375 px il
+   occupait 575 px dépliés et repoussait le premier H2 à 3 145 px. Servi ouvert
+   (SSR), replié au montage sous 768 px : le pli se fait sous la ligne de
+   flottaison, donc sans décalage visible. */
 const TocBox = styled.nav`
   margin-top: 24px;
-  padding: 20px 24px;
   border-radius: ${theme.radius.lg};
   border: 1px solid ${theme.colors.border};
   background: ${theme.colors.surfaceAlt};
   font-size: 14px;
-  ol { padding-left: 22px; margin-top: 8px; }
+
+  summary {
+    padding: 16px 24px;
+    cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  ol { padding: 0 24px 20px 46px; margin: 0; }
   li { margin-top: 6px; }
   a { color: ${theme.colors.textSecondary}; }
   a:hover { color: ${theme.colors.accent}; text-decoration: underline; }
 `;
-const TocTitle = styled.p`
+const TocTitle = styled.span`
   font-family: ${theme.fonts.mono};
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: ${theme.colors.text};
+`;
+
+const ProgressTrack = styled.div`
+  position: fixed;
+  top: 73px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 40;
+  pointer-events: none;
+`;
+
+const ProgressFill = styled.div`
+  height: 100%;
+  background: ${theme.colors.ctaInk};
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  will-change: transform;
+`;
+
+const TopButton = styled("button", {
+  shouldForwardProp: (p) => p !== "visible",
+})<{ visible: boolean }>`
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 40;
+  width: 48px;
+  height: 48px;
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.sm};
+  background: ${theme.colors.surface};
+  color: ${theme.colors.text};
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: ${theme.shadows.md};
+  opacity: ${(p) => (p.visible ? 1 : 0)};
+  pointer-events: ${(p) => (p.visible ? "auto" : "none")};
+  transition: opacity 0.25s;
+
+  /* Même règle que la bulle WhatsApp : masqué pendant le bandeau de consentement. */
+  html[data-consent-open] & {
+    display: none;
+  }
 `;
 
 // Couleurs seules : les libellés des encadrés sont localisés
@@ -615,8 +673,58 @@ export default function ArticleRenderer({
     (b): b is Extract<Block, { type: "h2" }> => b.type === "h2"
   );
 
+  const tocRef = useRef<HTMLDetailsElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const [topVisible, setTopVisible] = useState(false);
+  const topVisRef = useRef(false);
+
+  // Sommaire replié au montage sous 768 px (voir le commentaire de TocBox).
+  useEffect(() => {
+    if (tocRef.current && window.innerWidth < 768) tocRef.current.open = false;
+  }, []);
+
+  // Fil de progression + retour en haut : un seul écouteur, throttlé au rAF,
+  // qui écrit un transform (jamais de layout) et ne re-rend qu'au franchissement
+  // du seuil de visibilité du bouton (2 écrans).
+  useEffect(() => {
+    let raf = 0;
+    const maj = () => {
+      raf = 0;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? Math.min(1, window.scrollY / h) : 0;
+      if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
+      const vis = window.scrollY > window.innerHeight * 2;
+      if (vis !== topVisRef.current) {
+        topVisRef.current = vis;
+        setTopVisible(vis);
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(maj);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    maj();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  function remonter() {
+    const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduit ? "auto" : "smooth" });
+  }
+
   return (
     <Wrapper>
+      <ProgressTrack aria-hidden>
+        <ProgressFill ref={barRef} />
+      </ProgressTrack>
+      <TopButton type="button" visible={topVisible} onClick={remonter} aria-label={t.backTop}>
+        ↑
+      </TopButton>
       <Inner>
         <Crumbs aria-label={t.breadcrumbAria}>
           <CrumbLink href={locale === "en" ? "/en/" : "/"}>{t.home}</CrumbLink>
@@ -651,12 +759,16 @@ export default function ArticleRenderer({
 
         {tocEntries.length >= 3 && (
           <TocBox aria-label={t.tocTitle}>
-            <TocTitle>{t.tocTitle}</TocTitle>
-            <ol>
-              {tocEntries.map((h) => (
-                <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>
-              ))}
-            </ol>
+            <details ref={tocRef} open>
+              <summary>
+                <TocTitle>{t.tocTitle} · {tocEntries.length}</TocTitle>
+              </summary>
+              <ol>
+                {tocEntries.map((h) => (
+                  <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>
+                ))}
+              </ol>
+            </details>
           </TocBox>
         )}
 

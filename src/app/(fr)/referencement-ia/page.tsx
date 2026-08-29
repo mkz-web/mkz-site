@@ -43,6 +43,7 @@ export default function ReferencementIaPage() {
         ])}
       />
       <PillarContent
+        visual={{ src: "/images/piliers/pilier-referencement-ia.webp", w: 896, h: 1071, alt: "Un livre ouvert dont une seule ligne est surlignée en orange, gravure à l'encre" }}
         data={{
           badge: pillar.heroBadge,
           title: pillar.title,

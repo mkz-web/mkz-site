@@ -43,6 +43,7 @@ export default function FrenchSeoPage() {
       />
       <PillarContent
         locale="en"
+        visual={{ src: "/images/piliers/pilier-referencement-seo.webp", w: 896, h: 1071, alt: "A proud artisan standing on the top step of a podium, ink engraving" }}
         data={{
           badge: pillar.heroBadge,
           title: pillar.title,

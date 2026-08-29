@@ -163,6 +163,7 @@ export interface UiStrings {
     readingSuffix: string;
     tldrTitle: (n: number) => string;
     tocTitle: string;
+    backTop: string;
     faqTitle: string;
     authorMore: string;
     relatedTitle: string;
@@ -287,6 +288,8 @@ export interface UiStrings {
       mailSubjectPrefix: string;
     };
     rescan: string;
+    copier: string;
+    copie: string;
   };
   notFound: { title: string; text: string; back: string };
   whatsapp: string;
@@ -365,6 +368,7 @@ export const ui: Record<Locale, UiStrings> = {
       readingSuffix: "min de lecture",
       tldrTitle: (n) => `L'essentiel en ${n} points`,
       tocTitle: "Sommaire",
+      backTop: "Revenir en haut de la page",
       faqTitle: "Questions fréquentes",
       // Ancre descriptive de sa cible, et non de son emplacement : « En savoir
       // plus » se répétait à l'identique sur les 15 articles et ne disait rien
@@ -680,6 +684,8 @@ export const ui: Record<Locale, UiStrings> = {
         mailSubjectPrefix: "Lead audit SEO : ",
       },
       rescan: "Tester un autre site",
+      copier: "Copier le lien de ce scan",
+      copie: "Lien copié !",
     },
     notFound: {
       title: "Page introuvable",
@@ -749,6 +755,7 @@ export const ui: Record<Locale, UiStrings> = {
       readingSuffix: "min read",
       tldrTitle: (n) => `The short version, in ${n} points`,
       tocTitle: "On this page",
+      backTop: "Back to top",
       faqTitle: "Frequently asked questions",
       authorMore: "More about Mickaël Leclerc",
       relatedTitle: "Read next",
@@ -1055,6 +1062,8 @@ export const ui: Record<Locale, UiStrings> = {
         mailSubjectPrefix: "[EN] SEO audit lead: ",
       },
       rescan: "Test another site",
+      copier: "Copy this scan's link",
+      copie: "Link copied!",
     },
     notFound: {
       title: "Page not found",

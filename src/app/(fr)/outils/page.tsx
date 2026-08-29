@@ -50,6 +50,7 @@ const content: ToolsPageContent = {
       cta: "Lancer l'audit gratuit",
       href: "/audit-seo/",
       note: "Sans inscription. Le rapport détaillé, lui aussi gratuit, arrive sous 24 h si vous le demandez.",
+      img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 414, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 70 sur 70, technique 35/35, lisibilité par les IA 35/35" },
     },
     {
       kicker: "Outil 02 · simulateur",
@@ -63,6 +64,7 @@ const content: ToolsPageContent = {
       cta: "Simuler une requête",
       href: "/empreinte-ia/",
       note: "Estimations pédagogiques, pas une mesure opposable : le cadre est écrit au pied de l'outil.",
+      img: { src: "/images/outils/empreinte-apercu.webp", w: 1400, h: 901, alt: "Le simulateur : votre requête, la classe de modèle, la région, et le résultat en énergie, CO2 et eau avec leurs fourchettes" },
     },
   ],
   whyTitle: "Pourquoi des outils gratuits ?",

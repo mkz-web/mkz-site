@@ -4,6 +4,7 @@ import ConsentBanner from "@/components/ConsentBanner";
 import GaScript from "@/components/GaScript";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RevealMotion from "@/components/RevealMotion";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import EmotionRegistry from "@/lib/EmotionRegistry";
 import GlobalStyles from "@/lib/GlobalStyles";
@@ -44,6 +45,7 @@ export default function EnRootLayout({
       <body>
         <EmotionRegistry>
           <GlobalStyles />
+          <RevealMotion />
           <Header locale="en" />
           <main id="main-content" tabIndex={-1} style={{ flex: 1, paddingTop: 73 }}>{children}</main>
           <Footer locale="en" />

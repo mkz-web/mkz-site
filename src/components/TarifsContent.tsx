@@ -120,8 +120,12 @@ const PromiseText = styled.p`
 
 /* ── Lignes d'offres (nom + description + prix) ───────────────────────── */
 
+/* 880 px et pas la pleine largeur : à 1 280 px, la description plafonnée à 70ch
+   laissait ~400 px de vide entre le texte et le prix (mesuré le 28/08/2026,
+   « offres en rangées à moitié vides »). */
 const OfferList = styled.div`
   margin-top: 26px;
+  max-width: 880px;
   display: grid;
   gap: 16px;
 `;

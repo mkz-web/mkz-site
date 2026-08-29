@@ -10,8 +10,10 @@ const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
 /* ─── Structure « chapitres » ─── */
 
+/* clamp resserré le 29/08/2026 (lot 2 du check UX : jusqu'à 370 px de vide
+   continu entre deux sections, accueil à 15 307 px sur mobile). */
 const Section = styled.section<{ variant?: "paper" | "alt" | "dark" }>`
-  padding: clamp(88px, 11vh, 144px) 24px;
+  padding: clamp(64px, 8vh, 104px) 24px;
   ${({ variant }) => {
     switch (variant) {
       case "dark":
@@ -609,13 +611,61 @@ const conseils = [
   { kicker: "SEO & visibilité", title: "Être trouvé sur Google", desc: "Référencement local, audit SEO, visibilité : des guides concrets, sans jargon.", href: "/conseils/seo/" },
 ];
 
+/* Visuels réels (29/08/2026, écart n° 1 du check UX : aucune preuve visuelle
+   sur le site). Les captures sont de VRAIS rendus, régénérables : scan de
+   mkz-consulting.fr via /audit-seo/?site=… et simulateur ; ne jamais les
+   remplacer par une illustration qui promet ce que l'outil ne montre pas. */
+const ToolShot = styled.span`
+  display: block;
+  margin-bottom: 18px;
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.sm};
+  overflow: hidden;
+
+  img { display: block; width: 100%; height: auto; }
+`;
+
+const DiffLayout = styled.div`
+  display: grid;
+  gap: 32px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+`;
+
+/* Le portrait (la vraie photo de /about/) : le site promet « vous parlez
+   directement à celui qui fait le travail » sans jamais le montrer. */
+const PortraitFigure = styled.figure`
+  max-width: 220px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid ${theme.colors.borderInk};
+    border-radius: ${theme.radius.lg};
+    box-shadow: ${theme.shadows.lg};
+  }
+
+  figcaption {
+    margin-top: 10px;
+    font-family: ${theme.fonts.mono};
+    font-size: 13px;
+    line-height: 1.6;
+    color: ${theme.colors.textSecondary};
+  }
+`;
+
 // Outils gratuits en section 02 depuis le 22/08/2026. Les faits sont repris
 // des pages des outils (17 mesures, une minute, sans inscription ; énergie, CO2
 // et eau avec fourchettes d'incertitude) : rien n'est promis ici qui ne soit
 // mesuré là-bas.
 const tools = [
-  { kicker: "Outil 01 · une minute", title: "Audit SEO + IA gratuit", desc: "Entrez votre adresse : 17 mesures réelles sur votre site (HTTPS, vraie 404, balises, robots des IA, llms.txt, données structurées), un score sur 100 et vos priorités. Sans inscription.", href: "/audit-seo/", go: "Tester mon site" },
-  { kicker: "Outil 02 · simulateur", title: "Empreinte d'une requête IA", desc: "Combien d'énergie, de CO2 et d'eau coûte une question posée à une IA ? Tapez votre requête, choisissez le modèle et la région : le simulateur chiffre, fourchettes d'incertitude comprises, sources à l'appui.", href: "/empreinte-ia/", go: "Simuler une requête" },
+  { kicker: "Outil 01 · une minute", title: "Audit SEO + IA gratuit", desc: "Entrez votre adresse : 17 mesures réelles sur votre site (HTTPS, vraie 404, balises, robots des IA, llms.txt, données structurées), un score sur 100 et vos priorités. Sans inscription.", href: "/audit-seo/", go: "Tester mon site", img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 414, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 70 sur 70, technique 35/35, lisibilité par les IA 35/35" } },
+  { kicker: "Outil 02 · simulateur", title: "Empreinte d'une requête IA", desc: "Combien d'énergie, de CO2 et d'eau coûte une question posée à une IA ? Tapez votre requête, choisissez le modèle et la région : le simulateur chiffre, fourchettes d'incertitude comprises, sources à l'appui.", href: "/empreinte-ia/", go: "Simuler une requête", img: { src: "/images/outils/empreinte-apercu-carte.webp", w: 1400, h: 299, alt: "Le résultat du simulateur : 0,42 Wh, 0,039 g de CO2e et 0,81 mL d'eau pour une requête type, fourchettes comprises" } },
 ];
 
 /* ─── PAGE ─── */
@@ -685,6 +735,10 @@ export default function HomeContent() {
           <ToolGrid>
             {tools.map((c) => (
               <ConseilCard key={c.title} href={c.href}>
+                <ToolShot>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={c.img.src} width={c.img.w} height={c.img.h} alt={c.img.alt} loading="lazy" />
+                </ToolShot>
                 <ConseilKicker>{c.kicker}</ConseilKicker>
                 <ConseilTitle>{c.title}</ConseilTitle>
                 <ConseilDesc>{c.desc}</ConseilDesc>
@@ -806,15 +860,22 @@ export default function HomeContent() {
             <Kicker><strong>06</strong>&ensp;La diff&eacute;rence MKZ</Kicker>
             <ChapterTitle>On travaille autrement.</ChapterTitle>
           </ChapterHead>
-          <DiffGrid>
-            {differentiators.map((d) => (
-              <DiffCell key={d.num}>
-                <DiffNum>{d.num}</DiffNum>
-                <DiffTitle>{d.title}</DiffTitle>
-                <DiffDesc>{d.desc}</DiffDesc>
-              </DiffCell>
-            ))}
-          </DiffGrid>
+          <DiffLayout>
+            <PortraitFigure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc, fondateur de MKZ" width={1024} height={1024} loading="lazy" />
+              <figcaption>Micka&euml;l Leclerc, fondateur.<br />C&rsquo;est lui qui d&eacute;croche.</figcaption>
+            </PortraitFigure>
+            <DiffGrid>
+              {differentiators.map((d) => (
+                <DiffCell key={d.num}>
+                  <DiffNum>{d.num}</DiffNum>
+                  <DiffTitle>{d.title}</DiffTitle>
+                  <DiffDesc>{d.desc}</DiffDesc>
+                </DiffCell>
+              ))}
+            </DiffGrid>
+          </DiffLayout>
           {/* Action après la section confiance : 5 445 px (6,7 écrans mobiles) sans action
               entre la méthode et le bloc final, mesurés le 21/08/2026. */}
           <div style={{ marginTop: 36 }}>

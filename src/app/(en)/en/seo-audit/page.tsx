@@ -54,6 +54,13 @@ const content: AuditPageContent = {
   h1Em: "readable",
   h1After: " by Google and by AI engines?",
   sub: "Enter your address. In one minute the tool runs 17 real checks: your technical layer, your Google readability, and the part nobody shows you, whether AI engines like ChatGPT and Perplexity can read and cite you. A clear score, your priorities, no signup.",
+  apercu: {
+    src: "/images/outils/scan-apercu-en.webp",
+    w: 1400,
+    h: 414,
+    alt: "A real scan result: mkz-consulting.fr, 70/70, technical 35/35, AI readability 35/35",
+    caption: "A real scan: our own site, tested on 29 August 2026 with the tool above. Yours takes a minute.",
+  },
   measuresTitle: "What the tool measures",
   measures: [
     {

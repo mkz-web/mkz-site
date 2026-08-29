@@ -21,8 +21,9 @@ import { CALENDLY } from "@/lib/i18n";
 // 1px, numéraux Fraunces italiques), comme chaque page du projet le fait pour
 // elle-même.
 
+/* clamp resserré le 29/08/2026 (lot 2 du check UX), comme sur l'accueil FR. */
 const Section = styled.section<{ variant?: "paper" | "alt" | "dark" }>`
-  padding: clamp(88px, 11vh, 144px) 24px;
+  padding: clamp(64px, 8vh, 104px) 24px;
   ${({ variant }) => {
     switch (variant) {
       case "dark":
@@ -619,6 +620,54 @@ const insights = [
   },
 ];
 
+/* Real visuals (29/08/2026, gap #1 of the UX check: no visual proof anywhere).
+   Both captures are REAL renders, regenerable (scan of mkz-consulting.fr via
+   /en/seo-audit/?site=…, simulator): never swap them for an illustration that
+   promises what the tool does not show. */
+const ToolShot = styled.span`
+  display: block;
+  margin-bottom: 18px;
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.sm};
+  overflow: hidden;
+
+  img { display: block; width: 100%; height: auto; }
+`;
+
+const DiffLayout = styled.div`
+  display: grid;
+  gap: 32px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+`;
+
+/* The real portrait from /en/about/: the page says "you talk to the person
+   doing the work" without ever showing them. */
+const PortraitFigure = styled.figure`
+  max-width: 220px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid ${theme.colors.borderInk};
+    border-radius: ${theme.radius.lg};
+    box-shadow: ${theme.shadows.lg};
+  }
+
+  figcaption {
+    margin-top: 10px;
+    font-family: ${theme.fonts.mono};
+    font-size: 13px;
+    line-height: 1.6;
+    color: ${theme.colors.textSecondary};
+  }
+`;
+
 // Free tools as section 02 since 22/08/2026: the audit tool sat three screens
 // down the French home and nowhere on this one. Facts are those of the tool
 // pages (17 checks, one minute, no signup; energy, CO2 and water with
@@ -630,6 +679,7 @@ const tools = [
     desc: "Enter your address: 17 real checks on the site you actually serve (HTTPS, real 404, SERP tags, AI crawlers, llms.txt, structured data), a score out of 100 and your priorities. No signup.",
     href: "/en/seo-audit/",
     go: "Test my site",
+    img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 414, alt: "A real scan result: mkz-consulting.fr, 70/70, technical 35/35, AI readability 35/35" },
   },
   {
     kicker: "Tool 02 · simulator, in French",
@@ -637,6 +687,7 @@ const tools = [
     desc: "How much energy, CO2 and water does one question to an AI cost? Type a query, pick the model class and the region: the simulator gives a figure with its uncertainty range and its sources.",
     href: "/empreinte-ia/",
     go: "Open the simulator",
+    img: { src: "/images/outils/empreinte-apercu-carte.webp", w: 1400, h: 299, alt: "The simulator's result (in French): 0.42 Wh, 0.039 g CO2e and 0.81 mL of water for a typical query, with uncertainty ranges" },
   },
 ];
 
@@ -743,6 +794,10 @@ export default function HomeContentEn() {
           <InsightGrid>
             {tools.map((c) => (
               <InsightCard key={c.title} href={c.href}>
+                <ToolShot>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={c.img.src} width={c.img.w} height={c.img.h} alt={c.img.alt} loading="lazy" />
+                </ToolShot>
                 <InsightKicker>{c.kicker}</InsightKicker>
                 <InsightTitle>{c.title}</InsightTitle>
                 <InsightDesc>{c.desc}</InsightDesc>
@@ -836,15 +891,22 @@ export default function HomeContentEn() {
             <Kicker><strong>05</strong>&ensp;Why me</Kicker>
             <ChapterTitle>A French consultant, not a French-speaking department.</ChapterTitle>
           </ChapterHead>
-          <DiffGrid>
-            {differentiators.map((d) => (
-              <DiffCell key={d.num}>
-                <DiffNum>{d.num}</DiffNum>
-                <DiffTitle>{d.title}</DiffTitle>
-                <DiffDesc>{d.desc}</DiffDesc>
-              </DiffCell>
-            ))}
-          </DiffGrid>
+          <DiffLayout>
+            <PortraitFigure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc, founder of MKZ" width={1024} height={1024} loading="lazy" />
+              <figcaption>Micka&euml;l Leclerc, founder.<br />The person you actually talk to.</figcaption>
+            </PortraitFigure>
+            <DiffGrid>
+              {differentiators.map((d) => (
+                <DiffCell key={d.num}>
+                  <DiffNum>{d.num}</DiffNum>
+                  <DiffTitle>{d.title}</DiffTitle>
+                  <DiffDesc>{d.desc}</DiffDesc>
+                </DiffCell>
+              ))}
+            </DiffGrid>
+          </DiffLayout>
         </Container>
       </Section>
 

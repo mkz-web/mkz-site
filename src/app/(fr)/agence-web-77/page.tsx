@@ -45,6 +45,7 @@ export default function AgenceWeb77Page() {
         ])}
       />
       <PillarContent
+        visual={{ src: "/images/piliers/pilier-agence-77.webp", w: 896, h: 1071, alt: "Une carte stylisée avec un grand repère orange planté au milieu des routes et des villages" }}
         data={{
           badge: pillar.heroBadge,
           title: pillar.title,

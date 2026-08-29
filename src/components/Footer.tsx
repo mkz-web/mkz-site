@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { usePathname } from "next/navigation";
 import { theme } from "@/lib/theme";
@@ -19,13 +20,13 @@ const FooterWrapper = styled.footer`
 const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 24px 40px;
+  padding: 64px 24px 32px;
 `;
 
 const TopBlock = styled.div`
   display: grid;
   gap: 32px;
-  padding-bottom: 64px;
+  padding-bottom: 48px;
   border-bottom: 1px solid ${theme.colors.darkBorder};
 
   @media (min-width: ${theme.breakpoints.lg}) {
@@ -71,11 +72,12 @@ const TopPhone = styled.a`
 
 const Grid = styled.div`
   display: grid;
-  gap: 40px;
-  padding: 56px 0;
+  gap: 20px;
+  padding: 40px 0;
 
   @media (min-width: ${theme.breakpoints.md}) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 
   @media (min-width: ${theme.breakpoints.lg}) {
@@ -108,6 +110,31 @@ const GroupTitle = styled.h3`
   // Fond sombre : orange VIF (4,86:1). L'orange encre y tomberait a 3,17:1.
   color: ${theme.colors.cta};
   margin-bottom: 18px;
+`;
+
+/* Accordéons sous 768 px depuis le 29/08/2026 (lot 2 du check UX) : le footer
+   déplié mesurait 1 922 px sur mobile, soit 51 % de la page /contact/. Le
+   basculement mobile se fait après hydratation (matchMedia), donc le HTML
+   statique reste le footer complet : crawlers et sans-JS ne perdent rien. */
+const GroupToggle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid ${theme.colors.darkBorder};
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+
+  span {
+    font-size: 18px;
+    color: ${theme.colors.textOnDarkSecondary};
+  }
 `;
 
 const LinkList = styled.ul`
@@ -186,6 +213,39 @@ const ManageCookies = styled.button`
   }
 `;
 
+function FooterGroup({ titre, children }: { titre: string; children: React.ReactNode }) {
+  const [mobile, setMobile] = useState(false);
+  const [ouvert, setOuvert] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const maj = () => setMobile(mq.matches);
+    maj();
+    mq.addEventListener("change", maj);
+    return () => mq.removeEventListener("change", maj);
+  }, []);
+
+  if (!mobile) {
+    return (
+      <div>
+        <GroupTitle>{titre}</GroupTitle>
+        {children}
+      </div>
+    );
+  }
+  return (
+    <div>
+      <GroupTitle style={{ marginBottom: ouvert ? 18 : 0 }}>
+        <GroupToggle type="button" aria-expanded={ouvert} onClick={() => setOuvert((o) => !o)}>
+          {titre}
+          <span aria-hidden>{ouvert ? "−" : "+"}</span>
+        </GroupToggle>
+      </GroupTitle>
+      {ouvert && children}
+    </div>
+  );
+}
+
 export default function Footer({ locale = "fr" }: { locale?: Locale }) {
   const pathname = usePathname();
   const t = ui[locale].footer;
@@ -235,8 +295,7 @@ export default function Footer({ locale = "fr" }: { locale?: Locale }) {
           </div>
 
           {t.groups.map((group) => (
-            <div key={group.title}>
-              <GroupTitle>{group.title}</GroupTitle>
+            <FooterGroup key={group.title} titre={group.title}>
               <LinkList>
                 {group.links.map((link) => (
                   <li key={link.href}>
@@ -280,7 +339,7 @@ export default function Footer({ locale = "fr" }: { locale?: Locale }) {
                   </li>
                 )}
               </LinkList>
-            </div>
+            </FooterGroup>
           ))}
         </Grid>
 

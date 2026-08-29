@@ -43,6 +43,7 @@ export default function CreationSiteInternetPage() {
         ])}
       />
       <PillarContent
+        visual={{ src: "/images/piliers/pilier-creation-site.webp", w: 896, h: 1071, alt: "Une devanture artisanale éclairée qui attire deux passants, gravure à l'encre" }}
         data={{
           badge: pillar.heroBadge,
           title: pillar.title,

@@ -10,7 +10,7 @@
 // de Mickaël, qui prépare et envoie le rapport sous 24 h. Pas d'envoi
 // automatique : choix du cadrage MVP (dossier Projet/Seo-referencement).
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import { gaEvent } from "@/lib/ga";
@@ -116,6 +116,7 @@ const ErrorLine = styled.p`
 
 const ScorePanel = styled.div`
   margin-top: ${theme.spacing.xl};
+  scroll-margin-top: 96px;
   display: grid;
   gap: ${theme.spacing.lg};
   align-items: center;
@@ -126,19 +127,64 @@ const ScorePanel = styled.div`
   }
 `;
 
-const ScoreBig = styled.div`
-  font-family: ${theme.fonts.mono};
-  font-size: clamp(48px, 10vw, 72px);
-  font-weight: 700;
-  line-height: 1;
-  color: ${theme.colors.accent};
+/* Anneau de score (lot 2 du check UX du 28/08/2026 : le score sortait en texte
+   brut, au même poids visuel que le reste). SVG inline, zéro dépendance ;
+   l'arc se dessine une fois, sauf prefers-reduced-motion. */
+const RingWrap = styled.div`
+  position: relative;
+  margin-top: 10px;
+  width: 148px;
+  height: 148px;
+`;
 
-  span {
-    font-size: 0.4em;
-    color: ${theme.colors.textSecondary};
-    font-weight: 400;
+const RingSvg = styled.svg`
+  display: block;
+  transform: rotate(-90deg);
+`;
+
+const RingTrack = styled.circle`
+  fill: none;
+  stroke: ${theme.colors.surfaceAlt};
+  stroke-width: 12;
+`;
+
+const RingFill = styled("circle", {
+  shouldForwardProp: (p) => p !== "tint",
+})<{ tint: string }>`
+  fill: none;
+  stroke: ${(p) => p.tint};
+  stroke-width: 12;
+  transition: stroke-dashoffset 0.9s ${theme.easing};
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `;
+
+const RingLabel = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: ${theme.fonts.mono};
+
+  strong {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    color: ${theme.colors.accent};
+  }
+
+  span {
+    margin-top: 2px;
+    font-size: 14px;
+    color: ${theme.colors.textSecondary};
+  }
+`;
+
+const CIRC = 2 * Math.PI * 62;
 
 const BlocBars = styled.div`
   display: flex;
@@ -291,6 +337,12 @@ const ConsentLabel = styled.label`
   }
 `;
 
+const ActionsRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+`;
+
 const RescanButton = styled.button`
   margin-top: ${theme.spacing.lg};
   background: none;
@@ -314,7 +366,54 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
   const [origin, setOrigin] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [mailStatus, setMailStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [ringDrawn, setRingDrawn] = useState(false);
+  const [copie, setCopie] = useState(false);
   const urlRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const scoreRef = useRef<HTMLDivElement>(null);
+
+  // Fin de scan : défilement automatique vers le score, puis dessin de l'anneau
+  // (deux rAF : l'arc doit d'abord être peint à zéro pour que la transition parte).
+  useEffect(() => {
+    if (status !== "done") {
+      setRingDrawn(false);
+      return;
+    }
+    const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    scoreRef.current?.scrollIntoView({ behavior: reduit ? "auto" : "smooth", block: "start" });
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setRingDrawn(true));
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
+  }, [status]);
+
+  async function copierLien() {
+    if (!origin) return;
+    try {
+      const hote = new URL(origin).hostname;
+      const url = `${window.location.origin}${window.location.pathname}?site=${encodeURIComponent(hote)}`;
+      await navigator.clipboard.writeText(url);
+      setCopie(true);
+      setTimeout(() => setCopie(false), 2500);
+    } catch {
+      /* presse-papiers refusé (permission, contexte non sécurisé) : rien à casser */
+    }
+  }
+
+  // ?site=exemple.fr : pré-remplit et lance le scan à l'arrivée (28/08/2026).
+  // Sert les liens de scan partageables (mail, rapport) et la capture
+  // reproductible des visuels du site. Une seule fois, au montage.
+  useEffect(() => {
+    const site = new URLSearchParams(window.location.search).get("site");
+    if (!site || !urlRef.current) return;
+    urlRef.current.value = site;
+    formRef.current?.requestSubmit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function callScan(body: Record<string, string>) {
     const res = await fetch("/api/scan", {
@@ -425,7 +524,7 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
 
   return (
     <Wrap>
-      <InputRow onSubmit={run}>
+      <InputRow ref={formRef} onSubmit={run}>
         <label htmlFor="audit-url" style={{ position: "absolute", left: "-9999px" }}>
           {t.urlLabel}
         </label>
@@ -449,13 +548,26 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
       {checks.length > 0 && (
         <>
           {status === "done" && (
-            <ScorePanel>
+            <ScorePanel ref={scoreRef}>
               <div>
                 <Mono>{t.scoreTitle}</Mono>
-                <ScoreBig>
-                  {points}
-                  <span>/{maxMeasurable}</span>
-                </ScoreBig>
+                <RingWrap>
+                  <RingSvg width="148" height="148" viewBox="0 0 148 148" role="img" aria-label={`${points}/${maxMeasurable}`}>
+                    <RingTrack cx="74" cy="74" r="62" />
+                    <RingFill
+                      cx="74"
+                      cy="74"
+                      r="62"
+                      tint={tint(maxMeasurable ? points / maxMeasurable : 0)}
+                      strokeDasharray={CIRC}
+                      strokeDashoffset={ringDrawn ? CIRC * (1 - (maxMeasurable ? points / maxMeasurable : 0)) : CIRC}
+                    />
+                  </RingSvg>
+                  <RingLabel aria-hidden>
+                    <strong>{points}</strong>
+                    <span>/{maxMeasurable}</span>
+                  </RingLabel>
+                </RingWrap>
               </div>
               <BlocBars>
                 {(["technique", "ia"] as const).map((b) => {
@@ -572,21 +684,26 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
           )}
 
           {status === "done" && (
-            <RescanButton
-              type="button"
-              onClick={() => {
-                setStatus("idle");
-                setChecks([]);
-                setOrigin(null);
-                setError(null);
-                if (urlRef.current) {
-                  urlRef.current.value = "";
-                  urlRef.current.focus();
-                }
-              }}
-            >
-              {t.rescan}
-            </RescanButton>
+            <ActionsRow>
+              <RescanButton
+                type="button"
+                onClick={() => {
+                  setStatus("idle");
+                  setChecks([]);
+                  setOrigin(null);
+                  setError(null);
+                  if (urlRef.current) {
+                    urlRef.current.value = "";
+                    urlRef.current.focus();
+                  }
+                }}
+              >
+                {t.rescan}
+              </RescanButton>
+              <RescanButton type="button" onClick={copierLien}>
+                {copie ? t.copie : t.copier}
+              </RescanButton>
+            </ActionsRow>
           )}
         </>
       )}

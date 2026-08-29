@@ -23,6 +23,9 @@ export interface ToolCard {
   cta: string;
   href: string;
   note?: string;
+  /** Capture RÉELLE de l'outil (29/08/2026) : un vrai rendu, régénérable,
+   *  jamais une illustration qui promet ce que l'outil ne montre pas. */
+  img?: { src: string; w: number; h: number; alt: string };
 }
 
 export interface ToolsPageContent {
@@ -153,6 +156,16 @@ const CardDesc = styled.p`
   color: ${theme.colors.textSecondary};
 `;
 
+const CardShot = styled.span`
+  display: block;
+  margin-top: 18px;
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.sm};
+  overflow: hidden;
+
+  img { display: block; width: 100%; height: auto; }
+`;
+
 const Facts = styled.ul`
   margin-top: 18px;
   padding-left: 18px;
@@ -280,6 +293,12 @@ export default function ToolsContent({
             <CardKicker>{tool.kicker}</CardKicker>
             <CardTitle>{tool.title}</CardTitle>
             <CardDesc>{tool.desc}</CardDesc>
+            {tool.img && (
+              <CardShot>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={tool.img.src} width={tool.img.w} height={tool.img.h} alt={tool.img.alt} loading="lazy" />
+              </CardShot>
+            )}
             <Facts>
               {tool.facts.map((f) => (
                 <li key={f}>{f}</li>
