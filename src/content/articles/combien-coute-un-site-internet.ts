@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Combien coûte un site internet en 2026 ? Prix réels TPE",
   "metaDescription": "Combien coûte un site internet en 2026 ? Les vrais prix pour un artisan ou une TPE : devis décortiqué ligne par ligne et budget complet sur 3 ans.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-08",
+  "dateModified": "2026-09-03",
   "readingMinutes": 11,
   "excerpt": "Entre l'offre à 29 €/mois, le neveu « qui s'y connaît » et le devis d'agence à 5 000 €, difficile d'y voir clair. Voici les **vrais prix 2026** d'un site internet pour un artisan ou une TPE : fourchettes sourcées, devis décortiqué ligne par ligne et budget complet sur 3 ans.",
   "tldr": [
@@ -217,6 +217,32 @@ const article: Article = {
           "Vous ne possédez ni le site ni le domaine"
         ]
       ]
+    },
+    {
+      "type": "h2",
+      "id": "site-internet-pas-cher",
+      "text": "Site internet pas cher : ce que vous payez vraiment"
+    },
+    {
+      "type": "p",
+      "text": "Un **site internet pas cher**, c'est presque toujours l'un de ces trois produits : un site en location à quelques dizaines d'euros par mois, un site fait soi-même sur un outil en ligne, ou un site à prix cassé livré sans rédaction ni référencement. Aucun n'est une arnaque en soi. Le piège, c'est de comparer le prix affiché au lieu du coût total sur trois ans, et de ce qu'il vous reste à la fin."
+    },
+    {
+      "type": "p",
+      "text": "En **hypothèse de travail** : un site en location à 29 € par mois coûte 1 044 € sur trois ans, et il disparaît le jour où vous arrêtez de payer, parfois avec le nom de domaine. Un site à 1 490 € HT dont vous êtes propriétaire, rédaction et référencement inclus comme dans notre [offre de création de site](/creation-site-internet/), coûte plus au départ et reste à vous, nom de domaine compris."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "**Le nom de domaine est-il à votre nom ?** Sinon, vous louez votre propre adresse.",
+        "**Que se passe-t-il si vous arrêtez de payer ?** Si la réponse est « le site disparaît », ce n'est pas un achat, c'est un abonnement.",
+        "**Les textes sont-ils rédigés, ou à fournir ?** Un site pas cher « textes à fournir » reste souvent vide longtemps : personne n'a le temps d'écrire.",
+        "**Le site est-il déclaré à Google et relié à votre fiche ?** Sans Search Console ni sitemap, un site pas cher est aussi un site invisible."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Si le site pas cher est déjà en ligne et qu'il n'apparaît pas dans Google, le problème n'est souvent pas le prix : lisez [pourquoi mon site n'apparaît pas sur Google](/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/)."
     },
     {
       "type": "h2",
@@ -516,7 +542,8 @@ const article: Article = {
     "prix site internet vitrine",
     "tarif site internet artisan",
     "combien coûte un site internet par mois",
-    "prix création site internet"
+    "prix création site internet",
+    "site internet pas cher"
   ]
 };
 

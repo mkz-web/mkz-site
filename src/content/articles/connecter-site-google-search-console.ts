@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Google Search Console : connecter son site pas à pas",
   "metaDescription": "Ajoutez votre site à Google Search Console en 15 minutes : propriété, vérification, sitemap, indexation. Tutoriel illustré, zéro jargon, 100 % gratuit.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-08",
+  "dateModified": "2026-09-03",
   "readingMinutes": 9,
   "excerpt": "Vous avez un site, mais aucune idée de ce que Google en fait ? **Google Search Console** vous montre gratuitement les recherches qui amènent vos clients. Ce tutoriel pas-à-pas, écrit pour les artisans, commerçants et TPE, vous connecte en 15 minutes, sans jargon et sans rien casser.",
   "tldr": [
@@ -336,7 +336,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "L'**indexation**, c'est l'entrée de vos pages dans le grand annuaire de Google. Tant qu'une page n'y figure pas, elle ne peut pas apparaître dans les résultats, même parfaite. Pour accélérer :"
+      "text": "L'**indexation**, c'est l'entrée de vos pages dans le grand annuaire de Google. Tant qu'une page n'y figure pas, elle ne peut pas apparaître dans les résultats, même parfaite. Pour accélérer : Si, plusieurs semaines après, une page reste absente, passez en revue les sept causes de [pourquoi mon site n'apparaît pas sur Google](/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/)."
     },
     {
       "type": "ol",
@@ -495,7 +495,8 @@ const article: Article = {
   "related": [
     "audit-seo",
     "creer-fiche-google-business-profile",
-    "optimiser-vitesse-wordpress"
+    "optimiser-vitesse-wordpress",
+    "pourquoi-mon-site-n-apparait-pas-sur-google"
   ],
   "keywords": [
     "google search console",

@@ -260,12 +260,13 @@ export interface UiStrings {
     urlLabel: string;
     urlPlaceholder: string;
     start: string;
-    phases: { origin: string; robots: string; page: string; notfound: string };
+    phases: { origin: string; robots: string; page: string; notfound: string; autorite: string };
     scoreTitle: string;
     scoreCaption: (points: number, max: number) => string;
     scoreScale: string;
     blocs: { technique: string; ia: string; autorite: string };
-    autoriteSoon: string;
+    /** Note sous la liste quand le bloc autorité n'a pas pu être lu (plafond, base injoignable). */
+    autoriteIndisponible: string;
     status: { ok: string; warn: string; fail: string; na: string };
     topTitle: string;
     allTitle: string;
@@ -313,6 +314,21 @@ export interface UiStrings {
 }
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
+
+// Raisons d'un check autorité « na » (moteur functions/api/_engine.mjs) : la
+// phrase dit pourquoi la base n'a pas été lue, jamais une estimation à la place.
+const naAutoriteFr = (reason: unknown): string =>
+  reason === "sans-liens"
+    ? "aucun lien entrant à évaluer"
+    : reason === "quota"
+      ? "plafond quotidien de lectures DataForSEO atteint : mesure reportée au rapport complet"
+      : "base DataForSEO injoignable pendant ce scan : mesure reportée au rapport complet";
+const naAutoriteEn = (reason: unknown): string =>
+  reason === "sans-liens"
+    ? "no inbound link to assess"
+    : reason === "quota"
+      ? "daily DataForSEO reading cap reached: measured in the full report instead"
+      : "DataForSEO database unreachable during this scan: measured in the full report instead";
 
 export const ui: Record<Locale, UiStrings> = {
   fr: {
@@ -530,19 +546,20 @@ export const ui: Record<Locale, UiStrings> = {
         robots: "Lecture du robots.txt servi, des robots IA et du llms.txt...",
         page: "Analyse de la page d'accueil : balises, données structurées, en-têtes...",
         notfound: "Test d'une adresse inventée : vraie 404 ou soft-404...",
+        autorite: "Lecture de la base DataForSEO : liens entrants, positions sur Google France, trafic estimé...",
       },
       scoreTitle: "Votre score",
       scoreCaption: (points, max) => `${points} points sur ${max} mesurés à l'instant`,
       scoreScale:
-        "Chaque point correspond à une mesure réelle faite sur votre site il y a quelques secondes. Rien n'est estimé.",
+        "Technique et lisibilité IA : mesurées sur votre site à l'instant, rien n'est estimé. Autorité et positions : lues dans la base DataForSEO au moment du test, la seule façon de savoir qui vous cite et où Google vous affiche.",
       blocs: {
         technique: "Technique et hygiène SEO",
         ia: "Lisibilité par les IA",
         autorite: "Autorité et positions Google",
       },
-      autoriteSoon:
-        "Mesure en cours d'activation : domaines référents, mots-clés positionnés et trafic estimé arrivent dans le rapport complet.",
-      status: { ok: "OK", warn: "À améliorer", fail: "Défaut", na: "À venir" },
+      autoriteIndisponible:
+        "Autorité et positions non lues sur ce scan (plafond quotidien de lectures DataForSEO atteint, ou base injoignable) : elles figureront dans le rapport complet.",
+      status: { ok: "OK", warn: "À améliorer", fail: "Défaut", na: "Non mesuré" },
       topTitle: "Vos priorités",
       allTitle: "Le détail des mesures",
       checkLabels: {
@@ -658,6 +675,28 @@ export const ui: Record<Locale, UiStrings> = {
                 : `réponse inattendue : HTTP ${d.status}`;
           case "page":
             return `la page d'accueil ne répond pas en 200 (HTTP ${d.status})`;
+          case "domaines-referents":
+            return d.reason
+              ? naAutoriteFr(d.reason)
+              : Number(d.domaines) === 0
+                ? "aucun domaine ne pointe vers votre site dans la base DataForSEO : sans lien entrant, Google n'a pas de raison de vous faire confiance"
+                : `${d.domaines} domaine(s) référent(s), ${d.backlinks} lien(s) entrant(s) connus de DataForSEO`;
+          case "spam-score":
+            return d.reason
+              ? naAutoriteFr(d.reason)
+              : `score de spam ${d.spam}/100 sur vos ${d.backlinks} liens entrants (base DataForSEO)${Number(d.spam) > 30 ? " : une part de vos liens vient de sites toxiques" : Number(d.spam) > 15 ? " : profil à surveiller" : " : profil propre"}`;
+          case "mots-cles":
+            return d.reason
+              ? naAutoriteFr(d.reason)
+              : Number(d.motsCles) === 0
+                ? "aucun mot-clé dans le top 100 de Google France (base DataForSEO) : personne ne vous trouve sans taper votre nom"
+                : `${d.motsCles} mot(s)-clé(s) dans le top 100 de Google France, dont ${d.top10} en première page (base DataForSEO)`;
+          case "trafic-estime":
+            return d.reason
+              ? naAutoriteFr(d.reason)
+              : Number(d.trafic) === 0
+                ? "trafic depuis Google France estimé à zéro par DataForSEO"
+                : `environ ${d.trafic} visite(s) par mois depuis Google France, estimation DataForSEO`;
           default:
             return "";
         }
@@ -908,19 +947,20 @@ export const ui: Record<Locale, UiStrings> = {
         robots: "Reading the live robots.txt, AI crawlers and llms.txt...",
         page: "Analysing the homepage: tags, structured data, headers...",
         notfound: "Testing a made-up URL: real 404 or soft-404...",
+        autorite: "Reading the DataForSEO database: inbound links, Google France rankings, estimated traffic...",
       },
       scoreTitle: "Your score",
       scoreCaption: (points, max) => `${points} points out of ${max} measured just now`,
       scoreScale:
-        "Every point is a real measurement taken on your site seconds ago. Nothing is estimated.",
+        "Technical and AI readability: measured on your site just now, nothing estimated. Authority and rankings: read from the DataForSEO database at test time, the only way to know who links to you and where Google shows you.",
       blocs: {
         technique: "Technical and SEO hygiene",
         ia: "Readability by AI engines",
         autorite: "Authority and Google rankings",
       },
-      autoriteSoon:
-        "Being activated: referring domains, ranked keywords and estimated traffic will land in the full report.",
-      status: { ok: "OK", warn: "Improve", fail: "Issue", na: "Coming" },
+      autoriteIndisponible:
+        "Authority and rankings not read on this scan (daily DataForSEO reading cap reached, or database unreachable): they will be in the full report.",
+      status: { ok: "OK", warn: "Improve", fail: "Issue", na: "Not measured" },
       topTitle: "Your priorities",
       allTitle: "Every measurement in detail",
       checkLabels: {
@@ -1036,6 +1076,28 @@ export const ui: Record<Locale, UiStrings> = {
                 : `unexpected response: HTTP ${d.status}`;
           case "page":
             return `the homepage does not answer with a 200 (HTTP ${d.status})`;
+          case "domaines-referents":
+            return d.reason
+              ? naAutoriteEn(d.reason)
+              : Number(d.domaines) === 0
+                ? "no domain links to your site in the DataForSEO database: without inbound links, Google has no reason to trust you"
+                : `${d.domaines} referring domain(s), ${d.backlinks} inbound link(s) known to DataForSEO`;
+          case "spam-score":
+            return d.reason
+              ? naAutoriteEn(d.reason)
+              : `spam score ${d.spam}/100 across your ${d.backlinks} inbound links (DataForSEO)${Number(d.spam) > 30 ? ": part of your links come from toxic sites" : Number(d.spam) > 15 ? ": profile to watch" : ": clean profile"}`;
+          case "mots-cles":
+            return d.reason
+              ? naAutoriteEn(d.reason)
+              : Number(d.motsCles) === 0
+                ? "no keyword in Google France's top 100 (DataForSEO): nobody finds you without typing your name"
+                : `${d.motsCles} keyword(s) in Google France's top 100, ${d.top10} of them on page one (DataForSEO)`;
+          case "trafic-estime":
+            return d.reason
+              ? naAutoriteEn(d.reason)
+              : Number(d.trafic) === 0
+                ? "organic traffic from Google France estimated at zero by DataForSEO"
+                : `about ${d.trafic} visit(s) per month from Google France, DataForSEO estimate`;
           default:
             return "";
         }

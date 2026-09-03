@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Référencement local : le guide pour artisans et TPE (2026)",
   "metaDescription": "Référencement local : la méthode en 5 étapes pour être trouvé sur Google dans votre ville. Fiche Google, avis, prix honnêtes, plan 90 jours. Sans jargon.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-09-03",
   "readingMinutes": 11,
   "excerpt": "Vous êtes artisan, commerçant ou patron de TPE, et vos concurrents passent devant vous sur Google ? Ce guide vous donne la méthode complète : **fiche Google**, avis, site web, annuaires et IA, dans l'ordre, avec le temps et le budget réels de chaque action. Sans jargon, promis.",
   "tldr": [
@@ -111,7 +111,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le réflexe a changé : on ne demande plus au voisin, on demande à Google. Selon France Num (2025), **78 % des recherches locales sur mobile aboutissent à un achat dans les heures qui suivent**. Et les recherches contenant « près de moi » ou « à proximité » ont été multipliées par 5 en 5 ans (Google France, cité par France Num, 2025)."
+      "text": "Le réflexe a changé : on ne demande plus au voisin, on demande à Google. Selon France Num (2025), **78 % des recherches locales sur mobile aboutissent à un achat dans les heures qui suivent**. Et les recherches contenant « près de moi » ou « à proximité » ont été multipliées par 5 en 5 ans (Google France, cité par France Num, 2025). Pour un artisan du bâtiment, c'est aussi le moyen de [trouver des chantiers sans dépendre des plateformes](/conseils/seo/trouver-des-chantiers/)."
     },
     {
       "type": "p",
@@ -182,7 +182,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La **fiche Google Business Profile** (l'ancien « Google My Business ») est la carte d'identité gratuite de votre entreprise sur Google et Google Maps : horaires, téléphone, photos, avis. C'est elle qui apparaît dans le pack local. Une heure suffit pour la mettre au niveau."
+      "text": "La **fiche Google Business Profile** (l'ancien « Google My Business ») est la carte d'identité gratuite de votre entreprise sur Google et Google Maps : horaires, téléphone, photos, avis. C'est elle qui apparaît dans le pack local. Une heure suffit pour la mettre au niveau. Vous partez de zéro ? Commencez par [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/)."
     },
     {
       "type": "h3",
@@ -219,7 +219,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les avis Google jouent double : ils rassurent vos futurs clients et pèsent dans le classement du pack local. À prestation égale, un artisan à 4,8 étoiles avec 60 avis passe devant un concurrent muet. Visez 2 à 4 nouveaux avis par mois, régulièrement, plutôt que 30 d'un coup."
+      "text": "Les avis Google jouent double : ils rassurent vos futurs clients et pèsent dans le classement du pack local. À prestation égale, un artisan à 4,8 étoiles avec 60 avis passe devant un concurrent muet. Visez 2 à 4 nouveaux avis par mois, régulièrement, plutôt que 30 d'un coup. Le mode d'emploi complet (lien, QR code, réponse aux avis négatifs, faux avis) est dans notre [guide des avis Google](/conseils/seo/avis-google/)."
     },
     {
       "type": "h3",
@@ -565,7 +565,9 @@ const article: Article = {
   "related": [
     "creer-fiche-google-business-profile",
     "seo-artisan",
-    "audit-seo"
+    "audit-seo",
+    "avis-google",
+    "trouver-des-chantiers"
   ],
   "keywords": [
     "référencement local",

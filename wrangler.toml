@@ -1,4 +1,27 @@
-# Config Cloudflare Pages — lue par `npx wrangler pages deploy` (voir scripts/deploy.mjs)
+# Config Cloudflare Pages, lue par `npx wrangler pages deploy` (voir scripts/deploy.mjs)
+# et par `npx wrangler pages dev out` (secrets locaux dans .dev.vars, gitignoré).
 name = "mkz-site"
 pages_build_output_dir = "out"
 compatibility_date = "2026-06-11"
+
+# Outil d'audit (/api/scan, phase « autorite ») : plafond quotidien DUR de
+# mesures DataForSEO. Une mesure = un domaine (2 appels, 0,036 USD mesuré le
+# 03/09/2026 : backlinks/summary 0,024 + labs/domain_rank_overview 0,012).
+# 50 domaines par jour = 1,80 USD par jour au pire. Au-delà, le scan continue
+# sans le bloc autorité et le dit (« plafond quotidien atteint »).
+# Les identifiants DataForSEO sont des SECRETS du projet Pages, jamais ici :
+#   npx wrangler pages secret put DATAFORSEO_LOGIN --project-name mkz-site
+#   npx wrangler pages secret put DATAFORSEO_PASSWORD --project-name mkz-site
+[vars]
+AUDIT_TIER1_MAX_JOUR = "50"
+
+# Compteur du plafond et cache 24 h par domaine : espace KV « AUDIT_QUOTA ».
+# Sans ce binding, le moteur retombe sur un compteur en mémoire par isolat
+# (approché, remis à zéro à chaque recyclage) : le vrai plafond dur exige KV.
+# Le jeton CLOUDFLARE_API_TOKEN_MKZ n'a pas le droit « Workers KV Storage »
+# (mesuré le 03/09/2026 : erreur 10000 sur la liste des espaces), donc :
+# créer l'espace « mkz-audit-quota » dans le tableau de bord (Storage &
+# Databases > KV), coller son id ci-dessous, décommenter, redéployer.
+# [[kv_namespaces]]
+# binding = "AUDIT_QUOTA"
+# id = "<id de l'espace KV mkz-audit-quota>"

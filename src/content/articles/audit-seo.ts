@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Audit SEO : guide simple + checklist gratuite (2026)",
   "metaDescription": "Comprenez l'audit SEO sans jargon : checklist gratuite en 10 points pour tester votre site en 30 minutes, prix réels d'un audit pro et pièges à éviter.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-21",
+  "dateModified": "2026-09-03",
   "readingMinutes": 10,
   "excerpt": "Le téléphone ne sonne plus et votre site reste invisible sur Google ? Avant de payer qui que ce soit, passez-le au contrôle technique vous-même. Nous vous expliquons l'**audit SEO** sans jargon : checklist gratuite en 30 minutes, vrais prix d'un audit pro et pièges à éviter.",
   "tldr": [
@@ -184,7 +184,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Voici comment faire un bon audit SEO de premier niveau, sans rien payer : **10 points de contrôle**, des outils 100 % gratuits, environ 30 minutes. La méthode est calibrée pour un site vitrine de 5 à 15 pages : celui d'un artisan, pas celui d'Amazon. Prenez de quoi noter et cochez « OK » ou « à corriger » à chaque point."
+      "text": "Voici comment faire un bon audit SEO de premier niveau, sans rien payer : **10 points de contrôle**, des outils 100 % gratuits, environ 30 minutes. La méthode est calibrée pour un site vitrine de 5 à 15 pages : celui d'un artisan, pas celui d'Amazon. Prenez de quoi noter et cochez « OK » ou « à corriger » à chaque point. Et si votre site n'apparaît pas du tout, commencez par [les sept causes d'un site absent de Google](/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/)."
     },
     {
       "type": "h3",
@@ -359,7 +359,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est précisément pour corriger ces défauts que nous avons construit notre propre [audit SEO gratuit en ligne](/audit-seo/) : 17 mesures réelles faites sur votre site au moment où vous cliquez (HTTPS, robots des IA, données structurées, vraie page 404...), un score affiché sans laisser votre e-mail, et chaque point expliqué en français. Débroussaillez en une minute, puis déroulez la checklist en 10 points ci-dessus : les deux se complètent."
+      "text": "C'est précisément pour corriger ces défauts que nous avons construit notre propre [audit SEO gratuit en ligne](/audit-seo/) : 20 mesures réelles faites sur votre site au moment où vous cliquez (HTTPS, robots des IA, données structurées, vraie page 404...), un score affiché sans laisser votre e-mail, et chaque point expliqué en français. Débroussaillez en une minute, puis déroulez la checklist en 10 points ci-dessus : les deux se complètent."
     },
     {
       "type": "h2",
@@ -533,7 +533,8 @@ const article: Article = {
   "related": [
     "referencement-local",
     "connecter-site-google-search-console",
-    "seo-artisan"
+    "seo-artisan",
+    "pourquoi-mon-site-n-apparait-pas-sur-google"
   ],
   "keywords": [
     "audit seo",

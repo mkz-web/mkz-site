@@ -8,12 +8,14 @@
 // tourne dans la Pages Function en production et dans le harnais de test
 // scripts/test-audit-engine.mjs. Dépendances : aucune.
 //
-// Découpage en 4 phases, une requête HTTP du front par phase, pour rester loin
+// Découpage en 5 phases, une requête HTTP du front par phase, pour rester loin
 // des limites CPU des Workers et donner au visiteur une progression réelle :
 //   1 origin    : normalisation + les 4 variantes http/https x www/apex
 //   2 robots    : robots.txt live, crawlers IA, llms.txt, sitemap
 //   3 page      : la page d'accueil (balises, JSON-LD, en-têtes, indexabilité)
 //   4 notfound  : vraie 404 contre soft-404
+//   5 autorite  : DataForSEO, liens entrants et positions Google France (Tier 1,
+//                 payant : cache 24 h par domaine et plafond quotidien dur)
 
 const UA = "MKZ-Audit/1.0 (+https://mkz-consulting.fr/audit-seo/)";
 const TIMEOUT_MS = 8000;
@@ -505,19 +507,259 @@ export async function phaseNotFound(origin) {
 }
 
 // ---------------------------------------------------------------------------
-// Tier 1 (S2) : autorité et positions via DataForSEO. Stub honnête en S1 :
-// "na" et zéro point comptabilisé, le front l'affiche comme "à venir".
+// Phase 5 : autorité et positions Google via DataForSEO (30 points, Tier 1).
+//
+// Deux appels par domaine, coût RELEVÉ sur le champ `cost` des réponses le
+// 03/09/2026 : backlinks/summary/live 0,024 USD, dataforseo_labs/google/
+// domain_rank_overview/live 0,012 USD, soit 0,036 USD par domaine mesuré.
+// Garde-fous, dans l'ordre :
+//   1. cache 24 h par domaine : une lecture par domaine et par jour, quel que
+//      soit le nombre de scans ;
+//   2. plafond quotidien DUR de domaines lus (ctx.maxParJour, variable
+//      AUDIT_TIER1_MAX_JOUR de wrangler.toml, compteur dans le KV AUDIT_QUOTA) :
+//      au-delà, les 4 checks sortent en "na" avec la raison "quota" et le scan
+//      continue sans ce bloc ;
+//   3. identifiants absents, API en erreur ou délai dépassé : "na" avec la
+//      raison, jamais une estimation à la place.
+// Ce que ces chiffres SONT : une lecture de la base DataForSEO au moment du
+// test (liens entrants connus, positions relevées sur Google France, trafic
+// ESTIMÉ par DataForSEO). Pas une mesure faite sur le site du visiteur : le
+// front le dit à chaque ligne, parce qu'aucun site ne peut mesurer lui-même
+// qui le cite.
 // ---------------------------------------------------------------------------
 
-export function phaseAuthorityStub() {
+// Barème figé et versionné. Chaque échelle se lit de haut en bas : le premier
+// seuil (inclusif) atteint donne les points et le statut. Version 1, posée le
+// 03/09/2026 sur des ordres de grandeur d'artisans et de TPE (5 à 30 domaines
+// référents, 10 à 50 mots-clés pour un site local qui travaille). Changer un
+// seuil change le score de tous les visiteurs : incrémenter la version.
+export const BAREME_AUTORITE = {
+  version: "1 (2026-09-03)",
+  // referring_main_domains (DataForSEO backlinks/summary)
+  domainesReferents: [[100, 10, "ok"], [20, 8, "ok"], [5, 6, "warn"], [1, 3, "warn"], [0, 0, "fail"]],
+  // backlinks_spam_score, 0 à 100 : plus il est bas, mieux c'est.
+  spamScore: [[51, 0, "fail"], [31, 1, "warn"], [16, 3, "warn"], [0, 5, "ok"]],
+  // metrics.organic.count : mots-clés du top 100 de Google France (Labs)
+  motsCles: [[200, 10, "ok"], [50, 8, "ok"], [10, 6, "warn"], [1, 3, "warn"], [0, 0, "fail"]],
+  // metrics.organic.etv : visites mensuelles estimées depuis Google France
+  traficEstime: [[1000, 5, "ok"], [100, 4, "ok"], [10, 3, "warn"], [1, 1, "warn"], [0, 0, "fail"]],
+};
+
+export function noter(echelle, valeur) {
+  for (const [seuil, points, statut] of echelle) {
+    if (valeur >= seuil) return { points, statut };
+  }
+  const dernier = echelle[echelle.length - 1];
+  return { points: dernier[1], statut: dernier[2] };
+}
+
+const DFS_API = "https://api.dataforseo.com/v3";
+const CACHE_TTL_S = 24 * 3600;
+const QUOTA_TTL_S = 48 * 3600;
+export const TIER1_MAX_JOUR_DEFAUT = 50;
+
+// Magasin du compteur et du cache : le KV lié (plafond dur, partagé par tous
+// les isolats) ou, à défaut, une Map en mémoire bornée à l'isolat courant et
+// remise à zéro à chaque recyclage : approchée, donc pas un plafond dur.
+const memoire = new Map();
+function magasin(kv) {
+  if (kv && typeof kv.get === "function" && typeof kv.put === "function") {
+    return {
+      dur: true,
+      get: (k) => kv.get(k, "json"),
+      put: (k, v, ttl) => kv.put(k, JSON.stringify(v), { expirationTtl: ttl }),
+    };
+  }
   return {
-    checks: [
-      check("domaines-referents", "autorite", "na", 0, 10, {}),
-      check("spam-score", "autorite", "na", 0, 5, {}),
-      check("mots-cles", "autorite", "na", 0, 10, {}),
-      check("trafic-estime", "autorite", "na", 0, 5, {}),
-    ],
+    dur: false,
+    get: async (k) => {
+      const e = memoire.get(k);
+      if (!e) return null;
+      if (e.expire < Date.now()) {
+        memoire.delete(k);
+        return null;
+      }
+      return e.value;
+    },
+    put: async (k, v, ttl) => {
+      memoire.set(k, { value: v, expire: Date.now() + ttl * 1000 });
+    },
   };
+}
+
+// Un appel Live DataForSEO : une tâche, réponse normalisée { result, cost }
+// ou { error, code, cost }. Le coût est relevé sur la réponse, jamais supposé.
+async function dfsPost(chemin, tache, auth) {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(`${DFS_API}${chemin}`, {
+      method: "POST",
+      headers: {
+        Authorization: "Basic " + btoa(`${auth.login}:${auth.password}`),
+        "Content-Type": "application/json",
+        "User-Agent": UA,
+      },
+      body: JSON.stringify([tache]),
+      signal: ctl.signal,
+    });
+    if (res.status !== 200) return { error: "http", code: res.status, cost: 0 };
+    const json = await res.json();
+    const t = json && Array.isArray(json.tasks) ? json.tasks[0] : null;
+    if (!t) return { error: "api", code: (json && json.status_code) || null, cost: 0 };
+    if (t.status_code !== 20000) return { error: "api", code: t.status_code, cost: Number(t.cost) || 0 };
+    return { result: Array.isArray(t.result) && t.result[0] ? t.result[0] : null, cost: Number(t.cost) || 0 };
+  } catch (e) {
+    return { error: e && e.name === "AbortError" ? "timeout" : "reseau", code: null, cost: 0 };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function naAutorite(reason, extra = {}) {
+  const d = { reason, ...extra };
+  return [
+    check("domaines-referents", "autorite", "na", 0, 10, d),
+    check("spam-score", "autorite", "na", 0, 5, d),
+    check("mots-cles", "autorite", "na", 0, 10, d),
+    check("trafic-estime", "autorite", "na", 0, 5, d),
+  ];
+}
+
+// ctx : { login, password, kv, maxParJour, force }
+export async function phaseAutorite(origin, ctx = {}) {
+  const host = new URL(origin).hostname.toLowerCase().replace(/^www\./, "");
+  if (!ctx.login || !ctx.password) return { checks: naAutorite("non-configure"), cost: 0 };
+
+  const store = magasin(ctx.kv);
+  const cleCache = `autorite:v1:${host}`;
+  const enCache = ctx.force ? null : await store.get(cleCache);
+  if (enCache && Array.isArray(enCache.checks)) {
+    return {
+      checks: enCache.checks.map((c) => ({ ...c, data: { ...c.data, cache: true } })),
+      cost: 0,
+      cache: true,
+    };
+  }
+
+  // Plafond du jour (UTC) : lu puis incrémenté AVANT l'appel, un échec
+  // consomme donc le crédit, jamais l'inverse. Lecture puis écriture non
+  // atomiques : à quelques unités près sous scans simultanés, ce qui suffit
+  // à ce volume.
+  const max = Number(ctx.maxParJour) > 0 ? Number(ctx.maxParJour) : TIER1_MAX_JOUR_DEFAUT;
+  const jour = new Date().toISOString().slice(0, 10);
+  const cleQuota = `tier1:${jour}`;
+  const deja = Number(await store.get(cleQuota)) || 0;
+  if (deja >= max) {
+    return { checks: naAutorite("quota", { jour }), cost: 0, quota: { jour, deja, max, dur: store.dur } };
+  }
+  await store.put(cleQuota, deja + 1, QUOTA_TTL_S);
+
+  const auth = { login: ctx.login, password: ctx.password };
+  const [liens, positions] = await Promise.all([
+    dfsPost(
+      "/backlinks/summary/live",
+      {
+        target: host,
+        include_subdomains: true,
+        exclude_internal_backlinks: true,
+        backlinks_status_type: "live",
+        internal_list_limit: 1,
+      },
+      auth
+    ),
+    dfsPost(
+      "/dataforseo_labs/google/domain_rank_overview/live",
+      {
+        target: host,
+        location_code: 2250, // France
+        language_code: "fr",
+        ignore_synonyms: true,
+      },
+      auth
+    ),
+  ]);
+  const cost = liens.cost + positions.cost;
+  const releve = new Date().toISOString();
+  const source = "DataForSEO";
+  const checks = [];
+
+  if (liens.error) {
+    const d = { reason: liens.error, code: liens.code };
+    checks.push(check("domaines-referents", "autorite", "na", 0, 10, d));
+    checks.push(check("spam-score", "autorite", "na", 0, 5, d));
+  } else {
+    // Domaine inconnu de la base : result null, compté 0 et signalé `inconnu`.
+    const r = liens.result || {};
+    const domaines = Number(r.referring_main_domains) || 0;
+    const backlinks = Number(r.backlinks) || 0;
+    const spam = Number(r.backlinks_spam_score) || 0;
+    const nd = noter(BAREME_AUTORITE.domainesReferents, domaines);
+    checks.push(
+      check("domaines-referents", "autorite", nd.statut, nd.points, 10, {
+        domaines,
+        backlinks,
+        sousDomaines: Number(r.referring_domains) || 0,
+        rang: r.rank ?? null,
+        premierLien: r.first_seen ? String(r.first_seen).slice(0, 10) : null,
+        inconnu: !liens.result,
+        releve,
+        source,
+      })
+    );
+    if (backlinks === 0) {
+      // Rien à noter : pas de lien, pas de spam. "na" et hors du total,
+      // plutôt que 5 points offerts ou 0 point infligé deux fois.
+      checks.push(check("spam-score", "autorite", "na", 0, 5, { reason: "sans-liens", releve, source }));
+    } else {
+      const ns = noter(BAREME_AUTORITE.spamScore, spam);
+      checks.push(check("spam-score", "autorite", ns.statut, ns.points, 5, { spam, backlinks, releve, source }));
+    }
+  }
+
+  if (positions.error) {
+    const d = { reason: positions.error, code: positions.code };
+    checks.push(check("mots-cles", "autorite", "na", 0, 10, d));
+    checks.push(check("trafic-estime", "autorite", "na", 0, 5, d));
+  } else {
+    // Domaine sans position connue : items vide (mesuré sur
+    // seo-referencement.fr le 20/08/2026), compté 0 et signalé `inconnu`.
+    const item = positions.result && Array.isArray(positions.result.items) ? positions.result.items[0] : null;
+    const org = (item && item.metrics && item.metrics.organic) || {};
+    const motsCles = Number(org.count) || 0;
+    const top3 = (Number(org.pos_1) || 0) + (Number(org.pos_2_3) || 0);
+    const top10 = top3 + (Number(org.pos_4_10) || 0);
+    const trafic = Math.round(Number(org.etv) || 0);
+    const nm = noter(BAREME_AUTORITE.motsCles, motsCles);
+    checks.push(
+      check("mots-cles", "autorite", nm.statut, nm.points, 10, {
+        motsCles,
+        top10,
+        top3,
+        inconnu: !item,
+        pays: "France",
+        releve,
+        source,
+      })
+    );
+    const nt = noter(BAREME_AUTORITE.traficEstime, trafic);
+    checks.push(
+      check("trafic-estime", "autorite", nt.statut, nt.points, 5, {
+        trafic,
+        inconnu: !item,
+        pays: "France",
+        releve,
+        source,
+      })
+    );
+  }
+
+  // Seule une lecture complète entre au cache : une réponse partielle se
+  // retente au scan suivant (et reconsomme un crédit, c'est voulu).
+  const complete = checks.every((c) => c.status !== "na" || c.data.reason === "sans-liens");
+  if (complete) await store.put(cleCache, { checks, releve }, CACHE_TTL_S);
+
+  return { checks, cost, quota: { jour, deja: deja + 1, max, dur: store.dur } };
 }
 
 // ---------------------------------------------------------------------------
@@ -532,12 +774,10 @@ export async function runPhase(phase, params) {
       return phaseRobots(params.origin);
     case "page":
       return phasePage(params.origin);
-    case "notfound": {
-      const nf = await phaseNotFound(params.origin);
-      // Dernière phase : on joint le stub autorité pour que le front affiche
-      // le bloc complet avec son état "à venir".
-      return { checks: [...nf.checks, ...phaseAuthorityStub().checks] };
-    }
+    case "notfound":
+      return phaseNotFound(params.origin);
+    case "autorite":
+      return phaseAutorite(params.origin, params.ctx || {});
     default:
       return { error: "phase" };
   }

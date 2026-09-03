@@ -36,7 +36,7 @@ const content: ToolsPageContent = {
     {
       kicker: "Tool 01 · one minute",
       title: "Free SEO & AI audit",
-      desc: "Enter your address. The tool connects to the site you actually serve, runs 17 real checks the moment you click, and returns a score out of 100 with your priorities, each one explained.",
+      desc: "Enter your address. The tool connects to the site you actually serve, runs 20 real checks the moment you click, and returns a score out of 100 with your priorities, each one explained.",
       facts: [
         "Technical layer: HTTPS and redirects, a real 404 page, title and description tags, security headers.",
         "Readability by AI engines: GPTBot, ClaudeBot, PerplexityBot and Google-Extended allowed or blocked, llms.txt, structured data.",
@@ -45,7 +45,7 @@ const content: ToolsPageContent = {
       cta: "Run the free audit",
       href: "/en/seo-audit/",
       note: "No signup. The detailed report, also free, arrives within 24 business hours if you ask for it.",
-      img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 414, alt: "A real scan result: mkz-consulting.fr, 70/70, technical 35/35, AI readability 35/35" },
+      img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 343, alt: "A real scan result: mkz-consulting.fr, 89/100, technical 35/35, AI readability 35/35, authority and Google rankings 19/30" },
     },
     {
       kicker: "Tool 02 · simulator, in French",
@@ -88,7 +88,7 @@ const toolsListSchema = {
         name: "Free SEO + AI visibility audit",
         url: `${SITE}/en/seo-audit/`,
         description:
-          "Free online SEO audit tool: 17 real checks run on the site at test time, a score out of 100 and the priorities to fix. No signup.",
+          "Free online SEO audit tool: 20 real checks run on the site at test time, a score out of 100 and the priorities to fix. No signup.",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         isAccessibleForFree: true,

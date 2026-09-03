@@ -660,11 +660,11 @@ const PortraitFigure = styled.figure`
 `;
 
 // Outils gratuits en section 02 depuis le 22/08/2026. Les faits sont repris
-// des pages des outils (17 mesures, une minute, sans inscription ; énergie, CO2
+// des pages des outils (20 mesures, une minute, sans inscription ; énergie, CO2
 // et eau avec fourchettes d'incertitude) : rien n'est promis ici qui ne soit
 // mesuré là-bas.
 const tools = [
-  { kicker: "Outil 01 · une minute", title: "Audit SEO + IA gratuit", desc: "Entrez votre adresse : 17 mesures réelles sur votre site (HTTPS, vraie 404, balises, robots des IA, llms.txt, données structurées), un score sur 100 et vos priorités. Sans inscription.", href: "/audit-seo/", go: "Tester mon site", img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 414, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 70 sur 70, technique 35/35, lisibilité par les IA 35/35" } },
+  { kicker: "Outil 01 · une minute", title: "Audit SEO + IA gratuit", desc: "Entrez votre adresse : 20 mesures réelles sur votre site (HTTPS, vraie 404, balises, robots des IA, llms.txt, données structurées), un score sur 100 et vos priorités. Sans inscription.", href: "/audit-seo/", go: "Tester mon site", img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 343, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 89 sur 100, technique 35/35, lisibilité par les IA 35/35, autorité et positions Google 19/30" } },
   { kicker: "Outil 02 · simulateur", title: "Empreinte d'une requête IA", desc: "Combien d'énergie, de CO2 et d'eau coûte une question posée à une IA ? Tapez votre requête, choisissez le modèle et la région : le simulateur chiffre, fourchettes d'incertitude comprises, sources à l'appui.", href: "/empreinte-ia/", go: "Simuler une requête", img: { src: "/images/outils/empreinte-apercu-carte.webp", w: 1400, h: 299, alt: "Le résultat du simulateur : 0,42 Wh, 0,039 g de CO2e et 0,81 mL d'eau pour une requête type, fourchettes comprises" } },
 ];
 
@@ -776,7 +776,7 @@ export default function HomeContent() {
                 <Link href="/audit-seo/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
                   audit SEO gratuit en ligne
                 </Link>{" "}
-                fait 17 mesures r&eacute;elles sur votre site et vous rend un score
+                fait 20 mesures r&eacute;elles sur votre site et vous rend un score
                 sur 100. Une minute, sans inscription.
               </p>
               <p>
@@ -947,7 +947,7 @@ export default function HomeContent() {
             Ou directement : <a href="tel:0769093909">07 69 09 39 09</a> · r&eacute;ponse sous 24 h
             <br />
             Pas encore pr&ecirc;t &agrave; appeler ? Lancez d&rsquo;abord
-            l&rsquo;<a href="/audit-seo/">audit SEO gratuit en ligne</a> : 17 mesures,
+            l&rsquo;<a href="/audit-seo/">audit SEO gratuit en ligne</a> : 20 mesures,
             une minute, sans inscription.
           </FinalMeta>
         </Container>

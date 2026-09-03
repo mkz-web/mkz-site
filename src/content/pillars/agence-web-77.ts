@@ -51,7 +51,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Deux métiers, une seule mission : que vos futurs clients vous trouvent et vous choisissent. Voici comment nous nous y prenons, sans découper la prestation en options incompréhensibles."
+      "text": "Deux métiers, une seule mission : que vos futurs clients vous trouvent et vous choisissent. Voici comment nous nous y prenons, sans découper la prestation en options incompréhensibles. Deux guides gratuits pour commencer seul : [comment apparaître sur Google](/conseils/seo/comment-apparaitre-sur-google/) et [obtenir des avis Google](/conseils/seo/avis-google/)."
     },
     {
       "type": "h3",

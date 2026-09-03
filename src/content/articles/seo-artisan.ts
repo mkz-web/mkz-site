@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "SEO artisan : le plan simple pour être visible sur Google",
   "metaDescription": "Plombier, électricien, menuisier : le plan SEO artisan en 2 h par semaine. Fiche Google, avis, pages locales : soyez visible et décrochez des chantiers.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-09-03",
   "readingMinutes": 10,
   "excerpt": "Plombier, électricien, menuisier… vos clients tapent votre métier et leur ville dans Google avant d'appeler. Pas besoin d'être un expert du web pour apparaître devant eux. Voici le plan **SEO** de l'artisan qui n'a pas le temps : concret, sans jargon, honnête sur les prix.",
   "tldr": [
@@ -22,7 +22,7 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Pour être visible sur Google quand on est artisan, trois leviers suffisent. Une **fiche Google Business Profile** complète et tenue à jour, un site internet avec une page par métier et par ville d'intervention, et des **avis clients** récoltés régulièrement. C'est tout l'enjeu du **SEO artisan**. Et non, il ne faut pas être ingénieur pour s'y mettre."
+      "text": "Pour être visible sur Google quand on est artisan, trois leviers suffisent. Une **fiche Google Business Profile** complète et tenue à jour, un site internet avec une page par métier et par ville d'intervention, et des **avis clients** récoltés régulièrement. C'est tout l'enjeu du **SEO artisan**. Et non, il ne faut pas être ingénieur pour s'y mettre. Si vous partez de zéro, notre guide [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/) donne les cinq gestes dans l'ordre."
     },
     {
       "type": "p",
@@ -121,7 +121,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Tout se passe sur business.google.com : 30 minutes pour créer la fiche, quelques jours pour la vérification (courrier, vidéo ou téléphone). Si vous partez de zéro, suivez notre [tutoriel pas-à-pas pour créer votre fiche Google Business Profile](/conseils/tutoriels/creer-fiche-google-business-profile/)."
+      "text": "Tout se passe sur business.google.com : 30 minutes pour créer la fiche, quelques jours pour la vérification (courrier, vidéo ou téléphone). Si vous partez de zéro, suivez notre [tutoriel pas-à-pas pour créer votre fiche Google Business Profile](/conseils/tutoriels/creer-fiche-google-business-profile/). Les avis, eux, ont leur guide : [obtenir des avis Google et faire supprimer un faux avis](/conseils/seo/avis-google/)."
     },
     {
       "type": "p",
@@ -174,7 +174,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La fiche attire l'œil ; le site transforme la visite en demande de devis. Même fait par un prestataire, vous devez pouvoir en contrôler l'essentiel : c'est votre outil de travail. Pas encore de site ? Lisez d'abord [combien coûte un site internet](/conseils/creation-site-internet/combien-coute-un-site-internet/) pour éviter les mauvaises surprises."
+      "text": "La fiche attire l'œil ; le site transforme la visite en demande de devis. Même fait par un prestataire, vous devez pouvoir en contrôler l'essentiel : c'est votre outil de travail. Pas encore de site ? Lisez d'abord [combien coûte un site internet](/conseils/creation-site-internet/combien-coute-un-site-internet/) pour éviter les mauvaises surprises. Site en ligne mais introuvable ? Les sept causes sont dans [pourquoi mon site n'apparaît pas sur Google](/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/)."
     },
     {
       "type": "h3",
@@ -288,7 +288,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Parlons argent, puisque presque personne ne le fait. Une prestation SEO coûte en moyenne de 500 € à 2 500 € par mois (seo.fr, juin 2026). Pour un artisan local, les offres sérieuses démarrent à la fourchette basse de ce marché, autour de 500 € HT mensuels. En dessous, méfiance : personne ne travaille sérieusement votre visibilité pour 100 € par mois."
+      "text": "Parlons argent, puisque presque personne ne le fait. Une prestation SEO coûte en moyenne de 500 € à 2 500 € par mois (seo.fr, juin 2026). Pour un artisan local, les offres sérieuses démarrent à la fourchette basse de ce marché, autour de 500 € HT mensuels. En dessous, méfiance : personne ne travaille sérieusement votre visibilité pour 100 € par mois. Et si votre carnet est vide aujourd'hui, lisez d'abord [trouver des chantiers sans dépendre des plateformes](/conseils/seo/trouver-des-chantiers/), avec les prix que les plateformes publient."
     },
     {
       "type": "h3",
@@ -406,7 +406,9 @@ const article: Article = {
   "related": [
     "referencement-local",
     "combien-coute-un-site-internet",
-    "creer-fiche-google-business-profile"
+    "creer-fiche-google-business-profile",
+    "trouver-des-chantiers",
+    "avis-google"
   ],
   "keywords": [
     "seo artisan",

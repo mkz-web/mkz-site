@@ -21,14 +21,14 @@ const URL = `${SITE}/en/seo-audit/`;
 export const metadata: Metadata = createMetadata("en", {
   title: "Free SEO & AI visibility audit",
   description:
-    "Run 17 real checks on your site in 60 seconds: HTTPS, AI crawlers, llms.txt, structured data, real 404. A clear score and your priorities. Free, no signup.",
+    "20 real checks on your site in 60 seconds: HTTPS, AI crawlers, llms.txt, backlinks, Google rankings. A clear score and your priorities. Free, no signup.",
   path: "/en/seo-audit/",
 });
 
 const faq: AuditFaqItem[] = [
   {
     q: "What does this audit actually check?",
-    a: "Seventeen real measurements, taken on your site the moment you click: HTTPS and redirects, indexability, a real 404 test, title and description lengths as Google actually displays them, heading structure, mobile viewport, security headers, plus the AI layer: whether GPTBot, ClaudeBot, PerplexityBot and three other AI crawlers can read your site, whether you serve an llms.txt file, and whether your structured data parses.",
+    a: "Twenty real measurements. Sixteen are taken on your site the moment you click: HTTPS and redirects, indexability, a real 404 test, title and description lengths as Google actually displays them, heading structure, mobile viewport, security headers, plus the AI layer: whether GPTBot, ClaudeBot, PerplexityBot and three other AI crawlers can read your site, whether you serve an llms.txt file, and whether your structured data parses. Four are read from the DataForSEO database at test time: referring domains, link spam score, keywords ranked in Google France and estimated organic traffic, because no site can measure by itself who links to it.",
   },
   {
     q: "Is it really free?",
@@ -53,13 +53,13 @@ const content: AuditPageContent = {
   h1Before: "Is your site ",
   h1Em: "readable",
   h1After: " by Google and by AI engines?",
-  sub: "Enter your address. In one minute the tool runs 17 real checks: your technical layer, your Google readability, and the part nobody shows you, whether AI engines like ChatGPT and Perplexity can read and cite you. A clear score, your priorities, no signup.",
+  sub: "Enter your address. In one minute the tool runs 20 real checks: your technical layer, your Google readability, and the part nobody shows you, whether AI engines like ChatGPT and Perplexity can read and cite you. A clear score, your priorities, no signup.",
   apercu: {
     src: "/images/outils/scan-apercu-en.webp",
     w: 1400,
-    h: 414,
-    alt: "A real scan result: mkz-consulting.fr, 70/70, technical 35/35, AI readability 35/35",
-    caption: "A real scan: our own site, tested on 29 August 2026 with the tool above. Yours takes a minute.",
+    h: 343,
+    alt: "A real scan result: mkz-consulting.fr, 89/100, technical 35/35, AI readability 35/35, authority and Google rankings 19/30",
+    caption: "A real scan: our own site, tested on 3 September 2026 with the tool above. 89 out of 100: authority (19/30) is our own work in progress, and we do not dress up our score. Yours takes a minute.",
   },
   measuresTitle: "What the tool measures",
   measures: [
@@ -72,13 +72,13 @@ const content: AuditPageContent = {
       text: "Can the 6 main AI crawlers (GPTBot, ClaudeBot, PerplexityBot...) read your site? Do you serve an llms.txt? Does your structured data parse? A blocked crawler is an answer engine that cannot cite you.",
     },
     {
-      title: "Authority and rankings",
-      text: "Referring domains, ranked keywords, estimated traffic: these need specialised databases and land in the free full report.",
+      title: "Authority and Google rankings",
+      text: "Referring domains, link spam score, keywords ranked in Google France and estimated organic traffic, read from the DataForSEO database at test time. The part most free tools hide behind a signup.",
     },
   ],
   methodTitle: "Measured, never estimated",
   methodParagraphs: [
-    "Most free tools serve you a grade from a three-week-old database. Here, every check runs against your site the moment you click: the tool connects, reads the robots.txt you actually serve, requests a made-up URL to see whether your 404 page does its job, and dissects your homepage. What you read on screen is what your site answered seconds ago.",
+    "Most free tools serve you a grade from a three-week-old database. Here, every check runs against your site the moment you click: the tool connects, reads the robots.txt you actually serve, requests a made-up URL to see whether your 404 page does its job, and dissects your homepage. What you read on screen is what your site answered seconds ago. One exception, stated plainly: your inbound links and rankings cannot be read on your own site, so the tool reads them from the DataForSEO database, the same one we use in our audits.",
     "The scan is the express version of our audit method. The full version goes further: competitor analysis, the keywords worth targeting in French search, the real measurement of what ChatGPT, Perplexity and Gemini say about you, and a prioritised action plan. The scan tells you where you stand. The full audit tells you what to do, in what order, and why.",
   ],
   faqTitle: "Frequently asked questions",
@@ -102,7 +102,7 @@ const webAppSchema = {
   name: "Free SEO + AI visibility audit",
   url: URL,
   description:
-    "Free online SEO audit tool: 17 real checks run on the site at test time (HTTPS, AI crawlers, llms.txt, JSON-LD structured data, real 404, SERP tags), a score out of 100 and the priorities to fix.",
+    "Free online SEO audit tool: 20 checks at test time, 16 run on the site itself (HTTPS, AI crawlers, llms.txt, JSON-LD structured data, real 404, SERP tags) and 4 read from the DataForSEO database (referring domains, spam score, keywords ranked in France, estimated traffic), a score out of 100 and the priorities to fix.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   inLanguage: "en",

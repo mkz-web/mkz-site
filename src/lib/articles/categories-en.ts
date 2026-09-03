@@ -29,7 +29,7 @@ export const categoriesEn: Category[] = [
       "Ranking in France when your site was built for English. Keyword research in French, hreflang, and what translation alone will never fix.",
     intro: [
       "Most foreign sites that fail in France fail for the same reason: they were **translated, not researched**. Translation carries your English keywords into French. It does not carry French search demand, because French users do not phrase things the way your English users do.",
-      "These guides cover what actually moves the needle: doing keyword research in French before writing a word, getting hreflang right, and judging a French SEO partner on measurement rather than promises. For a first reading in one minute, the [free SEO & AI audit](/en/seo-audit/) runs 17 checks on the site you actually serve. If you would rather hand it over, see the [French SEO service](/en/french-seo/).",
+      "These guides cover what actually moves the needle: doing keyword research in French before writing a word, getting hreflang right, and judging a French SEO partner on measurement rather than promises. For a first reading in one minute, the [free SEO & AI audit](/en/seo-audit/) runs 20 checks on the site you actually serve. If you would rather hand it over, see the [French SEO service](/en/french-seo/).",
     ],
     icon: "🇫🇷",
     pillar: { href: "/en/french-seo/", label: "Our French SEO service" },

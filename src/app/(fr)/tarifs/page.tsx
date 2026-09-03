@@ -16,13 +16,18 @@ import TarifsContent, { type TarifsFaqItem } from "@/components/TarifsContent";
 // internet » 1 000/mois, « devis site internet » 590, « prix site vitrine »
 // 480, « tarif site internet » 260, « prix création site internet » 260,
 // « tarif seo » 210. Prix : plaquette du 18/08/2026 (_tarifs/, mémoire projet).
+// Retitrage du 03/09/2026 (analyse des intentions du 02/09) : en six mois de
+// Search Console, la page n'avait que 4 impressions ; son title ne portait ni
+// « prix » (1 000/mois) ni « devis » (590/mois, +126 % sur le semestre). Le
+// title porte désormais le mot que les gens tapent, la FAQ répond à « devis ».
+// Mesure à J+30 : impressions de /tarifs/ sur « prix site internet ».
 
 const URL = `${SITE}/tarifs/`;
 
 export const metadata: Metadata = createMetadata("fr", {
-  title: "Tarifs 2026 : site internet, SEO et référencement IA",
+  title: "Prix d'un site internet et du référencement : tarifs 2026",
   description:
-    "Site vitrine 1 490 €, audit SEO 490 €, accompagnement dès 390 €/mois, référencement IA dès 490 €. Prix affichés, devis fixe écrit, sans engagement. MKZ (77).",
+    "Prix d'un site internet : 1 490 €. Audit SEO 490 €, référencement dès 390 €/mois, référencement IA dès 490 €. Devis fixe écrit, sans engagement. MKZ (77).",
   path: "/tarifs/",
 });
 
@@ -54,6 +59,14 @@ const faq: TarifsFaqItem[] = [
   {
     q: "Que comprend le diagnostic gratuit de 30 minutes ?",
     a: "Un échange en visio et un premier relevé chiffré de votre visibilité : où vous apparaissez sur Google, ce que les moteurs IA disent de vous, et ce qui vous bloque. Vous repartez avec un plan d'action concret, que vous travailliez avec nous ou non.",
+  },
+  {
+    q: "Comment obtenir un devis pour un site internet ?",
+    a: "Écrivez-nous depuis la page contact ou réservez le diagnostic gratuit de 30 minutes. Cinq questions suffisent pour chiffrer : votre métier et votre zone, le nombre de pages souhaité, si vous avez déjà des textes et des photos, si un site existe déjà, et l'objectif du site (devis, rendez-vous, appels). Vous recevez sous 24 h un devis fixe écrit, ligne par ligne, valable sans engagement.",
+  },
+  {
+    q: "Que doit contenir un devis de site internet sérieux ?",
+    a: "Le détail des pages, la rédaction des textes, l'optimisation pour Google (mots-clés, balises, vitesse, Search Console), la connexion à votre fiche Google, l'hébergement et le nom de domaine à votre nom, la formation à la mise à jour, et le prix de la maintenance. Ce qui n'y figure pas sera facturé plus tard : notre guide sur le prix d'un site internet décortique un devis ligne par ligne.",
   },
 ];
 

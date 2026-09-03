@@ -670,16 +670,16 @@ const PortraitFigure = styled.figure`
 
 // Free tools as section 02 since 22/08/2026: the audit tool sat three screens
 // down the French home and nowhere on this one. Facts are those of the tool
-// pages (17 checks, one minute, no signup; energy, CO2 and water with
+// pages (20 checks, one minute, no signup; energy, CO2 and water with
 // uncertainty ranges): nothing promised here that is not measured there.
 const tools = [
   {
     kicker: "Tool 01 · one minute",
     title: "Free SEO & AI audit",
-    desc: "Enter your address: 17 real checks on the site you actually serve (HTTPS, real 404, SERP tags, AI crawlers, llms.txt, structured data), a score out of 100 and your priorities. No signup.",
+    desc: "Enter your address: 20 real checks on the site you actually serve (HTTPS, real 404, SERP tags, AI crawlers, llms.txt, structured data), a score out of 100 and your priorities. No signup.",
     href: "/en/seo-audit/",
     go: "Test my site",
-    img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 414, alt: "A real scan result: mkz-consulting.fr, 70/70, technical 35/35, AI readability 35/35" },
+    img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 343, alt: "A real scan result: mkz-consulting.fr, 89/100, technical 35/35, AI readability 35/35, authority and Google rankings 19/30" },
   },
   {
     kicker: "Tool 02 · simulator, in French",
@@ -834,7 +834,7 @@ export default function HomeContentEn() {
               </p>
               <p>
                 Want to know where you stand first? The{" "}
-                <Link href="/en/seo-audit/">free SEO &amp; AI audit</Link> runs 17
+                <Link href="/en/seo-audit/">free SEO &amp; AI audit</Link> runs 20
                 real checks on your site and scores it out of 100. One minute, no
                 signup.
               </p>
@@ -955,7 +955,7 @@ export default function HomeContentEn() {
             Or directly: <a href="tel:+33769093909">+33 7 69 09 39 09</a> · reply within 24h
             <br />
             Not ready to talk? Run the <a href="/en/seo-audit/">free SEO &amp; AI audit</a> first:
-            17 checks, one minute, no signup.
+            20 checks, one minute, no signup.
           </FinalMeta>
         </Container>
       </Section>

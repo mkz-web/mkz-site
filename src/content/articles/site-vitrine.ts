@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Création site vitrine : prix, étapes et pièges (2026)",
   "metaDescription": "Combien coûte vraiment un site vitrine ? Prix 2026, étapes, propriété du site : le guide honnête pour artisans et TPE, avec des chiffres sourcés.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-09-03",
   "readingMinutes": 10,
   "excerpt": "Vous êtes artisan, commerçant ou à la tête d'une TPE, et on vous répète qu'il vous faut un **site vitrine**, sans jamais vous dire combien ça coûte vraiment, ni à qui il appartiendra. Voici le guide honnête : prix réels 2026, étapes concrètes et pièges à déjouer avant de signer.",
   "tldr": [
@@ -112,7 +112,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un site vitrine sert d'abord à ne pas disparaître des recherches de vos futurs clients : avant d'appeler un artisan, la plupart des gens vérifient son existence en ligne. Sans site, le doute s'installe, et le doute ne rappelle jamais."
+      "text": "Un site vitrine sert d'abord à ne pas disparaître des recherches de vos futurs clients : avant d'appeler un artisan, la plupart des gens vérifient son existence en ligne. Sans site, le doute s'installe, et le doute ne rappelle jamais. Pour un artisan, c'est l'étape 3 de la méthode pour [trouver des chantiers sans plateforme](/conseils/seo/trouver-des-chantiers/)."
     },
     {
       "type": "h3",
@@ -445,7 +445,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Un site peut être joli et ne servir à rien. Voici les cinq erreurs les plus fréquentes chez les artisans et TPE :"
+      "text": "Un site peut être joli et ne servir à rien. Voici les cinq erreurs les plus fréquentes chez les artisans et TPE : Un site vitrine en ligne mais introuvable relève d'un autre diagnostic : [pourquoi mon site n'apparaît pas sur Google](/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/)."
     },
     {
       "type": "ol",

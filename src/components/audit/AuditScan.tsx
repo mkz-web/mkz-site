@@ -1,7 +1,7 @@
 "use client";
 
 // Outil d'audit SEO + IA : le composant interactif de /audit-seo/ et
-// /en/seo-audit/. Enchaîne les 4 phases de la Pages Function /api/scan et
+// /en/seo-audit/. Enchaîne les 5 phases de la Pages Function /api/scan et
 // affiche chaque mesure au fur et à mesure qu'elle arrive : la progression
 // visible EST la démonstration (rien n'est estimé, tout vient d'être relevé).
 //
@@ -9,6 +9,11 @@
 // formulaire de contact : le lead (URL, score, défauts) arrive dans la boîte
 // de Mickaël, qui prépare et envoie le rapport sous 24 h. Pas d'envoi
 // automatique : choix du cadrage MVP (dossier Projet/Seo-referencement).
+//
+// Bloc « Autorité et positions Google » (03/09/2026) : lu dans la base
+// DataForSEO par la 5e phase, affiché avec les mêmes chips que le reste ;
+// un check « na » (plafond quotidien atteint, base injoignable, aucun lien à
+// évaluer) reste listé avec sa raison et sort du total, jamais estimé.
 
 import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
@@ -27,7 +32,7 @@ interface CheckResult {
   data: Record<string, unknown>;
 }
 
-const PHASES = ["origin", "robots", "page", "notfound"] as const;
+const PHASES = ["origin", "robots", "page", "notfound", "autorite"] as const;
 
 const COLORS = {
   ok: theme.colors.success,
@@ -481,6 +486,12 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
       .filter((c) => c.status === "fail" || c.status === "warn")
       .map((c) => `${c.status.toUpperCase()} ${c.id}: ${t.checkDetail(c.id, c.data)}`)
       .join("\n");
+    // Les 4 lectures DataForSEO, quel que soit leur statut : Mickaël prépare le
+    // rapport avec ces chiffres, pas seulement avec les défauts.
+    const autorite = checks
+      .filter((c) => c.bloc === "autorite")
+      .map((c) => `${c.id}: ${t.checkDetail(c.id, c.data)}`)
+      .join("\n");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -492,7 +503,8 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
           from_name: "Outil audit MKZ",
           message:
             `Site scanné : ${origin}\nScore : ${points}/${maxMeasurable}\n` +
-            `Consentement rapport + recontact : oui (case cochée)\n\n${issues || "Aucun défaut relevé."}`,
+            `Consentement rapport + recontact : oui (case cochée)\n\n${issues || "Aucun défaut relevé."}` +
+            (autorite ? `\n\nAutorité et positions (DataForSEO) :\n${autorite}` : ""),
         }),
       });
       const result = await res.json();
@@ -520,7 +532,12 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
     .slice(0, 3);
 
   const tint = (r: number) => (r >= 0.8 ? COLORS.ok : r >= 0.5 ? COLORS.warn : COLORS.fail);
-  const hasAutorite = checks.some((c) => c.bloc === "autorite");
+  // Bloc autorité entièrement non lu (plafond, base injoignable) : une note
+  // l'explique sous la liste. Un « sans-liens » seul n'en est pas un.
+  const autoriteChecks = checks.filter((c) => c.bloc === "autorite");
+  const autoriteIndisponible =
+    autoriteChecks.length > 0 &&
+    autoriteChecks.every((c) => c.status === "na" && c.data.reason !== "sans-liens");
 
   return (
     <Wrap>
@@ -548,7 +565,7 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
       {checks.length > 0 && (
         <>
           {status === "done" && (
-            <ScorePanel ref={scoreRef}>
+            <ScorePanel ref={scoreRef} data-scan-panel>
               <div>
                 <Mono>{t.scoreTitle}</Mono>
                 <RingWrap>
@@ -570,27 +587,16 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
                 </RingWrap>
               </div>
               <BlocBars>
-                {(["technique", "ia"] as const).map((b) => {
+                {(["technique", "ia", "autorite"] as const).map((b) => {
                   const s = blocStats(b);
                   return (
                     <BlocRow key={b}>
                       <span>{t.blocs[b]}</span>
-                      <Bar>
-                        <BarFill ratio={s.ratio} tint={tint(s.ratio)} />
-                      </Bar>
-                      <Mono>
-                        {s.p}/{s.m}
-                      </Mono>
+                      <Bar>{s.m > 0 && <BarFill ratio={s.ratio} tint={tint(s.ratio)} />}</Bar>
+                      <Mono>{s.m > 0 ? `${s.p}/${s.m}` : t.status.na}</Mono>
                     </BlocRow>
                   );
                 })}
-                {hasAutorite && (
-                  <BlocRow>
-                    <span>{t.blocs.autorite}</span>
-                    <Bar />
-                    <Mono>{t.status.na}</Mono>
-                  </BlocRow>
-                )}
                 <SoonNote>{t.scoreScale}</SoonNote>
               </BlocBars>
             </ScorePanel>
@@ -615,22 +621,22 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
 
           <SectionTitle>{t.allTitle}</SectionTitle>
           <CheckList aria-live="polite">
-            {checks
-              .filter((c) => c.status !== "na")
-              .map((c) => (
-                <CheckItem key={c.id}>
-                  <StatusChip tint={COLORS[c.status]}>{t.status[c.status]}</StatusChip>
-                  <div>
-                    <CheckLabel>{t.checkLabels[c.id] ?? c.id}</CheckLabel>{" "}
+            {checks.map((c) => (
+              <CheckItem key={c.id}>
+                <StatusChip tint={COLORS[c.status]}>{t.status[c.status]}</StatusChip>
+                <div>
+                  <CheckLabel>{t.checkLabels[c.id] ?? c.id}</CheckLabel>{" "}
+                  {c.status !== "na" && (
                     <Mono>
                       {c.points}/{c.max}
                     </Mono>
-                    <CheckDetail>{t.checkDetail(c.id, c.data)}</CheckDetail>
-                  </div>
-                </CheckItem>
-              ))}
+                  )}
+                  <CheckDetail>{t.checkDetail(c.id, c.data)}</CheckDetail>
+                </div>
+              </CheckItem>
+            ))}
           </CheckList>
-          {hasAutorite && <SoonNote>{t.autoriteSoon}</SoonNote>}
+          {autoriteIndisponible && <SoonNote>{t.autoriteIndisponible}</SoonNote>}
 
           {status === "done" && (
             <EmailBox>

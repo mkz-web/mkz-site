@@ -26,14 +26,14 @@ const URL = `${SITE}/audit-seo/`;
 export const metadata: Metadata = createMetadata("fr", {
   title: "Audit SEO gratuit en ligne : score + lisibilité IA",
   description:
-    "Testez votre site en 60 secondes : 17 mesures réelles (HTTPS, robots IA, llms.txt, JSON-LD...), un score clair et vos priorités. Gratuit, sans inscription.",
+    "Testez votre site en 60 s : 20 mesures réelles (HTTPS, robots IA, llms.txt, liens entrants, positions Google), score et priorités. Gratuit, sans inscription.",
   path: "/audit-seo/",
 });
 
 const faq: AuditFaqItem[] = [
   {
     q: "C'est quoi, un audit SEO ?",
-    a: "C'est le contrôle technique de votre site. Comme pour une voiture, on ne devine pas l'état du moteur en regardant la carrosserie : on branche les instruments et on mesure. L'audit SEO vérifie que Google peut trouver votre site, le comprendre et lui faire confiance. Cet outil fait la version express de ce contrôle : 17 points mesurés en une minute, sur votre site réel, au moment où vous cliquez.",
+    a: "C'est le contrôle technique de votre site. Comme pour une voiture, on ne devine pas l'état du moteur en regardant la carrosserie : on branche les instruments et on mesure. L'audit SEO vérifie que Google peut trouver votre site, le comprendre et lui faire confiance. Cet outil fait la version express de ce contrôle : 20 points mesurés en une minute, au moment où vous cliquez.",
   },
   {
     q: "L'outil est-il vraiment gratuit ?",
@@ -41,7 +41,7 @@ const faq: AuditFaqItem[] = [
   },
   {
     q: "Que mesure exactement le score ?",
-    a: "Chaque point correspond à une mesure faite sur votre site au moment du test : rien n'est estimé, rien n'est recopié d'une base de données. Trois familles : la technique (HTTPS, redirections, vraie page 404, balises, en-têtes), la lisibilité par les IA (robots des moteurs IA autorisés ou bloqués, fichier llms.txt, données structurées), et l'autorité (liens entrants, mots-clés positionnés), qui arrive dans le rapport complet.",
+    a: "Trois familles. La technique (HTTPS, redirections, vraie page 404, balises, en-têtes) et la lisibilité par les IA (robots des moteurs IA autorisés ou bloqués, fichier llms.txt, données structurées) sont mesurées sur votre site au moment du test : rien n'est estimé. L'autorité et les positions (domaines qui pointent vers vous, score de spam de vos liens, mots-clés où Google France vous affiche, trafic organique estimé) sont lues dans la base DataForSEO au moment du test, parce qu'aucun site ne peut mesurer lui-même qui le cite. Le trafic y est une estimation, et il est présenté comme telle.",
   },
   {
     q: "Pourquoi mesurer la lisibilité par les IA ?",
@@ -62,13 +62,13 @@ const content: AuditPageContent = {
   h1Before: "Audit SEO gratuit : votre site, ",
   h1Em: "mesuré",
   h1After: ", pas estimé.",
-  sub: "Entrez votre adresse. En une minute, l'outil fait 17 mesures réelles : votre technique, votre lisibilité par Google, et ce que personne ne vous montre, votre lisibilité par les IA comme ChatGPT et Perplexity. Un score clair, vos priorités, zéro inscription.",
+  sub: "Entrez votre adresse. En une minute, l'outil fait 20 mesures réelles : votre technique, votre lisibilité par Google, et ce que personne ne vous montre, votre lisibilité par les IA comme ChatGPT et Perplexity. Un score clair, vos priorités, zéro inscription.",
   apercu: {
     src: "/images/outils/scan-apercu.webp",
     w: 1400,
-    h: 414,
-    alt: "Résultat d'un scan réel : mkz-consulting.fr, score 70 sur 70, technique 35/35, lisibilité par les IA 35/35",
-    caption: "Un scan réel : notre propre site, testé le 29 août 2026 avec l'outil ci-dessus. Le vôtre prend une minute.",
+    h: 343,
+    alt: "Résultat d'un scan réel : mkz-consulting.fr, score 89 sur 100, technique 35/35, lisibilité par les IA 35/35, autorité et positions Google 19/30",
+    caption: "Un scan réel : notre propre site, testé le 3 septembre 2026 avec l'outil ci-dessus. 89 sur 100 : l'autorité (19/30) est notre chantier du moment, et on ne maquille pas son propre score. Le vôtre prend une minute.",
   },
   measuresTitle: "Ce que l'outil mesure",
   measures: [
@@ -81,19 +81,20 @@ const content: AuditPageContent = {
       text: "Les 6 principaux robots IA (GPTBot, ClaudeBot, PerplexityBot...) peuvent-ils lire votre site ? Votre llms.txt existe-t-il ? Vos données structurées sont-elles valides ? Un robot bloqué, c'est un moteur de réponse qui ne peut pas vous citer.",
     },
     {
-      title: "Autorité et positions",
-      text: "Domaines qui pointent vers vous, mots-clés où Google vous affiche, trafic estimé : ces mesures demandent des bases de données spécialisées, elles arrivent dans le rapport complet gratuit.",
+      title: "Autorité et positions Google",
+      text: "Domaines qui pointent vers vous, score de spam de vos liens, mots-clés où Google France vous affiche, trafic organique estimé : lus dans la base DataForSEO au moment du test. C'est la partie que les outils gratuits cachent derrière une inscription.",
     },
   ],
   methodTitle: "Mesuré, jamais estimé",
   methodParagraphs: [
-    "La plupart des outils gratuits vous servent une note sortie d'une base de données vieille de trois semaines. Ici, chaque vérification est faite sur votre site au moment où vous cliquez : l'outil se connecte, lit votre robots.txt réellement servi, teste une adresse inventée pour voir si votre page 404 fait son travail, et décortique votre page d'accueil. Ce que vous lisez à l'écran, c'est ce que votre site a répondu il y a quelques secondes.",
+    "La plupart des outils gratuits vous servent une note sortie d'une base de données vieille de trois semaines. Ici, chaque vérification est faite sur votre site au moment où vous cliquez : l'outil se connecte, lit votre robots.txt réellement servi, teste une adresse inventée pour voir si votre page 404 fait son travail, et décortique votre page d'accueil. Ce que vous lisez à l'écran, c'est ce que votre site a répondu il y a quelques secondes. Seule exception, et elle est écrite noir sur blanc : vos liens entrants et vos positions ne se lisent pas sur votre site, l'outil les relève dans la base DataForSEO, la même que celle de nos audits.",
     "Le scan est la version express de notre méthode d'audit. La version complète va plus loin : analyse de la concurrence, mots-clés à viser, mesure réelle de ce que ChatGPT, Perplexity et Gemini disent de vous, et plan d'action priorisé. Le scan vous dit où vous en êtes. L'audit complet vous dit quoi faire, dans quel ordre, et pourquoi.",
   ],
   faqTitle: "Questions fréquentes",
   nextLinks: {
     intro: "Pour aller plus loin :",
     links: [
+      { label: "pourquoi votre site n'apparaît pas sur Google (les 7 causes)", href: "/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/" },
       { label: "notre guide complet de l'audit SEO", href: "/conseils/seo/audit-seo/" },
       { label: "la prestation de référencement SEO", href: "/referencement-seo/" },
       { label: "le référencement IA (GEO)", href: "/referencement-ia/" },
@@ -112,7 +113,7 @@ const webAppSchema = {
   name: "Audit SEO + IA gratuit",
   url: URL,
   description:
-    "Outil d'audit SEO gratuit en ligne : 17 mesures réelles faites sur le site au moment du test (HTTPS, robots IA, llms.txt, données structurées JSON-LD, vraie 404, balises SERP), un score sur 100 et les priorités de correction.",
+    "Outil d'audit SEO gratuit en ligne : 20 mesures au moment du test, 16 faites sur le site lui-même (HTTPS, robots IA, llms.txt, données structurées JSON-LD, vraie 404, balises SERP) et 4 lues dans la base DataForSEO (domaines référents, score de spam, mots-clés positionnés en France, trafic estimé), un score sur 100 et les priorités de correction.",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   inLanguage: "fr-FR",

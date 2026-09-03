@@ -99,3 +99,6 @@ audit-data.json
 *.bak
 *.tmp
 *.temp
+
+# Secrets locaux de `wrangler pages dev` (identifiants DataForSEO de l outil d audit)
+.dev.vars

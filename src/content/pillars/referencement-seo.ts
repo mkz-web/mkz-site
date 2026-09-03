@@ -99,7 +99,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Le **référencement local** consiste à apparaître sur Google et Google Maps pour les recherches faites près de chez vous : « électricien Dammartin-en-Goële », « coiffeur Meaux ». Pour un artisan ou un commerçant, c'est le levier le plus rentable du web."
+      "text": "Le **référencement local** consiste à apparaître sur Google et Google Maps pour les recherches faites près de chez vous : « électricien Dammartin-en-Goële », « coiffeur Meaux ». Pour un artisan ou un commerçant, c'est le levier le plus rentable du web. Les avis Google, premier levier de ce classement, ont leur [guide complet](/conseils/seo/avis-google/)."
     },
     {
       "type": "h3",
@@ -149,7 +149,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Pressé ? Commencez tout de suite par notre [audit SEO gratuit en ligne](/audit-seo/) : 17 mesures réelles faites sur votre site au moment du test, un score sur 100 et vos priorités, en une minute, sans inscription. On reprend ensuite ces résultats ensemble pendant les 30 minutes."
+      "text": "Pressé ? Commencez tout de suite par notre [audit SEO gratuit en ligne](/audit-seo/) : 20 mesures réelles faites sur votre site au moment du test, un score sur 100 et vos priorités, en une minute, sans inscription. On reprend ensuite ces résultats ensemble pendant les 30 minutes."
     },
     {
       "type": "h3",

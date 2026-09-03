@@ -14,7 +14,7 @@ import ToolsContent, { type ToolsPageContent } from "@/components/ToolsContent";
 // Il donne une entrée « Outils » à la barre, un point d'arrivée au maillage,
 // et une place à chaque outil futur. Pendant hreflang : /en/tools/.
 //
-// Les faits de chaque carte sont repris des pages des outils (17 mesures, une
+// Les faits de chaque carte sont repris des pages des outils (20 mesures, une
 // minute, sans inscription ; énergie, CO2 et eau, fourchettes d'incertitude,
 // jeu de données versionné) : rien n'est promis ici qui ne soit mesuré là-bas.
 
@@ -41,7 +41,7 @@ const content: ToolsPageContent = {
     {
       kicker: "Outil 01 · une minute",
       title: "Audit SEO + IA gratuit",
-      desc: "Entrez l'adresse de votre site. L'outil se connecte et fait 17 mesures réelles au moment où vous cliquez, puis vous rend un score sur 100 et vos priorités, chaque point expliqué en français.",
+      desc: "Entrez l'adresse de votre site. L'outil se connecte et fait 20 mesures réelles au moment où vous cliquez, puis vous rend un score sur 100 et vos priorités, chaque point expliqué en français.",
       facts: [
         "Technique : HTTPS et redirections, vraie page 404, balises title et description, en-têtes de sécurité.",
         "Lisibilité par les IA : robots GPTBot, ClaudeBot, PerplexityBot et Google-Extended autorisés ou bloqués, fichier llms.txt, données structurées.",
@@ -50,7 +50,7 @@ const content: ToolsPageContent = {
       cta: "Lancer l'audit gratuit",
       href: "/audit-seo/",
       note: "Sans inscription. Le rapport détaillé, lui aussi gratuit, arrive sous 24 h si vous le demandez.",
-      img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 414, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 70 sur 70, technique 35/35, lisibilité par les IA 35/35" },
+      img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 343, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 89 sur 100, technique 35/35, lisibilité par les IA 35/35, autorité et positions Google 19/30" },
     },
     {
       kicker: "Outil 02 · simulateur",
@@ -93,7 +93,7 @@ const toolsListSchema = {
         name: "Audit SEO + IA gratuit",
         url: `${SITE}/audit-seo/`,
         description:
-          "Outil d'audit SEO gratuit en ligne : 17 mesures réelles faites sur le site au moment du test, score sur 100 et priorités de correction. Sans inscription.",
+          "Outil d'audit SEO gratuit en ligne : 20 mesures réelles faites sur le site au moment du test, score sur 100 et priorités de correction. Sans inscription.",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         isAccessibleForFree: true,

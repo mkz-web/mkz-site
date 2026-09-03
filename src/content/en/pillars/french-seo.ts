@@ -132,7 +132,7 @@ const pillar: PillarPage = {
     },
     {
       type: "p",
-      text: "You can get a first reading in one minute: the [free SEO & AI audit](/en/seo-audit/) runs 17 real checks against the site you actually serve (HTTPS, AI crawlers, structured data, real 404) and scores it out of 100. No signup.",
+      text: "You can get a first reading in one minute: the [free SEO & AI audit](/en/seo-audit/) runs 20 real checks against the site you actually serve (HTTPS, AI crawlers, structured data, real 404) and scores it out of 100. No signup.",
     },
     {
       type: "h3",

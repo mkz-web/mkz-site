@@ -4,8 +4,8 @@ import type { PillarPage } from "@/lib/articles/types";
 const pillar: PillarPage = {
   "slug": "creation-site-internet",
   "title": "Création de site internet artisan : un site qui ramène des devis",
-  "metaTitle": "Création site internet artisan : votre site, vos clients",
-  "metaDescription": "Création de site internet pour artisans et TPE : un site rapide, bien référencé et 100 % à vous. Tarifs clairs, aides régionales, audit gratuit 30 min.",
+  "metaTitle": "Site internet artisan : 1 490 €, référencement inclus",
+  "metaDescription": "Création de site internet pour artisan à 1 490 € HT, référencement Google inclus, site 100 % à vous, en ligne en 4 semaines. Devis fixe écrit avant signature.",
   "heroBadge": "Création de sites internet pour artisans & TPE en Seine-et-Marne",
   "heroLead": "Un site rapide, visible sur Google et dont vous êtes propriétaire à 100 %. Conçu pour une seule chose : faire sonner votre téléphone. Audit gratuit de 30 minutes, devis clair, site en ligne sous 4 semaines.",
   "blocks": [
@@ -24,7 +24,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Un site internet professionnel est devenu l'équipement de base d'une entreprise artisanale. 65 % des TPE-PME françaises possèdent un site présentant leur activité, selon le Baromètre France Num 2025 (DGE/CREDOC, septembre 2025). Mais dans le bâtiment, elles ne sont que 53,4 % (exploitation du Baromètre publiée sur data.gouv.fr, mai 2026). Autrement dit : près d'un artisan sur deux n'a pas de site. Votre concurrent direct, probablement non plus."
+      "text": "Un site internet professionnel est devenu l'équipement de base d'une entreprise artisanale. 65 % des TPE-PME françaises possèdent un site présentant leur activité, selon le Baromètre France Num 2025 (DGE/CREDOC, septembre 2025). Mais dans le bâtiment, elles ne sont que 53,4 % (exploitation du Baromètre publiée sur data.gouv.fr, mai 2026). Autrement dit : près d'un artisan sur deux n'a pas de site. Votre concurrent direct, probablement non plus. Et pour être trouvé avant même d'avoir un site, il y a la fiche : [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/)."
     },
     {
       "type": "h3",
@@ -235,7 +235,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Un beau site qui ne fait jamais sonner le téléphone ne sert à rien. Pour transformer les visites en demandes de devis, quatre ingrédients font la différence."
+      "text": "Un beau site qui ne fait jamais sonner le téléphone ne sert à rien. Pour transformer les visites en demandes de devis, quatre ingrédients font la différence. C'est l'étape 3 de notre méthode pour [trouver des chantiers sans dépendre des plateformes](/conseils/seo/trouver-des-chantiers/)."
     },
     {
       "type": "h3",

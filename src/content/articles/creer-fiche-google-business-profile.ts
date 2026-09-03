@@ -6,13 +6,13 @@ import type { Article } from "@/lib/articles/types";
 const article: Article = {
   "slug": "creer-fiche-google-business-profile",
   "category": "tutoriels",
-  "title": "Créer sa fiche d'établissement Google : tutoriel complet et gratuit",
-  "metaTitle": "Créer sa fiche d'établissement Google (gratuit, 30 min)",
-  "metaDescription": "Créez votre fiche d'établissement Google gratuitement en 30 minutes : tutoriel pas à pas pour artisans et commerçants, vérification vidéo incluse.",
+  "title": "Créer une fiche Google (fiche d'établissement) : tutoriel complet et gratuit",
+  "metaTitle": "Créer une fiche Google (fiche d'établissement) en 30 min",
+  "metaDescription": "Créer une fiche Google (fiche d'établissement) gratuitement, en 30 min : tutoriel pas à pas pour artisans et commerçants, Google Maps et vérification inclus.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-08",
+  "dateModified": "2026-09-03",
   "readingMinutes": 9,
-  "excerpt": "Vous êtes artisan ou commerçant et vous voulez apparaître sur Google et sur Maps sans débourser un centime ? La **fiche d'établissement Google** (ex-Google My Business) est gratuite et se crée en 30 minutes. Voici le tutoriel pas à pas 2026, vérification vidéo et cas « sans boutique » inclus.",
+  "excerpt": "Vous êtes artisan ou commerçant et vous voulez apparaître sur Google et sur Maps sans débourser un centime ? La **fiche Google** (fiche d'établissement, ex-Google My Business) est gratuite et se crée en 30 minutes. Voici le tutoriel pas à pas 2026, vérification vidéo et cas « sans boutique » inclus.",
   "tldr": [
     "La fiche d'établissement Google (ex-Google My Business) est 100 % gratuite et se crée en 30 minutes sur business.google.com.",
     "Seule 1 entreprise sur 2 utilise un service de référencement gratuit comme la fiche Google (Baromètre France Num 2025) : la créer vous place devant la moitié de vos concurrents.",
@@ -23,7 +23,7 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Pour créer votre **fiche d'établissement Google**, rendez-vous sur [business.google.com](https://business.google.com), cliquez sur « Gérer ma fiche », puis laissez-vous guider : nom, catégorie, adresse ou zone d'intervention, téléphone, photos, vérification. C'est entièrement **gratuit** et 30 minutes suffisent. Ce tutoriel vous accompagne écran par écran, dans l'interface 2026."
+      "text": "Pour créer votre **fiche Google** (son nom officiel est « fiche d'établissement »), rendez-vous sur [business.google.com](https://business.google.com), cliquez sur « Gérer ma fiche », puis laissez-vous guider : nom, catégorie, adresse ou zone d'intervention, téléphone, photos, vérification. C'est entièrement **gratuit** et 30 minutes suffisent. Ce tutoriel vous accompagne écran par écran, dans l'interface 2026."
     },
     {
       "type": "p",
@@ -267,7 +267,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Google examine la vidéo sous quelques jours. En cas de refus, refilmez avec plus de preuves : c'est presque toujours un manque d'éléments, pas une sanction."
+      "text": "Google indique que l'examen de la vidéo « peut prendre jusqu'à cinq jours ouvrés » (aide Google Business Profile, 2026). En cas de refus, refilmez en montrant davantage de preuves : un refus n'est pas une sanction."
     },
     {
       "type": "h3",
@@ -275,7 +275,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Par **courrier**, Google expédie une carte postale avec un code à 6 chiffres sous 5 à 10 jours ouvrés ; le code saisi, la fiche s'active sous 24 à 48 heures (Custplace, 2025). Piège : ne modifiez rien pendant l'attente, un changement de nom ou d'adresse peut annuler le code."
+      "text": "Par **courrier**, Google expédie une carte avec un code de validation : « la plupart des codes arrivent sous 14 jours », et le code reste valable 30 jours (aide Google Business Profile, 2026). Piège : évitez de modifier le nom ou l'adresse pendant l'attente, le code de validation risque de ne plus correspondre."
     },
     {
       "type": "h3",
@@ -289,7 +289,68 @@ const article: Article = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "Vidéo : une seule prise montrant lieu, véhicule ou local floqué, activité et preuve de gestion. Carte postale : code sous 5 à 10 jours ouvrés, activation en 24 à 48 h (Custplace, 2025)."
+      "text": "Vidéo : une seule prise montrant lieu, véhicule ou local floqué, activité et preuve de gestion. Carte postale : la plupart des codes arrivent sous 14 jours, et l'examen de toute validation peut prendre jusqu'à cinq jours ouvrés (aide Google, 2026)."
+    },
+    {
+      "type": "h2",
+      "id": "apparaitre-sur-google-maps",
+      "text": "Apparaître sur Google Maps : ce qui se passe après la validation"
+    },
+    {
+      "type": "p",
+      "text": "Il n'y a rien à « ajouter sur Google Maps » en plus : votre fiche validée est votre présence sur Maps et dans la recherche. Google annonce que l'examen de la validation « peut prendre jusqu'à cinq jours ouvrés » ; passé ce délai, cherchez votre nom sur Maps pour vérifier."
+    },
+    {
+      "type": "p",
+      "text": "Apparaître, oui ; être dans les trois fiches du haut quand un client tape votre métier et sa ville, c'est autre chose. Google explique que ces résultats sont « principalement basés sur la pertinence, la distance et la popularité », et qu'« il n'existe aucun moyen d'obtenir une meilleure place au classement local Google sur demande ou contre rémunération » (aide Google Business Profile, consultée en septembre 2026). La catégorie principale sert la pertinence, la zone sert la distance, les avis servent la popularité : les trois réglages de ce tutoriel. Pour la vue d'ensemble, fiche puis site puis avis, lisez [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/)."
+    },
+    {
+      "type": "h3",
+      "text": "Plombier, électricien, coiffeur : la fiche selon le métier"
+    },
+    {
+      "type": "p",
+      "text": "La méthode ne change pas d'un métier à l'autre. Trois réglages, si :"
+    },
+    {
+      "type": "table",
+      "caption": "Les réglages de la fiche qui changent selon le métier",
+      "headers": [
+        "Métier",
+        "Adresse ou zone",
+        "Catégorie principale",
+        "Photos qui rassurent"
+      ],
+      "rows": [
+        [
+          "Plombier, électricien, chauffagiste",
+          "Zone d'intervention, adresse masquée",
+          "Le métier exact, tel qu'il s'affiche sous les fiches des concurrents",
+          "Véhicule floqué, chantiers avant/après, attestation d'assurance"
+        ],
+        [
+          "Coiffeur, institut, boutique",
+          "Adresse exacte, horaires précis",
+          "L'activité du salon ou du commerce",
+          "Devanture, intérieur, réalisations, équipe"
+        ],
+        [
+          "Restaurant, boulangerie",
+          "Adresse exacte, horaires et jours fériés",
+          "Le type d'établissement",
+          "Plats, vitrine, salle, carte à jour"
+        ],
+        [
+          "Paysagiste, maçon, couvreur",
+          "Zone d'intervention large mais réelle",
+          "Le métier exact",
+          "Chantiers terminés, engins, équipe sur site"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Le nom de la catégorie se lit sous le nom des concurrents dans le pack local : prenez celui des mieux classés, jamais une variante inventée."
     },
     {
       "type": "h2",
@@ -369,7 +430,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "93 % des consommateurs affirment que les avis en ligne influencent leurs décisions (Geolid, 2025). Demandez un avis à la fin du chantier, quand le client est content : « Si vous êtes satisfait, un avis Google nous aide énormément : voici le lien, ça prend 30 secondes. » La fiche fournit ce lien, imprimable en QR code sur vos factures."
+      "text": "93 % des Français lisent des avis en ligne avant un achat ou le choix d'un prestataire (Ifop pour Guest Suite, janvier 2026, via Siècle Digital). Demandez un avis à la fin du chantier, quand le client est content : « Si vous êtes satisfait, un avis Google nous aide énormément : voici le lien, ça prend 30 secondes. » La fiche fournit ce lien, imprimable en QR code sur vos factures. Le lien à envoyer, le QR code et la marche à suivre face à un faux avis sont détaillés dans notre [guide des avis Google](/conseils/seo/avis-google/)."
     },
     {
       "type": "p",
@@ -487,12 +548,17 @@ const article: Article = {
     {
       "q": "Une fiche Google suffit-elle, ou faut-il aussi un site internet ?",
       "a": "La fiche suffit pour être trouvé sur votre nom et dans votre zone, mais elle limite votre visibilité aux recherches très locales. Un site internet capte les recherches plus larges, rassure les clients qui comparent et reste le seul espace dont vous êtes pleinement propriétaire. Les deux se renforcent : la fiche apporte des appels, le site convainc les hésitants."
+    },
+    {
+      "q": "Comment ajouter mon entreprise sur Google Maps ?",
+      "a": "Il n'existe pas d'inscription séparée pour Google Maps : créer et faire valider votre fiche d'établissement sur business.google.com suffit, la fiche apparaît ensuite sur Maps et dans la recherche Google. Google indique que l'examen de la validation peut prendre jusqu'à cinq jours ouvrés. Si la fiche n'apparaît toujours pas, vérifiez qu'elle est bien validée et qu'elle n'est pas en doublon avec une ancienne fiche."
     }
   ],
   "related": [
     "referencement-local",
     "seo-artisan",
-    "connecter-site-google-search-console"
+    "connecter-site-google-search-console",
+    "comment-apparaitre-sur-google"
   ],
   "keywords": [
     "fiche établissement google",
@@ -501,7 +567,11 @@ const article: Article = {
     "google my business gratuit",
     "fiche google artisan",
     "vérification fiche google",
-    "fiche établissement google suspendu"
+    "fiche établissement google suspendu",
+    "fiche google",
+    "créer une fiche google",
+    "ajouter mon entreprise sur google maps",
+    "apparaître sur google maps"
   ]
 };
 
