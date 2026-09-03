@@ -18,10 +18,11 @@ AUDIT_TIER1_MAX_JOUR = "50"
 # Compteur du plafond et cache 24 h par domaine : espace KV « AUDIT_QUOTA ».
 # Sans ce binding, le moteur retombe sur un compteur en mémoire par isolat
 # (approché, remis à zéro à chaque recyclage) : le vrai plafond dur exige KV.
-# Le jeton CLOUDFLARE_API_TOKEN_MKZ n'a pas le droit « Workers KV Storage »
-# (mesuré le 03/09/2026 : erreur 10000 sur la liste des espaces), donc :
-# créer l'espace « mkz-audit-quota » dans le tableau de bord (Storage &
-# Databases > KV), coller son id ci-dessous, décommenter, redéployer.
-# [[kv_namespaces]]
-# binding = "AUDIT_QUOTA"
-# id = "<id de l'espace KV mkz-audit-quota>"
+# Espace « mkz-audit-quota » créé le 03/09/2026 dans le tableau de bord
+# (Workers KV), parce que le jeton CLOUDFLARE_API_TOKEN_MKZ n'a pas le droit
+# « Workers KV Storage » : `wrangler kv namespace create` répond « Authentication
+# error [code: 10000] » (mesuré deux fois le 03/09/2026). Pour l'automatiser un
+# jour, élargir le jeton à Workers KV Storage:Edit.
+[[kv_namespaces]]
+binding = "AUDIT_QUOTA"
+id = "df7e3e4ec98d4d8684c5327e50e67fcd"
