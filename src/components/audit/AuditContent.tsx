@@ -22,9 +22,6 @@ export interface AuditPageContent {
   h1Em: string;
   h1After: string;
   sub: string;
-  /** Capture RÉELLE d'un résultat de scan (régénérable via ?site=…) :
-   *  montre ce qu'on obtient AVANT de donner son adresse. */
-  apercu?: { src: string; w: number; h: number; alt: string; caption: string };
   measuresTitle: string;
   measures: { title: string; text: string }[];
   methodTitle: string;
@@ -91,26 +88,6 @@ const H2 = styled.h2`
   font-family: ${theme.fonts.display};
   font-size: clamp(24px, 4vw, 32px);
   color: ${theme.colors.accent};
-`;
-
-const Apercu = styled.figure`
-  margin-top: ${theme.spacing.lg};
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid ${theme.colors.border};
-    border-radius: ${theme.radius.sm};
-  }
-
-  figcaption {
-    margin-top: 8px;
-    font-family: ${theme.fonts.mono};
-    font-size: 13px;
-    line-height: 1.6;
-    color: ${theme.colors.textSecondary};
-  }
 `;
 
 const Cards = styled.div`
@@ -263,20 +240,6 @@ export default function AuditContent({
         <ToolZone>
           <AuditScan locale={locale} />
         </ToolZone>
-
-        {content.apercu && (
-          <Apercu>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={content.apercu.src}
-              width={content.apercu.w}
-              height={content.apercu.h}
-              alt={content.apercu.alt}
-              loading="lazy"
-            />
-            <figcaption>{content.apercu.caption}</figcaption>
-          </Apercu>
-        )}
 
         <H2>{content.measuresTitle}</H2>
         <Cards>

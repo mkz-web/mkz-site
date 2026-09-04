@@ -63,13 +63,6 @@ const content: AuditPageContent = {
   h1Em: "mesuré",
   h1After: ", pas estimé.",
   sub: "Entrez votre adresse. En une minute, l'outil fait 20 mesures réelles : votre technique, votre lisibilité par Google, et ce que personne ne vous montre, votre lisibilité par les IA comme ChatGPT et Perplexity. Un score clair, vos priorités, zéro inscription.",
-  apercu: {
-    src: "/images/outils/scan-apercu.webp",
-    w: 1400,
-    h: 343,
-    alt: "Résultat d'un scan réel : mkz-consulting.fr, score 89 sur 100, technique 35/35, lisibilité par les IA 35/35, autorité et positions Google 19/30",
-    caption: "Un scan réel : notre propre site, testé le 3 septembre 2026 avec l'outil ci-dessus. 89 sur 100 : l'autorité (19/30) est notre chantier du moment, et on ne maquille pas son propre score. Le vôtre prend une minute.",
-  },
   measuresTitle: "Ce que l'outil mesure",
   measures: [
     {
