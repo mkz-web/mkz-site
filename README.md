@@ -1,150 +1,173 @@
-# MKZ — Création de sites internet & SEO pour artisans et indépendants
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/images/mkz-logo-footer.svg">
+    <img src="public/images/mkz-logo.svg" alt="MKZ" width="140">
+  </picture>
+</p>
 
-> **Votre site web visible sur Google, enfin.**
+<h1 align="center">mkz-consulting.fr</h1>
 
-MKZ aide les artisans, commerçants, professions libérales et TPE à obtenir un site internet professionnel qui génère des clients grâce au référencement naturel (SEO).
+<p align="center">
+  <strong>Le code source du site de MKZ Consulting : création de sites internet, SEO et référencement IA pour les artisans, commerçants et TPE.</strong><br>
+  Un site statique construit pour être trouvé sur Google <em>et</em> cité par ChatGPT, Perplexity ou Gemini. Chaque chiffre technique de ce dépôt est mesuré et daté.
+</p>
 
-**Site web :** [mkz-consulting.fr](https://mkz-consulting.fr)
-**Contact :** [contact@mkz-consulting.fr](mailto:contact@mkz-consulting.fr) | 07 69 09 39 09
-**Audit gratuit :** [Réserver 30 min](https://calendly.com/mkz-consulting/30min)
+<p align="center">
+  <a href="https://mkz-consulting.fr">Site</a> ·
+  <a href="https://mkz-consulting.fr/outils/">Outils gratuits</a> ·
+  <a href="https://mkz-consulting.fr/conseils/">Conseils</a> ·
+  <a href="https://mkz-consulting.fr/tarifs/">Tarifs</a> ·
+  <a href="https://mkz-consulting.fr/contact/">Contact</a> ·
+  <a href="https://mkz-consulting.fr/en/">English site</a>
+</p>
 
----
+<p align="center">
+  <a href="https://mkz-consulting.fr"><img alt="État du site" src="https://img.shields.io/website?url=https%3A%2F%2Fmkz-consulting.fr&label=mkz-consulting.fr&up_message=en%20ligne&down_message=hors%20ligne"></a>
+  <a href="https://github.com/mkz-web/mkz-site/commits/master"><img alt="Dernier commit" src="https://img.shields.io/github/last-commit/mkz-web/mkz-site?label=dernier%20commit"></a>
+  <img alt="Next.js 16" src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white">
+  <img alt="Cloudflare Pages" src="https://img.shields.io/badge/Cloudflare%20Pages-F38020?logo=cloudflare&logoColor=white">
+  <img alt="Langues FR et EN" src="https://img.shields.io/badge/langues-FR%20%7C%20EN-2E7D32">
+</p>
 
-## Nos services
+<p align="center"><sub>Ce README est en français. <a href="#in-english">English summary at the end.</a></sub></p>
 
-### Création de site internet
+<p align="center">
+  <img src=".github/readme/accueil-1280.webp" alt="Accueil de mkz-consulting.fr à 1 280 px : titre « Votre site web visible sur Google. Et cité par les IA. », deux boutons d'action, carte de résultats" width="640">
+  <img src=".github/readme/accueil-375.webp" alt="Le même accueil à 375 px : une colonne, menu burger et bouton d'appel accessibles dans le premier écran" width="185">
+</p>
+<p align="center"><sub>Accueil en production, capturé le 09/09/2026 à 1 280 px et à 375 px, bandeau de consentement refusé avant le chargement.</sub></p>
 
-Un site qui vous ressemble et qui convertit. Design sur-mesure, UX optimisée, et performances au top pour transformer vos visiteurs en clients.
+## Ce que ce dépôt contient
 
-- Image de marque et direction artistique
-- Design responsive (mobile, tablette, desktop)
-- Optimisation vitesse (Core Web Vitals)
-- Branding complet
+- ✅ **Un site bilingue en export statique.** 54 pages au sitemap (38 en français, 16 en anglais). Le français reste à la racine des URL, l'anglais vit sous `/en/`, et les `hreflang` réciproques sont générés depuis une seule liste de paires.
+- ✅ **Une newsroom en cocons sémantiques.** 19 articles français répartis en 4 cocons (tutoriels, création de site, SEO, référencement IA) et 3 articles anglais en 2 cocons. Chaque cocon pousse vers sa page pilier.
+- ✅ **Deux outils gratuits, sans inscription.** L'[audit SEO + IA](https://mkz-consulting.fr/audit-seo/) : 20 mesures en une minute, score sur 100, moteur exécuté en Cloudflare Pages Functions. Le [simulateur d'empreinte d'une requête IA](https://mkz-consulting.fr/empreinte-ia/) : énergie, CO2 et eau d'une question posée à un modèle, jeu de données versionné.
+- ✅ **Le socle GEO.** `llms.txt` et `llms-full.txt` générés au build depuis le registre d'articles, JSON-LD reparsé par script avant chaque déploiement, `robots.txt` ouvert aux robots des IA, barre « Résumer avec l'IA » sur chaque article.
+- ✅ **La vie privée par construction.** Bandeau de consentement maison, Google Analytics 4 et Microsoft Clarity chargés uniquement après accord, zéro ressource externe dans le HTML statique.
+- ✅ **12 scripts Node sans dépendance.** Ingestion des articles, validation du build, déploiement, captures d'écran, harnais de test du moteur d'audit.
+- ✅ **Le journal des décisions.** [AGENTS.md](AGENTS.md) consigne chaque choix, chaque mesure et chaque piège payé, avec sa date. C'est le premier fichier à lire avant de toucher au code.
 
-### SEO & Référencement Google
-
-Montez sur le podium Google. Stratégie de mots-clés, optimisation technique, contenu optimisé et netlinking pour un trafic qualifié et durable.
-
-- Audit SEO complet
-- Stratégie de contenu et cocon sémantique
-- SEO technique (vitesse, structure, balisage)
-- Suivi mensuel avec reporting transparent
-
----
-
-## Résultats
-
-| Métrique | Résultat |
-|---|---|
-| Trafic organique moyen | **+247%** |
-| Position moyenne Google | **Top 3** |
-| Leads qualifiés | **+89%** |
-| Temps de charge | **1.2s** (Core Web Vitals validé) |
-
----
-
-## La méthode MKZ
-
-1. **Audit gratuit** — 30 min pour analyser votre situation et identifier les quick wins
-2. **Stratégie sur-mesure** — Plan d’action personnalisé avec objectifs clairs et budget défini
-3. **Résultats mesurables** — Exécution, suivi mensuel, reporting transparent
-
----
-
-## FAQ
-
-### Combien coûte un site internet pour un artisan ?
-
-Le prix varie selon vos besoins. Chez MKZ, nous proposons des solutions sur mesure adaptées au budget des TPE et indépendants. Réservez un [audit gratuit](https://calendly.com/mkz-consulting/30min) pour obtenir un devis personnalisé.
-
-### Combien de temps faut-il pour être visible sur Google ?
-
-Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois. Nos clients constatent en moyenne un triplement de leur trafic.
-
-### Pourquoi mon entreprise n’apparaît pas sur Google ?
-
-Plusieurs raisons possibles : site non optimisé pour le SEO, absence de contenu pertinent, problèmes techniques, ou fiche Google Business Profile incomplète. Un audit gratuit permet d’identifier les blocages.
-
-### Quelle est la différence entre SEO et SEA ?
-
-Le SEO génère du trafic gratuit et durable en optimisant votre site pour Google. Le SEA (publicité payante) donne des résultats immédiats mais s’arrête dès que vous cessez de payer. Chez MKZ, nous privilégions le SEO pour un ROI long terme.
-
-### Est-ce que je garde la propriété de mon site ?
-
-Oui, absolument. Votre site vous appartient à 100%. Vos accès, votre code, vos contenus. Si vous décidez de partir, vous partez avec tout.
-
----
-
-## Zones d’intervention
-
-Basé à **Dammartin-en-Goële (77)**, MKZ intervient dans toute l’Île-de-France et partout en France.
-
-**Villes :** Paris, Meaux, Chelles, Melun, Roissy, Senlis, Marne-la-Vallée, Serris, Provins, Fontainebleau, Créteil, Saint-Denis, Bobigny, Montreuil, Cergy, Pontoise, Versailles, Évry, Nanterre
-
-**Départements :** Seine-et-Marne (77), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d’Oise (95), Hauts-de-Seine (92), Yvelines (78), Essonne (91)
-
----
-
-## Stack technique
-
-| Technologie | Usage |
-|---|---|
-| [Next.js 16](https://nextjs.org) | Framework React (App Router, export statique) |
-| [Emotion](https://emotion.sh) | CSS-in-JS (styled-components) |
-| TypeScript | Typage statique |
-| JSON-LD | Données structurées (Organization, LocalBusiness, Service, FAQPage) |
-| [Cloudflare Pages](https://pages.cloudflare.com) | Hébergement (export statique, direct upload) |
-
-## Développement
+## Démarrer en trois commandes
 
 ```bash
-# Installation
-npm install
-
-# Serveur de développement
+git clone https://github.com/mkz-web/mkz-site.git && cd mkz-site
+npm ci
 npm run dev
+```
 
-# Build (génère le dossier out/)
+Puis, avant tout déploiement, construire et valider le site statique :
+
+```bash
 npm run build
-
-# Validation SEO du build (JSON-LD, titles/metas, maillage interne)
 node scripts/validate-out.mjs
 ```
 
-## Newsroom `/conseils/`
+Prérequis : Node 20.9 ou plus récent (exigence de Next 16) et Git. Aucun compte ni aucune clé n'est nécessaire pour développer et construire le site. Seul l'outil d'audit demande un peu plus pour tourner en local : `npx wrangler pages dev out --port 8788` sert le build avec ses fonctions, et un fichier `.dev.vars` (ignoré par git) porte les identifiants DataForSEO du bloc « autorité ». Sans eux, ces quatre mesures s'affichent « non mesuré » et le reste du scan fonctionne.
 
-Le site embarque une newsroom organisée en 3 cocons sémantiques (tutoriels clients, création de site internet, SEO), reliés aux pages piliers `/creation-site-internet/`, `/referencement-seo/` et `/agence-web-77/`.
+## Pourquoi c'est construit comme ça
 
-- Les articles vivent dans `src/content/articles/*.ts` (générés par `node scripts/ingest-content.mjs`).
-- `sitemap.xml`, `llms.txt` et `llms-full.txt` sont **générés au build** depuis le registre d'articles.
-- Les emplacements de captures d'écran des tutoriels s'activent en ajoutant `src` aux blocs `screenshot` (images dans `public/images/conseils/`).
+Sept décisions structurent le dépôt. Chacune est argumentée en détail dans [AGENTS.md](AGENTS.md).
 
-## Déploiement (Cloudflare Pages)
+| Décision | Pourquoi | Où c'est écrit |
+|---|---|---|
+| Export statique, pas de serveur applicatif | Une page HTML par URL, servie par un CDN : rapide, sans coût de serveur, sans surface d'attaque applicative. La seule logique serveur, l'API du scan, vit dans une Pages Function. | `next.config.ts`, `functions/api/` |
+| Deux root layouts `(fr)` et `(en)` au lieu du gabarit `[lang]` | Seul moyen d'obtenir deux attributs `lang` réels en export statique sans déplacer les URL françaises déjà indexées. | `src/app/`, AGENTS.md « Site bilingue » |
+| L'anglais n'est jamais une traduction du français | Les deux versions répondent à des demandes différentes, mesurées séparément. Une page dont l'intention n'existe pas en anglais n'est pas créée, et le fichier de contenu dit pourquoi. | `src/content/en/pillars/website-design.ts` |
+| « Référencement IA » plutôt que GEO, LLMO ou AEO en français | Volumes France mesurés sur deux semestres : « référencement ia » en hausse de 50 %, « llmo » en baisse de 62 %. Le terme de tête est celui que les gens tapent. | AGENTS.md « Cocon référencement IA » |
+| Polices auto-hébergées avec replis aux métriques calées | Le décalage de mise en page (CLS) de l'accueil mobile est passé de 0,1412 à 0,0012. | `src/lib/GlobalStyles.tsx` |
+| Bandeau de consentement écrit maison | Le bandeau tiers occupait 67 % de l'écran mobile et rangeait la mesure d'audience sous « Pub personnalisée ». Le nôtre : deux boutons de même taille, refus aussi simple que l'accord, rien dans le HTML statique. | `src/components/ConsentBanner.tsx`, `src/lib/consent.ts` |
+| Un chiffre technique est une mesure, jamais une déduction | « Pas de JSON-LD » n'est pas « pas cité par les IA ». On mesure l'effet, avec sa date, ou on écrit « non mesuré ». | `scripts/validate-out.mjs`, `scripts/test-audit-engine.mjs` |
 
-Le build génère un dossier `out/` contenant le site statique complet, déployé sur le projet Cloudflare Pages `mkz-site` (production : `https://mkz-site.pages.dev` → `https://mkz-consulting.fr`).
+## Ce qui est mesuré
 
-```bash
-# Build + déploiement
-npm run deploy:build
+Tous les relevés ci-dessous sont reproductibles avec les scripts du dépôt ou les outils cités. Ce qui n'a pas été mesuré n'y figure pas.
 
-# Déploiement seul (out/ existant)
-npm run deploy
+| Invariant | Relevé | Date | Méthode |
+|---|---|---|---|
+| Décalage de mise en page (CLS) de l'accueil, mobile | 0,0012 | 08/08/2026 | Chrome 151, chargements froids, avant et après calage des replis de polices |
+| Lighthouse, catégorie « Agentic Browsing », accueil | 1,00 | 15/08/2026 | Chrome 151, mobile |
+| Accès réel des robots IA | 180 requêtes, 180 réponses 200, aucun `X-Robots-Tag` | 15/08/2026 | 20 user-agents (GPTBot, ClaudeBot, PerplexityBot, Googlebot...) sur 9 URL |
+| Couverture d'exploration | 45 URL au sitemap, 45 atteignables depuis l'accueil, 0 orpheline, 0 lien cassé | 15/08/2026 | croisement sitemap, liens, `llms.txt` |
+| Débordement horizontal à 375 px | 0 px sur les gabarits contrôlés | 21/08/2026 | mesure au DOM, avant et après scan sur la page outil |
+| Ressources externes dans le HTML statique | 0 | 21/08/2026 | inventaire du build après retrait du bandeau tiers |
+| Score de l'outil d'audit sur ce site | 89 / 100, 0 mesure non mesurée | 03/09/2026 | `node scripts/test-audit-engine.mjs --attendu-mkz` |
+| Pages publiées | 54 au sitemap (38 FR, 16 EN) | 04/09/2026 | build |
+
+## Structure du dépôt
+
+```text
+src/app/(fr)/           pages françaises, à la racine des URL
+src/app/(en)/en/        pages anglaises
+src/app/llms*.txt/      llms.txt et llms-full.txt, générés au build
+src/components/         gabarits : Header, Footer, PillarContent, ArticleRenderer, audit/, conseils/
+src/content/            articles et piliers français ; en/ pour l'anglais
+src/lib/i18n.ts         dictionnaire d'interface et liste des paires hreflang
+functions/api/          /api/scan : moteur de l'outil d'audit (Cloudflare Pages Functions)
+empreinte-ia/           simulateur d'empreinte, sous-projet sans dépendance, construit vers public/empreinte-ia/
+public/                 _headers (CSP, HSTS), robots.txt, polices, images
+scripts/                12 scripts Node sans dépendance (tableau ci-dessous)
+AGENTS.md               journal des décisions, des mesures et des pièges
 ```
 
-Variables d'environnement requises : `CLOUDFLARE_API_TOKEN_MKZ` (token API avec permission *Cloudflare Pages:Edit* — fallback `CLOUDFLARE_API_TOKEN`) et `CLOUDFLARE_ACCOUNT_ID`. Aucune dépendance npm : `wrangler` est récupéré à la volée par `npx`.
+Les dossiers `_content-staging/`, `_research/` et `_backlinks/` sont ignorés par git : matière de travail éditoriale, pas du site.
 
-Les en-têtes HTTP (sécurité, cache) sont définis dans `public/_headers`. La redirection www → apex est une règle de redirection dans la zone Cloudflare (Pages ne supporte pas les redirections inter-hôtes via `_redirects`). HTTPS forcé, compression et clean URLs sont natifs chez Cloudflare Pages (l'ancien `.htaccess` OVH a été retiré).
+## Scripts
 
----
+Tous en Node natif, sans rien installer. Chaque script porte en tête sa commande, son runtime minimal et « Dépendances : aucune ».
 
-## À propos de MKZ
+| Script | Rôle |
+|---|---|
+| `ingest-content.mjs` | Transforme les articles du staging JSON en fichiers TypeScript typés et régénère le registre |
+| `validate-out.mjs` | Reparse tous les JSON-LD du build, contrôle titles et metas, hreflang réciproques, maillage interne |
+| `deploy.mjs` | Publie `out/` et `functions/` sur Cloudflare Pages par upload direct (wrangler via npx) |
+| `test-audit-engine.mjs` | Harnais de vérité terrain du moteur d'audit ; `--attendu-mkz` compare au résultat attendu sur ce site |
+| `capturer-apercu-scan.mjs` | Capture réelle du résultat du scan pour les cartes des accueils et des hubs outils |
+| `capturer-accueil-readme.mjs` | Capture réelle de l'accueil en production pour ce README, bandeau de consentement refusé, contrôles avant capture |
+| `convertir-captures.mjs` | Convertit des captures PNG en WebP avec le canvas de Chrome en headless |
+| `verify-coordonnees.mjs` | Vérifie qu'un crawler sans JavaScript lit bien les coordonnées légales |
+| `ga4-admin.mjs` | Administration GA4 par l'API Admin : événements clés, mesure avancée |
+| `download-fonts.mjs` | Récupère les polices en woff2 auto-hébergés |
+| `generate-favicon.mjs` | Génère le favicon depuis l'artwork source, zlib natif uniquement |
+| `generate-og-image.mjs` | Génère l'image OpenGraph 1200 × 630 |
 
-**MKZ** — SAS à associé unique
-SIRET : 983 662 784 00013 | RCS Meaux
-1 rue Françoise Sagan, 77230 Dammartin-en-Goële
+Le sous-projet `empreinte-ia/` a ses propres commandes : `npm run build:empreinte` et `npm run test:empreinte` (tests golden du moteur de calcul).
 
-Fondé par **Mickaël Leclerc**, ingénieur IT avec +20 ans d’expérience en infrastructure, automatisation et DevOps.
+## Déploiement
 
----
+Hébergement Cloudflare Pages, projet `mkz-site`, production sur `https://mkz-consulting.fr`. Le sous-domaine technique `mkz-site.pages.dev` est fermé par Cloudflare Access et en `noindex` : ce n'est pas une adresse publique.
 
-*© 2026 MKZ. Tous droits réservés.*
+```bash
+npm run deploy:build   # build puis publication
+npm run deploy         # publication d'un out/ déjà construit
+```
+
+Variables d'environnement attendues : `CLOUDFLARE_API_TOKEN_MKZ` (repli sur `CLOUDFLARE_API_TOKEN`) et `CLOUDFLARE_ACCOUNT_ID`. Les identifiants DataForSEO de l'outil d'audit sont des secrets du projet Pages, jamais des fichiers du dépôt. Un secret ou un binding ajouté après coup n'atteint le site qu'à la republication suivante.
+
+Après chaque déploiement, trois contrôles : `llms.txt`, `llms-full.txt`, `sitemap.xml` et `robots.txt` servis identiques au build ; un `POST /api/scan` en phase `origin` qui répond 200 ; le sitemap resoumis dans la Search Console.
+
+## Contribuer, signaler
+
+Le dépôt est public pour montrer comment le site est fait. Les [issues](https://github.com/mkz-web/mkz-site/issues) sont ouvertes : coquille, lien cassé, défaut d'affichage sur un appareil, chiffre qui a vieilli. Une pull request de correction est la bienvenue si elle respecte trois règles :
+
+1. **Tout contenu existe en français et en anglais**, et l'anglais n'est pas une traduction. Une page dans une seule langue est un travail inachevé.
+2. **Un chiffre technique est une mesure datée**, jamais une estimation. S'il ne peut pas être mesuré, on écrit « non mesuré ».
+3. **`node scripts/validate-out.mjs` passe** sur le build avant toute demande de fusion.
+
+Les articles ne s'éditent pas directement dans `src/content/articles/` : ils y sont générés depuis le staging, et l'ingestion suivante écraserait la modification.
+
+## À propos
+
+**MKZ**, SAS à associé unique, SIRET 983 662 784 00013, RCS Meaux. 1 rue Françoise Sagan, 77230 Dammartin-en-Goële. Fondée par [Mickaël Leclerc](https://mkz-consulting.fr/about/), ingénieur IT depuis plus de vingt ans (infrastructure, automatisation, DevOps), consultant SEO et référencement IA en Seine-et-Marne.
+
+Contact : [contact@mkz-consulting.fr](mailto:contact@mkz-consulting.fr) · 07 69 09 39 09 · [Réserver 30 minutes d'audit gratuit](https://calendly.com/mkz-consulting/30min)
+
+## Licence
+
+Pas de licence open source. Le code, les contenus, la marque et les visuels restent la propriété de MKZ : tous droits réservés. Le dépôt est lisible pour la transparence et l'inspiration ; il n'est pas réutilisable tel quel.
+
+## In English
+
+This is the source code of [mkz-consulting.fr](https://mkz-consulting.fr/en/), the website of MKZ Consulting, a French agency helping tradespeople, shop owners and small businesses get found on Google and cited by AI answer engines. The site is a bilingual static export built with Next.js 16, hosted on Cloudflare Pages: 54 pages (38 French, 16 English), a newsroom organised in topic clusters, two free tools (a 20-check [SEO + AI audit](https://mkz-consulting.fr/en/seo-audit/) running on Pages Functions, and an AI query footprint simulator), generated `llms.txt` files, script-validated JSON-LD, and a home-made consent banner that loads analytics only after opt-in.
+
+The English pages are never translations: each one targets a demand measured separately, mainly foreign companies that need the French market to work for them. Every technical figure in this README was measured on a stated date; anything unmeasured is left out. Decisions, pitfalls and measurements are logged in [AGENTS.md](AGENTS.md) (in French). Quick start: `npm ci`, `npm run dev`, then `npm run build` and `node scripts/validate-out.mjs` before deploying. No open source licence: all rights reserved.
