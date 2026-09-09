@@ -102,3 +102,10 @@ audit-data.json
 
 # Secrets locaux de `wrangler pages dev` (identifiants DataForSEO de l outil d audit)
 .dev.vars
+
+# Notes internes et matiere de travail : hors du depot public depuis le 09/09/2026 (audit de secrets)
+/AGENTS.md
+/article/
+/_content-archive/
+/_ux/
+/public/demo/

@@ -46,7 +46,7 @@
 - ✅ **Le socle GEO.** `llms.txt` et `llms-full.txt` générés au build depuis le registre d'articles, JSON-LD reparsé par script avant chaque déploiement, `robots.txt` ouvert aux robots des IA, barre « Résumer avec l'IA » sur chaque article.
 - ✅ **La vie privée par construction.** Bandeau de consentement maison, Google Analytics 4 et Microsoft Clarity chargés uniquement après accord, zéro ressource externe dans le HTML statique.
 - ✅ **12 scripts Node sans dépendance.** Ingestion des articles, validation du build, déploiement, captures d'écran, harnais de test du moteur d'audit.
-- ✅ **Le journal des décisions.** [AGENTS.md](AGENTS.md) consigne chaque choix, chaque mesure et chaque piège payé, avec sa date. C'est le premier fichier à lire avant de toucher au code.
+- ✅ **Le journal des décisions.** Chaque choix, chaque mesure et chaque piège payé sont consignés avec leur date dans un journal tenu hors du dépôt public depuis le 09/09/2026 (il portait des notes internes). Les décisions qui structurent le code sont reprises plus bas.
 
 ## Démarrer en trois commandes
 
@@ -67,14 +67,14 @@ Prérequis : Node 20.9 ou plus récent (exigence de Next 16) et Git. Aucun compt
 
 ## Pourquoi c'est construit comme ça
 
-Sept décisions structurent le dépôt. Chacune est argumentée en détail dans [AGENTS.md](AGENTS.md).
+Sept décisions structurent le dépôt. Chacune est argumentée en détail dans le journal interne du projet, tenu hors du dépôt public.
 
 | Décision | Pourquoi | Où c'est écrit |
 |---|---|---|
 | Export statique, pas de serveur applicatif | Une page HTML par URL, servie par un CDN : rapide, sans coût de serveur, sans surface d'attaque applicative. La seule logique serveur, l'API du scan, vit dans une Pages Function. | `next.config.ts`, `functions/api/` |
-| Deux root layouts `(fr)` et `(en)` au lieu du gabarit `[lang]` | Seul moyen d'obtenir deux attributs `lang` réels en export statique sans déplacer les URL françaises déjà indexées. | `src/app/`, AGENTS.md « Site bilingue » |
+| Deux root layouts `(fr)` et `(en)` au lieu du gabarit `[lang]` | Seul moyen d'obtenir deux attributs `lang` réels en export statique sans déplacer les URL françaises déjà indexées. | `src/app/`, journal interne (hors dépôt) « Site bilingue » |
 | L'anglais n'est jamais une traduction du français | Les deux versions répondent à des demandes différentes, mesurées séparément. Une page dont l'intention n'existe pas en anglais n'est pas créée, et le fichier de contenu dit pourquoi. | `src/content/en/pillars/website-design.ts` |
-| « Référencement IA » plutôt que GEO, LLMO ou AEO en français | Volumes France mesurés le 07/08/2026, second semestre 2025 contre premier semestre 2026 : « référencement ia » en hausse de 50 %, « llmo » en baisse de 62 %. Le terme de tête est celui que les gens tapent. | AGENTS.md « Cocon référencement IA » |
+| « Référencement IA » plutôt que GEO, LLMO ou AEO en français | Volumes France mesurés le 07/08/2026, second semestre 2025 contre premier semestre 2026 : « référencement ia » en hausse de 50 %, « llmo » en baisse de 62 %. Le terme de tête est celui que les gens tapent. | journal interne (hors dépôt) « Cocon référencement IA » |
 | Polices auto-hébergées avec replis aux métriques calées | Le décalage de mise en page (CLS) de l'accueil mobile est passé de 0,1412 à 0,0012. | `src/lib/GlobalStyles.tsx` |
 | Bandeau de consentement écrit maison | Le bandeau tiers occupait 67 % de l'écran mobile (mesuré le 21/08/2026) et rangeait la mesure d'audience sous « Pub personnalisée ». Le nôtre : deux boutons de même taille, refus aussi simple que l'accord, rien dans le HTML statique. | `src/components/ConsentBanner.tsx`, `src/lib/consent.ts` |
 | Un chiffre technique est une mesure, jamais une déduction | « Pas de JSON-LD » n'est pas « pas cité par les IA ». On mesure l'effet, avec sa date, ou on écrit « non mesuré ». | `scripts/validate-out.mjs`, `scripts/test-audit-engine.mjs` |
@@ -107,7 +107,6 @@ functions/api/          /api/scan : moteur de l'outil d'audit (Cloudflare Pages 
 empreinte-ia/           simulateur d'empreinte, sous-projet sans dépendance, construit vers public/empreinte-ia/
 public/                 _headers (CSP, HSTS), robots.txt, polices, images
 scripts/                12 scripts Node sans dépendance (tableau ci-dessous)
-AGENTS.md               journal des décisions, des mesures et des pièges
 ```
 
 Les dossiers `_content-staging/`, `_research/` et `_backlinks/` sont ignorés par git : matière de travail éditoriale, pas du site.
@@ -170,4 +169,4 @@ Pas de licence open source. Le code, les contenus, la marque et les visuels rest
 
 This is the source code of [mkz-consulting.fr](https://mkz-consulting.fr/en/), the website of MKZ Consulting, a French agency helping tradespeople, shop owners and small businesses get found on Google and cited by AI answer engines. The site is a bilingual static export built with Next.js 16, hosted on Cloudflare Pages: 54 pages (38 French, 16 English), a newsroom organised in topic clusters, two free tools (a 20-check [SEO + AI audit](https://mkz-consulting.fr/en/seo-audit/) running on Pages Functions, and an AI query footprint simulator), generated `llms.txt` files, script-validated JSON-LD, and a home-made consent banner that loads analytics only after opt-in.
 
-The English pages are never translations: each one targets a demand measured separately, mainly foreign companies that need the French market to work for them. Every technical figure in this README was measured on a stated date; anything unmeasured is left out. Decisions, pitfalls and measurements are logged in [AGENTS.md](AGENTS.md) (in French). Quick start: `npm ci`, `npm run dev`, then `npm run build` and `node scripts/validate-out.mjs` before deploying. No open source licence: all rights reserved.
+The English pages are never translations: each one targets a demand measured separately, mainly foreign companies that need the French market to work for them. Every technical figure in this README was measured on a stated date; anything unmeasured is left out. Decisions, pitfalls and measurements are logged in the project's internal decision log (kept out of the public repository since 9 September 2026) (in French). Quick start: `npm ci`, `npm run dev`, then `npm run build` and `node scripts/validate-out.mjs` before deploying. No open source licence: all rights reserved.
