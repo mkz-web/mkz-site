@@ -915,7 +915,7 @@ export default function HomeContentEn() {
           <ChapterHead>
             <Kicker><strong>02</strong>&ensp;Free tools</Kicker>
             <div>
-              <ChapterTitle>Measure first. Then decide.</ChapterTitle>
+              <ChapterTitle>A free health check of your site, in one minute.</ChapterTitle>
               <ChapterLede>
                 One self-service tool, no signup. It measures, it does not
                 estimate: the same one I run on client work.{" "}

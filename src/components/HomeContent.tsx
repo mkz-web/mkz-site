@@ -686,8 +686,8 @@ const cities = ["Meaux", "Melun", "Chelles", "Dammartin-en-Goële", "Roissy", "M
 // agencies won't admit », « been burned before? »), puis répondent. Dans la voix
 // de Mickaël : cash, une analogie, une réponse par piège.
 const pieges = [
-  { num: "01", title: "On vous vend un site. Pas des clients.", desc: "Un site sans référencement, c'est comme une vitrine dans une rue sans passage : personne ne la voit, vous avez payé un joli objet. Chez moi, le référencement est inclus dans chaque site livré." },
-  { num: "02", title: "Vous payez, et vous ne comprenez rien au rapport.", desc: "Des courbes, des positions, du jargon. La seule question qui compte : est-ce que ça ramène des clients ? Chaque mois, je vous réponds en français, avec les demandes reçues, pas avec un PDF de quarante pages." },
+  { num: "01", title: "On vous vend un site. Pas des clients.", desc: "Un site sans référencement, c'est comme une vitrine dans une rue sans passage : belle, mais personne ne passe devant. Chez moi, le référencement est inclus dans chaque site livré." },
+  { num: "02", title: "Vous payez, et le rapport est incompréhensible.", desc: "Des courbes, des positions, du jargon. La seule question qui compte : est-ce que ça ramène des clients ? Chaque mois, je vous réponds en français, avec les demandes reçues, pas avec un PDF de quarante pages." },
   { num: "03", title: "Le site ne vous appartient pas.", desc: "Abonnement, hébergement captif, accès que vous n'avez jamais eus : le jour où vous partez, vous repartez de zéro. Chez MKZ, le nom de domaine, le code et les contenus sont à vous. Coût de sortie : 0 €." },
 ];
 
@@ -743,13 +743,13 @@ const testimonials = [
 const metiers = [
   { kicker: "Artisans du bâtiment", title: "Des chantiers près de chez vous", desc: "Plombier, électricien, maçon : le client tape « dépannage » ou « devis » avec le nom de sa ville. C'est là qu'il faut apparaître.", href: "/conseils/seo/trouver-des-chantiers/", go: "Comment trouver des chantiers" },
   { kicker: "Commerces et restaurants", title: "Une fiche Google qui remplit la salle", desc: "Horaires justes, photos récentes, avis auxquels on répond, réservation qui marche sur téléphone. Sur Maps, on vous compare souvent avant d'ouvrir votre site.", href: "/conseils/seo/avis-google/", go: "Bien gérer ses avis Google" },
-  { kicker: "Professions libérales et cabinets", title: "Être trouvé dans votre ville, et rassurer", desc: "Ostéopathe, avocat, expert-comptable : on vous cherche par métier et par ville, puis on vous juge en dix secondes. Le référencement local fait les deux.", href: "/conseils/seo/referencement-local/", go: "Le référencement local, expliqué" },
+  { kicker: "Professions libérales et cabinets", title: "Être trouvé dans votre ville, et rassurer", desc: "Ostéopathe, avocat, expert-comptable : on vous cherche par métier et par ville, puis on se fait une idée en dix secondes. Le référencement local joue sur les deux.", href: "/conseils/seo/referencement-local/", go: "Le référencement local, expliqué" },
   { kicker: "Vous partez de zéro", title: "Un site vitrine qui rapporte", desc: "Pas de site, ou un site qui dort ? Ce qu'il faut dedans, ce que ça coûte, par quoi commencer : écrit noir sur blanc, chiffres à l'appui.", href: "/conseils/creation-site-internet/site-vitrine/", go: "Ce qu'il faut dans un site vitrine" },
 ];
 
 const differentiators = [
-  { num: "01", title: "On parle français", desc: "Quand je dis « données structurées », je vous explique dans la phrase d'après ce que ça change pour vous. Vous comprenez ce qu'on fait, et pourquoi. Sinon, ce n'est pas la peine." },
-  { num: "02", title: "Je décroche", desc: "Une question, un doute, une bêtise ? Vous m'appelez, je réponds. Pas de ticket, pas de chef de projet entre nous, pas d'attente de 72 heures." },
+  { num: "01", title: "On parle français", desc: "Quand je dis « données structurées », je vous explique dans la phrase d'après ce que ça change pour vous. Vous comprenez ce qu'on fait, et pourquoi." },
+  { num: "02", title: "Je décroche", desc: "Une question, un doute, un détail ? Vous m'appelez, je réponds. Pas de ticket, pas de chef de projet entre nous, pas d'attente de 72 heures." },
   { num: "03", title: "Vous voyez tout", desc: "Chaque mois, un point clair : ce qui a été fait, ce que ça a donné, la suite. Vos accès Search Console et Analytics sont les vôtres, vous pouvez vérifier sans moi." },
   { num: "04", title: "Vous restez libre", desc: "Votre site vous appartient, vos accès aussi. Si demain vous partez, vous partez avec tout. C'est normal, et c'est écrit dans le devis." },
 ];
@@ -860,8 +860,8 @@ export default function HomeContent() {
             <div>
               <ChapterTitle surSombre>Trois pi&egrave;ges que personne ne vous explique avant de signer.</ChapterTitle>
               <ChapterLede surSombre>
-                Ce n&rsquo;est pas de la mauvaise foi, c&rsquo;est le mod&egrave;le. Le mien est
-                diff&eacute;rent, et il tient en trois phrases.
+                Ce n&rsquo;est pas de la mauvaise foi, c&rsquo;est le mod&egrave;le des agences.
+                Voici ce que je fais autrement.
               </ChapterLede>
             </div>
           </ChapterHead>
@@ -881,12 +881,12 @@ export default function HomeContent() {
       <Section variant="alt" id="outils">
         <Container>
           <ChapterHead>
-            <Kicker><strong>02</strong>&ensp;Mesurez d&rsquo;abord</Kicker>
+            <Kicker><strong>02</strong>&ensp;L&rsquo;outil gratuit</Kicker>
             <div>
-              <ChapterTitle>Avant de me parler, regardez o&ugrave; vous en &ecirc;tes.</ChapterTitle>
+              <ChapterTitle>Un &eacute;tat des lieux de votre site, gratuit, en une minute.</ChapterTitle>
               <ChapterLede>
-                Un outil en libre-service, sans inscription. Il mesure, il n&rsquo;estime pas :
-                c&rsquo;est celui que j&rsquo;utilise pour mes clients.{" "}
+                Le m&ecirc;me outil que j&rsquo;utilise pour mes clients, en libre-service et sans
+                inscription. Il mesure, il n&rsquo;estime pas.{" "}
                 <Link href="/outils/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
                   Tous les outils gratuits
                 </Link>.
@@ -1041,8 +1041,8 @@ export default function HomeContent() {
           <Manifesto>
             Quand je dis consultant, c&rsquo;est-&agrave;-dire : la personne qui vous r&eacute;pond
             au t&eacute;l&eacute;phone est celle qui fait le travail. Pas de commercial, pas de chef
-            de projet, pas de stagiaire derri&egrave;re. &Ccedil;a co&ucirc;te moins cher et &ccedil;a va
-            plus vite. Point.
+            de projet, pas de stagiaire derri&egrave;re. &Ccedil;a co&ucirc;te moins cher, et &ccedil;a va
+            plus vite. C&rsquo;est tout.
           </Manifesto>
           <DiffLayout>
             <PortraitFigure>
