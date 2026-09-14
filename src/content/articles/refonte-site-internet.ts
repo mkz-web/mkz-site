@@ -427,7 +427,7 @@ const article: Article = {
           "Vous-même (outil en ligne)",
           "Le moins cher en apparence",
           "Contrôle total, démarrage rapide",
-          "Votre temps (des dizaines d'heures), rendu amateur, redirections 301 rarement gérées"
+          "Votre temps (des dizaines d'heures), un rendu qui fait maison, redirections 301 rarement gérées"
         ],
         [
           "Freelance",

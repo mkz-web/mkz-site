@@ -149,7 +149,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "C'est le piège numéro un, et il invalide la plupart des mesures amateurs. Posez la même question deux fois à ChatGPT et vous obtiendrez deux réponses différentes, parfois avec des sources différentes. **Une mesure unique ne prouve rien.** D'où la règle des trois répétitions : ce que vous cherchez, c'est une fréquence, pas un oui ou un non."
+      "text": "C'est le piège numéro un, et il invalide la plupart des mesures faites à la main, une seule fois. Posez la même question deux fois à ChatGPT et vous obtiendrez deux réponses différentes, parfois avec des sources différentes. **Une mesure unique ne prouve rien.** D'où la règle des trois répétitions : ce que vous cherchez, c'est une fréquence, pas un oui ou un non."
     },
     {
       "type": "h3",
@@ -226,7 +226,7 @@ const article: Article = {
           "Un outil dédié, pour l'historique et les exports"
         ],
         [
-          "Vous ne savez pas encore quelles questions suivre",
+          "Pas encore de liste de questions à suivre",
           "Le protocole manuel, toujours : l'outil ne trouvera pas vos questions à votre place"
         ]
       ]

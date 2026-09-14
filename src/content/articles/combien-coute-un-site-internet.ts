@@ -196,7 +196,7 @@ const article: Article = {
           "Vous-même (Wix, WordPress…)",
           "100 à 500 €/an d'outils",
           "Budget très serré, temps disponible",
-          "Vos heures, et un rendu amateur qui se voit"
+          "Vos heures, et un rendu qui fait maison"
         ],
         [
           "Freelance",
