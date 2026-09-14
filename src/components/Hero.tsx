@@ -285,7 +285,7 @@ export default function Hero() {
           <Stamp>Devis gratuit · R&eacute;ponse 24 h</Stamp>
           <SheetLabel>Qui vous r&eacute;pond</SheetLabel>
           <SheetQuote>
-            &laquo;&nbsp;Votre site, je le fais moi-m&ecirc;me. Je le r&eacute;f&eacute;rence, je vous explique en fran&ccedil;ais ce que je fais, et je d&eacute;croche quand vous appelez. Et si &ccedil;a ne vous ram&egrave;ne pas de clients, on change de plan.&nbsp;&raquo;
+            &laquo;&nbsp;Votre site, je le fais moi-m&ecirc;me. Je le r&eacute;f&eacute;rence, je vous explique en fran&ccedil;ais ce que je fais, et quand vous appelez, c&rsquo;est moi qui d&eacute;croche. Point.&nbsp;&raquo;
           </SheetQuote>
           <SheetWho>
             {/* eslint-disable-next-line @next/next/no-img-element */}
