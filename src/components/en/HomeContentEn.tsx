@@ -137,39 +137,42 @@ const SheetLabel = styled.p`
   margin-bottom: 8px;
 `;
 
-const SheetRow = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 0;
-
-  & + & { border-top: 1px solid ${theme.colors.border}; }
-`;
-
-const SheetValue = styled.span`
+const SheetQuote = styled.blockquote`
+  margin: 18px 0 0;
   font-family: ${theme.fonts.display};
-  font-size: 34px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
+  font-style: italic;
+  font-size: clamp(19px, 1.7vw, 22px);
+  line-height: 1.45;
   color: ${theme.colors.accent};
-  white-space: nowrap;
 `;
 
-const SheetDesc = styled.span`
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: ${theme.colors.textSecondary};
-  text-align: right;
-`;
-
-const SheetNote = styled.p`
-  margin-top: 14px;
-  padding-top: 14px;
+const SheetWho = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid ${theme.colors.border};
+
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 56px;
+  }
+`;
+
+const SheetName = styled.p`
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.3;
+`;
+
+const SheetRole = styled.p`
   font-family: ${theme.fonts.mono};
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: ${theme.colors.textSecondary};
 `;
 
@@ -722,32 +725,24 @@ export default function HomeContentEn() {
             </HeroMeta>
           </div>
 
-          {/* 14/09/2026: the "average client results" (+247%, Top 3, 1.2s, 50+
-              clients) had no measurement behind them. Removed (content strategy
-              of 14/09: a figure needs a source and a date). The card now carries
-              only facts verifiable today. A client result will only come back
-              measured, dated and named, with the client's consent. */}
-          <Sheet aria-label="Three verifiable facts about MKZ">
+          {/* 14/09/2026: the hero card carried unmeasured "average results", then
+              three verifiable but cold facts (20 years, 100%, €0) that Mickaël
+              rejected as inhuman. It now carries his own words and his face. No
+              figure here: figures live on the pricing page and in the audit tool. */}
+          <Sheet aria-label="A word from Mickaël Leclerc, founder of MKZ">
             <Stamp>Free review · 24h reply</Stamp>
-            <SheetLabel>What you can verify</SheetLabel>
-            <div>
-              <SheetRow>
-                <SheetValue>20 years</SheetValue>
-                <SheetDesc>in IT, and he does the work himself</SheetDesc>
-              </SheetRow>
-              <SheetRow>
-                <SheetValue>100%</SheetValue>
-                <SheetDesc>yours: the site, its code, its access, its content</SheetDesc>
-              </SheetRow>
-              <SheetRow>
-                <SheetValue>€0</SheetValue>
-                <SheetDesc>for the online audit and the 30-minute call</SheetDesc>
-              </SheetRow>
-            </div>
-            <SheetNote>
-              No magic percentages: three facts you can check today, from a French
-              consultant who works in France, for the French market you are entering.
-            </SheetNote>
+            <SheetLabel>Who answers you</SheetLabel>
+            <SheetQuote>
+              &ldquo;I build your site myself. I get it found in France, I explain what I do in plain English, and I pick up the phone when you call. If it doesn&rsquo;t ring, we talk.&rdquo;
+            </SheetQuote>
+            <SheetWho>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc" width={56} height={56} />
+              <div>
+                <SheetName>Mickaël Leclerc</SheetName>
+                <SheetRole>Founder of MKZ · near Paris, France</SheetRole>
+              </div>
+            </SheetWho>
           </Sheet>
         </HeroGrid>
       </HeroSection>

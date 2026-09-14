@@ -130,41 +130,42 @@ const SheetLabel = styled.p`
   border-bottom: 1px solid ${theme.colors.border};
 `;
 
-const SheetRow = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 0;
+const SheetQuote = styled.blockquote`
+  margin: 18px 0 0;
+  font-family: ${theme.fonts.display};
+  font-style: italic;
+  font-size: clamp(19px, 1.7vw, 22px);
+  line-height: 1.45;
+  color: ${theme.colors.accent};
+`;
 
-  & + & {
-    border-top: 1px solid ${theme.colors.border};
+const SheetWho = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid ${theme.colors.border};
+
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 56px;
   }
 `;
 
-const SheetValue = styled.span`
-  font-family: ${theme.fonts.display};
-  font-size: 34px;
+const SheetName = styled.p`
   font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: ${theme.colors.accent};
-  white-space: nowrap;
+  font-size: 15px;
+  line-height: 1.3;
 `;
 
-const SheetDesc = styled.span`
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: ${theme.colors.textSecondary};
-  text-align: right;
-`;
-
-const SheetNote = styled.p`
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid ${theme.colors.border};
+const SheetRole = styled.p`
   font-family: ${theme.fonts.mono};
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: ${theme.colors.textSecondary};
 `;
 
@@ -217,34 +218,26 @@ export default function Hero() {
           </MetaLine>
         </div>
 
-        {/* 14/09/2026 : les « résultats moyens » (+247 %, Top 3, 1,2 s, +50
-            entreprises, 97 % de satisfaits) n'avaient aucune mesure derrière.
-            Retirés (stratégie de contenu du 14/09, règle « un chiffre = une
-            source + une date »). La carte ne porte plus que des faits vérifiables
-            aujourd'hui : l'expérience du fondateur (page À propos), la propriété
-            du site (engagement de /tarifs/ et des CGV), la gratuité de l'audit en
-            ligne et du rendez-vous. Un résultat client n'y reviendra que mesuré,
-            daté et nommé, avec l'accord du client. */}
-        <Sheet aria-label="Trois faits vérifiables sur MKZ">
+        {/* 14/09/2026 : la carte du hero a porté des « résultats moyens » sans
+            mesure (+247 %, Top 3, 1,2 s), puis trois faits vérifiables mais froids
+            (20 ans, 100 %, 0 €) que Mickaël a refusés : « aucun humain n'est touché
+            par un contenu aussi inhumain ». Elle porte désormais une parole, la
+            sienne, et son visage. Pas de chiffre ici : le chiffre vit sur /tarifs/
+            et dans l'outil d'audit. */}
+        <Sheet aria-label="Un mot de Mickaël Leclerc, fondateur de MKZ">
           <Stamp>Devis gratuit · R&eacute;ponse 24 h</Stamp>
-          <SheetLabel>Ce que vous pouvez v&eacute;rifier</SheetLabel>
-          <div>
-            <SheetRow>
-              <SheetValue>20 ans</SheetValue>
-              <SheetDesc>d&rsquo;informatique, et c&rsquo;est lui qui fait le travail</SheetDesc>
-            </SheetRow>
-            <SheetRow>
-              <SheetValue>100&thinsp;%</SheetValue>
-              <SheetDesc>propri&eacute;taire de votre site : code, acc&egrave;s, contenus</SheetDesc>
-            </SheetRow>
-            <SheetRow>
-              <SheetValue>0&thinsp;&euro;</SheetValue>
-              <SheetDesc>pour l&rsquo;audit en ligne et le rendez-vous de 30 minutes</SheetDesc>
-            </SheetRow>
-          </div>
-          <SheetNote>
-            Pas de pourcentage magique : ces trois faits se v&eacute;rifient aujourd&rsquo;hui, sur ce site et au t&eacute;l&eacute;phone.
-          </SheetNote>
+          <SheetLabel>Qui vous r&eacute;pond</SheetLabel>
+          <SheetQuote>
+            &laquo;&nbsp;Votre site, je le fais moi-m&ecirc;me. Je le r&eacute;f&eacute;rence, je vous explique en fran&ccedil;ais ce que je fais, et je d&eacute;croche quand vous appelez. Si le t&eacute;l&eacute;phone ne sonne pas, on en parle.&nbsp;&raquo;
+          </SheetQuote>
+          <SheetWho>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc" width={56} height={56} />
+            <div>
+              <SheetName>Micka&euml;l Leclerc</SheetName>
+              <SheetRole>Fondateur de MKZ · Dammartin-en-Go&euml;le (77)</SheetRole>
+            </div>
+          </SheetWho>
         </Sheet>
       </Grid>
     </Section>
