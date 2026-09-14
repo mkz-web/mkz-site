@@ -812,7 +812,7 @@ export default function HomeContentEn() {
             <Stamp>Free review · 24h reply</Stamp>
             <SheetLabel>Who answers you</SheetLabel>
             <SheetQuote>
-              &ldquo;I build your site myself. I get it found in France, I explain what I do in plain English, and I pick up the phone when you call. If it doesn&rsquo;t ring, we talk.&rdquo;
+              &ldquo;I build your site myself. I get it found in France, I explain what I do in plain English, and I pick up the phone when you call. And if it doesn&rsquo;t bring you customers, we change the plan.&rdquo;
             </SheetQuote>
             <SheetWho>
               {/* eslint-disable-next-line @next/next/no-img-element */}
