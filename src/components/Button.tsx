@@ -13,7 +13,9 @@ type ButtonProps = {
 // Boutons « étiquette d'atelier » : rectangle net, aucun dégradé, aucune ombre
 // floue ; au survol, léger décalage + ombre dure (signal imprimé).
 
-const baseStyles = `
+// Exportés depuis le 14/09/2026 : le formulaire de scan du hero (Hero.tsx,
+// HomeContentEn.tsx) rend un <button> natif avec exactement ces styles.
+export const baseStyles = `
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +29,7 @@ const baseStyles = `
   cursor: pointer;
 `;
 
-const primaryStyles = `
+export const primaryStyles = `
   background-color: ${theme.colors.ctaInk};
   color: white;
   border: 1px solid ${theme.colors.ctaInk};

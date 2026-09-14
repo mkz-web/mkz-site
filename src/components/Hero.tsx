@@ -2,7 +2,7 @@
 
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
-import Button from "./Button";
+import Button, { baseStyles, primaryStyles } from "./Button";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
@@ -73,8 +73,53 @@ const Subtitle = styled.p`
   max-width: 56ch;
 `;
 
+/* Formulaire de scan dans le premier écran (14/09/2026). Relevé sur 15 accueils
+   d'agences et de consultants SEO (US, UK, AU, CA) : les mieux placés mettent
+   l'adresse du site à saisir DANS le hero (First Rank, First Place SEO, Luca
+   Tagliaferro), pas un bouton vers une page d'outil. Formulaire GET natif : il
+   marche sans JavaScript et /audit-seo/?site= lance le scan à l'arrivée. */
+const ScanForm = styled.form`
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 600px;
+`;
+
+const ScanLabel = styled.label`
+  flex: 1 1 100%;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: ${theme.colors.textSecondary};
+`;
+
+const ScanInput = styled.input`
+  flex: 1 1 240px;
+  min-height: 52px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: ${theme.colors.text};
+  background: ${theme.colors.surface};
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.sm};
+
+  &::placeholder { color: ${theme.colors.textSecondary}; opacity: 0.8; }
+  &:focus { outline: 2px solid ${theme.colors.ctaInk}; outline-offset: 1px; }
+`;
+
+const ScanButton = styled.button`
+  ${baseStyles}
+  ${primaryStyles}
+  font-family: inherit;
+  min-height: 52px;
+`;
+
 const Actions = styled.div`
-  margin-top: 36px;
+  margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -108,7 +153,7 @@ const MetaLine = styled.p`
   }
 `;
 
-/* Fiche de résultats : le bloc « devis » signature */
+/* La carte « qui vous répond » */
 
 const Sheet = styled.aside`
   position: relative;
@@ -191,27 +236,39 @@ export default function Hero() {
     <Section>
       <Grid>
         <div>
-          <Kicker>Agence web &amp; SEO · Seine-et-Marne (77)</Kicker>
-          {/* Le H1 porte les deux moitiés du métier depuis le 07/08/2026 : la
-              position sur Google, et la citation dans les réponses IA. Le
-              sous-titre soutient la seconde, sinon la promesse est en l'air. */}
+          <Kicker>Cr&eacute;ation de site internet &amp; r&eacute;f&eacute;rencement · Seine-et-Marne (77)</Kicker>
+          {/* 14/09/2026 : le H1 porte le résultat pour le client (le téléphone qui
+              sonne), comme les accueils les mieux placés du benchmark (« Get more
+              buyers to your website », « Finally, an SEO company that delivers
+              results »). Les mots-clés vivent dans le kicker, le sous-titre et le
+              title de la page. */}
           <Title>
-            Votre site web <em>visible sur Google</em>. Et cit&eacute; par les IA.
+            Un site internet qui fait <em>sonner le t&eacute;l&eacute;phone</em>.
           </Title>
           <Subtitle>
-            Nous cr&eacute;ons des sites internet qui ram&egrave;nent des clients aux artisans,
-            commer&ccedil;ants et TPE, et nous les rendons lisibles par ChatGPT comme par
-            Google. Vous restez propri&eacute;taire de tout, vous voyez tout, et vous
-            parlez directement &agrave; celui qui fait le travail.
+            Visible sur Google, cit&eacute; par ChatGPT, et &agrave; vous. Je le cr&eacute;e, je le
+            r&eacute;f&eacute;rence et je vous explique en fran&ccedil;ais ce que je fais. Pour les
+            artisans, commer&ccedil;ants et TPE d&rsquo;&Icirc;le-de-France qui veulent des clients,
+            pas un joli site qui dort.
           </Subtitle>
+
+          <ScanForm action="/audit-seo/" method="get">
+            <ScanLabel htmlFor="hero-site">O&ugrave; en est votre site ? Une minute, sans inscription.</ScanLabel>
+            <ScanInput
+              id="hero-site"
+              name="site"
+              type="text"
+              inputMode="url"
+              autoComplete="url"
+              placeholder="votre-site.fr"
+              required
+            />
+            <ScanButton type="submit">Tester mon site</ScanButton>
+          </ScanForm>
+
           <Actions>
-            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
-            {/* Second bouton depuis le 22/08/2026 : l'outil d'audit était à
-                2 067 px du haut de l'accueil (mesuré en prod à 1 280 × 720),
-                soit invisible. Le premier écran porte désormais les deux
-                entrées : l'humain (Calendly) et l'outil (une minute). */}
-            <Button href="/audit-seo/" variant="secondary">Tester mon site en 1 minute</Button>
-            <QuietLink href="/#methode">Voir la m&eacute;thode</QuietLink>
+            <Button href={CALENDLY} variant="secondary">30 min avec Micka&euml;l, gratuites</Button>
+            <QuietLink href="/tarifs/">Voir les prix</QuietLink>
           </Actions>
           <MetaLine>
             Dammartin-en-Go&euml;le (77) · lun-ven 9h-18h · <a href="tel:0769093909">07 69 09 39 09</a> (on d&eacute;croche)

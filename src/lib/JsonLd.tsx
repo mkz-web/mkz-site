@@ -1,3 +1,5 @@
+import { homeFaqEn, homeFaqFr, type HomeFaq } from "@/content/home-faq";
+
 export default function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
     <script
@@ -218,96 +220,20 @@ export const serviceSchemasEn = [
   },
 ];
 
-export const faqSchemaEn = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Can I just translate my English site into French and rank?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No, and this is the single most common reason foreign sites fail in France. Translation carries your English keywords across; it does not carry French search demand. French users phrase queries differently, use different intent words, and often search terms that have no direct English equivalent. The work is French keyword research done in French first, then content built on what people actually type.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do you work with companies based outside France?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, that is the main use case. Typical clients are UK, US, or European companies that already perform in English and need the French market to work: an existing site to adapt, a French subfolder or subdomain to set up, hreflang to get right, and French content that reads as if it was written in French, because it was.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long does French SEO take to show results?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "First movements usually appear between 3 and 6 months, depending on your existing authority and how competitive your French keywords are. A site that already has authority in English often moves faster in France than a brand new domain, because the domain-level signals carry over.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is GEO and is it different from SEO?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "GEO (Generative Engine Optimization), also called AEO (Answer Engine Optimization), is being cited inside AI answers rather than ranking in a list of links. It overlaps with SEO but adds specific work: letting AI crawlers in, publishing facts that can be quoted with a figure and a date, clean schema.org, and llms.txt. It matters in France because French-language AI answers have far fewer credible sources to pick from than English ones.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are you an agency or a freelance consultant?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "MKZ is a French company with one consultant doing the work: Mickaël Leclerc. You talk to the person running your account, not an account manager relaying to a junior. That is a deliberate trade: less capacity, no layers.",
-      },
-    },
-  ],
-};
 
-export const faqSchema = {
+// FAQ des accueils : source unique src/content/home-faq.ts (14/09/2026). Le texte
+// visible sur la page et le FAQPage sont générés depuis le même tableau, donc
+// identiques mot pour mot (règle GSC).
+const faqPageDepuis = (liste: HomeFaq[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Combien coûte un site internet pour un artisan ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Le prix d’un site internet pour artisan varie selon vos besoins. Chez MKZ, nous proposons des solutions sur mesure adaptées au budget des TPE et indépendants. Réservez un audit gratuit de 30 minutes pour obtenir un devis personnalisé.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Combien de temps faut-il pour être visible sur Google ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois. La vitesse dépend de la concurrence sur vos mots-clés, de la qualité de votre site et de la stratégie mise en place. Nos clients constatent en moyenne un triplement de leur trafic.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Pourquoi mon entreprise n’apparaît pas sur Google ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Plusieurs raisons possibles : site non optimisé pour le SEO, absence de contenu pertinent, problèmes techniques, ou fiche Google Business Profile incomplète. Un audit SEO gratuit permet d’identifier les blocages et de définir un plan d’action.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Quelle est la différence entre SEO et SEA ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Le SEO (référencement naturel) génère du trafic gratuit et durable en optimisant votre site pour Google. Le SEA (publicité payante) donne des résultats immédiats mais s’arrête dès que vous cessez de payer. Chez MKZ, nous privilégions le SEO pour un ROI long terme.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Est-ce que je garde la propriété de mon site ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui, absolument. Votre site vous appartient à 100%. Vos accès, votre code, vos contenus. Si vous décidez de partir, vous partez avec tout. Chez MKZ, la transparence et la liberté sont des valeurs fondamentales.",
-      },
-    },
-  ],
-};
+  mainEntity: liste.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+});
+
+export const faqSchemaEn = faqPageDepuis(homeFaqEn);
+
+export const faqSchema = faqPageDepuis(homeFaqFr);

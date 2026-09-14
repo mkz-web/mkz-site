@@ -3,8 +3,9 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
-import Button from "@/components/Button";
+import Button, { baseStyles, primaryStyles } from "@/components/Button";
 import { CALENDLY } from "@/lib/i18n";
+import { homeFaqEn } from "@/content/home-faq";
 
 // Accueil anglais. Ce n'est PAS la traduction de HomeContent.tsx.
 //
@@ -90,11 +91,55 @@ const HeroSubtitle = styled.p`
 `;
 
 const HeroActions = styled.div`
-  margin-top: 32px;
+  margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 16px 26px;
+`;
+
+/* Scan form in the first screen (14/09/2026): same pattern as the French hero,
+   taken from the best-placed SEO agency and consultant home pages (the site
+   address is typed in the hero, not behind a button). Native GET form: works
+   without JavaScript, /en/seo-audit/?site= launches the scan on arrival. */
+const ScanForm = styled.form`
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 600px;
+`;
+
+const ScanLabel = styled.label`
+  flex: 1 1 100%;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: ${theme.colors.textSecondary};
+`;
+
+const ScanInput = styled.input`
+  flex: 1 1 240px;
+  min-height: 52px;
+  padding: 0 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: ${theme.colors.text};
+  background: ${theme.colors.surface};
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.sm};
+
+  &::placeholder { color: ${theme.colors.textSecondary}; opacity: 0.8; }
+  &:focus { outline: 2px solid ${theme.colors.ctaInk}; outline-offset: 1px; }
+`;
+
+const ScanButton = styled.button`
+  ${baseStyles}
+  ${primaryStyles}
+  font-family: inherit;
+  min-height: 52px;
 `;
 
 const QuietLink = styled(Link)`
@@ -684,15 +729,39 @@ const tools = [
     go: "Test my site",
     img: { src: "/images/outils/scan-apercu-en.webp", w: 1400, h: 343, alt: "A real scan result: mkz-consulting.fr, 89/100, technical 35/35, AI readability 35/35, authority and Google rankings 19/30" },
   },
-  {
-    kicker: "Tool 02 · simulator, in French",
-    title: "Footprint of one AI query",
-    desc: "How much energy, CO2 and water does one question to an AI cost? Type a query, pick the model class and the region: the simulator gives a figure with its uncertainty range and its sources.",
-    href: "/empreinte-ia/",
-    go: "Open the simulator",
-    img: { src: "/images/outils/empreinte-apercu-carte.webp", w: 1400, h: 299, alt: "The simulator's result (in French): 0.42 Wh, 0.039 g CO2e and 0.81 mL of water for a typical query, with uncertainty ranges" },
-  },
+  // The AI-footprint simulator left this page on 14/09/2026 (Mickaël: it has
+  // nothing to do with SEO). It still lives on /en/tools/ and /empreinte-ia/.
 ];
+
+const ToolSolo = styled.div`
+  max-width: 760px;
+`;
+
+const FaqList = styled.dl`
+  max-width: 880px;
+  border-top: 1px solid ${theme.colors.borderInk};
+`;
+
+const FaqItem = styled.div`
+  padding: 22px 0;
+  border-bottom: 1px solid ${theme.colors.border};
+`;
+
+const FaqQ = styled.dt`
+  font-family: ${theme.fonts.display};
+  font-size: clamp(19px, 1.6vw, 22px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: ${theme.colors.accent};
+`;
+
+const FaqA = styled.dd`
+  margin: 10px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: ${theme.colors.textSecondary};
+  max-width: 70ch;
+`;
 
 /* ─── PAGE ─── */
 
@@ -712,11 +781,21 @@ export default function HomeContentEn() {
               research in French first, then build the pages that rank on it, and make
               sure AI answers in French cite you rather than your competitor.
             </HeroSubtitle>
+            <ScanForm action="/en/seo-audit/" method="get">
+              <ScanLabel htmlFor="hero-site">Where does your site stand in France? One minute, no signup.</ScanLabel>
+              <ScanInput
+                id="hero-site"
+                name="site"
+                type="text"
+                inputMode="url"
+                autoComplete="url"
+                placeholder="your-site.com"
+                required
+              />
+              <ScanButton type="submit">Test my site</ScanButton>
+            </ScanForm>
             <HeroActions>
-              <Button href={CALENDLY}>Book a free 30-min review</Button>
-              {/* Second button since 22/08/2026, same reason as the French
-                  hero: the audit tool was three screens down and invisible. */}
-              <Button href="/en/seo-audit/" variant="secondary">Test my site in 1 minute</Button>
+              <Button href={CALENDLY} variant="secondary">Book a free 30-min review</Button>
               <QuietLink href="/en/french-seo/">How French SEO works</QuietLink>
             </HeroActions>
             <HeroMeta>
@@ -782,15 +861,15 @@ export default function HomeContentEn() {
             <div>
               <ChapterTitle>Measure first. Then decide.</ChapterTitle>
               <ChapterLede>
-                Two self-service tools, no signup. They measure, they do not
-                estimate: the same ones we use on client work.{" "}
+                One self-service tool, no signup. It measures, it does not
+                estimate: the same one I run on client work.{" "}
                 <Link href="/en/tools/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
                   All the free tools
                 </Link>.
               </ChapterLede>
             </div>
           </ChapterHead>
-          <InsightGrid>
+          <ToolSolo>
             {tools.map((c) => (
               <InsightCard key={c.title} href={c.href}>
                 <ToolShot>
@@ -803,7 +882,7 @@ export default function HomeContentEn() {
                 <ServiceGo className="go">{c.go}</ServiceGo>
               </InsightCard>
             ))}
-          </InsightGrid>
+          </ToolSolo>
         </Container>
       </Section>
 
@@ -932,6 +1011,35 @@ export default function HomeContentEn() {
               </InsightCard>
             ))}
           </InsightGrid>
+        </Container>
+      </Section>
+
+      {/* 07. Questions. Same pattern as the French home (14/09/2026 benchmark of
+          15 SEO agency and consultant home pages): buying questions answered on
+          the page itself. Text identical to the FAQPage JSON-LD, single source:
+          src/content/home-faq.ts. */}
+      <Section variant="alt" id="questions">
+        <Container>
+          <ChapterHead>
+            <Kicker><strong>07</strong>&ensp;Your questions</Kicker>
+            <div>
+              <ChapterTitle>What people ask before they book.</ChapterTitle>
+              <ChapterLede>
+                Straight answers, including the ones that do not help me sell.
+              </ChapterLede>
+            </div>
+          </ChapterHead>
+          <FaqList>
+            {homeFaqEn.map((f) => (
+              <FaqItem key={f.q}>
+                <FaqQ>{f.q}</FaqQ>
+                <FaqA>{f.a}</FaqA>
+              </FaqItem>
+            ))}
+          </FaqList>
+          <div style={{ marginTop: 32 }}>
+            <Button href="/en/seo-audit/" variant="secondary">Test my site in one minute</Button>
+          </div>
         </Container>
       </Section>
 

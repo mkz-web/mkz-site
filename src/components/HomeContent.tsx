@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import Hero from "@/components/Hero";
 import Button from "@/components/Button";
+import { homeFaqFr } from "@/content/home-faq";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
@@ -14,6 +15,7 @@ const CALENDLY = "https://calendly.com/mkz-consulting/30min";
    continu entre deux sections, accueil à 15 307 px sur mobile). */
 const Section = styled.section<{ variant?: "paper" | "alt" | "dark" }>`
   padding: clamp(64px, 8vh, 104px) 24px;
+  scroll-margin-top: 72px;
   ${({ variant }) => {
     switch (variant) {
       case "dark":
@@ -428,12 +430,6 @@ const ConseilGrid = styled.div`
 `;
 
 // Deux outils, deux colonnes : les cartes reprennent le gabarit des conseils.
-const ToolGrid = styled.div`
-  display: grid;
-  gap: 24px;
-  @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }
-`;
-
 const ConseilCard = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -546,38 +542,161 @@ const FinalMeta = styled.p`
 
 /* ─── DATA ─── */
 
+/* ─── Ajouts du 14/09/2026 (refonte de l'accueil sur le benchmark de 15 accueils
+   d'agences et consultants SEO, US, UK, AU, CA : _research/benchmark-accueil-2026-09-14/) ─── */
+
+/* L'outil d'audit seul, en grand : le simulateur d'empreinte IA a quitté
+   l'accueil le 14/09/2026 (décision de Mickaël : aucun rapport avec le SEO). */
+const ToolSolo = styled(Link)`
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.lg};
+  background: ${theme.colors.surface};
+  box-shadow: ${theme.shadows.lg};
+  color: inherit;
+  text-decoration: none;
+
+  @media (min-width: ${theme.breakpoints.md}) {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 32px;
+  }
+
+  &:hover .go { text-decoration: underline; text-underline-offset: 4px; }
+`;
+
+const ToolShotSolo = styled.span`
+  display: block;
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.sm};
+  overflow: hidden;
+
+  img { display: block; width: 100%; height: auto; }
+`;
+
+const ServicePrice = styled.p`
+  margin-top: 12px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  line-height: 1.6;
+  color: ${theme.colors.ctaInk};
+`;
+
+const WhoGrid = styled.div`
+  display: grid;
+  gap: 20px;
+
+  @media (min-width: ${theme.breakpoints.md}) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(4, 1fr); }
+`;
+
+const FaqList = styled.dl`
+  max-width: 880px;
+  border-top: 1px solid ${theme.colors.borderInk};
+`;
+
+const FaqItem = styled.div`
+  padding: 22px 0;
+  border-bottom: 1px solid ${theme.colors.border};
+`;
+
+const FaqQ = styled.dt`
+  font-family: ${theme.fonts.display};
+  font-size: clamp(19px, 1.6vw, 22px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: ${theme.colors.accent};
+`;
+
+const FaqA = styled.dd`
+  margin: 10px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: ${theme.colors.textSecondary};
+  max-width: 70ch;
+`;
+
+const JumpNav = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  letter-spacing: 0.04em;
+
+  span {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: ${theme.colors.textSecondary};
+  }
+
+  a {
+    color: ${theme.colors.text};
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  a:hover { color: ${theme.colors.ctaInk}; }
+`;
+
+const Manifesto = styled.p`
+  max-width: 62ch;
+  font-family: ${theme.fonts.display};
+  font-size: clamp(19px, 1.7vw, 23px);
+  line-height: 1.5;
+  color: ${theme.colors.accent};
+  margin-bottom: 36px;
+`;
+
 const cities = ["Meaux", "Melun", "Chelles", "Dammartin-en-Goële", "Roissy", "Marne-la-Vallée", "Senlis", "Provins", "Fontainebleau", "Serris", "Mitry-Mory", "Claye-Souilly"];
 
-const problems = [
-  { num: "01", title: "Votre site est invisible", desc: "Vous avez investi dans un beau site, mais il n'apparaît nulle part sur Google. Vos concurrents trustent les premières positions." },
-  { num: "02", title: "Pas le temps pour le digital", desc: "Entre vos clients, la gestion et le reste, impossible de trouver du temps pour votre présence en ligne. Le marketing passe à la trappe." },
-  { num: "03", title: "Des dépenses sans retour", desc: "Pub Facebook, Google Ads, agences... Vous avez tout essayé sans jamais voir de résultats concrets. Votre budget part en fumée." },
+// 01. Les pièges. Sur les 15 accueils du benchmark, les plus convaincants ouvrent
+// sur ce que l'industrie ne dit pas (« SEO is broken », « the problem most
+// agencies won't admit », « been burned before? »), puis répondent. Dans la voix
+// de Mickaël : cash, une analogie, une réponse par piège.
+const pieges = [
+  { num: "01", title: "On vous vend un site. Pas des clients.", desc: "Un site sans référencement, c'est comme une vitrine dans une rue sans passage : personne ne la voit, vous avez payé un joli objet. Chez moi, le référencement est inclus dans chaque site livré." },
+  { num: "02", title: "Vous payez, et vous ne comprenez rien au rapport.", desc: "Des courbes, des positions, du jargon. La seule question qui compte : est-ce que ça ramène des clients ? Chaque mois, je vous réponds en français, avec les demandes reçues, pas avec un PDF de quarante pages." },
+  { num: "03", title: "Le site ne vous appartient pas.", desc: "Abonnement, hébergement captif, accès que vous n'avez jamais eus : le jour où vous partez, vous repartez de zéro. Chez MKZ, le nom de domaine, le code et les contenus sont à vous. Coût de sortie : 0 €." },
 ];
 
+// Les prix sont ceux de /tarifs/ (relevés sur la page servie le 14/09/2026).
+// Septième endroit où ils vivent : tout changement de prix se répercute ici.
 const services = [
   {
     kicker: "Service 01",
-    title: "Création de site web",
-    desc: "Un site qui vous ressemble et qui convertit. Design sur-mesure, UX optimisée et performances au top pour transformer vos visiteurs en clients.",
-    tags: "image de marque · direction artistique · responsive · branding · optimisation vitesse",
+    title: "Création de site internet",
+    desc: "Un site qui vous ressemble, rapide, lisible sur téléphone, et déjà référencé le jour de sa mise en ligne. Vous donnez vos photos et vos tarifs, je fais le reste.",
+    prix: "Site vitrine 5 à 8 pages, textes inclus : 1 490 € HT",
+    tags: "design sur mesure · textes rédigés · responsive · vitesse · référencement inclus",
     href: "/creation-site-internet/",
     linkLabel: "Découvrir la création de site",
   },
   {
     kicker: "Service 02",
     title: "SEO & référencement Google",
-    desc: "Montez sur le podium Google. Stratégie de mots-clés, optimisation technique, contenu optimisé et netlinking pour un trafic qualifié et durable.",
-    tags: "audit SEO complet · stratégie de contenu · SEO technique · cocon sémantique · suivi mensuel",
+    desc: "Être trouvé par les gens qui cherchent ce que vous faites, dans votre ville. Mots-clés en langage client, technique propre, contenus utiles, liens choisis à la main : du référencement qui dure, pas un feu de paille.",
+    prix: "Audit complet 490 € · accompagnement de 390 à 1 190 € HT par mois",
+    tags: "audit SEO · référencement local · contenus · netlinking · point mensuel",
     href: "/referencement-seo/",
     linkLabel: "Découvrir le référencement SEO",
   },
-  // Troisième service, ajouté le 21/08/2026 : le pilier /referencement-ia/ était dans la
-  // barre de navigation depuis le 07/08 mais absent du corps de l'accueil (règle parcours :
-  // chaque entrée de la barre est présentée ET liée dans le corps des hubs).
   {
     kicker: "Service 03",
     title: "Référencement IA (GEO)",
-    desc: "Être cité par ChatGPT, Perplexity et Gemini quand un client leur demande un artisan ou une entreprise près de chez lui. Robots autorisés, faits citables, données structurées, part de voix mesurée.",
+    desc: "Être cité par ChatGPT, Perplexity et Gemini quand un client leur demande un artisan ou un commerce près de chez lui. Robots autorisés, faits citables, données structurées, citations mesurées avant et après.",
+    prix: "Socle technique IA 390 €, déjà inclus dans tout site créé par MKZ",
     tags: "robots IA · llms.txt · JSON-LD · contenu citable · part de voix mesurée",
     href: "/referencement-ia/",
     linkLabel: "Découvrir le référencement IA",
@@ -585,24 +704,34 @@ const services = [
 ];
 
 const methodSteps = [
-  { num: "01", title: "Audit gratuit", desc: "30 min pour analyser votre situation, comprendre vos objectifs et identifier les quick wins." },
-  { num: "02", title: "Stratégie sur-mesure", desc: "Un plan d'action personnalisé avec des objectifs clairs, un budget défini et un planning réaliste." },
-  { num: "03", title: "Résultats mesurables", desc: "Exécution, suivi mensuel avec reporting transparent. Vous voyez concrètement l'évolution." },
+  { num: "01", title: "30 minutes, gratuites", desc: "On regarde votre site, votre marché et vos concurrents ensemble. Vous repartez avec les trois choses à faire en premier, que vous signiez ou non." },
+  { num: "02", title: "Un plan, un prix, une date", desc: "Un devis fixe, écrit. Le prix posé est le prix payé, et vous savez quand c'est livré. Pas d'option cachée qui arrive à la deuxième facture." },
+  { num: "03", title: "Chaque mois, un point en français", desc: "Ce qui a été fait, ce que ça a donné en demandes reçues, et la suite. Si ça ne bouge pas, on change de plan. C'est la réalité du référencement : on mesure, on corrige." },
 ];
 
 // Les mêmes cinq clients parlent dans le pilier agence-web-77 et dans
 // llms-full.txt : toute retouche ici se reporte là-bas (et dans _content-staging/).
+// Conservés en l'état le 14/09/2026 (décision de Mickaël : « on garde les avis »).
 const testimonials = [
   { quote: "Moi, les sites internet, c'est pas mon truc. J'ai donné mes photos et mes tarifs, MKZ s'est occupé du reste et m'a appelé quand il manquait quelque chose. Ce que je vois, c'est que le téléphone sonne, et pour des chantiers à Meaux, pas à l'autre bout du département.", name: "Marc T.", role: "Plombier chauffagiste, Meaux", result: "8 à 10 demandes par mois" },
   { quote: "J'avais déjà payé une agence pendant un an sans jamais comprendre ce qu'elle faisait de mon argent. Cette fois, j'ai un point chaque mois, avec les positions et les demandes reçues, et je peux poser mes questions sans me sentir idiote. Deux de mes expressions sont passées en première page au bout de quatre mois. Surtout, les demandes qui arrivent correspondent enfin à mes projets.", name: "Sophie L.", role: "Architecte d'intérieur, Paris", result: "Page 1 Google en 4 mois" },
   { quote: "J'ai appelé Mickaël un mardi, le site était en ligne trois semaines plus tard, avec la réservation qui marche enfin sur téléphone. Depuis, le samedi soir se remplit presque tout seul ! Et quand j'ai une question, même pour une bêtise, il répond. Je l'ai déjà recommandé à deux collègues du coin.", name: "Pierre D.", role: "Restaurateur, Dammartin-en-Goële", result: "Réservations en ligne × 2" },
 ];
 
+// 05. Pour qui. Relevé sur Mediaforce et Dnovo : une entrée par métier, avec sa
+// promesse et son action. Ici, chaque carte mène au guide déjà écrit pour ce métier.
+const metiers = [
+  { kicker: "Artisans du bâtiment", title: "Des chantiers près de chez vous", desc: "Plombier, électricien, maçon : le client tape « dépannage » ou « devis » avec le nom de sa ville. C'est là qu'il faut apparaître.", href: "/conseils/seo/trouver-des-chantiers/", go: "Comment trouver des chantiers" },
+  { kicker: "Commerces et restaurants", title: "Une fiche Google qui remplit la salle", desc: "Horaires justes, photos récentes, avis auxquels on répond, réservation qui marche sur téléphone. Sur Maps, on vous compare souvent avant d'ouvrir votre site.", href: "/conseils/seo/avis-google/", go: "Bien gérer ses avis Google" },
+  { kicker: "Professions libérales et cabinets", title: "Être trouvé dans votre ville, et rassurer", desc: "Ostéopathe, avocat, expert-comptable : on vous cherche par métier et par ville, puis on vous juge en dix secondes. Le référencement local fait les deux.", href: "/conseils/seo/referencement-local/", go: "Le référencement local, expliqué" },
+  { kicker: "Vous partez de zéro", title: "Un site vitrine qui rapporte", desc: "Pas de site, ou un site qui dort ? Ce qu'il faut dedans, ce que ça coûte, par quoi commencer : écrit noir sur blanc, chiffres à l'appui.", href: "/conseils/creation-site-internet/site-vitrine/", go: "Ce qu'il faut dans un site vitrine" },
+];
+
 const differentiators = [
-  { num: "01", title: "On parle français", desc: "Zéro jargon technique. Je vous explique tout simplement, vous comprenez ce qu'on fait et pourquoi. Promis." },
-  { num: "02", title: "Je décroche", desc: "Une question ? Un doute ? Vous m'appelez, je réponds. Pas de ticket support, pas d'attente 72 h. On avance ensemble." },
-  { num: "03", title: "Vous voyez tout", desc: "Chaque mois, un point clair sur ce qui a été fait, les résultats obtenus, et la suite. Pas de boîte noire." },
-  { num: "04", title: "Vous restez libre", desc: "Votre site vous appartient, vos accès sont les vôtres. Si demain vous partez, vous partez avec tout. C'est normal." },
+  { num: "01", title: "On parle français", desc: "Quand je dis « données structurées », je vous explique dans la phrase d'après ce que ça change pour vous. Vous comprenez ce qu'on fait, et pourquoi. Sinon, ce n'est pas la peine." },
+  { num: "02", title: "Je décroche", desc: "Une question, un doute, une bêtise ? Vous m'appelez, je réponds. Pas de ticket, pas de chef de projet entre nous, pas d'attente de 72 heures." },
+  { num: "03", title: "Vous voyez tout", desc: "Chaque mois, un point clair : ce qui a été fait, ce que ça a donné, la suite. Vos accès Search Console et Analytics sont les vôtres, vous pouvez vérifier sans moi." },
+  { num: "04", title: "Vous restez libre", desc: "Votre site vous appartient, vos accès aussi. Si demain vous partez, vous partez avec tout. C'est normal, et c'est écrit dans le devis." },
 ];
 
 const conseils = [
@@ -610,20 +739,6 @@ const conseils = [
   { kicker: "Création de site", title: "Avant d'investir", desc: "Combien coûte un site, quand le refondre, quel type choisir : les bonnes décisions, chiffrées.", href: "/conseils/creation-site-internet/" },
   { kicker: "SEO & visibilité", title: "Être trouvé sur Google", desc: "Référencement local, audit SEO, visibilité : des guides concrets, sans jargon.", href: "/conseils/seo/" },
 ];
-
-/* Visuels réels (29/08/2026, écart n° 1 du check UX : aucune preuve visuelle
-   sur le site). Les captures sont de VRAIS rendus, régénérables : scan de
-   mkz-consulting.fr via /audit-seo/?site=… et simulateur ; ne jamais les
-   remplacer par une illustration qui promet ce que l'outil ne montre pas. */
-const ToolShot = styled.span`
-  display: block;
-  margin-bottom: 18px;
-  border: 1px solid ${theme.colors.border};
-  border-radius: ${theme.radius.sm};
-  overflow: hidden;
-
-  img { display: block; width: 100%; height: auto; }
-`;
 
 const DiffLayout = styled.div`
   display: grid;
@@ -659,14 +774,17 @@ const PortraitFigure = styled.figure`
   }
 `;
 
-// Outils gratuits en section 02 depuis le 22/08/2026. Les faits sont repris
-// des pages des outils (20 mesures, une minute, sans inscription ; énergie, CO2
-// et eau avec fourchettes d'incertitude) : rien n'est promis ici qui ne soit
-// mesuré là-bas.
-const tools = [
-  { kicker: "Outil 01 · une minute", title: "Audit SEO + IA gratuit", desc: "Entrez votre adresse : 20 mesures réelles sur votre site (HTTPS, vraie 404, balises, robots des IA, llms.txt, données structurées), un score sur 100 et vos priorités. Sans inscription.", href: "/audit-seo/", go: "Tester mon site", img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 343, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 89 sur 100, technique 35/35, lisibilité par les IA 35/35, autorité et positions Google 19/30" } },
-  { kicker: "Outil 02 · simulateur", title: "Empreinte d'une requête IA", desc: "Combien d'énergie, de CO2 et d'eau coûte une question posée à une IA ? Tapez votre requête, choisissez le modèle et la région : le simulateur chiffre, fourchettes d'incertitude comprises, sources à l'appui.", href: "/empreinte-ia/", go: "Simuler une requête", img: { src: "/images/outils/empreinte-apercu-carte.webp", w: 1400, h: 299, alt: "Le résultat du simulateur : 0,42 Wh, 0,039 g de CO2e et 0,81 mL d'eau pour une requête type, fourchettes comprises" } },
-];
+// L'outil d'audit. Les faits viennent de sa page (mesures faites sur le site au
+// moment du clic, une minute, sans inscription, score sur 100 ; rapport complet
+// envoyé par Mickaël sous 24 h) : rien n'est promis ici qui ne soit tenu là-bas.
+const outil = {
+  kicker: "Outil gratuit · une minute",
+  title: "L'audit SEO + IA de votre site",
+  desc: "Entrez votre adresse : des mesures réelles sur votre site (HTTPS, vraie page 404, balises, robots des IA, llms.txt, données structurées, autorité), un score sur 100 et vos priorités. Le rapport complet, c'est moi qui vous l'envoie, sous 24 h.",
+  href: "/audit-seo/",
+  go: "Tester mon site maintenant",
+  img: { src: "/images/outils/scan-apercu.webp", w: 1400, h: 343, alt: "Résultat d'un scan réel : mkz-consulting.fr, score 89 sur 100, technique 35/35, lisibilité par les IA 35/35, autorité et positions Google 19/30" },
+};
 
 /* ─── PAGE ─── */
 
@@ -686,25 +804,33 @@ export default function HomeContent() {
         </MarqueeTrack>
       </MarqueeBand>
 
-      {/* Le bandeau de chiffres qui suivait le hero a été retiré le 21/08/2026 : il répétait
-          les trois chiffres de la carte du hero (+247 %, Top 3, 1,2 s) à un écran d'écart.
-          Un chiffre se montre une fois par page (règle parcours de livraison-web). */}
+      {/* Sommaire ancré : la page passe 10 000 caractères de texte depuis la
+          refonte du 14/09/2026 (règle parcours de livraison-web). */}
+      <JumpNav aria-label="Sur cette page">
+        <span>Sur cette page</span>
+        <a href="#pieges">Les pi&egrave;ges</a>
+        <a href="#outils">L&rsquo;outil gratuit</a>
+        <a href="#services">Les prix</a>
+        <a href="#methode">La m&eacute;thode</a>
+        <a href="#pour-qui">Pour qui</a>
+        <a href="#questions">Vos questions</a>
+      </JumpNav>
 
-      {/* 01. Problèmes */}
-      <Section variant="dark">
+      {/* 01. Les pièges */}
+      <Section variant="dark" id="pieges">
         <Container>
           <ChapterHead surSombre>
-            <Kicker surSombre><strong>01</strong>&ensp;Vos gal&egrave;res</Kicker>
+            <Kicker surSombre><strong>01</strong>&ensp;Ce qu&rsquo;on ne vous dit pas</Kicker>
             <div>
-              <ChapterTitle surSombre>Ces probl&egrave;mes vous parlent ?</ChapterTitle>
+              <ChapterTitle surSombre>Trois pi&egrave;ges que personne ne vous explique avant de signer.</ChapterTitle>
               <ChapterLede surSombre>
-                Vous n&rsquo;&ecirc;tes pas seul : la plupart des ind&eacute;pendants et petites
-                entreprises butent exactement sur les m&ecirc;mes obstacles.
+                Ce n&rsquo;est pas de la mauvaise foi, c&rsquo;est le mod&egrave;le. Le mien est
+                diff&eacute;rent, et il tient en trois phrases.
               </ChapterLede>
             </div>
           </ChapterHead>
           <ProblemGrid>
-            {problems.map((p) => (
+            {pieges.map((p) => (
               <ProblemItem key={p.num}>
                 <ProblemNum>{p.num}</ProblemNum>
                 <ProblemTitle>{p.title}</ProblemTitle>
@@ -715,76 +841,64 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 02. Outils gratuits : juste après les galères, la réponse immédiate.
-          Section ajoutée le 22/08/2026, les deux outils étaient invisibles. */}
+      {/* 02. L'outil */}
       <Section variant="alt" id="outils">
         <Container>
           <ChapterHead>
-            <Kicker><strong>02</strong>&ensp;Outils gratuits</Kicker>
+            <Kicker><strong>02</strong>&ensp;Mesurez d&rsquo;abord</Kicker>
             <div>
-              <ChapterTitle>Avant de nous parler, mesurez.</ChapterTitle>
+              <ChapterTitle>Avant de me parler, regardez o&ugrave; vous en &ecirc;tes.</ChapterTitle>
               <ChapterLede>
-                Deux outils en libre-service, sans inscription. Ils mesurent, ils
-                n&rsquo;estiment pas : ce sont ceux que nous utilisons pour nos clients.{" "}
+                Un outil en libre-service, sans inscription. Il mesure, il n&rsquo;estime pas :
+                c&rsquo;est celui que j&rsquo;utilise pour mes clients.{" "}
                 <Link href="/outils/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
-                  Tous nos outils gratuits
+                  Tous les outils gratuits
                 </Link>.
               </ChapterLede>
             </div>
           </ChapterHead>
-          <ToolGrid>
-            {tools.map((c) => (
-              <ConseilCard key={c.title} href={c.href}>
-                <ToolShot>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={c.img.src} width={c.img.w} height={c.img.h} alt={c.img.alt} loading="lazy" />
-                </ToolShot>
-                <ConseilKicker>{c.kicker}</ConseilKicker>
-                <ConseilTitle>{c.title}</ConseilTitle>
-                <ConseilDesc>{c.desc}</ConseilDesc>
-                <ServiceGo className="go">{c.go}</ServiceGo>
-              </ConseilCard>
-            ))}
-          </ToolGrid>
+          <ToolSolo href={outil.href}>
+            <ToolShotSolo>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={outil.img.src} width={outil.img.w} height={outil.img.h} alt={outil.img.alt} loading="lazy" />
+            </ToolShotSolo>
+            <div>
+              <ConseilKicker>{outil.kicker}</ConseilKicker>
+              <ConseilTitle>{outil.title}</ConseilTitle>
+              <ConseilDesc>{outil.desc}</ConseilDesc>
+              <ServiceGo className="go">{outil.go}</ServiceGo>
+            </div>
+          </ToolSolo>
         </Container>
       </Section>
 
       {/* 03. Services */}
-      <Section>
+      <Section id="services">
         <Container>
           <ChapterHead>
-            <Kicker><strong>03</strong>&ensp;Nos services</Kicker>
+            <Kicker><strong>03</strong>&ensp;Ce que je fais</Kicker>
             <ChapterTitle>Trois m&eacute;tiers, une mission : que votre t&eacute;l&eacute;phone sonne.</ChapterTitle>
           </ChapterHead>
           <ServicesGrid>
             <ServicesAside>
               <p>
                 Pas d&rsquo;usine &agrave; sites, pas d&rsquo;options incompr&eacute;hensibles.
-                Nous construisons votre vitrine, puis nous la rendons visible sur Google
-                et cit&eacute;e par les IA aupr&egrave;s des clients de votre zone. Les trois se renforcent.
+                Je construis votre vitrine, je la rends visible sur Google et cit&eacute;e par
+                les IA aupr&egrave;s des clients de votre zone. Les trois se renforcent.
               </p>
               <p>
-                Et parce qu&rsquo;un client autonome est un client serein, nos
-                m&eacute;thodes sont document&eacute;es en acc&egrave;s libre dans nos{" "}
-                <Link href="/conseils/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
-                  conseils &amp; tutoriels
+                <strong>Le prix est le prix.</strong> La grille est publique, en euros HT, et
+                le montant du devis est celui de la facture.{" "}
+                <Link href="/tarifs/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  Voir tous les tarifs
                 </Link>.
               </p>
               <p>
-                Envie de savoir o&ugrave; vous en &ecirc;tes avant de nous parler ?
-                Notre{" "}
-                <Link href="/audit-seo/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
-                  audit SEO gratuit en ligne
-                </Link>{" "}
-                fait 20 mesures r&eacute;elles sur votre site et vous rend un score
-                sur 100. Une minute, sans inscription.
-              </p>
-              <p>
-                Et les prix sont publics, sans devis &agrave; demander :{" "}
-                <Link href="/tarifs/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
-                  la grille des tarifs
-                </Link>{" "}
-                est en ligne, en euros HT.
+                Et parce qu&rsquo;un client autonome est un client serein, mes
+                m&eacute;thodes sont document&eacute;es en acc&egrave;s libre dans les{" "}
+                <Link href="/conseils/" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  conseils et tutoriels
+                </Link>.
               </p>
             </ServicesAside>
             <div>
@@ -793,6 +907,7 @@ export default function HomeContent() {
                   <ServiceKicker>{s.kicker}</ServiceKicker>
                   <ServiceTitle>{s.title}</ServiceTitle>
                   <ServiceDesc>{s.desc}</ServiceDesc>
+                  <ServicePrice>{s.prix}</ServicePrice>
                   <ServiceTags>{s.tags}</ServiceTags>
                   <ServiceGo className="go">{s.linkLabel}</ServiceGo>
                 </ServiceBlock>
@@ -810,7 +925,8 @@ export default function HomeContent() {
             <div>
               <ChapterTitle surSombre>Trois &eacute;tapes, z&eacute;ro jargon.</ChapterTitle>
               <ChapterLede surSombre>
-                Un accompagnement simple et transparent, du premier appel au reporting mensuel.
+                Du premier appel au point mensuel, vous savez toujours o&ugrave; on en est
+                et ce que &ccedil;a co&ucirc;te.
               </ChapterLede>
             </div>
           </ChapterHead>
@@ -823,19 +939,45 @@ export default function HomeContent() {
               </StepItem>
             ))}
           </MethodGrid>
-          {/* Rappel d'action à mi-page : 10 écrans mobiles sans action entre la section
-              services et le bloc final, mesurés le 21/08/2026 (règle parcours livraison-web). */}
+          {/* Rappel d'action à mi-page (règle parcours de livraison-web). */}
           <div style={{ marginTop: 40 }}>
-            <Button href={CALENDLY}>R&eacute;server mon audit gratuit</Button>
+            <Button href={CALENDLY}>R&eacute;server mes 30 minutes</Button>
           </div>
         </Container>
       </Section>
 
-      {/* 05. Témoignages */}
-      <Section id="temoignages">
+      {/* 05. Pour qui */}
+      <Section id="pour-qui">
         <Container>
           <ChapterHead>
-            <Kicker><strong>05</strong>&ensp;Ils en parlent</Kicker>
+            <Kicker><strong>05</strong>&ensp;Pour qui</Kicker>
+            <div>
+              <ChapterTitle>Plombier, restaurateur, cabinet&nbsp;: la question n&rsquo;est pas la m&ecirc;me.</ChapterTitle>
+              <ChapterLede>
+                Le client ne cherche pas &laquo;&nbsp;du SEO&nbsp;&raquo;. Il cherche un artisan
+                disponible, une table ce soir, un cabinet pr&egrave;s de chez lui. Chaque
+                m&eacute;tier a son guide, gratuit.
+              </ChapterLede>
+            </div>
+          </ChapterHead>
+          <WhoGrid>
+            {metiers.map((m) => (
+              <ConseilCard key={m.title} href={m.href}>
+                <ConseilKicker>{m.kicker}</ConseilKicker>
+                <ConseilTitle>{m.title}</ConseilTitle>
+                <ConseilDesc>{m.desc}</ConseilDesc>
+                <ServiceGo className="go">{m.go}</ServiceGo>
+              </ConseilCard>
+            ))}
+          </WhoGrid>
+        </Container>
+      </Section>
+
+      {/* 06. Témoignages */}
+      <Section variant="alt" id="temoignages">
+        <Container>
+          <ChapterHead>
+            <Kicker><strong>06</strong>&ensp;Ils en parlent</Kicker>
             <ChapterTitle>Des artisans et commer&ccedil;ants, comme vous.</ChapterTitle>
           </ChapterHead>
 
@@ -853,13 +995,19 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 06. La différence */}
-      <Section variant="alt">
+      {/* 07. Un consultant, pas une agence */}
+      <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>06</strong>&ensp;La diff&eacute;rence MKZ</Kicker>
-            <ChapterTitle>On travaille autrement.</ChapterTitle>
+            <Kicker><strong>07</strong>&ensp;Qui fait le travail</Kicker>
+            <ChapterTitle>Un consultant, pas une agence.</ChapterTitle>
           </ChapterHead>
+          <Manifesto>
+            Quand je dis consultant, c&rsquo;est-&agrave;-dire : la personne qui vous r&eacute;pond
+            au t&eacute;l&eacute;phone est celle qui fait le travail. Pas de commercial, pas de chef
+            de projet, pas de stagiaire derri&egrave;re. &Ccedil;a co&ucirc;te moins cher et &ccedil;a va
+            plus vite. Point.
+          </Manifesto>
           <DiffLayout>
             <PortraitFigure>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -876,24 +1024,51 @@ export default function HomeContent() {
               ))}
             </DiffGrid>
           </DiffLayout>
-          {/* Action après la section confiance : 5 445 px (6,7 écrans mobiles) sans action
-              entre la méthode et le bloc final, mesurés le 21/08/2026. */}
           <div style={{ marginTop: 36 }}>
             <Button href={CALENDLY}>Parler de mon projet, 30 min gratuites</Button>
           </div>
         </Container>
       </Section>
 
-      {/* 07. Conseils */}
+      {/* 08. Questions. Relevé sur le benchmark : les accueils les plus convaincants
+          répondent aux questions d'achat sur la page même (prix, délai, garantie,
+          consultant ou agence, ChatGPT). Texte identique au FAQPage JSON-LD,
+          source unique : src/content/home-faq.ts. */}
+      <Section variant="alt" id="questions">
+        <Container>
+          <ChapterHead>
+            <Kicker><strong>08</strong>&ensp;Vos questions</Kicker>
+            <div>
+              <ChapterTitle>Ce qu&rsquo;on me demande avant de signer.</ChapterTitle>
+              <ChapterLede>
+                Les r&eacute;ponses honn&ecirc;tes, y compris celles qui ne font pas vendre.
+              </ChapterLede>
+            </div>
+          </ChapterHead>
+          <FaqList>
+            {homeFaqFr.map((f) => (
+              <FaqItem key={f.q}>
+                <FaqQ>{f.q}</FaqQ>
+                <FaqA>{f.a}</FaqA>
+              </FaqItem>
+            ))}
+          </FaqList>
+          <div style={{ marginTop: 32 }}>
+            <Button href="/audit-seo/" variant="secondary">Tester mon site en une minute</Button>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 09. Conseils */}
       <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>07</strong>&ensp;On partage</Kicker>
+            <Kicker><strong>09</strong>&ensp;On partage</Kicker>
             <div>
-              <ChapterTitle>Nos m&eacute;thodes, en acc&egrave;s libre.</ChapterTitle>
+              <ChapterTitle>Mes m&eacute;thodes, en acc&egrave;s libre.</ChapterTitle>
               <ChapterLede>
                 Guides SEO, tutoriels pas &agrave; pas et conseils cr&eacute;ation de site :
-                exactement ce que nous appliquons pour nos clients.
+                exactement ce que j&rsquo;applique pour mes clients. Donner avant de vendre.
               </ChapterLede>
             </div>
           </ChapterHead>
@@ -910,19 +1085,19 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 08. Zones */}
+      {/* 10. Zones */}
       <Section variant="alt">
         <Container>
           <ChapterHead>
-            <Kicker><strong>08</strong>&ensp;O&ugrave; nous travaillons</Kicker>
-            <ChapterTitle>Bas&eacute;s dans le 77, partout en France.</ChapterTitle>
+            <Kicker><strong>10</strong>&ensp;O&ugrave; je travaille</Kicker>
+            <ChapterTitle>Bas&eacute; dans le 77, partout en France.</ChapterTitle>
           </ChapterHead>
           <ZonesText>
             <strong>Seine-et-Marne :</strong> {cities.join(" · ")}
             <br />
-            <strong>&Icirc;le-de-France :</strong> Paris · Val-de-Marne (94) · Seine-Saint-Denis (93) · Val-d&rsquo;Oise (95) · Hauts-de-Seine (92) · Yvelines (78) · Essonne (91)
+            <strong>&Icirc;le-de-France :</strong>{" "}Paris · Val-de-Marne (94) · Seine-Saint-Denis (93) · Val-d&rsquo;Oise (95) · Hauts-de-Seine (92) · Yvelines (78) · Essonne (91)
             <br />
-            <strong>Et au-del&agrave; :</strong> toute la France, &agrave; distance, avec le m&ecirc;me suivi.
+            <strong>Et au-del&agrave; :</strong>{" "}toute la France, &agrave; distance, avec le m&ecirc;me suivi.
           </ZonesText>
           <ZonesLink href="/agence-web-77/">Votre agence web en Seine-et-Marne</ZonesLink>
         </Container>
@@ -932,12 +1107,12 @@ export default function HomeContent() {
       <Section variant="dark">
         <Container>
           <FinalTitle>
-            Pr&ecirc;t &agrave; devenir <em>visible</em> ?
+            Pr&ecirc;t &agrave; faire <em>sonner</em>{" "}le t&eacute;l&eacute;phone ?
           </FinalTitle>
           <FinalText>
-            R&eacute;servez votre audit gratuit de 30 minutes. On analyse votre situation,
-            on identifie les opportunit&eacute;s, et vous repartez avec un plan d&rsquo;action
-            concret. Gratuit, sans engagement, plan d&rsquo;action offert.
+            Trente minutes au t&eacute;l&eacute;phone ou en visio. Je regarde votre site et votre
+            march&eacute;, je vous dis ce que je ferais en premier, et vous d&eacute;cidez.
+            Gratuit, sans engagement, plan d&rsquo;action offert.
           </FinalText>
           <FinalActions>
             <Button href={CALENDLY}>R&eacute;server mon cr&eacute;neau</Button>
@@ -947,8 +1122,7 @@ export default function HomeContent() {
             Ou directement : <a href="tel:0769093909">07 69 09 39 09</a> · r&eacute;ponse sous 24 h
             <br />
             Pas encore pr&ecirc;t &agrave; appeler ? Lancez d&rsquo;abord
-            l&rsquo;<a href="/audit-seo/">audit SEO gratuit en ligne</a> : 20 mesures,
-            une minute, sans inscription.
+            l&rsquo;<a href="/audit-seo/">audit gratuit en ligne</a>, vous saurez o&ugrave; vous en &ecirc;tes.
           </FinalMeta>
         </Container>
       </Section>
