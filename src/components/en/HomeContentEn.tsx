@@ -6,6 +6,7 @@ import { theme } from "@/lib/theme";
 import Button, { baseStyles, primaryStyles } from "@/components/Button";
 import { CALENDLY } from "@/lib/i18n";
 import { homeFaqEn } from "@/content/home-faq";
+import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 
 // Accueil anglais. Ce n'est PAS la traduction de HomeContent.tsx.
 //
@@ -285,6 +286,64 @@ const figures = [
   { value: "24h", label: "to get a written, fixed quote, line by line" },
   { value: "1 min", label: "to measure the site you actually serve, no signup, score out of 100" },
 ];
+
+/* ─── Google reviews (14/09/2026) : the five real reviews, translated, with the
+   French original. Same source as the French home: src/content/avis-google.ts. ─── */
+
+const ReviewGrid = styled.div`
+  display: grid;
+  gap: 40px;
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+`;
+
+const Review = styled.blockquote`
+  border-top: 1px solid ${theme.colors.borderInk};
+  padding-top: 24px;
+  max-width: 60ch;
+  font-family: ${theme.fonts.display};
+  font-style: italic;
+  font-size: clamp(19px, 1.7vw, 22px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: ${theme.colors.accent};
+`;
+
+const ReviewOriginal = styled.p`
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: ${theme.colors.textSecondary};
+  max-width: 60ch;
+`;
+
+const ReviewWho = styled.p`
+  margin-top: 16px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: ${theme.colors.textSecondary};
+
+  strong { color: ${theme.colors.text}; font-weight: 500; }
+`;
+
+const Stars = styled.span`
+  display: inline-block;
+  margin-top: 12px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: ${theme.colors.ctaInk};
+  border: 1.5px solid ${theme.colors.ctaInk};
+  border-radius: ${theme.radius.sm};
+  padding: 6px 10px;
+`;
 
 /* ─── Chapitres ─── */
 
@@ -1044,11 +1103,42 @@ export default function HomeContentEn() {
         </Container>
       </Section>
 
-      {/* 05. Insights */}
+      {/* 06. Google reviews: the five real ones, translated, with the French original. */}
+      <Section variant="alt" id="reviews">
+        <Container>
+          <ChapterHead>
+            <Kicker><strong>06</strong>&ensp;Google reviews</Kicker>
+            <div>
+              <ChapterTitle>5.0 out of 5: the five reviews, as written.</ChapterTitle>
+              <ChapterLede>
+                Read on MKZ&rsquo;s Google listing on 14 September 2026. Reviews are in French; the
+                English is my translation, the original follows each one.{" "}
+                <a href={ficheGoogle.url} target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  Read them on Google
+                </a>.
+              </ChapterLede>
+            </div>
+          </ChapterHead>
+          <ReviewGrid>
+            {avisGoogle.map((a) => (
+              <div key={a.auteur}>
+                <Review>&ldquo;{a.traductionEn}&rdquo;</Review>
+                <ReviewOriginal lang="fr">Original: &laquo;&nbsp;{a.texte}&nbsp;&raquo;</ReviewOriginal>
+                <ReviewWho>
+                  <strong>{a.auteur}</strong> · Google review, {a.month}
+                </ReviewWho>
+                <div><Stars aria-label="5 stars out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</Stars></div>
+              </div>
+            ))}
+          </ReviewGrid>
+        </Container>
+      </Section>
+
+      {/* 07. Insights */}
       <Section>
         <Container>
           <ChapterHead>
-            <Kicker><strong>06</strong>&ensp;In the open</Kicker>
+            <Kicker><strong>07</strong>&ensp;In the open</Kicker>
             <div>
               <ChapterTitle>The methods, published.</ChapterTitle>
               <ChapterLede>
@@ -1077,7 +1167,7 @@ export default function HomeContentEn() {
       <Section variant="alt" id="questions">
         <Container>
           <ChapterHead>
-            <Kicker><strong>07</strong>&ensp;Your questions</Kicker>
+            <Kicker><strong>08</strong>&ensp;Your questions</Kicker>
             <div>
               <ChapterTitle>What people ask before they book.</ChapterTitle>
               <ChapterLede>
