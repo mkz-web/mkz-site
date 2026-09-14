@@ -217,25 +217,33 @@ export default function Hero() {
           </MetaLine>
         </div>
 
-        <Sheet aria-label="Résultats moyens constatés chez les clients MKZ">
+        {/* 14/09/2026 : les « résultats moyens » (+247 %, Top 3, 1,2 s, +50
+            entreprises, 97 % de satisfaits) n'avaient aucune mesure derrière.
+            Retirés (stratégie de contenu du 14/09, règle « un chiffre = une
+            source + une date »). La carte ne porte plus que des faits vérifiables
+            aujourd'hui : l'expérience du fondateur (page À propos), la propriété
+            du site (engagement de /tarifs/ et des CGV), la gratuité de l'audit en
+            ligne et du rendez-vous. Un résultat client n'y reviendra que mesuré,
+            daté et nommé, avec l'accord du client. */}
+        <Sheet aria-label="Trois faits vérifiables sur MKZ">
           <Stamp>Devis gratuit · R&eacute;ponse 24 h</Stamp>
-          <SheetLabel>R&eacute;sultats clients · 2025</SheetLabel>
+          <SheetLabel>Ce que vous pouvez v&eacute;rifier</SheetLabel>
           <div>
             <SheetRow>
-              <SheetValue>+247&thinsp;%</SheetValue>
-              <SheetDesc>de trafic organique en moyenne</SheetDesc>
+              <SheetValue>20 ans</SheetValue>
+              <SheetDesc>d&rsquo;informatique, et c&rsquo;est lui qui fait le travail</SheetDesc>
             </SheetRow>
             <SheetRow>
-              <SheetValue>Top 3</SheetValue>
-              <SheetDesc>position moyenne sur Google</SheetDesc>
+              <SheetValue>100&thinsp;%</SheetValue>
+              <SheetDesc>propri&eacute;taire de votre site : code, acc&egrave;s, contenus</SheetDesc>
             </SheetRow>
             <SheetRow>
-              <SheetValue>1,2&thinsp;s</SheetValue>
-              <SheetDesc>de chargement (Core Web Vitals valid&eacute;s)</SheetDesc>
+              <SheetValue>0&thinsp;&euro;</SheetValue>
+              <SheetDesc>pour l&rsquo;audit en ligne et le rendez-vous de 30 minutes</SheetDesc>
             </SheetRow>
           </div>
           <SheetNote>
-            Moyennes constat&eacute;es sur +50 entreprises accompagn&eacute;es en 2025 · 97&thinsp;% de clients satisfaits
+            Pas de pourcentage magique : ces trois faits se v&eacute;rifient aujourd&rsquo;hui, sur ce site et au t&eacute;l&eacute;phone.
           </SheetNote>
         </Sheet>
       </Grid>

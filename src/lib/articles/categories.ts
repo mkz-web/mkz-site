@@ -46,7 +46,7 @@ export const categories: Category[] = [
     description:
       "Référencement local, audit SEO, visibilité Google : des guides concrets pour apparaître devant vos clients.",
     intro: [
-      "97 % des consommateurs cherchent une entreprise locale sur internet avant de la contacter. Le **référencement naturel (SEO)** est le levier le plus rentable pour capter ces recherches : un trafic gratuit, durable, qui travaille pour vous jour et nuit.",
+      "97 % des internautes utilisent la recherche locale sur un moteur de recherche ou un annuaire (France Num, ministère de l'Économie, juin 2026). Le **référencement naturel (SEO)** est le levier le plus rentable pour capter ces recherches : un trafic gratuit, durable, qui travaille pour vous jour et nuit.",
       "Ce cocon rassemble nos guides SEO pensés pour les artisans, commerçants et TPE : référencement local, audit, méthodes concrètes, sans jargon. Vous partez de zéro ? Commencez par [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/), les cinq gestes dans l'ordre. Votre site existe mais reste introuvable ? Lisez [pourquoi un site n'apparaît pas sur Google](/conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/). Pour un premier état des lieux tout de suite, notre [audit SEO gratuit en ligne](/audit-seo/) fait 20 mesures sur votre site en une minute. Pour aller plus vite, notre service de [référencement SEO](/referencement-seo/) s'occupe de tout.",
     ],
     icon: "🔍",

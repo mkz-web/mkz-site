@@ -92,7 +92,7 @@ const article: Article = {
       rows: [
         [
           "Our platform is significantly faster than competing solutions.",
-          "Median page load is 1.2s, measured across 50 client sites in 2025 (Core Web Vitals, field data).",
+          "Cumulative Layout Shift on mkz-consulting.fr: 0.0012 on cold mobile loads in Chrome 151, measured on 8 August 2026 (0.1412 before the font fallbacks were tuned).",
         ],
         [
           "French search is a big opportunity for foreign brands.",
@@ -235,7 +235,7 @@ const article: Article = {
     },
     {
       q: "What makes a page quotable by an AI model?",
-      a: "A specific claim carrying three things: a number rather than a qualifier, a named source that can be attributed, and a date so the claim stays checkable. Fast and reliable is unquotable. Median load time 1.2s across 50 client sites in 2025 is quotable. The discipline has a useful side effect: you cannot write in that shape without having actually measured something.",
+      a: "A specific claim carrying three things: a number rather than a qualifier, a named source that can be attributed, and a date so the claim stays checkable. Fast and reliable is unquotable. A Cumulative Layout Shift of 0.0012 on cold mobile loads, measured on 8 August 2026, is quotable. The discipline has a useful side effect: you cannot write in that shape without having actually measured something.",
     },
     {
       q: "Can I guarantee my site is cited by ChatGPT?",

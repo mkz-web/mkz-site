@@ -15,7 +15,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Résultat constaté chez nos clients en 2025 : **+247 % de trafic organique en moyenne**, c'est-à-dire les visites gratuites venues de Google."
+      "text": "Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Et une règle : aucun chiffre de résultat sans le client, la période et la mesure derrière. C'est-à-dire que vous ne lirez pas ici de pourcentage de **trafic organique** « moyen » (les visites gratuites venues de Google) : vous lirez, chaque mois, vos propres chiffres, mesurés dans votre Search Console."
     },
     {
       "type": "p",
@@ -43,7 +43,7 @@ const pillar: PillarPage = {
     {
       "type": "ul",
       "items": [
-        "**La technique** : un site rapide, sécurisé, que Google lit sans obstacle. Nos sites se chargent en 1,2 seconde en moyenne.",
+        "**La technique** : un site rapide, sécurisé, que Google lit sans obstacle. Chaque site que nous livrons est contrôlé aux Core Web Vitals avant sa mise en ligne.",
         "**Le contenu** : des pages qui répondent précisément aux questions que vos clients tapent dans Google.",
         "**La popularité** : des liens, des avis et des mentions locales qui prouvent que vous faites référence dans votre zone."
       ]
@@ -312,7 +312,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Derrière MKZ, un visage : Mickaël Leclerc, ingénieur informatique depuis 20 ans, installé à Dammartin-en-Goële. En 2025, MKZ a accompagné plus de 50 entreprises, avec 97 % de clients satisfaits et une position moyenne dans le top 3 de Google sur les requêtes travaillées."
+      "text": "Derrière MKZ, un visage : Mickaël Leclerc, ingénieur informatique depuis 20 ans, installé à Dammartin-en-Goële. Il fait lui-même le travail, de l'audit au suivi mensuel, et vous parle en direct : pas de commercial, pas de ticket, pas de « résultats moyens » invérifiables."
     },
     {
       "type": "ul",

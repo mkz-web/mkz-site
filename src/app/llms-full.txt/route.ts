@@ -69,13 +69,13 @@ Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en
 2. **Stratégie sur-mesure** : plan d'action personnalisé avec objectifs clairs, budget défini et planning réaliste.
 3. **Résultats mesurables** : exécution, suivi mensuel avec reporting transparent ; le client voit concrètement l'évolution.
 
-## Résultats et chiffres
+## Chiffres vérifiables
 
-- +247 % de trafic organique moyen (moyenne constatée sur les clients MKZ, 2025).
-- Position moyenne : Top 3 sur Google.
-- +89 % de leads qualifiés.
-- Temps de charge : 1,2 s (Core Web Vitals validés).
-- Plus de 50 entreprises accompagnées en 2025 ; 97 % de clients satisfaits ; trafic moyen multiplié par 3.
+- Audit SEO en ligne gratuit : 20 mesures faites sur le site du visiteur en une minute, sans inscription (https://mkz-consulting.fr/audit-seo/).
+- Grille de prix publique : https://mkz-consulting.fr/tarifs/.
+- Le client reste propriétaire à 100 % de son site : code, accès, contenus.
+- Fondateur : Mickaël Leclerc, 20 ans d'expérience IT (infrastructure, automatisation, DevOps), qui réalise lui-même les prestations.
+- MKZ ne publie aucun « résultat client moyen » (trafic, positions, taux de satisfaction) : un résultat n'est affiché que mesuré, daté et nommé, avec l'accord du client.
 
 ## Ce qui différencie MKZ
 

@@ -5,7 +5,13 @@
 // de 14 px sur 0,5 s, une seule fois par élément. Inactif si
 // prefers-reduced-motion, et inoffensif sans JavaScript : les classes ne sont
 // posées qu'ici, le HTML statique reste entièrement visible.
-// CLS : transform + opacity uniquement, jamais de layout.
+// CLS : transform uniquement, jamais de layout.
+// 14/09/2026 : l'opacité 0 a été retirée. Une section hors écran au montage
+// restait invisible (opacity: 0) tant que l'observateur ne l'avait pas vue ;
+// pour un moteur de rendu qui ne défile pas, c'est du contenu masqué par CSS.
+// Falaise d'impressions du 1er septembre non expliquée, ce lot du 29/08 étant le
+// seul changement du site avant elle : geste sans regret, la translation reste,
+// rien n'est plus caché à personne.
 
 import { Global, css } from "@emotion/react";
 import { usePathname } from "next/navigation";
@@ -14,13 +20,11 @@ import { useEffect } from "react";
 const styles = css`
   @media (prefers-reduced-motion: no-preference) {
     .rvl {
-      opacity: 0;
       transform: translateY(14px);
-      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .rvl.rvl-vu {
-      opacity: 1;
       transform: none;
     }
   }

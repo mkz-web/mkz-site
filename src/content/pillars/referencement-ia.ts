@@ -245,7 +245,7 @@ const pillar: PillarPage = {
     },
     {
       type: "p",
-      text: "Nos résultats en référencement naturel, constatés sur nos clients en 2025 : **+247 % de trafic organique en moyenne**, position moyenne dans le Top 3, sites qui se chargent en 1,2 seconde. Plus de 50 entreprises accompagnées, 97 % de clients satisfaits. Le GEO s'ajoute à ce socle, il ne le remplace pas.",
+      text: "Le référencement IA s'ajoute au **référencement naturel**, il ne le remplace pas. Et nous ne publions aucun « résultat moyen », ni en SEO ni en GEO : un résultat, chez nous, est mesuré, daté et nommé avec l'accord du client, ou il n'est pas affiché. La mesure, elle, est publique : le [protocole de mesure de la visibilité IA](/conseils/referencement-ia/mesurer-visibilite-ia/) que nous appliquons est décrit pas à pas.",
     },
     {
       type: "p",

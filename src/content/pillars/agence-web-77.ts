@@ -59,7 +59,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Un **site vitrine** est un site de quelques pages qui présente votre métier, vos réalisations et vos coordonnées : c'est le format idéal pour la plupart des artisans et commerçants. Selon vos besoins, nous y ajoutons demande de devis en ligne, prise de rendez-vous ou boutique e-commerce. Chaque projet de [création de site internet](/creation-site-internet/) inclut le design sur-mesure, l'adaptation mobile et des textes pensés pour Google. Et la vitesse n'est pas une option : nos sites se chargent en 1,2 seconde en moyenne."
+      "text": "Un **site vitrine** est un site de quelques pages qui présente votre métier, vos réalisations et vos coordonnées : c'est le format idéal pour la plupart des artisans et commerçants. Selon vos besoins, nous y ajoutons demande de devis en ligne, prise de rendez-vous ou boutique e-commerce. Chaque projet de [création de site internet](/creation-site-internet/) inclut le design sur-mesure, l'adaptation mobile et des textes pensés pour Google. Et la vitesse n'est pas une option : nous contrôlons les Core Web Vitals de chaque site avant de le publier."
     },
     {
       "type": "h3",
@@ -67,7 +67,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Le **SEO** (référencement naturel) regroupe tout ce qui fait remonter votre site dans les résultats Google, sans payer de publicité. Pour une TPE du 77, le levier le plus rentable est le [référencement local](/conseils/seo/referencement-local/) : sortir en tête quand un habitant tape votre métier et votre ville. Notre [agence SEO en Seine-et-Marne](/referencement-seo/) couvre les mots-clés, la technique, le contenu et votre **fiche Google Business Profile**, la fiche de votre entreprise qui s'affiche sur Google Maps. Résultat constaté chez nos clients en 2025 : **+247 % de trafic organique** en moyenne (les visites venues de Google, hors publicité), avec une position moyenne dans le Top 3 Google."
+      "text": "Le **SEO** (référencement naturel) regroupe tout ce qui fait remonter votre site dans les résultats Google, sans payer de publicité. Pour une TPE du 77, le levier le plus rentable est le [référencement local](/conseils/seo/referencement-local/) : sortir en tête quand un habitant tape votre métier et votre ville. Notre [agence SEO en Seine-et-Marne](/referencement-seo/) couvre les mots-clés, la technique, le contenu et votre **fiche Google Business Profile**, la fiche de votre entreprise qui s'affiche sur Google Maps. Ce que nous ne ferons pas : vous promettre un pourcentage de **trafic organique** « moyen » (les visites venues de Google, hors publicité). Un résultat sans le client, la période et la mesure derrière ne vaut rien ; vous aurez les vôtres, chaque mois, dans votre Search Console."
     },
     {
       "type": "h3",
@@ -80,12 +80,12 @@ const pillar: PillarPage = {
     {
       "type": "callout",
       "variant": "retenir",
-      "title": "MKZ en chiffres (clients 2025)",
+      "title": "MKZ, ce que vous pouvez vérifier",
       "items": [
-        "+247 % de trafic organique moyen constaté",
-        "Position moyenne : Top 3 sur Google",
-        "1,2 s de temps de chargement moyen",
-        "Plus de 50 entreprises accompagnées, 97 % de clients satisfaits"
+        "Un audit SEO gratuit de 20 mesures sur votre site, en une minute, sans inscription",
+        "Une grille de prix publique, la même pour tout le monde",
+        "Vous restez propriétaire à 100 % de votre site : code, accès, contenus",
+        "Un seul interlocuteur, ingénieur informatique depuis 20 ans, installé à Dammartin-en-Goële"
       ]
     },
     {

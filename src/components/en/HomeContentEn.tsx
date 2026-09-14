@@ -722,27 +722,31 @@ export default function HomeContentEn() {
             </HeroMeta>
           </div>
 
-          <Sheet aria-label="Average results measured across MKZ clients in 2025">
+          {/* 14/09/2026: the "average client results" (+247%, Top 3, 1.2s, 50+
+              clients) had no measurement behind them. Removed (content strategy
+              of 14/09: a figure needs a source and a date). The card now carries
+              only facts verifiable today. A client result will only come back
+              measured, dated and named, with the client's consent. */}
+          <Sheet aria-label="Three verifiable facts about MKZ">
             <Stamp>Free review · 24h reply</Stamp>
-            <SheetLabel>Client results · 2025</SheetLabel>
+            <SheetLabel>What you can verify</SheetLabel>
             <div>
               <SheetRow>
-                <SheetValue>+247%</SheetValue>
-                <SheetDesc>organic traffic on average</SheetDesc>
+                <SheetValue>20 years</SheetValue>
+                <SheetDesc>in IT, and he does the work himself</SheetDesc>
               </SheetRow>
               <SheetRow>
-                <SheetValue>Top 3</SheetValue>
-                <SheetDesc>average position on Google</SheetDesc>
+                <SheetValue>100%</SheetValue>
+                <SheetDesc>yours: the site, its code, its access, its content</SheetDesc>
               </SheetRow>
               <SheetRow>
-                <SheetValue>1.2s</SheetValue>
-                <SheetDesc>load time (Core Web Vitals passing)</SheetDesc>
+                <SheetValue>€0</SheetValue>
+                <SheetDesc>for the online audit and the 30-minute call</SheetDesc>
               </SheetRow>
             </div>
             <SheetNote>
-              Averages measured across 50+ MKZ clients in 2025. These are French
-              businesses ranking in France: that is exactly the market you are trying
-              to enter.
+              No magic percentages: three facts you can check today, from a French
+              consultant who works in France, for the French market you are entering.
             </SheetNote>
           </Sheet>
         </HeroGrid>

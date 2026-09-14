@@ -213,13 +213,13 @@ const pillar: PillarPage = {
         "**Audit gratuit de 30 minutes** : vos métiers, vos communes d'intervention, vos concurrents, vos objectifs. Sans engagement.",
         "**Maquette et plan du site** : vous validez l'apparence et la liste des pages avant tout développement. Pas de surprise.",
         "**Rédaction et photos** : nous écrivons vos pages métiers avec vos mots, et intégrons vos photos de chantiers.",
-        "**Mise en ligne** : un site rapide (1,2 s de chargement en moyenne sur nos sites). Nous le connectons à votre fiche d'établissement et à Google Search Console (l'outil gratuit qui mesure votre visibilité sur Google).",
+        "**Mise en ligne** : un site rapide, contrôlé aux Core Web Vitals avant d'être publié. Nous le connectons à votre fiche d'établissement et à Google Search Console (l'outil gratuit qui mesure votre visibilité sur Google).",
         "**Suivi et résultats** : reporting mensuel clair (visites, appels, demandes de devis). Vous voyez tout."
       ]
     },
     {
       "type": "p",
-      "text": "Les résultats parlent pour nous : +247 % de **trafic organique** (les visites venues de Google, hors publicité) en moyenne chez nos clients en 2025. Une position moyenne dans le Top 3 de Google sur les requêtes travaillées. Plus de 50 entreprises accompagnées en 2025, et 97 % de clients satisfaits. Et quatre engagements simples : on vous parle en français (zéro jargon), on décroche quand vous appelez, vous voyez tout, et vous restez libre."
+      "text": "Pas de « résultats moyens » ici. Un pourcentage de **trafic organique** (les visites venues de Google, hors publicité) sans le client, la période et la mesure derrière ne vaut rien, et nous n'en publions pas : un résultat sera affiché quand il sera mesuré, daté et nommé, avec l'accord du client. Ce que vous pouvez vérifier tout de suite : un [audit gratuit de 20 mesures](/audit-seo/) sur votre site en une minute, une grille de prix publique, et quatre engagements simples : on vous parle en français (zéro jargon), on décroche quand vous appelez, vous voyez tout, et vous restez libre, propriétaire de votre site."
     },
     {
       "type": "cta",
