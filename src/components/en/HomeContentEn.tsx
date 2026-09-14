@@ -193,6 +193,19 @@ const Portrait = styled.figure`
     color: ${theme.colors.textSecondary};
   }
 
+  figcaption a {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: ${theme.colors.text};
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+  }
+
+  figcaption a:hover { color: ${theme.colors.ctaInk}; }
+
   @media (min-width: ${theme.breakpoints.lg}) {
     max-width: none;
     justify-self: end;
@@ -845,6 +858,9 @@ export default function HomeContentEn() {
             <figcaption>
               Micka&euml;l Leclerc, founder of MKZ
               <span>French SEO consultant &middot; near Paris, France &middot; free review, reply within 24h</span>
+              {/* Rating measured on 14/09/2026 on the live Maps SERP (cid 6891196325972723134):
+                  5.0 out of 5, 5 reviews. Re-measure at every monthly report. */}
+              <a href="https://maps.google.com/?cid=6891196325972723134" target="_blank" rel="noopener">&#9733;&nbsp;5.0 on Google &middot; 5 reviews</a>
             </figcaption>
           </Portrait>
         </HeroGrid>

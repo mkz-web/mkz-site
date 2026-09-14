@@ -183,6 +183,19 @@ const Portrait = styled.figure`
     color: ${theme.colors.textSecondary};
   }
 
+  figcaption a {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: ${theme.colors.text};
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+  }
+
+  figcaption a:hover { color: ${theme.colors.ctaInk}; }
+
   @media (min-width: ${theme.breakpoints.lg}) {
     max-width: none;
     justify-self: end;
@@ -240,6 +253,9 @@ export default function Hero() {
           <figcaption>
             Micka&euml;l Leclerc, fondateur de MKZ
             <span>Consultant SEO &middot; Dammartin-en-Go&euml;le (77) &middot; devis gratuit, r&eacute;ponse sous 24 h</span>
+            {/* Note mesurée le 14/09/2026 sur la SERP Maps en direct (cid 6891196325972723134) :
+                5,0 sur 5, 5 avis. À remesurer à chaque compte rendu mensuel. */}
+            <a href="https://maps.google.com/?cid=6891196325972723134" target="_blank" rel="noopener">&#9733;&nbsp;5,0 sur Google &middot; 5 avis</a>
           </figcaption>
         </Portrait>
       </Grid>
