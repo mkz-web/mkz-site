@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "SEO artisan : le plan simple pour être visible sur Google",
   "metaDescription": "Plombier, électricien, menuisier : le plan SEO artisan en 2 h par semaine. Fiche Google, avis, pages locales : soyez visible et décrochez des chantiers.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-09-03",
+  "dateModified": "2026-09-14",
   "readingMinutes": 10,
   "excerpt": "Plombier, électricien, menuisier… vos clients tapent votre métier et leur ville dans Google avant d'appeler. Pas besoin d'être un expert du web pour apparaître devant eux. Voici le plan **SEO** de l'artisan qui n'a pas le temps : concret, sans jargon, honnête sur les prix.",
   "tldr": [
@@ -350,7 +350,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "« ChatGPT peut-il faire du référencement ? » La question cache la vraie révolution : vos clients commencent à demander à une IA « un bon électricien vers Meaux ». 26 % des TPE-PME françaises utilisent déjà l'IA, deux fois plus qu'en 2024 (Baromètre France Num, Bercy/DGE, septembre 2025)."
+      "text": "« ChatGPT peut-il faire du référencement ? » La question cache la vraie révolution : vos clients commencent à demander à une IA « un bon électricien vers Meaux ». 26 % des TPE-PME françaises utilisent déjà l'IA, deux fois plus qu'en 2024 (Baromètre France Num, Bercy/DGE, septembre 2025). Et depuis le 22 juillet 2026, Google lui-même répond par ses Aperçus IA : nous avons relevé [ce que ça change pour un plombier de Meaux](/conseils/referencement-ia/ai-overviews-france/), recherche par recherche."
     },
     {
       "type": "p",

@@ -245,7 +245,7 @@ const pillar: PillarPage = {
     },
     {
       type: "p",
-      text: "Le référencement IA s'ajoute au **référencement naturel**, il ne le remplace pas. Et nous ne publions aucun « résultat moyen », ni en SEO ni en GEO : un résultat, chez nous, est mesuré, daté et nommé avec l'accord du client, ou il n'est pas affiché. La mesure, elle, est publique : le [protocole de mesure de la visibilité IA](/conseils/referencement-ia/mesurer-visibilite-ia/) que nous appliquons est décrit pas à pas.",
+      text: "Le référencement IA s'ajoute au **référencement naturel**, il ne le remplace pas. Et nous ne publions aucun « résultat moyen », ni en SEO ni en GEO : un résultat, chez nous, est mesuré, daté et nommé avec l'accord du client, ou il n'est pas affiché. La mesure, elle, est publique : le [protocole de mesure de la visibilité IA](/conseils/referencement-ia/mesurer-visibilite-ia/) que nous appliquons est décrit pas à pas. Et depuis le 22 juillet 2026, les Aperçus IA de Google sont en France : voici [ce que ça change pour un artisan, relevé sur ses recherches](/conseils/referencement-ia/ai-overviews-france/).",
     },
     {
       type: "p",

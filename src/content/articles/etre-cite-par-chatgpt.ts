@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Référencement ChatGPT : comment se faire citer par l'IA",
   "metaDescription": "Référencement ChatGPT : la méthode en 5 gestes pour être cité par les IA, avec la mesure avant et après. Sans jargon, pour artisans, commerçants et TPE.",
   "datePublished": "2026-08-07",
-  "dateModified": "2026-08-07",
+  "dateModified": "2026-09-14",
   "readingMinutes": 9,
   "excerpt": "Un client demande à ChatGPT « quel couvreur à Meaux ? ». L'IA cite deux entreprises. Ce ne sont pas forcément les mieux placées sur Google, ce sont les mieux documentées. Voici les cinq gestes qui font la différence, et comment vérifier qu'ils marchent chez vous.",
   "tldr": [
@@ -23,7 +23,7 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "« Comment faire du référencement sur ChatGPT ? » La question revient sans arrêt, et elle contient déjà le malentendu. Sur Google, vous visez une **position** dans une liste. Dans une réponse d'IA, il n'y a pas de liste : il y a un paragraphe et deux ou trois sources nommées. Vous ne cherchez plus à être classé, vous cherchez à être **choisi**."
+      "text": "« Comment faire du référencement sur ChatGPT ? » La question revient sans arrêt, et elle contient déjà le malentendu. Sur Google, vous visez une **position** dans une liste. Dans une réponse d'IA, il n'y a pas de liste : il y a un paragraphe et deux ou trois sources nommées. Vous ne cherchez plus à être classé, vous cherchez à être **choisi**. Et depuis le 22 juillet 2026, la question se pose sur Google lui-même, avec ses Aperçus IA : [ce qu'ils affichent, relevé sur les recherches d'un artisan](/conseils/referencement-ia/ai-overviews-france/)."
     },
     {
       "type": "p",

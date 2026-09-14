@@ -10,9 +10,9 @@ const article: Article = {
   "metaTitle": "Outil GEO : mesurer si les IA parlent de vous",
   "metaDescription": "Outils GEO payants ou protocole gratuit ? La méthode pour mesurer votre part de voix dans ChatGPT et Perplexity, et les pièges qui faussent la mesure.",
   "datePublished": "2026-08-07",
-  "dateModified": "2026-08-21",
+  "dateModified": "2026-09-14",
   "readingMinutes": 9,
-  "excerpt": "Il n'existe pas de Search Console pour les IA. Personne ne vous enverra de rapport disant combien de fois ChatGPT a prononcé votre nom. Voici le protocole gratuit qui vous donne ce chiffre en une heure, les pièges qui le faussent, et le moment où un outil payant devient justifié.",
+  "excerpt": "Depuis le 31 août 2026, la Search Console compte vos impressions dans les Aperçus IA de Google, sans les clics, et rien pour ChatGPT, Perplexity ou Gemini. Personne ne vous enverra de rapport disant combien de fois ChatGPT a prononcé votre nom. Voici le protocole gratuit qui vous donne ce chiffre en une heure, les pièges qui le faussent, et le moment où un outil payant devient justifié.",
   "tldr": [
     "Aucun moteur IA ne publie de rapport de visibilité. La mesure se fabrique, elle ne se reçoit pas.",
     "**Vérifier votre balisage ne prouve rien.** Des données structurées en place ne disent pas si vous êtes cité, elles disent que le balisage est en place.",
@@ -42,7 +42,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Trois indicateurs suffisent à une TPE. Le premier est le seul vraiment important, les deux autres l'expliquent."
+      "text": "Trois indicateurs suffisent à une TPE. Le premier est le seul vraiment important, les deux autres l'expliquent. Pour Google seulement, un quatrième chiffre existe depuis le 31 août 2026 : les impressions du rapport « IA générative » de la Search Console, sans les clics ; ce qu'elles valent pour un artisan est relevé dans [AI Overviews en France, ce que ça change](/conseils/referencement-ia/ai-overviews-france/)."
     },
     {
       "type": "table",

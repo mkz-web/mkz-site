@@ -63,7 +63,7 @@ export const categories: Category[] = [
       "ChatGPT, Perplexity, les réponses IA de Google : comment être la source citée, pas celle qu'on oublie.",
     intro: [
       "Vos clients ne tapent plus seulement des mots-clés, ils posent des questions à une IA. Et l'IA ne renvoie pas dix liens : elle donne **une réponse, avec deux ou trois sources**. Être la source citée, c'est le nouveau podium.",
-      "Ce cocon rassemble nos guides sur le **référencement IA**, aussi appelé GEO (Generative Engine Optimization) : autoriser les robots des IA, produire des faits citables, mesurer si vous êtes réellement repris. Deux outils gratuits pour toucher le sujet du doigt : l'[audit SEO + IA](/audit-seo/), qui dit en une minute si les robots des IA vous lisent, et le [simulateur d'empreinte d'une requête IA](/empreinte-ia/). Pour déléguer, voyez notre service de [référencement IA](/referencement-ia/).",
+      "Ce cocon rassemble nos guides sur le **référencement IA**, aussi appelé GEO (Generative Engine Optimization) : autoriser les robots des IA, produire des faits citables, mesurer si vous êtes réellement repris. L'actualité du cocon : depuis le 22 juillet 2026, les Aperçus IA de Google sont en France, et nous avons relevé [ce que ça change pour un artisan](/conseils/referencement-ia/ai-overviews-france/), recherche par recherche. Deux outils gratuits pour toucher le sujet du doigt : l'[audit SEO + IA](/audit-seo/), qui dit en une minute si les robots des IA vous lisent, et le [simulateur d'empreinte d'une requête IA](/empreinte-ia/). Pour déléguer, voyez notre service de [référencement IA](/referencement-ia/).",
     ],
     icon: "🤖",
     pillar: { href: "/referencement-ia/", label: "Notre service référencement IA" },
