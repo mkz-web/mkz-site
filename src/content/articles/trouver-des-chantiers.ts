@@ -10,9 +10,9 @@ const article: Article = {
   "metaTitle": "Trouver des chantiers sans plateforme : la méthode Google",
   "metaDescription": "Trouver des chantiers sans payer chaque contact : ce que coûtent vraiment les plateformes (prix publiés) et la méthode Google gratuite en 4 étapes.",
   "datePublished": "2026-09-03",
-  "dateModified": "2026-09-03",
-  "readingMinutes": 11,
-  "excerpt": "Le carnet de commandes se vide et la première idée qui vient, c'est de s'inscrire sur une plateforme de mise en relation. Pourquoi pas. Mais avant de payer chaque contact, regardez ce que ces plateformes annoncent elles-mêmes, et ce que Google donne gratuitement à l'artisan qui le lui demande. Voici la méthode pour **trouver des chantiers** sans dépendre de personne.",
+  "dateModified": "2026-09-14",
+  "readingMinutes": 12,
+  "excerpt": "Le carnet se vide, et le premier réflexe, c'est de s'inscrire sur une plateforme et de payer le contact. Je comprends. Mais un contact acheté, c'est un client loué : le jour où vous arrêtez de payer, il ne reste rien. Voici, chiffres publiés à l'appui, comment **trouver des chantiers** qui vous appartiennent, gratuitement, avec Google.",
   "tldr": [
     "Les plateformes se paient de trois façons, toutes publiées : au contact (Travaux.com : 1 à 90 € HT par mise en relation ; Helloartisan : 39 € HT par contact, 69 € HT par rendez-vous), à l'abonnement (Habitatpresto, prix communiqué après inscription ; Helloartisan, 199 € HT par mois) ou à la commission sur le chantier signé (Hemea : 15 % à 7,5 % HT).",
     "En face, Google est gratuit et classe les fiches locales sur trois critères publics : pertinence, distance, popularité. « Plus vous obtenez d'avis et de notes positives, plus votre établissement grimpe dans le classement local » (aide Google Business Profile, 2026).",
@@ -22,11 +22,11 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "Pour **trouver des chantiers** sans dépendre d'une plateforme, il faut être trouvé là où les particuliers cherchent un artisan quand ils n'ont personne à recommander : Google. Concrètement, quatre gestes, tous gratuits : une fiche Google réglée pour votre métier et votre zone, un avis demandé après chaque chantier, un site avec une page par métier et par ville, et un bouche-à-oreille numérique (annuaires, partenaires). Un chantier venu de Google vous appartient : pas de commission, pas de contact loué, et le client vous a choisi vous."
+      "text": "Pour **trouver des chantiers** sans plateforme, il faut être là où le particulier cherche un artisan quand il n'a personne à qui demander : sur Google, avec une fiche d'établissement réglée pour votre métier et votre zone, un avis après chaque chantier, un site à votre nom et des coordonnées identiques partout. Quatre gestes, aucun contact à acheter, et le client vous a choisi vous. Beaucoup d'artisans que je rencontre pensent que trouver des chantiers sur internet, c'est s'inscrire sur une plateforme. Ce n'est pas ça. Une plateforme vous loue des contacts ; Google vous fait gagner une place."
     },
     {
       "type": "p",
-      "text": "Soyons honnêtes avec les plateformes : elles ont un mérite, elles apportent des demandes tout de suite, quand Google demande des semaines. Ce guide ne vous dit pas de les fuir. Il vous dit ce qu'elles coûtent, avec leurs propres chiffres, et comment bâtir à côté quelque chose qui reste à vous quand vous arrêtez de payer."
+      "text": "Je ne suis pas contre les plateformes : elles remplissent vite, quand Google demande des semaines. Je vous dis ce qu'elles coûtent, avec leurs propres chiffres, et comment bâtir à côté quelque chose qui reste à vous quand vous arrêtez de payer. Louer ou acheter : le loyer, vous le payez tous les mois et vous n'êtes chez vous nulle part ; la fiche Google, c'est de la pierre."
     },
     {
       "type": "h2",
@@ -35,11 +35,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Il n'y a pas un modèle, il y en a trois : le **paiement au contact** (vous payez chaque particulier qui accepte de partager ses coordonnées), l'**abonnement** (un forfait mensuel, contacts inclus ou non) et la **commission** (un pourcentage du chantier signé). Voici ce que chaque plateforme écrit sur ses propres pages, relevé en septembre 2026."
+      "text": "Il n'y a pas un modèle, il y en a trois. Le **paiement au contact**, c'est-à-dire que vous payez chaque particulier qui accepte de vous laisser son numéro, qu'il signe ou non. L'**abonnement**, c'est-à-dire un forfait tous les mois, contacts inclus ou pas. Et la **commission**, c'est-à-dire un pourcentage prélevé sur le chantier signé. Voici ce que chaque plateforme écrit elle-même sur ses pages, relevé en septembre 2026. Pas ce qu'on en dit dans les groupes d'artisans : ce qu'elle écrit."
     },
     {
       "type": "table",
-      "caption": "Les plateformes de mise en relation artisan-particulier : modèles et prix publiés",
+      "caption": "Ce que les plateformes de mise en relation facturent aux professionnels, d'après leurs propres pages (consultées en septembre 2026)",
       "headers": [
         "Plateforme",
         "Modèle",
@@ -99,13 +99,13 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Faisons le calcul sur un exemple, en **hypothèse de travail** (vos vrais taux de transformation sont à mesurer chez vous). Un chantier de 3 000 € HT signé via une commission de 15 % coûte 450 €. Le même chantier obtenu après cinq contacts achetés à 39 € HT, dont un seul signe, coûte 195 €, plus le temps passé sur quatre devis sans suite. Et si personne ne signe ce mois-ci, les contacts sont payés quand même."
+      "text": "Faites le calcul, en **hypothèse de travail** : vos vrais taux de transformation, vous les mesurez chez vous, pas dans une brochure. Un chantier de 3 000 € HT signé via une commission de 15 % vous coûte 450 €. Le même chantier obtenu après cinq contacts achetés à 39 € HT, dont un seul signe, coûte 195 €, plus quatre devis rédigés pour rien. Et si personne ne signe ce mois-ci, les contacts sont payés quand même. C'est la réalité du contact acheté : vous payez le bruit, pas le signal."
     },
     {
       "type": "callout",
       "variant": "attention",
       "title": "Un contact acheté n'est pas un client",
-      "text": "C'est un particulier qui compare, qui a peut-être demandé ailleurs, et dont les coordonnées vous sont louées, pas données. Le jour où vous fermez le compte, il ne reste rien : ni le contact, ni l'avis qu'il a laissé sur la plateforme, ni la place que vous y aviez."
+      "text": "C'est un particulier qui compare, qui a peut-être demandé ailleurs, et dont le numéro vous est loué, pas donné. Le jour où vous fermez le compte, il ne reste rien : ni le contact, ni l'avis qu'il a laissé sur la plateforme, ni la place que vous y aviez. Point."
     },
     {
       "type": "h2",
@@ -114,19 +114,19 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le réflexe du particulier qui n'a personne à recommander, c'est de taper son besoin et sa ville. France Num (ministère de l'Économie, juin 2026) rapporte que **97 % des internautes utilisent la recherche locale** sur un moteur ou un annuaire, que **78 % des recherches locales sur mobile engendrent un achat** dans les heures qui suivent, et que les requêtes « près de moi » ont été « multipliées par 5 sur 5 ans » selon Google France."
+      "text": "Le réflexe du particulier qui n'a personne à recommander, c'est de taper son besoin et sa ville. Ce n'est pas une impression, ce sont des chiffres publiés. France Num (ministère de l'Économie, juin 2026) rapporte que **97 % des internautes utilisent la recherche locale** sur un moteur ou un annuaire, que **78 % des recherches locales sur mobile engendrent un achat** dans les heures qui suivent, et que les requêtes « près de moi » ont été « multipliées par 5 sur 5 ans » selon Google France. Le particulier qui tape « couvreur » et sa ville à 22 h ne rêvasse pas : il est prêt à signer."
     },
     {
       "type": "p",
-      "text": "Quand ce particulier tape « plombier Meaux », Google affiche d'abord la carte et trois fiches : le **pack local**. Selon la méta-analyse de First Page Sage (décembre 2025), ces trois fiches affichent un taux de clic de **17,6 %, 15,4 % et 15,1 %**. Y figurer, c'est recevoir l'appel avant que le particulier n'ouvre une plateforme."
+      "text": "Quand il tape « plombier Meaux », Google affiche d'abord la carte et trois fiches : le **pack local**, c'est-à-dire la vitrine gratuite de la rue la plus passante de votre ville, réservée à trois artisans. Selon la méta-analyse de First Page Sage (décembre 2025), ces trois fiches affichent un taux de clic de **17,6 %, 15,4 % et 15,1 %**. Y figurer, c'est recevoir l'appel avant que le particulier n'ouvre une plateforme. Et quand c'est une IA qui répond à sa place, elle donne le même conseil : j'ai posé la question à ChatGPT, recherche web activée, le 14 septembre 2026, en lui demandant ses sources : comment un plombier de Seine-et-Marne trouve-t-il des chantiers sans plateforme payante ? Il n'en a cité aucune. Il a répondu fiche Google, coordonnées identiques partout, annuaires officiels, chambre de métiers, et cinq à dix avis clients à demander. Trois des quatre gestes de cet article, et pas une plateforme."
     },
     {
       "type": "p",
-      "text": "Et Google dit comment y entrer. Les résultats à proximité sont « principalement basés sur la pertinence, la distance et la popularité » ; pour la popularité, « plus vous obtenez d'avis et de notes positives, plus votre établissement grimpe dans le classement local » ; et « il n'existe aucun moyen d'obtenir une meilleure place au classement local Google sur demande ou contre rémunération » (aide Google Business Profile, consultée en septembre 2026). Autrement dit : personne ne peut acheter la place, mais tout le monde peut la gagner."
+      "text": "Et Google dit comment y entrer, noir sur blanc. Les résultats à proximité sont « principalement basés sur la pertinence, la distance et la popularité » ; pour la popularité, « plus vous obtenez d'avis et de notes positives, plus votre établissement grimpe dans le classement local » ; et « il n'existe aucun moyen d'obtenir une meilleure place au classement local Google sur demande ou contre rémunération » (aide Google Business Profile, consultée en septembre 2026). Personne ne peut acheter la place ; tout le monde peut la gagner. Il n'y a pas de miracle, il y a une recette, et elle est publique."
     },
     {
       "type": "table",
-      "caption": "Plateforme ou Google : ce qui change pour vous",
+      "caption": "Plateforme ou Google : ce que vous payez, ce qui vous appartient, ce qui reste",
       "headers": [
         "",
         "Plateforme de mise en relation",
@@ -146,7 +146,7 @@ const article: Article = {
         [
           "Délai",
           "Des demandes dès l'inscription",
-          "Fiche examinée sous 5 jours ouvrés (Google) ; place dans le pack local sans délai publié par Google : des semaines à des mois selon la concurrence, d'après notre expérience"
+          "Fiche examinée sous 5 jours ouvrés (Google) ; place dans le pack local sans délai publié par Google : des semaines à des mois selon la concurrence, d'après mon expérience"
         ],
         [
           "Quand vous arrêtez",
@@ -159,7 +159,7 @@ const article: Article = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "La plateforme vend du contact loué. Google fait gagner une place que personne ne peut acheter, sur des critères publics. La première remplit vite, la seconde remplit longtemps : bâtissez la seconde pendant que la première dépanne."
+      "text": "La plateforme vend du contact loué. Google fait gagner une place que personne ne peut acheter, sur des critères publics. La première remplit vite, la seconde remplit longtemps. Bâtissez la seconde pendant que la première dépanne. C'est tout."
     },
     {
       "type": "h2",
@@ -168,11 +168,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La **fiche d'établissement Google** est gratuite et se crée en une demi-heure sur business.google.com ; notre [tutoriel fiche Google](/conseils/tutoriels/creer-fiche-google-business-profile/) la déroule écran par écran, y compris pour l'artisan sans local. Trois réglages décident de vos chantiers : la **catégorie principale** (votre métier exact, c'est le critère de pertinence), la **zone d'intervention** (les villes que vous couvrez vraiment, c'est le critère de distance) et les **photos de chantiers**, avant et après, qui font choisir."
+      "text": "La **fiche d'établissement Google** est gratuite et se crée en une demi-heure sur business.google.com ; notre [tutoriel fiche Google](/conseils/tutoriels/creer-fiche-google-business-profile/) la déroule écran par écran, y compris pour l'artisan sans local. Ne vous perdez pas dans tous les champs : trois réglages décident de vos chantiers. La **catégorie principale**, c'est-à-dire votre métier exact, pas « entreprise de travaux » : c'est le critère de pertinence. La **zone d'intervention**, c'est-à-dire les villes que vous couvrez vraiment, pas la région entière : c'est le critère de distance. Et les **photos de chantiers**, avant et après, parce que ce sont elles qui font choisir entre deux inconnus."
     },
     {
       "type": "p",
-      "text": "Ajoutez la liste de vos prestations dans la fiche, avec les mots que vos clients emploient (« remplacement chaudière », « pose de parquet », « ravalement »), pas ceux du devis. Google l'écrit : la pertinence, c'est « dans quelle mesure une fiche d'établissement correspond à la requête saisie ». Pour la vue d'ensemble, lisez [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/)."
+      "text": "Ajoutez vos prestations avec les mots de vos clients (« remplacement chaudière », « pose de parquet », « ravalement »), pas ceux de votre devis. Google l'écrit : la pertinence, c'est « dans quelle mesure une fiche d'établissement correspond à la requête saisie ». C'est-à-dire que si le particulier tape « fuite chauffe-eau » et que votre fiche dit « plomberie sanitaire », Google a une raison de moins de vous montrer, et une de plus de montrer celui qui l'a écrit. Pour la vue d'ensemble, lisez [comment apparaître sur Google gratuitement](/conseils/seo/comment-apparaitre-sur-google/)."
     },
     {
       "type": "h2",
@@ -181,17 +181,17 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les artisans sous-estiment les avis. Interrogés par OpinionWay pour BigMat (mai 2021, 505 entreprises artisanales du bâtiment), **98 % jugent le bouche-à-oreille important, contre 38 % pour les avis clients sur internet**. Leurs clients, eux, disent l'inverse : **90 % des Français** jugent les avis importants pour choisir un artisan ou une entreprise du bâtiment, plus que pour un hôtel (83 %) ou un restaurant (82 %), et **60 % ne pourraient pas choisir un artisan sans les consulter** (Ifop pour Plus que PRO, janvier 2021)."
+      "text": "Les artisans sous-estiment les avis, et c'est mesuré. Interrogés par OpinionWay pour BigMat (mai 2021, 505 entreprises artisanales du bâtiment), **98 % jugent le bouche-à-oreille important, contre 38 % pour les avis clients sur internet**. Leurs clients disent l'inverse : **90 % des Français** jugent les avis importants pour choisir un artisan ou une entreprise du bâtiment, plus que pour un hôtel (83 %) ou un restaurant (82 %), et **60 % ne pourraient pas choisir un artisan sans les consulter** (Ifop pour Plus que PRO, janvier 2021). D'un côté l'artisan qui pense que sa réputation se fait au comptoir, de l'autre le client qui la vérifie sur son téléphone. Les deux ont raison. Un seul décide."
     },
     {
       "type": "p",
-      "text": "Aux États-Unis, la tendance s'accélère : 97 % des consommateurs lisent des avis sur les entreprises locales, et 41 % déclarent « toujours » les lire avant de choisir, contre 29 % un an plus tôt (BrightLocal, Local Consumer Review Survey, février 2026). Le geste : à la fin d'un chantier réussi, le lien d'avis de votre fiche envoyé par SMS, puis une réponse à chaque avis. Le mode d'emploi complet, QR code et faux avis compris, est dans notre [guide des avis Google](/conseils/seo/avis-google/)."
+      "text": "Aux États-Unis, ça s'accélère : 97 % des consommateurs lisent des avis sur les entreprises locales, et 41 % déclarent « toujours » les lire avant de choisir, contre 29 % un an plus tôt (BrightLocal, Local Consumer Review Survey, février 2026). Le geste tient en une ligne : à la fin d'un chantier réussi, le lien d'avis de votre fiche envoyé par SMS, puis une réponse à chaque avis, les bons comme les mauvais. Le mode d'emploi complet, QR code et faux avis compris, est dans notre [guide des avis Google](/conseils/seo/avis-google/)."
     },
     {
       "type": "callout",
       "variant": "astuce",
       "title": "Le bon moment",
-      "text": "Le jour de la réception du chantier, quand le client regarde le résultat et vous remercie. Plus vous attendez, moins vous obtenez de réponses : la satisfaction est là, mais l'élan est passé."
+      "text": "Le jour de la réception, quand le client regarde le résultat et vous remercie. Pas la semaine d'après. La satisfaction sera encore là, l'élan non."
     },
     {
       "type": "cta",
@@ -207,11 +207,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La fiche vous fait trouver sur « métier + ville ». Le site vous fait trouver sur tout ce que le particulier tape avant de choisir : « prix ravalement façade », « combien coûte une salle de bain », « isolation combles aides 2026 ». Seuls **53,4 % des TPE-PME du bâtiment** ont un site (Baromètre France Num 2025) : près de la moitié de vos concurrents n'y sont pas."
+      "text": "La fiche vous fait trouver sur « métier + ville ». Le site vous fait trouver sur tout ce que le particulier tape avant de choisir : « prix ravalement façade », « combien coûte une salle de bain », « isolation combles aides 2026 ». La fiche, c'est la devanture ; le site, c'est l'atelier où le client entre, regarde vos réalisations et se décide. Et seuls **53,4 % des TPE-PME du bâtiment** ont un site (Baromètre France Num 2025) : près d'un concurrent sur deux n'a pas d'atelier."
     },
     {
       "type": "p",
-      "text": "Ce site n'a pas besoin d'être grand : une page par métier, une page par ville d'intervention, une page de réalisations avec de vraies photos et une ligne de texte par chantier (le lieu, le besoin, la solution, le délai). Notre [plan SEO de l'artisan en 2 heures par semaine](/conseils/seo/seo-artisan/) organise ce travail sur trois mois, et notre service de [création de site internet pour artisan](/creation-site-internet/) le fait pour vous, site à votre nom, référencement inclus."
+      "text": "Ce site n'a pas besoin d'être grand, il a besoin d'être juste : une page par métier, une page par ville d'intervention, une page de réalisations avec de vraies photos et une ligne par chantier (le lieu, le besoin, la solution, le délai). Pas de slogan, pas d'animation, des chantiers. Notre [plan SEO de l'artisan en 2 heures par semaine](/conseils/seo/seo-artisan/) organise ce travail sur trois mois, et notre service de [création de site internet pour artisan](/creation-site-internet/) le fait pour vous, site à votre nom, référencement inclus."
     },
     {
       "type": "h2",
@@ -220,12 +220,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le bouche-à-oreille reste premier, et il le restera : selon OpinionWay pour Quelle Energie (août 2017, 1 023 personnes), 45 % des Français choisissent leur installateur par recommandation, contre 19 % via internet ; mais chez les moins de 35 ans, internet monte à 27 %. Google est le bouche-à-oreille des gens qui n'ont personne à qui demander, et de ceux qui vérifient une recommandation avant d'appeler."
+      "text": "Le bouche-à-oreille reste premier, et il le restera. Selon OpinionWay pour Quelle Energie (août 2017, 1 023 personnes), 45 % des Français choisissent leur installateur par recommandation, contre 19 % via internet ; chez les moins de 35 ans, internet monte à 27 %. Je ne vous dis pas de remplacer le bouche-à-oreille. Je vous dis que Google en est la version numérique : celui des gens qui n'ont personne à qui demander, et de ceux qui vérifient une recommandation avant d'appeler. Votre voisin dit « prends Durand » ; le client tape « Durand plombier » ; s'il ne trouve rien, il prend le suivant."
     },
     {
       "type": "ul",
       "items": [
-        "**Les annuaires de votre métier et de votre ville** (chambre de métiers, fédérations, annuaires locaux), avec exactement le même nom, la même adresse et le même téléphone que sur la fiche : Google recoupe ces mentions. Voir l'étape 4 de notre [guide du référencement local](/conseils/seo/referencement-local/).",
+        "**Les annuaires de votre métier et de votre ville** (chambre de métiers, fédérations, annuaires locaux), avec exactement le même nom, la même adresse et le même téléphone que sur la fiche. Google recoupe ces mentions, c'est-à-dire qu'une adresse écrite de trois façons différentes brouille le recoupement au lieu de le confirmer. Voir l'étape 4 de notre [guide du référencement local](/conseils/seo/referencement-local/).",
         "**Les partenaires** : l'architecte, l'agent immobilier, le magasin de matériaux qui vous recommandent. Un lien depuis leur site vers le vôtre vaut une recommandation aux yeux de Google : c'est la « popularité » de sa recette.",
         "**Vos clients contents**, qui vous recommandent dans les groupes locaux et laissent un avis : les deux à la fois, si vous leur donnez le lien."
       ]
@@ -234,7 +234,7 @@ const article: Article = {
       "type": "callout",
       "variant": "retenir",
       "title": "À retenir",
-      "text": "Quatre gestes : la fiche réglée pour le métier et la zone, un avis par chantier, un site avec une page par métier et par ville, et des mentions cohérentes chez les annuaires et partenaires. Aucun ne coûte un euro. Tous restent à vous."
+      "text": "Quatre gestes : la fiche réglée pour le métier et la zone, un avis par chantier, un site avec une page par métier et par ville, des coordonnées identiques chez les annuaires et les partenaires. Aucun ne se paie au contact. Tous restent à vous. Qu'est-ce que vous voulez de plus ?"
     },
     {
       "type": "h2",
@@ -243,11 +243,11 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les délais sont ceux que Google publie : la validation d'une fiche est examinée « jusqu'à cinq jours ouvrés », et un nouveau site demande « quelques semaines » pour être détecté (Search Central, avril 2026). La place dans le pack local, elle, n'a pas de délai publié par Google : d'après notre expérience, comptez des semaines ou des mois selon la concurrence de votre zone. Pendant ce temps, une plateforme peut servir de pont. La règle simple : gardez-la tant que son coût par chantier signé, calculé chez vous et pas sur sa brochure, reste inférieur à votre marge sur ces chantiers ; coupez-la le mois où Google suffit à faire sonner le téléphone."
+      "text": "Les délais sont ceux que Google publie : la validation d'une fiche est examinée « jusqu'à cinq jours ouvrés », et un nouveau site demande « quelques semaines » pour être détecté (Search Central, avril 2026). La place dans le pack local, elle, n'a pas de délai publié : d'après mon expérience, comptez des semaines ou des mois selon la concurrence de votre zone. Pendant ce temps, une plateforme peut servir de pont. La règle est une règle de patron, pas de technicien : gardez-la tant que son coût par chantier signé, calculé chez vous et pas sur sa brochure, reste sous votre marge ; coupez-la le mois où Google suffit à faire sonner le téléphone. Mesurez. Ne supposez pas."
     },
     {
       "type": "table",
-      "caption": "Votre plan sur 90 jours pour trouver des chantiers sans plateforme",
+      "caption": "Trois mois pour trouver des chantiers qui restent à vous",
       "headers": [
         "Période",
         "Geste",
@@ -288,12 +288,12 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "**Peintre, carreleur, menuisier** : votre avant/après est votre meilleur argument. Une photo par chantier sur la fiche et sur le site, avec la ville et le type de travaux dans la légende, vaut plus qu'un long texte. **Nettoyage** : vos clients sont souvent des entreprises (bureaux, copropriétés, commerces) ; la fiche reste utile, mais la page « nettoyage de bureaux + ville » sur votre site et les recommandations de gestionnaires d'immeubles pèsent davantage. **Auto-entrepreneur** : déclarez une zone d'intervention réaliste, affichez votre assurance et vos qualifications sur la fiche, et demandez un avis dès le premier chantier : trois avis crédibles suffisent souvent à rassurer un particulier qui hésite entre deux inconnus."
+      "text": "**Peintre, carreleur, menuisier** : votre avant/après est votre meilleur commercial. Une photo par chantier sur la fiche et sur le site, avec la ville et le type de travaux dans la légende, vaut plus qu'une page de texte. **Nettoyage** : vos clients sont souvent des entreprises (bureaux, copropriétés, commerces) ; la fiche reste utile, mais la page « nettoyage de bureaux + ville » sur votre site et les recommandations de gestionnaires d'immeubles pèsent davantage. **Auto-entrepreneur** : une zone d'intervention réaliste, votre assurance et vos qualifications affichées sur la fiche, et un avis demandé dès le premier chantier. Trois avis crédibles suffisent souvent à rassurer un particulier qui hésite entre deux inconnus. Vous n'avez pas besoin d'être le meilleur de la région. Vous avez besoin d'être le plus visible et le plus rassurant dans votre zone."
     },
     {
       "type": "cta",
       "title": "Trente minutes pour chiffrer votre coût par chantier",
-      "text": "On regarde ensemble ce que vous payez aux plateformes, ce que votre fiche et votre site ramènent déjà, et les trois gestes qui feront basculer la balance. Gratuit, sans engagement, que vous travailliez avec nous ou non.",
+      "text": "On regarde ensemble ce que vous payez aux plateformes, ce que votre fiche et votre site ramènent déjà, et les trois gestes qui feront basculer la balance. Gratuit, sans engagement, que vous travailliez avec moi ou non.",
       "button": "Réserver mon diagnostic gratuit",
       "href": "https://calendly.com/mkz-consulting/30min"
     }
