@@ -33,10 +33,10 @@
 <p align="center"><sub>Ce README est en français. <a href="#in-english">English summary at the end.</a></sub></p>
 
 <p align="center">
-  <img src=".github/readme/accueil-1280.webp" alt="Accueil de mkz-consulting.fr à 1 280 px : titre « Votre site web visible sur Google. Et cité par les IA. », deux boutons d'action, carte de résultats" width="640">
+  <img src=".github/readme/accueil-1280.webp" alt="Accueil de mkz-consulting.fr à 1 280 px : titre « Un site internet qui fait sonner le téléphone. », formulaire de test du site, carte « Qui vous répond » avec le portrait du fondateur" width="640">
   <img src=".github/readme/accueil-375.webp" alt="Le même accueil à 375 px : une colonne, menu burger et bouton d'appel accessibles dans le premier écran" width="185">
 </p>
-<p align="center"><sub>Accueil en production, capturé le 09/09/2026 à 1 280 px et à 375 px, bandeau de consentement refusé avant le chargement.</sub></p>
+<p align="center"><sub>Accueil en production, capturé le 14/09/2026 à 1 280 px et à 375 px, bandeau de consentement refusé avant le chargement.</sub></p>
 
 ## Ce que ce dépôt contient
 
