@@ -616,8 +616,8 @@ const FinalMeta = styled.p`
 const problems = [
   {
     num: "01",
-    title: "You translated instead of researching",
-    desc: "Your French pages are your English pages in French. So they target your English keywords, translated. Nobody in France types those. The demand you should be capturing was never in your keyword list.",
+    title: "Translated, not researched",
+    desc: "Your French pages are your English pages in French. So they target your English keywords, translated. Nobody in France types those. The demand that exists in France never made it into the keyword list.",
   },
   {
     num: "02",
@@ -627,7 +627,7 @@ const problems = [
   {
     num: "03",
     title: "AI answers in French quote someone else",
-    desc: "Ask ChatGPT or Perplexity a question in French about your category. Count how many times you are cited. That number is usually zero, and nobody on your team is watching it.",
+    desc: "Put a French question about your category to ChatGPT or Perplexity, and the sources it cites are, most of the time, your competitors. It can be counted, and it rarely is.",
   },
 ];
 
@@ -770,7 +770,7 @@ const PortraitFigure = styled.figure`
 // uncertainty ranges): nothing promised here that is not measured there.
 const tools = [
   {
-    kicker: "Tool 01 · one minute",
+    kicker: "Free tool · one minute",
     title: "Free SEO & AI audit",
     desc: "Enter your address: 20 real checks on the site you actually serve (HTTPS, real 404, SERP tags, AI crawlers, llms.txt, structured data), a score out of 100 and your priorities. No signup.",
     href: "/en/seo-audit/",
@@ -1103,7 +1103,7 @@ export default function HomeContentEn() {
       <Section variant="dark">
         <Container>
           <FinalTitle>
-            Find out where you actually <em>stand</em> in France.
+            Where your site <em>really</em> stands in France, in thirty minutes.
           </FinalTitle>
           <FinalText>
             Thirty minutes. I look at your French pages, your hreflang, and whether AI
