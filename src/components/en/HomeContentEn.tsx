@@ -26,6 +26,7 @@ import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 /* clamp resserré le 29/08/2026 (lot 2 du check UX), comme sur l'accueil FR. */
 const Section = styled.section<{ variant?: "paper" | "alt" | "dark" }>`
   padding: clamp(64px, 8vh, 104px) 24px;
+  scroll-margin-top: 72px;
   ${({ variant }) => {
     switch (variant) {
       case "dark":
@@ -215,6 +216,37 @@ const Portrait = styled.figure`
 `;
 
 /* ─── Relevant figures under the hero (14/09/2026) ─── */
+
+const JumpNav = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  letter-spacing: 0.04em;
+
+  span {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: ${theme.colors.textSecondary};
+  }
+
+  a {
+    color: ${theme.colors.text};
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  a:hover { color: ${theme.colors.ctaInk}; }
+`;
 
 const ProofBand = styled.div`
   max-width: 1280px;
@@ -941,8 +973,19 @@ export default function HomeContentEn() {
         </ProofNote>
       </ProofBand>
 
+      {/* Anchored contents: the page passes 10,000 characters of text (delivery rule). */}
+      <JumpNav aria-label="On this page">
+        <span>On this page</span>
+        <a href="#causes">The causes</a>
+        <a href="#tools">Free audit</a>
+        <a href="#services">What I do</a>
+        <a href="#method">How it runs</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#questions">Your questions</a>
+      </JumpNav>
+
       {/* 01. Pourquoi ça bloque */}
-      <Section variant="dark">
+      <Section variant="dark" id="causes">
         <Container>
           <ChapterHead dark>
             <Kicker dark><strong>01</strong>&ensp;The usual causes</Kicker>
@@ -1001,7 +1044,7 @@ export default function HomeContentEn() {
         </Container>
       </Section>
 
-      <Section>
+      <Section id="services">
         <Container>
           <ChapterHead>
             <Kicker><strong>03</strong>&ensp;What I do</Kicker>
@@ -1078,7 +1121,7 @@ export default function HomeContentEn() {
       </Section>
 
       {/* 04. Différence */}
-      <Section variant="alt">
+      <Section variant="alt" id="why-me">
         <Container>
           <ChapterHead>
             <Kicker><strong>05</strong>&ensp;Why me</Kicker>
@@ -1131,6 +1174,9 @@ export default function HomeContentEn() {
               </div>
             ))}
           </ReviewGrid>
+          <div style={{ marginTop: 36 }}>
+            <Button href={CALENDLY}>Talk about your French market, 30 min free</Button>
+          </div>
         </Container>
       </Section>
 
