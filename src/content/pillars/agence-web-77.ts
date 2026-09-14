@@ -218,8 +218,8 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "J'ai appelé Mickaël un mardi, le site était en ligne trois semaines plus tard, avec la réservation qui marche enfin sur téléphone. Depuis, le samedi soir se remplit presque tout seul ! Et quand j'ai une question, même pour une bêtise, il répond. Je l'ai déjà recommandé à deux collègues du coin.",
-      "author": "Pierre D., restaurateur à Dammartin-en-Goële (réservations en ligne doublées en 4 mois)"
+      "text": "Je recommande Mickaël à 100 %. Profil solide et expérimenté, avec une bonne communication et une vraie proactivité. Avec Mickaël, c'est simple et fluide 😉 Par exemple, l'audit SEO que je lui ai commandé était clair et directement actionnable.",
+      "author": "Yoann Florentin, avis Google (septembre 2026, 5 étoiles sur 5)"
     },
     {
       "type": "h3",
@@ -231,8 +231,8 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "Moi, les sites internet, c'est pas mon truc. J'ai donné mes photos et mes tarifs, MKZ s'est occupé du reste et m'a appelé quand il manquait quelque chose. Ce que je vois, c'est que le téléphone sonne, et pour des chantiers à Meaux, pas à l'autre bout du département.",
-      "author": "Marc T., plombier chauffagiste à Meaux (8 à 10 demandes par mois via le site)"
+      "text": "Je voulais utiliser l'IA pour mon site web sans savoir par où commencer. Mickaël m'a montré comment m'en servir concrètement, pour les textes, les pages et le référencement, en m'expliquant à chaque fois pourquoi. Aujourd'hui je fais une bonne partie des mises à jour moi-même.",
+      "author": "Jordan carrere, avis Google (août 2026, 5 étoiles sur 5)"
     },
     {
       "type": "h3",
@@ -244,8 +244,8 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "Je redoutais un site qui en fait trop, avec des animations partout et mes photos réduites à des vignettes. On a fait l'inverse : beaucoup de blanc, des images en grand, rien qui bouge. On m'a écoutée, sans chercher à m'imposer un modèle. Mes clientes me disent qu'elles ont eu l'impression de voir mon travail avant même de m'appeler.",
-      "author": "Anne-Laure M., photographe à Melun (site refait en 3 semaines)"
+      "text": "Je recommande Mickaël, c’est un profil rare : un vrai bagage technique de 20 ans en systèmes et cybersécurité, au service du référencement naturel. Crawl, cocon sémantique, Core Web Vitals, il maîtrise chaque sujet en profondeur. Un discours clair, des analyses utiles, des livrables concrets et orientés résultats. Les retours arrivent systématiquement.",
+      "author": "Sarah El Gharbi, avis Google (juillet 2026, 5 étoiles sur 5)"
     },
     {
       "type": "h3",
@@ -257,8 +257,8 @@ const pillar: PillarPage = {
     },
     {
       "type": "quote",
-      "text": "Franchement, je n'y croyais pas trop. Je mettais 150 € par mois dans des pubs Facebook sans savoir si ça servait à quelque chose. Six mois après la mise en ligne du site et la remise à plat de ma fiche Google, je les ai coupées : les gens me trouvent en cherchant un coach sur Chelles et ils m'écrivent déjà décidés. Seul bémol : il faut envoyer les infos dans les temps, sinon on se fait relancer !",
-      "author": "Caroline B., coach sportif à Chelles (dans les 3 premiers résultats locaux)"
+      "text": "Presta rapide et efficace c'est tout ce que je demandais et je l'ai eu.",
+      "author": "Saïd Irgues, avis Google (juillet 2026, 5 étoiles sur 5)"
     },
     {
       "type": "callout",

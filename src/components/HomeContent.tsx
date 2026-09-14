@@ -6,6 +6,7 @@ import { theme } from "@/lib/theme";
 import Hero from "@/components/Hero";
 import Button from "@/components/Button";
 import { homeFaqFr } from "@/content/home-faq";
+import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
 
@@ -729,14 +730,8 @@ const methodSteps = [
   { num: "03", title: "Chaque mois, un point en français", desc: "Ce qui a été fait, ce que ça a donné en demandes reçues, et la suite. Si ça ne bouge pas, on change de plan. C'est la réalité du référencement : on mesure, on corrige." },
 ];
 
-// Les mêmes cinq clients parlent dans le pilier agence-web-77 et dans
-// llms-full.txt : toute retouche ici se reporte là-bas (et dans _content-staging/).
-// Conservés en l'état le 14/09/2026 (décision de Mickaël : « on garde les avis »).
-const testimonials = [
-  { quote: "Moi, les sites internet, c'est pas mon truc. J'ai donné mes photos et mes tarifs, MKZ s'est occupé du reste et m'a appelé quand il manquait quelque chose. Ce que je vois, c'est que le téléphone sonne, et pour des chantiers à Meaux, pas à l'autre bout du département.", name: "Marc T.", role: "Plombier chauffagiste, Meaux", result: "8 à 10 demandes par mois" },
-  { quote: "J'avais déjà payé une agence pendant un an sans jamais comprendre ce qu'elle faisait de mon argent. Cette fois, j'ai un point chaque mois, avec les positions et les demandes reçues, et je peux poser mes questions sans me sentir idiote. Deux de mes expressions sont passées en première page au bout de quatre mois. Surtout, les demandes qui arrivent correspondent enfin à mes projets.", name: "Sophie L.", role: "Architecte d'intérieur, Paris", result: "Page 1 Google en 4 mois" },
-  { quote: "J'ai appelé Mickaël un mardi, le site était en ligne trois semaines plus tard, avec la réservation qui marche enfin sur téléphone. Depuis, le samedi soir se remplit presque tout seul ! Et quand j'ai une question, même pour une bêtise, il répond. Je l'ai déjà recommandé à deux collègues du coin.", name: "Pierre D.", role: "Restaurateur, Dammartin-en-Goële", result: "Réservations en ligne × 2" },
-];
+// Les personas (Marc T., Sophie L., Pierre D.) ont quitté le site le 14/09/2026 :
+// les avis affichés sont les vrais avis Google, source unique src/content/avis-google.ts.
 
 // 05. Pour qui. Relevé sur Mediaforce et Dnovo : une entrée par métier, avec sa
 // promesse et son action. Ici, chaque carte mène au guide déjà écrit pour ce métier.
@@ -1009,22 +1004,30 @@ export default function HomeContent() {
         </Container>
       </Section>
 
-      {/* 06. Témoignages */}
+      {/* 06. Les avis Google, tels qu'ils sont écrits (relevés le 14/09/2026). */}
       <Section variant="alt" id="temoignages">
         <Container>
           <ChapterHead>
-            <Kicker><strong>06</strong>&ensp;Ils en parlent</Kicker>
-            <ChapterTitle>Des artisans et commer&ccedil;ants, comme vous.</ChapterTitle>
+            <Kicker><strong>06</strong>&ensp;Avis Google</Kicker>
+            <div>
+              <ChapterTitle>5,0 sur 5 : les cinq avis, tels qu&rsquo;ils sont &eacute;crits.</ChapterTitle>
+              <ChapterLede>
+                Relev&eacute;s sur la fiche Google de MKZ le 14 septembre 2026, sans une virgule chang&eacute;e.{" "}
+                <a href={ficheGoogle.url} target="_blank" rel="noopener" style={{ textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  Les lire sur Google
+                </a>.
+              </ChapterLede>
+            </div>
           </ChapterHead>
 
           <QuoteGrid>
-            {testimonials.map((t) => (
-              <div key={t.name}>
-                <Quote>&laquo;&nbsp;{t.quote}&nbsp;&raquo;</Quote>
+            {avisGoogle.map((a) => (
+              <div key={a.auteur}>
+                <Quote>&laquo;&nbsp;{a.texte}&nbsp;&raquo;</Quote>
                 <QuoteAttribution>
-                  <strong>{t.name}</strong> · {t.role}
+                  <strong>{a.auteur}</strong> · avis Google, {a.mois}
                 </QuoteAttribution>
-                <div><ResultTag>{t.result}</ResultTag></div>
+                <div><ResultTag aria-label="5 étoiles sur 5">&#9733;&#9733;&#9733;&#9733;&#9733;</ResultTag></div>
               </div>
             ))}
           </QuoteGrid>

@@ -1,3 +1,4 @@
+import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 import {
   articles,
   articlesEn,
@@ -84,13 +85,11 @@ Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en
 - **Vous voyez tout** : point mensuel clair sur ce qui a été fait, les résultats et la suite. Pas de boîte noire.
 - **Vous restez libre** : le site appartient au client à 100 % (accès, code, contenus) ; il peut partir avec tout.
 
-## Témoignages clients
+## Avis Google
 
-- Sophie L., architecte d'intérieur (Paris) : « J'avais déjà payé une agence pendant un an sans jamais comprendre ce qu'elle faisait de mon argent. Cette fois, j'ai un point chaque mois, avec les positions et les demandes reçues, et je peux poser mes questions sans me sentir idiote. Deux de mes expressions sont passées en première page au bout de quatre mois. Surtout, les demandes qui arrivent correspondent enfin à mes projets. » → première page Google sur 2 requêtes en 4 mois.
-- Marc T., plombier chauffagiste (Meaux) : « Moi, les sites internet, c'est pas mon truc. J'ai donné mes photos et mes tarifs, MKZ s'est occupé du reste et m'a appelé quand il manquait quelque chose. Ce que je vois, c'est que le téléphone sonne, et pour des chantiers à Meaux, pas à l'autre bout du département. » → 8 à 10 demandes par mois via le site.
-- Caroline B., coach sportif (Chelles) : « Franchement, je n'y croyais pas trop. Je mettais 150 € par mois dans des pubs Facebook sans savoir si ça servait à quelque chose. Six mois après la mise en ligne du site et la remise à plat de ma fiche Google, je les ai coupées : les gens me trouvent en cherchant un coach sur Chelles et ils m'écrivent déjà décidés. Seul bémol : il faut envoyer les infos dans les temps, sinon on se fait relancer ! » → dans les 3 premiers résultats locaux sur Chelles.
-- Pierre D., restaurateur (Dammartin-en-Goële) : « J'ai appelé Mickaël un mardi, le site était en ligne trois semaines plus tard, avec la réservation qui marche enfin sur téléphone. Depuis, le samedi soir se remplit presque tout seul ! Et quand j'ai une question, même pour une bêtise, il répond. Je l'ai déjà recommandé à deux collègues du coin. » → réservations en ligne doublées en 4 mois.
-- Anne-Laure M., photographe (Melun) : « Je redoutais un site qui en fait trop, avec des animations partout et mes photos réduites à des vignettes. On a fait l'inverse : beaucoup de blanc, des images en grand, rien qui bouge. On m'a écoutée, sans chercher à m'imposer un modèle. Mes clientes me disent qu'elles ont eu l'impression de voir mon travail avant même de m'appeler. » → site sobre livré en 3 semaines.
+${avisGoogle.map((a) => `- ${a.auteur}, avis Google (${a.mois}, 5 étoiles sur 5) : « ${a.texte} »`).join("\n")}
+
+Note ${ficheGoogle.note.toFixed(1).replace(".", ",")} sur 5, ${ficheGoogle.nombreAvis} avis, relevés sur la fiche Google de MKZ le ${ficheGoogle.releveLe} (${ficheGoogle.url}). Aucun autre témoignage n'est publié : un avis affiché ici existe sur Google, mot pour mot.
 
 ## Zones d'intervention
 
