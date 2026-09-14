@@ -153,82 +153,41 @@ const MetaLine = styled.p`
   }
 `;
 
-/* La carte « qui vous répond » */
-
-const Sheet = styled.aside`
-  position: relative;
-  border: 1px solid ${theme.colors.borderInk};
-  border-radius: ${theme.radius.lg};
-  background: ${theme.colors.surface};
-  box-shadow: ${theme.shadows.lg};
-  padding: 28px;
-`;
-
-const SheetLabel = styled.p`
-  font-family: ${theme.fonts.mono};
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: ${theme.colors.textSecondary};
-  padding-bottom: 14px;
-  border-bottom: 1px solid ${theme.colors.border};
-`;
-
-const SheetQuote = styled.blockquote`
-  margin: 18px 0 0;
-  font-family: ${theme.fonts.display};
-  font-style: italic;
-  font-size: clamp(19px, 1.7vw, 22px);
-  line-height: 1.45;
-  color: ${theme.colors.accent};
-`;
-
-const SheetWho = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid ${theme.colors.border};
+/* Le portrait, à la place d'une carte-citation (14/09/2026). Mickaël : « se
+   citer soi-même entre guillemets, c'est cringe ». Ce que font les consultants
+   du benchmark (Adam Collins, Paul Teitelman) : la photo, le nom, et la page
+   qui parle à la première personne dans le sous-titre. */
+const Portrait = styled.figure`
+  max-width: 340px;
 
   img {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex: 0 0 56px;
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid ${theme.colors.borderInk};
+    border-radius: ${theme.radius.lg};
+    box-shadow: ${theme.shadows.lg};
   }
-`;
 
-const SheetName = styled.p`
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 1.3;
-`;
+  figcaption {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: ${theme.colors.text};
+  }
 
-const SheetRole = styled.p`
-  font-family: ${theme.fonts.mono};
-  font-size: 13px;
-  line-height: 1.5;
-  color: ${theme.colors.textSecondary};
-`;
+  figcaption span {
+    display: block;
+    font-family: ${theme.fonts.mono};
+    font-size: 13px;
+    color: ${theme.colors.textSecondary};
+  }
 
-const Stamp = styled.span`
-  position: absolute;
-  top: -16px;
-  right: 18px;
-  transform: rotate(-2deg);
-  font-family: ${theme.fonts.mono};
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: ${theme.colors.ctaInk};
-  background: ${theme.colors.background};
-  border: 1.5px solid ${theme.colors.ctaInk};
-  border-radius: ${theme.radius.sm};
-  padding: 7px 12px;
+  @media (min-width: ${theme.breakpoints.lg}) {
+    max-width: none;
+    justify-self: end;
+    width: 100%;
+  }
 `;
 
 export default function Hero() {
@@ -275,27 +234,14 @@ export default function Hero() {
           </MetaLine>
         </div>
 
-        {/* 14/09/2026 : la carte du hero a porté des « résultats moyens » sans
-            mesure (+247 %, Top 3, 1,2 s), puis trois faits vérifiables mais froids
-            (20 ans, 100 %, 0 €) que Mickaël a refusés : « aucun humain n'est touché
-            par un contenu aussi inhumain ». Elle porte désormais une parole, la
-            sienne, et son visage. Pas de chiffre ici : le chiffre vit sur /tarifs/
-            et dans l'outil d'audit. */}
-        <Sheet aria-label="Un mot de Mickaël Leclerc, fondateur de MKZ">
-          <Stamp>Devis gratuit · R&eacute;ponse 24 h</Stamp>
-          <SheetLabel>Qui vous r&eacute;pond</SheetLabel>
-          <SheetQuote>
-            &laquo;&nbsp;Votre site, je le fais moi-m&ecirc;me. Je le r&eacute;f&eacute;rence, je vous explique en fran&ccedil;ais ce que je fais, et quand vous appelez, c&rsquo;est moi qui d&eacute;croche. Point.&nbsp;&raquo;
-          </SheetQuote>
-          <SheetWho>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc" width={56} height={56} />
-            <div>
-              <SheetName>Micka&euml;l Leclerc</SheetName>
-              <SheetRole>Fondateur de MKZ · Dammartin-en-Go&euml;le (77)</SheetRole>
-            </div>
-          </SheetWho>
-        </Sheet>
+        <Portrait>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc, fondateur de MKZ" width={1024} height={1024} fetchPriority="high" />
+          <figcaption>
+            Micka&euml;l Leclerc, fondateur de MKZ
+            <span>Consultant SEO &middot; Dammartin-en-Go&euml;le (77) &middot; devis gratuit, r&eacute;ponse sous 24 h</span>
+          </figcaption>
+        </Portrait>
       </Grid>
     </Section>
   );

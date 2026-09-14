@@ -130,6 +130,9 @@ const ProofStrip = styled.dl`
 `;
 
 const ProofCell = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
   padding: 28px 28px 24px;
   border-top: 1px solid ${theme.colors.border};
 
@@ -161,6 +164,12 @@ const ProofLabel = styled.dt`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: ${theme.colors.textSecondary};
+`;
+
+const ProofBand = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px 8px;
 `;
 
 const ProofNote = styled.p`
@@ -659,6 +668,17 @@ const Manifesto = styled.p`
   margin-bottom: 36px;
 `;
 
+// Chiffres pertinents sous le hero (14/09/2026, demande de Mickaël). Un chiffre =
+// une source + une date : Ifop pour Guest Suite (janvier 2026, 1 003 répondants,
+// fait R1 du dossier avis Google), grille et relevés de marché 2026 de /tarifs/,
+// outil d'audit du site. Jamais un résultat client non mesuré.
+const chiffres = [
+  { valeur: "93 %", label: "des Français lisent les avis en ligne avant de choisir un prestataire" },
+  { valeur: "1 490 € HT", label: "le site vitrine complet, textes et référencement inclus. En agence : 3 000 à 8 000 €" },
+  { valeur: "24 h", label: "pour recevoir un devis fixe, écrit ligne par ligne" },
+  { valeur: "1 min", label: "pour mesurer votre site, sans inscription, score sur 100" },
+];
+
 const cities = ["Meaux", "Melun", "Chelles", "Dammartin-en-Goële", "Roissy", "Marne-la-Vallée", "Senlis", "Provins", "Fontainebleau", "Serris", "Mitry-Mory", "Claye-Souilly"];
 
 // 01. Les pièges. Sur les 15 accueils du benchmark, les plus convaincants ouvrent
@@ -803,6 +823,22 @@ export default function HomeContent() {
           ))}
         </MarqueeTrack>
       </MarqueeBand>
+
+      {/* Chiffres pertinents : sourcés et datés, jamais un résultat client inventé. */}
+      <ProofBand>
+        <ProofStrip>
+          {chiffres.map((c) => (
+            <ProofCell key={c.valeur}>
+              <ProofLabel>{c.label}</ProofLabel>
+              <ProofValue>{c.valeur}</ProofValue>
+            </ProofCell>
+          ))}
+        </ProofStrip>
+        <ProofNote>
+          Sources : Ifop pour Guest Suite, janvier 2026, 1 003 r&eacute;pondants · grille et relev&eacute;s de march&eacute; 2026 sur la{" "}
+          <Link href="/tarifs/" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>page tarifs</Link> · outil d&rsquo;audit de ce site.
+        </ProofNote>
+      </ProofBand>
 
       {/* Sommaire ancré : la page passe 10 000 caractères de texte depuis la
           refonte du 14/09/2026 (règle parcours de livraison-web). */}

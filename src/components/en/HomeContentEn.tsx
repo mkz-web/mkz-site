@@ -163,80 +163,115 @@ const HeroMeta = styled.p`
   a { color: ${theme.colors.text}; font-weight: 500; &:hover { color: ${theme.colors.ctaInk}; } }
 `;
 
-const Sheet = styled.aside`
-  position: relative;
-  border: 1px solid ${theme.colors.borderInk};
-  border-radius: ${theme.radius.lg};
-  background: ${theme.colors.surface};
-  padding: 32px 28px 24px;
-  box-shadow: ${theme.shadows.md};
-`;
-
-const SheetLabel = styled.p`
-  font-family: ${theme.fonts.mono};
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: ${theme.colors.textSecondary};
-  margin-bottom: 8px;
-`;
-
-const SheetQuote = styled.blockquote`
-  margin: 18px 0 0;
-  font-family: ${theme.fonts.display};
-  font-style: italic;
-  font-size: clamp(19px, 1.7vw, 22px);
-  line-height: 1.45;
-  color: ${theme.colors.accent};
-`;
-
-const SheetWho = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid ${theme.colors.border};
+/* Le portrait, à la place d'une carte-citation (14/09/2026). Mickaël : « se
+   citer soi-même entre guillemets, c'est cringe ». Ce que font les consultants
+   du benchmark (Adam Collins, Paul Teitelman) : la photo, le nom, et la page
+   qui parle à la première personne dans le sous-titre. */
+const Portrait = styled.figure`
+  max-width: 340px;
 
   img {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex: 0 0 56px;
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid ${theme.colors.borderInk};
+    border-radius: ${theme.radius.lg};
+    box-shadow: ${theme.shadows.lg};
+  }
+
+  figcaption {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: ${theme.colors.text};
+  }
+
+  figcaption span {
+    display: block;
+    font-family: ${theme.fonts.mono};
+    font-size: 13px;
+    color: ${theme.colors.textSecondary};
+  }
+
+  @media (min-width: ${theme.breakpoints.lg}) {
+    max-width: none;
+    justify-self: end;
+    width: 100%;
   }
 `;
 
-const SheetName = styled.p`
+/* ─── Relevant figures under the hero (14/09/2026) ─── */
+
+const ProofBand = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px 8px;
+`;
+
+const ProofStrip = styled.dl`
+  display: grid;
+  border: 1px solid ${theme.colors.borderInk};
+  border-radius: ${theme.radius.lg};
+  background: ${theme.colors.surface};
+  overflow: hidden;
+
+  @media (min-width: ${theme.breakpoints.sm}) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: ${theme.breakpoints.lg}) { grid-template-columns: repeat(4, 1fr); }
+`;
+
+const ProofCell = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  padding: 28px 28px 24px;
+  border-top: 1px solid ${theme.colors.border};
+
+  @media (min-width: ${theme.breakpoints.sm}) {
+    &:nth-of-type(odd) { border-right: 1px solid ${theme.colors.border}; }
+    &:nth-of-type(-n + 2) { border-top: none; }
+  }
+  @media (min-width: ${theme.breakpoints.lg}) {
+    border-top: none;
+    border-right: 1px solid ${theme.colors.border};
+    &:last-of-type { border-right: none; }
+  }
+`;
+
+const ProofValue = styled.dd`
+  font-family: ${theme.fonts.display};
+  font-size: clamp(38px, 4vw, 52px);
   font-weight: 600;
-  font-size: 15px;
-  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: ${theme.colors.accent};
 `;
 
-const SheetRole = styled.p`
-  font-family: ${theme.fonts.mono};
-  font-size: 13px;
-  line-height: 1.5;
-  color: ${theme.colors.textSecondary};
-`;
-
-const Stamp = styled.span`
-  position: absolute;
-  top: -16px;
-  right: 18px;
-  transform: rotate(-2deg);
+const ProofLabel = styled.dt`
+  margin-top: 12px;
   font-family: ${theme.fonts.mono};
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: ${theme.colors.ctaInk};
-  background: ${theme.colors.background};
-  border: 1.5px solid ${theme.colors.cta};
-  border-radius: ${theme.radius.sm};
-  padding: 7px 12px;
+  color: ${theme.colors.textSecondary};
 `;
+
+const ProofNote = styled.p`
+  margin-top: 16px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  color: ${theme.colors.textSecondary};
+`;
+
+// Figures under the hero: each one sourced and dated (Ifop for Guest Suite,
+// January 2026, 1,003 French respondents; the site's audit tool). No client
+// result is shown until one is measured with the client's consent.
+const figures = [
+  { value: "93%", label: "of French people read online reviews before choosing a provider" },
+  { value: "9%", label: "trust an AI answer alone when they decide, against 61% for reviews" },
+  { value: "24h", label: "to get a written, fixed quote, line by line" },
+  { value: "1 min", label: "to measure the site you actually serve, no signup, score out of 100" },
+];
 
 /* ─── Chapitres ─── */
 
@@ -804,27 +839,32 @@ export default function HomeContentEn() {
             </HeroMeta>
           </div>
 
-          {/* 14/09/2026: the hero card carried unmeasured "average results", then
-              three verifiable but cold facts (20 years, 100%, €0) that Mickaël
-              rejected as inhuman. It now carries his own words and his face. No
-              figure here: figures live on the pricing page and in the audit tool. */}
-          <Sheet aria-label="A word from Mickaël Leclerc, founder of MKZ">
-            <Stamp>Free review · 24h reply</Stamp>
-            <SheetLabel>Who answers you</SheetLabel>
-            <SheetQuote>
-              &ldquo;I build your site myself. I get it found in France, I explain what I do in plain English, and when you call, I am the one who picks up. Full stop.&rdquo;
-            </SheetQuote>
-            <SheetWho>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc" width={56} height={56} />
-              <div>
-                <SheetName>Mickaël Leclerc</SheetName>
-                <SheetRole>Founder of MKZ · near Paris, France</SheetRole>
-              </div>
-            </SheetWho>
-          </Sheet>
+          <Portrait>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/mickael-leclerc.jpg" alt="Mickaël Leclerc, founder of MKZ" width={1024} height={1024} fetchPriority="high" />
+            <figcaption>
+              Micka&euml;l Leclerc, founder of MKZ
+              <span>French SEO consultant &middot; near Paris, France &middot; free review, reply within 24h</span>
+            </figcaption>
+          </Portrait>
         </HeroGrid>
       </HeroSection>
+
+      {/* Relevant figures: sourced and dated, never an invented client result. */}
+      <ProofBand>
+        <ProofStrip>
+          {figures.map((f) => (
+            <ProofCell key={f.value}>
+              <ProofLabel>{f.label}</ProofLabel>
+              <ProofValue>{f.value}</ProofValue>
+            </ProofCell>
+          ))}
+        </ProofStrip>
+        <ProofNote>
+          Sources: Ifop for Guest Suite, January 2026, 1,003 French respondents · this site&rsquo;s{" "}
+          <Link href="/en/seo-audit/" style={{ textDecoration: "underline", textUnderlineOffset: 3 }}>free audit tool</Link>.
+        </ProofNote>
+      </ProofBand>
 
       {/* 01. Pourquoi ça bloque */}
       <Section variant="dark">
