@@ -240,12 +240,12 @@ const pillar: PillarPage = {
         "**On mesure, on ne déduit pas.** Un chiffre annoncé est un chiffre relevé, avec sa date et sa source. Y compris quand il ne va pas dans notre sens.",
         "**Je décroche.** Contact direct avec le fondateur, Mickaël Leclerc, ingénieur IT depuis plus de 20 ans. Pas de ticket, pas de 72 heures d'attente.",
         "**Vous restez propriétaire à 100 %.** Nom de domaine, site, contenus, comptes. On travaille ensemble parce que ça marche, pas parce que vous êtes coincé.",
-        "**On applique ce qu'on vend.** Ce site publie ses propres `llms.txt`, ses données structurées, ses mesures, un [simulateur d'empreinte d'une requête IA](/empreinte-ia/) au jeu de données sourcé et versionné, et un [audit SEO + IA en libre-service](/audit-seo/) qui applique nos 20 mesures à n'importe quel site. Vous pouvez tout vérifier avant de nous appeler.",
+        "**On applique ce qu'on vend.** Ce site publie ses propres `llms.txt`, ses données structurées, ses mesures, et un [audit SEO + IA en libre-service](/audit-seo/) qui applique nos 20 mesures à n'importe quel site. Vous pouvez tout vérifier avant de nous appeler.",
       ],
     },
     {
       type: "p",
-      text: "Le référencement IA s'ajoute au **référencement naturel**, il ne le remplace pas. Et nous ne publions aucun « résultat moyen », ni en SEO ni en GEO : un résultat, chez nous, est mesuré, daté et nommé avec l'accord du client, ou il n'est pas affiché. La mesure, elle, est publique : le [protocole de mesure de la visibilité IA](/conseils/referencement-ia/mesurer-visibilite-ia/) que nous appliquons est décrit pas à pas. Et depuis le 22 juillet 2026, les Aperçus IA de Google sont en France : voici [ce que ça change pour un artisan, relevé sur ses recherches](/conseils/referencement-ia/ai-overviews-france/).",
+      text: "Le référencement IA s'ajoute au **référencement naturel**, il ne le remplace pas. Et nous ne promettons pas de chiffre avant de l'avoir mesuré, ni en SEO ni en GEO. La mesure, elle, est publique : le [protocole de mesure de la visibilité IA](/conseils/referencement-ia/mesurer-visibilite-ia/) que nous appliquons est décrit pas à pas. Et depuis le 22 juillet 2026, les Aperçus IA de Google sont en France : voici [ce que ça change pour un artisan, relevé sur ses recherches](/conseils/referencement-ia/ai-overviews-france/).",
     },
     {
       type: "p",

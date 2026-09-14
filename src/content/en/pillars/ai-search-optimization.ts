@@ -138,7 +138,7 @@ const pillar: PillarPage = {
     },
     {
       type: "p",
-      text: "A plain-text summary of what you do and what you can be quoted on, generated from your content at build time rather than maintained by hand. It is cheap, it is not yet a formal standard, and the sites doing it well are disproportionately the ones getting cited. This site publishes [llms.txt](/llms.txt) and [llms-full.txt](/llms-full.txt); go and read them, that is the format.",
+      text: "A plain-text summary of what you do and what you can be quoted on, generated from your content at build time rather than maintained by hand. It is cheap, it is not yet a formal standard, and the sites doing it well are disproportionately the ones getting cited. This site publishes [llms.txt](/llms.txt) and [llms-full.txt](/llms-full.txt); they show the format.",
     },
     {
       type: "h3",

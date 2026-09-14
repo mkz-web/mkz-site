@@ -15,7 +15,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Et une règle : aucun chiffre de résultat sans le client, la période et la mesure derrière. C'est-à-dire que vous ne lirez pas ici de pourcentage de **trafic organique** « moyen » (les visites gratuites venues de Google) : vous lirez, chaque mois, vos propres chiffres, mesurés dans votre Search Console."
+      "text": "Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Et une règle : pas de promesse chiffrée avant d'avoir regardé votre site. C'est-à-dire que chaque mois, vous lisez vos propres chiffres, ceux de votre **trafic organique** (les visites gratuites venues de Google), mesurés dans votre Search Console."
     },
     {
       "type": "p",
@@ -149,7 +149,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Pressé ? Commencez tout de suite par notre [audit SEO gratuit en ligne](/audit-seo/) : 20 mesures réelles faites sur votre site au moment du test, un score sur 100 et vos priorités, en une minute, sans inscription. On reprend ensuite ces résultats ensemble pendant les 30 minutes."
+      "text": "Envie d'un premier aperçu tout de suite ? Notre [audit SEO gratuit en ligne](/audit-seo/) fait 20 mesures réelles faites sur votre site au moment du test, un score sur 100 et vos priorités, en une minute, sans inscription. On reprend ensuite ces résultats ensemble pendant les 30 minutes."
     },
     {
       "type": "h3",
@@ -312,7 +312,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Derrière MKZ, un visage : Mickaël Leclerc, ingénieur informatique depuis 20 ans, installé à Dammartin-en-Goële. Il fait lui-même le travail, de l'audit au suivi mensuel, et vous parle en direct : pas de commercial, pas de ticket, pas de « résultats moyens » invérifiables."
+      "text": "Derrière MKZ, un visage : Mickaël Leclerc, ingénieur informatique depuis 20 ans, installé à Dammartin-en-Goële. Il fait lui-même le travail, de l'audit au suivi mensuel, et vous parle en direct : pas de commercial, pas de ticket, pas de promesse en l'air."
     },
     {
       "type": "ul",

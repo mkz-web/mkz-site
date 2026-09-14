@@ -74,7 +74,7 @@ const pillar: PillarPage = {
     },
     {
       type: "p",
-      text: "Static export, served from a CDN. No database to breach, no plugin to patch on a Friday night, and load times that pass Core Web Vitals because there is almost nothing to load. This site is built exactly that way: open your browser dev tools and check it rather than taking my word for it.",
+      text: "Static export, served from a CDN. No database to breach, no plugin to patch on a Friday night, and load times that pass Core Web Vitals because there is almost nothing to load. This site is built exactly that way, and the browser dev tools show it; no need to take my word for it.",
     },
     {
       type: "p",

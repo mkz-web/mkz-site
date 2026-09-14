@@ -219,7 +219,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Pas de « résultats moyens » ici. Un pourcentage de **trafic organique** (les visites venues de Google, hors publicité) sans le client, la période et la mesure derrière ne vaut rien, et nous n'en publions pas : un résultat sera affiché quand il sera mesuré, daté et nommé, avec l'accord du client. Ce que vous pouvez vérifier tout de suite : un [audit gratuit de 20 mesures](/audit-seo/) sur votre site en une minute, une grille de prix publique, et quatre engagements simples : on vous parle en français (zéro jargon), on décroche quand vous appelez, vous voyez tout, et vous restez libre, propriétaire de votre site."
+      "text": "Les avis sur MKZ sont ceux de Google, cinq sur cinq, affichés tels qu'ils sont écrits sur la [page d'accueil](/). Les prix sont publics, sur la [page tarifs](/tarifs/) : un site vitrine de 5 à 8 pages, textes inclus, coûte 1 490 € HT. Et pour savoir où en est votre site aujourd'hui, l'[audit gratuit en ligne](/audit-seo/) le mesure en une minute. Le reste, on le regarde ensemble pendant les 30 minutes."
     },
     {
       "type": "cta",

@@ -85,7 +85,7 @@ const pillar: PillarPage = {
     },
     {
       type: "p",
-      text: "Read the first row again. Same meaning, **twenty times the demand**, decided entirely by word choice. A translator had no way of knowing: picking *conception de site web* was not a mistake in French, it was a mistake in search. That decision belongs to keyword research, and it has to happen in French, before the content brief.",
+      text: "The first row says it all: same meaning, **twenty times the demand**, decided entirely by word choice. A translator had no way of knowing: picking *conception de site web* was not a mistake in French, it was a mistake in search. That decision belongs to keyword research, and it has to happen in French, before the content brief.",
     },
     {
       type: "callout",
@@ -200,7 +200,7 @@ const pillar: PillarPage = {
     },
     {
       type: "cta",
-      title: "Find out where you actually stand in France",
+      title: "Where your site really stands in France, in thirty minutes",
       text: "Thirty minutes, free. I look at your French pages, your hreflang, and whether French AI answers ever cite you. You leave with the findings and a plan, whether or not you work with me.",
       button: "Book a free 30-min review",
       href: "https://calendly.com/mkz-consulting/30min",

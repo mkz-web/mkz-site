@@ -24,7 +24,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Commençons par les faits. **65 % des TPE-PME françaises disposent d'un site internet** présentant leur activité, et même 81 % des PME, selon le Baromètre France Num 2025 (DGE/CREDOC, septembre 2025). Autrement dit : pendant que vous hésitez, la majorité de vos concurrents est déjà en ligne."
+      "text": "Commençons par les faits. **65 % des TPE-PME françaises disposent d'un site internet** présentant leur activité, et même 81 % des PME, selon le Baromètre France Num 2025 (DGE/CREDOC, septembre 2025). Autrement dit : la majorité de vos concurrents est déjà en ligne."
     },
     {
       "type": "p",
@@ -67,7 +67,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Le **SEO** (référencement naturel) regroupe tout ce qui fait remonter votre site dans les résultats Google, sans payer de publicité. Pour une TPE du 77, le levier le plus rentable est le [référencement local](/conseils/seo/referencement-local/) : sortir en tête quand un habitant tape votre métier et votre ville. Notre [agence SEO en Seine-et-Marne](/referencement-seo/) couvre les mots-clés, la technique, le contenu et votre **fiche Google Business Profile**, la fiche de votre entreprise qui s'affiche sur Google Maps. Ce que nous ne ferons pas : vous promettre un pourcentage de **trafic organique** « moyen » (les visites venues de Google, hors publicité). Un résultat sans le client, la période et la mesure derrière ne vaut rien ; vous aurez les vôtres, chaque mois, dans votre Search Console."
+      "text": "Le **SEO** (référencement naturel) regroupe tout ce qui fait remonter votre site dans les résultats Google, sans payer de publicité. Pour une TPE du 77, le levier le plus rentable est le [référencement local](/conseils/seo/referencement-local/) : sortir en tête quand un habitant tape votre métier et votre ville. Notre [agence SEO en Seine-et-Marne](/referencement-seo/) couvre les mots-clés, la technique, le contenu et votre **fiche Google Business Profile**, la fiche de votre entreprise qui s'affiche sur Google Maps. Ce que nous ne ferons pas : vous promettre un chiffre avant d'avoir regardé votre site. Vous aurez les vôtres, chaque mois, dans votre Search Console : votre **trafic organique** (les visites venues de Google, hors publicité), vos positions, vos demandes."
     },
     {
       "type": "h3",
@@ -80,12 +80,12 @@ const pillar: PillarPage = {
     {
       "type": "callout",
       "variant": "retenir",
-      "title": "MKZ, ce que vous pouvez vérifier",
+      "title": "MKZ, concrètement",
       "items": [
-        "Un audit SEO gratuit de 20 mesures sur votre site, en une minute, sans inscription",
-        "Une grille de prix publique, la même pour tout le monde",
-        "Vous restez propriétaire à 100 % de votre site : code, accès, contenus",
-        "Un seul interlocuteur, ingénieur informatique depuis 20 ans, installé à Dammartin-en-Goële"
+        "Un seul interlocuteur : Mickaël, qui construit votre site et décroche quand vous appelez",
+        "Des prix publics, la même grille pour tout le monde : un site vitrine de 5 à 8 pages, textes inclus, coûte 1 490 € HT",
+        "Vous restez propriétaire à 100 % de votre site : nom de domaine, code, contenus",
+        "Cinq avis Google, 5,0 sur 5, affichés tels qu'ils sont écrits"
       ]
     },
     {
@@ -95,7 +95,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Disons-le franchement : aucune des agences web du 77 que nous avons analysées en première page de Google n'affiche le moindre tarif ni délai (relevé MKZ, juin 2026). Nous ne publierons pas non plus de grille « à partir de » trompeuse. Un site de 5 pages pour un plombier et une boutique en ligne n'ont pas le même prix. En revanche, nous nous engageons sur une **transparence totale avant signature**."
+      "text": "Disons-le franchement : aucune des agences web du 77 que nous avons analysées en première page de Google n'affiche le moindre tarif ni délai (relevé MKZ, juin 2026). Chez MKZ, la [grille de prix est publique](/tarifs/) : un site vitrine de 5 à 8 pages, textes et référencement inclus, coûte 1 490 € HT ; une boutique en ligne ou une refonte se chiffrent après le diagnostic, parce qu'un site de 5 pages pour un plombier et une boutique n'ont pas le même prix. Dans tous les cas, nous nous engageons sur une **transparence totale avant signature**."
     },
     {
       "type": "table",
@@ -303,7 +303,7 @@ const pillar: PillarPage = {
   "faq": [
     {
       "q": "Combien coûte un site internet pour un artisan dans le 77 ?",
-      "a": "Le prix dépend du nombre de pages, des fonctionnalités (devis en ligne, réservation, boutique) et des contenus à créer. MKZ ne pratique pas de grille trompeuse : après un audit gratuit de 30 minutes, vous recevez un devis ferme et détaillé, valable que vous signiez ou non. Tout est listé, rien n'augmente en cours de route."
+      "a": "Le prix dépend du nombre de pages, des fonctionnalités (devis en ligne, réservation, boutique) et des contenus à créer. Les prix de MKZ sont publics sur la page tarifs : un site vitrine de 5 à 8 pages, textes et référencement inclus, coûte 1 490 € HT. Après un audit gratuit de 30 minutes, vous recevez un devis ferme et détaillé qui reprend ces prix, valable que vous signiez ou non. Tout est listé, rien n'augmente en cours de route."
     },
     {
       "q": "Combien de temps faut-il pour créer mon site internet ?",
