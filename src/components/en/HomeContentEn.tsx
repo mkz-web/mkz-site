@@ -938,7 +938,7 @@ export default function HomeContentEn() {
               <QuietLink href="/en/french-seo/">How French SEO works</QuietLink>
             </HeroActions>
             <HeroMeta>
-              Mickaël Leclerc · native French, based near Paris · Mon-Fri 9am-6pm CET ·{" "}
+              Mickaël Leclerc · native French, based near Paris · Mon-Sat 9am-9pm CET ·{" "}
               <a href="tel:+33769093909">+33 7 69 09 39 09</a>
             </HeroMeta>
           </div>

@@ -469,7 +469,7 @@ export const ui: Record<Locale, UiStrings> = {
           ],
         },
       ],
-      contact: { hours: "Lun-ven 9h-18h", reply: "Réponse sous 24 h" },
+      contact: { hours: "Lun-sam 9h-21h", reply: "Réponse sous 24 h" },
       copyright: "© 2026 MKZ · Tous droits réservés",
       legalLinks: [
         { name: "Mentions légales", href: "/mentions-legales/" },
@@ -508,7 +508,7 @@ export const ui: Record<Locale, UiStrings> = {
       calendlyDesc: "Audit gratuit de 30 min, sans engagement",
       labels: { phone: "Téléphone", email: "Email", address: "Adresse", hours: "Horaires" },
       addressLines: ["1 rue Françoise Sagan", "77230 Dammartin-en-Goële"],
-      hoursLines: ["Lundi - vendredi : 9h - 18h", "Réponse sous 24 h garantie"],
+      hoursLines: ["Lundi - samedi : 9h - 21h", "Réponse sous 24 h garantie"],
       mapsLabel: "Voir sur Google Maps",
       explore: {
         label: "Avant de nous écrire",
@@ -870,7 +870,7 @@ export const ui: Record<Locale, UiStrings> = {
           ],
         },
       ],
-      contact: { hours: "Mon-Fri, 9am-6pm CET", reply: "Reply within 24h" },
+      contact: { hours: "Mon-Sat, 9am-9pm CET", reply: "Reply within 24h" },
       copyright: "© 2026 MKZ · All rights reserved",
       legalLinks: [
         { name: "Legal notice", href: "/en/legal-notice/" },
@@ -909,7 +909,7 @@ export const ui: Record<Locale, UiStrings> = {
       calendlyDesc: "Free 30-minute review, no commitment",
       labels: { phone: "Phone", email: "Email", address: "Address", hours: "Hours" },
       addressLines: ["1 rue Françoise Sagan", "77230 Dammartin-en-Goële, France"],
-      hoursLines: ["Monday to Friday, 9am - 6pm CET", "Reply within 24 hours"],
+      hoursLines: ["Monday to Saturday, 9am - 9pm CET", "Reply within 24 hours"],
       mapsLabel: "View on Google Maps",
       explore: {
         label: "Before you write",

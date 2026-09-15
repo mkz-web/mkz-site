@@ -243,7 +243,7 @@ export default function Hero() {
             <QuietLink href="/tarifs/">Voir les prix</QuietLink>
           </Actions>
           <MetaLine>
-            Dammartin-en-Go&euml;le (77) · lun-ven 9h-18h · <a href="tel:0769093909">07 69 09 39 09</a> (on d&eacute;croche)
+            Dammartin-en-Go&euml;le (77) · lun-sam 9h-21h ·<a href="tel:0769093909">07 69 09 39 09</a> (on d&eacute;croche)
           </MetaLine>
         </div>
 

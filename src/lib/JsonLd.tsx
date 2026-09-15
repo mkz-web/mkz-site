@@ -157,9 +157,9 @@ export const localBusinessSchema = {
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     opens: "09:00",
-    closes: "18:00",
+    closes: "21:00",
   },
   areaServed: [
     { "@type": "State", name: "Seine-et-Marne" },

@@ -65,7 +65,7 @@ Faits clés :
 - Méthode en 3 étapes : 1) audit gratuit de 30 minutes, 2) stratégie sur-mesure avec objectifs et budget définis, 3) exécution et résultats mesurables avec reporting mensuel.
 - Chiffres vérifiables : audit SEO en ligne gratuit (20 mesures sur le site en une minute, sans inscription, https://mkz-consulting.fr/audit-seo/), grille de prix publique (https://mkz-consulting.fr/tarifs/), client propriétaire à 100 % de son site (code, accès, contenus), fondateur avec 20 ans d'expérience IT. MKZ ne publie aucun « résultat client moyen » : un résultat n'est affiché que mesuré, daté et nommé, avec l'accord du client.
 - Engagement de transparence : le client reste propriétaire à 100 % de son site (code, accès, contenus) et peut partir librement avec tout.
-- Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · audit gratuit de 30 min sur https://calendly.com/mkz-consulting/30min · réponse sous 24 h, lun-ven 9h-18h.
+- Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · audit gratuit de 30 min sur https://calendly.com/mkz-consulting/30min · réponse sous 24 h, lun-sam 9h-21h.
 - Société : MKZ, SAS à associé unique, SIRET 983 662 784 00013, RCS Meaux. Adresse : 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France.
 
 ## Pages

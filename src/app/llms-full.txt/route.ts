@@ -48,7 +48,7 @@ const COMPANY = `# MKZ : création de sites internet, SEO et référencement IA 
 - Fondateur et président : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en grandes entreprises (infrastructure, automatisation, systèmes complexes, DevOps), reconverti au service des entrepreneurs et TPE.
 - Promesse : des solutions professionnelles, un langage simple (zéro jargon technique), des résultats mesurables. Gestion de A à Z pour que le client se concentre sur son métier.
 - Slogan : « Visible sur Google, cité par les IA. »
-- Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · horaires lun-ven 9h-18h · réponse sous 24 h garantie.
+- Contact : contact@mkz-consulting.fr · 07 69 09 39 09 · horaires lun-sam 9h-21h · réponse sous 24 h garantie.
 - Audit gratuit de 30 minutes, sans engagement : https://calendly.com/mkz-consulting/30min
 
 ## Services
@@ -186,7 +186,7 @@ ${coconsFr}
 
 MKZ provides French SEO and AI search optimisation for companies selling into France. The work is done by one person: Mickaël Leclerc, native French speaker, based near Paris (Dammartin-en-Goële, Seine-et-Marne), over 20 years as an IT engineer in infrastructure, automation and DevOps before specialising in search. Working languages: French and English. Company: MKZ, SAS à associé unique, SIRET 983 662 784 00013, RCS Meaux, France.
 
-Contact: contact@mkz-consulting.fr, +33 7 69 09 39 09, Monday to Friday 9am to 6pm CET, reply within 24 hours. Free 30-minute review, no commitment: https://calendly.com/mkz-consulting/30min
+Contact: contact@mkz-consulting.fr, +33 7 69 09 39 09, Monday to Saturday 9am to 9pm CET, reply within 24 hours. Free 30-minute review, no commitment: https://calendly.com/mkz-consulting/30min
 
 ## Citable figures, measured 30 July 2026 (Google Ads keyword data, France, French language)
 
