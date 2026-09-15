@@ -7,7 +7,10 @@ import {
   categoryUrl,
   articlesByCategory,
   stripInline,
+  formatDateFr,
 } from "@/lib/articles";
+import { homeFaqFr } from "@/content/home-faq";
+import { ficheGoogle } from "@/content/avis-google";
 
 // llms.txt (format llmstxt.org) généré au build depuis les registres de contenu.
 // Bilingue : le fichier servi à l'emplacement conventionnel couvre les deux
@@ -17,7 +20,18 @@ export const dynamic = "force-static";
 
 const SITE = "https://mkz-consulting.fr";
 
+// Une réponse déjà affichée sur l'accueil n'a pas de seconde version ici : elle
+// est lue dans la source unique de la FAQ (payé le 15/09/2026, une réponse
+// « triplement du trafic » non mesurée a survécu ici au socle du 14/09).
+function faqAccueil(debutQuestion: string) {
+  const entree = homeFaqFr.find((f) => f.q.startsWith(debutQuestion));
+  if (!entree) throw new Error(`llms.txt : FAQ accueil introuvable (${debutQuestion})`);
+  return entree;
+}
+
 export function GET() {
+  const delaiVisible = faqAccueil("Combien de temps");
+  const noteGoogle = ficheGoogle.note.toFixed(1).replace(".", ",");
   const conseilsSection = categories
     .map((c) => {
       const list = articlesByCategory(c.slug);
@@ -56,7 +70,7 @@ Faits clés :
 
 ## Pages
 
-- [Accueil](${SITE}/): offre, méthode MKZ en 3 étapes, résultats chiffrés, témoignages clients (architecte d'intérieur, plombier chauffagiste, coach sportif, restaurant, photographe)
+- [Accueil](${SITE}/): test gratuit du site dès le premier écran (formulaire vers l'audit en ligne : score sur 100 en une minute, sans inscription), trois pièges à connaître avant de signer, les trois services avec leurs prix publics, la méthode en 3 étapes, une entrée par métier (plombier, restaurateur, cabinet), les ${ficheGoogle.nombreAvis} avis Google reproduits mot pour mot (note ${noteGoogle} sur 5 relevée le ${formatDateFr(ficheGoogle.releveLe)}), un consultant et pas une agence, FAQ
 - [Création de site internet](${SITE}/creation-site-internet/): service de création de site pour artisans, commerçants et TPE (process, tarifs, garanties)
 - [Référencement SEO](${SITE}/referencement-seo/): service SEO (audit, stratégie de contenu, référencement local, suivi mensuel)
 - [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local (interventions à Meaux, Melun, Chelles et dans tout le 77)
@@ -78,7 +92,7 @@ ${conseilsSection}
 ## FAQ
 
 - Combien coûte un site internet pour un artisan ? Chez MKZ, tarifs publics 2026 : site une page 590 € HT, site vitrine 5-8 pages 1 490 € HT rédaction incluse, e-commerce dès 2 990 € HT (grille complète sur /tarifs/). Devis fixe écrit après un diagnostic gratuit de 30 minutes.
-- Combien de temps pour être visible sur Google ? Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois ; les clients MKZ constatent en moyenne un triplement de leur trafic.
+- ${delaiVisible.q} ${delaiVisible.a}
 - Pourquoi mon entreprise n'apparaît pas sur Google ? Site non optimisé SEO, contenu insuffisant, problèmes techniques ou fiche Google Business Profile incomplète ; un audit permet d'identifier les blocages.
 - SEO ou SEA ? Le SEO produit un trafic gratuit et durable ; le SEA (publicité) s'arrête dès qu'on cesse de payer. MKZ privilégie le SEO pour le ROI long terme.
 - Propriété du site ? Le client garde 100 % de la propriété : accès, code et contenus.

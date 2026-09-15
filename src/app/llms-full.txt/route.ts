@@ -1,4 +1,5 @@
 import { avisGoogle, ficheGoogle } from "@/content/avis-google";
+import { homeFaqFr } from "@/content/home-faq";
 import {
   articles,
   articlesEn,
@@ -25,6 +26,16 @@ const coconsFr = categories
 const coconsEn = categoriesEn
   .map((c) => `- Topic hub "${c.name}" : ${SITE}${categoryUrl(c.slug, "en")} : ${c.description}`)
   .join("\n");
+
+// Une réponse déjà affichée sur l'accueil n'a pas de seconde version ici : elle
+// est lue dans la source unique de la FAQ (payé le 15/09/2026, une réponse
+// « triplement du trafic » non mesurée a survécu ici au socle du 14/09).
+function faqAccueil(debutQuestion: string) {
+  const entree = homeFaqFr.find((f) => f.q.startsWith(debutQuestion));
+  if (!entree) throw new Error(`llms-full.txt : FAQ accueil introuvable (${debutQuestion})`);
+  return entree;
+}
+const delaiVisible = faqAccueil("Combien de temps");
 
 const COMPANY = `# MKZ : création de sites internet, SEO et référencement IA pour artisans et TPE (version détaillée pour LLM)
 
@@ -136,9 +147,9 @@ Repères de marché à la même date : site vitrine 900 à 5 000 € (grille Fra
 
 Chez MKZ, les tarifs 2026 sont publics : site une page 590 € HT, site vitrine 5 à 8 pages 1 490 € HT rédaction incluse, e-commerce à partir de 2 990 € HT. Grille complète : ${SITE}/tarifs/. Un diagnostic gratuit de 30 minutes aboutit à un devis fixe écrit.
 
-### Combien de temps faut-il pour être visible sur Google ?
+### ${delaiVisible.q}
 
-Les premiers résultats SEO apparaissent généralement entre 3 et 6 mois. La vitesse dépend de la concurrence sur les mots-clés, de la qualité du site et de la stratégie. Les clients MKZ constatent en moyenne un triplement de leur trafic.
+${delaiVisible.a}
 
 ### Pourquoi mon entreprise n'apparaît pas sur Google ?
 
