@@ -45,7 +45,7 @@
 - ✅ **Deux outils gratuits, sans inscription.** L'[audit SEO + IA](https://mkz-consulting.fr/audit-seo/) : 20 mesures en une minute, score sur 100, moteur exécuté en Cloudflare Pages Functions. Le [simulateur d'empreinte d'une requête IA](https://mkz-consulting.fr/empreinte-ia/) : énergie, CO2 et eau d'une question posée à un modèle, jeu de données versionné.
 - ✅ **Le socle GEO.** `llms.txt` et `llms-full.txt` générés au build depuis le registre d'articles, JSON-LD reparsé par script avant chaque déploiement, `robots.txt` ouvert aux robots des IA, barre « Résumer avec l'IA » sur chaque article.
 - ✅ **La vie privée par construction.** Bandeau de consentement maison, Google Analytics 4 et Microsoft Clarity chargés uniquement après accord, zéro ressource externe dans le HTML statique.
-- ✅ **12 scripts Node sans dépendance.** Ingestion des articles, validation du build, déploiement, captures d'écran, harnais de test du moteur d'audit.
+- ✅ **13 scripts Node sans dépendance.** Ingestion des articles, validation du build, déploiement, captures d'écran, harnais de test du moteur d'audit.
 - ✅ **Le journal des décisions.** Chaque choix, chaque mesure et chaque piège payé sont consignés avec leur date dans un journal tenu hors du dépôt public depuis le 09/09/2026 (il portait des notes internes). Les décisions qui structurent le code sont reprises plus bas.
 
 ## Démarrer en trois commandes
@@ -106,7 +106,7 @@ src/lib/i18n.ts         dictionnaire d'interface et liste des paires hreflang
 functions/api/          /api/scan : moteur de l'outil d'audit (Cloudflare Pages Functions)
 empreinte-ia/           simulateur d'empreinte, sous-projet sans dépendance, construit vers public/empreinte-ia/
 public/                 _headers (CSP, HSTS), robots.txt, polices, images
-scripts/                12 scripts Node sans dépendance (tableau ci-dessous)
+scripts/                13 scripts Node sans dépendance (tableau ci-dessous)
 ```
 
 Les dossiers `_content-staging/`, `_research/` et `_backlinks/` sont ignorés par git : matière de travail éditoriale, pas du site.
@@ -119,7 +119,8 @@ Tous en Node natif, sans rien installer. Chaque script porte en tête sa command
 |---|---|
 | `ingest-content.mjs` | Transforme les articles du staging JSON en fichiers TypeScript typés et régénère le registre |
 | `validate-out.mjs` | Reparse tous les JSON-LD du build, contrôle titles et metas, hreflang réciproques, maillage interne |
-| `deploy.mjs` | Publie `out/` et `functions/` sur Cloudflare Pages par upload direct (wrangler via npx) |
+| `aplatir-segments-export.mjs` | Enchaîné par `npm run build` : remet sous leur nom à points les fichiers de segment que l'export de Next range en sous-dossiers sous Windows (issue vercel/next.js 85374), sans quoi chaque lien préchargé sort en 404 |
+| `deploy.mjs` | Publie `out/` et `functions/` sur Cloudflare Pages par upload direct (wrangler via npx) ; refuse un build dont les segments ne sont pas aplatis |
 | `test-audit-engine.mjs` | Harnais de vérité terrain du moteur d'audit ; `--attendu-mkz` compare au résultat attendu sur ce site |
 | `capturer-apercu-scan.mjs` | Capture réelle du résultat du scan pour les cartes des accueils et des hubs outils |
 | `capturer-accueil-readme.mjs` | Capture réelle de l'accueil en production pour ce README, bandeau de consentement refusé, contrôles avant capture |

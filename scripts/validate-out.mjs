@@ -24,6 +24,11 @@
 //    Note : Next émet l'attribut sous la forme `hrefLang` (nom de prop React).
 //    HTML étant insensible à la casse des attributs, c'est valide ; les regex
 //    ci-dessous doivent donc être insensibles à la casse.
+// 9. Segments RSC à plat (ajouté le 17/09/2026) : aucun dossier `__next.*` dans out/.
+//    Sous Windows, l'export de Next range les fichiers de segment en sous-dossiers alors que le
+//    routeur client les demande sous un nom à points : chaque lien préchargé sortait en 404
+//    (15 à 17 requêtes par page). `npm run build` enchaîne scripts/aplatir-segments-export.mjs ;
+//    ce contrôle attrape un `next build` lancé seul.
 
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { resolve, dirname, join, relative } from "node:path";
@@ -243,6 +248,23 @@ for (const txt of ["llms.txt", "llms-full.txt", "sitemap.xml"]) {
   }
   const dashes = (readFileSync(p, "utf8").match(FORBIDDEN_DASHES_TXT) ?? []).length;
   if (dashes > 0) errors.push(`${txt} : ${dashes} tiret(s) cadratin/demi-cadratin (U+2014 / U+2013) interdit(s)`);
+}
+
+// 9. Segments RSC à plat : un dossier `__next.*` dans out/ signe un build Windows non aplati.
+const nestedSegmentDirs = [];
+(function walk(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const p = join(dir, entry.name);
+    if (entry.name.startsWith("__next.")) nestedSegmentDirs.push(relative(outDir, p));
+    else walk(p);
+  }
+})(outDir);
+if (nestedSegmentDirs.length) {
+  errors.push(
+    `${nestedSegmentDirs.length} dossier(s) de segments RSC non aplatis (ex. ${nestedSegmentDirs[0]}) : ` +
+      `le préchargement des liens sortira en 404. Lance \`node scripts/aplatir-segments-export.mjs\`.`
+  );
 }
 
 const frPages = [...localeGraph.values()].filter((p) => p.lang === "fr").length;

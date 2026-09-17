@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build:empreinte": "node empreinte-ia/build/build.mjs",
-    "build": "npm run build:empreinte && next build",
+    "build": "npm run build:empreinte && next build && node scripts/aplatir-segments-export.mjs",
     "start": "next start",
     "lint": "eslint",
     "test:empreinte": "node empreinte-ia/src/engine.test.js",

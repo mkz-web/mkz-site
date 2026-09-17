@@ -20,6 +20,15 @@ if (!existsSync(resolve(projectRoot, "out"))) {
   process.exit(1);
 }
 
+// Un build Windows non aplati publierait des préchargements de liens en 404 : on refuse de le déployer.
+// `npm run build` aplatit déjà ; ce contrôle attrape un `next build` lancé seul avant `npm run deploy`.
+const controleSegments = spawnSync(
+  process.execPath,
+  [resolve(projectRoot, "scripts", "aplatir-segments-export.mjs"), "--controle"],
+  { stdio: "inherit" }
+);
+if (controleSegments.status !== 0) process.exit(1);
+
 const token = process.env.CLOUDFLARE_API_TOKEN_MKZ ?? process.env.CLOUDFLARE_API_TOKEN;
 const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
 
