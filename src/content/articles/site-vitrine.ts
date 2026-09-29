@@ -309,7 +309,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Avant de publier, trois vérifications. Les **mentions légales** sont imposées par la loi française pour tout site professionnel : identité, coordonnées, hébergeur. Le **RGPD** (la réglementation sur les données personnelles) s'applique dès qu'un formulaire collecte des informations. Enfin, déclarez votre site à Google : notre tutoriel pour [connecter votre site à Google Search Console](/conseils/tutoriels/connecter-site-google-search-console/) vous guide en 15 minutes."
+      "text": "Avant de publier, trois vérifications. Les **mentions légales** sont [imposées par la loi française pour tout site professionnel](/conseils/creation-site-internet/mentions-legales-site-internet/) : identité, coordonnées, hébergeur. Le **RGPD** (la réglementation sur les données personnelles) s'applique dès qu'un formulaire collecte des informations. Enfin, déclarez votre site à Google : notre tutoriel pour [connecter votre site à Google Search Console](/conseils/tutoriels/connecter-site-google-search-console/) vous guide en 15 minutes."
     },
     {
       "type": "callout",
