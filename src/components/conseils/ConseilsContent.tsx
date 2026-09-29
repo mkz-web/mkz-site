@@ -98,9 +98,10 @@ const Toc = styled.nav`
   border-radius: ${theme.radius.lg};
   background: ${theme.colors.surfaceAlt};
   p { margin: 0 0 8px; font-family: ${theme.fonts.mono}; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: ${theme.colors.textSecondary}; }
-  ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+  ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 0; }
   li { font-size: 14.5px; line-height: 1.45; color: ${theme.colors.textSecondary}; }
-  a { color: ${theme.colors.accent}; text-decoration: none; &:hover { text-decoration: underline; } }
+  /* Cible tactile de 44 px au moins (règle mobile) : mesurée à 16 px sans ce padding, le 29/09/2026. */
+  a { display: inline-block; padding: 12px 0; color: ${theme.colors.accent}; text-decoration: none; &:hover { text-decoration: underline; } }
 `;
 
 const GroupSection = styled.section`
