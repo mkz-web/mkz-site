@@ -183,7 +183,7 @@ export default function AboutContentEn() {
             <IdentityFacts>
               <li>Native French speaker, based near Paris (Seine-et-Marne, France)</li>
               <li>20+ years as an IT engineer: infrastructure, automation, DevOps</li>
-              <li>MKZ, SAS à associé unique · SIRET 983 662 784 00013 · RCS Meaux</li>
+              <li>MKZ, SAS à associé unique, share capital €1,000 · SIRET 983 662 784 00013 · RCS Meaux · EU VAT FR44983662784</li>
               <li>Working languages: French and English</li>
             </IdentityFacts>
           </div>

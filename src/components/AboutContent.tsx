@@ -128,6 +128,15 @@ const BioTags = styled.p`
   padding-top: 16px;
 `;
 
+// Identité de la société (29/09/2026) : même fiche que les mentions légales, capital et TVA compris.
+const CompanyLine = styled.p`
+  margin-top: 6px;
+  font-family: ${theme.fonts.mono};
+  font-size: 13px;
+  line-height: 1.8;
+  color: ${theme.colors.textSecondary};
+`;
+
 const ArgsGrid = styled.div`
   display: grid;
   gap: 1px;
@@ -279,6 +288,10 @@ export default function AboutContent() {
               <BioLink href="/services/">prestations et tarifs</BioLink>.
             </BioText>
             <BioTags>ing&eacute;nieur IT · expert SEO · automatisation · DevOps</BioTags>
+            <CompanyLine>
+              MKZ, SAS &agrave; associ&eacute; unique au capital de 1&nbsp;000&nbsp;&euro; · SIRET 983 662 784 00013 ·
+              RCS Meaux · TVA intracommunautaire FR44983662784
+            </CompanyLine>
           </BioContent>
         </ProfileSection>
 
