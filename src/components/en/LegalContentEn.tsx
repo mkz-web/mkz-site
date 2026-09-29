@@ -46,9 +46,10 @@ export function LegalNoticeEn() {
       </Notice>
 
       <SectionTitle>Site publisher</SectionTitle>
-      <InfoLine><strong>MKZ</strong>, SAS à associé unique (single-shareholder simplified joint-stock company)</InfoLine>
+      <InfoLine><strong>MKZ</strong>, SAS à associé unique (single-shareholder simplified joint-stock company), share capital €1,000</InfoLine>
       <InfoLine>SIRET: 983 662 784 00013</InfoLine>
-      <InfoLine>Trade register: RCS Meaux, France</InfoLine>
+      <InfoLine>Trade register: RCS Meaux 983 662 784, France</InfoLine>
+      <InfoLine>EU VAT number: FR44983662784</InfoLine>
       <InfoLine>Activity: IT systems and software consulting</InfoLine>
       <InfoLine>Registered office: 1 rue Françoise Sagan, 77230 Dammartin-en-Goële, France</InfoLine>
       <InfoLine>Phone: +33 7 69 09 39 09</InfoLine>

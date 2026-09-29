@@ -24,9 +24,10 @@ export default function MentionsContent() {
       </Text>
 
       <SectionTitle>&Eacute;diteur du site</SectionTitle>
-      <InfoLine><strong>MKZ</strong>, SAS &agrave; associ&eacute; unique</InfoLine>
+      <InfoLine><strong>MKZ</strong>, SAS &agrave; associ&eacute; unique au capital de 1&nbsp;000&nbsp;&euro;</InfoLine>
       <InfoLine>SIRET : 983 662 784 00013</InfoLine>
-      <InfoLine>RCS : Meaux</InfoLine>
+      <InfoLine>RCS Meaux 983 662 784</InfoLine>
+      <InfoLine>N&deg; de TVA intracommunautaire : FR44983662784</InfoLine>
       <InfoLine>Activit&eacute; : Conseil en syst&egrave;mes et logiciels informatiques</InfoLine>
       <InfoLine>Si&egrave;ge social : 1 rue Fran&ccedil;oise Sagan, 77230 Dammartin-en-Go&euml;le</InfoLine>
       <InfoLine>T&eacute;l&eacute;phone : 07 69 09 39 09</InfoLine>

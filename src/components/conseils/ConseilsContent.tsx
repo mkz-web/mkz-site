@@ -80,6 +80,32 @@ const GroupTitle = styled.h2`
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 600;
   color: ${theme.colors.accent};
+
+  a { color: inherit; text-decoration: none; &:hover { text-decoration: underline; } }
+`;
+
+// Sommaire ancré et articles regroupés par silo (29/09/2026). Le hub listait tous les articles
+// à plat sous « Derniers articles » : il a franchi 10 000 caractères avec le premier article de la
+// veille autonome (seuil du sommaire, règle parcours de livraison-web), et il s'allonge d'un
+// article par semaine. Regrouper par cocon donne au sommaire une destination utile et fait du hub
+// la tête des silos (méthode du cocon sémantique, _veille/carte-sujets.json). Même dessin que le
+// sommaire des piliers (PillarContent).
+const Toc = styled.nav`
+  margin-top: 28px;
+  max-width: 640px;
+  padding: 16px 20px 18px;
+  border: 1px solid ${theme.colors.border};
+  border-radius: ${theme.radius.lg};
+  background: ${theme.colors.surfaceAlt};
+  p { margin: 0 0 8px; font-family: ${theme.fonts.mono}; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: ${theme.colors.textSecondary}; }
+  ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+  li { font-size: 14.5px; line-height: 1.45; color: ${theme.colors.textSecondary}; }
+  a { color: ${theme.colors.accent}; text-decoration: none; &:hover { text-decoration: underline; } }
+`;
+
+const GroupSection = styled.section`
+  padding: 0 24px 64px;
+  scroll-margin-top: 90px;
 `;
 
 const CatGrid = styled.div`
@@ -194,6 +220,15 @@ export default function ConseilsContent({
   locale?: Locale;
 }) {
   const t = ui[locale].newsroom;
+  const tocTitle = ui[locale].article.tocTitle;
+  // Un groupe par rubrique, dans l'ordre des rubriques ; les articles gardent l'ordre reçu (du plus
+  // récent au plus ancien). Un article dont la rubrique serait inconnue n'est jamais perdu : il
+  // tombe dans un dernier groupe sous le titre « Derniers articles ».
+  const groupes = categories
+    .map((c) => ({ id: "rubrique-" + c.slug, name: c.name, url: c.url as string | null, items: latest.filter((a) => a.categoryName === c.name) }))
+    .filter((g) => g.items.length > 0);
+  const orphelins = latest.filter((a) => !categories.some((c) => c.name === a.categoryName));
+  if (orphelins.length) groupes.push({ id: "autres-articles", name: t.latest, url: null, items: orphelins });
   return (
     <>
       <Hero>
@@ -205,6 +240,18 @@ export default function ConseilsContent({
             {t.titleAfter}
           </HeroTitle>
           <HeroSub>{t.sub}</HeroSub>
+          {groupes.length >= 3 && (
+            <Toc aria-label={tocTitle}>
+              <p>{tocTitle}</p>
+              <ol>
+                {groupes.map((g) => (
+                  <li key={g.id}>
+                    <a href={"#" + g.id}>{g.name}</a>{" "}· {t.articleCount(g.items.length)}
+                  </li>
+                ))}
+              </ol>
+            </Toc>
+          )}
         </HeroInner>
       </Hero>
 
@@ -229,18 +276,21 @@ export default function ConseilsContent({
         </Container>
       </Section>
 
-      <Section style={{ paddingTop: 16 }}>
-        <Container>
-          <GroupHead>
-            <GroupTitle>{t.latest}</GroupTitle>
-          </GroupHead>
-          <CardsGrid>
-            {latest.map((a) => (
-              <ArticleCard key={a.url} article={a} locale={locale} />
-            ))}
-          </CardsGrid>
-        </Container>
-      </Section>
+      {groupes.map((g) => (
+        <GroupSection key={g.id} id={g.id}>
+          <Container>
+            <GroupHead>
+              <GroupTitle>{g.url ? <Link href={g.url}>{g.name}</Link> : g.name}</GroupTitle>
+              <CatCount>{t.articleCount(g.items.length)}</CatCount>
+            </GroupHead>
+            <CardsGrid>
+              {g.items.map((a) => (
+                <ArticleCard key={a.url} article={a} locale={locale} />
+              ))}
+            </CardsGrid>
+          </Container>
+        </GroupSection>
+      ))}
 
       <CtaBand>
         <CtaInner>
