@@ -109,3 +109,6 @@ audit-data.json
 /_content-archive/
 /_ux/
 /public/demo/
+
+# Veille hebdomadaire autonome (tache planifiee, claude -p) : scripts, prompt, brouillons et journaux, hors du depot public
+/_veille/
