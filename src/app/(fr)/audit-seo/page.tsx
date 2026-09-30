@@ -15,7 +15,8 @@ import AuditContent, { type AuditFaqItem, type AuditPageContent } from "@/compon
 // Échelle commerciale à respecter (décidée au cadrage, dossier
 // Projet/Seo-referencement) : scan instantané gratuit -> rapport détaillé
 // gratuit envoyé PAR MICKAËL sous 24 h -> audit complet payant (/tarifs/,
-// 490 € ou 690 € avec visibilité IA). Le rapport gratuit ne contient PAS la
+// 490 €, audit référencement IA 790 €, les deux 1 090 € depuis le 30/09/2026).
+// Le rapport gratuit ne contient PAS la
 // mesure complète des citations IA : c'est le produit payant.
 //
 // Le moteur du scan vit dans functions/api/ (Pages Function /api/scan) ;
@@ -37,7 +38,7 @@ const faq: AuditFaqItem[] = [
   },
   {
     q: "L'outil est-il vraiment gratuit ?",
-    a: "Oui. Le scan est gratuit, sans inscription, et le rapport détaillé envoyé sous 24 h l'est aussi. Notre conviction : donner avant de vendre. L'audit complet (analyse de la concurrence, mots-clés à viser, mesure réelle de vos citations par ChatGPT et Perplexity, plan d'action priorisé) est une prestation à part entière, à 490 €, déduite de votre première facture si un accompagnement démarre sous 30 jours. Les tarifs sont publics, sur la page Tarifs.",
+    a: "Oui. Le scan est gratuit, sans inscription, et le rapport détaillé envoyé sous 24 h l'est aussi. Notre conviction : donner avant de vendre. L'audit SEO complet (analyse de la concurrence, mots-clés à viser, plan d'action priorisé) est une prestation à part entière, à 490 €. L'audit référencement IA, qui mesure vos citations par ChatGPT, Perplexity, Gemini et les aperçus IA de Google, est à 790 €, et les deux ensemble à 1 090 €. Chacun est déduit de votre première facture si un accompagnement démarre sous 30 jours. Les tarifs sont publics, sur la page Tarifs.",
   },
   {
     q: "Que mesure exactement le score ?",

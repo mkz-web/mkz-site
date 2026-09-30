@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "@/lib/theme";
 import { gaEvent } from "@/lib/ga";
@@ -141,6 +141,15 @@ const ErrorBox = styled.div`
 export default function ContactForm({ locale = "fr" }: { locale?: Locale }) {
   const t = ui[locale].contact.form;
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const subjectRef = useRef<HTMLInputElement>(null);
+
+  // Un lien peut pré-remplir le sujet : /contact/?sujet=... (test gratuit de /tarifs/).
+  useEffect(() => {
+    const sujet = new URLSearchParams(window.location.search).get("sujet");
+    if (sujet && subjectRef.current && !subjectRef.current.value) {
+      subjectRef.current.value = sujet.slice(0, 120);
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -203,7 +212,7 @@ export default function ContactForm({ locale = "fr" }: { locale?: Locale }) {
       </Row>
       <div>
         <Label htmlFor="subject">{t.subject}</Label>
-        <Input type="text" id="subject" name="subject" required placeholder={t.subjectPlaceholder} />
+        <Input ref={subjectRef} type="text" id="subject" name="subject" required placeholder={t.subjectPlaceholder} />
       </div>
       <div>
         <Label htmlFor="message">{t.message}</Label>

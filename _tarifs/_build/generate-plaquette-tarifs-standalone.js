@@ -215,9 +215,9 @@ function corps() {
     ['Audit SEO complet',
       'Technique, contenus, concurrence, plan d’action priorisé. Restitution d’une heure en visio. Sites jusqu’à 30 pages ; au-delà sur devis.',
       '490 €'],
-    ['Audit SEO + visibilité IA',
-      'L’audit complet, plus la mesure réelle de vos citations par ChatGPT, Perplexity, Gemini et Mistral.',
-      '690 €'],
+    ['Audit SEO + audit référencement IA',
+      'Les deux audits ensemble : Google d’un côté, ChatGPT, Perplexity, Gemini et les aperçus IA de Google de l’autre (détail en partie 3). 1 280 € séparément.',
+      '1 090 €'],
     ['Pack visibilité locale',
       'Fiche Google Business optimisée, coordonnées cohérentes sur les annuaires qui comptent, méthode de collecte d’avis clients.',
       '390 €'],
@@ -234,12 +234,9 @@ function corps() {
       '390 €/mois'],
     ['Croissance (la plus choisie)',
       '2 articles optimisés, 1 à 2 liens entrants de qualité, suivi de votre visibilité locale, 1 h de conseil en visio.',
-      '690 €/mois'],
-    ['Référence',
-      '4 contenus, netlinking renforcé, référencement IA inclus (citations re-mesurées chaque mois), veille concurrentielle.',
-      '1 190 €/mois']
+      '690 €/mois']
   ]));
-  c.push(note('Sans engagement de durée, préavis de 30 jours. Le référencement est un travail de fond : comptez 6 mois pour des résultats solides. Nous vous le disons avant de facturer, pas après.'));
+  c.push(note('Sans engagement de durée, préavis de 30 jours. Le référencement est un travail de fond : comptez 6 mois pour des résultats solides. Nous vous le disons avant de facturer, pas après. Le suivi mensuel des citations IA s’ajoute à l’une ou l’autre formule pour 200 € HT par mois.'));
 
   c.push(h2('À la carte'));
   [
@@ -249,18 +246,28 @@ function corps() {
 
   /* ----- 3. GEO ----- */
   c.push(h1('3. Être cité par les IA (référencement IA / GEO)'));
-  c.push(p('Vos clients posent déjà leurs questions à ChatGPT ou Perplexity. Le référencement IA, aussi appelé GEO, consiste à faire de votre entreprise **la réponse que ces moteurs citent**. Nous le mesurons réellement, requête par requête : jamais au doigt mouillé.', { after: 100 }));
+  c.push(p('Vos clients posent déjà leurs questions à ChatGPT ou Perplexity. Le référencement IA, aussi appelé GEO, consiste à faire de votre entreprise **la réponse que ces moteurs citent**. Trouvé sur Google, cité par les IA : chaque résultat est mesuré, pas promis. Les mêmes questions sont reposées chaque mois, à l’identique, et le tableau dit ce qui a bougé.', { after: 100 }));
   c.push(tableOffres(['Prestation', 'Ce que vous recevez', 'Tarif HT'], [
-    ['Audit de visibilité IA',
-      'Mesure réelle de vos citations sur ChatGPT, Perplexity, Gemini et Mistral, analyse sur 5 piliers, plan d’action priorisé.',
-      '490 €'],
+    ['Test « Votre nom sort-il ? »',
+      'Cinq questions qu’un de vos clients poserait, posées à ChatGPT et à Perplexity. Sous 48 h ouvrées, une page : votre nom sort-il, qui sort à votre place, et quelles pages ces moteurs lisent pour répondre.',
+      'Gratuit'],
+    ['Audit référencement IA',
+      'Vingt questions de vos clients, posées à ChatGPT, Perplexity, Gemini et aux aperçus IA de Google, trois fois chacune. Qui est cité à votre place et d’où vient chaque citation, accès des robots IA vérifié sur le site en ligne, contenus citables page par page, plan d’action sur 90 jours, restitution d’une heure en visio.',
+      '790 €'],
     ['Socle technique IA',
       'Fichier llms.txt, données structurées, robots IA autorisés, données chiffrées citables. Déjà inclus dans tout site créé par MKZ.',
-      '390 €'],
-    ['Option IA sur un accompagnement',
-      'Ajoutée à Fondations ou Croissance : citations re-mesurées chaque mois et optimisations continues. Incluse dans la formule Référence.',
-      '+200 €/mois']
+      '390 €']
   ]));
+  c.push(h2('Référencement IA mensuel'));
+  c.push(tableOffres(['Formule', 'Chaque mois', 'Tarif HT'], [
+    ['Suivi',
+      'Les vingt mêmes questions reposées sur quatre moteurs, trois passages chacun ; tableau de bord en français (citations, concurrents cités, sources) ; 30 minutes d’échange en visio.',
+      '290 €/mois'],
+    ['Accompagnement',
+      'Le suivi, plus une page réponse ou un contenu citable (chiffres sourcés), les corrections techniques qui en découlent, une action sur les sites tiers que les IA lisent, le SEO de base compris.',
+      '790 €/mois']
+  ]));
+  c.push(note('Sans engagement de durée, préavis de 30 jours. L’audit est déduit de votre première facture si un accompagnement démarre dans les 30 jours. Aucune garantie d’être cité : les moteurs changent de réponse d’un appel à l’autre, et personne ne contrôle leurs choix. Ce qui est garanti, c’est une mesure honnête, refaite à l’identique chaque mois.'));
 
   /* ----- Pack ----- */
   const pack = cell([
@@ -272,7 +279,7 @@ function corps() {
 
   /* ----- 4. Repères marché ----- */
   c.push(h1('4. Où se situent ces prix sur le marché ?'));
-  c.push(p('Ces tarifs sont posés en connaissance du marché français, sources publiques à l’appui. Les fourchettes ci-dessous ont été relevées le 18 août 2026.', { after: 100 }));
+  c.push(p('Ces tarifs sont posés en connaissance du marché français, sources publiques à l’appui. Les fourchettes ci-dessous ont été relevées le 18 août 2026, et le 30 septembre 2026 pour le référencement IA.', { after: 100 }));
   c.push(tableOffres(['Prestation', 'Marché constaté en France (2025-2026)', 'Chez MKZ'], [
     ['Site vitrine 5 à 10 pages',
       '900 à 5 000 € (grille France Num / Afnic, juin 2025) ; 3 000 à 8 000 € en agence (relevés 2026).',
@@ -285,13 +292,16 @@ function corps() {
       '490 €'],
     ['SEO mensuel',
       '500 à 2 500 €/mois (seo.fr, juin 2026) ; jusqu’à 5 000 €/mois en agence (relevés 2026).',
-      '390 à 1 190 €/mois'],
+      '390 à 690 €/mois'],
     ['SEO local',
       '100 à 500 €/mois pour la seule gestion de la fiche Google (relevés 2026).',
       '390 € + option 99 €/mois'],
     ['Audit référencement IA',
-      '1 500 à 3 000 € chez les agences GEO (relevés 2026, marché jeune et peu standardisé).',
-      '490 €'],
+      '1 200 € chez un consultant indépendant (relevé de septembre 2026) ; 1 500 à 3 000 € chez les agences GEO (relevés 2026, marché jeune et peu standardisé).',
+      '790 €'],
+    ['Référencement IA mensuel',
+      '800 à 2 000 €/mois chez un consultant indépendant, 800 à 3 000 €/mois en agence (relevés de septembre 2026).',
+      '290 à 790 €/mois'],
     ['Maintenance',
       '39 à 290 €/mois ; 100 à 500 €/mois en agence (relevés 2026).',
       '29 à 99 €/mois']
@@ -466,10 +476,12 @@ verifier(FICHIER, doc, [
   '1 490 €', '590 €', '2 490 €', '2 990 €', '990 €',
   '490 €', '690 €', '390 €', '199 €',
   '1 690 € HT',
+  '790 €', '1 090 €', '290 €/mois', '790 €/mois', 'Votre nom sort-il',
   'llms.txt', 'Diagnostic de 30 minutes', 'Devis fixe écrit',
   'service packagé', 'premiers liens entrants',
   'France Num', 'seo.fr, juin 2026'
-], ['Apt' + 'os' /* police interdite, mot construit pour passer le lint */, 'lorem', 'TODO', 'XXX']);
+], ['Apt' + 'os' /* police interdite, mot construit pour passer le lint */, 'lorem', 'TODO', 'XXX',
+  '1 190', 'Audit de visibilité IA', 'formule Référence' /* grille du 30/09/2026 : retirés */]);
 // Le SIRET vit dans le pied de page : on le vérifie là où il est réellement servi.
 verifier('footer1.xml', footerXml(), ['983 662 784 00013', 'RCS Meaux'], []);
 

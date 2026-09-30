@@ -110,7 +110,7 @@ Départements : Seine-et-Marne (77), Val-de-Marne (94), Seine-Saint-Denis (93), 
 
 ## Tarifs 2026 (euros HT, grille publique : ${SITE}/tarifs/)
 
-Prix de base publiés le 20 août 2026. Devis fixe écrit avant toute signature ; prestations mensuelles sans engagement de durée (préavis de 30 jours). TVA 20 % en sus.
+Prix de base publiés le 20 août 2026, offre de référencement IA mise à jour le 30 septembre 2026. Devis fixe écrit avant toute signature ; prestations mensuelles sans engagement de durée (préavis de 30 jours). TVA 20 % en sus.
 
 Création de site :
 
@@ -126,20 +126,24 @@ Référencement SEO :
 
 - Diagnostic de 30 minutes : gratuit, avec premier relevé chiffré de visibilité.
 - Audit SEO complet : 490 € (sites jusqu'à 30 pages), déduit de la première facture si un accompagnement démarre sous 30 jours.
-- Audit SEO + visibilité IA : 690 €.
+- Audit SEO + audit référencement IA ensemble : 1 090 € (1 280 € séparément).
 - Pack visibilité locale (fiche Google Business, annuaires, avis) : 390 €, option suivi mensuel 99 €/mois.
-- Accompagnement mensuel : Fondations 390 €/mois (1 article, optimisations, rapport), Croissance 690 €/mois (2 articles, 1 à 2 liens, 1 h de conseil), Référence 1 190 €/mois (4 contenus, netlinking renforcé, référencement IA inclus).
+- Accompagnement mensuel : Fondations 390 €/mois (1 article, optimisations, rapport), Croissance 690 €/mois (2 articles, 1 à 2 liens, 1 h de conseil). Suivi des citations IA en option : +200 €/mois.
 - Article SEO à l'unité : 199 €. Netlinking : prix d'achat réel refacturé + 70 € de sélection et pose par lien.
 
 Référencement IA (GEO) :
 
-- Audit de visibilité IA (citations mesurées sur ChatGPT, Perplexity, Gemini, Mistral) : 490 €.
+Promesse : trouvé sur Google, cité par les IA, et chaque résultat mesuré, pas promis. Aucune garantie d'être cité : les moteurs changent de réponse d'un appel à l'autre ; la mesure est refaite à l'identique chaque mois.
+
+- Test « Votre nom sort-il ? » : gratuit. Cinq questions de client posées à ChatGPT et à Perplexity ; sous 48 h ouvrées, une page : le nom de l'entreprise sort-il, qui sort à sa place, quelles pages ces moteurs lisent.
+- Audit référencement IA : 790 €. Vingt questions de clients posées à ChatGPT, Perplexity, Gemini et aux aperçus IA de Google, trois fois chacune ; sources des citations, accès des robots IA vérifié sur le site en ligne, contenus citables, plan d'action sur 90 jours, restitution d'une heure. Déduit de la première facture si un accompagnement démarre sous 30 jours.
+- Suivi référencement IA : 290 €/mois. Les vingt mêmes questions reposées chaque mois sur quatre moteurs, trois passages chacun, tableau de bord, 30 minutes d'échange.
+- Accompagnement référencement IA : 790 €/mois. Le suivi, plus une page réponse ou un contenu citable par mois, les corrections techniques, une action par mois sur les sites tiers que les IA lisent, le SEO de base compris.
 - Socle technique IA (llms.txt, données structurées, robots IA, données citables) : 390 €, inclus dans tout site créé par MKZ.
-- Option IA sur un accompagnement mensuel : +200 €/mois, incluse dans la formule Référence.
 
 Pack Décollage (site vitrine Pro + visibilité locale) : 1 690 € au lieu de 1 880 €.
 
-Repères de marché à la même date : site vitrine 900 à 5 000 € (grille France Num/Afnic, juin 2025) et 3 000 à 8 000 € en agence ; audit SEO 500 à 3 000 € ; accompagnement SEO 500 à 2 500 €/mois (seo.fr, juin 2026) ; audit GEO 1 500 à 3 000 € (relevés août 2026).
+Repères de marché à la même date : site vitrine 900 à 5 000 € (grille France Num/Afnic, juin 2025) et 3 000 à 8 000 € en agence ; audit SEO 500 à 3 000 € ; accompagnement SEO 500 à 2 500 €/mois (seo.fr, juin 2026) ; audit GEO 1 500 à 3 000 € en agence (relevés août 2026) et 1 200 € chez un consultant indépendant ; référencement IA mensuel 800 à 2 000 €/mois chez un indépendant, 800 à 3 000 €/mois en agence (relevés septembre 2026).
 
 ## FAQ
 

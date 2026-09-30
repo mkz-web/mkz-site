@@ -6,6 +6,8 @@ import { theme } from "@/lib/theme";
 import Button from "@/components/Button";
 
 const CALENDLY = "https://calendly.com/mkz-consulting/30min";
+// Le formulaire de contact lit ?sujet= et pré-remplit le champ (ContactForm).
+const TEST_IA = "/contact/?sujet=" + encodeURIComponent("Test gratuit « Votre nom sort-il ? »");
 
 export type TarifsFaqItem = { q: string; a: string };
 
@@ -197,10 +199,11 @@ const OfferPrice = styled.p`
 
 const TierGrid = styled.div`
   margin-top: 26px;
+  max-width: 880px;
   display: grid;
   gap: 16px;
   @media (min-width: ${theme.breakpoints.md}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -730,13 +733,15 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
 
           <OfferRow>
             <OfferBody>
-              <OfferName>Audit SEO + visibilité IA</OfferName>
+              <OfferName>Audit SEO + audit référencement IA</OfferName>
               <OfferDesc>
-                L&rsquo;audit complet, plus la mesure réelle de vos citations par ChatGPT,
-                Perplexity, Gemini et Mistral.
+                Les deux audits ensemble&nbsp;: Google d&rsquo;un côté, ChatGPT, Perplexity,
+                Gemini et les aperçus IA de Google de l&rsquo;autre (détail en{" "}
+                <InlineLink href="#referencement-ia">section 03</InlineLink>). 1&nbsp;280&nbsp;€
+                séparément.
               </OfferDesc>
             </OfferBody>
-            <OfferPrice>690&nbsp;€</OfferPrice>
+            <OfferPrice>1&nbsp;090&nbsp;€</OfferPrice>
           </OfferRow>
 
           <OfferRow>
@@ -775,21 +780,12 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
               <li>1&nbsp;h de conseil en visio</li>
             </TierList>
           </TierCard>
-          <TierCard>
-            <TierName>Référence</TierName>
-            <TierPrice>1&nbsp;190&nbsp;€ <span>HT/mois</span></TierPrice>
-            <TierList>
-              <li>4 contenus par mois</li>
-              <li>Netlinking renforcé</li>
-              <li>Référencement IA inclus, citations re-mesurées chaque mois</li>
-              <li>Veille concurrentielle</li>
-            </TierList>
-          </TierCard>
         </TierGrid>
         <Note>
           Sans engagement de durée, préavis de 30 jours. Le référencement est un travail de
           fond&nbsp;: comptez 6 mois pour des résultats solides. Nous vous le disons avant de
-          facturer, pas après.
+          facturer, pas après. Le suivi mensuel des citations IA s&rsquo;ajoute à l&rsquo;une ou
+          l&rsquo;autre formule pour 200&nbsp;€&nbsp;HT par mois.
         </Note>
 
         <IncludedBand style={{ marginTop: 36 }}>
@@ -813,19 +809,38 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           Vos clients posent déjà leurs questions à ChatGPT ou Perplexity. Le{" "}
           <InlineLink href="/referencement-ia/">référencement IA</InlineLink>, aussi appelé GEO,
           consiste à faire de votre entreprise la réponse que ces moteurs citent.
-          Nous le mesurons réellement, requête par requête&nbsp;: jamais au doigt mouillé.
+          Trouvé sur Google, cité par les IA&nbsp;: chaque résultat est mesuré, pas promis. Les
+          mêmes questions sont reposées chaque mois, à l&rsquo;identique, et le tableau dit ce
+          qui a bougé.
         </SectionIntro>
 
         <OfferList>
           <OfferRow>
             <OfferBody>
-              <OfferName>Audit de visibilité IA</OfferName>
+              <OfferName>Test «&nbsp;Votre nom sort-il&nbsp;?&nbsp;»</OfferName>
               <OfferDesc>
-                Mesure réelle de vos citations sur ChatGPT, Perplexity, Gemini et Mistral,
-                analyse sur 5 piliers, plan d&rsquo;action priorisé.
+                Cinq questions qu&rsquo;un de vos clients poserait, posées à ChatGPT et à
+                Perplexity. Sous 48&nbsp;h ouvrées, une page&nbsp;: votre nom sort-il, qui sort à
+                votre place, et quelles pages ces moteurs lisent pour répondre.
               </OfferDesc>
             </OfferBody>
-            <OfferPrice>490&nbsp;€</OfferPrice>
+            <OfferPrice>Gratuit</OfferPrice>
+          </OfferRow>
+
+          <OfferRow>
+            <OfferBody>
+              <OfferName>Audit référencement IA</OfferName>
+              <OfferDesc>
+                Vingt questions de vos clients, posées à ChatGPT, Perplexity, Gemini et aux
+                aperçus IA de Google, trois fois chacune, parce que les réponses changent
+                d&rsquo;un appel à l&rsquo;autre. Qui est cité à votre place et d&rsquo;où vient
+                chaque citation, accès des robots IA vérifié sur le site en ligne, contenus
+                citables page par page, plan d&rsquo;action sur 90 jours, restitution
+                d&rsquo;une heure en visio. Déduit de votre première facture si un
+                accompagnement démarre dans les 30 jours.
+              </OfferDesc>
+            </OfferBody>
+            <OfferPrice>790&nbsp;€</OfferPrice>
           </OfferRow>
 
           <OfferRow>
@@ -838,22 +853,42 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
             </OfferBody>
             <OfferPrice>390&nbsp;€</OfferPrice>
           </OfferRow>
-
-          <OfferRow>
-            <OfferBody>
-              <OfferName>Option IA sur un accompagnement</OfferName>
-              <OfferDesc>
-                Ajoutée à Fondations ou Croissance&nbsp;: citations re-mesurées chaque mois et
-                optimisations continues. Incluse dans la formule Référence.
-              </OfferDesc>
-            </OfferBody>
-            <OfferPrice>
-              +200&nbsp;€<small>HT/mois</small>
-            </OfferPrice>
-          </OfferRow>
         </OfferList>
+
+        <SectionTitle as="h3" style={{ fontSize: 24, marginTop: 44 }}>
+          Référencement IA mensuel
+        </SectionTitle>
+        <TierGrid>
+          <TierCard>
+            <TierName>Suivi</TierName>
+            <TierPrice>290&nbsp;€ <span>HT/mois</span></TierPrice>
+            <TierList>
+              <li>Les vingt mêmes questions reposées chaque mois</li>
+              <li>Quatre moteurs, trois passages chacun</li>
+              <li>Tableau de bord en français&nbsp;: citations, concurrents cités, sources</li>
+              <li>30 minutes d&rsquo;échange en visio</li>
+            </TierList>
+          </TierCard>
+          <TierCard highlight>
+            <TierName>Accompagnement</TierName>
+            <TierPrice>790&nbsp;€ <span>HT/mois</span></TierPrice>
+            <TierList>
+              <li>Le suivi mensuel complet</li>
+              <li>Une page réponse ou un contenu citable par mois, chiffres sourcés</li>
+              <li>Les corrections techniques qui en découlent</li>
+              <li>Une action par mois sur les sites tiers que les IA lisent</li>
+              <li>Le SEO de base compris</li>
+            </TierList>
+          </TierCard>
+        </TierGrid>
+        <Note>
+          Sans engagement de durée, préavis de 30 jours. Aucune garantie d&rsquo;être
+          cité&nbsp;: les moteurs changent de réponse d&rsquo;un appel à l&rsquo;autre, et
+          personne ne contrôle leurs choix. Ce qui est garanti, c&rsquo;est une mesure honnête,
+          refaite à l&rsquo;identique chaque mois.
+        </Note>
         <GroupCta>
-          <Button href={CALENDLY}>Parler de référencement IA, 30 min gratuites</Button>
+          <Button href={TEST_IA}>Demander le test gratuit</Button>
           <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
         </GroupCta>
       </Section>
@@ -910,12 +945,17 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           <MarketRow>
             <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Accompagnement SEO mensuel</MarketName>
             <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>500 à 2&nbsp;500&nbsp;€/mois (seo.fr, juin 2026), jusqu&rsquo;à 5&nbsp;000&nbsp;€/mois en agence (relevés 2026)</MarketRange>
-            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>390 à 1&nbsp;190&nbsp;€/mois</MarketMkz>
+            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>390 à 690&nbsp;€/mois</MarketMkz>
           </MarketRow>
           <MarketRow>
             <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Audit référencement IA</MarketName>
-            <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>1&nbsp;500 à 3&nbsp;000&nbsp;€ chez les agences GEO (relevés 2026, marché jeune et peu standardisé)</MarketRange>
-            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>490&nbsp;€</MarketMkz>
+            <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>1&nbsp;200&nbsp;€ chez un consultant indépendant (relevé de septembre 2026), 1&nbsp;500 à 3&nbsp;000&nbsp;€ chez les agences GEO (relevés 2026, marché jeune et peu standardisé)</MarketRange>
+            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>790&nbsp;€</MarketMkz>
+          </MarketRow>
+          <MarketRow>
+            <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Référencement IA mensuel</MarketName>
+            <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>800 à 2&nbsp;000&nbsp;€/mois chez un consultant indépendant, 800 à 3&nbsp;000&nbsp;€/mois en agence (relevés de septembre 2026)</MarketRange>
+            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>290 à 790&nbsp;€/mois</MarketMkz>
           </MarketRow>
           <MarketRow>
             <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Maintenance</MarketName>

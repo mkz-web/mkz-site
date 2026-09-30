@@ -32,7 +32,7 @@ const faq: AuditFaqItem[] = [
   },
   {
     q: "Is it really free?",
-    a: "Yes. The scan is free with no signup, and so is the detailed report sent within 24 business hours. The full audit is a separate paid service (490 €, or 690 € including the real measurement of how ChatGPT, Perplexity and Gemini talk about you), and it is deducted from your first invoice if we start working together within 30 days.",
+    a: "Yes. The scan is free with no signup, and so is the detailed report sent within 24 business hours. The full audit is a separate paid service (490 €; the AI search audit, which measures how ChatGPT, Perplexity, Gemini and Google's AI Overviews talk about you, is 790 €, or 1,090 € for both), and it is deducted from your first invoice if we start working together within 30 days.",
   },
   {
     q: "Why does AI readability matter for the French market?",

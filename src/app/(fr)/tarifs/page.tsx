@@ -27,7 +27,7 @@ const URL = `${SITE}/tarifs/`;
 export const metadata: Metadata = createMetadata("fr", {
   title: "Prix d'un site internet et du référencement : tarifs 2026",
   description:
-    "Prix d'un site internet : 1 490 €. Audit SEO 490 €, référencement dès 390 €/mois, référencement IA dès 490 €. Devis fixe écrit, sans engagement. MKZ (77).",
+    "Prix d'un site internet : 1 490 €. Audit SEO 490 €, référencement dès 390 €/mois, référencement IA : test gratuit, audit 790 €. Devis fixe écrit. MKZ (77).",
   path: "/tarifs/",
 });
 
@@ -50,7 +50,7 @@ const faq: TarifsFaqItem[] = [
   },
   {
     q: "Y a-t-il un engagement de durée sur les prestations mensuelles ?",
-    a: "Non. Accompagnement SEO, maintenance, suivi local : tout s'arrête quand vous le décidez, avec un préavis de 30 jours. Une précision honnête : le référencement est un travail de fond, comptez 6 mois pour des résultats solides. Nous le disons avant de facturer, pas après.",
+    a: "Non. Accompagnement SEO, référencement IA, maintenance, suivi local : tout s'arrête quand vous le décidez, avec un préavis de 30 jours. Une précision honnête : le référencement est un travail de fond, comptez 6 mois pour des résultats solides. Nous le disons avant de facturer, pas après.",
   },
   {
     q: "Existe-t-il des aides pour financer mon site internet ?",
@@ -168,12 +168,12 @@ const offerCatalogSchema = {
       },
       {
         "@type": "Offer",
-        name: "Audit SEO + visibilité IA",
+        name: "Audit SEO + audit référencement IA",
         description:
-          "L'audit complet, plus la mesure réelle des citations par ChatGPT, Perplexity, Gemini et Mistral.",
+          "Les deux audits ensemble : Google d'un côté, ChatGPT, Perplexity, Gemini et les aperçus IA de Google de l'autre. 1 280 € séparément.",
         url: `${URL}#seo`,
         priceCurrency: "EUR",
-        price: "690",
+        price: "1090",
       },
       {
         "@type": "Offer",
@@ -188,24 +188,59 @@ const offerCatalogSchema = {
         "@type": "Offer",
         name: "Accompagnement SEO mensuel",
         description:
-          "Trois formules sans engagement de durée : Fondations, Croissance, Référence (référencement IA inclus).",
+          "Deux formules sans engagement de durée : Fondations, Croissance. Suivi des citations IA en option à 200 € par mois.",
         url: `${URL}#seo`,
         priceSpecification: {
           "@type": "UnitPriceSpecification",
           minPrice: 390,
-          maxPrice: 1190,
+          maxPrice: 690,
           priceCurrency: "EUR",
           unitText: "mois",
         },
       },
       {
         "@type": "Offer",
-        name: "Audit de visibilité IA",
+        name: "Test « Votre nom sort-il ? »",
         description:
-          "Mesure réelle des citations sur ChatGPT, Perplexity, Gemini et Mistral, analyse sur 5 piliers, plan d'action.",
+          "Cinq questions de client posées à ChatGPT et à Perplexity ; sous 48 h ouvrées, une page : le nom sort-il, qui sort à sa place, quelles pages ces moteurs lisent.",
         url: `${URL}#referencement-ia`,
         priceCurrency: "EUR",
-        price: "490",
+        price: "0",
+      },
+      {
+        "@type": "Offer",
+        name: "Audit référencement IA",
+        description:
+          "Vingt questions de clients posées à ChatGPT, Perplexity, Gemini et aux aperçus IA de Google, trois fois chacune ; sources des citations, accès des robots IA, contenus citables, plan d'action sur 90 jours.",
+        url: `${URL}#referencement-ia`,
+        priceCurrency: "EUR",
+        price: "790",
+      },
+      {
+        "@type": "Offer",
+        name: "Suivi référencement IA",
+        description:
+          "Les vingt mêmes questions reposées chaque mois sur quatre moteurs, tableau de bord des citations, sans engagement.",
+        url: `${URL}#referencement-ia`,
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: 290,
+          priceCurrency: "EUR",
+          unitText: "mois",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Accompagnement référencement IA",
+        description:
+          "Le suivi mensuel, plus une page réponse par mois, les corrections techniques, une action sur les sites tiers que les IA lisent et le SEO de base, sans engagement.",
+        url: `${URL}#referencement-ia`,
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: 790,
+          priceCurrency: "EUR",
+          unitText: "mois",
+        },
       },
       {
         "@type": "Offer",
