@@ -29,6 +29,10 @@
 //    routeur client les demande sous un nom à points : chaque lien préchargé sortait en 404
 //    (15 à 17 requêtes par page). `npm run build` enchaîne scripts/aplatir-segments-export.mjs ;
 //    ce contrôle attrape un `next build` lancé seul.
+// 10. ai.txt (ajouté le 04/10/2026) : /ai.txt (format aitxt.ing + lignes Spawning) et
+//     /.well-known/ai.txt (brouillon IETF) existent dans out/ et disent la même chose que la
+//     ligne Content-Signal du robots.txt de out/. Mesuré sur la sortie : la route vérifie déjà
+//     la source au build, ce contrôle attrape une sortie périmée ou un fichier absent.
 
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { resolve, dirname, join, relative } from "node:path";
@@ -240,7 +244,7 @@ for (const [pagePath, page] of localeGraph) {
   }
 }
 
-for (const txt of ["llms.txt", "llms-full.txt", "sitemap.xml"]) {
+for (const txt of ["llms.txt", "llms-full.txt", "sitemap.xml", "ai.txt", ".well-known/ai.txt"]) {
   const p = join(outDir, txt);
   if (!existsSync(p)) {
     errors.push(`${txt} : fichier absent de out/`);
@@ -265,6 +269,43 @@ if (nestedSegmentDirs.length) {
     `${nestedSegmentDirs.length} dossier(s) de segments RSC non aplatis (ex. ${nestedSegmentDirs[0]}) : ` +
       `le préchargement des liens sortira en 404. Lance \`node scripts/aplatir-segments-export.mjs\`.`
   );
+}
+
+// 10. ai.txt cohérent avec le robots.txt servi. Le texte n'est écrit que pour « tout autorisé » :
+// une autre politique dans robots.txt est une erreur ici aussi, jamais une traduction silencieuse.
+{
+  const lire = (rel) => (existsSync(join(outDir, rel)) ? readFileSync(join(outDir, rel), "utf8") : null);
+  const robots = lire("robots.txt");
+  const racine = lire("ai.txt");
+  const wellKnown = lire(".well-known/ai.txt");
+  if (robots && racine && wellKnown) {
+    let groupeEtoile = false;
+    let signal = null;
+    for (const brute of robots.split("\n")) {
+      const ligne = brute.trim();
+      const min = ligne.toLowerCase();
+      if (min.startsWith("user-agent:")) groupeEtoile = ligne.slice(11).trim() === "*";
+      else if (groupeEtoile && signal === null && min.startsWith("content-signal:")) signal = ligne.slice(15).trim();
+    }
+    const valeurs = Object.fromEntries(
+      (signal ?? "").split(",").map((p) => p.split("=").map((x) => x.trim()))
+    );
+    const toutAutorise = ["search", "ai-input", "ai-train"].every((k) => valeurs[k] === "yes");
+    if (!signal) {
+      errors.push("robots.txt : aucune ligne Content-Signal dans le groupe « User-agent: * » (ai.txt ne peut pas être vérifié)");
+    } else if (!toutAutorise) {
+      errors.push(`robots.txt déclare « Content-Signal: ${signal} » : ai.txt est écrit pour « tout autorisé », revoir src/lib/ai-txt.ts`);
+    } else {
+      const lignes = (t) => t.split("\n").map((l) => l.trim());
+      const lr = lignes(racine);
+      const lw = lignes(wellKnown);
+      const attendusRacine = ["User-Agent: *", "Allow: /", `Content-Signal: ${signal}`];
+      const attendusWk = ["Training: allow", "Scraping: allow", "Indexing: allow", "Caching: allow", "Site-URL: https://mkz-consulting.fr"];
+      for (const l of attendusRacine) if (!lr.includes(l)) errors.push(`ai.txt : ligne attendue absente « ${l} »`);
+      for (const l of attendusWk) if (!lw.includes(l)) errors.push(`.well-known/ai.txt : ligne attendue absente « ${l} »`);
+      if (lr.some((l) => /^disallow:/i.test(l))) errors.push("ai.txt : une ligne Disallow contredit le robots.txt (tout autorisé)");
+    }
+  }
 }
 
 const frPages = [...localeGraph.values()].filter((p) => p.lang === "fr").length;

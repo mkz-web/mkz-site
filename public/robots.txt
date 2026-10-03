@@ -1,4 +1,4 @@
-# robots.txt — mkz-consulting.fr
+# robots.txt : mkz-consulting.fr
 # Stratégie GEO-first : les crawlers des moteurs génératifs (ChatGPT, Claude,
 # Perplexity, AI Overviews…) sont explicitement les bienvenus.
 # Content Signals (contentsignals.org) : recherche, usage IA et entraînement autorisés.
@@ -7,7 +7,7 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-# Crawlers IA — accès explicitement autorisé (GEO)
+# Crawlers IA : accès explicitement autorisé (GEO)
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
@@ -27,5 +27,6 @@ User-agent: MistralAI-User
 Allow: /
 
 # Ressource dédiée aux LLM : https://mkz-consulting.fr/llms.txt
+# Contexte et consignes pour les assistants IA (format ai.txt) : https://mkz-consulting.fr/ai.txt
 
 Sitemap: https://mkz-consulting.fr/sitemap.xml

@@ -131,6 +131,7 @@ ${insightsSection}
 - [Politique de confidentialité](${SITE}/politique-confidentialite/)
 - [Legal notice (EN)](${SITE}/en/legal-notice/)
 - [Privacy policy (EN)](${SITE}/en/privacy-policy/)
+- [Contexte et consignes pour les assistants IA (ai.txt)](${SITE}/ai.txt)
 - [Version détaillée pour LLM](${SITE}/llms-full.txt)
 `;
 
