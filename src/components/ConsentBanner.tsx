@@ -213,6 +213,7 @@ export default function ConsentBanner({ locale = "fr" }: { locale?: Locale }) {
       aria-labelledby="mkz-consent-title"
       aria-describedby="mkz-consent-text"
       tabIndex={-1}
+      data-consent=""
     >
       <Title id="mkz-consent-title">{t.title}</Title>
       <Text id="mkz-consent-text">

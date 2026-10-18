@@ -112,3 +112,7 @@ audit-data.json
 
 # Veille hebdomadaire autonome (tache planifiee, claude -p) : scripts, prompt, brouillons et journaux, hors du depot public
 /_veille/
+
+# Image sous licence Freepik : sa licence interdit de redistribuer le fichier seul, il ne vit donc
+# pas dans le depot public (servie par le site seulement).
+/public/images/accueil/recherche.webp

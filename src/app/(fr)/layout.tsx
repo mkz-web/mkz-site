@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import ClarityScript from "@/components/ClarityScript";
 import ConsentBanner from "@/components/ConsentBanner";
 import GaScript from "@/components/GaScript";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import RevealMotion from "@/components/RevealMotion";
+import SiteChrome from "@/components/SiteChrome";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import EmotionRegistry from "@/lib/EmotionRegistry";
-import GlobalStyles from "@/lib/GlobalStyles";
 import JsonLd, {
   organizationSchema,
   localBusinessSchema,
@@ -20,6 +17,12 @@ import { createMetadata } from "@/lib/metadata";
 // Le pendant anglais vit dans src/app/(en)/layout.tsx : deux root layouts, donc
 // deux attributs `lang` réellement distincts. Passer de l'un à l'autre provoque
 // un rechargement complet, comportement attendu pour un changement de langue.
+//
+// Styles globaux, en-tête, <main> et pied de page passent par SiteChrome : l'accueil
+// (nouvelle charte, 19/10/2026) apporte les siens. Les préchargements de polices du
+// site y vivent aussi, pour ne pas précharger sur l'accueil des polices qu'il n'utilise pas.
+// suppressHydrationWarning sur <html> : le script d'amorce de l'accueil y pose la classe
+// « js » avant l'hydratation.
 
 export const metadata: Metadata = createMetadata("fr", { path: "/" });
 
@@ -29,11 +32,8 @@ export default function FrRootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <JsonLd data={organizationSchema} />
         <JsonLd data={localBusinessSchema} />
         <JsonLd data={websiteSchema} />
@@ -41,11 +41,7 @@ export default function FrRootLayout({
       </head>
       <body>
         <EmotionRegistry>
-          <GlobalStyles />
-          <RevealMotion />
-          <Header locale="fr" />
-          <main id="main-content" tabIndex={-1} style={{ flex: 1, paddingTop: 73 }}>{children}</main>
-          <Footer locale="fr" />
+          <SiteChrome locale="fr">{children}</SiteChrome>
           <WhatsAppButton locale="fr" />
           <ConsentBanner locale="fr" />
         </EmotionRegistry>

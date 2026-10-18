@@ -7,10 +7,7 @@ import { theme } from "./theme";
 const GRAIN =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E";
 
-export default function GlobalStyles() {
-  return (
-    <Global
-      styles={css`
+const polices = css`
         /* Polices auto-hébergées (public/fonts/, voir scripts/download-fonts.mjs) */
         @font-face {
           font-family: "Fraunces";
@@ -100,7 +97,39 @@ export default function GlobalStyles() {
           descent-override: 24.89%;
           line-gap-override: 0%;
         }
+`;
 
+// Accueil (« / », nouvelle charte, 19/10/2026) : la page porte sa propre feuille
+// (src/components/accueil/accueil.css). On ne garde que ce dont ont besoin les deux
+// éléments du site affichés par-dessus, le bandeau de consentement et la bulle WhatsApp.
+const minimal = css`
+  html[data-consent-open="1"] [data-whatsapp] {
+    display: none;
+  }
+  [data-consent],
+  [data-consent] *,
+  [data-consent] *::before,
+  [data-consent] *::after,
+  [data-whatsapp],
+  [data-whatsapp] *,
+  [data-whatsapp] *::before,
+  [data-whatsapp] *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  [data-consent] a,
+  [data-whatsapp] {
+    color: inherit;
+    text-decoration: none;
+  }
+  [data-consent] input,
+  [data-consent] button {
+    font-family: inherit;
+  }
+`;
+
+const complet = css`
         *,
         *::before,
         *::after {
@@ -177,7 +206,8 @@ export default function GlobalStyles() {
             transition-duration: 0.01ms !important;
           }
         }
-      `}
-    />
-  );
+`;
+
+export default function GlobalStyles({ minimal: reduit = false }: { minimal?: boolean }) {
+  return <Global styles={reduit ? [polices, minimal] : [polices, complet]} />;
 }
