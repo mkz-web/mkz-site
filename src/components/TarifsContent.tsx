@@ -207,6 +207,20 @@ const TierGrid = styled.div`
   }
 `;
 
+// Trois paliers côte à côte seulement à partir de 1 024 px : entre 768 et 1 024 px, une
+// grille à deux colonnes laisserait le troisième palier seul sur sa ligne.
+const TierGrid3 = styled(TierGrid)`
+  max-width: none;
+  @media (min-width: ${theme.breakpoints.md}) {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
+  @media (min-width: ${theme.breakpoints.lg}) {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+  }
+`;
+
 const TierCard = styled.div<{ highlight?: boolean }>`
   border: 1px solid ${({ highlight }) => (highlight ? theme.colors.ctaInk : theme.colors.borderInk)};
   border-radius: ${theme.radius.lg};
@@ -541,6 +555,7 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
         <a href="#creation-site">Création de site</a>
         <a href="#seo">Référencement SEO</a>
         <a href="#referencement-ia">Référencement IA</a>
+        <a href="#accompagnement">Accompagnement mensuel</a>
         <a href="#pack">Pack Décollage</a>
         <a href="#marche">Repères marché</a>
         <a href="#faq">Questions</a>
@@ -702,7 +717,8 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
         <SectionKicker>02 · Référencement SEO</SectionKicker>
         <SectionTitle>Être trouvé sur Google</SectionTitle>
         <SectionIntro>
-          Audit d&rsquo;abord, accompagnement ensuite&nbsp;: on ne vend pas un abonnement
+          Audit d&rsquo;abord,{" "}
+          <InlineLink href="#accompagnement">accompagnement</InlineLink> ensuite&nbsp;: on ne vend pas un abonnement
           avant d&rsquo;avoir mesuré où vous en êtes. La méthode complète est sur la page{" "}
           <InlineLink href="/referencement-seo/">référencement SEO</InlineLink>.
         </SectionIntro>
@@ -757,37 +773,6 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           </OfferRow>
         </OfferList>
 
-        <SectionTitle as="h3" style={{ fontSize: 24, marginTop: 44 }}>
-          Accompagnement SEO mensuel
-        </SectionTitle>
-        <TierGrid>
-          <TierCard>
-            <TierName>Fondations</TierName>
-            <TierPrice>390&nbsp;€ <span>HT/mois</span></TierPrice>
-            <TierList>
-              <li>1 article optimisé par mois</li>
-              <li>Optimisations continues du site</li>
-              <li>Suivi des positions, rapport chiffré</li>
-            </TierList>
-          </TierCard>
-          <TierCard highlight>
-            <TierName>Croissance <OfferBadge>La plus choisie</OfferBadge></TierName>
-            <TierPrice>690&nbsp;€ <span>HT/mois</span></TierPrice>
-            <TierList>
-              <li>2 articles optimisés par mois</li>
-              <li>1 à 2 liens entrants de qualité</li>
-              <li>Suivi de votre visibilité locale</li>
-              <li>1&nbsp;h de conseil en visio</li>
-            </TierList>
-          </TierCard>
-        </TierGrid>
-        <Note>
-          Sans engagement de durée, préavis de 30 jours. Le référencement est un travail de
-          fond&nbsp;: comptez 6 mois pour des résultats solides. Nous vous le disons avant de
-          facturer, pas après. Le suivi mensuel des citations IA s&rsquo;ajoute à l&rsquo;une ou
-          l&rsquo;autre formule pour 200&nbsp;€&nbsp;HT par mois.
-        </Note>
-
         <IncludedBand style={{ marginTop: 36 }}>
           <IncludedTitle>À la carte</IncludedTitle>
           <IncludedGrid>
@@ -809,7 +794,8 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
           Vos clients posent déjà leurs questions à ChatGPT ou Perplexity. Le{" "}
           <InlineLink href="/referencement-ia/">référencement IA</InlineLink>, aussi appelé GEO,
           consiste à faire de votre entreprise la réponse que ces moteurs citent.
-          Trouvé sur Google, cité par les IA&nbsp;: chaque résultat est mesuré, pas promis. Les
+          Trouvé sur Google, cité par les IA&nbsp;: chaque résultat est mesuré, pas promis. Dans
+          l&rsquo;<InlineLink href="#accompagnement">accompagnement mensuel</InlineLink>, les
           mêmes questions sont reposées chaque mois, à l&rsquo;identique, et le tableau dit ce
           qui a bougé.
         </SectionIntro>
@@ -854,41 +840,72 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
             <OfferPrice>390&nbsp;€</OfferPrice>
           </OfferRow>
         </OfferList>
+        <GroupCta>
+          <Button href={TEST_IA}>Demander le test gratuit</Button>
+          <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
+        </GroupCta>
+      </Section>
 
-        <SectionTitle as="h3" style={{ fontSize: 24, marginTop: 44 }}>
-          Référencement IA mensuel
-        </SectionTitle>
-        <TierGrid>
+      {/* ── 4. Accompagnement mensuel ── */}
+      {/* Une seule grille pour Google et les IA depuis le 21/10/2026 : les anciennes
+          formules SEO (390, 690, +200 de suivi IA) et IA (accompagnement à 790)
+          vendaient le même travail sous deux noms. Prix = somme de l'ancien palier SEO
+          et du suivi IA, donc inchangé pour qui prenait les deux. */}
+      <Section id="accompagnement">
+        <SectionKicker>04 · Accompagnement mensuel</SectionKicker>
+        <SectionTitle>Trouvé sur Google, cité par les IA</SectionTitle>
+        <SectionIntro>
+          Une seule formule pour les deux, parce que le travail est le même&nbsp;: des
+          contenus qui répondent clairement, avec des chiffres sourcés et datés, un site
+          techniquement propre, des mentions sur les sites que Google et les IA lisent. Ce
+          qui change, c&rsquo;est ce qu&rsquo;on mesure. Chaque formule mesure les deux,
+          chaque mois, à l&rsquo;identique&nbsp;: vos positions et vos clics sur Google, vos
+          citations par ChatGPT, Perplexity, Gemini et les aperçus IA de Google.
+        </SectionIntro>
+
+        <TierGrid3>
           <TierCard>
             <TierName>Suivi</TierName>
             <TierPrice>290&nbsp;€ <span>HT/mois</span></TierPrice>
             <TierList>
-              <li>Les vingt mêmes questions reposées chaque mois</li>
-              <li>Quatre moteurs, trois passages chacun</li>
-              <li>Tableau de bord en français&nbsp;: citations, concurrents cités, sources</li>
+              <li>Vos positions et vos clics, relevés dans votre Search Console</li>
+              <li>Vingt questions de vos clients, posées à quatre moteurs IA, trois fois chacune</li>
+              <li>Tableau de bord en français&nbsp;: ce qui a bougé, qui est cité à votre place, d&rsquo;où viennent les citations</li>
               <li>30 minutes d&rsquo;échange en visio</li>
             </TierList>
           </TierCard>
-          <TierCard highlight>
-            <TierName>Accompagnement</TierName>
-            <TierPrice>790&nbsp;€ <span>HT/mois</span></TierPrice>
+          <TierCard>
+            <TierName>Essentiel</TierName>
+            <TierPrice>590&nbsp;€ <span>HT/mois</span></TierPrice>
             <TierList>
-              <li>Le suivi mensuel complet</li>
-              <li>Une page réponse ou un contenu citable par mois, chiffres sourcés</li>
-              <li>Les corrections techniques qui en découlent</li>
-              <li>Une action par mois sur les sites tiers que les IA lisent</li>
-              <li>Le SEO de base compris</li>
+              <li>Tout le Suivi</li>
+              <li>Un contenu par mois, écrit pour Google et pour les IA</li>
+              <li>Optimisations et corrections techniques continues</li>
             </TierList>
           </TierCard>
-        </TierGrid>
+          <TierCard highlight>
+            <TierName>Croissance</TierName>
+            <TierPrice>890&nbsp;€ <span>HT/mois</span></TierPrice>
+            <TierList>
+              <li>Tout l&rsquo;Essentiel</li>
+              <li>Un deuxième contenu par mois</li>
+              <li>1 à 2 liens ou mentions par mois sur des sites reconnus</li>
+              <li>Suivi de votre visibilité locale</li>
+              <li>1&nbsp;h de conseil en visio</li>
+            </TierList>
+          </TierCard>
+        </TierGrid3>
         <Note>
-          Sans engagement de durée, préavis de 30 jours. Aucune garantie d&rsquo;être
-          cité&nbsp;: les moteurs changent de réponse d&rsquo;un appel à l&rsquo;autre, et
-          personne ne contrôle leurs choix. Ce qui est garanti, c&rsquo;est une mesure honnête,
-          refaite à l&rsquo;identique chaque mois.
+          Sans engagement de durée, préavis de 30 jours. Le Suivi convient à une entreprise
+          qui a déjà son équipe ou son prestataire et veut une mesure indépendante. Sur
+          Google, comptez 6 mois pour des résultats solides&nbsp;: nous le disons avant de
+          facturer, pas après. Côté IA, aucune garantie d&rsquo;être cité&nbsp;: les moteurs
+          changent de réponse d&rsquo;un appel à l&rsquo;autre, et personne ne contrôle leurs
+          choix. Ce qui est garanti, c&rsquo;est une mesure honnête, refaite à
+          l&rsquo;identique chaque mois.
         </Note>
         <GroupCta>
-          <Button href={TEST_IA}>Demander le test gratuit</Button>
+          <Button href={CALENDLY}>Choisir ma formule, 30 min gratuites</Button>
           <span>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</span>
         </GroupCta>
       </Section>
@@ -943,19 +960,14 @@ export default function TarifsContent({ faq }: { faq: TarifsFaqItem[] }) {
             <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>490&nbsp;€</MarketMkz>
           </MarketRow>
           <MarketRow>
-            <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Accompagnement SEO mensuel</MarketName>
-            <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>500 à 2&nbsp;500&nbsp;€/mois (seo.fr, juin 2026), jusqu&rsquo;à 5&nbsp;000&nbsp;€/mois en agence (relevés 2026)</MarketRange>
-            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>390 à 690&nbsp;€/mois</MarketMkz>
-          </MarketRow>
-          <MarketRow>
             <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Audit référencement IA</MarketName>
             <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>1&nbsp;200&nbsp;€ chez un consultant indépendant (relevé de septembre 2026), 1&nbsp;500 à 3&nbsp;000&nbsp;€ chez les agences GEO (relevés 2026, marché jeune et peu standardisé)</MarketRange>
             <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>790&nbsp;€</MarketMkz>
           </MarketRow>
           <MarketRow>
-            <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Référencement IA mensuel</MarketName>
-            <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>800 à 2&nbsp;000&nbsp;€/mois chez un consultant indépendant, 800 à 3&nbsp;000&nbsp;€/mois en agence (relevés de septembre 2026)</MarketRange>
-            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>290 à 790&nbsp;€/mois</MarketMkz>
+            <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Accompagnement mensuel SEO + IA</MarketName>
+            <MarketRange><MarketCellLabel>Marché France</MarketCellLabel>SEO&nbsp;: 500 à 2&nbsp;500&nbsp;€/mois (seo.fr, juin 2026), jusqu&rsquo;à 5&nbsp;000&nbsp;€/mois en agence (relevés 2026). Référencement IA&nbsp;: 800 à 2&nbsp;000&nbsp;€/mois chez un consultant indépendant, 800 à 3&nbsp;000&nbsp;€/mois en agence (relevés de septembre 2026)</MarketRange>
+            <MarketMkz><MarketCellLabel>Chez MKZ</MarketCellLabel>290 à 890&nbsp;€/mois, les deux compris</MarketMkz>
           </MarketRow>
           <MarketRow>
             <MarketName><MarketCellLabel>Prestation</MarketCellLabel>Maintenance</MarketName>

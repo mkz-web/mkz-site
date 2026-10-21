@@ -21,13 +21,17 @@ import TarifsContent, { type TarifsFaqItem } from "@/components/TarifsContent";
 // « prix » (1 000/mois) ni « devis » (590/mois, +126 % sur le semestre). Le
 // title porte désormais le mot que les gens tapent, la FAQ répond à « devis ».
 // Mesure à J+30 : impressions de /tarifs/ sur « prix site internet ».
+// Grille mensuelle fusionnée le 21/10/2026 (décision de Mickaël) : l'accompagnement
+// SEO (Fondations 390, Croissance 690, suivi IA +200) et l'accompagnement IA (790)
+// vendaient le même travail ; une seule grille Google + IA, Suivi 290, Essentiel 590,
+// Croissance 890, la mesure des deux comprise à chaque palier.
 
 const URL = `${SITE}/tarifs/`;
 
 export const metadata: Metadata = createMetadata("fr", {
   title: "Prix d'un site internet et du référencement : tarifs 2026",
   description:
-    "Prix d'un site internet : 1 490 €. Audit SEO 490 €, référencement dès 390 €/mois, référencement IA : test gratuit, audit 790 €. Devis fixe écrit. MKZ (77).",
+    "Prix d'un site internet : 1 490 €. Audit SEO 490 €, audit IA 790 €, suivi mensuel Google et IA dès 290 €. Devis fixe écrit. MKZ (77).",
   path: "/tarifs/",
 });
 
@@ -50,7 +54,7 @@ const faq: TarifsFaqItem[] = [
   },
   {
     q: "Y a-t-il un engagement de durée sur les prestations mensuelles ?",
-    a: "Non. Accompagnement SEO, référencement IA, maintenance, suivi local : tout s'arrête quand vous le décidez, avec un préavis de 30 jours. Une précision honnête : le référencement est un travail de fond, comptez 6 mois pour des résultats solides. Nous le disons avant de facturer, pas après.",
+    a: "Non. Accompagnement Google et IA, maintenance, suivi local : tout s'arrête quand vous le décidez, avec un préavis de 30 jours. Une précision honnête : le référencement est un travail de fond, comptez 6 mois pour des résultats solides. Nous le disons avant de facturer, pas après.",
   },
   {
     q: "Existe-t-il des aides pour financer mon site internet ?",
@@ -79,7 +83,7 @@ const offerCatalogSchema = {
   "@id": `${URL}#service`,
   name: "Création de site internet, référencement SEO et référencement IA",
   description:
-    "Tarifs 2026 de MKZ : création de site internet en service packagé (optimisation SEO complète et premiers liens entrants inclus dans chaque formule), maintenance, prestations SEO (audit, SEO local, accompagnement mensuel) et référencement IA (GEO). Prix de base HT, devis fixe écrit avant signature.",
+    "Tarifs 2026 de MKZ : création de site internet en service packagé (optimisation SEO complète et premiers liens entrants inclus dans chaque formule), maintenance, prestations SEO (audit, SEO local), référencement IA (GEO) et accompagnement mensuel Google et IA. Prix de base HT, devis fixe écrit avant signature.",
   provider: { "@id": `${SITE}/#organization` },
   url: URL,
   areaServed: [
@@ -186,20 +190,6 @@ const offerCatalogSchema = {
       },
       {
         "@type": "Offer",
-        name: "Accompagnement SEO mensuel",
-        description:
-          "Deux formules sans engagement de durée : Fondations, Croissance. Suivi des citations IA en option à 200 € par mois.",
-        url: `${URL}#seo`,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          minPrice: 390,
-          maxPrice: 690,
-          priceCurrency: "EUR",
-          unitText: "mois",
-        },
-      },
-      {
-        "@type": "Offer",
         name: "Test « Votre nom sort-il ? »",
         description:
           "Cinq questions de client posées à ChatGPT et à Perplexity ; sous 48 h ouvrées, une page : le nom sort-il, qui sort à sa place, quelles pages ces moteurs lisent.",
@@ -218,10 +208,10 @@ const offerCatalogSchema = {
       },
       {
         "@type": "Offer",
-        name: "Suivi référencement IA",
+        name: "Accompagnement Google et IA : Suivi",
         description:
-          "Les vingt mêmes questions reposées chaque mois sur quatre moteurs, tableau de bord des citations, sans engagement.",
-        url: `${URL}#referencement-ia`,
+          "Chaque mois : positions et clics Google relevés dans la Search Console, vingt questions de clients posées à quatre moteurs IA trois fois chacune, tableau de bord, 30 minutes d'échange. Sans engagement.",
+        url: `${URL}#accompagnement`,
         priceSpecification: {
           "@type": "UnitPriceSpecification",
           price: 290,
@@ -231,13 +221,26 @@ const offerCatalogSchema = {
       },
       {
         "@type": "Offer",
-        name: "Accompagnement référencement IA",
+        name: "Accompagnement Google et IA : Essentiel",
         description:
-          "Le suivi mensuel, plus une page réponse par mois, les corrections techniques, une action sur les sites tiers que les IA lisent et le SEO de base, sans engagement.",
-        url: `${URL}#referencement-ia`,
+          "Le Suivi, plus un contenu par mois écrit pour Google et pour les IA, et les optimisations et corrections techniques continues. Sans engagement.",
+        url: `${URL}#accompagnement`,
         priceSpecification: {
           "@type": "UnitPriceSpecification",
-          price: 790,
+          price: 590,
+          priceCurrency: "EUR",
+          unitText: "mois",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Accompagnement Google et IA : Croissance",
+        description:
+          "L'Essentiel, plus un deuxième contenu par mois, 1 à 2 liens ou mentions sur des sites reconnus, le suivi de la visibilité locale et 1 h de conseil. Sans engagement.",
+        url: `${URL}#accompagnement`,
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: 890,
           priceCurrency: "EUR",
           unitText: "mois",
         },
