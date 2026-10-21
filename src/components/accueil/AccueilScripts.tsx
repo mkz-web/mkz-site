@@ -167,11 +167,12 @@ function animer(page: HTMLElement, nav: HTMLElement): () => void {
       (c: Gsap) => {
         const grand: boolean = c.conditions.grand;
 
-        /* 1 · Entrée du hero */
+        /* 1 · Entrée du hero : translation seule, le texte reste visible dès le premier rendu
+           (un fondu depuis l'opacité 0 retardait le LCP de 1,7 s sur mobile, mesuré le 22/10/2026) */
         gsap.fromTo(
           ".hero [data-entree]",
-          { opacity: 0, y: 22 },
-          { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.08, delay: 0.1 }
+          { y: 22 },
+          { y: 0, duration: 0.9, ease: "power3.out", stagger: 0.08, delay: 0.1 }
         );
 
         /* 1 bis · Motion design du hero : le site se construit, puis il grimpe sur Google */

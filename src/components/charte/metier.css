@@ -392,7 +392,8 @@
 .js .charte [data-entree].entre { opacity: 1; transform: none; }
 /* Intégration (21/10/2026) : translation seule, sans opacité. Règle du site depuis le 14/09/2026 :
    aucun contenu masqué par CSS en attendant le défilement (un moteur de rendu qui ne défile pas le
-   verrait vide). L'entrée du haut de page ([data-entree]) garde son fondu : elle part au chargement. */
+   verrait vide). L'entrée du haut de page ([data-entree]) a perdu son fondu le 22/10/2026 : il
+   retardait l'affichage du texte principal (LCP), voir charte.css. */
 .revele-pret .charte [data-revele] { transform: translateY(26px); transition: transform .9s var(--rebond); transition-delay: calc(var(--i, 0) * 90ms); }
 .revele-pret .charte [data-revele].vu { opacity: 1; transform: none; }
 

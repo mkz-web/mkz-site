@@ -184,8 +184,9 @@ body:has(.charte) { margin: 0; font-family: var(--f-texte); font-size: 1.0625rem
 .charte .note-google { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px; justify-self: start; padding: 6px 12px 6px 10px; border-radius: 999px; background: linear-gradient(90deg, var(--lavande-clair), #FBE9F2); }
 .charte .note-google .etoile { color: var(--orange-dense); }
 .charte .etoiles, .charte .avis__etoiles { color: var(--orange); }
-.js .charte [data-entree] { opacity: 0; }
-.js-secours .charte [data-entree] { opacity: 1 !important; }
+/* Intégration (22/10/2026) : l'entrée du haut de page ne masque plus le texte (translation seule,
+   plus d'opacité 0 au départ). Masqué jusqu'à l'animation, le chapeau de l'accueil était l'élément
+   LCP et s'affichait à 2,7 s au lieu de 1,0 s sur mobile (profil Lighthouse, mesuré le 22/10/2026). */
 
 /* Animation du hero (unités du conteneur) */
 .charte .anim { position: relative; width: 100%; max-width: 600px; justify-self: end; aspect-ratio: 1 / .92; container-type: inline-size; }
