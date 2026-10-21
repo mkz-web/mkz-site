@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import AboutContent from "@/components/AboutContent";
+import AProposCharte from "@/components/charte/pages/AProposCharte";
 
 export const metadata: Metadata = createMetadata("fr", {
   // Retitrage du 03/09/2026 (analyse des intentions du 02/09) : « consultant seo »
@@ -13,5 +13,5 @@ export const metadata: Metadata = createMetadata("fr", {
 });
 
 export default function AboutPage() {
-  return <AboutContent />;
+  return <AProposCharte />;
 }

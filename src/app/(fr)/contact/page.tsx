@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import ContactContent from "@/components/ContactContent";
+import ContactCharte from "@/components/charte/pages/ContactCharte";
 
 export const metadata: Metadata = createMetadata("fr", {
   // Retitrage du 03/09/2026 (analyse des intentions du 02/09) : « devis site
@@ -13,5 +13,5 @@ export const metadata: Metadata = createMetadata("fr", {
 });
 
 export default function ContactPage() {
-  return <ContactContent />;
+  return <ContactCharte />;
 }

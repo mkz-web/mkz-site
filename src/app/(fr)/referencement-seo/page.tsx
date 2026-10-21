@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierSeo from "@/components/charte/pages/PilierSeo";
 import pillar from "@/content/pillars/referencement-seo";
 
 const URL = `${SITE}/referencement-seo/`;
@@ -42,21 +42,7 @@ export default function ReferencementSeoPage() {
           { name: "Référencement SEO" },
         ])}
       />
-      <PillarContent
-        visual={{ src: "/images/piliers/pilier-referencement-seo.webp", w: 896, h: 1071, alt: "Un artisan fier debout sur la première marche d'un podium, gravure à l'encre" }}
-        data={{
-          badge: pillar.heroBadge,
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "Et si on regardait votre visibilité Google ?",
-            text: "Audit gratuit de 30 minutes : où vous en êtes, ce que font vos concurrents, et les actions qui rapporteraient le plus, expliqué sans jargon.",
-            button: "Réserver mon audit SEO gratuit",
-          },
-        }}
-      />
+      <PilierSeo />
     </>
   );
 }

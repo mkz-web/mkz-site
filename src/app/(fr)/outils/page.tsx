@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, SITE } from "@/lib/schema";
-import ToolsContent, { type ToolsPageContent } from "@/components/ToolsContent";
+import { type ToolsPageContent } from "@/components/ToolsContent";
+import OutilsCharte from "@/components/charte/pages/OutilsCharte";
 
 // Hub des outils gratuits, créé le 22/08/2026. Page de NAVIGATION et de
 // conversion, pas une page SEO : aucune requête « outils seo gratuits » n'a
@@ -137,7 +138,7 @@ export default function OutilsPage() {
           { name: "Outils gratuits" },
         ])}
       />
-      <ToolsContent locale="fr" content={content} />
+      <OutilsCharte />
     </>
   );
 }

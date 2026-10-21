@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import TarifsContent, { type TarifsFaqItem } from "@/components/TarifsContent";
+import { type TarifsFaqItem } from "@/components/TarifsContent";
+import TarifsCharte from "@/components/charte/pages/TarifsCharte";
 
 // Page française uniquement : décision MESURÉE du 20/08/2026, pas un oubli.
 // 8 requêtes anglaises testées via DataForSEO (US : "french seo pricing",
@@ -269,7 +270,7 @@ export default function TarifsPage() {
           { name: "Tarifs" },
         ])}
       />
-      <TarifsContent faq={faq} />
+      <TarifsCharte faq={faq} />
     </>
   );
 }

@@ -117,9 +117,12 @@ function controlerPage(html) {
   }
 
   // Aucun appel a un domaine externe : ni CDN, ni police distante, ni image.
-  const externes = (html.match(/(?:src|href)="https?:\/\/[^"]+"/g) || []).filter(
-    (lien) => !lien.includes('mkz-consulting.fr')
-  );
+  // Un lien <a> n'est pas un appel (rien ne se charge sans clic) : depuis le
+  // passage a la charte du site (21/10/2026), la navigation porte le lien de
+  // prise de rendez-vous. Toute autre balise qui vise un autre domaine bloque.
+  const externes = [...html.matchAll(/<([a-z]+)\b[^>]*?\s(?:src|href)="(https?:\/\/[^"]+)"/g)]
+    .filter(([, balise, url]) => balise !== 'a' && !url.startsWith('https://mkz-consulting.fr'))
+    .map(([, balise, url]) => `<${balise}> ${url}`);
   if (externes.length) problemes.push(`ressource externe referencee : ${externes.join(', ')}`);
 
   const jsonld = (html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1];
@@ -170,6 +173,29 @@ function controlerFaq(html, entrees) {
 
 /* ------------------------------------------------------------ assemblage */
 
+/**
+ * Feuille de la charte du site (maquette codee du 20/10/2026), servie a cote
+ * de la page : build/charte/ garde les trois feuilles de la maquette, non
+ * prefixees (la page est statique, hors de Next), precedees des polices
+ * locales du site. Aucune police distante, aucune image : les seules url()
+ * visent les degrades du sprite de la page.
+ */
+function assemblerCharte() {
+  const polices = [
+    '/* FICHIER GENERE PAR build/build.mjs depuis build/charte/. NE PAS EDITER A LA MAIN. */',
+    '@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("/fonts/inter-latin-var.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }',
+    '@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 500 800; font-display: swap; src: url("/fonts/montserrat-latin-var.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }',
+    ''
+  ].join('\n');
+  const feuilles = ['style.css', 'metier.css', 'pages.css'].map((f) =>
+    readFileSync(join(BUILD_DIR, 'charte', f), 'utf8')
+  );
+  const css = polices + feuilles.join('\n');
+  const distantes = css.match(/url\(\s*["']?(?:https?:)?\/\/[^)]+\)|@import/g);
+  if (distantes) throw new Error(`charte.css refusee, ressource distante : ${distantes.join(', ')}`);
+  return css;
+}
+
 export function writePage(dataset, faq) {
   const templatePath = join(BUILD_DIR, 'index.template.html');
   if (!existsSync(templatePath)) {
@@ -207,6 +233,7 @@ export function writePage(dataset, faq) {
   }
 
   writeFileSync(join(PUBLIC_DIR, 'index.html'), html, 'utf8');
+  writeFileSync(join(PUBLIC_DIR, 'charte.css'), assemblerCharte(), 'utf8');
   writeFileSync(join(PUBLIC_DIR, 'llms.txt'), renderLlmsTxt(dataset, figures, entrees), 'utf8');
 
   return { written: true, bytes: Buffer.byteLength(html, 'utf8'), questions: entrees.length };

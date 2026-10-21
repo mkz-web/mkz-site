@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd, { serviceSchemas } from "@/lib/JsonLd";
-import ServicesContent from "@/components/ServicesContent";
+import ServicesCharte from "@/components/charte/pages/ServicesCharte";
 
 export const metadata: Metadata = createMetadata("fr", {
   title: "Création de site web & SEO pour artisans et TPE",
@@ -16,7 +16,7 @@ export default function ServicesPage() {
       {serviceSchemas.map((s, i) => (
         <JsonLd key={i} data={s} />
       ))}
-      <ServicesContent />
+      <ServicesCharte />
     </>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierAgence77 from "@/components/charte/pages/PilierAgence77";
 import pillar from "@/content/pillars/agence-web-77";
 
 const URL = `${SITE}/agence-web-77/`;
@@ -44,21 +44,7 @@ export default function AgenceWeb77Page() {
           { name: "Agence web Seine-et-Marne (77)" },
         ])}
       />
-      <PillarContent
-        visual={{ src: "/images/piliers/pilier-agence-77.webp", w: 896, h: 1071, alt: "Une carte stylisée avec un grand repère orange planté au milieu des routes et des villages" }}
-        data={{
-          badge: pillar.heroBadge,
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "Une agence web près de chez vous, dans le 77",
-            text: "Basés à Dammartin-en-Goële, nous nous déplaçons partout en Seine-et-Marne. Audit gratuit de 30 minutes, par téléphone ou autour d'un café.",
-            button: "Réserver mon audit gratuit",
-          },
-        }}
-      />
+      <PilierAgence77 />
     </>
   );
 }

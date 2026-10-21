@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import AuditContent, { type AuditFaqItem, type AuditPageContent } from "@/components/audit/AuditContent";
+import { type AuditFaqItem, type AuditPageContent } from "@/components/audit/AuditContent";
+import AuditCharte from "@/components/charte/pages/AuditCharte";
 
 // Page outil : l'audit SEO + IA gratuit en libre-service.
 //
@@ -127,7 +128,7 @@ export default function AuditSeoPage() {
           { name: "Audit SEO gratuit" },
         ])}
       />
-      <AuditContent locale="fr" content={content} faq={faq} />
+      <AuditCharte faq={faq} />
     </>
   );
 }

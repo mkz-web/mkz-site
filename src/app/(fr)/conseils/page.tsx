@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
-import { articles, categories, articlesByCategory, articleUrl, formatDateFr } from "@/lib/articles";
+import { articles, categories, articlesByCategory } from "@/lib/articles";
 import { articleListSchema, breadcrumbSchema, collectionPageSchema } from "@/lib/schema";
-import ConseilsContent from "@/components/conseils/ConseilsContent";
+import ConseilsCharte from "@/components/charte/pages/ConseilsCharte";
+import { versCarte } from "@/components/charte/contenu";
 
 export const metadata: Metadata = createMetadata("fr", {
   title: "Conseils & tutoriels web pour artisans, commerçants et TPE",
@@ -43,23 +44,15 @@ export default function ConseilsPage() {
           { name: "Conseils" },
         ])}
       />
-      <ConseilsContent
-        categories={categories.map((c) => ({
+      <ConseilsCharte
+        rubriques={categories.map((c) => ({
           slug: c.slug,
           name: c.name,
           description: c.description,
-          icon: c.icon,
           url: `/conseils/${c.slug}/`,
-          count: articlesByCategory(c.slug).length,
+          articles: articlesByCategory(c.slug).map(versCarte),
         }))}
-        latest={articles.map((a) => ({
-          title: a.title,
-          excerpt: a.excerpt,
-          url: articleUrl(a),
-          categoryName: categories.find((c) => c.slug === a.category)?.name ?? a.category,
-          dateLabel: formatDateFr(a.datePublished),
-          readingMinutes: a.readingMinutes,
-        }))}
+        derniers={articles.slice(0, 3).map(versCarte)}
       />
     </>
   );

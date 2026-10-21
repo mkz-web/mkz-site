@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierCreation from "@/components/charte/pages/PilierCreation";
 import pillar from "@/content/pillars/creation-site-internet";
 
 const URL = `${SITE}/creation-site-internet/`;
@@ -42,21 +42,7 @@ export default function CreationSiteInternetPage() {
           { name: "Création de site internet" },
         ])}
       />
-      <PillarContent
-        visual={{ src: "/images/piliers/pilier-creation-site.webp", w: 896, h: 1071, alt: "Une devanture artisanale éclairée qui attire deux passants, gravure à l'encre" }}
-        data={{
-          badge: pillar.heroBadge,
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "Parlons de votre futur site",
-            text: "30 minutes au téléphone : on regarde votre projet, votre marché local et on vous donne un plan d'action concret, que vous travailliez avec nous ou non.",
-            button: "Réserver mon audit gratuit",
-          },
-        }}
-      />
+      <PilierCreation />
     </>
   );
 }

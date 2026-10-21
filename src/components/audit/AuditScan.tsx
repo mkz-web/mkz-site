@@ -361,7 +361,16 @@ const RescanButton = styled.button`
 
 // ── Composant ───────────────────────────────────────────────────────────────
 
-export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
+export default function AuditScan({
+  locale = "fr",
+  formulaireExterne,
+}: {
+  locale?: Locale;
+  // Nouvelle charte (21/10/2026) : id d'un formulaire posé par la page (champ name="site"),
+  // qui remplace le champ de ce composant. Les résultats s'affichent alors dans une section
+  // à part, absente tant qu'aucun scan n'est lancé. Sans cette option, rien ne change.
+  formulaireExterne?: string;
+}) {
   const t = ui[locale].audit;
   const privacyHref = locale === "fr" ? "/politique-confidentialite/" : "/en/privacy-policy/";
 
@@ -409,6 +418,21 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
     }
   }
 
+  // Formulaire externe (nouvelle charte) : on lit son champ et on écoute sa soumission. Déclaré
+  // avant l'effet ?site= ci-dessous, qui soumet alors ce formulaire-là.
+  const runRef = useRef<(e: React.FormEvent | Event) => void>(() => {});
+  useEffect(() => {
+    if (!formulaireExterne) return;
+    const form = document.getElementById(formulaireExterne) as HTMLFormElement | null;
+    const champ = form?.querySelector<HTMLInputElement>('input[name="site"]') ?? null;
+    if (!form || !champ) return;
+    formRef.current = form;
+    urlRef.current = champ;
+    const surEnvoi = (e: Event) => runRef.current(e);
+    form.addEventListener("submit", surEnvoi);
+    return () => form.removeEventListener("submit", surEnvoi);
+  }, [formulaireExterne]);
+
   // ?site=exemple.fr : pré-remplit et lance le scan à l'arrivée (28/08/2026).
   // Sert les liens de scan partageables (mail, rapport) et la capture
   // reproductible des visuels du site. Une seule fois, au montage.
@@ -431,7 +455,7 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
     return res.json();
   }
 
-  async function run(e: React.FormEvent) {
+  async function run(e: React.FormEvent | Event) {
     e.preventDefault();
     const url = urlRef.current?.value.trim();
     if (!url || status === "running") return;
@@ -515,6 +539,8 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
     }
   }
 
+  runRef.current = run;
+
   const measurable = checks.filter((c) => c.status !== "na");
   const points = measurable.reduce((s, c) => s + c.points, 0);
   const maxMeasurable = measurable.reduce((s, c) => s + c.max, 0);
@@ -539,8 +565,9 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
     autoriteChecks.length > 0 &&
     autoriteChecks.every((c) => c.status === "na" && c.data.reason !== "sans-liens");
 
-  return (
+  const contenu = (
     <Wrap>
+      {!formulaireExterne && (
       <InputRow ref={formRef} onSubmit={run}>
         <label htmlFor="audit-url" style={{ position: "absolute", left: "-9999px" }}>
           {t.urlLabel}
@@ -558,6 +585,7 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
           {t.start}
         </StartButton>
       </InputRow>
+      )}
 
       {status === "running" && phase && <PhaseLine aria-live="polite">{t.phases[phase]}</PhaseLine>}
       {error && <ErrorLine role="alert">{error}</ErrorLine>}
@@ -714,5 +742,14 @@ export default function AuditScan({ locale = "fr" }: { locale?: Locale }) {
         </>
       )}
     </Wrap>
+  );
+
+  if (!formulaireExterne) return contenu;
+  // Nouvelle charte : rien tant qu'aucun scan n'est lancé, puis une section de résultats
+  if (status === "idle" && checks.length === 0) return null;
+  return (
+    <section className="section s-blanc audit-resultat" data-theme="clair">
+      <div className="enveloppe">{contenu}</div>
+    </section>
   );
 }

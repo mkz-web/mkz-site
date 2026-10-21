@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import GlobalStyles from "@/lib/GlobalStyles";
+import EmotionRegistry from "@/lib/EmotionRegistry";
+import ConsentBanner from "@/components/ConsentBanner";
+import ChartePage from "@/components/charte/ChartePage";
+import "@/components/charte/metier.css";
+import "@/components/charte/pages.css";
 import { ui } from "@/lib/i18n";
 
 // 404 globale : c'est CE fichier qui produit out/404.html, la page servie par
@@ -15,10 +21,10 @@ import { ui } from "@/lib/i18n";
 // Elle est en français : c'est la langue par défaut du site. Un visiteur perdu
 // dans /en/ obtient la 404 anglaise via src/app/(en)/en/not-found.tsx.
 //
-// En-tête et pied maison en styles inline, PAS les composants Header/Footer :
-// ils supposent l'EmotionRegistry des layouts, absent ici. Constat P3 du check
-// UX du 21/08/2026 : la page servait 21 mots sans aucune navigation. Bouton en
-// #B8420A (ctaInk) et pas #E8590C : blanc sur E8590C = 3,6:1, mesuré le 28/08.
+// Nouvelle charte (maquette codée du 20/10/2026, 404.html) depuis le 21/10/2026 :
+// navigation et pied de page complets, grand « 404 » et raccourcis vers les pages principales.
+// Le bandeau de consentement est monté ici aussi : le bouton « Gérer les cookies » du pied de page
+// l'ouvre, il ne doit pas rester sans effet. Aucun chargeur de mesure d'audience sur cette page.
 
 export const metadata: Metadata = {
   title: "Page introuvable | MKZ",
@@ -27,10 +33,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const navLinks = [
+const raccourcis = [
+  ["/creation-site-internet/", "Création de site"],
+  ["/referencement-seo/", "Référencement SEO"],
+  ["/referencement-ia/", "Référencement IA"],
   ["/conseils/", "Conseils"],
-  ["/outils/", "Outils"],
-  ["/tarifs/", "Tarifs"],
   ["/contact/", "Contact"],
 ] as const;
 
@@ -38,147 +45,27 @@ export default function GlobalNotFound() {
   const t = ui.fr.notFound;
 
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body>
-        <GlobalStyles />
-        <header style={{ background: "#FAF7F1", borderBottom: "1px solid #E3DACA" }}>
-          <nav
-            style={{
-              maxWidth: 1280,
-              margin: "0 auto",
-              padding: "8px 24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 16,
-              flexWrap: "wrap",
-            }}
-          >
-            <a href="/" style={{ display: "inline-flex", alignItems: "center", minHeight: 44 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/mkz-logo.svg" alt="MKZ" width={72} height={37} />
-            </a>
-            <span style={{ display: "inline-flex", flexWrap: "wrap" }}>
-              {navLinks.map(([href, label]) => (
-                <a
-                  key={href}
-                  href={href}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    minHeight: 44,
-                    padding: "0 12px",
-                    color: "#221F1A",
-                    fontSize: 14,
-                    fontWeight: 500,
-                    textDecoration: "none",
-                  }}
-                >
-                  {label}
-                </a>
-              ))}
-            </span>
-          </nav>
-        </header>
-
-        <section
-          style={{
-            minHeight: "calc(100vh - 220px)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "48px 24px",
-            textAlign: "center",
-          }}
-        >
-          <div>
-            <span
-              style={{
-                display: "block",
-                fontFamily: "'Fraunces', 'Fraunces Fallback', Georgia, serif",
-                fontSize: 96,
-                fontWeight: 600,
-                lineHeight: 1,
-                color: "#003764",
-              }}
-            >
-              404
-            </span>
-            <h1 style={{ marginTop: 20, fontSize: 26, fontWeight: 700, color: "#221F1A" }}>
-              {t.title}
-            </h1>
-            <p style={{ marginTop: 10, fontSize: 16, color: "#5E574B" }}>{t.text}</p>
-            <p style={{ marginTop: 32 }}>
-              <a
-                href="/"
-                style={{
-                  display: "inline-flex",
-                  padding: "14px 24px",
-                  background: "#B8420A",
-                  color: "white",
-                  fontSize: 14.5,
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  textDecoration: "none",
-                }}
-              >
-                {t.back}
-              </a>
-            </p>
-          </div>
-        </section>
-
-        <footer style={{ background: "#FAF7F1", borderTop: "1px solid #E3DACA" }}>
-          <p
-            style={{
-              maxWidth: 1280,
-              margin: "0 auto",
-              padding: "8px 24px",
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: "0 8px",
-              fontSize: 13,
-              color: "#5E574B",
-            }}
-          >
-            {(
-              [
-                ["/", "Accueil"],
-                ["/mentions-legales/", "Mentions légales"],
-                ["/politique-confidentialite/", "Politique de confidentialité"],
-              ] as const
-            ).map(([href, label]) => (
-              <a
-                key={href}
-                href={href}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  minHeight: 44,
-                  padding: "0 4px",
-                  color: "#5E574B",
-                }}
-              >
-                {label}
-              </a>
-            ))}
-            <a
-              href="/en/"
-              hrefLang="en"
-              lang="en"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                minHeight: 44,
-                padding: "0 4px",
-                color: "#5E574B",
-              }}
-            >
-              English
-            </a>
-          </p>
-        </footer>
+        <EmotionRegistry>
+          <GlobalStyles minimal />
+          <ChartePage chemin="/404/" classes="page-annexe page-violet">
+            {/* PAGE INTROUVABLE · le texte du site, un grand « 404 » et des raccourcis vers les pages principales */}
+            <section className="e404" data-theme="sombre">
+              <div className="halo-fond" aria-hidden="true"></div>
+              <div className="enveloppe e404__in">
+                <p className="e404__code" aria-hidden="true">404</p>
+                <h1 className="titre-1" data-entree="">{t.title}</h1>
+                <p className="e404__texte" data-entree="">{t.text}</p>
+                <p data-entree=""><Link className="bouton bouton--plein" href="/">{t.back}</Link></p>
+                <nav className="e404__liens" aria-label="Pages principales" data-entree="">
+                  {raccourcis.map(([href, label]) => <Link key={href} href={href}>{label}</Link>)}
+                </nav>
+              </div>
+            </section>
+          </ChartePage>
+          <ConsentBanner locale="fr" />
+        </EmotionRegistry>
       </body>
     </html>
   );

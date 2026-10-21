@@ -61,14 +61,14 @@ const formatNombre = (n: number) =>
 export default function AccueilScripts() {
   useEffect(() => {
     const racine = document.documentElement;
-    const page = document.querySelector<HTMLElement>(".page-accueil");
+    const page = document.querySelector<HTMLElement>(".charte");
     const nav = page?.querySelector<HTMLElement>("#nav");
     if (!page || !nav) return;
 
     let actif = true;
     const nettoyages: Array<() => void> = [];
 
-    // Amorce : le script en ligne de AccueilContent ne s'exécute pas sur une navigation
+    // Amorce : le script en ligne de ChartePage ne s'exécute pas sur une navigation
     // côté client, on repose donc les classes ici (sans effet si elles y sont déjà). Un seul
     // minuteur de secours vit à la fois, rangé dans window.mkzSecours.
     racine.classList.add("js");

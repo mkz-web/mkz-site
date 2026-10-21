@@ -18,694 +18,98 @@
 <script type="application/ld+json">
 <!--__JSONLD__-->
 </script>
-<style>
-/* ------------------------------------------------------------------------
-   Habillage aligne sur le design system du site MKZ v2 : « papier & encre,
-   editorial chantier ». Fond papier chaud, encre quasi noire, navy en encre
-   de titre, orange rationne (deux tons, budget contraste mesure sur le site),
-   filets 1px, angles francs, ombres dures decalees, jamais de flou.
-   La page reste un instrument de mesure : le graphisme porte l'incertitude,
-   un indicateur sans ses deux bornes est impossible a dessiner ici.
-   Polices : celles du site, servies same-origin depuis /fonts/ (la page vit
-   sur mkz-consulting.fr, decision du 15/08/2026). Hors ligne, les replis
-   « X Fallback » aux metriques calees prennent le relais sans deplacer une
-   ligne. Aucun domaine externe n'est appele.
-   ------------------------------------------------------------------------ */
-
-@font-face {
-  font-family: "Fraunces";
-  src: url("/fonts/fraunces-var.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Fraunces";
-  src: url("/fonts/fraunces-italic-var.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Archivo";
-  src: url("/fonts/archivo-var.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IBM Plex Mono";
-  src: url("/fonts/plex-mono-400.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "IBM Plex Mono";
-  src: url("/fonts/plex-mono-500.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-/* Replis aux metriques calees, repris tels quels de GlobalStyles.tsx du site
-   (valeurs trouvees par balayage le 08/08/2026, CLS 0,1412 -> 0,0012).
-   Une seule face par famille, le repli vient juste apres la police web. */
-@font-face {
-  font-family: "Fraunces Fallback";
-  src: local("Georgia"), local("Times New Roman");
-  size-adjust: 104%;
-  ascent-override: 93.99%;
-  descent-override: 24.52%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: "Archivo Fallback";
-  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
-  size-adjust: 99.5%;
-  ascent-override: 88.19%;
-  descent-override: 21.11%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: "Plex Mono Fallback";
-  src: local("Consolas"), local("Menlo"), local("Courier New");
-  size-adjust: 110.5%;
-  ascent-override: 92.76%;
-  descent-override: 24.89%;
-  line-gap-override: 0%;
-}
-
-:root {
-  --papier: #FAF7F1;
-  --surface: #FFFDF8;
-  --sable: #F1EBDF;
-  --encre: #221F1A;
-  --encre-doux: #5E574B;
-  --navy: #003764;
-  --navy-clair: #0B5394;
-  --nuit: #0C1B2A;
-  --nuit-filet: rgba(255, 255, 255, 0.14);
-  --blanc-casse: #F6F1E7;
-  --blanc-casse-doux: rgba(246, 241, 231, 0.72);
-  /* Orange MKZ, budget strict herite du site : --orange (#E8590C) sur fond
-     sombre et gros numeraux >= 24px uniquement ; --orange-encre (#B8420A)
-     pour tout texte orange sur fond clair et les fonds de bouton. */
-  --orange: #E8590C;
-  --orange-encre: #B8420A;
-  --orange-survol: #AD3E03;
-  --filet: #E3DACA;
-  --blanc: #FFFFFF;
-
-  --ui: "Archivo", "Archivo Fallback", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --titre: "Fraunces", "Fraunces Fallback", Georgia, "Times New Roman", serif;
-  --mono: "IBM Plex Mono", "Plex Mono Fallback", Consolas, "Courier New", monospace;
-
-  --largeur: 72rem;
-  --lecture: 44rem;
-  --rayon: 2px;
-  --ombre: 4px 4px 0 rgba(34, 31, 26, 0.10);
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; }
-
-body {
-  margin: 0;
-  background: var(--papier);
-  color: var(--encre);
-  font-family: var(--ui);
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  font-variant-numeric: tabular-nums;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2 { font-family: var(--titre); line-height: 1.15; margin: 0 0 0.6em; font-weight: 600; letter-spacing: -0.01em; color: var(--encre); }
-h1 { font-size: clamp(1.85rem, 1.25rem + 2.6vw, 3rem); }
-h2 { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); }
-h3, h4 { line-height: 1.25; margin: 0 0 0.6em; font-weight: 650; letter-spacing: -0.005em; }
-h3 { font-size: 1.1rem; }
-p { margin: 0 0 1em; }
-p:last-child { margin-bottom: 0; }
-
-a { color: var(--navy); text-underline-offset: 2px; }
-a:hover { color: var(--orange-encre); }
-
-:focus-visible {
-  outline: 3px solid var(--orange-encre);
-  outline-offset: 2px;
-  border-radius: 1px;
-}
-
-.contenu { width: 100%; max-width: var(--largeur); margin: 0 auto; padding: 0 1.15rem; }
-.lecture { max-width: var(--lecture); }
-.discret { color: var(--encre-doux); font-size: 0.9rem; }
-.saut { position: absolute; left: -9999px; }
-.saut:focus { position: static; display: inline-block; padding: 0.5rem 1rem; background: var(--navy); color: var(--blanc); }
-
-/* ----------------------------------------------------------------- entete */
-
-.entete {
-  background: var(--surface);
-  border-bottom: 1px solid var(--filet);
-}
-.entete-barre {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1.25rem;
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
-}
-.marque {
-  font-family: var(--titre);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-decoration: none;
-  color: var(--encre);
-  font-size: 1.1rem;
-}
-.marque span { color: var(--navy); }
-.entete-version {
-  margin-left: auto;
-  font-family: var(--mono);
-  font-size: 0.775rem;
-  color: var(--encre-doux);
-  border: 1px solid var(--filet);
-  border-radius: var(--rayon);
-  padding: 0.15rem 0.5rem;
-  white-space: nowrap;
-  background: var(--papier);
-}
-
-.bandeau-statut {
-  background: var(--sable);
-  border-bottom: 1px solid var(--filet);
-  color: var(--encre-doux);
-  font-size: 0.85rem;
-}
-.bandeau-statut div { padding: 0.5rem 1.15rem; }
-.bandeau-statut strong { font-weight: 650; color: var(--encre); }
-
-/* --------------------------------------------------------------- sections */
-
-section { padding: clamp(2.5rem, 1.5rem + 4vw, 5rem) 0; }
-section + section { border-top: 1px solid var(--filet); }
-.section-titre::before {
-  content: "";
-  display: block;
-  width: 3.5rem;
-  height: 4px;
-  background: var(--orange-encre);
-  margin-bottom: 1.1rem;
-}
-.section-chapeau { color: var(--encre-doux); font-size: 1.075rem; max-width: var(--lecture); }
-
-/* ------------------------------------------------------------- simulateur */
-
-.simulateur { padding-top: clamp(2rem, 1rem + 3vw, 3.5rem); }
-.accroche { max-width: 34ch; }
-.sous-accroche {
-  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
-  color: var(--encre-doux);
-  max-width: var(--lecture);
-  margin-bottom: 2rem;
-}
-.sous-accroche strong { color: var(--encre); font-weight: 650; }
-
-.cartouche {
-  background: var(--surface);
-  border: 1px solid var(--filet);
-  border-top: 4px solid var(--navy);
-  border-radius: var(--rayon);
-  box-shadow: var(--ombre);
-}
-.cartouche-corps { padding: clamp(1.1rem, 0.7rem + 1.4vw, 2rem); }
-.cartouche-pied {
-  padding: 0.85rem clamp(1.1rem, 0.7rem + 1.4vw, 2rem);
-  border-top: 1px solid var(--filet);
-  background: var(--sable);
-  border-radius: 0 0 var(--rayon) var(--rayon);
-  font-size: 0.85rem;
-  color: var(--encre-doux);
-}
-
-.champ-libelle {
-  display: block;
-  font-weight: 650;
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-}
-textarea {
-  width: 100%;
-  min-height: 5.5rem;
-  padding: 0.7rem 0.8rem;
-  font: inherit;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--encre);
-  background: var(--papier);
-  border: 1px solid var(--filet);
-  border-radius: var(--rayon);
-  resize: vertical;
-}
-textarea:hover { border-color: var(--navy-clair); }
-
-.compteur {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1.1rem;
-  margin-top: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--encre-doux);
-}
-.compteur b { color: var(--encre); font-weight: 500; }
-
-.reglages {
-  display: grid;
-  gap: 1.15rem;
-  margin-top: 1.5rem;
-}
-@media (min-width: 46rem) {
-  .reglages { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-}
-
-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
-legend {
-  padding: 0;
-  font-weight: 650;
-  font-size: 0.9rem;
-  margin-bottom: 0.45rem;
-}
-.options { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.options input {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  pointer-events: none;
-}
-.options label {
-  display: inline-block;
-  padding: 0.4rem 0.7rem;
-  font-size: 0.875rem;
-  line-height: 1.35;
-  min-height: 2.75rem;
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--filet);
-  border-radius: var(--rayon);
-  background: var(--papier);
-  color: var(--encre-doux);
-  cursor: pointer;
-  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
-}
-.options label:hover { border-color: var(--navy-clair); color: var(--encre); }
-.options input:checked + label {
-  background: var(--navy);
-  border-color: var(--navy);
-  color: var(--blanc);
-  font-weight: 600;
-}
-.options input:focus-visible + label {
-  outline: 3px solid var(--orange-encre);
-  outline-offset: 2px;
-}
-.reglage-note { margin: 0.45rem 0 0; font-size: 0.8rem; color: var(--encre-doux); }
-
-/* ------------------------------------------------------------ indicateurs */
-
-.indicateurs {
-  display: grid;
-  gap: 1.6rem;
-  margin-top: 1.9rem;
-  padding-top: 1.7rem;
-  border-top: 1px solid var(--filet);
-}
-@media (min-width: 52rem) {
-  .indicateurs { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-}
-
-.indicateur-titre {
-  margin: 0 0 0.15rem;
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--orange-encre);
-}
-/* Chiffre principal en police d'interface, pas en mono : a cette taille, la
-   chasse fixe de la mono creuse un trou beant autour de la virgule. Les
-   chiffres tabulaires suffisent a empecher la valeur de danser. */
-.indicateur-valeur {
-  margin: 0;
-  font-size: clamp(2rem, 1.4rem + 2.2vw, 2.8rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-}
-.indicateur-valeur .unite {
-  font-size: 0.42em;
-  font-weight: 500;
-  color: var(--encre-doux);
-  margin-left: 0.3em;
-  letter-spacing: 0;
-}
-.indicateur-fourchette {
-  margin: 0.55rem 0 0;
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--encre-doux);
-}
-.indicateur-equivalence {
-  margin: 0.5rem 0 0;
-  font-size: 0.9rem;
-  color: var(--encre);
-  border-left: 3px solid var(--orange-encre);
-  padding-left: 0.6rem;
-}
-
-/* --------------------------------------------------- jauge, element signature */
-
-.jauge { display: block; margin-top: 0.85rem; }
-.jauge-piste {
-  position: relative;
-  display: block;
-  height: 14px;
-  background: var(--sable);
-  background-image: repeating-linear-gradient(
-    to right,
-    transparent 0,
-    transparent calc(var(--pas, 20%) - 1px),
-    var(--filet) calc(var(--pas, 20%) - 1px),
-    var(--filet) var(--pas, 20%)
-  );
-  border: 1px solid var(--filet);
-  border-radius: var(--rayon);
-}
-.jauge-bande {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  min-width: 2px;
-  background: var(--navy-clair);
-  transition: left 0.18s ease, width 0.18s ease;
-}
-.jauge-repere {
-  position: absolute;
-  top: -4px;
-  bottom: -4px;
-  width: 3px;
-  margin-left: -1.5px;
-  background: var(--orange-encre);
-  box-shadow: 0 0 0 1.5px var(--surface);
-  transition: left 0.18s ease;
-}
-.jauge-axe {
-  position: relative;
-  display: block;
-  height: 1.25rem;
-  margin-top: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--encre-doux);
-}
-.axe-graduation {
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-.axe-graduation--debut { transform: translateX(0); }
-.axe-graduation--fin { transform: translateX(-100%); }
-.axe-graduation--debut::before { left: 0; }
-.axe-graduation--fin::before { left: auto; right: 0; }
-.axe-graduation::before {
-  content: "";
-  position: absolute;
-  top: -0.45rem;
-  left: 50%;
-  width: 1px;
-  height: 0.3rem;
-  background: var(--filet);
-}
-
-/* --------------------------------------------------------------- tableau */
-
-.tableau-cadre { overflow-x: auto; margin-top: 2rem; }
-.tableau-comparatif {
-  width: 100%;
-  min-width: 44rem;
-  border-collapse: collapse;
-  background: var(--surface);
-  border: 1px solid var(--filet);
-  box-shadow: var(--ombre);
-}
-.tableau-comparatif caption {
-  caption-side: bottom;
-  padding-top: 0.9rem;
-  font-size: 0.85rem;
-  color: var(--encre-doux);
-  text-align: left;
-}
-.tableau-comparatif th, .tableau-comparatif td {
-  padding: 0.85rem 1rem;
-  text-align: left;
-  vertical-align: top;
-  border-bottom: 1px solid var(--filet);
-}
-.tableau-comparatif thead th {
-  background: var(--navy);
-  color: var(--blanc);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  border-bottom: 0;
-}
-.tableau-comparatif tbody tr:last-child th,
-.tableau-comparatif tbody tr:last-child td { border-bottom: 0; }
-.tableau-comparatif tbody tr:nth-child(odd) { background: var(--papier); }
-.tableau-comparatif tbody th { font-weight: 650; width: 15rem; }
-.ligne-titre { display: block; }
-.ligne-detail {
-  display: block;
-  font-weight: 400;
-  font-size: 0.78rem;
-  color: var(--encre-doux);
-  margin-top: 0.15rem;
-}
-.cellule-mesure .valeur {
-  display: block;
-  font-family: var(--mono);
-  font-size: 1.15rem;
-  font-weight: 500;
-}
-.cellule-mesure .unite { font-size: 0.7em; font-weight: 500; color: var(--encre-doux); }
-.cellule-mesure .fourchette {
-  display: block;
-  margin-top: 0.45rem;
-  font-family: var(--mono);
-  font-size: 0.73rem;
-  color: var(--encre-doux);
-}
-.cellule-mesure .jauge { margin-top: 0.5rem; }
-.cellule-mesure .jauge-piste { height: 10px; }
-
-/* ---------------------------------------------------------------- encarts */
-
-.encarts { display: grid; gap: 1.1rem; margin-top: 2rem; }
-@media (min-width: 46rem) { .encarts { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 62rem) { .encarts.quatre { grid-template-columns: repeat(2, 1fr); } }
-
-.encart {
-  background: var(--surface);
-  border: 1px solid var(--filet);
-  border-left: 4px solid var(--navy);
-  border-radius: var(--rayon);
-  padding: 1.15rem 1.25rem;
-  box-shadow: var(--ombre);
-}
-.encart h3 { margin-bottom: 0.4rem; }
-.encart p { font-size: 0.95rem; }
-.encart-chiffre {
-  display: block;
-  font-family: var(--mono);
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--navy);
-  margin-bottom: 0.35rem;
-}
-/* Gros numeral orange vif : autorise par le budget du site au-dela de 24px
-   (seuil 3:1 mesure), jamais sur du texte courant. */
-.encart.accent { border-left-color: var(--orange-encre); }
-.encart.accent .encart-chiffre { color: var(--orange); }
-
-/* ----------------------------------------------------------------- agents */
-
-.agent-panneau { margin-top: 2rem; }
-.curseur-ligne { display: grid; gap: 0.6rem; }
-input[type="range"] {
-  width: 100%;
-  height: 2.75rem;
-  accent-color: var(--navy);
-  cursor: pointer;
-}
-.curseur-valeur {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-/* Seul le mot "appels" est reduit, pas le nombre : sans le :not, la regle
-   rapetissait aussi la valeur. */
-.curseur-valeur span:not([data-champ]) {
-  font-size: 0.55em;
-  color: var(--encre-doux);
-  font-weight: 500;
-  letter-spacing: 0;
-}
-.agent-resultats {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 1.7rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--filet);
-}
-@media (min-width: 46rem) { .agent-resultats { grid-template-columns: 1fr 1fr; } }
-
-/* -------------------------------------------------------------- sources */
-
-.sources { margin: 1.5rem 0 0; padding: 0; list-style: none; }
-.sources li {
-  padding: 0.7rem 0;
-  border-bottom: 1px solid var(--filet);
-  font-size: 0.95rem;
-}
-.sources li:last-child { border-bottom: 0; }
-.sources b { font-weight: 650; }
-.sources span { display: block; color: var(--encre-doux); font-size: 0.875rem; }
-
-/* ------------------------------------------------------------------- FAQ */
-
-.faq-liste { margin-top: 1.8rem; max-width: var(--lecture); }
-/* Maillage sortant vers le cocon IA du site : la page était un cul-de-sac
-   (carte-maillage du 21/08/2026, zéro lien contextuel sortant). Le bloc vit
-   dans le CORPS (fin de la section FAQ), pas dans le pied de page : les sondes
-   de maillage retirent le chrome avant de compter les liens contextuels.
-   Ne jamais écrire une balise de chrome en toutes lettres dans ce commentaire :
-   payé le 21/08/2026, la chaîne déclenchait le strip regex d'une sonde qui
-   avalait 37 Ko de page depuis le head. */
-.suite-liens { margin-top: 1.8rem; max-width: var(--lecture); font-size: 0.97rem; color: var(--encre); }
-.suite-liens a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
-.suite-liens a:hover { color: var(--orange-encre); }
-.faq-item {
-  background: var(--surface);
-  border: 1px solid var(--filet);
-  border-radius: var(--rayon);
-  margin-bottom: 0.6rem;
-}
-.faq-item summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 0.95rem 1.1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  min-height: 2.75rem;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
-  content: "+";
-  margin-left: auto;
-  font-family: var(--mono);
-  font-size: 1.25rem;
-  line-height: 1;
-  color: var(--orange-encre);
-  flex: none;
-}
-.faq-item[open] summary::after { content: "\2212"; }
-.faq-item summary h3 { margin: 0; font-size: 1rem; font-weight: 650; }
-.faq-item summary:hover h3 { color: var(--navy); }
-.faq-reponse { padding: 0 1.1rem 1.1rem; }
-.faq-reponse p { font-size: 0.97rem; color: var(--encre); }
-.faq-reponse p:not(:last-child) { margin-bottom: 0.8rem; }
-
-/* ------------------------------------------------------------------ pied */
-
-.pied {
-  background: var(--nuit);
-  color: var(--blanc-casse);
-  padding: clamp(2.5rem, 1.5rem + 3vw, 4rem) 0 2rem;
-}
-.pied h2 { color: var(--blanc-casse); }
-.pied a { color: var(--blanc-casse); }
-.pied a:hover { color: var(--orange); }
-.pied-offre { max-width: var(--lecture); }
-.pied-cta { margin-top: 1.4rem; }
-.bouton {
-  display: inline-block;
-  background: var(--orange-encre);
-  color: var(--blanc);
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0.75rem 1.4rem;
-  border-radius: var(--rayon);
-  transition: background 0.12s ease;
-}
-.pied .bouton { color: var(--blanc); }
-.pied .bouton:hover { background: var(--orange-survol); color: var(--blanc); }
-.bouton:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
-.pied-coordonnees {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-  margin: 1.5rem 0 0;
-  padding: 1.25rem 0 0;
-  border-top: 1px solid var(--nuit-filet);
-  font-size: 0.95rem;
-}
-.pied-mentions {
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--nuit-filet);
-  font-size: 0.83rem;
-  color: var(--blanc-casse-doux);
-  max-width: 60rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
+<link rel="preload" href="/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/empreinte-ia/charte.css?v=__DATASET_VERSION__">
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('js-secours')},2500);</script>
 </head>
-<body>
-<a class="saut" href="#simulateur">Aller au simulateur</a>
+<body class="page-annexe page-violet">
 
-<header class="entete">
-  <div class="contenu entete-barre">
-    <a class="marque" href="https://mkz-consulting.fr">MKZ <span>Consulting</span></a>
-    <span class="entete-version" title="Version du jeu de données utilisé pour tous les calculs de cette page">__DATASET_LABEL__</span>
+<!-- Sprite de la charte : logo, chevron, pictos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g-haut" gradientUnits="userSpaceOnUse" x1="965.18" y1="177.82" x2="869.13" y2="273.87"><stop offset="0" stop-color="#3B5BD9"/><stop offset="1" stop-color="#8DB2F8"/></linearGradient>
+    <linearGradient id="g-bas" gradientUnits="userSpaceOnUse" x1="942.88" y1="273.88" x2="1038.99" y2="370"><stop offset="0" stop-color="#8DB2F8"/><stop offset=".45" stop-color="#9C9EF7"/><stop offset=".8" stop-color="#705398"/><stop offset="1" stop-color="#EBC49D"/></linearGradient>
+    <linearGradient id="g-exergue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A4089"/><stop offset="1" stop-color="#705398"/></linearGradient>
+    <linearGradient id="g-ico" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stop-color="#2A4089"/><stop offset="1" stop-color="#705398"/></linearGradient>
+    <linearGradient id="g-ico-sombre" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stop-color="#8DB2F8"/><stop offset="1" stop-color="#C9B6F5"/></linearGradient>
+    <linearGradient id="g-anneau" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#705398"/><stop offset=".6" stop-color="#C2558F"/><stop offset="1" stop-color="#E39A5A"/></linearGradient>
+    <linearGradient id="g-ico-chaud" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stop-color="#705398"/><stop offset=".6" stop-color="#C2558F"/><stop offset="1" stop-color="#E39A5A"/></linearGradient>
+    <clipPath id="decoupe"><path d="M1025.22 237.86L978.9 237.86L906.02 310.75L906.08 310.81L906.02 310.87L978.91 383.77L1025.21 383.77L1025.22 383.76L952.27 310.81Z"/></clipPath>
+    <path id="chevron" d="M1025.22 237.86L978.9 237.86L906.02 310.75L906.08 310.81L906.02 310.87L978.91 383.77L1025.21 383.77L1025.22 383.76L952.27 310.81Z"/>
+    <g id="logo-lettres">
+      <path d="M882.1 237.86L882.1 383.78L853.54 383.78L853.54 289.14L812.4 356.83L809.04 356.95L768.08 289.5L768.08 383.78L739.32 383.78L739.32 237.86L768.92 237.86L810.75 306.76L852.38 237.86Z"/>
+      <path d="M1153.75 265.38L1153.79 265.38L1153.79 237.86L1066.62 237.86L1039.13 265.38L1114.84 265.38L1031.55 348.67L1031.66 348.78L1031.66 348.79L1066.61 383.75L1066.68 383.68L1066.7 383.78L1153.79 383.78L1153.79 356.26L1078.62 356.26L1070.75 348.39Z"/>
+      <path d="M1025.22 419.74L906.02 419.74L906.02 404.96L1025.22 404.96Z"/>
+    </g>
+    <g id="logo-chevron" clip-path="url(#decoupe)">
+      <rect x="900" y="230" width="130" height="81" fill="url(#g-haut)"/>
+      <rect x="900" y="310.6" width="130" height="80" fill="url(#g-bas)"/>
+    </g>
+  </defs>
+  <symbol id="i-vitrine" viewBox="0 0 24 24"><path d="M4 10v10h16V10"/><path d="M3 10l2-6h14l2 6"/><path d="M3 10a3 3 0 0 0 6 0a3 3 0 0 0 6 0a3 3 0 0 0 6 0"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-rapport" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M10 11.5a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.7"/><path d="M12 17.6h.01"/></symbol>
+  <symbol id="i-cle" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8"/><path d="M16 7l2.5 2.5"/><path d="M13.5 9.5l2 2"/></symbol>
+  <symbol id="i-bulle" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L5 20v-4H4z"/><path d="M8 9h8M8 12.2h5"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.6 4.6-2.2 1.4a11 11 0 0 0 5.6 5.6l1.4-2.2 4.6 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+  <symbol id="i-oeil" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-libre" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 7.6-1.8"/><path d="M12 15v2"/></symbol>
+  <symbol id="i-etiquette" viewBox="0 0 24 24"><path d="M3.5 12.5V4.5a1 1 0 0 1 1-1h8l8 8a1.4 1.4 0 0 1 0 2l-7 7a1.4 1.4 0 0 1-2 0z"/><circle cx="8" cy="8" r="1.4"/></symbol>
+  <symbol id="i-horloge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-chrono" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5l3-3"/><path d="M10 3h4M12 3v3"/></symbol>
+  <symbol id="i-coche" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5s1.2-6.1 3.8-8.5z"/></symbol>
+  <symbol id="i-serveur" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.5h.01M8 16.5h.01M12 7.5h4M12 16.5h4"/></symbol>
+  <symbol id="i-bouclier" viewBox="0 0 24 24"><path d="M12 3.5l7 2.8v5.2c0 4.3-2.9 7.7-7 9-4.1-1.3-7-4.7-7-9V6.3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+  <symbol id="i-crayon" viewBox="0 0 24 24"><path d="M5 19l.9-4.1L15.6 5.2a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L9.1 18.1z"/><path d="M13.8 7l3.2 3.2"/></symbol>
+  <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3.5" y="6.5" width="17" height="13" rx="2.5"/><path d="M8.5 6.5l1.4-2.5h4.2l1.4 2.5"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-etoile" viewBox="0 0 24 24"><path d="M12 3.8l2.5 5.1 5.6.8-4.1 4 1 5.6-5-2.7-5 2.7 1-5.6-4.1-4 5.6-.8z"/></symbol>
+  <symbol id="i-repere" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+  <symbol id="i-etincelle" viewBox="0 0 24 24"><path d="M11 3.5c.6 3.9 2.6 5.9 6.5 6.5-3.9.6-5.9 2.6-6.5 6.5-.6-3.9-2.6-5.9-6.5-6.5 3.9-.6 5.9-2.6 6.5-6.5z"/><path d="M18.5 15c.3 1.7 1 2.4 2.5 2.7-1.5.3-2.2 1-2.5 2.7-.3-1.7-1-2.4-2.5-2.7 1.5-.3 2.2-1 2.5-2.7z"/></symbol>
+  <symbol id="i-eclair" viewBox="0 0 24 24"><path d="M13 3L5.5 13.5H11l-1 7.5 7.5-10.5H12z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15.5h6M9 8.5h2"/></symbol>
+  <symbol id="i-lien" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9.5 12.8h.01M14.5 12.8h.01M9.5 15.8h5M3 12.5v3M21 12.5v3"/></symbol>
+  <symbol id="i-guillemets" viewBox="0 0 24 24"><path d="M10 7H6.5A1.5 1.5 0 0 0 5 8.5V12h5V7zM10 12c0 3-1.4 4.6-4 5.2"/><path d="M19 7h-3.5A1.5 1.5 0 0 0 14 8.5V12h5V7zM19 12c0 3-1.4 4.6-4 5.2"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7.5L4 12l4.5 4.5M15.5 7.5L20 12l-4.5 4.5"/><path d="M13.2 5.5l-2.4 13"/></symbol>
+  <symbol id="i-courbe" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M7.5 15l3.5-4 3 2.5 5-6"/></symbol>
+  <symbol id="i-alerte" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4.5M12 17.4h.01"/></symbol>
+  <symbol id="i-loupe" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></symbol>
+  <symbol id="i-croix" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></symbol>
+  <defs><linearGradient id="g-tableau" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C2558F" stop-opacity=".28"/><stop offset="1" stop-color="#9C9EF7" stop-opacity="0"/></linearGradient></defs>
+  <symbol id="i-goutte" viewBox="0 0 24 24"><path d="M12 3.5C9 7.5 6 10.6 6 14a6 6 0 0 0 12 0c0-3.4-3-6.5-6-10.5z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+  <symbol id="i-maison" viewBox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+</svg>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="enveloppe nav__in">
+    <a class="nav__logo" href="/" aria-label="MKZ, accueil">
+      <svg viewBox="739.3 237.8 414.5 182" aria-hidden="true"><use href="#logo-lettres"/><use href="#logo-chevron"/></svg>
+    </a>
+    <nav aria-label="Navigation principale" class="nav__principal">
+      <ul class="nav__liens" id="nav-liens">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/creation-site-internet/">Création de site</a></li>
+        <li><a href="/referencement-seo/">SEO</a></li>
+        <li><a href="/referencement-ia/">Référencement IA</a></li>
+        <li><a href="/conseils/">Conseils</a></li>
+        <li><a href="/outils/" aria-current="true">Outils</a></li>
+        <li><a href="/tarifs/">Tarifs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav__tel" href="tel:0769093909">07 69 09 39 09</a>
+    <a class="bouton bouton--plein nav__cta" href="https://calendly.com/mkz-consulting/30min" target="_blank" rel="noopener noreferrer nofollow">Audit gratuit</a>
+    <span class="nav__langue"><span aria-current="true">FR</span> / <a href="/en/" lang="en">EN</a></span>
+    <button class="nav__menu" type="button" aria-expanded="false" aria-controls="nav-liens">Menu</button>
   </div>
 </header>
 
-<div class="bandeau-statut">
-  <div class="contenu">
-    <strong>Jeu de données v__DATASET_VERSION__ sourcé.</strong> Chaque coefficient est dérivé d'une source publique citée en méthodologie, avec sa date de relevé. Les fourchettes portent l'incertitude réelle : ce sont des estimations, pas des mesures.
-  </div>
-</div>
+<main id="contenu" class="empreinte">
 
-<main>
-
-<section class="simulateur" id="simulateur">
+<section class="simulateur emp-hero" id="simulateur" data-theme="clair">
   <div class="contenu">
     <h1 class="accroche">Combien consomme une requête à une IA&nbsp;?</h1>
     <p class="sous-accroche">Ce simulateur ne vous dira pas d'arrêter d'utiliser l'IA. Il montre une chose plus utile&nbsp;: entre le modèle le plus léger et le plus lourd, l'écart atteint <strong>un facteur {{FACTEUR_TOTAL}}</strong> sur la même tâche. Le sujet est un problème de conception, pas de renoncement.</p>
@@ -747,7 +151,7 @@ input[type="range"] {
   </div>
 </section>
 
-<section id="comparatif">
+<section id="comparatif" class="emp-section s-marine" data-theme="sombre">
   <div class="contenu">
     <h2 class="section-titre">Le logo ne change rien, le modèle change tout</h2>
     <p class="section-chapeau">La marque affichée sur l'interface ne dit rien de ce qui tourne derrière. Voici le coût d'une même requête, réponse d'une demi-page, selon ce qui la traite réellement.</p>
@@ -769,7 +173,7 @@ input[type="range"] {
   </div>
 </section>
 
-<section id="agents">
+<section id="agents" class="emp-section s-blanc" data-theme="clair">
   <div class="contenu">
     <h2 class="section-titre">Vous ne faites plus une requête, vous lancez un agent</h2>
     <p class="section-chapeau">Les compteurs d'empreinte existants observent une fenêtre de discussion. Le volume réel, lui, s'est déplacé vers des agents outillés qui enchaînent des dizaines d'appels pour une seule instruction. Personne ne compte les appels intermédiaires.</p>
@@ -790,33 +194,33 @@ input[type="range"] {
   </div>
 </section>
 
-<section id="methodologie">
+<section id="methodologie" class="emp-section s-nuit-profonde" data-theme="sombre">
   <div class="contenu">
     <h2 class="section-titre">Méthodologie</h2>
     <p class="section-chapeau">Tout est calculé dans votre navigateur, à partir d'un jeu de coefficients versionné et publié avec la page. Voici ce qui entre dans le calcul, et ce qui n'y entre pas.</p>
 
     <div class="encarts quatre">
-      <div class="encart">
-        <h3>Impacts d'usage</h3>
+      <div class="encart encart--methode">
+        <span class="encart-ico" aria-hidden="true"><svg><use href="#i-eclair"/></svg></span><h3>Impacts d'usage</h3>
         <p>L'électricité consommée par les serveurs pendant le traitement de la requête, à laquelle s'ajoute un surcoût fixe couvrant le routage, l'orchestration et les serveurs hors calcul. Ce surcoût existe même pour une requête d'un seul mot&nbsp;: une requête ne coûte jamais zéro.</p>
       </div>
-      <div class="encart">
-        <h3>Impacts de fabrication</h3>
+      <div class="encart encart--methode">
+        <span class="encart-ico" aria-hidden="true"><svg><use href="#i-serveur"/></svg></span><h3>Impacts de fabrication</h3>
         <p>La fabrication des serveurs, des cartes graphiques et du bâtiment, amortie sur la durée de vie du matériel et ramenée à l'énergie consommée. Ce poste ne dépend pas de la région&nbsp;: une carte fabriquée à Taïwan porte le même sac à dos où qu'elle tourne ensuite.</p>
       </div>
-      <div class="encart">
-        <h3>Le prefill n'est pas le decode</h3>
+      <div class="encart encart--methode">
+        <span class="encart-ico" aria-hidden="true"><svg><use href="#i-doc"/></svg></span><h3>Le prefill n'est pas le decode</h3>
         <p>Les tokens de votre question sont traités en parallèle, ceux de la réponse sont produits un par un. Un token d'entrée coûte donc environ un huitième d'un token de sortie. Additionner les deux au même tarif, comme le font la plupart des compteurs, surestime lourdement le poids de la question.</p>
       </div>
-      <div class="encart">
-        <h3>Propagation de l'incertitude</h3>
+      <div class="encart encart--methode">
+        <span class="encart-ico" aria-hidden="true"><svg><use href="#i-courbe"/></svg></span><h3>Propagation de l'incertitude</h3>
         <p>Chaque coefficient est un triplet minimum, central, maximum. Les trois branches sont calculées séparément jusqu'à l'affichage. C'est pourquoi aucune valeur n'apparaît ici sans ses deux bornes&nbsp;: un chiffre unique laisserait croire à une précision qui n'existe pas.</p>
       </div>
     </div>
 
     <h3 style="margin-top:2.5rem">Sources de référence du domaine</h3>
-    <p class="lecture discret">Ces travaux font autorité sur le sujet. La version __DATASET_VERSION__ du jeu de données en dérive ses coefficients&nbsp;: chaque valeur porte sa source et sa date de relevé dans le dépôt de données versionné.</p>
-    <ul class="sources lecture">
+    <p class="e-lecture discret">Ces travaux font autorité sur le sujet. La version __DATASET_VERSION__ du jeu de données en dérive ses coefficients&nbsp;: chaque valeur porte sa source et sa date de relevé dans le dépôt de données versionné.</p>
+    <ul class="e-sources e-lecture">
       <li><b>EcoLogits et GenAI Impact</b> <span>Méthodologie ouverte d'estimation des impacts de l'inférence, ajustée sur les mesures du ML.ENERGY Leaderboard (vLLM, NVIDIA H100). Source principale des coefficients énergétiques de cette page, constantes relevées le 15 août 2026, licence MPL-2.0 vérifiée.</span></li>
       <li><b>Our World in Data et Ember</b> <span>Intensité carbone du cycle de vie de l'électricité par pays, édition 2025. Source des facteurs réseau des quatre régions, relevés le 15 août 2026.</span></li>
       <li><b>Li et al. 2025, «&nbsp;Making AI Less Thirsty&nbsp;»</b> <span>Cadre de calcul de l'empreinte hydrique des centres de données, eau du réseau électrique comprise. Source des coefficients d'eau.</span></li>
@@ -829,7 +233,7 @@ input[type="range"] {
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="emp-section s-lavande" data-theme="clair">
   <div class="contenu">
     <h2 class="section-titre">Questions fréquentes</h2>
     <p class="section-chapeau">Chaque réponse est rédigée pour rester juste sortie de son contexte.</p>
@@ -838,23 +242,71 @@ input[type="range"] {
   </div>
 </section>
 
+<!-- OFFRE · audit d'empreinte IA et avertissement : repris du pied propre au simulateur (absent de la
+     maquette, qui pose le pied du site), dessinés avec les composants de la charte -->
+<section class="section s-blanc" id="audit-empreinte" data-theme="clair">
+  <div class="enveloppe">
+    <header class="titre-section" data-revele>
+      <p class="surtitre">Audit d'empreinte IA</p>
+      <h2 class="titre-2">Le chiffre qui compte, <em class="degrade">c'est le vôtre</em></h2>
+      <p class="chapeau">Cette page estime une requête. Une seule. Votre entreprise en envoie des milliers par jour, entre les assistants, les copilotes et les agents. Et personne ne les compte.</p>
+      <p class="chapeau">Un audit d'empreinte IA part de vos volumes réels de tokens, c'est-à-dire ce que vos équipes consomment vraiment. Il repère les usages surdimensionnés (le grand modèle qui fait le travail d'un petit) et chiffre ce que rapporte un redimensionnement, tâche par tâche. Sans retirer un seul outil à personne. On ne renonce à rien, on dimensionne.</p>
+    </header>
+    <div class="ligne-appel" data-revele><a class="bouton bouton--plein" href="mailto:contact@mkz-consulting.fr?subject=Audit%20d%27empreinte%20IA">Parlons de vos volumes réels</a><p>ou <a href="tel:+33769093909">07 69 09 39 09</a>, on décroche</p></div>
+    <p class="note-prix" data-revele>Les valeurs présentées sur cette page sont des estimations produites par un modèle de calcul public, à partir de coefficients versionnés. Elles ne constituent pas une mesure, ne sont pas opposables à un tiers et ne constituent pas une donnée officielle communiquée par un fournisseur d'intelligence artificielle. Elles ne peuvent servir de base à une déclaration réglementaire. MKZ Consulting ne saurait être tenu responsable d'un usage de ces estimations hors de leur cadre pédagogique. Calculs de cette page : __DATASET_LABEL__.</p>
+  </div>
+</section>
 </main>
 
-<footer class="pied">
-  <div class="contenu">
-    <div class="pied-offre">
-      <h2>Le chiffre qui compte, c'est le vôtre</h2>
-      <p>Cette page estime une requête. Une seule. Votre entreprise en envoie des milliers par jour, entre les assistants, les copilotes et les agents. Et personne ne les compte.</p>
-      <p>Un audit d'empreinte IA part de vos volumes réels de tokens, c'est-à-dire ce que vos équipes consomment vraiment. Il repère les usages surdimensionnés (le grand modèle qui fait le travail d'un petit) et chiffre ce que rapporte un redimensionnement, tâche par tâche. Sans retirer un seul outil à personne. On ne renonce à rien, on dimensionne.</p>
-      <p class="pied-cta"><a class="bouton" href="mailto:contact@mkz-consulting.fr?subject=Audit%20d%27empreinte%20IA">Parlons de vos volumes réels</a></p>
+<footer class="pied" data-theme="sombre">
+  <div class="enveloppe">
+    <div class="pied__haut">
+      <p class="pied__phrase">Votre téléphone devrait <em class="teinte">sonner</em> plus souvent.</p>
+      <div class="pied__appel">
+        <a class="bouton bouton--plein" href="https://calendly.com/mkz-consulting/30min" target="_blank" rel="noopener noreferrer nofollow">Réserver mon audit gratuit</a>
+        <p>ou directement : <strong><a href="tel:0769093909">07 69 09 39 09</a></strong></p>
+      </div>
     </div>
-    <p class="pied-coordonnees">
-      <span><a href="https://mkz-consulting.fr">mkz-consulting.fr</a></span>
-      <span><a href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</a></span>
-      <span><a href="tel:+33769093909">07 69 09 39 09</a></span>
-      <span>__DATASET_LABEL__</span>
-    </p>
-    <p class="pied-mentions">Les valeurs présentées sur cette page sont des estimations produites par un modèle de calcul public, à partir de coefficients versionnés. Elles ne constituent pas une mesure, ne sont pas opposables à un tiers et ne constituent pas une donnée officielle communiquée par un fournisseur d'intelligence artificielle. Elles ne peuvent servir de base à une déclaration réglementaire. MKZ Consulting ne saurait être tenu responsable d'un usage de ces estimations hors de leur cadre pédagogique.</p>
+    <div class="pied__grille">
+      <div class="pied__marque">
+        <svg class="pied__logo" viewBox="739.3 237.8 414.5 182" role="img" aria-label="MKZ"><use href="#logo-lettres"/><use href="#logo-chevron"/></svg>
+        <p>Création de sites web et SEO pour artisans, commerçants et indépendants. Basés en Seine-et-Marne, partout en France.</p>
+        <p class="petit">MKZ · SIRET 983 662 784 00013 · RCS Meaux<br>1 rue Françoise Sagan, 77230 Dammartin-en-Goële</p>
+      </div>
+      <nav aria-labelledby="pied-services"><h3 id="pied-services">Services</h3><ul>
+        <li><a href="/creation-site-internet/">Création de site internet</a></li>
+        <li><a href="/referencement-seo/">Référencement SEO</a></li>
+        <li><a href="/referencement-ia/">Référencement IA (GEO)</a></li>
+        <li><a href="/agence-web-77/">Agence web Seine-et-Marne</a></li>
+        <li><a href="/audit-seo/">Audit SEO gratuit en ligne</a></li>
+        <li><a href="/empreinte-ia/">Empreinte d’une requête IA</a></li>
+      </ul></nav>
+      <nav aria-labelledby="pied-conseils"><h3 id="pied-conseils">Conseils</h3><ul>
+        <li><a href="/conseils/tutoriels/">Tutoriels pas à pas</a></li>
+        <li><a href="/conseils/creation-site-internet/">Création de site</a></li>
+        <li><a href="/conseils/seo/">SEO &amp; visibilité</a></li>
+        <li><a href="/conseils/referencement-ia/">Référencement IA</a></li>
+        <li><a href="/conseils/">Tous les conseils</a></li>
+      </ul></nav>
+      <div><h3>Contact</h3><ul>
+        <li><a href="tel:0769093909">07 69 09 39 09</a></li>
+        <li><a href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</a></li>
+        <li>Lun-sam 9h-21h<br>Réponse sous 24 h</li>
+      </ul></div>
+      <nav aria-labelledby="pied-liens"><h3 id="pied-liens">Liens</h3><ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/outils/">Outils gratuits</a></li>
+        <li><a href="/tarifs/">Tarifs</a></li>
+        <li><a href="/about/">À propos</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/en/" lang="en">English</a></li>
+      </ul></nav>
+    </div>
+    <div class="pied__bas">
+      <p>© 2026 MKZ · Tous droits réservés</p>
+      <p><a href="/mentions-legales/">Mentions légales</a> <a href="/politique-confidentialite/">Politique de confidentialité</a></p>
+    </div>
   </div>
 </footer>
 
@@ -862,6 +314,99 @@ input[type="range"] {
 /*__DATASET__*/
 /*__ENGINE__*/
 /*__UI__*/
+</script>
+<script>
+/* MKZ · pages métier · V2 du 19/10/2026
+   Pas de GSAP ici : de simples apparitions au défilement (IntersectionObserver + transitions CSS),
+   les chiffres qui se comptent et la barre de navigation qui passe en verre sombre. */
+(function () {
+  var racine = document.documentElement;
+  var nav = document.getElementById('nav');
+
+  /* Menu mobile */
+  var boutonMenu = nav.querySelector('.nav__menu');
+  boutonMenu.addEventListener('click', function () {
+    var ouvert = nav.classList.toggle('nav--ouvert');
+    boutonMenu.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+  });
+
+  /* Barre de navigation : verre sombre quand une zone foncée passe dessous */
+  var prevu = false;
+  function majNav() {
+    prevu = false;
+    var sous = document.elementsFromPoint(window.innerWidth / 2, nav.offsetHeight / 2);
+    for (var k = 0; k < sous.length; k++) {
+      if (nav.contains(sous[k])) continue;
+      var zone = sous[k].closest('[data-theme]');
+      if (zone) { nav.classList.toggle('nav--sombre', zone.getAttribute('data-theme') === 'sombre'); return; }
+    }
+  }
+  window.addEventListener('scroll', function () { if (!prevu) { prevu = true; requestAnimationFrame(majNav); } }, { passive: true });
+  majNav();
+
+  /* Formulaires de la maquette : pas encore branchés */
+  document.querySelectorAll('form[data-maquette]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var retour = form.parentNode.querySelector('[data-retour]');
+      if (retour) retour.textContent = 'Maquette\u00a0: ' + (form.getAttribute('data-maquette') || 'ce formulaire sera branché à la mise en ligne.');
+    });
+  });
+
+  var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Entrée du hero, en cascade */
+  document.querySelectorAll('[data-entree]').forEach(function (el, i) {
+    el.style.setProperty('--i', i);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('entre'); }); });
+  });
+
+  /* Chiffres qui se comptent (décimales gardées : 53,4) */
+  function compter(el) {
+    var cible = parseFloat(el.getAttribute('data-compte'));
+    var decimales = (el.getAttribute('data-compte').split('.')[1] || '').length;
+    var debut = null;
+    var ecrire = function (v) { el.textContent = v.toLocaleString('fr-FR', { minimumFractionDigits: decimales, maximumFractionDigits: decimales }).replace(/\s/g, ' '); };
+    if (mouvementReduit) { ecrire(cible); return; }
+    var pas = function (t) {
+      if (debut === null) debut = t;
+      var p = Math.min(1, (t - debut) / 1300);
+      ecrire(cible * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(pas);
+    };
+    requestAnimationFrame(pas);
+  }
+
+  if (!('IntersectionObserver' in window) || mouvementReduit) {
+    document.querySelectorAll('[data-compte]').forEach(compter);
+    return;
+  }
+
+  /* Apparitions : chaque enfant d'un groupe [data-revele-groupe] arrive avec un léger décalage */
+  document.querySelectorAll('[data-revele-groupe]').forEach(function (groupe) {
+    Array.prototype.forEach.call(groupe.children, function (enfant, i) {
+      enfant.setAttribute('data-revele', '');
+      enfant.style.setProperty('--i', i);
+    });
+  });
+  var observateur = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('vu');
+      /* une fois arrivé, l'élément retrouve ses propres effets de survol */
+      var cible = e.target, delai = (parseInt(cible.style.getPropertyValue('--i'), 10) || 0) * 90 + 1000;
+      setTimeout(function () { cible.removeAttribute('data-revele'); cible.classList.remove('vu'); }, delai);
+      e.target.querySelectorAll('[data-compte]').forEach(compter);
+      if (e.target.hasAttribute('data-compte')) compter(e.target);
+      observateur.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: .12 });
+  document.querySelectorAll('[data-revele], [data-compte]').forEach(function (el) {
+    if (el.hasAttribute('data-compte') && el.closest('[data-revele]')) return;
+    observateur.observe(el);
+  });
+  racine.classList.add('revele-pret');
+})();
 </script>
 </body>
 </html>

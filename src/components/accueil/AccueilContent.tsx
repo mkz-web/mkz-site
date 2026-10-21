@@ -1,108 +1,27 @@
-// Accueil MKZ, nouvelle charte (maquette codée du 18/10/2026, V3),
-// intégré au site le 19/10/2026.
-//
-// Balisage repris de la maquette (mkz-accueil-maquette-2026-10-18/index.html) par
-// conversion HTML vers JSX, avec ces écarts voulus :
-//   - liens internes relatifs, rendus par next/link ; Calendly en nofollow (convention
-//     de Button.tsx) ; fiche Google lue dans src/content/avis-google.ts ;
-//   - formulaire « Tester mon site » branché sur /audit-seo/?site= (GET natif) ;
-//   - avis et FAQ générés depuis leurs modules, source unique du texte visible et du
-//     JSON-LD (FAQPage). Les espaces insécables de la maquette avant « ? » et « : » sont
-//     posées dans home-faq.ts ; les avis restent verbatim (sans insécable ajoutée) ;
-//   - ligne des villes écrite une seule fois (la copie du défilement vient du script) ;
-//   - image de repli de l'ordinateur en chargement différé ;
-//   - photos, polices et GSAP servis par le site (public/), plus aucune requête externe.
-// Fidélité mesurée le 19/10/2026 contre la maquette servie telle quelle, à 1440, 1024,
-// 390 et 375 px, mouvement réduit : mêmes éléments, positions et styles calculés.
-//
-// Le conteneur .page-accueil porte toute la feuille accueil.css (sélecteurs préfixés).
-// SiteChrome (layout) n'affiche ni l'en-tête ni le pied de page du site sur « / » :
-// la maquette apporte les siens. Animations : AccueilScripts (client).
+// Accueil MKZ à la nouvelle charte (maquette codée du 20/10/2026, V3 de l'accueil).
+// Écarts voulus avec la maquette :
+//   - liens internes relatifs (next/link), Calendly en nofollow, fiche Google lue dans avis-google.ts ;
+//   - formulaire « Tester mon site » branché sur /audit-seo/?site= (GET natif, marche sans JavaScript) ;
+//   - avis et FAQ générés depuis leurs modules (source unique du visible et du JSON-LD FAQPage) ;
+//   - prix de l'accompagnement mis à la grille du 21/10/2026 (590 à 890 € HT, mesure IA comprise) ;
+//   - ligne des villes écrite une seule fois (AccueilScripts pose la copie du défilement) ;
+//   - image de repli de l'ordinateur en chargement différé (sinon React la précharge sans l'utiliser).
+// Animations : AccueilScripts (GSAP servi par le site).
+// Composant GÉNÉRÉ depuis la maquette (index.html, version du 20/10/2026) par construire-page.mjs,
+// puis branché sur les données du site ; les écarts voulus sont listés ci-dessus.
 
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { CALENDLY } from "@/lib/i18n";
+import ChartePage from "@/components/charte/ChartePage";
 import { homeFaqFr } from "@/content/home-faq";
 import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 import AccueilScripts from "./AccueilScripts";
-import "./accueil.css";
-
 const NBSP = String.fromCharCode(160);
-
-// Amorce de la maquette : la classe js masque les éléments [data-entree] avant leur
-// animation d'entrée ; js-secours les rend visibles après 2,5 s si GSAP n'est pas venu.
-// Le minuteur est rangé dans window.mkzSecours : AccueilScripts l'annule au démontage, sinon
-// il poserait js-secours sur la page suivante après une navigation rapide.
-const AMORCE =
-  "document.documentElement.classList.add('js');window.mkzSecours=setTimeout(function(){document.documentElement.classList.add('js-secours')},2500);";
 
 export default function AccueilContent() {
   return (
-    <div className="page-accueil">
-      <script dangerouslySetInnerHTML={{ __html: AMORCE }} />
-      {/* Sprite : logo, chevron, pictos au trait arrondi */}
-      <svg width="0" height="0" style={{ position: "absolute" } as CSSProperties} aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id="g-haut" gradientUnits="userSpaceOnUse" x1="965.18" y1="177.82" x2="869.13" y2="273.87"><stop offset="0" stopColor="#3B5BD9"/><stop offset="1" stopColor="#8DB2F8"/></linearGradient>
-          <linearGradient id="g-bas" gradientUnits="userSpaceOnUse" x1="942.88" y1="273.88" x2="1038.99" y2="370"><stop offset="0" stopColor="#8DB2F8"/><stop offset=".45" stopColor="#9C9EF7"/><stop offset=".8" stopColor="#705398"/><stop offset="1" stopColor="#EBC49D"/></linearGradient>
-          <linearGradient id="g-exergue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#2A4089"/><stop offset="1" stopColor="#705398"/></linearGradient>
-          <linearGradient id="g-ico" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stopColor="#2A4089"/><stop offset="1" stopColor="#705398"/></linearGradient>
-          <linearGradient id="g-ico-sombre" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stopColor="#8DB2F8"/><stop offset="1" stopColor="#C9B6F5"/></linearGradient>
-          <linearGradient id="g-anneau" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#705398"/><stop offset=".6" stopColor="#C2558F"/><stop offset="1" stopColor="#E39A5A"/></linearGradient>
-          <linearGradient id="g-ico-chaud" gradientUnits="userSpaceOnUse" x1="2" y1="2" x2="22" y2="22"><stop offset="0" stopColor="#705398"/><stop offset=".6" stopColor="#C2558F"/><stop offset="1" stopColor="#E39A5A"/></linearGradient>
-          <clipPath id="decoupe"><path d="M1025.22 237.86L978.9 237.86L906.02 310.75L906.08 310.81L906.02 310.87L978.91 383.77L1025.21 383.77L1025.22 383.76L952.27 310.81Z"/></clipPath>
-          <path id="chevron" d="M1025.22 237.86L978.9 237.86L906.02 310.75L906.08 310.81L906.02 310.87L978.91 383.77L1025.21 383.77L1025.22 383.76L952.27 310.81Z"/>
-          <g id="logo-lettres">
-            <path d="M882.1 237.86L882.1 383.78L853.54 383.78L853.54 289.14L812.4 356.83L809.04 356.95L768.08 289.5L768.08 383.78L739.32 383.78L739.32 237.86L768.92 237.86L810.75 306.76L852.38 237.86Z"/>
-            <path d="M1153.75 265.38L1153.79 265.38L1153.79 237.86L1066.62 237.86L1039.13 265.38L1114.84 265.38L1031.55 348.67L1031.66 348.78L1031.66 348.79L1066.61 383.75L1066.68 383.68L1066.7 383.78L1153.79 383.78L1153.79 356.26L1078.62 356.26L1070.75 348.39Z"/>
-            <path d="M1025.22 419.74L906.02 419.74L906.02 404.96L1025.22 404.96Z"/>
-          </g>
-          <g id="logo-chevron" clipPath="url(#decoupe)">
-            <rect x="900" y="230" width="130" height="81" fill="url(#g-haut)"/>
-            <rect x="900" y="310.6" width="130" height="80" fill="url(#g-bas)"/>
-          </g>
-        </defs>
-        <symbol id="i-vitrine" viewBox="0 0 24 24"><path d="M4 10v10h16V10"/><path d="M3 10l2-6h14l2 6"/><path d="M3 10a3 3 0 0 0 6 0a3 3 0 0 0 6 0a3 3 0 0 0 6 0"/><path d="M10 20v-5h4v5"/></symbol>
-        <symbol id="i-rapport" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M10 11.5a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.7"/><path d="M12 17.6h.01"/></symbol>
-        <symbol id="i-cle" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8"/><path d="M16 7l2.5 2.5"/><path d="M13.5 9.5l2 2"/></symbol>
-        <symbol id="i-bulle" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L5 20v-4H4z"/><path d="M8 9h8M8 12.2h5"/></symbol>
-        <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.6 4.6-2.2 1.4a11 11 0 0 0 5.6 5.6l1.4-2.2 4.6 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/></symbol>
-        <symbol id="i-oeil" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
-        <symbol id="i-libre" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 7.6-1.8"/><path d="M12 15v2"/></symbol>
-        <symbol id="i-etiquette" viewBox="0 0 24 24"><path d="M3.5 12.5V4.5a1 1 0 0 1 1-1h8l8 8a1.4 1.4 0 0 1 0 2l-7 7a1.4 1.4 0 0 1-2 0z"/><circle cx="8" cy="8" r="1.4"/></symbol>
-        <symbol id="i-horloge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
-        <symbol id="i-chrono" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 13.5l3-3"/><path d="M10 3h4M12 3v3"/></symbol>
-        <symbol id="i-coche" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
-      </svg>
-
-      <a className="evitement" href="#contenu">Aller au contenu</a>
-
-      <header className="nav" id="nav">
-        <div className="enveloppe nav__in">
-          <Link className="nav__logo" href="/" aria-label="MKZ, accueil">
-            <svg viewBox="739.3 237.8 414.5 182" aria-hidden="true"><use href="#logo-lettres"/><use href="#logo-chevron"/></svg>
-          </Link>
-          <nav aria-label="Navigation principale" className="nav__principal">
-            <ul className="nav__liens" id="nav-liens">
-              <li><Link href="/" aria-current="page">Accueil</Link></li>
-              <li><Link href="/creation-site-internet/">Création de site</Link></li>
-              <li><Link href="/referencement-seo/">SEO</Link></li>
-              <li><Link href="/referencement-ia/">Référencement IA</Link></li>
-              <li><Link href="/conseils/">Conseils</Link></li>
-              <li><Link href="/outils/">Outils</Link></li>
-              <li><Link href="/tarifs/">Tarifs</Link></li>
-              <li><Link href="/contact/">Contact</Link></li>
-            </ul>
-          </nav>
-          <a className="nav__tel" href="tel:0769093909">07 69 09 39 09</a>
-          <a className="bouton bouton--plein nav__cta" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">Audit gratuit</a>
-          <span className="nav__langue"><span aria-current="true">FR</span> / <Link href="/en/" lang="en">EN</Link></span>
-          <button className="nav__menu" type="button" aria-expanded="false" aria-controls="nav-liens">Menu</button>
-        </div>
-      </header>
-
-      <main id="contenu">
-
+    <ChartePage chemin="/" scripts="aucun">
       {/* 1 · HERO : texte à gauche, animation à droite (création du site puis performance SEO), bas en V */}
       <section className="hero v-bas" data-theme="clair">
         <div className="halo-fond" aria-hidden="true"></div>
@@ -177,9 +96,7 @@ export default function AccueilContent() {
         </header>
           <div className="ordi__cadre">
             <div className="ordi__photo">
-              {/* Séquence de 48 images tirée de la vidéo (canvas piloté par le scroll) ; la dernière image sert de repli.
-                  loading="lazy" : sous la ligne de flottaison, et sans lui React la précharge dans le <head>
-                  (avertissement « preloaded but not used » à chaque visite) */}
+              {/* Séquence de 48 images tirée de la vidéo (canvas piloté par le scroll) ; la dernière image sert de repli */}
               <img className="ordi__fin" loading="lazy" src="/images/accueil/ouverture-640/f48.webp" srcSet="/images/accueil/ouverture-640/f48.webp 640w, /images/accueil/ouverture-1080/f48.webp 1080w" sizes="100vw" width="1080" height="1080" alt="Un ordinateur portable ouvert dans le noir, son écran sombre éclaire le clavier en bleu et violet" />
               <canvas className="ordi__canvas" width="1080" height="1080" aria-hidden="true"></canvas>
               <div className="ordi__halo" aria-hidden="true"></div>
@@ -286,7 +203,7 @@ export default function AccueilContent() {
 
         <div className="metiers__rangees">
           <article className="metier metier--nuit" data-theme="sombre">
-            <div className="metier__image"><img src="/images/accueil/metier-creation.webp" width="1200" height="920" loading="lazy" alt="Un bureau de graphiste, un site internet affiché sur l'écran et sur l'ordinateur portable" /></div>
+            <div className="metier__image"><img src="/images/charte/photos/bureau-graphiste-site-internet-affiche-ecran-1200x920.webp" width="1200" height="920" loading="lazy" alt="Un bureau de graphiste, un site internet affiché sur l'écran et sur l'ordinateur portable" /></div>
             <div className="metier__corps">
               <p className="petit">Service 01</p>
               <h3 className="metier__titre">Création de <em className="degrade">site internet</em></h3>
@@ -300,14 +217,14 @@ export default function AccueilContent() {
           </article>
 
           <article className="metier metier--clair metier--inverse">
-            <div className="metier__image"><img src="/images/accueil/metier-seo.webp" width="1200" height="920" loading="lazy" alt="Un téléphone affiche la recherche Google devant le logo Google" /></div>
+            <div className="metier__image"><img src="/images/charte/photos/telephone-affiche-recherche-google-devant-logo-1200x920.webp" width="1200" height="920" loading="lazy" alt="Un téléphone affiche la recherche Google devant le logo Google" /></div>
             <div className="metier__corps">
               <p className="petit">Service 02</p>
               <h3 className="metier__titre"><em className="teinte">SEO</em> &amp; référencement Google</h3>
               <p>Être trouvé par les gens qui cherchent ce que vous faites, dans votre ville. Mots-clés en langage client, technique propre, contenus utiles, liens choisis à la main : du référencement qui dure, pas un feu de paille.</p>
               <div className="tarif">
                 <div className="tarif__ligne"><span className="tarif__montant">490 €</span><span className="tarif__libelle">Audit complet</span></div>
-                <div className="tarif__ligne"><span className="tarif__montant">390 à 690 € HT</span><span className="tarif__libelle">accompagnement par mois</span></div>
+                <div className="tarif__ligne"><span className="tarif__montant">590 à 890 € HT</span><span className="tarif__libelle">accompagnement par mois, mesure IA comprise</span></div>
               </div>
               <p className="puces">audit SEO · référencement local · contenus · netlinking · point mensuel</p>
               <Link className="bouton bouton--plein" href="/referencement-seo/">Découvrir le référencement SEO</Link>
@@ -315,7 +232,7 @@ export default function AccueilContent() {
           </article>
 
           <article className="metier metier--violet" data-theme="sombre">
-            <div className="metier__image"><img src="/images/accueil/metier-ia.webp" width="1200" height="920" loading="lazy" alt="Un téléphone affiche un assistant d'intelligence artificielle prêt à répondre" /></div>
+            <div className="metier__image"><img src="/images/charte/photos/telephone-affiche-assistant-intelligence-artificielle-pret-1200x920.webp" width="1200" height="920" loading="lazy" alt="Un téléphone affiche un assistant d'intelligence artificielle prêt à répondre" /></div>
             <div className="metier__corps">
               <p className="petit">Service 03</p>
               <h3 className="metier__titre">Référencement <em className="degrade-chaud">IA (GEO)</em></h3>
@@ -368,19 +285,19 @@ export default function AccueilContent() {
           </header>
           <div className="cartes-photo">
             <Link className="carte-photo" href="/conseils/seo/trouver-des-chantiers/">
-              <span className="carte-photo__image"><img src="/images/accueil/pour-qui-artisans.webp" width="600" height="460" loading="lazy" alt="Un plombier répare une canalisation sous un meuble" /></span>
+              <span className="carte-photo__image"><img src="/images/charte/photos/plombier-repare-canalisation-sous-meuble-600x460.webp" width="600" height="460" loading="lazy" alt="Un plombier répare une canalisation sous un meuble" /></span>
               <span className="carte-photo__corps"><span className="petit">Artisans du bâtiment</span><span className="titre-3">Des chantiers près de chez vous</span><span className="carte-photo__texte">Plombier, électricien, maçon : le client tape « dépannage » ou « devis » avec le nom de sa ville. C'est là qu'il faut apparaître.</span><span className="lien">Comment trouver des chantiers</span></span>
             </Link>
             <Link className="carte-photo" href="/conseils/seo/avis-google/">
-              <span className="carte-photo__image"><img src="/images/accueil/pour-qui-commerces.webp" width="600" height="460" loading="lazy" alt="Une salle de restaurant éclairée le soir" /></span>
+              <span className="carte-photo__image"><img src="/images/charte/photos/salle-restaurant-eclairee-soir-600x460.webp" width="600" height="460" loading="lazy" alt="Une salle de restaurant éclairée le soir" /></span>
               <span className="carte-photo__corps"><span className="petit">Commerces et restaurants</span><span className="titre-3">Une fiche Google qui remplit la salle</span><span className="carte-photo__texte">Horaires justes, photos récentes, avis auxquels on répond, réservation qui marche sur téléphone. Sur Maps, on vous compare souvent avant d'ouvrir votre site.</span><span className="lien">Bien gérer ses avis Google</span></span>
             </Link>
             <Link className="carte-photo" href="/conseils/seo/referencement-local/">
-              <span className="carte-photo__image"><img src="/images/accueil/pour-qui-cabinets.webp" width="600" height="460" loading="lazy" alt="Un praticien soigne le dos d'une patiente en cabinet" /></span>
+              <span className="carte-photo__image"><img src="/images/charte/photos/praticien-soigne-dos-patiente-cabinet-600x460.webp" width="600" height="460" loading="lazy" alt="Un praticien soigne le dos d'une patiente en cabinet" /></span>
               <span className="carte-photo__corps"><span className="petit">Professions libérales et cabinets</span><span className="titre-3">Être trouvé dans votre ville, et rassurer</span><span className="carte-photo__texte">Ostéopathe, avocat, expert-comptable : on vous cherche par métier et par ville, puis on se fait une idée en dix secondes. Le référencement local joue sur les deux.</span><span className="lien">Le référencement local, expliqué</span></span>
             </Link>
             <Link className="carte-photo" href="/conseils/creation-site-internet/site-vitrine/">
-              <span className="carte-photo__image"><img src="/images/accueil/pour-qui-depart.webp" width="600" height="460" loading="lazy" alt="Un commerçant tient les clés de sa boutique" /></span>
+              <span className="carte-photo__image"><img src="/images/charte/photos/commercant-tient-cles-boutique-600x460.webp" width="600" height="460" loading="lazy" alt="Un commerçant tient les clés de sa boutique" /></span>
               <span className="carte-photo__corps"><span className="petit">Vous partez de zéro</span><span className="titre-3">Un site vitrine qui rapporte</span><span className="carte-photo__texte">Pas de site, ou un site qui dort ? Ce qu'il faut dedans, ce que ça coûte, par quoi commencer : écrit noir sur blanc, chiffres à l'appui.</span><span className="lien">Ce qu'il faut dans un site vitrine</span></span>
             </Link>
           </div>
@@ -464,7 +381,8 @@ export default function AccueilContent() {
             <span className="partage__corps"><span className="petit">Création de site</span><span className="titre-3">Avant d'investir</span><span className="partage__texte">Combien coûte un site, quand le refondre, quel type choisir : les bonnes décisions, chiffrées.</span><span className="partage__lien">Voir les guides</span></span>
           </Link>
           <Link className="partage__col partage__col--violet" href="/conseils/seo/" data-theme="sombre">
-            <span className="partage__image"><img src="/images/accueil/recherche.webp" width="1200" height="600" loading="lazy" alt="Une main touche une barre de recherche affichée devant un bureau" /></span>
+            {/* Visuel généré par IA (Nano Banana, Google), sans crédit obligatoire */}
+            <span className="partage__image"><img src="/images/charte/barre-recherche.webp" width="1600" height="800" loading="lazy" alt="Un doigt touche une barre de recherche lumineuse, devant un bureau clair" /></span>
             <span className="partage__corps"><span className="petit">SEO &amp; visibilité</span><span className="titre-3">Être trouvé sur Google</span><span className="partage__texte">Référencement local, audit SEO, visibilité : des guides concrets, sans jargon.</span><span className="partage__lien">Voir les guides</span></span>
           </Link>
         </div>
@@ -503,61 +421,7 @@ export default function AccueilContent() {
           </div>
         </div>
       </section>
-
-      </main>
-
-      <footer className="pied" data-theme="sombre">
-        <div className="enveloppe">
-          <div className="pied__haut">
-            <p className="pied__phrase">Votre téléphone devrait <em className="teinte">sonner</em> plus souvent.</p>
-            <div className="pied__appel">
-              <a className="bouton bouton--plein" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">Réserver mon audit gratuit</a>
-              <p>ou directement : <strong><a href="tel:0769093909">07 69 09 39 09</a></strong></p>
-            </div>
-          </div>
-          <div className="pied__grille">
-            <div className="pied__marque">
-              <svg className="pied__logo" viewBox="739.3 237.8 414.5 182" role="img" aria-label="MKZ"><use href="#logo-lettres"/><use href="#logo-chevron"/></svg>
-              <p>Création de sites web et SEO pour artisans, commerçants et indépendants. Basés en Seine-et-Marne, partout en France.</p>
-              <p className="petit">MKZ · SIRET 983 662 784 00013 · RCS Meaux<br />1 rue Françoise Sagan, 77230 Dammartin-en-Goële</p>
-            </div>
-            <nav aria-labelledby="pied-services"><h3 id="pied-services">Services</h3><ul>
-              <li><Link href="/creation-site-internet/">Création de site internet</Link></li>
-              <li><Link href="/referencement-seo/">Référencement SEO</Link></li>
-              <li><Link href="/referencement-ia/">Référencement IA (GEO)</Link></li>
-              <li><Link href="/agence-web-77/">Agence web Seine-et-Marne</Link></li>
-              <li><Link href="/audit-seo/">Audit SEO gratuit en ligne</Link></li>
-              <li><Link href="/empreinte-ia/">Empreinte d'une requête IA</Link></li>
-            </ul></nav>
-            <nav aria-labelledby="pied-conseils"><h3 id="pied-conseils">Conseils</h3><ul>
-              <li><Link href="/conseils/tutoriels/">Tutoriels pas à pas</Link></li>
-              <li><Link href="/conseils/creation-site-internet/">Création de site</Link></li>
-              <li><Link href="/conseils/seo/">SEO &amp; visibilité</Link></li>
-              <li><Link href="/conseils/referencement-ia/">Référencement IA</Link></li>
-              <li><Link href="/conseils/">Tous les conseils</Link></li>
-            </ul></nav>
-            <div><h3>Contact</h3><ul>
-              <li><a href="tel:0769093909">07 69 09 39 09</a></li>
-              <li><a href="mailto:contact@mkz-consulting.fr">contact@mkz-consulting.fr</a></li>
-              <li>Lun-sam 9h-21h<br />Réponse sous 24 h</li>
-            </ul></div>
-            <nav aria-labelledby="pied-liens"><h3 id="pied-liens">Liens</h3><ul>
-              <li><Link href="/">Accueil</Link></li>
-              <li><Link href="/services/">Services</Link></li>
-              <li><Link href="/outils/">Outils gratuits</Link></li>
-              <li><Link href="/tarifs/">Tarifs</Link></li>
-              <li><Link href="/about/">À propos</Link></li>
-              <li><Link href="/contact/">Contact</Link></li>
-              <li><Link href="/en/" lang="en">English</Link></li>
-            </ul></nav>
-          </div>
-          <div className="pied__bas">
-            <p>© 2026 MKZ · Tous droits réservés</p>
-            <p><Link href="/mentions-legales/">Mentions légales</Link> <Link href="/politique-confidentialite/">Politique de confidentialité</Link> <button type="button" className="pied__cookies">Gérer les cookies</button></p>
-          </div>
-        </div>
-      </footer>
       <AccueilScripts />
-    </div>
+    </ChartePage>
   );
 }

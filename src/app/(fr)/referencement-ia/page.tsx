@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierIa from "@/components/charte/pages/PilierIa";
 import pillar from "@/content/pillars/referencement-ia";
 
 const URL = `${SITE}/referencement-ia/`;
@@ -42,21 +42,7 @@ export default function ReferencementIaPage() {
           { name: "Référencement IA" },
         ])}
       />
-      <PillarContent
-        visual={{ src: "/images/piliers/pilier-referencement-ia.webp", w: 896, h: 1071, alt: "Un livre ouvert dont une seule ligne est surlignée en orange, gravure à l'encre" }}
-        data={{
-          badge: pillar.heroBadge,
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "ChatGPT cite déjà quelqu'un à votre place.",
-            text: "Audit gratuit de 30 minutes : on interroge les moteurs IA sur vos requêtes métier devant vous, et vous repartez avec la liste de ce qui vous empêche d'être cité.",
-            button: "Réserver mon audit IA gratuit",
-          },
-        }}
-      />
+      <PilierIa />
     </>
   );
 }

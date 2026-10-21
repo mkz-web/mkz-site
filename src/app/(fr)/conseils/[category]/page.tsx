@@ -4,14 +4,13 @@ import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import {
   articlesByCategory,
-  articleUrl,
   categories,
-  formatDateFr,
   getCategory,
 } from "@/lib/articles";
 import type { CategorySlug } from "@/lib/articles/types";
 import { articleListSchema, breadcrumbSchema, collectionPageSchema } from "@/lib/schema";
-import CategoryContent from "@/components/conseils/CategoryContent";
+import RubriqueCharte from "@/components/charte/pages/RubriqueCharte";
+import { versCarte } from "@/components/charte/contenu";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ category: c.slug }));
@@ -69,22 +68,16 @@ export default async function CategoryPage({
           { name: cat.name },
         ])}
       />
-      <CategoryContent
-        category={{
-          name: cat.name,
-          title: cat.title,
-          intro: cat.intro,
-          icon: cat.icon,
-          pillar: cat.pillar,
-        }}
-        articles={list.map((a) => ({
-          title: a.title,
-          excerpt: a.excerpt,
-          url: articleUrl(a),
-          categoryName: cat.name,
-          dateLabel: formatDateFr(a.datePublished),
-          readingMinutes: a.readingMinutes,
-        }))}
+      <RubriqueCharte
+        slug={cat.slug}
+        name={cat.name}
+        title={cat.title}
+        intro={cat.intro}
+        pillar={cat.pillar}
+        articles={list.map(versCarte)}
+        autres={categories
+          .filter((c) => c.slug !== cat.slug)
+          .map((c) => ({ slug: c.slug, name: c.name, url: `/conseils/${c.slug}/`, count: articlesByCategory(c.slug).length }))}
       />
     </>
   );

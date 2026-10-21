@@ -1,5 +1,9 @@
 // Génère le favicon « M » de MKZ à partir de l'artwork source icone.png.
 //
+// ⚠️ Depuis le 21/10/2026 (préprod de la nouvelle charte), src/app/favicon.ico, icon.svg et
+// apple-icon.png sont les icônes livrées avec la maquette codée du 20/10/2026 : ne pas relancer
+// ce script, il remettrait l'ancien « M ». À retirer ou à adapter avant la mise en production.
+//
 // Usage   : node scripts/generate-favicon.mjs
 // Runtime : Node 18+. Dépendances : aucune (zlib natif uniquement).
 //
