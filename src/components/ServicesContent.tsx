@@ -222,8 +222,8 @@ export default function ServicesContent() {
         <MoreCard href="/tarifs/">
           <MoreTitle>Nos tarifs, affich&eacute;s</MoreTitle>
           <MoreDesc>
-            Site vitrine 1&nbsp;490&nbsp;&euro;, audit SEO 490&nbsp;&euro;, accompagnement d&egrave;s
-            390&nbsp;&euro;/mois&hellip; Les prix de base sont publics, le devis fixe est
+            Site vitrine 1&nbsp;490&nbsp;&euro;, audit SEO 490&nbsp;&euro;, accompagnement Google et IA
+            d&egrave;s 590&nbsp;&euro;/mois&hellip; Les prix de base sont publics, le devis fixe est
             &eacute;crit avant signature.
           </MoreDesc>
         </MoreCard>

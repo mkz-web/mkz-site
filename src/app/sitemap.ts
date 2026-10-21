@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // (8 requêtes anglaises « pricing/cost france » testées via DataForSEO,
     // zéro volume ; détail dans src/app/(fr)/tarifs/page.tsx). Volumes FR :
     // « prix site internet » 1 000/mois, « devis site internet » 590.
-    entry("/tarifs/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-20" }),
+    entry("/tarifs/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-10-21" }),
     entry("/creation-site-internet/", "fr", { priority: 0.9, changeFrequency: "monthly" }),
     // Outil d'audit SEO + IA en libre-service (Pages Function /api/scan).
     // Cible « audit seo (gratuit) », 1 600 + 880/mois (DataForSEO 20/08/2026) ;

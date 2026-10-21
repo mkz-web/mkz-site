@@ -708,7 +708,7 @@ const services = [
     kicker: "Service 02",
     title: "SEO & référencement Google",
     desc: "Être trouvé par les gens qui cherchent ce que vous faites, dans votre ville. Mots-clés en langage client, technique propre, contenus utiles, liens choisis à la main : du référencement qui dure, pas un feu de paille.",
-    prix: "Audit complet 490 € · accompagnement de 390 à 690 € HT par mois",
+    prix: "Audit complet 490 € · accompagnement de 590 à 890 € HT par mois, mesure IA comprise",
     tags: "audit SEO · référencement local · contenus · netlinking · point mensuel",
     href: "/referencement-seo/",
     linkLabel: "Découvrir le référencement SEO",
