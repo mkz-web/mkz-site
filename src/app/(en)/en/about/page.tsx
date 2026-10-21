@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd, { personSchemaEn } from "@/lib/JsonLd";
 import { breadcrumbSchema, SITE } from "@/lib/schema";
-import AboutContentEn from "@/components/en/AboutContentEn";
+import AProposCharteEn from "@/components/charte/pages/AProposCharteEn";
 
 export const metadata: Metadata = createMetadata("en", {
   title: "Mickaël Leclerc: French SEO & AI search consultant",
@@ -32,7 +32,7 @@ export default function EnAboutPage() {
       <JsonLd
         data={breadcrumbSchema([{ name: "Home", url: "/en/" }, { name: "About" }])}
       />
-      <AboutContentEn />
+      <AProposCharteEn />
     </>
   );
 }

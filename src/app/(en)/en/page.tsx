@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd, { serviceSchemasEn, faqSchemaEn } from "@/lib/JsonLd";
-import HomeContentEn from "@/components/en/HomeContentEn";
+import AccueilContentEn from "@/components/accueil/AccueilContentEn";
 
 // Le suffixe « | MKZ » est ajouté par le template du layout parent : ne jamais
 // l'écrire ici (sinon il apparaît deux fois). Seule /(fr)/page.tsx doit le
@@ -21,7 +21,7 @@ export default function EnHome() {
         <JsonLd key={i} data={s} />
       ))}
       <JsonLd data={faqSchemaEn} />
-      <HomeContentEn />
+      <AccueilContentEn />
     </>
   );
 }

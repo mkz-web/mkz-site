@@ -3,8 +3,9 @@
 // article, carte d'article. Tout est lu dans les données (src/lib/articles, src/content/articles) :
 // un article ou une rubrique ajoutés prennent le gabarit sans retouche.
 import Link from "next/link";
-import { articleUrl, formatDateFr, getCategory } from "@/lib/articles";
+import { articleUrl, formatDateEn, formatDateFr, getCategory, localeOf } from "@/lib/articles";
 import type { Article, Inline } from "@/lib/articles/types";
+import type { Locale } from "@/lib/i18n";
 
 // Habillage d'une rubrique, relevé sur la maquette (hub Conseils, pages de rubrique, articles)
 export type Rubrique = {
@@ -49,6 +50,23 @@ export const RUBRIQUES: Record<string, Rubrique> = {
     degrade: "degrade-rose",
     image: { src: "/images/charte/photos/telephone-affiche-assistant-intelligence-artificielle-pret-600x450.webp", width: 600, height: 450, alt: "Un téléphone affiche un assistant d'intelligence artificielle prêt à répondre" },
   },
+  // Rubriques anglaises (22/10/2026) : l'habillage de leur pendant français (SEO, référencement IA)
+  "french-seo": {
+    classe: "r-seo",
+    picto: "#i-loupe",
+    fond: "s-lavande",
+    theme: "clair",
+    degrade: "degrade-prune",
+    image: { src: "/images/charte/photos/telephone-affiche-recherche-google-devant-logo-600x450.webp", width: 600, height: 450, alt: "A phone showing a Google search in front of the Google logo" },
+  },
+  "ai-search": {
+    classe: "r-ia",
+    picto: "#i-etincelle",
+    fond: "s-marine",
+    theme: "sombre",
+    degrade: "degrade-rose",
+    image: { src: "/images/charte/photos/telephone-affiche-assistant-intelligence-artificielle-pret-600x450.webp", width: 600, height: 450, alt: "A phone showing an AI assistant ready to answer" },
+  },
 };
 
 export const rubrique = (slug: string): Rubrique => RUBRIQUES[slug] ?? RUBRIQUES.seo;
@@ -77,6 +95,9 @@ const PICTOS: Record<string, string> = {
   "geo-seo-difference": "#i-lien",
   "llms-txt-a-quoi-ca-sert": "#i-code",
   "mesurer-visibilite-ia": "#i-courbe",
+  "why-translation-never-ranks-in-france": "#i-alerte",
+  "how-to-choose-a-french-seo-agency": "#i-rapport",
+  "get-cited-by-ai-answers-in-french": "#i-guillemets",
 };
 
 export const pictoArticle = (slug: string, categorie: string) => PICTOS[slug] ?? rubrique(categorie).picto;
@@ -85,7 +106,10 @@ export const pictoArticle = (slug: string, categorie: string) => PICTOS[slug] ??
 // classes de l'ancien gabarit. Sans liens (avecLiens = false) dans un texte déjà cliquable.
 export function enLigne(texte: Inline, avecLiens = true): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
-  const regex = /(`[^`]+`)|(\*\*[^*]+?\*\*)|(\[[^\]]+\]\([^)\s]+\))/g;
+  // Italique *…* (contenus anglais : « *vouvoiement* ») : ses astérisques s'affichaient tels quels,
+  // en ligne comme dans l'ancien gabarit (corrigé le 22/10/2026). Rendu en <i> : dans la charte,
+  // <em> sert aux mises en valeur en dégradé et n'est pas en italique.
+  const regex = /(`[^`]+`)|(\*\*[^*]+?\*\*)|(\[[^\]]+\]\([^)\s]+\))|(\*[^*\s][^*]*?\*)/g;
   let dernier = 0;
   let cle = 0;
   let m: RegExpExecArray | null;
@@ -96,6 +120,7 @@ export function enLigne(texte: Inline, avecLiens = true): React.ReactNode[] {
     // Gras lu récursivement : « **Le test `site:`** » affichait ses accents graves (défaut de
     // l'ancien gabarit, visible en ligne et repris par la maquette, corrigé le 21/10/2026)
     else if (tok.startsWith("**")) parts.push(<strong key={cle++}>{enLigne(tok.slice(2, -2), avecLiens)}</strong>);
+    else if (tok.startsWith("*")) parts.push(<i key={cle++}>{enLigne(tok.slice(1, -1), avecLiens)}</i>);
     else {
       const lm = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(tok);
       if (!lm) parts.push(tok);
@@ -119,32 +144,36 @@ export type CarteArticleDonnees = {
   url: string;
   dateLabel: string;
   readingMinutes: number;
+  locale: Locale;
 };
 
 export function CarteArticle({ a }: { a: CarteArticleDonnees }) {
+  const en = a.locale === "en";
   return (
     <Link className={"article " + rubrique(a.categorie).classe} href={a.url}>
       <span className="article__tete">
         <span className="article__ico" aria-hidden="true"><svg><use href={pictoArticle(a.slug, a.categorie)} /></svg></span>
-        <span className="article__meta"><b>{a.categoryName}</b><span>{a.dateLabel} · {a.readingMinutes} min de lecture</span></span>
+        <span className="article__meta"><b>{a.categoryName}</b><span>{a.dateLabel} · {a.readingMinutes} {en ? "min read" : "min de lecture"}</span></span>
       </span>
       <span className="article__titre">{a.title}</span>
       <span className="article__texte">{enLigne(a.excerpt, false)}</span>
-      <span className="article__lien">Lire l’article</span>
+      <span className="article__lien">{en ? "Read the article" : "Lire l’article"}</span>
     </Link>
   );
 }
 
 export function versCarte(a: Article): CarteArticleDonnees {
+  const locale = localeOf(a);
   return {
     slug: a.slug,
     categorie: a.category,
-    categoryName: getCategory(a.category)?.name ?? a.category,
+    categoryName: getCategory(a.category, locale)?.name ?? a.category,
     title: a.title,
     excerpt: a.excerpt,
     url: articleUrl(a),
-    dateLabel: formatDateFr(a.datePublished),
+    dateLabel: locale === "en" ? formatDateEn(a.datePublished) : formatDateFr(a.datePublished),
     readingMinutes: a.readingMinutes,
+    locale,
   };
 }
 

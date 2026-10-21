@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierCharteEn from "@/components/charte/pages/PilierCharteEn";
 import pillar from "@/content/en/pillars/website-design";
 
 const PATH = "/en/website-design/";
@@ -41,21 +41,13 @@ export default function WebsiteDesignPage() {
           { name: "Website design" },
         ])}
       />
-      <PillarContent
-        locale="en"
-        visual={{ src: "/images/piliers/pilier-creation-site.webp", w: 896, h: 1071, alt: "A lit artisan storefront drawing two passers-by, ink engraving" }}
-        data={{
-          badge: "Website design",
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "Rebuild, or just better French pages?",
-            text: "Thirty minutes and an honest answer. If you do not need a rebuild, I will tell you so and point you at the cheaper fix instead.",
-            button: "Book a free 30-min review",
-          },
-        }}
+      <PilierCharteEn
+        chemin="/en/website-design/"
+        pillar={pillar}
+        rubrique="r-creation"
+        picto="#i-vitrine"
+        photo={{"src":"/images/charte/photos/femme-travaille-ordinateur-portable-plante-cote-920x1050.webp","srcPetit":"/images/charte/photos/femme-travaille-ordinateur-portable-plante-cote-600x685.webp","largeurPetit":600,"width":920,"height":1050,"alt":"A woman working on her laptop, a plant beside her"}}
+        finalCta={{ title: "Rebuild, or just better French pages?", text: "Thirty minutes and an honest answer. If you do not need a rebuild, I will tell you so and point you at the cheaper fix instead.", button: "Book a free 30-min review" }}
       />
     </>
   );

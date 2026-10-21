@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import AuditContent, { type AuditFaqItem, type AuditPageContent } from "@/components/audit/AuditContent";
+import type { AuditFaqItem, AuditPageContent } from "@/components/audit/AuditContent";
+import AuditCharteEn from "@/components/charte/pages/AuditCharteEn";
 
 // Page de CONVERSION assumée, pas une page SEO : décision MESURÉE du
 // 21/08/2026. Volumes anglais testés via DataForSEO (US) : « french seo
@@ -115,7 +116,7 @@ export default function SeoAuditPage() {
           { name: "Free SEO audit" },
         ])}
       />
-      <AuditContent locale="en" content={content} faq={faq} />
+      <AuditCharteEn content={content} faq={faq} />
     </>
   );
 }

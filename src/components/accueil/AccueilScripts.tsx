@@ -372,11 +372,13 @@ function animer(page: HTMLElement, nav: HTMLElement): () => void {
           });
         });
 
-        /* 13 · La Terre glisse légèrement sous le texte */
-        gsap.fromTo(".terre__image", { yPercent: -4 }, {
-          yPercent: 4, ease: "none",
-          scrollTrigger: { trigger: ".terre", start: "top bottom", end: "bottom top", scrub: true },
-        });
+        /* 13 · La Terre glisse légèrement sous le texte (section absente de l'accueil anglais) */
+        if (page.querySelector(".terre__image")) {
+          gsap.fromTo(".terre__image", { yPercent: -4 }, {
+            yPercent: 4, ease: "none",
+            scrollTrigger: { trigger: ".terre", start: "top bottom", end: "bottom top", scrub: true },
+          });
+        }
 
         // Au retour arrière de matchMedia (changement de largeur ou démontage), les chiffres
         // reprennent leur texte d'origine

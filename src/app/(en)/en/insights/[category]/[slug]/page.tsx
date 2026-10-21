@@ -13,7 +13,7 @@ import {
   relatedArticles,
 } from "@/lib/articles";
 import { articleFaqSchema, articleSchema, breadcrumbSchema, SITE } from "@/lib/schema";
-import ArticleRenderer from "@/components/article/ArticleRenderer";
+import ArticleCharte from "@/components/charte/ArticleCharte";
 
 export function generateStaticParams() {
   return articlesEn.map((a) => ({ category: a.category, slug: a.slug }));
@@ -72,7 +72,7 @@ export default async function EnArticlePage({
           { name: article.title },
         ])}
       />
-      <ArticleRenderer
+      <ArticleCharte
         locale="en"
         article={article}
         categoryName={cat.name}
@@ -80,12 +80,13 @@ export default async function EnArticlePage({
         path={articleUrl(article)}
         datePublishedLabel={formatDateEn(article.datePublished)}
         dateModifiedLabel={formatDateEn(article.dateModified)}
-        related={relatedArticles(article).map((r) => ({
+        suites={relatedArticles(article).map((r) => ({
           title: r.title,
           url: articleUrl(r),
+          categorie: r.category,
           categoryName: getCategory(r.category, "en")?.name ?? r.category,
         }))}
-        author={AUTHOR_EN}
+        auteur={AUTHOR_EN}
       />
     </>
   );

@@ -13,20 +13,19 @@
 //   - capture sans image : cadre « Capture d'écran à venir », comme sur le site.
 import Link from "next/link";
 import type { Article, Block, CategorySlug } from "@/lib/articles/types";
-import { SITE, ui } from "@/lib/i18n";
+import { SITE, ui, type Locale } from "@/lib/i18n";
 import ChartePage from "./ChartePage";
 import { enLigne, rubrique } from "./contenu";
 import "./metier.css";
 import "./pages.css";
-
-const t = ui.fr.article;
 
 function Bouton({ href, children }: { href: string; children: React.ReactNode }) {
   if (href.startsWith("/")) return <Link className="bouton bouton--plein" href={href}>{children}</Link>;
   return <a className="bouton bouton--plein" href={href} target="_blank" rel="noopener noreferrer nofollow">{children}</a>;
 }
 
-function Bloc({ b }: { b: Block }) {
+export function Bloc({ b, locale }: { b: Block; locale: Locale }) {
+  const t = ui[locale].article;
   switch (b.type) {
     case "p":
       return <p>{enLigne(b.text)}</p>;
@@ -82,7 +81,7 @@ function Bloc({ b }: { b: Block }) {
                 <path d="M14.5 4h-5L7.5 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.5l-2-3z"></path>
                 <circle cx="12" cy="13" r="3.5"></circle>
               </svg>
-              Capture d’écran à venir
+              {locale === "en" ? "Screenshot coming soon" : "Capture d’écran à venir"}
             </div>
           )}
           <figcaption>{b.caption}</figcaption>
@@ -122,6 +121,7 @@ export default function ArticleCharte({
   dateModifiedLabel,
   suites,
   auteur,
+  locale = "fr",
 }: {
   article: Article;
   categoryName: string;
@@ -131,20 +131,25 @@ export default function ArticleCharte({
   dateModifiedLabel: string;
   suites: ArticleSuite[];
   auteur: { name: string; role: string; bio: string; href: string };
+  locale?: Locale;
 }) {
+  const t = ui[locale].article;
   const rub = rubrique(article.category);
   const sommaire = article.blocks.filter((b): b is Extract<Block, { type: "h2" }> => b.type === "h2");
   const invite = encodeURIComponent(t.aiBar.prompt(`${SITE}${path}`));
+  // Titre de « L'essentiel » : celui de la maquette en français (apostrophe courbe), celui du
+  // dictionnaire en anglais
+  const essentiel = locale === "en" ? t.tldrTitle(article.tldr.length) : `L’essentiel en ${article.tldr.length} points`;
 
   return (
-    <ChartePage chemin={path} classes={"page-annexe page-clair " + rub.classe + " art-couleur"}>
+    <ChartePage chemin={path} classes={"page-annexe page-clair " + rub.classe + " art-couleur"} locale={locale}>
       <article className={"art " + rub.classe}>
         {/* EN-TÊTE · sobre : fil d'Ariane, rubrique, titre, chapeau, auteur et dates */}
         <header className="art-tete" data-theme="clair">
           <div className="enveloppe art-tete__in">
-            <nav className="ariane" aria-label="Fil d'Ariane">
-              <Link href="/">Accueil</Link><span aria-hidden="true">›</span>
-              <Link href="/conseils/">Conseils</Link><span aria-hidden="true">›</span>
+            <nav className="ariane" aria-label={locale === "en" ? t.breadcrumbAria : "Fil d'Ariane"}>
+              <Link href={locale === "en" ? "/en/" : "/"}>{t.home}</Link><span aria-hidden="true">›</span>
+              <Link href={t.hubHref}>{t.hub}</Link><span aria-hidden="true">›</span>
               <Link href={categoryUrl}>{categoryName}</Link>
             </nav>
             <Link className="art-cat" href={categoryUrl}><svg aria-hidden="true"><use href={rub.picto} /></svg>{categoryName}</Link>
@@ -182,10 +187,10 @@ export default function ArticleCharte({
           </aside>
           <div className="lecture">
             <aside className="encadre encadre--essentiel">
-              <p className="encadre__titre">L’essentiel en {article.tldr.length} points</p>
+              <p className="encadre__titre">{essentiel}</p>
               <ul>{article.tldr.map((x, i) => <li key={i}>{enLigne(x)}</li>)}</ul>
             </aside>
-            {article.blocks.map((b, i) => <Bloc key={i} b={b} />)}
+            {article.blocks.map((b, i) => <Bloc key={i} b={b} locale={locale} />)}
             {article.faq.length > 0 && (
               <section className="lecture-faq" id="faq">
                 <h2>{t.faqTitle}</h2>

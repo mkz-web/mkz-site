@@ -4,13 +4,12 @@ import JsonLd from "@/lib/JsonLd";
 import {
   articlesEn,
   articlesByCategory,
-  articleUrl,
   categoriesEn,
   categoryUrl,
-  formatDateEn,
 } from "@/lib/articles";
 import { articleListSchema, breadcrumbSchema, collectionPageSchema } from "@/lib/schema";
-import ConseilsContent from "@/components/conseils/ConseilsContent";
+import ConseilsCharte from "@/components/charte/pages/ConseilsCharte";
+import { versCarte } from "@/components/charte/contenu";
 
 const PATH = "/en/insights/";
 
@@ -46,24 +45,16 @@ export default function EnInsightsPage() {
       <JsonLd
         data={breadcrumbSchema([{ name: "Home", url: "/en/" }, { name: "Insights" }])}
       />
-      <ConseilsContent
+      <ConseilsCharte
         locale="en"
-        categories={categoriesEn.map((c) => ({
+        rubriques={categoriesEn.map((c) => ({
           slug: c.slug,
           name: c.name,
           description: c.description,
-          icon: c.icon,
           url: categoryUrl(c.slug, "en"),
-          count: articlesByCategory(c.slug, "en").length,
+          articles: articlesByCategory(c.slug, "en").map(versCarte),
         }))}
-        latest={articlesEn.map((a) => ({
-          title: a.title,
-          excerpt: a.excerpt,
-          url: articleUrl(a),
-          categoryName: categoriesEn.find((c) => c.slug === a.category)?.name ?? a.category,
-          dateLabel: formatDateEn(a.datePublished),
-          readingMinutes: a.readingMinutes,
-        }))}
+        derniers={articlesEn.slice(0, 3).map(versCarte)}
       />
     </>
   );

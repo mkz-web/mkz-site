@@ -5,6 +5,7 @@
 // Le layout (SiteChrome) ne rend ni l'ancien en-tête ni l'ancien pied sur ces pages.
 import type { ReactNode } from "react";
 import { entreeActive } from "@/lib/charte";
+import type { Locale } from "@/lib/i18n";
 import Sprite from "./Sprite";
 import Nav from "./Nav";
 import Pied from "./Pied";
@@ -22,6 +23,7 @@ export default function ChartePage({
   chemin,
   classes = "",
   scripts = "metier",
+  locale = "fr",
   children,
 }: {
   chemin: string;
@@ -29,17 +31,19 @@ export default function ChartePage({
   // « metier » : CharteScripts (menu, barre sombre, compteurs, apparitions) ;
   // « aucun » : la page apporte les siens (l'accueil, avec GSAP).
   scripts?: "metier" | "aucun";
+  // Langue de la page : navigation, pied et lien d'évitement suivent (22/10/2026).
+  locale?: Locale;
   children: ReactNode;
 }) {
   return (
     <div className={"charte" + (classes ? " " + classes : "")}>
-      <Prechargements gsap={chemin === "/"} />
+      <Prechargements gsap={chemin === "/" || chemin === "/en/"} />
       <script dangerouslySetInnerHTML={{ __html: AMORCE }} />
       <Sprite />
-      <a className="evitement" href="#contenu">Aller au contenu</a>
-      <Nav actif={entreeActive(chemin)} />
+      <a className="evitement" href="#contenu">{locale === "en" ? "Skip to content" : "Aller au contenu"}</a>
+      <Nav actif={entreeActive(chemin)} chemin={chemin} locale={locale} />
       <main id="contenu">{children}</main>
-      <Pied />
+      <Pied chemin={chemin} locale={locale} />
       {scripts === "metier" ? <CharteScripts /> : null}
     </div>
   );

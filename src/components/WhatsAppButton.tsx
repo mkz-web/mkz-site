@@ -19,17 +19,20 @@ const FloatingLink = styled.a`
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25D366;
+  /* Nouvelle charte (22/10/2026) : la bulle prend la couleur et l'effet des boutons pleins de la
+     maquette (bleu nuit, dégradé violet-rose au survol), l'icône WhatsApp reste reconnaissable. */
+  background-color: var(--nuit, #202748);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-  transition: all 0.25s ease;
+  box-shadow: 0 14px 28px -12px rgba(32, 39, 72, .55);
+  transition: transform .25s cubic-bezier(.2, .8, .25, 1.15), box-shadow .25s ease;
   text-decoration: none;
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    transform: translateY(-3px);
+    background-image: linear-gradient(100deg, var(--violet, #705398), var(--rose-profond, #B4508C));
+    box-shadow: 0 16px 30px -12px rgba(180, 80, 140, .7);
   }
 
   @media (min-width: ${theme.breakpoints.md}) {

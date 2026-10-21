@@ -4,21 +4,27 @@
 // Tout est lu dans les données : un article publié par la veille entre dans sa rubrique et dans
 // l'éventail sans retouche.
 import Link from "next/link";
-import { CALENDLY, ui } from "@/lib/i18n";
+import { CALENDLY, ui, type Locale } from "@/lib/i18n";
 import ChartePage from "../ChartePage";
 import { CarteArticle, classeGrille, pictoArticle, rubrique, type CarteArticleDonnees } from "../contenu";
 import "../metier.css";
 import "../pages.css";
 
-const t = ui.fr.newsroom;
-
 export type RubriqueHub = { slug: string; name: string; description: string; url: string; articles: CarteArticleDonnees[] };
 
-export default function ConseilsCharte({ rubriques, derniers }: { rubriques: RubriqueHub[]; derniers: CarteArticleDonnees[] }) {
+// Libellés fixes de la maquette ; en anglais (hub /en/insights/, 22/10/2026), leur pendant
+const L = {
+  fr: { chemin: "/conseils/", sommaire: "Sommaire", parAvant: "Explorez ", parEm: "par thématique", voir: "Voir la rubrique", minutes: "min de lecture" },
+  en: { chemin: "/en/insights/", sommaire: "Contents", parAvant: "Browse ", parEm: "by topic", voir: "See the topic", minutes: "min read" },
+};
+
+export default function ConseilsCharte({ rubriques, derniers, locale = "fr" }: { rubriques: RubriqueHub[]; derniers: CarteArticleDonnees[]; locale?: Locale }) {
+  const t = ui[locale].newsroom;
+  const l = L[locale];
   // Éventail : la carte du dessus (la dernière dans le document) est l'article le plus récent
   const eventail = derniers.length >= 3 ? [derniers[1], derniers[2], derniers[0]] : derniers;
   return (
-    <ChartePage chemin="/conseils/" classes="page-annexe page-clair">
+    <ChartePage chemin={l.chemin} classes="page-annexe page-clair" locale={locale}>
       {/* BANDEAU · une de magazine : titre éditorial à gauche, éventail des trois derniers articles à droite */}
       <section className="une" data-theme="clair">
         <div className="enveloppe une__in">
@@ -27,7 +33,7 @@ export default function ConseilsCharte({ rubriques, derniers }: { rubriques: Rub
             <h1 data-entree="">{t.titleBefore}<em className="degrade">{t.titleEm + t.titleAfter}</em></h1>
             <p className="une__intro" data-entree="">{t.sub}</p>
             <nav className="une__sommaire" aria-labelledby="sommaire" data-entree="">
-              <p className="petit" id="sommaire">Sommaire</p>
+              <p className="petit" id="sommaire">{l.sommaire}</p>
               <ul>
                 {rubriques.map((r) => (
                   <li key={r.slug} className={rubrique(r.slug).classe}><a href={"#rubrique-" + r.slug}>{r.name}</a></li>
@@ -41,7 +47,7 @@ export default function ConseilsCharte({ rubriques, derniers }: { rubriques: Rub
                 <div className="eventail__couv"><svg><use href={pictoArticle(a.slug, a.categorie)} /></svg></div>
                 <p className="eventail__tag">{a.categoryName}</p>
                 <p className="eventail__titre">{a.title}</p>
-                <p className="eventail__date">{a.dateLabel} · {a.readingMinutes} min de lecture</p>
+                <p className="eventail__date">{a.dateLabel} · {a.readingMinutes} {l.minutes}</p>
               </div>
             ))}
           </div>
@@ -52,7 +58,7 @@ export default function ConseilsCharte({ rubriques, derniers }: { rubriques: Rub
       <section className="section s-nuit-profonde" data-theme="sombre">
         <div className="enveloppe">
           <header className="titre-section" data-revele="">
-            <h2 className="titre-2">Explorez <em className="degrade">par thématique</em></h2>
+            <h2 className="titre-2">{l.parAvant}<em className="degrade">{l.parEm}</em></h2>
           </header>
           <div className="rubriques" data-revele-groupe="">
             {rubriques.map((r) => {
@@ -89,7 +95,7 @@ export default function ConseilsCharte({ rubriques, derniers }: { rubriques: Rub
                     <span className="rubrique-tete__compte">{t.articleCount(r.articles.length)}</span>
                   </div>
                 </div>
-                <Link className="bouton bouton--trait" href={r.url}>Voir la rubrique</Link>
+                <Link className="bouton bouton--trait" href={r.url}>{l.voir}</Link>
               </header>
               <div className={classeGrille(r.articles.length)} data-revele-groupe="">
                 {r.articles.map((a) => <CarteArticle key={a.url} a={a} />)}

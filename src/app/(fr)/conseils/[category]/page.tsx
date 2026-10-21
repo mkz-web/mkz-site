@@ -70,6 +70,7 @@ export default async function CategoryPage({
       />
       <RubriqueCharte
         slug={cat.slug}
+        url={url}
         name={cat.name}
         title={cat.title}
         intro={cat.intro}

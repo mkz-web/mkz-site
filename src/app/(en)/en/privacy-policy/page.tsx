@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import { PrivacyPolicyEn } from "@/components/en/LegalContentEn";
+import { PrivacyCharteEn } from "@/components/charte/pages/LegalCharteEn";
 
 export const metadata: Metadata = createMetadata("en", {
   title: "Privacy policy",
@@ -12,5 +12,5 @@ export const metadata: Metadata = createMetadata("en", {
 });
 
 export default function EnPrivacyPolicyPage() {
-  return <PrivacyPolicyEn />;
+  return <PrivacyCharteEn />;
 }

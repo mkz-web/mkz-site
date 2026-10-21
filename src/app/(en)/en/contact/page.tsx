@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
-import ContactContent from "@/components/ContactContent";
+import ContactCharteEn from "@/components/charte/pages/ContactCharteEn";
 
 export const metadata: Metadata = createMetadata("en", {
   title: "Contact: free 30-minute French SEO review",
@@ -17,7 +17,7 @@ export default function EnContactPage() {
       <JsonLd
         data={breadcrumbSchema([{ name: "Home", url: "/en/" }, { name: "Contact" }])}
       />
-      <ContactContent locale="en" />
+      <ContactCharteEn />
     </>
   );
 }

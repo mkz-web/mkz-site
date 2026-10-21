@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierCharteEn from "@/components/charte/pages/PilierCharteEn";
 import pillar from "@/content/en/pillars/french-seo";
 
 const PATH = "/en/french-seo/";
@@ -41,21 +41,13 @@ export default function FrenchSeoPage() {
           { name: "French SEO" },
         ])}
       />
-      <PillarContent
-        locale="en"
-        visual={{ src: "/images/piliers/pilier-referencement-seo.webp", w: 896, h: 1071, alt: "A proud artisan standing on the top step of a podium, ink engraving" }}
-        data={{
-          badge: pillar.heroBadge,
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "Let's find out where you stand in France",
-            text: "Thirty minutes on a call: we look at your French pages, your hreflang and whether French AI answers cite you. You leave with a concrete plan, whether or not you work with me.",
-            button: "Book a free 30-min review",
-          },
-        }}
+      <PilierCharteEn
+        chemin="/en/french-seo/"
+        pillar={pillar}
+        rubrique="r-seo"
+        picto="#i-loupe"
+        photo={{"src":"/images/charte/photos/homme-concentre-travaille-ordinateur-portable-dans-880x1100.webp","srcPetit":"/images/charte/photos/homme-concentre-travaille-ordinateur-portable-dans-600x750.webp","largeurPetit":600,"width":880,"height":1100,"alt":"A man working with focus on his laptop"}}
+        finalCta={{ title: "Let's find out where you stand in France", text: "Thirty minutes on a call: we look at your French pages, your hreflang and whether French AI answers cite you. You leave with a concrete plan, whether or not you work with me.", button: "Book a free 30-min review" }}
       />
     </>
   );

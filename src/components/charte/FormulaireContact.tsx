@@ -7,13 +7,18 @@
 // maquette ; le formulaire reste en place et se vide après un envoi réussi.
 
 import { useEffect, useRef, useState } from "react";
-import { ui } from "@/lib/i18n";
+import { ui, type Locale } from "@/lib/i18n";
 import { gaEvent } from "@/lib/ga";
 
 const WEB3FORMS_KEY = "5f80cd7f-a0fb-484c-995c-a6a1a5534c34";
 
-export default function FormulaireContact() {
-  const t = ui.fr.contact.form;
+export default function FormulaireContact({ locale = "fr" }: { locale?: Locale }) {
+  const t = ui[locale].contact.form;
+  // Libellés : ceux de la maquette en français, ceux du dictionnaire en anglais (22/10/2026)
+  const l =
+    locale === "en"
+      ? { nom: t.name, nomEx: t.namePlaceholder, email: t.email, emailEx: t.emailPlaceholder, sujet: t.subject, sujetEx: t.subjectPlaceholder, message: t.message, messageEx: t.messagePlaceholder, envoyer: t.submit }
+      : { nom: "Nom complet", nomEx: "Jean Dupont", email: "Email", emailEx: "jean@exemple.fr", sujet: "Sujet", sujetEx: "Nouveau projet web", message: "Message", messageEx: "Décrivez votre projet...", envoyer: "Envoyer le message" };
   const [etat, setEtat] = useState<"repos" | "envoi" | "succes" | "erreur">("repos");
   const sujetRef = useRef<HTMLInputElement>(null);
 
@@ -63,12 +68,12 @@ export default function FormulaireContact() {
     <>
       <form onSubmit={envoyer}>
         <div className="formulaire__grille">
-          <p className="champ"><label htmlFor="nom">Nom complet</label><input id="nom" name="nom" type="text" autoComplete="name" placeholder="Jean Dupont" required /></p>
-          <p className="champ"><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" placeholder="jean@exemple.fr" required /></p>
-          <p className="champ champ--large"><label htmlFor="sujet">Sujet</label><input ref={sujetRef} id="sujet" name="sujet" type="text" placeholder="Nouveau projet web" required /></p>
-          <p className="champ champ--large"><label htmlFor="message">Message</label><textarea id="message" name="message" placeholder="Décrivez votre projet..." required></textarea></p>
+          <p className="champ"><label htmlFor="nom">{l.nom}</label><input id="nom" name="nom" type="text" autoComplete="name" placeholder={l.nomEx} required /></p>
+          <p className="champ"><label htmlFor="email">{l.email}</label><input id="email" name="email" type="email" autoComplete="email" placeholder={l.emailEx} required /></p>
+          <p className="champ champ--large"><label htmlFor="sujet">{l.sujet}</label><input ref={sujetRef} id="sujet" name="sujet" type="text" placeholder={l.sujetEx} required /></p>
+          <p className="champ champ--large"><label htmlFor="message">{l.message}</label><textarea id="message" name="message" placeholder={l.messageEx} required></textarea></p>
         </div>
-        <button className="bouton bouton--plein" type="submit" disabled={etat === "envoi"}>Envoyer le message</button>
+        <button className="bouton bouton--plein" type="submit" disabled={etat === "envoi"}>{l.envoyer}</button>
       </form>
       <p className="formulaire__retour" role="status" aria-live="polite">{retour}</p>
     </>

@@ -30,14 +30,20 @@ const PAGES = [
   { contenu: "src/content/pillars/referencement-seo.ts", page: "out/referencement-seo/index.html" },
   { contenu: "src/content/pillars/referencement-ia.ts", page: "out/referencement-ia/index.html" },
   { contenu: "src/content/pillars/agence-web-77.ts", page: "out/agence-web-77/index.html" },
+  // Piliers anglais (gabarit PilierCharteEn, 22/10/2026)
+  { contenu: "src/content/en/pillars/french-seo.ts", page: "out/en/french-seo/index.html" },
+  { contenu: "src/content/en/pillars/ai-search-optimization.ts", page: "out/en/ai-search-optimization/index.html" },
+  { contenu: "src/content/en/pillars/website-design.ts", page: "out/en/website-design/index.html" },
 ];
-// Articles (gabarit ArticleCharte, rendu depuis les données) : tous, y compris ceux que la
-// veille publiera, la page étant lue à l'adresse que donne l'article lui-même.
-for (const f of fs.readdirSync(path.join(racine, "src/content/articles")).sort()) {
-  if (!f.endsWith(".ts") || f.startsWith("_")) continue;
-  const contenu = "src/content/articles/" + f;
-  const a = chargerContenu(contenu);
-  PAGES.push({ contenu, page: "out/conseils/" + a.category + "/" + a.slug + "/index.html", article: true });
+// Articles (gabarit ArticleCharte, rendu depuis les données) : tous, français et anglais, y compris
+// ceux que la veille publiera, la page étant lue à l'adresse que donne l'article lui-même.
+for (const [dossier, hub] of [["src/content/articles", "out/conseils/"], ["src/content/en/articles", "out/en/insights/"]]) {
+  for (const f of fs.readdirSync(path.join(racine, dossier)).sort()) {
+    if (!f.endsWith(".ts") || f.startsWith("_")) continue;
+    const contenu = dossier + "/" + f;
+    const a = chargerContenu(contenu);
+    PAGES.push({ contenu, page: hub + a.category + "/" + a.slug + "/index.html", article: true });
+  }
 }
 
 // Lit un fichier de contenu TypeScript (objet littéral typé) sans compilateur : on retire les
@@ -72,8 +78,8 @@ const normaliser = (s) =>
     .replace(/" /g, '"')
     .trim();
 
-// Mini-markdown du contenu : **gras**, [lien](/url/), `code`
-const enTexte = (inline) => inline.replace(/\*\*/g, "").replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/`/g, "");
+// Mini-markdown du contenu : **gras**, *italique*, [lien](/url/), `code`
+const enTexte = (inline) => inline.replace(/\*/g, "").replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/`/g, "");
 
 function textesAttendus(c, article) {
   const t = [c.title];

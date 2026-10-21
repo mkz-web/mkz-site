@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, faqSchema, SITE } from "@/lib/schema";
-import PillarContent from "@/components/PillarContent";
+import PilierCharteEn from "@/components/charte/pages/PilierCharteEn";
 import pillar from "@/content/en/pillars/ai-search-optimization";
 
 const PATH = "/en/ai-search-optimization/";
@@ -41,21 +41,13 @@ export default function AiSearchPage() {
           { name: "AI search optimisation" },
         ])}
       />
-      <PillarContent
-        locale="en"
-        visual={{ src: "/images/piliers/pilier-referencement-ia.webp", w: 896, h: 1071, alt: "An open book with a single line highlighted in orange, ink engraving" }}
-        data={{
-          badge: "AI search",
-          title: pillar.title,
-          lead: pillar.heroLead,
-          blocks: pillar.blocks,
-          faq: pillar.faq,
-          finalCta: {
-            title: "Get your AI visibility baseline",
-            text: "Thirty minutes: we check whether AI crawlers can reach you at all, then count how often French and English AI answers cite you today. You keep the numbers either way.",
-            button: "Book a free 30-min review",
-          },
-        }}
+      <PilierCharteEn
+        chemin="/en/ai-search-optimization/"
+        pillar={pillar}
+        rubrique="r-ia"
+        picto="#i-etincelle"
+        photo={{"src":"/images/charte/photos/femme-sourit-regardant-telephone-880x1100.webp","srcPetit":"/images/charte/photos/femme-sourit-regardant-telephone-600x750.webp","largeurPetit":600,"width":880,"height":1100,"alt":"A woman smiling as she reads an answer on her phone"}}
+        finalCta={{ title: "Get your AI visibility baseline", text: "Thirty minutes: we check whether AI crawlers can reach you at all, then count how often French and English AI answers cite you today. You keep the numbers either way.", button: "Book a free 30-min review" }}
       />
     </>
   );

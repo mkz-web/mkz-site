@@ -40,5 +40,10 @@ export function entreeActive(chemin: string): string | null {
   if (chemin.startsWith("/conseils/")) return "/conseils/";
   if (["/outils/", "/audit-seo/", "/empreinte-ia/"].includes(chemin)) return "/outils/";
   if (["/creation-site-internet/", "/referencement-seo/", "/referencement-ia/", "/tarifs/", "/contact/"].includes(chemin)) return chemin;
+  // Pages anglaises (22/10/2026), même logique sur les entrées de ui.en.nav
+  if (chemin === "/en/") return "/en/";
+  if (chemin.startsWith("/en/insights/")) return "/en/insights/";
+  if (["/en/tools/", "/en/seo-audit/"].includes(chemin)) return "/en/tools/";
+  if (["/en/french-seo/", "/en/ai-search-optimization/", "/en/website-design/", "/en/contact/"].includes(chemin)) return chemin;
   return null;
 }

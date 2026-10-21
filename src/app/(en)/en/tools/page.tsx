@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, SITE } from "@/lib/schema";
-import ToolsContent, { type ToolsPageContent } from "@/components/ToolsContent";
+import type { ToolsPageContent } from "@/components/ToolsContent";
+import OutilsCharteEn from "@/components/charte/pages/OutilsCharteEn";
 
 // English hub of the free tools, created 22/08/2026. A NAVIGATION and
 // conversion page, not an SEO page: no English query was targeted or measured
@@ -132,7 +133,7 @@ export default function ToolsPage() {
           { name: "Free tools" },
         ])}
       />
-      <ToolsContent locale="en" content={content} />
+      <OutilsCharteEn content={content} />
     </>
   );
 }

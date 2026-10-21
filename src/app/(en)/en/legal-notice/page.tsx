@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import { LegalNoticeEn } from "@/components/en/LegalContentEn";
+import { LegalNoticeCharteEn } from "@/components/charte/pages/LegalCharteEn";
 
 export const metadata: Metadata = createMetadata("en", {
   title: "Legal notice",
@@ -13,5 +13,5 @@ export const metadata: Metadata = createMetadata("en", {
 });
 
 export default function EnLegalNoticePage() {
-  return <LegalNoticeEn />;
+  return <LegalNoticeCharteEn />;
 }

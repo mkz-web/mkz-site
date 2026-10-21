@@ -21,6 +21,28 @@ import { theme } from "@/lib/theme";
 import { gaEvent } from "@/lib/ga";
 import { ui, type Locale } from "@/lib/i18n";
 
+// Jetons de la nouvelle charte (22/10/2026) : l'écran de résultat ne s'affiche plus que sur des
+// pages à la charte (/audit-seo/, /en/seo-audit/) ; variables posées sur html:has(.charte), valeurs
+// de repli identiques. Le vert de « réussi » reste : la charte n'a pas de couleur de statut.
+const T = {
+  accent: "var(--violet, #705398)",
+  fond: "#FFFFFF",
+  filet: "rgba(32, 39, 72, .14)",
+  filetFort: "rgba(32, 39, 72, .3)",
+  bouton: "var(--nuit, #202748)",
+  boutonSurvol: "var(--violet, #705398)",
+  succes: "#1E7A4F",
+  surface: "#FFFFFF",
+  surfaceAlt: "var(--lavande-clair, #EEF0FF)",
+  texte: "var(--texte, #202748)",
+  texteDoux: "var(--texte-doux, #4A4F66)",
+  titre: 'var(--f-titre, "Montserrat", "Helvetica Neue", Arial, sans-serif)',
+  corps: 'var(--f-texte, "Inter", "Segoe UI", sans-serif)',
+  rayon: "22px",
+  ombre: "var(--ombre-forte, 0 34px 60px -28px rgba(42, 64, 137, .55), 0 4px 14px rgba(32, 39, 72, .08))",
+};
+
+
 const WEB3FORMS_KEY = "5f80cd7f-a0fb-484c-995c-a6a1a5534c34";
 
 interface CheckResult {
@@ -35,18 +57,18 @@ interface CheckResult {
 const PHASES = ["origin", "robots", "page", "notfound", "autorite"] as const;
 
 const COLORS = {
-  ok: theme.colors.success,
-  warn: theme.colors.ctaInk,
+  ok: T.succes,
+  warn: T.bouton,
   fail: "#B42318",
-  na: theme.colors.textSecondary,
+  na: T.texteDoux,
 } as const;
 
 // ── Styles ──────────────────────────────────────────────────────────────────
 
 const Wrap = styled.div`
-  border: 1px solid ${theme.colors.borderInk};
-  background: ${theme.colors.surface};
-  box-shadow: ${theme.shadows.lg};
+  border: 1px solid ${T.filetFort};
+  background: ${T.surface};
+  box-shadow: ${T.ombre};
   padding: ${theme.spacing.lg};
 
   @media (min-width: ${theme.breakpoints.md}) {
@@ -69,32 +91,32 @@ const UrlInput = styled.input`
   min-height: 52px;
   padding: 12px 16px;
   font-size: 16px;
-  font-family: ${theme.fonts.mono};
-  border: 1px solid ${theme.colors.borderInk};
-  border-radius: ${theme.radius.md};
-  background: ${theme.colors.background};
-  color: ${theme.colors.text};
+  font-family: ${T.corps};
+  border: 1px solid ${T.filetFort};
+  border-radius: ${T.rayon};
+  background: ${T.fond};
+  color: ${T.texte};
   outline: none;
 
   &:focus {
-    border-color: ${theme.colors.accent};
-    box-shadow: 0 0 0 3px ${theme.colors.accent}15;
+    border-color: ${T.accent};
+    box-shadow: 0 0 0 3px ${T.accent}15;
   }
 `;
 
 const StartButton = styled.button`
   min-height: 52px;
   padding: 12px 28px;
-  background: ${theme.colors.ctaInk};
+  background: ${T.bouton};
   color: white;
   font-size: 16px;
   font-weight: 600;
   border: none;
-  border-radius: ${theme.radius.md};
+  border-radius: ${T.rayon};
   cursor: pointer;
 
   &:hover:not(:disabled) {
-    background: ${theme.colors.ctaHover};
+    background: ${T.boutonSurvol};
   }
 
   &:disabled {
@@ -105,9 +127,9 @@ const StartButton = styled.button`
 
 const PhaseLine = styled.p`
   margin-top: ${theme.spacing.md};
-  font-family: ${theme.fonts.mono};
+  font-family: ${T.corps};
   font-size: 14px;
-  color: ${theme.colors.textSecondary};
+  color: ${T.texteDoux};
 `;
 
 const ErrorLine = styled.p`
@@ -149,7 +171,7 @@ const RingSvg = styled.svg`
 
 const RingTrack = styled.circle`
   fill: none;
-  stroke: ${theme.colors.surfaceAlt};
+  stroke: ${T.surfaceAlt};
   stroke-width: 12;
 `;
 
@@ -173,19 +195,19 @@ const RingLabel = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: ${theme.fonts.mono};
+  font-family: ${T.corps};
 
   strong {
     font-size: 40px;
     font-weight: 700;
     line-height: 1;
-    color: ${theme.colors.accent};
+    color: ${T.accent};
   }
 
   span {
     margin-top: 2px;
     font-size: 14px;
-    color: ${theme.colors.textSecondary};
+    color: ${T.texteDoux};
   }
 `;
 
@@ -207,8 +229,8 @@ const BlocRow = styled.div`
 
 const Bar = styled.div`
   height: 10px;
-  background: ${theme.colors.surfaceAlt};
-  border: 1px solid ${theme.colors.border};
+  background: ${T.surfaceAlt};
+  border: 1px solid ${T.filet};
 `;
 
 const BarFill = styled("div", {
@@ -220,16 +242,16 @@ const BarFill = styled("div", {
 `;
 
 const Mono = styled.span`
-  font-family: ${theme.fonts.mono};
+  font-family: ${T.corps};
   font-size: 13px;
-  color: ${theme.colors.textSecondary};
+  color: ${T.texteDoux};
 `;
 
 const SectionTitle = styled.h3`
   margin-top: ${theme.spacing.xl};
-  font-family: ${theme.fonts.display};
+  font-family: ${T.titre};
   font-size: 20px;
-  color: ${theme.colors.text};
+  color: ${T.texte};
 `;
 
 const CheckList = styled.ul`
@@ -245,7 +267,7 @@ const CheckItem = styled.li`
   grid-template-columns: auto 1fr;
   gap: 10px 12px;
   padding: 10px 0;
-  border-bottom: 1px solid ${theme.colors.border};
+  border-bottom: 1px solid ${T.filet};
   font-size: 14px;
 
   &:last-of-type {
@@ -257,7 +279,7 @@ const StatusChip = styled("span", {
   shouldForwardProp: (p) => p !== "tint",
 })<{ tint: string }>`
   align-self: start;
-  font-family: ${theme.fonts.mono};
+  font-family: ${T.corps};
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -274,33 +296,33 @@ const CheckLabel = styled.span`
 
 const CheckDetail = styled.span`
   display: block;
-  color: ${theme.colors.textSecondary};
+  color: ${T.texteDoux};
   margin-top: 2px;
 `;
 
 const SoonNote = styled.p`
   margin-top: ${theme.spacing.sm};
   font-size: 13px;
-  color: ${theme.colors.textSecondary};
+  color: ${T.texteDoux};
   font-style: italic;
 `;
 
 const EmailBox = styled.div`
   margin-top: ${theme.spacing.xl};
-  border: 1px solid ${theme.colors.borderInk};
-  background: ${theme.colors.surfaceAlt};
+  border: 1px solid ${T.filetFort};
+  background: ${T.surfaceAlt};
   padding: ${theme.spacing.lg};
 `;
 
 const EmailTitle = styled.h3`
-  font-family: ${theme.fonts.display};
+  font-family: ${T.titre};
   font-size: 22px;
 `;
 
 const EmailText = styled.p`
   margin-top: 8px;
   font-size: 14px;
-  color: ${theme.colors.textSecondary};
+  color: ${T.texteDoux};
 `;
 
 const EmailForm = styled.form`
@@ -325,19 +347,19 @@ const ConsentLabel = styled.label`
   gap: 10px;
   align-items: flex-start;
   font-size: 13px;
-  color: ${theme.colors.textSecondary};
+  color: ${T.texteDoux};
   cursor: pointer;
 
   input {
     margin-top: 2px;
     width: 18px;
     height: 18px;
-    accent-color: ${theme.colors.accent};
+    accent-color: ${T.accent};
     flex-shrink: 0;
   }
 
   a {
-    color: ${theme.colors.accent};
+    color: ${T.accent};
     text-decoration: underline;
   }
 `;
@@ -352,7 +374,7 @@ const RescanButton = styled.button`
   margin-top: ${theme.spacing.lg};
   background: none;
   border: none;
-  color: ${theme.colors.accent};
+  color: ${T.accent};
   font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
@@ -671,7 +693,7 @@ export default function AuditScan({
               <EmailTitle>{t.emailBox.title}</EmailTitle>
               {mailStatus === "success" ? (
                 <>
-                  <EmailText style={{ fontWeight: 600, color: theme.colors.success }}>
+                  <EmailText style={{ fontWeight: 600, color: T.succes }}>
                     {t.emailBox.successTitle}
                   </EmailText>
                   <EmailText>{t.emailBox.successText}</EmailText>
@@ -697,7 +719,7 @@ export default function AuditScan({
                         name="email"
                         required
                         placeholder={t.emailBox.emailPlaceholder}
-                        style={{ fontFamily: theme.fonts.sans }}
+                        style={{ fontFamily: T.corps }}
                       />
                       <StartButton type="submit" disabled={mailStatus === "sending"}>
                         {mailStatus === "sending" ? t.emailBox.sending : t.emailBox.submit}

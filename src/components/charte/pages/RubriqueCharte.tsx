@@ -3,13 +3,17 @@
 // introduction, cartes d'articles), relais vers la page de service, puis les autres rubriques.
 // Titre, introduction et relais lus dans src/lib/articles/categories.ts.
 import Link from "next/link";
-import { ui } from "@/lib/i18n";
+import { ui, type Locale } from "@/lib/i18n";
 import ChartePage from "../ChartePage";
 import { CarteArticle, classeGrille, enLigne, rubrique, type CarteArticleDonnees } from "../contenu";
 import "../metier.css";
 import "../pages.css";
 
-const t = ui.fr.newsroom;
+// Libellés fixes de la maquette ; en anglais (rubriques de /en/insights/, 22/10/2026), leur pendant
+const L = {
+  fr: { accueil: "/", maison: "Accueil", hub: "/conseils/", hubNom: "Conseils", ariane: "Fil d'Ariane", tous: "Tous les conseils", autresAvant: "Les autres ", autresEm: "rubriques" },
+  en: { accueil: "/en/", maison: "Home", hub: "/en/insights/", hubNom: "Insights", ariane: "Breadcrumb", tous: "All insights", autresAvant: "Other ", autresEm: "topics" },
+};
 
 export type AutreRubrique = { slug: string; name: string; url: string; count: number };
 
@@ -21,6 +25,8 @@ export default function RubriqueCharte({
   pillar,
   articles,
   autres,
+  url,
+  locale = "fr",
 }: {
   slug: string;
   name: string;
@@ -29,20 +35,25 @@ export default function RubriqueCharte({
   pillar: { href: string; label: string };
   articles: CarteArticleDonnees[];
   autres: AutreRubrique[];
+  url: string;
+  locale?: Locale;
 }) {
+  const t = ui[locale].newsroom;
+  const l = L[locale];
   const rub = rubrique(slug);
   // « SEO : être trouvé sur Google… » : la partie avant les deux-points porte le dégradé
-  const i = title.indexOf(" : ");
+  // (en anglais « French SEO: making… », sans espace avant les deux-points)
+  const i = title.indexOf(" : ") > 0 ? title.indexOf(" : ") : title.indexOf(": ");
   const tete = i > 0 ? title.slice(0, i) : title;
   const suite = i > 0 ? title.slice(i) : "";
   return (
-    <ChartePage chemin={`/conseils/${slug}/`} classes={"page-annexe page-clair " + rub.classe}>
+    <ChartePage chemin={url} classes={"page-annexe page-clair " + rub.classe} locale={locale}>
       {/* RUBRIQUE · même mise en page que sa section sur la page Conseils : en-tête à picto, introduction, cartes d'articles */}
       <section className={"section rub-page " + rub.fond + " " + rub.classe} data-theme={rub.theme}>
         <div className="enveloppe">
-          <nav className="ariane" aria-label="Fil d'Ariane" data-entree="">
-            <Link href="/">Accueil</Link><span aria-hidden="true">/</span>
-            <Link href="/conseils/">Conseils</Link><span aria-hidden="true">/</span>
+          <nav className="ariane" aria-label={l.ariane} data-entree="">
+            <Link href={l.accueil}>{l.maison}</Link><span aria-hidden="true">/</span>
+            <Link href={l.hub}>{l.hubNom}</Link><span aria-hidden="true">/</span>
             <span aria-current="page">{name}</span>
           </nav>
           <header className="rubrique-tete" data-entree="">
@@ -53,7 +64,7 @@ export default function RubriqueCharte({
                 <span className="rubrique-tete__compte">{t.articleCount(articles.length)}</span>
               </div>
             </div>
-            <Link className="bouton bouton--trait" href="/conseils/">Tous les conseils</Link>
+            <Link className="bouton bouton--trait" href={l.hub}>{l.tous}</Link>
           </header>
           <div className="rub-intro" data-entree="">
             {intro.map((p, k) => <p key={k}>{enLigne(p)}</p>)}
@@ -71,7 +82,7 @@ export default function RubriqueCharte({
       {/* LES AUTRES RUBRIQUES */}
       <section className={"section section--serree " + (rub.fond === "s-lavande" ? "s-blanc" : "s-lavande")} data-theme="clair">
         <div className="enveloppe">
-          <header className="titre-section" data-revele=""><h2 className="titre-2">Les autres <em className="degrade">rubriques</em></h2></header>
+          <header className="titre-section" data-revele=""><h2 className="titre-2">{l.autresAvant}<em className="degrade">{l.autresEm}</em></h2></header>
           <div className="autres" data-revele-groupe="">
             {autres.map((o) => {
               const r = rubrique(o.slug);

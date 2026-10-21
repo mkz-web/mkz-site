@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import ClarityScript from "@/components/ClarityScript";
 import ConsentBanner from "@/components/ConsentBanner";
 import GaScript from "@/components/GaScript";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import RevealMotion from "@/components/RevealMotion";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import EmotionRegistry from "@/lib/EmotionRegistry";
 import GlobalStyles from "@/lib/GlobalStyles";
@@ -23,6 +20,11 @@ import { createMetadata } from "@/lib/metadata";
 // Organization et LocalBusiness restent partagés : c'est la même entité
 // juridique, même @id, donc un seul nœud dans le graphe. Seuls WebSite et
 // Person ont une variante anglaise (inLanguage + description).
+//
+// Nouvelle charte (22/10/2026) : toutes les pages anglaises sont rendues par ChartePage
+// (navigation, pied, styles de la charte) ; le layout ne pose plus l'ancien en-tête, l'ancien pied
+// ni RevealMotion, seulement les styles globaux réduits, comme SiteChrome côté français. Les
+// polices de la charte sont préchargées par ChartePage.
 
 export const metadata: Metadata = createMetadata("en", { path: "/en/" });
 
@@ -32,11 +34,8 @@ export default function EnRootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <JsonLd data={organizationSchema} />
         <JsonLd data={localBusinessSchema} />
         <JsonLd data={websiteSchemaEn} />
@@ -44,11 +43,8 @@ export default function EnRootLayout({
       </head>
       <body>
         <EmotionRegistry>
-          <GlobalStyles />
-          <RevealMotion />
-          <Header locale="en" />
-          <main id="main-content" tabIndex={-1} style={{ flex: 1, paddingTop: 73 }}>{children}</main>
-          <Footer locale="en" />
+          <GlobalStyles minimal />
+          {children}
           <WhatsAppButton locale="en" />
           <ConsentBanner locale="en" />
         </EmotionRegistry>

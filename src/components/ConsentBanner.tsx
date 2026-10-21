@@ -33,17 +33,35 @@ import { CONSENT_OPEN_EVENT, readConsent, writeConsent } from "@/lib/consent";
 // gauche à partir de 768 px. Invariant à mesurer après tout changement :
 // hauteur du bandeau ≤ 40 % d'un viewport de 812 px à 375 px de large.
 
+// Habillage de la nouvelle charte (22/10/2026) : polices, couleurs et boutons de la maquette codée
+// du 20/10/2026 (variables posées sur html:has(.charte), valeurs de repli identiques). La maquette
+// n'avait pas de bandeau ; géométrie et règles CNIL inchangées.
+const C = {
+  texte: "var(--texte, #202748)",
+  doux: "var(--texte-doux, #4A4F66)",
+  nuit: "var(--nuit, #202748)",
+  violet: "var(--violet, #705398)",
+  rose: "var(--rose-profond, #B4508C)",
+  lavande: "var(--lavande-clair, #EEF0FF)",
+  titre: 'var(--f-titre, "Montserrat", "Helvetica Neue", Arial, sans-serif)',
+  corps: 'var(--f-texte, "Inter", "Segoe UI", sans-serif)',
+  ombre: "var(--ombre-forte, 0 34px 60px -28px rgba(42, 64, 137, .55), 0 4px 14px rgba(32, 39, 72, .08))",
+  filet: "rgba(32, 39, 72, .14)",
+};
+
 const Dialog = styled.section`
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 60;
-  background: ${theme.colors.surface};
-  color: ${theme.colors.text};
-  border-top: 1px solid ${theme.colors.borderInk};
+  background: #fff;
+  color: ${C.texte};
+  border-top: 1px solid ${C.filet};
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -12px 40px -18px rgba(32, 39, 72, .35);
   padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
-  font-family: ${theme.fonts.sans};
+  font-family: ${C.corps};
   font-size: 15px;
   line-height: 1.5;
   outline: none;
@@ -53,28 +71,30 @@ const Dialog = styled.section`
     right: auto;
     bottom: 24px;
     max-width: 440px;
-    border: 1px solid ${theme.colors.borderInk};
-    box-shadow: ${theme.shadows.lg};
+    border: 1px solid ${C.filet};
+    border-radius: 22px;
+    box-shadow: ${C.ombre};
     padding: 22px 24px;
   }
 `;
 
 const Title = styled.p`
-  font-family: ${theme.fonts.display};
-  font-size: 19px;
-  font-weight: 600;
+  font-family: ${C.titre};
+  font-size: 18px;
+  font-weight: 700;
   line-height: 1.2;
-  color: ${theme.colors.accent};
+  letter-spacing: -.01em;
+  color: ${C.nuit};
   margin: 0 0 6px;
 `;
 
 const Text = styled.p`
   margin: 0 0 12px;
   font-size: 14.5px;
-  color: ${theme.colors.text};
+  color: ${C.doux};
 
   a {
-    color: ${theme.colors.accent};
+    color: ${C.violet};
     text-decoration: underline;
     text-underline-offset: 2px;
   }
@@ -85,8 +105,9 @@ const Panel = styled.div`
   flex-direction: column;
   gap: 12px;
   margin: 0 0 14px;
-  padding-top: 12px;
-  border-top: 1px solid ${theme.colors.border};
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: ${C.lavande};
 `;
 
 const Row = styled.label`
@@ -101,7 +122,7 @@ const Check = styled.input`
   width: 22px;
   height: 22px;
   margin: 2px 0 0;
-  accent-color: ${theme.colors.ctaInk};
+  accent-color: ${C.violet};
   cursor: inherit;
 `;
 
@@ -111,14 +132,14 @@ const RowText = styled.span`
   strong {
     display: block;
     font-weight: 600;
-    color: ${theme.colors.text};
+    color: ${C.nuit};
   }
 
   small {
     display: block;
     font-size: 13px;
     line-height: 1.45;
-    color: ${theme.colors.textSecondary};
+    color: ${C.doux};
   }
 `;
 
@@ -131,17 +152,17 @@ const Actions = styled.div`
 const Btn = styled.button<{ primary?: boolean }>`
   min-height: 44px;
   padding: 10px 12px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: ${theme.radius.sm};
+  font: 600 15px/1.2 ${C.corps};
+  border-radius: 999px;
+  border: 0;
   cursor: pointer;
-  transition: background-color 0.18s ${theme.easing}, color 0.18s ${theme.easing};
+  transition: background-color .2s ease, color .2s ease, box-shadow .25s ease;
   ${({ primary }) =>
     primary
-      ? `background: ${theme.colors.ctaInk}; color: #fff; border: 1px solid ${theme.colors.ctaInk};
-         &:hover { background: ${theme.colors.ctaHover}; border-color: ${theme.colors.ctaHover}; }`
-      : `background: transparent; color: ${theme.colors.text}; border: 1px solid ${theme.colors.borderInk};
-         &:hover { background: ${theme.colors.text}; color: ${theme.colors.background}; }`}
+      ? `background: ${C.nuit}; color: #fff;
+         &:hover { background-image: linear-gradient(100deg, ${C.violet}, ${C.rose}); }`
+      : `background: transparent; color: ${C.nuit}; box-shadow: inset 0 0 0 1.5px rgba(32, 39, 72, .3);
+         &:hover { background: ${C.nuit}; color: #fff; }`}
 `;
 
 const Customise = styled.button`
@@ -150,14 +171,14 @@ const Customise = styled.button`
   padding: 8px;
   background: none;
   border: 0;
-  font-size: 14px;
-  color: ${theme.colors.textSecondary};
+  font: 500 14px/1.3 ${C.corps};
+  color: ${C.violet};
   text-decoration: underline;
   text-underline-offset: 2px;
   cursor: pointer;
 
   &:hover {
-    color: ${theme.colors.text};
+    color: ${C.nuit};
   }
 `;
 
