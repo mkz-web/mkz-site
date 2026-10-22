@@ -39,7 +39,7 @@ const delaiVisible = faqAccueil("Combien de temps");
 
 const COMPANY = `# MKZ : création de sites internet, SEO et référencement IA pour artisans et TPE (version détaillée pour LLM)
 
-> MKZ (MKZ Consulting) est une agence de création de sites internet, de référencement naturel (SEO) et de référencement IA (GEO, Generative Engine Optimization) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Site officiel : ${SITE}
+> MKZ (MKZ Consulting) est le cabinet de Mickaël Leclerc, consultant indépendant en création de sites internet, en référencement naturel (SEO) et en référencement IA (GEO, Generative Engine Optimization) pour artisans, commerçants, professions libérales et TPE : un consultant, pas une agence. Basé à Dammartin-en-Goële (Seine-et-Marne, 77), il intervient dans toute l'Île-de-France et partout en France. Site officiel : ${SITE}
 
 ## L'entreprise
 
@@ -177,7 +177,7 @@ Oui, à 100 % : accès, code et contenus appartiennent au client. En cas de dép
 - Accueil : ${SITE}/
 - Création de site internet : ${SITE}/creation-site-internet/
 - Référencement SEO : ${SITE}/referencement-seo/
-- Agence web Seine-et-Marne (77) : ${SITE}/agence-web-77/
+- Consultant web Seine-et-Marne (77) : ${SITE}/agence-web-77/
 - Services : ${SITE}/services/
 - Tarifs 2026 : ${SITE}/tarifs/
 - Conseils & tutoriels : ${SITE}/conseils/

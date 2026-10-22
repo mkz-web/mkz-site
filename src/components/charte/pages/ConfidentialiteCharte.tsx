@@ -110,7 +110,7 @@ export default function ConfidentialiteCharte() {
           <p>En cas de litige, vous pouvez également adresser une réclamation à la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
 
           <h2 id="cookies">Cookies</h2>
-          <p>Avec votre <strong>consentement</strong>, ce site utilise deux outils de mesure d’audience qui analysent la façon dont les visiteurs utilisent le site (pages vues, clics, défilement) afin de l’améliorer : <strong>Google Analytics 4</strong>, qui dépose les cookies _ga et _ga_* (durée de vie de 13 mois, adresse IP non conservée, aucun signal publicitaire), et <strong>Microsoft Clarity</strong>, qui dépose les cookies _clck (un an), _clsk (un jour) et MUID (un an).</p>
+          <p>Avec votre <strong>consentement</strong>, ce site utilise deux outils de mesure d’audience qui analysent la façon dont les visiteurs utilisent le site (pages vues, clics, défilement) afin de l’améliorer : <strong>Google Analytics 4</strong>, qui dépose les cookies _ga et _ga_* (durée de vie de 13 mois, adresse IP non conservée, aucun signal publicitaire), et <strong>Microsoft Clarity</strong>, qui dépose les cookies _clck (un an) et _clsk (un jour) sur ce site, ainsi que des cookies de Microsoft sur ses propres domaines clarity.ms et bing.com : MUID et SRM_B (13 mois), MR (7 jours), ANONCHK (10 minutes) et SM (le temps de la session).</p>
           <p>Ces cookies ne sont déposés que si vous acceptez la catégorie correspondante dans le bandeau affiché lors de votre première visite. Sans votre accord, ces outils ne sont pas chargés et aucun cookie de mesure n’est déposé. Vous pouvez retirer votre consentement à tout moment via le lien « Gérer les cookies » en pied de page : le suivi s’arrête alors immédiatement. Votre choix, accord ou refus, est conservé six mois dans un cookie technique (mkz-consent) avec sa date et un identifiant aléatoire qui en tient lieu de preuve ; passé ce délai, la question vous est reposée.</p>
           <p>Ce site n’affiche aucune publicité. Des cookies techniques strictement nécessaires au fonctionnement du site, dont la mémorisation de vos choix de consentement, peuvent être déposés sans consentement, conformément à la réglementation en vigueur.</p>
 
@@ -119,7 +119,7 @@ export default function ConfidentialiteCharte() {
 
           <h2 id="modifications">Modifications</h2>
           <p>MKZ se réserve le droit de modifier la présente politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec une date de mise à jour.</p>
-          <p className="legal-maj">Dernière mise à jour : août 2026</p>
+          <p className="legal-maj">Dernière mise à jour : octobre 2026</p>
         </div>
       </div>
     </ChartePage>

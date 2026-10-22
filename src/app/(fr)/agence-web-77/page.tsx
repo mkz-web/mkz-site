@@ -18,9 +18,9 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${URL}#service`,
-  name: "Agence web en Seine-et-Marne (77) : création de site internet et SEO local",
+  name: "Consultant web en Seine-et-Marne (77) : création de site internet et SEO local",
   description: pillar.metaDescription,
-  serviceType: "Agence web",
+  serviceType: "Création de site internet et référencement local",
   provider: { "@id": `${SITE}/#organization` },
   url: URL,
   areaServed: [

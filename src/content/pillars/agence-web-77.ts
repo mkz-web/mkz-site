@@ -3,15 +3,15 @@ import type { PillarPage } from "@/lib/articles/types";
 
 const pillar: PillarPage = {
   "slug": "agence-web-77",
-  "title": "Agence web en Seine-et-Marne (77) : site internet + SEO pour TPE",
-  "metaTitle": "Agence web 77 (Seine-et-Marne) : site internet + SEO",
-  "metaDescription": "Agence web en Seine-et-Marne (77) : site internet et SEO local pour artisans, commerçants et TPE. Vous êtes propriétaire à 100 %. Audit gratuit 30 min.",
-  "heroBadge": "Agence web en Seine-et-Marne (77)",
+  "title": "Site internet et SEO en Seine-et-Marne (77) : un consultant, pas une agence",
+  "metaTitle": "Agence web 77 : un consultant pour votre site et votre SEO",
+  "metaDescription": "Agence web dans le 77 ? Un consultant crée votre site et votre SEO local, pour artisans, commerçants et TPE. Propriétaire à 100 %. Audit gratuit 30 min.",
+  "heroBadge": "Consultant web en Seine-et-Marne (77)",
   "heroLead": "Création de sites internet et référencement local pour artisans, commerçants et TPE. Basés à Dammartin-en-Goële, nous intervenons dans tout le 77 : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Vous êtes propriétaire de votre site à 100 %, et vous savez tout, noir sur blanc, avant de signer.",
   "blocks": [
     {
       "type": "p",
-      "text": "Vous cherchez une **agence web dans le 77** pour créer votre site internet ou, enfin, apparaître sur Google ? MKZ est une agence de **création de sites internet** et de **référencement local (SEO)** basée à Dammartin-en-Goële, au nord de la Seine-et-Marne. Nous accompagnons les artisans, commerçants et TPE de tout le département : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Avec un engagement simple : un site dont vous êtes **propriétaire à 100 %**, des conditions écrites avant de signer, et des résultats mesurés chaque mois."
+      "text": "Vous cherchez une **agence web dans le 77** pour créer votre site internet ou, enfin, apparaître sur Google ? MKZ, c'est un consultant en **création de sites internet** et en **référencement local (SEO)**, basé à Dammartin-en-Goële, au nord de la Seine-et-Marne. Nous accompagnons les artisans, commerçants et TPE de tout le département : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Avec un engagement simple : un site dont vous êtes **propriétaire à 100 %**, des conditions écrites avant de signer, et des résultats mesurés chaque mois."
     },
     {
       "type": "p",
@@ -210,7 +210,7 @@ const pillar: PillarPage = {
     {
       "type": "h2",
       "id": "agence-web-proximite-dammartin-nord-77",
-      "text": "Une agence web de proximité, basée à Dammartin-en-Goële (nord 77)"
+      "text": "Un consultant web de proximité, basé à Dammartin-en-Goële (nord 77)"
     },
     {
       "type": "p",
@@ -264,7 +264,7 @@ const pillar: PillarPage = {
       "type": "callout",
       "variant": "retenir",
       "title": "Notre zone d'intervention",
-      "text": "MKZ, agence web basée à Dammartin-en-Goële (77230), intervient sur place dans toute la Seine-et-Marne (Meaux, Roissy, Melun, Chelles, Marne-la-Vallée) et accompagne à distance des clients dans toute l'Île-de-France et en France."
+      "text": "MKZ, consultant web basé à Dammartin-en-Goële (77230), intervient sur place dans toute la Seine-et-Marne (Meaux, Roissy, Melun, Chelles, Marne-la-Vallée) et accompagne à distance des clients dans toute l'Île-de-France et en France."
     },
     {
       "type": "h2",

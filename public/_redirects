@@ -1,0 +1,7 @@
+# Redirections 301 sur le même domaine (Cloudflare Pages). Les redirections entre hôtes (www vers apex)
+# vivent dans la zone Cloudflare, pas ici.
+# Variantes d'adresses inexistantes qui ont reçu des affichages Google (audit du 22/10/2026) :
+/conseils/seo/pourquoi-mon-site-napparait-pas-sur-google/ /conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/ 301
+/conseils/seo/pourquoi-mon-site-napparait-pas-sur-google /conseils/seo/pourquoi-mon-site-n-apparait-pas-sur-google/ 301
+/conseils/referencement-ia/ai-overview-france/ /conseils/referencement-ia/ai-overviews-france/ 301
+/conseils/referencement-ia/ai-overview-france /conseils/referencement-ia/ai-overviews-france/ 301

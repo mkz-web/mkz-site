@@ -22,8 +22,8 @@ export default function PilierAgence77() {
         <div className="enveloppe mhero__in">
           <div className="mhero__texte">
             <nav className="ariane" aria-label="Fil d'Ariane" data-entree=""><Link href="/">Accueil</Link><span aria-hidden="true">›</span><span aria-current="page">Agence web en Seine-et-Marne (77)</span></nav>
-            <p className="mhero__surtitre" data-entree=""><svg aria-hidden="true"><use href="#i-repere"/></svg>Agence web en Seine-et-Marne (77)</p>
-            <h1 className="titre-1" data-entree="">Agence web en Seine-et-Marne (77) : <em className="degrade">site internet + SEO pour TPE</em></h1>
+            <p className="mhero__surtitre" data-entree=""><svg aria-hidden="true"><use href="#i-repere"/></svg>Consultant web en Seine-et-Marne (77)</p>
+            <h1 className="titre-1" data-entree="">Site internet et SEO en Seine-et-Marne (77) : <em className="degrade">un consultant, pas une agence</em></h1>
             <p className="mhero__intro" data-entree="">Création de sites internet et référencement local pour artisans, commerçants et TPE. Basés à Dammartin-en-Goële, nous intervenons dans tout le 77 : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Vous êtes propriétaire de votre site à 100 %, et vous savez tout, noir sur blanc, avant de signer.</p>
             <div className="hero__actions" data-entree="">
               <a className="bouton bouton--plein" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">Réserver mon audit gratuit</a>
@@ -67,9 +67,9 @@ export default function PilierAgence77() {
         <div className="enveloppe intro__grille">
           <div className="intro__texte prose" data-revele="">
             <p className="petit intro__label">En bref</p>
-            <p className="intro__chapeau">Vous cherchez une <strong>agence web dans le 77</strong> pour créer votre site internet ou, enfin, apparaître sur Google ? MKZ est une agence de <strong>création de sites internet</strong> et de <strong>référencement local (SEO)</strong> basée à Dammartin-en-Goële, au nord de la Seine-et-Marne. Nous accompagnons les artisans, commerçants et TPE de tout le département : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Avec un engagement simple : un site dont vous êtes <strong>propriétaire à 100 %</strong>, des conditions écrites avant de signer, et des résultats mesurés chaque mois.</p>
+            <p className="intro__chapeau">Vous cherchez une <strong>agence web dans le 77</strong> pour créer votre site internet ou, enfin, apparaître sur Google ? MKZ, c’est un consultant en <strong>création de sites internet</strong> et en <strong>référencement local (SEO)</strong>, basé à Dammartin-en-Goële, au nord de la Seine-et-Marne. Nous accompagnons les artisans, commerçants et TPE de tout le département : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Avec un engagement simple : un site dont vous êtes <strong>propriétaire à 100 %</strong>, des conditions écrites avant de signer, et des résultats mesurés chaque mois.</p>
             <p>Derrière MKZ, il y a Mickaël Leclerc, ingénieur informatique fort de plus de 20 ans d’expérience en grandes entreprises. Concrètement, vous parlez directement à la personne qui construit votre site. Pas de standard téléphonique, pas de jargon, pas de mauvaise surprise.</p>
-            <ul className="intro__points" aria-label="Points clés"><li><svg className="ico" aria-hidden="true"><use href="#i-repere"/></svg>Basée à Dammartin-en-Goële</li><li><svg className="ico" aria-hidden="true"><use href="#i-cle"/></svg>Propriétaire à 100 %</li><li><svg className="ico" aria-hidden="true"><use href="#i-doc"/></svg>Conditions écrites avant de signer</li></ul>
+            <ul className="intro__points" aria-label="Points clés"><li><svg className="ico" aria-hidden="true"><use href="#i-repere"/></svg>Basé à Dammartin-en-Goële</li><li><svg className="ico" aria-hidden="true"><use href="#i-cle"/></svg>Propriétaire à 100 %</li><li><svg className="ico" aria-hidden="true"><use href="#i-doc"/></svg>Conditions écrites avant de signer</li></ul>
           </div>
           <nav className="sommaire-carte" aria-labelledby="sommaire" data-revele="">
             <p className="petit" id="sommaire">Sommaire</p>
@@ -79,7 +79,7 @@ export default function PilierAgence77() {
               <li><a href="#combien-coute-un-site-internet-dans-le-77">Combien coûte un site internet dans le 77 ? Notre réponse sans détour</a></li>
               <li><a href="#proprietaire-de-votre-site-vraiment">Propriétaire de votre site, vraiment : la différence avec la location</a></li>
               <li><a href="#notre-methode-en-5-etapes">Notre méthode en 5 étapes, expliquée sans jargon</a></li>
-              <li><a href="#agence-web-proximite-dammartin-nord-77">Une agence web de proximité, basée à Dammartin-en-Goële (nord 77)</a></li>
+              <li><a href="#agence-web-proximite-dammartin-nord-77">Un consultant web de proximité, basé à Dammartin-en-Goële (nord 77)</a></li>
               <li><a href="#choisir-son-agence-web-77-6-questions">Comment choisir votre agence web en Seine-et-Marne : 6 questions à poser</a></li>
               <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
@@ -261,11 +261,11 @@ export default function PilierAgence77() {
         <div className="enveloppe bloc__grille">
           <header className="bloc__tete" data-revele="">
             <p className="bloc__num" aria-hidden="true">06</p>
-            <h2 className="titre-2">Une agence web de proximité, <em className="degrade-rose">basée à Dammartin-en-Goële (nord 77)</em></h2>
+            <h2 className="titre-2">Un consultant web de proximité, <em className="degrade-rose">basé à Dammartin-en-Goële (nord 77)</em></h2>
             <aside className="zone-carte">
               <span className="zone-carte__ico" aria-hidden="true"><svg><use href="#i-repere"/></svg></span>
               <p className="petit">Notre zone d’intervention</p>
-              <p>MKZ, agence web basée à Dammartin-en-Goële (77230), intervient sur place dans toute la Seine-et-Marne (Meaux, Roissy, Melun, Chelles, Marne-la-Vallée) et accompagne à distance des clients dans toute l’Île-de-France et en France.</p>
+              <p>MKZ, consultant web basé à Dammartin-en-Goële (77230), intervient sur place dans toute la Seine-et-Marne (Meaux, Roissy, Melun, Chelles, Marne-la-Vallée) et accompagne à distance des clients dans toute l’Île-de-France et en France.</p>
             </aside>
           </header>
           <div className="bloc__corps prose">
@@ -357,7 +357,7 @@ export default function PilierAgence77() {
         <div className="halo-fond" aria-hidden="true"></div>
         <div className="enveloppe appel__in">
           <div className="appel__texte">
-            <h2 className="titre-2">Une agence web <em className="degrade">près de chez vous, dans le 77</em></h2>
+            <h2 className="titre-2">Un consultant web <em className="degrade">près de chez vous, dans le 77</em></h2>
             <p className="chapeau">Basés à Dammartin-en-Goële, nous nous déplaçons partout en Seine-et-Marne. Audit gratuit de 30 minutes, par téléphone ou autour d’un café.</p>
           </div>
           <div className="appel__actions">

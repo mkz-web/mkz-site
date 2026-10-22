@@ -57,7 +57,7 @@ export function GET() {
 
   const body = `# MKZ
 
-> MKZ (MKZ Consulting) est une agence de création de sites internet, de référencement naturel (SEO) et de référencement IA (GEO, Generative Engine Optimization) pour artisans, commerçants, professions libérales et TPE. Basée à Dammartin-en-Goële (Seine-et-Marne, 77), elle intervient dans toute l'Île-de-France et partout en France. Fondateur : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps.
+> MKZ (MKZ Consulting) est le cabinet de Mickaël Leclerc, consultant indépendant en création de sites internet, en référencement naturel (SEO) et en référencement IA (GEO, Generative Engine Optimization) pour artisans, commerçants, professions libérales et TPE : un consultant, pas une agence. Basé à Dammartin-en-Goële (Seine-et-Marne, 77), il intervient dans toute l'Île-de-France et partout en France. Fondateur : Mickaël Leclerc, ingénieur IT avec plus de 20 ans d'expérience en infrastructure, automatisation et DevOps.
 
 Faits clés :
 
@@ -73,7 +73,7 @@ Faits clés :
 - [Accueil](${SITE}/): test gratuit du site dès le premier écran (formulaire vers l'audit en ligne : score sur 100 en une minute, sans inscription), trois pièges à connaître avant de signer, les trois services avec leurs prix publics, la méthode en 3 étapes, une entrée par métier (plombier, restaurateur, cabinet), les ${ficheGoogle.nombreAvis} avis Google reproduits mot pour mot (note ${noteGoogle} sur 5 relevée le ${formatDateFr(ficheGoogle.releveLe)}), un consultant et pas une agence, FAQ
 - [Création de site internet](${SITE}/creation-site-internet/): service de création de site pour artisans, commerçants et TPE (process, tarifs, garanties)
 - [Référencement SEO](${SITE}/referencement-seo/): service SEO (audit, stratégie de contenu, référencement local, suivi mensuel)
-- [Agence web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local (interventions à Meaux, Melun, Chelles et dans tout le 77)
+- [Consultant web en Seine-et-Marne (77)](${SITE}/agence-web-77/): hub local (interventions à Meaux, Melun, Chelles et dans tout le 77)
 - [Référencement IA (GEO)](${SITE}/referencement-ia/): service de visibilité dans les moteurs de réponse IA (ChatGPT, Perplexity, Gemini)
 - [Empreinte d'une requête IA](${SITE}/empreinte-ia/): simulateur de l'énergie, des émissions et de l'eau d'une requête IA, fourchettes d'incertitude comprises ; données chiffrées citables et versionnées dans son [llms.txt dédié](${SITE}/empreinte-ia/llms.txt)
 - [Audit SEO gratuit en ligne](${SITE}/audit-seo/): outil en libre-service, 20 mesures réelles faites sur le site au moment du test (HTTPS, indexabilité, vraie 404, balises SERP, robots des moteurs IA, llms.txt, données structurées JSON-LD), score sur 100 et priorités de correction. Gratuit, sans inscription
