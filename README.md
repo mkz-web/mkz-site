@@ -45,7 +45,7 @@
 - ✅ **Deux outils gratuits, sans inscription.** L'[audit SEO + IA](https://mkz-consulting.fr/audit-seo/) : 20 mesures en une minute, score sur 100, moteur exécuté en Cloudflare Pages Functions. Le [simulateur d'empreinte d'une requête IA](https://mkz-consulting.fr/empreinte-ia/) : énergie, CO2 et eau d'une question posée à un modèle, jeu de données versionné.
 - ✅ **Le socle GEO.** `llms.txt` et `llms-full.txt` générés au build depuis le registre d'articles, JSON-LD reparsé par script avant chaque déploiement, `robots.txt` ouvert aux robots des IA, barre « Résumer avec l'IA » sur chaque article.
 - ✅ **La vie privée par construction.** Bandeau de consentement maison, Google Analytics 4 et Microsoft Clarity chargés uniquement après accord, zéro ressource externe dans le HTML statique.
-- ✅ **13 scripts Node sans dépendance.** Ingestion des articles, validation du build, déploiement, captures d'écran, harnais de test du moteur d'audit.
+- ✅ **14 scripts Node sans dépendance.** Ingestion des articles, validation du build, déploiement, captures d'écran, harnais de test du moteur d'audit.
 - ✅ **Le journal des décisions.** Chaque choix, chaque mesure et chaque piège payé sont consignés avec leur date dans un journal tenu hors du dépôt public depuis le 09/09/2026 (il portait des notes internes). Les décisions qui structurent le code sont reprises plus bas.
 
 ## Démarrer en trois commandes
@@ -106,7 +106,7 @@ src/lib/i18n.ts         dictionnaire d'interface et liste des paires hreflang
 functions/api/          /api/scan : moteur de l'outil d'audit (Cloudflare Pages Functions)
 empreinte-ia/           simulateur d'empreinte, sous-projet sans dépendance, construit vers public/empreinte-ia/
 public/                 _headers (CSP, HSTS), robots.txt, polices, images
-scripts/                13 scripts Node sans dépendance (tableau ci-dessous)
+scripts/                14 scripts Node sans dépendance (tableau ci-dessous)
 ```
 
 Les dossiers `_content-staging/`, `_research/` et `_backlinks/` sont ignorés par git : matière de travail éditoriale, pas du site.
@@ -119,6 +119,7 @@ Tous en Node natif, sans rien installer. Chaque script porte en tête sa command
 |---|---|
 | `ingest-content.mjs` | Transforme les articles du staging JSON en fichiers TypeScript typés et régénère le registre |
 | `validate-out.mjs` | Reparse tous les JSON-LD du build, contrôle titles et metas, hreflang réciproques, maillage interne |
+| `controler-charte.mjs` | Vérifie après le build que chaque texte des piliers et des articles (titres, paragraphes, tableaux, encadrés, FAQ) est affiché mot pour mot sur sa page ; code 1 sinon |
 | `aplatir-segments-export.mjs` | Enchaîné par `npm run build` : remet sous leur nom à points les fichiers de segment que l'export de Next range en sous-dossiers sous Windows (issue vercel/next.js 85374), sans quoi chaque lien préchargé sort en 404 |
 | `deploy.mjs` | Publie `out/` et `functions/` sur Cloudflare Pages par upload direct (wrangler via npx) ; refuse un build dont les segments ne sont pas aplatis |
 | `test-audit-engine.mjs` | Harnais de vérité terrain du moteur d'audit ; `--attendu-mkz` compare au résultat attendu sur ce site |
@@ -137,14 +138,18 @@ Le sous-projet `empreinte-ia/` a ses propres commandes : `npm run build:empreint
 
 Hébergement Cloudflare Pages, projet `mkz-site`, production sur `https://mkz-consulting.fr`. Le sous-domaine technique `mkz-site.pages.dev` est fermé par Cloudflare Access et en `noindex` : ce n'est pas une adresse publique.
 
+La mise en production part de GitHub. Chaque push sur `master` lance le workflow [`mise-en-production.yml`](.github/workflows/mise-en-production.yml) : build sous Linux avec la version de Node du fichier `.node-version`, `validate-out.mjs` et `controler-charte.mjs`, publication de `out/` et `functions/` par `scripts/deploy.mjs` seulement si tout est vert, puis preuve que le site en ligne sert ce build (six fichiers techniques identiques à l'octet, `POST /api/scan` en phase `origin` qui répond 200). Le build publié reste téléchargeable 14 jours dans l'onglet Actions. Secrets du dépôt : `CLOUDFLARE_API_TOKEN` (jeton limité à Cloudflare Pages) et `CLOUDFLARE_ACCOUNT_ID`.
+
+Depuis un poste, en secours seulement (la commande publie aussi en production) :
+
 ```bash
 npm run deploy:build   # build puis publication
 npm run deploy         # publication d'un out/ déjà construit
 ```
 
-Variables d'environnement attendues : `CLOUDFLARE_API_TOKEN_MKZ` (repli sur `CLOUDFLARE_API_TOKEN`) et `CLOUDFLARE_ACCOUNT_ID`. Les identifiants DataForSEO de l'outil d'audit sont des secrets du projet Pages, jamais des fichiers du dépôt. Un secret ou un binding ajouté après coup n'atteint le site qu'à la republication suivante.
+Variables d'environnement attendues sur le poste : `CLOUDFLARE_API_TOKEN_MKZ` (repli sur `CLOUDFLARE_API_TOKEN`) et `CLOUDFLARE_ACCOUNT_ID`. Les identifiants DataForSEO de l'outil d'audit sont des secrets du projet Pages, jamais des fichiers du dépôt. Un secret ou un binding ajouté après coup n'atteint le site qu'à la republication suivante.
 
-Après chaque déploiement, trois contrôles : `llms.txt`, `llms-full.txt`, `sitemap.xml` et `robots.txt` servis identiques au build ; un `POST /api/scan` en phase `origin` qui répond 200 ; le sitemap resoumis dans la Search Console.
+Après chaque mise en production, reste un geste hors workflow : resoumettre le sitemap dans la Search Console.
 
 ## Contribuer, signaler
 

@@ -1,0 +1,107 @@
+# Mise en production du site sur Cloudflare Pages (projet mkz-site, envoi direct par wrangler).
+#
+# Déclenchée par chaque push sur master, ou à la main (onglet Actions, « Run workflow »).
+# Ordre : build sous Linux, contrôles du dépôt, publication, puis preuve que le site en ligne
+# sert exactement ce build. Un contrôle rouge arrête tout AVANT la publication.
+#
+# Secrets du dépôt requis (Settings > Secrets and variables > Actions) :
+#   CLOUDFLARE_API_TOKEN   jeton limité à « Compte > Cloudflare Pages > Modifier »
+#   CLOUDFLARE_ACCOUNT_ID  identifiant du compte Cloudflare
+# Version de Node : fichier .node-version, la même que celle du poste qui construit la préprod.
+
+name: Mise en production
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Une seule mise en production à la fois, jamais annulée en cours de route.
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  production:
+    name: Build, contrôles, publication
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Installer Node (version du fichier .node-version)
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Vérifier la présence des secrets Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          manque=0
+          [ -n "$CLOUDFLARE_API_TOKEN" ] || { echo "::error::Secret CLOUDFLARE_API_TOKEN absent du dépôt"; manque=1; }
+          [ -n "$CLOUDFLARE_ACCOUNT_ID" ] || { echo "::error::Secret CLOUDFLARE_ACCOUNT_ID absent du dépôt"; manque=1; }
+          exit $manque
+
+      - name: Installer les dépendances (package-lock.json)
+        run: npm ci
+
+      - name: Construire le site
+        run: npm run build
+
+      - name: Valider le build
+        run: |
+          node scripts/validate-out.mjs
+          node scripts/controler-charte.mjs
+
+      - name: Garder le build publié (14 jours, pour le comparer au site en ligne)
+        uses: actions/upload-artifact@v7
+        with:
+          name: out-${{ github.sha }}
+          path: out/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publier sur Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/deploy.mjs
+
+      - name: Prouver que le site en ligne sert ce build
+        run: |
+          site=https://mkz-consulting.fr
+          echec=0
+          # La première requête peut encore servir l'ancienne version quelques secondes : 2 minutes au plus par fichier.
+          for f in robots.txt sitemap.xml llms.txt llms-full.txt ai.txt .well-known/ai.txt; do
+            ok=0
+            for essai in 1 2 3 4 5 6 7 8 9 10 11 12; do
+              if curl -fsS --max-time 20 "$site/$f" -o "$RUNNER_TEMP/en-ligne" && cmp -s "$RUNNER_TEMP/en-ligne" "out/$f"; then
+                ok=1
+                break
+              fi
+              sleep 10
+            done
+            if [ "$ok" = 1 ]; then
+              echo "identique au build : /$f"
+            else
+              echo "::error::/$f servi en ligne différent du build au bout de 2 minutes"
+              echec=1
+            fi
+          done
+          code=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 30 -X POST "$site/api/scan" -H "content-type: application/json" -d '{"phase":"origin","url":"mkz-consulting.fr"}')
+          echo "POST /api/scan, phase origin : HTTP $code"
+          if [ "$code" != 200 ]; then
+            echo "::error::/api/scan répond $code au lieu de 200"
+            echec=1
+          fi
+          exit $echec
