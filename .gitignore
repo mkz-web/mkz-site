@@ -116,3 +116,8 @@ audit-data.json
 # Image sous licence Freepik : sa licence interdit de redistribuer le fichier seul, il ne vit donc
 # pas dans le depot public (servie par le site seulement).
 /public/images/accueil/recherche.webp
+
+# Maquettes HTML de la charte graphique (source de l'intégration du 19 au 22/10/2026) :
+# matière de travail, pas du site ; leurs images ne sont pas toutes redistribuables.
+/mkz-accueil-maquette-2026-10-18/
+/mkz-site-maquette-2026-10-20/

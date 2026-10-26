@@ -18,6 +18,13 @@
 // aucun débordement horizontal, H1 présent ; PNG du premier écran ; conversion
 // en WebP (1 600 px de large au plus, qualité 80). Le script refuse de produire
 // une image si un contrôle échoue.
+//
+// Il écrit aussi le logo du README (.github/readme/logo-clair.svg et
+// logo-sombre.svg), extrait du sprite de la charte SERVI par la page : mêmes
+// tracés, mêmes dégradés, lettres à la couleur calculée du logo de l'en-tête
+// (fond clair) et du pied de page (fond sombre). Aucun dessin recopié à la main,
+// donc aucune dérive possible entre le site et le README. Refus d'écrire si le
+// sprite n'a pas ses 3 tracés de lettres et ses 2 bandes de chevron.
 
 import fs from "node:fs";
 import os from "node:os";
@@ -107,6 +114,45 @@ async function evaluer(c, expression) {
   return r.result.value;
 }
 
+// Logo de la charte, lu dans le sprite de la page (src/components/charte/Sprite.tsx une fois servi).
+const EXTRAIRE_LOGO = `JSON.stringify((() => {
+  const svgNav = document.querySelector(".nav__logo svg");
+  const pied = document.querySelector(".pied__logo");
+  const ids = ["g-haut", "g-bas", "decoupe", "logo-lettres", "logo-chevron"];
+  const el = Object.fromEntries(ids.map((id) => [id, document.getElementById(id)]));
+  if (!svgNav || !pied || ids.some((id) => !el[id])) return null;
+  return {
+    viewBox: svgNav.getAttribute("viewBox"),
+    clair: getComputedStyle(svgNav).fill,
+    sombre: getComputedStyle(pied).fill,
+    defs: ["g-haut", "g-bas", "decoupe"].map((id) => el[id].outerHTML).join(""),
+    lettres: el["logo-lettres"].innerHTML,
+    chevron: el["logo-chevron"].outerHTML,
+    nbLettres: el["logo-lettres"].querySelectorAll("path").length,
+    nbChevron: el["logo-chevron"].querySelectorAll("rect").length,
+  };
+})())`;
+
+function ecrireLogos(logo) {
+  if (!logo) throw new Error("logo : sprite de la charte introuvable dans la page");
+  if (logo.nbLettres !== 3 || logo.nbChevron !== 2) {
+    throw new Error(`logo : ${logo.nbLettres} tracés de lettres et ${logo.nbChevron} bandes de chevron, 3 et 2 attendus`);
+  }
+  const couleur = /^rgb\(\d+, \d+, \d+\)$/;
+  if (!couleur.test(logo.clair) || !couleur.test(logo.sombre) || logo.clair === logo.sombre) {
+    throw new Error(`logo : couleurs inattendues (clair ${logo.clair}, sombre ${logo.sombre})`);
+  }
+  const [, , l, h] = logo.viewBox.split(" ").map(Number);
+  for (const [nom, fill] of [["logo-clair", logo.clair], ["logo-sombre", logo.sombre]]) {
+    const svg =
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${logo.viewBox}" width="${l}" height="${h}" role="img" aria-label="MKZ">` +
+      `<title>MKZ</title><defs>${logo.defs}</defs><g fill="${fill}">${logo.lettres}</g>${logo.chevron}</svg>\n`;
+    const f = path.join(racine, opts.sortie, nom + ".svg");
+    fs.writeFileSync(f, svg);
+    console.log(`${nom}.svg : lettres ${fill}, ${fs.statSync(f).size} octets`);
+  }
+}
+
 async function capturer(vue) {
   const cible = await (await fetch(`http://127.0.0.1:${port}/json/new?about:blank`, { method: "PUT" })).json();
   const c = cdp(cible.webSocketDebuggerUrl);
@@ -143,7 +189,7 @@ async function capturer(vue) {
     pret = await evaluer(c, "document.readyState === 'complete' && document.fonts.status === 'loaded'");
   }
   if (!pret) throw new Error("page non chargée : " + opts.url);
-  await dodo(2500); // RevealMotion (0,5 s) et polices posées
+  await dodo(2500); // animations d'entrée de la charte (GSAP) terminées et polices posées
   const etat = JSON.parse(
     await evaluer(
       c,
@@ -159,20 +205,27 @@ async function capturer(vue) {
     format: "png",
     clip: { x: 0, y: 0, width: vue.largeur, height: vue.hauteur, scale: 1 },
   });
+  const logo = vue.mobile ? null : JSON.parse(await evaluer(c, EXTRAIRE_LOGO));
   c.fermer();
   const png = path.join(profil, vue.nom + ".png");
   fs.writeFileSync(png, Buffer.from(shot.data, "base64"));
   console.log(
     `${vue.nom} : ${vue.largeur}x${vue.hauteur} px CSS, H1 « ${etat.h1} », bandeau absent, débordement 0, PNG ${fs.statSync(png).size} octets`
   );
-  return png;
+  return { png, logo };
 }
 
 try {
   await attendreChrome();
   const pngs = [];
-  for (const vue of VUES) pngs.push({ vue, png: await capturer(vue) });
+  let logo = null;
+  for (const vue of VUES) {
+    const r = await capturer(vue);
+    pngs.push({ vue, png: r.png });
+    if (r.logo) logo = r.logo;
+  }
   fs.mkdirSync(path.join(racine, opts.sortie), { recursive: true });
+  ecrireLogos(logo);
   const args = [
     "scripts/convertir-captures.mjs",
     `--dest=${opts.sortie}`,
