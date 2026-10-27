@@ -37,7 +37,7 @@ export default function AccueilContent() {
             <div className="hero__infos" data-entree="">
               <a className="note-google" href={ficheGoogle.url} target="_blank" rel="noopener"><span className="etoile" aria-hidden="true">★</span> 5,0 sur Google · 5 avis</a>
               <p>Dammartin-en-Goële (77) · lun-sam 9h-21h · <a href="tel:0769093909">07 69 09 39 09</a> (on décroche)</p>
-              <p>Consultant SEO · Dammartin-en-Goële (77) · devis gratuit, réponse sous 24 h</p>
+              <p>Consultant SEO · devis gratuit, réponse sous 24 h</p>
             </div>
           </div>
 

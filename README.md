@@ -139,7 +139,7 @@ Tous en Node natif, sans rien installer. Chaque script porte en tête sa command
 | `ga4-admin.mjs` | Administration GA4 par l'API Admin : événements clés, mesure avancée |
 | `download-fonts.mjs` | Récupère les polices d'avant la charte en woff2 ; celles de la charte (Inter, Montserrat) sont déjà dans `public/fonts/` |
 | `generate-favicon.mjs` | Génère l'ancien favicon. À ne plus lancer : les icônes de la charte vivent dans `src/app/` (`favicon.ico`, `icon.svg`, `apple-icon.png`) |
-| `generate-og-image.mjs` | Génère l'image OpenGraph 1200 × 630 |
+| `generate-og-image.mjs` | Génère les images de partage française et anglaise (1200 × 630) et le logo du JSON-LD, à la charte, depuis le sprite du logo |
 
 Le sous-projet `empreinte-ia/` a ses propres commandes : `npm run build:empreinte` et `npm run test:empreinte` (tests golden du moteur de calcul).
 

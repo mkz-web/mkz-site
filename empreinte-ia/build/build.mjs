@@ -179,12 +179,16 @@ function controlerFaq(html, entrees) {
  * prefixees (la page est statique, hors de Next), precedees des polices
  * locales du site. Aucune police distante, aucune image : les seules url()
  * visent les degrades du sprite de la page.
+ * font-display: optional depuis le 27/10/2026 (decalage de 0,136 mesure par Lighthouse
+ * sur cette page le 22/10/2026 avec swap ; avec optional, 0 polices retenues 1,5 s et 0 sous
+ * bridage mobile). Le reste du site garde swap : sur les pages Next, optional a cree un
+ * decalage tardif (voir le commentaire de src/components/charte/charte.css).
  */
 function assemblerCharte() {
   const polices = [
     '/* FICHIER GENERE PAR build/build.mjs depuis build/charte/. NE PAS EDITER A LA MAIN. */',
-    '@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("/fonts/inter-latin-var.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }',
-    '@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 500 800; font-display: swap; src: url("/fonts/montserrat-latin-var.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }',
+    '@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: optional; src: url("/fonts/inter-latin-var.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }',
+    '@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 500 800; font-display: optional; src: url("/fonts/montserrat-latin-var.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }',
     ''
   ].join('\n');
   const feuilles = ['style.css', 'metier.css', 'pages.css'].map((f) =>

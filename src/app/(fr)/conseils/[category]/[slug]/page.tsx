@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { createMetadata } from "@/lib/metadata";
+import { createMetadata, ogImageOf } from "@/lib/metadata";
 import JsonLd from "@/lib/JsonLd";
 import {
   AUTHOR,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       publishedTime: article.datePublished,
       modifiedTime: article.dateModified,
       authors: [AUTHOR.name],
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: article.title }],
+      images: [{ url: ogImageOf.fr, width: 1200, height: 630, alt: article.title }],
     },
   });
 }

@@ -1,118 +1,178 @@
 #!/usr/bin/env node
 /**
- * generate-og-image.mjs : Génère public/og-image.png (1200×630) pour les partages
- * OpenGraph/Twitter et le schema Article.
+ * generate-og-image.mjs : images de partage (OpenGraph, X, image du schema Article) et logo du
+ * JSON-LD, à la charte graphique en production depuis le 22/10/2026.
  *
  * Exécution : node scripts/generate-og-image.mjs
- * Dépendances : aucune. Node 14+ natif (fs, path, os, child_process) +
- * Chrome ou Edge installé sur la machine (rasterisation headless).
+ * Runtime : Node >= 18. Dépendances : aucune (fs, path, os, url, child_process natifs)
+ *           + Chrome ou Edge installé sur la machine (rasterisation headless).
  *
- * Composition : fond bleu MKZ #003764, logo inversé (carrés blancs, lettres
- * bleues), slogan « Votre site web visible sur Google, enfin. », accent orange
- * #E8590C, domaine en pied. Police Segoe UI (rasterisée dans le PNG → aucune
- * dépendance de police dans le livrable).
+ * Écrit :
+ *   public/og/mkz-fr.png        1200 × 630, pages françaises
+ *   public/og/mkz-en.png        1200 × 630, pages anglaises (leur propre accroche, pas une traduction)
+ *   public/images/logo-mkz.svg  logo du JSON-LD (Organization.logo, LocalBusiness.image)
+ *
+ * Source unique du dessin : le sprite de la charte, src/components/charte/Sprite.tsx (tracés des
+ * lettres, chevron, dégradés, découpe) et le viewBox du logo de la navigation (Nav.tsx). Polices de
+ * la charte (public/fonts/, Montserrat et Inter) embarquées en data: dans la page rasterisée, donc
+ * dessinées dans le PNG. Contrôles : 3 tracés de lettres et 2 bandes de chevron trouvés dans le
+ * sprite, PNG de 1200 × 630 exactement et de moins de 300 Ko ; refus d'écrire ou code 1 sinon.
+ *
+ * Remplace l'ancienne image public/og-image.png (fond bleu #003764, logo à trois carrés), retirée
+ * le 27/10/2026 : un nouveau nom force les réseaux sociaux à relire l'image.
  */
 
-import { writeFileSync, readFileSync, existsSync, mkdtempSync, rmSync, statSync } from "fs";
-import { execFileSync } from "child_process";
-import { tmpdir } from "os";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { writeFileSync, readFileSync, existsSync, mkdtempSync, mkdirSync, rmSync, statSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import { tmpdir } from "node:os";
+import { join, dirname } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const OUT_PNG = join(ROOT, "public", "og-image.png");
+const SPRITE = join(ROOT, "src", "components", "charte", "Sprite.tsx");
+const NAV = join(ROOT, "src", "components", "charte", "Nav.tsx");
+const NUIT = "#202748";
 
-// Logo MKZ inversé pour fond sombre : carrés blancs, lettres #003764.
-// Géométrie identique à public/images/mkz-logo.svg (seuls les fills changent).
-const LOGO_SVG = `<svg width="240" height="123" viewBox="0 0 147.40134 75.59053" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <clipPath clipPathUnits="userSpaceOnUse" id="cp25"><path d="M 0,56.693 H 110.551 V 0 H 0 Z" transform="translate(-32.834501,-24.3179)"/></clipPath>
-    <clipPath clipPathUnits="userSpaceOnUse" id="cp27"><path d="M 0,56.693 H 110.551 V 0 H 0 Z" transform="translate(-59.828602,-24.272201)"/></clipPath>
-    <clipPath clipPathUnits="userSpaceOnUse" id="cp29"><path d="M 0,56.693 H 110.551 V 0 H 0 Z" transform="translate(-78.353904,-42.521701)"/></clipPath>
-  </defs>
-  <g transform="matrix(1, 0, 0, 1, -0.000661, 9.448733)">
-    <path d="M 35.433,21.26 H 7.087 v 28.346 h 28.346 z" style="fill:#ffffff" transform="matrix(1.3333333,0,0,-1.3333333,0,75.590533)"/>
-    <path d="M 69.449,21.26 H 41.103 v 28.346 h 28.346 z" style="fill:#ffffff" transform="matrix(1.3333333,0,0,-1.3333333,0,75.590533)"/>
-    <path d="M 103.465,21.26 H 75.119 v 28.346 h 28.346 z" style="fill:#ffffff" transform="matrix(1.3333333,0,0,-1.3333333,0,75.590533)"/>
-    <path d="m 0,0 h -5.021 l 0.002,13.469 c 0,0.195 -0.051,0.293 -0.151,0.293 -0.075,0 -0.188,-0.075 -0.339,-0.228 -0.402,-0.52 -1.064,-1.333 -1.98,-2.44 C -8.409,9.988 -9.082,9.185 -9.508,8.686 -9.76,8.404 -9.968,8.22 -10.132,8.134 -10.296,8.047 -10.565,8.003 -10.942,8.003 h -0.642 c -0.453,0 -0.762,0.033 -0.925,0.098 -0.164,0.065 -0.345,0.206 -0.546,0.422 l -4.113,4.98 c -0.102,0.194 -0.215,0.292 -0.34,0.292 -0.101,0 -0.152,-0.098 -0.152,-0.292 l -0.002,-5.5 h -5.015 v 14.674 h 4.452 c 0.076,0 0.169,-0.038 0.283,-0.114 0.113,-0.076 0.195,-0.157 0.246,-0.243 l 5.734,-8.167 c 0.025,-0.044 0.095,-0.109 0.207,-0.195 0.114,-0.087 0.258,-0.131 0.435,-0.131 h 0.038 c 0.175,0 0.313,0.054 0.415,0.163 0.1,0.108 0.163,0.184 0.189,0.227 l 5.697,8.07 c 0.076,0.108 0.151,0.2 0.226,0.276 0.075,0.076 0.177,0.114 0.302,0.114 H -4.416 0 Z" style="fill:#003764" transform="matrix(1.3333333,0,0,-1.3333333,43.779333,43.166667)" clip-path="url(#cp25)"/>
-    <path d="M 0,0 C -0.274,0.097 -0.497,0.242 -0.669,0.437 L -5.24,5.322 c -0.202,0.237 -0.302,0.43 -0.302,0.582 0,0.194 0.114,0.398 0.346,0.614 0.23,0.195 0.495,0.427 0.796,0.697 0.302,0.268 0.597,0.522 0.885,0.759 l 0.905,0.81 c 0.174,0.171 0.374,0.258 0.604,0.258 0.26,0 0.476,-0.098 0.648,-0.291 L 6.406,0.502 C 6.462,0.415 6.492,0.34 6.492,0.275 c 0,-0.28 -0.26,-0.432 -0.778,-0.453 H 1.316 C 0.713,-0.157 0.274,-0.097 0,0 m -16.023,22.499 h 6.198 l 0.013,-8.055 8.756,7.699 c 0.258,0.238 0.575,0.356 0.949,0.356 H 6.06 c 0.316,0 0.502,-0.043 0.56,-0.13 0.058,-0.085 0.043,-0.172 -0.042,-0.258 L -9.122,8.33 c -0.46,-0.41 -0.69,-0.927 -0.69,-1.552 l -0.013,-6.956 h -6.198 z" style="fill:#003764" transform="matrix(1.3333333,0,0,-1.3333333,79.771467,43.2276)" clip-path="url(#cp27)"/>
-    <path d="m 0,0 c -0.155,0.118 -0.232,0.253 -0.232,0.404 v 3.231 c 0,0.173 0.077,0.318 0.232,0.437 0.155,0.117 0.332,0.178 0.53,0.178 h 20.983 c 0.198,0 0.374,-0.061 0.531,-0.178 0.153,-0.119 0.232,-0.264 0.232,-0.437 V 0.404 C 22.276,0.253 22.205,0.118 22.064,0 21.923,-0.12 21.739,-0.178 21.513,-0.178 H 0.53 C 0.332,-0.178 0.155,-0.12 0,0 m 1.46,-18.308 c -0.253,0.097 -0.437,0.221 -0.549,0.372 -0.114,0.15 -0.317,0.436 -0.613,0.857 -0.298,0.42 -0.487,0.716 -0.572,0.889 -0.084,0.129 -0.127,0.258 -0.127,0.389 0,0.257 0.169,0.517 0.508,0.775 2.735,2.264 5.507,4.571 8.313,6.922 2.806,2.349 4.73,3.966 5.775,4.85 0.142,0.108 0.324,0.162 0.55,0.162 h 6.034 c 0.237,0 0.495,-0.247 0.495,-0.42 0,-0.172 -0.071,-0.313 -0.212,-0.421 L 7.976,-14.055 c -0.283,-0.216 -0.424,-0.378 -0.424,-0.486 0,-0.172 0.282,-0.258 0.847,-0.258 h 13.877 v -3.623 H 2.222 c -0.254,-0.021 -0.507,0.016 -0.762,0.114" style="fill:#003764" transform="matrix(1.3333333,0,0,-1.3333333,104.47187,18.894933)" clip-path="url(#cp29)"/>
-  </g>
-</svg>`;
+// ---------- Logo, lu dans le sprite de la charte ----------
+const sprite = readFileSync(SPRITE, "utf8");
+const prendre = (motif, nom) => {
+  const m = sprite.match(new RegExp(motif));
+  if (!m) throw new Error("sprite de la charte : " + nom + " introuvable dans " + SPRITE);
+  return m;
+};
+// Le sprite est du JSX : on rend aux attributs leur nom SVG.
+const enSvg = (s) => s.replace(/stopColor=/g, "stop-color=").split(' clipPath="').join(' clip-path="');
+const gHaut = enSvg(prendre('<linearGradient id="g-haut"[^]*?</linearGradient>', "dégradé g-haut")[0]);
+const gBas = enSvg(prendre('<linearGradient id="g-bas"[^]*?</linearGradient>', "dégradé g-bas")[0]);
+const decoupe = enSvg(prendre('<clipPath id="decoupe">[^]*?</clipPath>', "découpe")[0]);
+const lettres = enSvg(prendre('<g id="logo-lettres">([^]*?)</g>', "lettres")[1]);
+const chevron = enSvg(prendre('<g id="logo-chevron"[^]*?</g>', "chevron")[0]);
+const nbLettres = (lettres.match(/<path /g) || []).length;
+const nbBandes = (chevron.match(/<rect /g) || []).length;
+if (nbLettres !== 3 || nbBandes !== 2) {
+  console.error(`Sprite inattendu : ${nbLettres} tracés de lettres et ${nbBandes} bandes de chevron (3 et 2 attendus)`);
+  process.exit(1);
+}
+const vb = (readFileSync(NAV, "utf8").match(/nav__logo[^]*?viewBox="([^"]+)"/) || [])[1];
+if (!vb) {
+  console.error("viewBox du logo introuvable dans " + NAV);
+  process.exit(1);
+}
+const [, , vbL, vbH] = vb.split(" ").map(Number);
+const logoSvg = (fill, attrs) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" ${attrs} role="img" aria-label="MKZ">` +
+  `<title>MKZ</title><defs>${gHaut}${gBas}${decoupe}</defs><g fill="${fill}">${lettres}</g>${chevron}</svg>`;
 
-const HTML = `<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><style>
-  html, body { margin: 0; padding: 0; }
-</style></head>
-<body>
-<div style="width:1200px;height:630px;box-sizing:border-box;position:relative;overflow:hidden;
-            background:linear-gradient(135deg,#003764 0%,#002a4d 100%);
-            font-family:'Segoe UI',Arial,sans-serif;color:#ffffff;padding:64px 80px;">
-  <!-- motif discret : écho des 3 carrés du logo -->
-  <div style="position:absolute;right:-60px;bottom:-60px;width:280px;height:280px;background:rgba(255,255,255,0.04);"></div>
-  <div style="position:absolute;right:240px;bottom:-120px;width:280px;height:280px;background:rgba(255,255,255,0.03);"></div>
+const LOGO_FICHIER = join(ROOT, "public", "images", "logo-mkz.svg");
+writeFileSync(LOGO_FICHIER, logoSvg(NUIT, `width="${vbL}" height="${vbH}"`) + "\n", "utf8");
+console.log(`OK : public/images/logo-mkz.svg : ${vbL} × ${vbH}, ${statSync(LOGO_FICHIER).size} octets`);
 
-  ${LOGO_SVG}
+// ---------- Cartes de partage ----------
+const police = (fichier) => "data:font/woff2;base64," + readFileSync(join(ROOT, "public", "fonts", fichier)).toString("base64");
+const FONTS = `
+  @font-face { font-family: "Montserrat"; font-weight: 500 800; font-display: block; src: url("${police("montserrat-latin-var.woff2")}") format("woff2"); }
+  @font-face { font-family: "Inter"; font-weight: 400 600; font-display: block; src: url("${police("inter-latin-var.woff2")}") format("woff2"); }`;
 
-  <h1 style="margin:56px 0 0;font-size:67px;line-height:1.18;font-weight:600;max-width:980px;letter-spacing:-0.5px;">
-    Votre site web visible sur&nbsp;Google, <span style="color:#ff7a33;">enfin.</span>
-  </h1>
-
-  <div style="width:120px;height:6px;background:#E8590C;margin:34px 0 26px;"></div>
-
-  <p style="margin:0;font-size:29px;line-height:1.4;color:rgba(255,255,255,0.85);max-width:900px;">
-    Création de sites internet &amp; référencement SEO<br>pour artisans, commerçants et indépendants
-  </p>
-
-  <p style="position:absolute;right:80px;bottom:44px;margin:0;font-size:28px;font-weight:600;color:#ffffff;">
-    mkz-consulting<span style="color:#ff7a33;">.fr</span>
-  </p>
-</div>
-</body></html>`;
-
-const BROWSERS = [
-  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-  "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
-  "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+const CARTES = [
+  {
+    fichier: "mkz-fr.png",
+    lang: "fr",
+    surtitre: "Création de site internet, SEO et référencement IA",
+    titre: 'Un site internet qui fait <span class="degrade">sonner le téléphone</span>.',
+    pied: "Mickaël Leclerc, consultant indépendant · Seine-et-Marne",
+    domaine: "mkz-consulting.fr",
+  },
+  {
+    fichier: "mkz-en.png",
+    lang: "en",
+    surtitre: "French SEO &amp; AI search visibility",
+    titre: 'Your site ranks in English. In France, <span class="degrade">it’s flat</span>.',
+    pied: "Mickaël Leclerc, independent consultant, not an agency",
+    domaine: "mkz-consulting.fr/en",
+  },
 ];
 
+const page = (c) => `<!doctype html>
+<html lang="${c.lang}"><head><meta charset="utf-8"><style>${FONTS}
+  html, body { margin: 0; padding: 0; }
+  .carte { width: 1200px; height: 630px; box-sizing: border-box; position: relative; overflow: hidden;
+    background: #ffffff; color: ${NUIT}; font-family: "Inter", sans-serif; padding: 64px 80px 56px; }
+  .halo { position: absolute; inset: 0;
+    background:
+      radial-gradient(40% 52% at 8% 14%, rgba(141, 178, 248, .55), transparent 70%),
+      radial-gradient(36% 48% at 94% 10%, rgba(156, 158, 247, .50), transparent 70%),
+      radial-gradient(34% 50% at 88% 94%, rgba(235, 196, 157, .55), transparent 70%),
+      radial-gradient(36% 44% at 36% 104%, rgba(242, 167, 207, .40), transparent 70%); }
+  .contenu { position: relative; height: 100%; display: flex; flex-direction: column; }
+  .logo { display: block; }
+  .surtitre { margin: 54px 0 18px; font-weight: 600; font-size: 28px; color: #705398; }
+  h1 { margin: 0; max-width: 1000px; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 74px;
+    line-height: 1.07; letter-spacing: -0.03em; }
+  .degrade { background-image: linear-gradient(100deg, #2A4089 0%, #705398 50%, #B4508C 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .pied { margin-top: auto; display: flex; justify-content: space-between; align-items: baseline; gap: 32px; }
+  .pied p { margin: 0; font-size: 24px; color: #4A4F66; white-space: nowrap; }
+  .pied .domaine { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 26px; color: ${NUIT}; white-space: nowrap; }
+</style></head>
+<body><div class="carte"><div class="halo"></div><div class="contenu">
+  ${logoSvg(NUIT, `class="logo" width="${Math.round((70 * vbL) / vbH)}" height="70"`)}
+  <p class="surtitre">${c.surtitre}</p>
+  <h1>${c.titre}</h1>
+  <div class="pied"><p>${c.pied}</p><p class="domaine">${c.domaine}</p></div>
+</div></div></body></html>`;
+
+const BROWSERS = [
+  process.env.CHROME_PATH,
+  "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+  "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+  "C:/Program Files/Microsoft/Edge/Application/msedge.exe",
+  "/usr/bin/google-chrome",
+  "/usr/bin/chromium",
+].filter(Boolean);
 const browser = BROWSERS.find((p) => existsSync(p));
 if (!browser) {
-  console.error("Aucun Chrome/Edge trouvé : installer l'un des deux pour rasteriser.");
+  console.error("Aucun Chrome ni Edge trouvé : en installer un, ou définir CHROME_PATH, pour rasteriser.");
   process.exit(1);
 }
 
+const dossierOg = join(ROOT, "public", "og");
+mkdirSync(dossierOg, { recursive: true });
 const tmp = mkdtempSync(join(tmpdir(), "mkz-og-"));
-const htmlPath = join(tmp, "og.html");
-writeFileSync(htmlPath, HTML, "utf8");
-
+let echec = false;
 try {
-  execFileSync(browser, [
-    "--headless=new",
-    `--screenshot=${OUT_PNG}`,
-    "--window-size=1200,630",
-    "--force-device-scale-factor=1",
-    "--hide-scrollbars",
-    "--disable-gpu",
-    `--user-data-dir=${join(tmp, "profile")}`,
-    `file:///${htmlPath.replace(/\\/g, "/")}`,
-  ], { stdio: "pipe", timeout: 60000 });
+  for (const c of CARTES) {
+    const htmlPath = join(tmp, c.lang + ".html");
+    writeFileSync(htmlPath, page(c), "utf8");
+    const sortie = join(dossierOg, c.fichier);
+    execFileSync(browser, [
+      "--headless=new",
+      `--screenshot=${sortie}`,
+      "--window-size=1200,630",
+      "--force-device-scale-factor=1",
+      "--hide-scrollbars",
+      "--disable-gpu",
+      "--virtual-time-budget=5000",
+      `--user-data-dir=${join(tmp, "profil-" + c.lang)}`,
+      pathToFileURL(htmlPath).href,
+    ], { stdio: "pipe", timeout: 60000 });
+
+    // Contrôles : PNG de 1200 × 630 exactement, moins de 300 Ko.
+    const buf = readFileSync(sortie);
+    const largeur = buf.readUInt32BE(16);
+    const hauteur = buf.readUInt32BE(20);
+    const ko = Math.round(statSync(sortie).size / 1024);
+    if (largeur !== 1200 || hauteur !== 630) {
+      console.error(`public/og/${c.fichier} : ${largeur} × ${hauteur} (1200 × 630 attendu)`);
+      echec = true;
+    } else if (ko >= 300) {
+      console.error(`public/og/${c.fichier} : ${ko} Ko (limite 300 Ko)`);
+      echec = true;
+    } else {
+      console.log(`OK : public/og/${c.fichier} : ${largeur} × ${hauteur}, ${ko} Ko`);
+    }
+  }
 } finally {
   rmSync(tmp, { recursive: true, force: true });
 }
-
-// Contrôles : le PNG existe, fait exactement 1200×630 et pèse < 300 Ko.
-const buf = readFileSync(OUT_PNG);
-const width = buf.readUInt32BE(16);
-const height = buf.readUInt32BE(20);
-const kb = Math.round(statSync(OUT_PNG).size / 1024);
-if (width !== 1200 || height !== 630) {
-  console.error(`Dimensions inattendues : ${width}×${height} (attendu 1200×630)`);
-  process.exit(1);
-}
-if (kb >= 300) {
-  console.error(`Fichier trop lourd : ${kb} Ko (limite 300 Ko)`);
-  process.exit(1);
-}
-console.log(`OK : public/og-image.png : ${width}×${height}, ${kb} Ko`);
+if (echec) process.exit(1);

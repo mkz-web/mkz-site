@@ -92,7 +92,7 @@ export const organizationSchema = {
   legalName: "MKZ",
   slogan: "Visible sur Google, cité par les IA.",
   url: SITE,
-  logo: `${SITE}/images/mkz-logo.svg`,
+  logo: `${SITE}/images/logo-mkz.svg`,
   description:
     "Création de sites internet, référencement SEO et référencement IA pour artisans, commerçants et TPE.",
   telephone: "+33769093909",
@@ -136,7 +136,7 @@ export const localBusinessSchema = {
   founder: { "@id": `${SITE}/#mickael-leclerc` },
   name: "MKZ",
   url: "https://mkz-consulting.fr",
-  image: "https://mkz-consulting.fr/images/mkz-logo.svg",
+  image: "https://mkz-consulting.fr/images/logo-mkz.svg",
   description:
     "Création de sites internet et référencement SEO pour artisans, commerçants, TPE et indépendants en Île-de-France.",
   telephone: "+33769093909",

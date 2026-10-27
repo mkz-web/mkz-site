@@ -60,6 +60,10 @@ const base: Record<
   },
 };
 
+// Images de partage à la charte, une par langue (générées par scripts/generate-og-image.mjs).
+// Elles remplacent /og-image.png depuis le 27/10/2026 : un nouveau nom force les réseaux à relire l'image.
+export const ogImageOf: Record<Locale, string> = { fr: "/og/mkz-fr.png", en: "/og/mkz-en.png" };
+
 export interface MetadataOptions extends Omit<Metadata, "alternates"> {
   /** Chemin absolu de la page (ex. "/en/french-seo/") : pilote canonical + hreflang. */
   path?: string;
@@ -93,14 +97,14 @@ export function createMetadata(
       siteName: siteMetadata.name,
       title: shareTitle,
       description: shareDescription,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: b.ogAlt }],
+      images: [{ url: ogImageOf[locale], width: 1200, height: 630, alt: b.ogAlt }],
       ...overrides.openGraph,
     },
     twitter: {
       card: "summary_large_image",
       title: shareTitle,
       description: shareDescription,
-      images: ["/og-image.png"],
+      images: [ogImageOf[locale]],
       ...overrides.twitter,
     },
     alternates: alternates ?? alternatesFor(path ?? "/", locale),

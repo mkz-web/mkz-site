@@ -7,6 +7,13 @@
    :root et html deviennent html:has(.charte), body devient body:has(.charte) ; les classes
    que la maquette pose sur <body> (.page-*, .r-*, .art-couleur) vivent sur le conteneur. */
 
+/* font-display: swap, VOLONTAIREMENT (mesuré le 27/10/2026). optional a été essayé ici : sous
+   bridage mobile Lighthouse (1638 kbps, RTT 150 ms, CPU x4, cache vide), il a CRÉÉ un décalage
+   de 0,31 sur l'accueil et de 0,21 sur un article vers 2,4 s, police web appliquée tardivement
+   (probablement à l'hydratation de Next), là où swap donne 0 dans les mêmes conditions et sur
+   le même serveur. Seule la page statique /empreinte-ia/ (hors Next) passe en optional, dans
+   empreinte-ia/build/build.mjs. Risque restant, connu : polices retenues 1,5 s, swap décale
+   l'accueil de 0,31 ; le préchargement (Prechargements.tsx) gagne la course dans les mesures. */
 @font-face {
   font-family: "Inter";
   font-style: normal;

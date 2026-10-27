@@ -1,6 +1,7 @@
 import type { Article } from "./articles/types";
 import { articleUrl, formatDateFr, stripInline, authorOf, localeOf } from "./articles";
 import { SITE, inLanguageOf, type Locale } from "./i18n";
+import { ogImageOf } from "./metadata";
 
 // Générateurs JSON-LD de la newsroom (bilingue).
 // Règles GSC à respecter impérativement (vérifiées par scripts/validate-out.mjs) :
@@ -38,7 +39,7 @@ export function articleSchema(a: Article) {
     dateModified: a.dateModified,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
-    image: `${SITE}/og-image.png`,
+    image: `${SITE}${ogImageOf[localeOf(a)]}`,
     author: { ...authorRef },
     publisher: { ...orgRef },
     keywords: a.keywords.join(", "),
