@@ -88,7 +88,8 @@ export function createMetadata(
     metadataBase: new URL(siteUrl),
     keywords: b.keywords,
     robots: { index: true, follow: true },
-    other: { "theme-color": "#003764" },
+    // Couleur de la barre du navigateur mobile : bleu nuit de la charte (--nuit), depuis le 27/10/2026.
+    other: { "theme-color": "#202748" },
     ...overrides,
     openGraph: {
       type: "website",
