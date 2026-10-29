@@ -150,10 +150,12 @@ export const localBusinessSchema = {
     addressRegion: "Île-de-France",
     addressCountry: "FR",
   },
+  // Point de l'adresse dans la Base Adresse Nationale (relevé le 29/10/2026), à
+  // 21 m de celui de la fiche Google ; l'ancien point tombait à 1 088 m.
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 49.0547,
-    longitude: 2.6817,
+    latitude: 49.0642,
+    longitude: 2.6781,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",

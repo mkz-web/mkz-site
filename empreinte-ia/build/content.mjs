@@ -395,7 +395,10 @@ export function renderJsonLd(dataset, faqEntries) {
       {
         '@type': 'Organization',
         '@id': `${SITE.siteUrl}/#organization`,
-        name: SITE.siteName,
+        // Même nom que l'Organization des autres pages du site (même @id) ;
+        // la marque reste en alternateName.
+        name: 'MKZ',
+        alternateName: SITE.siteName,
         url: SITE.siteUrl,
         email: SITE.email,
         telephone: SITE.telephone,
