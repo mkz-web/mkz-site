@@ -29,7 +29,7 @@ interface Assistant {
   href: (encodedPrompt: string) => string;
   /**
    * `rel` du lien. Par défaut « noopener nofollow », valeur sous laquelle
-   * Claude, Perplexity et Mistral ont été mesurés verts : ne pas la changer
+   * Claude et Perplexity ont été mesurés verts : ne pas la changer
    * pour eux sans les remesurer. ChatGPT, lui, EXIGE `noreferrer` (voir son
    * commentaire ci-dessous).
    */
@@ -38,11 +38,17 @@ interface Assistant {
 
 const REL_DEFAUT = "noopener nofollow";
 
-// Ordre : les trois majeurs d'abord, puis Mistral.
+// Ordre : Claude, ChatGPT, Perplexity.
 //
-// État au 07/08/2026 : les QUATRE patterns vont au bout, invite intacte à
-// l'arrivée (URL canonique, apostrophe, accents, deux-points). Deux passent
-// sans compte, deux ont été vérifiés depuis un navigateur connecté.
+// État au 07/08/2026 : les patterns vont au bout, invite intacte à l'arrivée
+// (URL canonique, apostrophe, accents, deux-points). Remesuré le 01/11/2026
+// au clic depuis une page servie (Coolok) : ChatGPT envoie même sans compte,
+// Claude pré-remplit, Perplexity exécute et cite la page.
+//
+// Mistral retiré le 01/11/2026 sur décision de Mickaël : chat.mistral.ai
+// renvoie désormais vers sa page de connexion dès qu'une invite arrive par
+// l'URL (mesuré dans deux navigateurs ; sans `q`, l'accueil reste ouvert),
+// et rien ne garantit que l'invite revienne après connexion.
 //
 // Le Mode IA de Google (`google.com/search?udm=50&q=`) a été retiré le
 // 07/08/2026 sur décision de Mickaël. Il était pourtant mesuré vert : si on
@@ -73,9 +79,6 @@ const ASSISTANTS: Assistant[] = [
   },
   // ✅ MESURÉ : réécrit vers /search/<uuid>, requête exécutée, SANS COMPTE.
   { name: "Perplexity", href: (q) => `https://www.perplexity.ai/search?q=${q}` },
-  // ✅ MESURÉ : invite ENVOYÉE automatiquement, page ouverte et lue
-  // (« Ouverture de la page »), le tout SANS COMPTE. Le meilleur des quatre.
-  { name: "Mistral", href: (q) => `https://chat.mistral.ai/chat?q=${q}` },
 ];
 
 // Libellé sur sa propre ligne : dans la colonne d'article (680 px), les puces

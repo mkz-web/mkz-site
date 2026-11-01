@@ -102,12 +102,12 @@ export function Bloc({ b, locale }: { b: Block; locale: Locale }) {
 }
 
 // Assistants de la barre « Résumer avec l'IA » : mêmes adresses et mêmes rel que AiSummaryBar
-// (ChatGPT exige noreferrer, sinon il refuse de soumettre l'invite).
+// (ChatGPT exige noreferrer, sinon il refuse de soumettre l'invite). Mistral retiré le 01/11/2026 : il exige
+// désormais une connexion dès qu'une invite arrive par l'URL (voir AiSummaryBar).
 const ASSISTANTS = [
   { nom: "Claude", href: (q: string) => `https://claude.ai/new?q=${q}`, rel: "noopener nofollow" },
   { nom: "ChatGPT", href: (q: string) => `https://chatgpt.com/?q=${q}`, rel: "noopener noreferrer nofollow" },
   { nom: "Perplexity", href: (q: string) => `https://www.perplexity.ai/search?q=${q}`, rel: "noopener nofollow" },
-  { nom: "Mistral", href: (q: string) => `https://chat.mistral.ai/chat?q=${q}`, rel: "noopener nofollow" },
 ];
 
 export type ArticleSuite = { title: string; url: string; categorie: CategorySlug; categoryName: string };
