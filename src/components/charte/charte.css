@@ -267,6 +267,15 @@ body:has(.charte) { margin: 0; font-family: var(--f-texte); font-size: 1.0625rem
 .charte .ordi { position: relative; z-index: 1; background: var(--noir); color: #fff; }
 .charte .ordi__entete { position: absolute; z-index: 3; top: calc(var(--v-h) + clamp(56px, 6.5vw, 96px)); left: 0; right: 0; max-width: 820px; text-align: center; }
 .charte .ordi__scene { position: relative; height: 100svh; min-height: 560px; overflow: hidden; }
+/* Intégration (01/11/2026) : la scène reste collée en haut de l'écran par position: sticky dans une piste de 250svh
+   (100svh de scène plus les 150 % de l'ancien pin ScrollTrigger), et plus par un pin en position: fixed, que Chrome
+   comptait comme un décalage de mise en page de 1,2 à 1,6 à chaque visiteur qui défile (invisible à l'écran, 0 chez
+   Lighthouse qui ne défile pas). Mêmes conditions que l'ancien pin : scripts chargés (classe js), 900 px et plus,
+   mouvement non réduit. En dessous, la scène reste en flux (règles de la media query plus bas). */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .js .charte .ordi__piste { height: 250svh; }
+  .js .charte .ordi__scene { position: sticky; top: 0; }
+}
 .charte .ordi__cadre {
   --l: min(100vw, 205svh);
   position: absolute; left: 50%; top: calc(50% - var(--l) * .349 + 24px);

@@ -300,16 +300,18 @@ function animer(page: HTMLElement, nav: HTMLElement): () => void {
             }
           });
 
-          if (grand) {
-            ScrollTrigger.create({ trigger: scene, start: "top top", end: "+=150%", pin: true, anticipatePin: 1 });
-          }
+          /* L'épinglage de la scène pendant 150 % d'écran est fait par CSS (position: sticky dans .ordi__piste, voir
+             charte.css) et plus par ScrollTrigger (pin: true) : le pin en position: fixed faisait compter à Chrome un
+             décalage de mise en page de 1,2 à 1,6 à chaque visiteur qui défile (mesuré le 01/11/2026, 18 passages sur
+             18 ; sticky : 0,0003 à 0,002). Les déclencheurs visent la piste, qui ne bouge pas, et non la scène collée. */
+          const piste = scene.closest<HTMLElement>(".ordi__piste") ?? scene;
           /* le capot fermé (vers 61 % de l'image) démarre 56 px sous le texte */
           const departY = () => entete.offsetTop + entete.offsetHeight + 56 - (cadre.offsetTop + 0.61 * cadre.offsetHeight);
           const lecture = { image: 0 };
           const ordi = gsap.timeline({
             defaults: { ease: "none" },
             scrollTrigger: {
-              trigger: scene,
+              trigger: piste,
               start: grand ? "top 55%" : "top 80%",
               end: grand ? "+=205%" : "bottom 60%",
               scrub: grand ? 1 : 0.5,

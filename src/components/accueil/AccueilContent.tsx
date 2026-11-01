@@ -88,6 +88,10 @@ export default function AccueilContent() {
 
       {/* 2 · L'ORDINATEUR pleine largeur, façon Apple : ouverture, puis ordi 1 → ordi 3, liens dans l'écran */}
       <section className="ordi apres-v" id="outils" data-theme="sombre" aria-labelledby="titre-outil">
+        {/* Piste de 250svh dans laquelle la scène reste collée en haut (position: sticky, charte.css) : même géométrie que
+            l'ancien pin ScrollTrigger en position: fixed, sans le décalage de mise en page que Chrome comptait à
+            l'épinglage et au relâchement (1,2 à 1,6 par visite qui défile, mesuré le 01/11/2026). */}
+        <div className="ordi__piste">
         <div className="ordi__scene">
         <header className="enveloppe ordi__entete">
           <p className="surtitre">L’outil gratuit</p>
@@ -115,6 +119,7 @@ export default function AccueilContent() {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         <div className="ordi__suite enveloppe">
