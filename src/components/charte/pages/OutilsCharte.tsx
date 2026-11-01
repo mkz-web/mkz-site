@@ -91,7 +91,8 @@ export default function OutilsCharte() {
               <li><svg aria-hidden="true"><use href="#i-coche"/></svg><span>Le message n’est pas « arrêtez l’IA » : le choix du modèle pèse cent fois plus que le fait d’utiliser l’IA ou non.</span></li>
               <li><svg aria-hidden="true"><use href="#i-coche"/></svg><span>Données citables dans un llms.txt dédié, pour les moteurs de réponse IA.</span></li>
             </ul>
-            <Link className="bouton bouton--plein" href="/empreinte-ia/">Simuler une requête</Link>
+            {/* Lien simple, pas <Link> : page statique hors de Next, dont le préchargement renvoyait un 404 (01/11/2026). */}
+            <a className="bouton bouton--plein" href="/empreinte-ia/">Simuler une requête</a>
             <p className="outil__note">Estimations pédagogiques, pas une mesure opposable : le cadre est écrit au pied de l’outil.</p>
           </div>
           <div className="outil__visuel" data-revele="" aria-hidden="true">

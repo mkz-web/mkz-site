@@ -33,6 +33,16 @@ export function estCharte(chemin: string): boolean {
   return PAGES_CHARTE.has(c) || PREFIXES_CHARTE.some((p) => c.startsWith(p));
 }
 
+// Pages servies HORS de Next (fichiers statiques de public/) : un <Link> vers elles fait précharger
+// par le routeur un arbre de route qui n'existe pas (404 de /empreinte-ia/__next._tree.txt sur
+// chaque page, mesuré le 01/11/2026). Elles se lient par un <a> ordinaire.
+const PAGES_HORS_NEXT = new Set<string>(["/empreinte-ia/"]);
+
+export function horsNext(chemin: string): boolean {
+  const c = chemin.endsWith("/") ? chemin : chemin + "/";
+  return PAGES_HORS_NEXT.has(c);
+}
+
 // Entrée du menu marquée « page » : relevée page par page sur la maquette (aucune pour À propos,
 // Services, Agence web 77, les pages légales et la 404).
 export function entreeActive(chemin: string): string | null {

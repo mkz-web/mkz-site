@@ -2,6 +2,7 @@
 // Le bouton « Gérer les cookies » est branché par CharteScripts (ou AccueilScripts) sur openConsent.
 import Link from "next/link";
 import { CALENDLY, switcherTargetFor, ui, type Locale } from "@/lib/i18n";
+import { horsNext } from "@/lib/charte";
 
 export default function Pied({ chemin = "/", locale = "fr" }: { chemin?: string; locale?: Locale }) {
   if (locale === "en") return <PiedEn chemin={chemin} />;
@@ -27,7 +28,9 @@ export default function Pied({ chemin = "/", locale = "fr" }: { chemin?: string;
             <li><Link href="/referencement-ia/">Référencement IA (GEO)</Link></li>
             <li><Link href="/agence-web-77/">Agence web Seine-et-Marne</Link></li>
             <li><Link href="/audit-seo/">Audit SEO gratuit en ligne</Link></li>
-            <li><Link href="/empreinte-ia/">Empreinte d’une requête IA</Link></li>
+            {/* Lien simple, pas <Link> : /empreinte-ia/ est une page statique servie hors de Next, et
+                le préchargement du routeur demandait son arbre de route (404 sur chaque page, mesuré le 01/11/2026). */}
+            <li><a href="/empreinte-ia/">Empreinte d’une requête IA</a></li>
           </ul></nav>
           <nav aria-labelledby="pied-conseils"><h3 id="pied-conseils">Conseils</h3><ul>
             <li><Link href="/conseils/tutoriels/">Tutoriels pas à pas</Link></li>
@@ -69,7 +72,7 @@ function PiedEn({ chemin }: { chemin: string }) {
   const groupe = (g: (typeof t.groups)[number], i: number) => {
     const id = "pied-en-" + i;
     const liens = g.links.map((l) => (
-      <li key={l.href}>{l.href.startsWith("/") ? <Link href={l.href}>{l.label}</Link> : <a href={l.href}>{l.label}</a>}</li>
+      <li key={l.href}>{l.href.startsWith("/") && !horsNext(l.href) ? <Link href={l.href}>{l.label}</Link> : <a href={l.href}>{l.label}</a>}</li>
     ));
     if (g.showHours) liens.push(<li key="heures">{t.contact.hours}<br />{t.contact.reply}</li>);
     if (g.showLangLink) liens.push(<li key="langue"><a href={francais} lang="fr" hrefLang="fr">Français</a></li>);
