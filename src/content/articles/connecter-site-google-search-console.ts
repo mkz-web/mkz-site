@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Google Search Console : connecter son site pas à pas",
   "metaDescription": "Ajoutez votre site à Google Search Console en 15 minutes : propriété, vérification, sitemap, indexation. Tutoriel illustré, zéro jargon, 100 % gratuit.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-09-03",
+  "dateModified": "2026-11-05",
   "readingMinutes": 9,
   "excerpt": "Vous avez un site, mais aucune idée de ce que Google en fait ? **Google Search Console** vous montre gratuitement les recherches qui amènent vos clients. Ce tutoriel pas-à-pas, écrit pour les artisans, commerçants et TPE, vous connecte en 15 minutes, sans jargon et sans rien casser.",
   "tldr": [
@@ -261,7 +261,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Le **DNS**, c'est l'annuaire qui relie votre nom de domaine à votre site. Y ajouter un « enregistrement TXT », c'est déposer une note que seul Google lira (la seule méthode acceptée en propriété Domaine). Chez OVH :"
+      "text": "Le **DNS**, c'est l'annuaire qui relie votre nom de domaine à votre site. Y ajouter un « enregistrement TXT », c'est déposer une note que seul Google lira (la seule méthode acceptée en propriété Domaine). Votre prestataire s'en charge ? [Ajoutez-le sur votre espace OVH](/conseils/tutoriels/ajouter-prestataire-ovh/) sans lui donner votre mot de passe. Chez OVH :"
     },
     {
       "type": "ol",

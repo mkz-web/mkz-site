@@ -51,6 +51,9 @@ export type Block =
       src?: string;
       width?: number;
       height?: number;
+      // Largeur d'affichage maximale en px, pour une capture recadrée plus petite
+      // que la colonne de lecture : le gabarit l'étirerait sinon à 100 %.
+      maxWidth?: number;
     }
   | { type: "quote"; text: string; author?: string }
   | { type: "cta"; title: string; text: Inline; button: string; href: string }

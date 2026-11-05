@@ -74,7 +74,7 @@ export function Bloc({ b, locale }: { b: Block; locale: Locale }) {
       return (
         <figure>
           {b.src ? (
-            <img decoding="async" src={b.src} alt={b.alt} width={b.width} height={b.height} loading="lazy" />
+            <img decoding="async" src={b.src} alt={b.alt} width={b.width} height={b.height} loading="lazy" style={b.maxWidth ? { display: "block", maxWidth: b.maxWidth, marginInline: "auto" } : undefined} />
           ) : (
             <div aria-label={b.alt}>
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

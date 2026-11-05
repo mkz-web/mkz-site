@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "Optimiser WordPress : accélérer votre site sans coder",
   "metaDescription": "Site WordPress lent ? Mesurez avec PageSpeed Insights, puis appliquez 7 gestes simples (images, cache, PHP) pour optimiser WordPress sans coder.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-08-08",
+  "dateModified": "2026-11-05",
   "readingMinutes": 9,
   "excerpt": "Votre site WordPress rame et vous n'osez pas y toucher de peur de tout casser ? Bonne nouvelle : les gestes qui font vraiment la différence ne demandent **ni code ni compétence technique**. Suivez ce check-up en 30 minutes, conçu pour les artisans, commerçants et patrons de TPE.",
   "tldr": [
@@ -314,7 +314,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "**Temps : 10 min · Difficulté : moyenne · Impact : fort.** Le **PHP** est le langage qui fait fonctionner WordPress sur votre serveur, et chaque nouvelle version est plus rapide que la précédente. Le changement se fait depuis l'espace client de votre hébergeur (OVH, o2switch, Ionos…), dans un menu nommé « PHP » ou « Configuration ». Sélectionnez la version la plus récente proposée, validez, vérifiez votre site."
+      "text": "**Temps : 10 min · Difficulté : moyenne · Impact : fort.** Le **PHP** est le langage qui fait fonctionner WordPress sur votre serveur, et chaque nouvelle version est plus rapide que la précédente. Le changement se fait depuis l'espace client de votre hébergeur (OVH, o2switch, Ionos…), dans un menu nommé « PHP » ou « Configuration ». Sélectionnez la version la plus récente proposée, validez, vérifiez votre site. Si c'est votre prestataire qui s'en occupe, [créez-lui un accès à son nom sur OVH](/conseils/tutoriels/ajouter-prestataire-ovh/) plutôt que de lui donner votre mot de passe."
     },
     {
       "type": "callout",
