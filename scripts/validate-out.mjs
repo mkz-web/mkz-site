@@ -191,7 +191,9 @@ for (const file of htmlFiles(outDir)) {
   for (const m of html.matchAll(/href="(\/[^"#?]*)["#?]/g)) {
     const href = m[1];
     if (href.startsWith("/_next/") || href.startsWith("/images/")) continue;
-    if (/\.(xml|txt|ico|svg|png|jpg|webp|css|js|woff2?)$/.test(href)) {
+    // mp4, webm et pdf ajoutés le 05/11/2026 (vidéo d'intro de l'accueil) : un fichier se vérifie
+    // comme fichier, sinon il était cherché comme page (/videos/x.mp4/index.html) et sortait cassé.
+    if (/\.(xml|txt|ico|svg|png|jpg|webp|css|js|woff2?|mp4|webm|pdf)$/.test(href)) {
       if (!existsSync(join(outDir, href))) errors.push(`${rel} : lien fichier cassé ${href}`);
       continue;
     }

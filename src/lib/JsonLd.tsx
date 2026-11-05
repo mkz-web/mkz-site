@@ -1,4 +1,5 @@
 import { homeFaqEn, homeFaqFr, type HomeFaq } from "@/content/home-faq";
+import { videoIntro, type VideoIntro } from "@/content/video-intro";
 
 export default function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
@@ -239,3 +240,24 @@ const faqPageDepuis = (liste: HomeFaq[]) => ({
 export const faqSchemaEn = faqPageDepuis(homeFaqEn);
 
 export const faqSchema = faqPageDepuis(homeFaqFr);
+
+// Vidéo d'intro des accueils (05/11/2026) : source unique src/content/video-intro.ts, la même que
+// le lecteur et sa transcription visible.
+const videoDepuis = (v: VideoIntro) => ({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": `${SITE}${v.chemin}#video-intro`,
+  name: v.titre,
+  description: v.description,
+  thumbnailUrl: [`${SITE}${v.affiche}`],
+  uploadDate: "2026-11-05T00:00:00+01:00",
+  duration: v.dureeIso,
+  contentUrl: `${SITE}${v.src}`,
+  inLanguage: v.langue,
+  transcript: v.transcription.join(" "),
+  publisher: { "@id": `${SITE}/#organization` },
+});
+
+export const videoIntroSchema = videoDepuis(videoIntro.fr);
+
+export const videoIntroSchemaEn = videoDepuis(videoIntro.en);

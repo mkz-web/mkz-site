@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import JsonLd, { serviceSchemas, faqSchema } from "@/lib/JsonLd";
+import JsonLd, { serviceSchemas, faqSchema, videoIntroSchema } from "@/lib/JsonLd";
 import AccueilContent from "@/components/accueil/AccueilContent";
 
 export const metadata: Metadata = createMetadata("fr", {
@@ -20,6 +20,7 @@ export default function Home() {
         <JsonLd key={i} data={s} />
       ))}
       <JsonLd data={faqSchema} />
+      <JsonLd data={videoIntroSchema} />
       <AccueilContent />
     </>
   );

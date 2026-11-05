@@ -17,6 +17,7 @@ import ChartePage from "@/components/charte/ChartePage";
 import { homeFaqFr } from "@/content/home-faq";
 import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 import AccueilScripts from "./AccueilScripts";
+import VideoIntro from "./VideoIntro";
 const NBSP = String.fromCharCode(160);
 
 export default function AccueilContent() {
@@ -34,6 +35,7 @@ export default function AccueilContent() {
               <a className="bouton bouton--plein" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">30 min avec Mickaël, gratuites</a>
               <Link className="bouton bouton--trait" href="/tarifs/">Voir les prix</Link>
             </div>
+            <VideoIntro locale="fr" />
             <div className="hero__infos" data-entree="">
               <a className="note-google" href={ficheGoogle.url} target="_blank" rel="noopener"><span className="etoile" aria-hidden="true">★</span> 5,0 sur Google · 5 avis</a>
               <p>Dammartin-en-Goële (77) · lun-sam 9h-21h · <a href="tel:0769093909">07 69 09 39 09</a> (on décroche)</p>

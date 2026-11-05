@@ -13,6 +13,7 @@ import ChartePage from "@/components/charte/ChartePage";
 import { homeFaqEn } from "@/content/home-faq";
 import { avisGoogle, ficheGoogle } from "@/content/avis-google";
 import AccueilScripts from "./AccueilScripts";
+import VideoIntro from "./VideoIntro";
 
 const NBSP = String.fromCharCode(160);
 const TEL = ui.en.header.phoneHref;
@@ -52,6 +53,7 @@ export default function AccueilContentEn() {
               <a className="bouton bouton--plein" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">Book a free 30-min review</a>
               <Link className="bouton bouton--trait" href="/en/french-seo/">How French SEO works</Link>
             </div>
+            <VideoIntro locale="en" />
             <div className="hero__infos" data-entree="">
               <a className="note-google" href={ficheGoogle.url} target="_blank" rel="noopener"><span className="etoile" aria-hidden="true">★</span> 5.0 on Google · 5 reviews</a>
               <p>Mickaël Leclerc · native French, based near Paris · Mon-Sat 9am-9pm CET · <a href={TEL}>{TEL_TEXTE}</a></p>

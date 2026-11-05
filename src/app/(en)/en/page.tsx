@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/metadata";
-import JsonLd, { serviceSchemasEn, faqSchemaEn } from "@/lib/JsonLd";
+import JsonLd, { serviceSchemasEn, faqSchemaEn, videoIntroSchemaEn } from "@/lib/JsonLd";
 import AccueilContentEn from "@/components/accueil/AccueilContentEn";
 
 // Le suffixe « | MKZ » est ajouté par le template du layout parent : ne jamais
@@ -21,6 +21,7 @@ export default function EnHome() {
         <JsonLd key={i} data={s} />
       ))}
       <JsonLd data={faqSchemaEn} />
+      <JsonLd data={videoIntroSchemaEn} />
       <AccueilContentEn />
     </>
   );
