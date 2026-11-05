@@ -14,8 +14,8 @@ const article: Article = {
   "readingMinutes": 12,
   "excerpt": "Votre prestataire vous demande vos accès OVH ? Votre mot de passe peut rester chez vous : OVH sait créer un **accès à son nom**, que vous coupez quand vous voulez. Voici l'intérêt de déléguer, le bon niveau d'accès, puis le tutoriel écran par écran, boutons à cliquer surlignés.",
   "tldr": [
-    "Créez un utilisateur local au nom du prestataire : depuis l'accueil de l'espace client OVH, ouvrez Gestion des contacts, puis Identité, Sécurité & Opérations, Identités, onglet Utilisateurs locaux, bouton Ajouter un utilisateur (parcours relevé le 5 novembre 2026).",
-    "OVH déconseille de donner à un tiers les identifiants de votre espace client, et prend le contact technique comme exemple pour un webmaster (guide « Gérer les contacts de ses services », mis à jour le 27 octobre 2026).",
+    "Créez un utilisateur local au nom du prestataire : depuis l'accueil de l'espace client OVH, ouvrez Gestion des contacts, puis Identité, Sécurité & Opérations, Identités, onglet Utilisateurs locaux, bouton Ajouter un utilisateur.",
+    "OVH déconseille de donner à un tiers les identifiants de votre espace client, et prend le contact technique comme exemple pour un webmaster (guide « Gérer les contacts de ses services »).",
     "Le groupe ADMIN donne un accès en écriture à toutes les sections de l'espace client, gestion des utilisateurs comprise. DEFAULT donne le même accès sans cette gestion. UNPRIVILEGED ne donne que la lecture.",
     "Un utilisateur local se connecte avec un identifiant qui associe le numéro du compte et son nom, par exemple 1234-567-89/johnsmith dans la documentation OVH.",
     "Pour limiter l'accès à un seul service, OVH propose le contact technique (ni factures, ni moyens de paiement, mais le prestataire doit avoir son propre compte OVH), et les politiques IAM pour un réglage plus fin."
@@ -77,7 +77,7 @@ const article: Article = {
     },
     {
       "type": "table",
-      "caption": "Quatre accès : les droits d'après la documentation OVHcloud relue le 5 novembre 2026, les missions selon mon conseil",
+      "caption": "Les quatre accès possibles : les droits viennent de la documentation d'OVH, les missions sont mon conseil.",
       "headers": [
         "Accès",
         "Ce que le prestataire peut faire",
@@ -131,13 +131,13 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Entre la première et la dernière capture de ce tutoriel, le 5 novembre 2026, il s'est écoulé 1 min 46 s, du premier écran au formulaire rempli, connexion et validation non comprises. C'est le temps d'une personne qui connaît l'écran : comptez un peu plus la première fois."
+      "text": "Une fois connecté, comptez moins de 2 minutes, du premier écran au formulaire rempli. La première fois, prévoyez un peu plus, le temps de repérer les écrans."
     },
     {
       "type": "callout",
       "variant": "astuce",
       "title": "Le raccourci",
-      "text": "Déjà connecté à votre espace client ? [Ce lien](https://www.ovh.com/manager/#/iam/identities/users) ouvre la page de l'étape 3 (relevé le 5 novembre 2026, sur un compte européen)."
+      "text": "Déjà connecté à votre espace client ? Pour un compte européen, [ce lien](https://www.ovh.com/manager/#/iam/identities/users) ouvre directement la page de l'étape 3."
     },
     {
       "type": "h3",
@@ -204,7 +204,7 @@ const article: Article = {
         "**Identifiant** : le nom du prestataire ou sa fonction. Juste en dessous, OVH affiche l'identifiant complet que vous lui transmettrez.",
         "**Email** : l'adresse du prestataire.",
         "**Mot de passe** : au moins 12 caractères, avec majuscule, minuscule, chiffre et caractère spécial, selon les [recommandations d'OVH](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/manage-ovh-password). Il est provisoire : vous demanderez au prestataire de le changer à l'étape 5.",
-        "**Groupe principal** (1) : le groupe retenu plus haut, ADMIN sur la capture. L'écran indique que ce champ sert à l'affichage dans la liste des utilisateurs, et le guide d'OVH ne décrit qu'un seul champ Groupe, sans distinguer les deux. L'effet de ce champ sur les droits n'a pas été testé pour ce tutoriel : d'où le contrôle demandé à l'étape 5.",
+        "**Groupe principal** (1) : le groupe retenu plus haut, ADMIN sur la capture. L'écran dit que ce champ sert à l'affichage dans la liste des utilisateurs, alors que le guide d'OVH ne décrit qu'un seul champ Groupe. Je n'ai pas testé son effet sur les droits : d'où la vérification de l'étape 5.",
         "**Groupes supplémentaires** : rien à sélectionner dans ce tutoriel.",
         "**Description** : facultative, mais utile. Une ligne du type « Prestataire site internet, mission de novembre 2026 » vous dira dans deux ans pourquoi cet accès existe."
       ]
@@ -305,9 +305,9 @@ const article: Article = {
     {
       "type": "ul",
       "items": [
-        "Documentation OVHcloud, lue le 5 novembre 2026 : [Créer et gérer des utilisateurs locaux](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/ovhcloud-users-management) (mise à jour le 16 mai 2025), [Gérer les contacts de ses services](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/managing-contacts) (27 octobre 2026), [Présentation des identités](https://docs.ovhcloud.com/fr/guides/manage-and-operate/iam/identities-management) (21 octobre 2024), [Comment utiliser les politiques IAM](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/iam-policy-ui) (27 octobre 2025), [Modifier le mot de passe de votre compte](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/manage-ovh-password) (28 avril 2025).",
-        "CNIL, fiches sur la sécurité des données personnelles, lues le 5 novembre 2026 : [Authentifier les utilisateurs](https://www.cnil.fr/fr/securite-authentifier-les-utilisateurs) et [Gérer les habilitations](https://www.cnil.fr/fr/securite-gerer-les-habilitations).",
-        "Parcours, libellés et boutons : espace client OVHcloud relevé le 5 novembre 2026. Une interface change, et le guide d'OVH peut être en décalage : il ne décrit qu'un champ Groupe là où l'écran en affiche deux."
+        "Documentation OVHcloud, consultée le 5 novembre 2026 : [Créer et gérer des utilisateurs locaux](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/ovhcloud-users-management) (mise à jour le 16 mai 2025), [Gérer les contacts de ses services](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/managing-contacts) (27 octobre 2026), [Présentation des identités](https://docs.ovhcloud.com/fr/guides/manage-and-operate/iam/identities-management) (21 octobre 2024), [Comment utiliser les politiques IAM](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/iam-policy-ui) (27 octobre 2025), [Modifier le mot de passe de votre compte](https://docs.ovhcloud.com/fr/guides/account-and-service-management/account-information/manage-ovh-password) (28 avril 2025).",
+        "CNIL, fiches sur la sécurité des données personnelles, consultées le 5 novembre 2026 : [Authentifier les utilisateurs](https://www.cnil.fr/fr/securite-authentifier-les-utilisateurs) et [Gérer les habilitations](https://www.cnil.fr/fr/securite-gerer-les-habilitations).",
+        "Parcours et boutons : vérifiés dans l'espace client OVHcloud le 5 novembre 2026. Un libellé peut bouger depuis, et le guide d'OVH a parfois du retard sur l'écran : il ne décrit qu'un champ Groupe là où l'écran en affiche deux."
       ]
     },
     {
