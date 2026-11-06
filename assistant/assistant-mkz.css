@@ -1,0 +1,27 @@
+/* Assistant du site : habillage MKZ, ajouté après la feuille du skill (assistant-fenetre.css) par
+   scripts/assistant/construire-assistant.mjs. Couleurs de la charte (charte.css) ; le bouton se pose à gauche de la
+   bulle WhatsApp (src/components/WhatsAppButton.tsx : 56 px à 24 px du bord sous 768 px, 60 px à 32 px au-dessus),
+   et le panneau au-dessus des deux. Sous la barre de navigation (z-index 50) et sous le bandeau de consentement,
+   pendant lequel il disparaît comme la bulle. */
+:root {
+  --assistant-accent: #202748;
+  --assistant-sur-accent: #fff;
+  --assistant-badge: #F2A7CF;
+  --assistant-fond: #fff;
+  --assistant-fond-fil: #F4F4F7;
+  --assistant-texte: #202748;
+  --assistant-discret: #4A4F66;
+  --assistant-ligne: #DCDDE6;
+  --assistant-lien: #705398;
+  --assistant-focus: #B4508C;
+  --assistant-rayon: 18px;
+  --assistant-police: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.assistant-lanceur { right: 92px; bottom: 24px; z-index: 45; box-shadow: 0 14px 28px -12px rgba(32, 39, 72, .55); }
+.assistant-lanceur:hover { filter: none; background-image: linear-gradient(100deg, #705398, #B4508C); }
+html[data-consent-open] .assistant-lanceur { display: none; }
+.assistant-titre { font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif; font-weight: 600; }
+@media (min-width: 768px) {
+  .assistant-lanceur { right: 108px; bottom: 34px; }
+  .assistant-panneau { inset: auto 32px 102px auto; height: min(640px, calc(100vh - 126px)); }
+}

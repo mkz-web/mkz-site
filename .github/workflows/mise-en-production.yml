@@ -57,13 +57,19 @@ jobs:
       - name: Installer les dépendances (package-lock.json)
         run: npm ci
 
+      # MKZ_ASSISTANT=1 : l'assistant du site est ouvert en production depuis le 07/11/2026 (décision de Mickaël).
+      # Le build construit alors ses deux index (français et anglais) et pose sa fenêtre sur les pages ; sans la
+      # variable, il n'écrit rien de l'assistant. La clé du modèle est le secret « mkz-chatbot » du projet Pages.
       - name: Construire le site
+        env:
+          MKZ_ASSISTANT: "1"
         run: npm run build
 
       - name: Valider le build
         run: |
           node scripts/validate-out.mjs
           node scripts/controler-charte.mjs
+          npm run test:assistant
 
       - name: Garder le build publié (14 jours, pour le comparer au site en ligne)
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

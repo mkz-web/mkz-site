@@ -3,15 +3,15 @@ import type { PillarPage } from "@/lib/articles/types";
 
 const pillar: PillarPage = {
   "slug": "referencement-seo",
-  "title": "Agence SEO en Seine-et-Marne : un référencement qui ramène des clients",
-  "metaTitle": "Agence SEO Seine-et-Marne (77) : référencement rentable",
-  "metaDescription": "Agence SEO en Seine-et-Marne : référencement Google pour artisans, commerçants et TPE. Tarifs clairs, méthode transparente, audit SEO gratuit de 30 min.",
-  "heroBadge": "Agence SEO en Seine-et-Marne (77)",
+  "title": "Consultant SEO en Seine-et-Marne : un référencement qui ramène des clients",
+  "metaTitle": "Agence SEO 77 ? Un consultant SEO en Seine-et-Marne",
+  "metaDescription": "Consultant SEO en Seine-et-Marne, pas une agence : référencement Google pour artisans, commerçants et TPE. Tarifs clairs, audit SEO gratuit de 30 min.",
+  "heroBadge": "Consultant SEO en Seine-et-Marne (77)",
   "heroLead": "Vos clients vous cherchent déjà sur Google. Nous faisons en sorte qu'ils vous trouvent, vous, pas vos concurrents. Méthode transparente, tarifs annoncés avant signature, résultats mesurés chaque mois.",
   "blocks": [
     {
       "type": "p",
-      "text": "MKZ est une **agence SEO en Seine-et-Marne**, basée à Dammartin-en-Goële, dans le nord du 77. Notre métier : faire apparaître votre entreprise en haut de Google quand un client tape votre métier et sa ville : « plombier Meaux », « boulangerie Dammartin-en-Goële »."
+      "text": "MKZ est le cabinet de Mickaël Leclerc, **consultant SEO en Seine-et-Marne**, basé à Dammartin-en-Goële, dans le nord du 77. Notre métier : faire apparaître votre entreprise en haut de Google quand un client tape votre métier et sa ville : « plombier Meaux », « boulangerie Dammartin-en-Goële »."
     },
     {
       "type": "p",
@@ -288,11 +288,11 @@ const pillar: PillarPage = {
     {
       "type": "h2",
       "id": "agence-seo-nord-77",
-      "text": "MKZ, l'agence SEO du nord Seine-et-Marne : Dammartin-en-Goële, Meaux, Roissy"
+      "text": "MKZ, un consultant SEO dans le nord de la Seine-et-Marne : Dammartin-en-Goële, Meaux, Roissy"
     },
     {
       "type": "p",
-      "text": "La plupart des agences du département sont installées dans le sud (Fontainebleau, Melun) ou autour de Marne-la-Vallée. Le nord du 77 (Dammartin-en-Goële, Meaux, Roissy, Mitry-Mory, Claye-Souilly) restait sans agence SEO de proximité. C'est ici que MKZ est née."
+      "text": "La plupart des agences du département sont installées dans le sud (Fontainebleau, Melun) ou autour de Marne-la-Vallée. Le nord du 77 (Dammartin-en-Goële, Meaux, Roissy, Mitry-Mory, Claye-Souilly) restait sans spécialiste du référencement de proximité. C'est ici que MKZ est née."
     },
     {
       "type": "p",

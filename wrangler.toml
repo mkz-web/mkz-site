@@ -12,8 +12,13 @@ compatibility_date = "2026-06-11"
 # Les identifiants DataForSEO sont des SECRETS du projet Pages, jamais ici :
 #   npx wrangler pages secret put DATAFORSEO_LOGIN --project-name mkz-site
 #   npx wrangler pages secret put DATAFORSEO_PASSWORD --project-name mkz-site
+#
+# Assistant du site (/api/chat) : plafond quotidien de réponses (functions/api/_plafond-assistant.mjs),
+# décidé par Mickaël le 06/11/2026. 300 réponses à 0,0014 USD mesuré = 0,42 USD par jour au pire.
+# Compteur « assistant:<jour UTC> » dans le même espace KV que le scan.
 [vars]
 AUDIT_TIER1_MAX_JOUR = "50"
+ASSISTANT_MAX_JOUR = "300"
 
 # Compteur du plafond et cache 24 h par domaine : espace KV « AUDIT_QUOTA ».
 # Sans ce binding, le moteur retombe sur un compteur en mémoire par isolat

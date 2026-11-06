@@ -22,8 +22,8 @@ export default function PilierSeo() {
         <div className="enveloppe mhero__in">
           <div className="mhero__texte">
             <nav className="ariane" aria-label="Fil d'Ariane" data-entree=""><Link href="/">Accueil</Link><span aria-hidden="true">›</span><span aria-current="page">Agence SEO en Seine-et-Marne (77)</span></nav>
-            <p className="mhero__surtitre" data-entree=""><svg aria-hidden="true"><use href="#i-loupe"/></svg>Agence SEO en Seine-et-Marne (77)</p>
-            <h1 className="titre-1" data-entree="">Agence SEO en Seine-et-Marne : <em className="degrade">un référencement qui ramène des clients</em></h1>
+            <p className="mhero__surtitre" data-entree=""><svg aria-hidden="true"><use href="#i-loupe"/></svg>Consultant SEO en Seine-et-Marne (77)</p>
+            <h1 className="titre-1" data-entree="">Consultant SEO en Seine-et-Marne : <em className="degrade">un référencement qui ramène des clients</em></h1>
             <p className="mhero__intro" data-entree="">Vos clients vous cherchent déjà sur Google. Nous faisons en sorte qu’ils vous trouvent, vous, pas vos concurrents. Méthode transparente, tarifs annoncés avant signature, résultats mesurés chaque mois.</p>
             <div className="hero__actions" data-entree="">
               <a className="bouton bouton--plein" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">Réserver mon audit gratuit</a>
@@ -75,7 +75,7 @@ export default function PilierSeo() {
         <div className="enveloppe intro__grille">
           <div className="intro__texte prose" data-revele="">
             <p className="petit intro__label">En bref</p>
-            <p className="intro__chapeau">MKZ est une <strong>agence SEO en Seine-et-Marne</strong>, basée à Dammartin-en-Goële, dans le nord du 77. Notre métier : faire apparaître votre entreprise en haut de Google quand un client tape votre métier et sa ville : « plombier Meaux », « boulangerie Dammartin-en-Goële ».</p>
+            <p className="intro__chapeau">MKZ est le cabinet de Mickaël Leclerc, <strong>consultant SEO en Seine-et-Marne</strong>, basé à Dammartin-en-Goële, dans le nord du 77. Notre métier : faire apparaître votre entreprise en haut de Google quand un client tape votre métier et sa ville : « plombier Meaux », « boulangerie Dammartin-en-Goële ».</p>
             <p>Nos armes : un site techniquement irréprochable, des contenus qui répondent aux vraies questions de vos clients, un suivi mensuel chiffré. Et une règle : pas de promesse chiffrée avant d’avoir regardé votre site. C’est-à-dire que chaque mois, vous lisez vos propres chiffres, ceux de votre <strong>trafic organique</strong> (les visites gratuites venues de Google), mesurés dans votre Search Console.</p>
             <p>Vous êtes artisan, commerçant ou patron de TPE ? Notre offre est construite pour vous : zéro jargon, tarifs annoncés avant signature, aucun engagement-piège. Et vous restez propriétaire de tout, du nom de domaine aux contenus.</p>
             <ul className="intro__points" aria-label="Points clés"><li><svg className="ico" aria-hidden="true"><use href="#i-repere"/></svg>Basée en Seine-et-Marne</li><li><svg className="ico" aria-hidden="true"><use href="#i-etiquette"/></svg>Tarifs annoncés avant signature</li><li><svg className="ico" aria-hidden="true"><use href="#i-courbe"/></svg>Résultats mesurés chaque mois</li></ul>
@@ -89,7 +89,7 @@ export default function PilierSeo() {
               <li><a href="#tarifs-referencement">Combien coûte une agence SEO en Seine-et-Marne ? Nos tarifs en toute transparence</a></li>
               <li><a href="#delais-premiers-resultats">Combien de temps avant les premiers résultats ?</a></li>
               <li><a href="#geo-chatgpt-ia">Être trouvé aussi par ChatGPT et les IA : le SEO version 2026 (GEO)</a></li>
-              <li><a href="#agence-seo-nord-77">MKZ, l’agence SEO du nord Seine-et-Marne : Dammartin-en-Goële, Meaux, Roissy</a></li>
+              <li><a href="#agence-seo-nord-77">MKZ, un consultant SEO dans le nord de la Seine-et-Marne : Dammartin-en-Goële, Meaux, Roissy</a></li>
               <li><a href="#audit-seo-gratuit">Demandez votre audit SEO gratuit</a></li>
               <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
@@ -329,14 +329,14 @@ export default function PilierSeo() {
         <div className="enveloppe bloc__grille">
           <header className="bloc__tete" data-revele="">
             <p className="bloc__num" aria-hidden="true">07</p>
-            <h2 className="titre-2">MKZ, <em className="degrade">l’agence SEO du nord Seine-et-Marne :</em> Dammartin-en-Goële, Meaux, Roissy</h2>
+            <h2 className="titre-2">MKZ, <em className="degrade">un consultant SEO dans le nord de la Seine-et-Marne :</em> Dammartin-en-Goële, Meaux, Roissy</h2>
             <figure className="portrait">
               <img src="/images/charte/mickael-480.webp" width="480" height="480" loading="lazy" alt="Mickaël Leclerc, fondateur de MKZ" />
               <figcaption>Mickaël Leclerc, fondateur.</figcaption>
             </figure>
           </header>
           <div className="bloc__corps prose">
-            <p data-revele="">La plupart des agences du département sont installées dans le sud (Fontainebleau, Melun) ou autour de Marne-la-Vallée. Le nord du 77 (Dammartin-en-Goële, Meaux, Roissy, Mitry-Mory, Claye-Souilly) restait sans agence SEO de proximité. C’est ici que MKZ est née.</p>
+            <p data-revele="">La plupart des agences du département sont installées dans le sud (Fontainebleau, Melun) ou autour de Marne-la-Vallée. Le nord du 77 (Dammartin-en-Goële, Meaux, Roissy, Mitry-Mory, Claye-Souilly) restait sans spécialiste du référencement de proximité. C’est ici que MKZ est née.</p>
             <p data-revele="">Et la proximité compte : selon le Baromètre France Num (DGE), <strong>56 % des TPE et PME privilégient des prestataires numériques locaux</strong>, et 81 % préfèrent acheter auprès de prestataires français. Nous intervenons dans tout le 77 et en Île-de-France, sur place ou en visio. Notre page <Link href="/agence-web-77/">agence web en Seine-et-Marne</Link> présente l’ensemble de nos services.</p>
             <h3 className="titre-3" data-revele="">Vous restez propriétaire de votre site, de vos contenus et de vos comptes</h3>
             <p data-revele="">Nom de domaine, hébergement, textes, photos, fiche Google, statistiques : tout est ouvert à votre nom dès le premier jour. Si vous partez demain, vous partez avec tout, sans frais de sortie, sans rétention.</p>

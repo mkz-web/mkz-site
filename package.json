@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build:empreinte": "node empreinte-ia/build/build.mjs",
-    "build": "npm run build:empreinte && next build && node scripts/aplatir-segments-export.mjs",
+    "build": "npm run build:empreinte && next build && node scripts/aplatir-segments-export.mjs && node scripts/assistant/construire-assistant.mjs",
+    "test:assistant": "node scripts/assistant/tester-filtres.mjs out/_assistant/index.json assistant/attendus.json && node scripts/assistant/tester-filtres.mjs out/_assistant/index-en.json assistant/attendus-en.json && node scripts/assistant/tester-plafond.mjs",
     "start": "next start",
     "lint": "eslint",
     "test:empreinte": "node empreinte-ia/src/engine.test.js",

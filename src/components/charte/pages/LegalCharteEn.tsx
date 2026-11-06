@@ -135,6 +135,7 @@ export function PrivacyCharteEn() {
           contenu: (
             <>
               <p>Only what you send us yourself: your name, your email address, the subject and the content of your message through the contact form, plus your name and email address if you book a slot. The free SEO audit tool only asks for a public website address; your email is collected there solely if you request the full report and tick the consent box, together with the address of the site scanned. No account, no profiling, no data bought from third parties.</p>
+              <p>The site assistant (the &ldquo;A question?&rdquo; button, &ldquo;Une question ?&rdquo; on the French pages) receives the questions you type and, if you ask to be called back, your first name, your email address, your phone number if you give it and the conversation thread (see Site assistant below).</p>
               <p>With your consent, given through the cookie banner, we also measure how the site is used (pages viewed, clicks, scrolling) with Google Analytics 4 and Microsoft Clarity, in order to improve it. Until you accept, these tools are not loaded and no usage data is collected (see the Cookies section below).</p>
             </>
           ),
@@ -142,7 +143,7 @@ export function PrivacyCharteEn() {
         {
           id: "why-we-process-it",
           titre: "Why we process it",
-          contenu: <p>To answer your enquiry, to send you the audit report you asked for and follow up about it and, where relevant, to prepare a proposal. Nothing else. Your data is never used for advertising and never sold.</p>,
+          contenu: <p>To answer your enquiry, to send you the audit report you asked for and follow up about it, to answer the questions you put to the site assistant from the published pages and, where relevant, to prepare a proposal. Nothing else. Your data is never used for advertising and never sold.</p>,
         },
         {
           id: "legal-basis",
@@ -159,8 +160,8 @@ export function PrivacyCharteEn() {
           titre: "Who else sees it",
           contenu: (
             <>
-              <p>Four processors, and no one else. Your data is never sold.</p>
-              <p><strong>Cloudflare, Inc.</strong> hosts and delivers the site (United States). <strong>Web3Forms</strong> (Web3Creative) transmits contact form submissions and audit report requests, and nothing else (India). <strong>Calendly LLC</strong> handles online booking if you reserve a slot (United States). <strong>Microsoft Corporation</strong> processes audience measurement data through Microsoft Clarity, only after your consent (United States). <strong>Google Ireland Limited</strong> processes audience measurement data through Google Analytics 4, only after your consent (Ireland, with possible transfer to Google LLC in the United States).</p>
+              <p>Six processors, and no one else. Your data is never sold.</p>
+              <p><strong>Cloudflare, Inc.</strong> hosts and delivers the site (United States). <strong>Web3Forms</strong> (Web3Creative) transmits contact form submissions and audit report requests, and nothing else (India). <strong>Calendly LLC</strong> handles online booking if you reserve a slot (United States). <strong>Microsoft Corporation</strong> processes audience measurement data through Microsoft Clarity, only after your consent (United States). <strong>Google Ireland Limited</strong> processes audience measurement data through Google Analytics 4, only after your consent (Ireland, with possible transfer to Google LLC in the United States). <strong>Anthropic</strong> writes the answers of the site assistant through its Claude API, from the published pages (processing may take place outside the European Union).</p>
             </>
           ),
         },
@@ -169,13 +170,27 @@ export function PrivacyCharteEn() {
           titre: "Transfers outside the European Union",
           contenu: (
             <>
-              <p>Four of the five processors are established outside the EU, and Google Ireland Limited may transfer Analytics data to Google LLC in the United States, so using this site involves transferring personal data outside the European Union. These transfers rely on the safeguards set out in Chapter V of the GDPR: a data processing agreement with each processor (Article 28), and the European Commission&rsquo;s Standard Contractual Clauses (Article 46).</p>
-              <p>Cloudflare, Calendly, Microsoft and Google LLC are additionally certified under the EU&nbsp;-&nbsp;US Data Privacy Framework, covered by the European Commission adequacy decision of 10&nbsp;July 2023 (Article 45). India has no adequacy decision, so the Standard Contractual Clauses are the sole basis for the transfer to Web3Forms. Details are in{" "}
+              <p>Four of the six processors are established outside the EU, Google Ireland Limited may transfer Analytics data to Google LLC in the United States, and Anthropic may process the questions put to the site assistant outside the EU, so using this site involves transferring personal data outside the European Union. These transfers rely on the safeguards set out in Chapter V of the GDPR: a data processing agreement with each processor (Article 28), and the European Commission&rsquo;s Standard Contractual Clauses (Article 46).</p>
+              <p>Cloudflare, Calendly, Microsoft and Google LLC are additionally certified under the EU&nbsp;-&nbsp;US Data Privacy Framework, covered by the European Commission adequacy decision of 10&nbsp;July 2023 (Article 45). India has no adequacy decision, so the Standard Contractual Clauses are the sole basis for the transfer to Web3Forms; Anthropic&rsquo;s data processing addendum incorporates them as well. Details are in{" "}
                 <a href="https://www.cloudflare.com/trust-hub/gdpr/" {...ext}>Cloudflare&rsquo;s compliance hub</a>,{" "}
                 <a href="https://web3forms.com/dpa" {...ext}>the Web3Forms DPA</a>,{" "}
                 <a href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">the Calendly DPA</a>,{" "}
-                <a href="https://privacy.microsoft.com/en-us/privacystatement" {...ext}>the Microsoft privacy statement</a> and{" "}
-                <a href="https://business.safety.google/adsprocessorterms/" {...ext}>the Google data processing terms</a>.</p>
+                <a href="https://privacy.microsoft.com/en-us/privacystatement" {...ext}>the Microsoft privacy statement</a>,{" "}
+                <a href="https://business.safety.google/adsprocessorterms/" {...ext}>the Google data processing terms</a> and{" "}
+                <a href="https://www.anthropic.com/legal/data-processing-addendum" {...ext}>the Anthropic data processing addendum</a>.</p>
+            </>
+          ),
+        },
+        {
+          id: "site-assistant",
+          titre: "Site assistant",
+          contenu: (
+            <>
+              <p>The site&rsquo;s question-and-answer assistant, on the English and French pages, is an artificial intelligence service: your questions, with the earlier messages of the same conversation and the address of the page you are on, are sent by our server to Anthropic&rsquo;s Claude API, which writes the answer from the pages published on this site. MKZ does not keep the content of conversations: they disappear when you close the page, and our technical logs only keep operating data (page, status, processing time and volume), never the text.</p>
+              <p>Anthropic deletes the inputs and outputs of its API within 30 days, unless a conversation is flagged for violating its usage policy (up to 2 years) or the law requires otherwise, and does not use them to train its models (
+                <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" {...ext}>retention</a>,{" "}
+                <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" {...ext}>model training</a>).</p>
+              <p>Please do not type personal data into your questions. To be called back, use the form offered in the assistant: your request goes through Web3Forms, like the contact form, and is kept on the same terms. This processing relies on MKZ&rsquo;s legitimate interest in answering visitors&rsquo; questions from the published content, and on your consent for the call-back request.</p>
             </>
           ),
         },

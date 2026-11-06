@@ -406,7 +406,7 @@ export default function AccueilContent() {
             <p><strong>Île-de-France :</strong> Paris · Val-de-Marne (94) · Seine-Saint-Denis (93) · Val-d’Oise (95) · Hauts-de-Seine (92) · Yvelines (78) · Essonne (91)</p>
             <p><strong>Et au-delà :</strong> toute la France, à distance, avec le même suivi.</p>
           </div>
-          <Link className="lien" href="/agence-web-77/">Votre agence web en Seine-et-Marne</Link>
+          <Link className="lien" href="/agence-web-77/">Site internet et SEO en Seine-et-Marne</Link>
         </div>
       </section>
 

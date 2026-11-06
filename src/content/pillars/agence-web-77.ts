@@ -67,7 +67,7 @@ const pillar: PillarPage = {
     },
     {
       "type": "p",
-      "text": "Le **SEO** (référencement naturel) regroupe tout ce qui fait remonter votre site dans les résultats Google, sans payer de publicité. Pour une TPE du 77, le levier le plus rentable est le [référencement local](/conseils/seo/referencement-local/) : sortir en tête quand un habitant tape votre métier et votre ville. Notre [agence SEO en Seine-et-Marne](/referencement-seo/) couvre les mots-clés, la technique, le contenu et votre **fiche Google Business Profile**, la fiche de votre entreprise qui s'affiche sur Google Maps. Ce que nous ne ferons pas : vous promettre un chiffre avant d'avoir regardé votre site. Vous aurez les vôtres, chaque mois, dans votre Search Console : votre **trafic organique** (les visites venues de Google, hors publicité), vos positions, vos demandes."
+      "text": "Le **SEO** (référencement naturel) regroupe tout ce qui fait remonter votre site dans les résultats Google, sans payer de publicité. Pour une TPE du 77, le levier le plus rentable est le [référencement local](/conseils/seo/referencement-local/) : sortir en tête quand un habitant tape votre métier et votre ville. Le [référencement SEO en Seine-et-Marne](/referencement-seo/) couvre les mots-clés, la technique, le contenu et votre **fiche Google Business Profile**, la fiche de votre entreprise qui s'affiche sur Google Maps. Ce que nous ne ferons pas : vous promettre un chiffre avant d'avoir regardé votre site. Vous aurez les vôtres, chaque mois, dans votre Search Console : votre **trafic organique** (les visites venues de Google, hors publicité), vos positions, vos demandes."
     },
     {
       "type": "h3",

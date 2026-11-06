@@ -56,6 +56,7 @@ export default function ConfidentialiteCharte() {
             <li><strong>La prise de rendez-vous :</strong> nom et adresse email (via Calendly)</li>
             <li><strong>Les appels téléphoniques :</strong> numéro de téléphone et informations échangées</li>
             <li><strong>L’outil d’audit SEO gratuit :</strong> adresse email et adresse du site analysé, uniquement si vous demandez le rapport et cochez la case de consentement. Le scan lui-même ne traite qu’une adresse de site publique et ne collecte aucune donnée personnelle</li>
+            <li><strong>L’assistant du site :</strong> les questions posées dans la fenêtre « Une question ? » et, si vous demandez à être rappelé, votre prénom, votre adresse email, votre téléphone si vous le donnez et le fil de la conversation (voir la section <a href="#assistant">Assistant du site</a>)</li>
           </ul>
           <p>Aucune donnée n’est collectée automatiquement à des fins publicitaires. Avec votre consentement, recueilli via le bandeau cookies, nous mesurons en revanche l’usage du site (pages visitées, clics, défilement) au moyen des outils Google Analytics 4 et Microsoft Clarity, afin d’améliorer le site. Tant que vous n’avez pas accepté, ces outils ne sont pas chargés et aucune donnée de mesure n’est collectée (voir la section Cookies ci-dessous).</p>
 
@@ -65,6 +66,7 @@ export default function ConfidentialiteCharte() {
             <li>Répondre à vos demandes de contact ou de devis</li>
             <li>Planifier et réaliser un audit gratuit</li>
             <li>Vous envoyer le rapport d’audit que vous avez demandé via l’outil gratuit, et vous recontacter à son sujet</li>
+            <li>Répondre aux questions posées à l’assistant du site, à partir des pages publiées, et vous rappeler si vous le demandez</li>
             <li>Assurer le suivi de la relation commerciale</li>
             <li>Vous envoyer des informations liées à votre projet (uniquement si vous en avez fait la demande)</li>
           </ul>
@@ -84,17 +86,23 @@ export default function ConfidentialiteCharte() {
             <li><strong>Calendly LLC</strong> : gestion de la prise de rendez-vous en ligne (États-Unis)</li>
             <li><strong>Microsoft Corporation</strong> : mesure d’audience et analyse de l’usage du site via Microsoft Clarity, uniquement après votre consentement (États-Unis)</li>
             <li><strong>Google Ireland Limited</strong> : mesure d’audience via Google Analytics 4, uniquement après votre consentement (Irlande, avec transfert possible vers Google LLC aux États-Unis)</li>
+            <li><strong>Anthropic</strong> : rédaction des réponses de l’assistant du site par son API Claude, à partir des pages publiées (traitement possible hors de l’Union européenne)</li>
           </ul>
 
           <h2 id="transferts-hors-ue">Transferts de données hors Union européenne</h2>
-          <p>Quatre de nos cinq sous-traitants sont établis hors de l’Union européenne : <strong>Cloudflare, Inc.</strong>, <strong>Calendly LLC</strong> et <strong>Microsoft Corporation</strong> aux États-Unis, <strong>Web3Forms</strong> en Inde ; <strong>Google Ireland Limited</strong> est établi en Irlande mais peut transférer les données de Google Analytics vers Google LLC aux États-Unis. L’hébergement du site, l’envoi du formulaire de contact, la prise de rendez-vous et la mesure d’audience impliquent donc un transfert de données personnelles hors de l’Union européenne.</p>
+          <p>Quatre de nos six sous-traitants sont établis hors de l’Union européenne : <strong>Cloudflare, Inc.</strong>, <strong>Calendly LLC</strong> et <strong>Microsoft Corporation</strong> aux États-Unis, <strong>Web3Forms</strong> en Inde ; <strong>Google Ireland Limited</strong> est établi en Irlande mais peut transférer les données de Google Analytics vers Google LLC aux États-Unis, et <strong>Anthropic</strong> peut traiter hors de l’Union européenne les questions posées à l’assistant. L’hébergement du site, l’envoi du formulaire de contact, la prise de rendez-vous, la mesure d’audience et l’assistant impliquent donc un transfert de données personnelles hors de l’Union européenne.</p>
           <p>Ces transferts sont encadrés par les garanties prévues au chapitre V du RGPD :</p>
           <ul>
             <li>un <strong>accord de traitement des données</strong> (DPA) conclu avec chaque sous-traitant, au sens de l’article 28 du RGPD ;</li>
-            <li>les <strong>clauses contractuelles types</strong> de la Commission européenne (article 46 du RGPD). Elles constituent le seul fondement du transfert vers <strong>Web3Forms</strong>, l’Inde ne bénéficiant d’aucune décision d’adéquation ;</li>
+            <li>les <strong>clauses contractuelles types</strong> de la Commission européenne (article 46 du RGPD). Elles constituent le seul fondement du transfert vers <strong>Web3Forms</strong>, l’Inde ne bénéficiant d’aucune décision d’adéquation, et elles sont intégrées à l’avenant d’<strong>Anthropic</strong> sur le traitement des données ;</li>
             <li>pour les trois prestataires américains et Google LLC uniquement, leur certification au <strong>Data Privacy Framework UE - États-Unis</strong>, qui fait l’objet d’une décision d’adéquation de la Commission européenne du 10 juillet 2023 (article 45 du RGPD).</li>
           </ul>
-          <p>Le détail de ces engagements est consultable sur <a href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformité de Cloudflare</a>, <a href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l’accord de traitement de Web3Forms</a>, <a href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">celui de Calendly</a>, <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">la déclaration de confidentialité de Microsoft</a> et <a href="https://business.safety.google/adsprocessorterms/" target="_blank" rel="noopener noreferrer">les conditions de traitement des données de Google</a>. Le délégué à la protection des données de Cloudflare est joignable à <a href="mailto:dpo@cloudflare.com">dpo@cloudflare.com</a>.</p>
+          <p>Le détail de ces engagements est consultable sur <a href="https://www.cloudflare.com/trust-hub/gdpr/" target="_blank" rel="noopener noreferrer">le centre de conformité de Cloudflare</a>, <a href="https://web3forms.com/dpa" target="_blank" rel="noopener noreferrer">l’accord de traitement de Web3Forms</a>, <a href="https://calendly.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer nofollow">celui de Calendly</a>, <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">la déclaration de confidentialité de Microsoft</a>, <a href="https://business.safety.google/adsprocessorterms/" target="_blank" rel="noopener noreferrer">les conditions de traitement des données de Google</a> et <a href="https://www.anthropic.com/legal/data-processing-addendum" target="_blank" rel="noopener noreferrer">l’avenant sur le traitement des données d’Anthropic</a>. Le délégué à la protection des données de Cloudflare est joignable à <a href="mailto:dpo@cloudflare.com">dpo@cloudflare.com</a>.</p>
+
+          <h2 id="assistant">Assistant du site</h2>
+          <p>L’assistant de questions-réponses du site (bouton « Une question ? ») est un service d’intelligence artificielle : vos questions, avec les messages précédents de la même conversation et l’adresse de la page consultée, sont transmises par notre serveur à l’API Claude d’Anthropic, qui rédige la réponse à partir des pages publiées sur ce site. MKZ ne conserve pas le contenu des conversations : elles disparaissent à la fermeture de la page, et nos journaux techniques n’en gardent que des données de fonctionnement (page consultée, statut, durée et volume du traitement), jamais le texte.</p>
+          <p>Anthropic efface les entrées et les sorties de son API sous 30 jours, sauf conversation signalée pour violation de sa politique d’usage (jusqu’à 2 ans) ou obligation légale, et ne les utilise pas pour entraîner ses modèles (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" target="_blank" rel="noopener noreferrer">durée de conservation</a>, <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener noreferrer">entraînement des modèles</a>).</p>
+          <p>Ne saisissez pas de données personnelles dans vos questions. Pour être rappelé, utilisez le formulaire proposé dans l’assistant : votre demande est acheminée par Web3Forms, comme le formulaire de contact, et conservée dans les mêmes conditions. Ce traitement repose sur l’intérêt légitime de MKZ à répondre aux questions des visiteurs à partir du contenu publié, et sur votre consentement pour la demande de rappel.</p>
 
           <h2 id="vos-droits">Vos droits</h2>
           <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
@@ -119,7 +127,7 @@ export default function ConfidentialiteCharte() {
 
           <h2 id="modifications">Modifications</h2>
           <p>MKZ se réserve le droit de modifier la présente politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec une date de mise à jour.</p>
-          <p className="legal-maj">Dernière mise à jour : octobre 2026</p>
+          <p className="legal-maj">Dernière mise à jour : novembre 2026</p>
         </div>
       </div>
     </ChartePage>
