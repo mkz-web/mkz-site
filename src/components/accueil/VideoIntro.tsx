@@ -43,9 +43,14 @@ export default function VideoIntro({ locale }: { locale: "fr" | "en" }) {
     e.preventDefault();
     if (!video.getAttribute("poster")) video.setAttribute("poster", v.affiche);
     d.showModal();
-    video.muted = true; // vidéo sans piste son : muette, la lecture est toujours autorisée
     video.currentTime = 0;
-    video.play().catch(() => {});
+    // Musique de fond depuis le 06/11/2026 : le clic sur le lien autorise la lecture avec le son. Si le
+    // navigateur la refuse quand même, la vidéo part muette et le bouton du lecteur rend le son.
+    video.muted = false;
+    video.play().catch(() => {
+      video.muted = true;
+      video.play().catch(() => {});
+    });
     gaEvent("video_intro", { etape: "ouverture", langue: locale });
   };
   const fermer = () => {
