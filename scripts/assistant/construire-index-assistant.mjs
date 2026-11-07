@@ -416,6 +416,8 @@ export function baliseFenetre(configBrute, src, surcharge) {
   // (MKZ, 06/11/2026 : /api/chat?langue=en sur les pages anglaises).
   if (config.langue && config.langue !== "fr") a["data-langue"] = config.langue;
   if (f.api) a["data-api"] = f.api;
+  // Liens de la barre sous la saisie : « rappel », « whatsapp », « telephone » (les trois par défaut).
+  if (Array.isArray(f.actions)) a["data-actions"] = f.actions.join(",");
   const esc = (v) => String(v).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   return "<script " + Object.entries(a).map(([k, v]) => (v === true ? k : `${k}="${esc(v)}"`)).join(" ") + "></script>";
 }

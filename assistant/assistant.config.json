@@ -74,9 +74,10 @@
   ],
   "fenetre": {
     "titre": "Assistant {site}",
-    "accueil": "Bonjour, je réponds à partir des pages de ce site : prix, prestations, méthode et guides. Pour un avis sur votre situation, {prenom} reste joignable directement.",
-    "mention": "Réponses générées par une intelligence artificielle à partir des pages du site : vérifiez sur la page citée.",
-    "suggestions": ["Combien coûte un site vitrine ?", "Que comprend l'accompagnement mensuel ?", "Comment être cité par ChatGPT ?"],
+    "accueil": "Bonjour ! Une question sur les prix, les prestations ou la méthode ?",
+    "mention": "Réponses générées par IA à partir du site.",
+    "suggestions": ["Prix d'un site vitrine", "Être cité par ChatGPT", "L'accompagnement mensuel"],
+    "actions": ["rappel"],
     "rappelApi": "https://api.web3forms.com/submit",
     "rappelFormat": "web3forms",
     "rappelCle": "5f80cd7f-a0fb-484c-995c-a6a1a5534c34",

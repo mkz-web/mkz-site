@@ -87,6 +87,10 @@
     delai: parseInt(lire("delai-ms", "3200"), 10) || 0,
     questionMax: parseInt(lire("question-max", "600"), 10) || 600,
     historiqueMax: parseInt(lire("historique", "10"), 10) || 10,
+    // Liens de la barre sous la saisie (data-actions, liste séparée par des virgules). MKZ, 07/11/2026 : « rappel »
+    // seul, la bulle WhatsApp du site étant juste à côté ; WhatsApp et téléphone restent proposés quand une réponse
+    // n'arrive pas (contactsDirects).
+    actions: lire("actions", "rappel,whatsapp,telephone").split(",").map(function (s) { return s.trim(); }),
     suggestions: []
   };
   try { cfg.suggestions = JSON.parse(lire("suggestions", "[]")); } catch (e) { cfg.suggestions = []; }
@@ -134,9 +138,9 @@
   var champ = el("textarea", { id: "assistant-question", "class": "assistant-champ", rows: "1", maxlength: String(cfg.questionMax), placeholder: T.placeholder, autocomplete: "off" });
   var bouton = el("button", { type: "submit", "class": "assistant-envoyer", "aria-label": T.envoyerQuestion, html: ICONES.envoyer });
   var saisie = el("form", { "class": "assistant-saisie" }, [el("label", { "for": "assistant-question", "class": "assistant-sr", texte: T.votreQuestion }), champ, bouton]);
-  var boutonRappel = cfg.rappelApi ? el("button", { type: "button", "class": "assistant-action", texte: T.rappele(cfg.prenom) }) : null;
-  var lienWa = cfg.whatsapp ? el("a", { "class": "assistant-action", href: cfg.whatsapp, target: "_blank", rel: "noopener", texte: "WhatsApp" }) : null;
-  var lienTel = cfg.telephone && cfg.telephoneBrut ? el("a", { "class": "assistant-action", href: "tel:" + cfg.telephoneBrut, texte: cfg.telephone }) : null;
+  var boutonRappel = cfg.rappelApi && cfg.actions.indexOf("rappel") > -1 ? el("button", { type: "button", "class": "assistant-action", texte: T.rappele(cfg.prenom) }) : null;
+  var lienWa = cfg.whatsapp && cfg.actions.indexOf("whatsapp") > -1 ? el("a", { "class": "assistant-action", href: cfg.whatsapp, target: "_blank", rel: "noopener", texte: "WhatsApp" }) : null;
+  var lienTel = cfg.telephone && cfg.telephoneBrut && cfg.actions.indexOf("telephone") > -1 ? el("a", { "class": "assistant-action", href: "tel:" + cfg.telephoneBrut, texte: cfg.telephone }) : null;
   var actions = el("div", { "class": "assistant-actions" }, [boutonRappel, lienWa, lienTel]);
   var panneau = el("section", { id: "assistant-panneau", "class": "assistant-panneau", role: "dialog", "aria-labelledby": "assistant-titre", hidden: true }, [entete, fil, saisie, actions]);
   document.body.appendChild(lanceur);
