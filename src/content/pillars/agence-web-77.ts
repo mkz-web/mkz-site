@@ -3,7 +3,7 @@ import type { PillarPage } from "@/lib/articles/types";
 
 const pillar: PillarPage = {
   "slug": "agence-web-77",
-  "title": "Site internet et SEO en Seine-et-Marne (77) : un consultant, pas une agence",
+  "title": "Agence web en Seine-et-Marne (77) ? Un consultant pour votre site et votre SEO",
   "metaTitle": "Agence web 77 : un consultant pour votre site et votre SEO",
   "metaDescription": "Agence web dans le 77 ? Un consultant crée votre site et votre SEO local, pour artisans, commerçants et TPE. Propriétaire à 100 %. Audit gratuit 30 min.",
   "heroBadge": "Consultant web en Seine-et-Marne (77)",

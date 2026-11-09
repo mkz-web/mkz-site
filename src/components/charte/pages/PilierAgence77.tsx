@@ -23,7 +23,7 @@ export default function PilierAgence77() {
           <div className="mhero__texte">
             <nav className="ariane" aria-label="Fil d'Ariane" data-entree=""><Link href="/">Accueil</Link><span aria-hidden="true">›</span><span aria-current="page">Agence web en Seine-et-Marne (77)</span></nav>
             <p className="mhero__surtitre" data-entree=""><svg aria-hidden="true"><use href="#i-repere"/></svg>Consultant web en Seine-et-Marne (77)</p>
-            <h1 className="titre-1" data-entree="">Site internet et SEO en Seine-et-Marne (77) : <em className="degrade">un consultant, pas une agence</em></h1>
+            <h1 className="titre-1" data-entree="">Agence web en Seine-et-Marne (77) ? <em className="degrade">Un consultant pour votre site et votre SEO</em></h1>
             <p className="mhero__intro" data-entree="">Création de sites internet et référencement local pour artisans, commerçants et TPE. Basés à Dammartin-en-Goële, nous intervenons dans tout le 77 : Meaux, Melun, Chelles, Roissy, Marne-la-Vallée. Vous êtes propriétaire de votre site à 100 %, et vous savez tout, noir sur blanc, avant de signer.</p>
             <div className="hero__actions" data-entree="">
               <a className="bouton bouton--plein" href={CALENDLY} target="_blank" rel="noopener noreferrer nofollow">Réserver mon audit gratuit</a>
