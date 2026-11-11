@@ -74,8 +74,9 @@
   ],
   "fenetre": {
     "titre": "Assistant {site}",
-    "accueil": "Bonjour ! Une question sur les prix, les prestations ou la méthode ?",
-    "mention": "Réponses générées par IA à partir du site.",
+    "accueil": "Bonjour ! Une question sur les prix, les prestations ou la méthode ?",
+    "mention": "Réponses générées par IA à partir du site. N'y indiquez pas de données personnelles.",
+    "mentionLien": { "mots": "données personnelles", "href": "/politique-confidentialite/#assistant" },
     "suggestions": ["Prix d'un site vitrine", "Être cité par ChatGPT", "L'accompagnement mensuel"],
     "actions": ["rappel"],
     "rappelApi": "https://api.web3forms.com/submit",

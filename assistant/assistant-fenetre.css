@@ -69,3 +69,4 @@ html.assistant-ouvert,html.assistant-ouvert body{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.assistant-points::after{animation:none;width:1.2em}}
 @media print{.assistant-lanceur,.assistant-panneau{display:none}}
+.assistant-mention a{color:inherit;text-decoration:underline;text-underline-offset:2px}

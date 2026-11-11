@@ -418,6 +418,8 @@ export function baliseFenetre(configBrute, src, surcharge) {
   if (f.api) a["data-api"] = f.api;
   // Liens de la barre sous la saisie : « rappel », « whatsapp », « telephone » (les trois par défaut).
   if (Array.isArray(f.actions)) a["data-actions"] = f.actions.join(",");
+  // Lien posé sur des mots de la mention : { mots, href } ; les mots doivent figurer dans la mention.
+  if (f.mentionLien && f.mentionLien.mots && f.mentionLien.href && String(f.mention || "").includes(f.mentionLien.mots)) { a["data-mention-lien-mots"] = f.mentionLien.mots; a["data-mention-lien-href"] = f.mentionLien.href; }
   const esc = (v) => String(v).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   return "<script " + Object.entries(a).map(([k, v]) => (v === true ? k : `${k}="${esc(v)}"`)).join(" ") + "></script>";
 }

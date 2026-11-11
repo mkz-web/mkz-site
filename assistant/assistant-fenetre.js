@@ -17,19 +17,22 @@
   // Textes de la fenêtre selon data-langue (« fr » par défaut). Anglais ajouté le 06/11/2026 (MKZ) ; les textes français
   // sont ceux d'avant, mot pour mot. La transcription envoyée avec une demande de rappel reste en français : c'est le
   // propriétaire du site qui la lit.
+  // Espace insécable devant « ? » et « : » des textes français, construite par code (contrôle design du 11/11/2026 :
+  // le bouton « Une question ? » portait une espace ordinaire, sur toutes les pages).
+  var NB = String.fromCharCode(160);
   var TEXTES = {
     fr: {
-      lanceur: "Une question ?", fermer: "Fermer l'assistant", conversation: "Conversation", badge: "IA",
+      lanceur: "Une question" + NB + "?", fermer: "Fermer l'assistant", conversation: "Conversation", badge: "IA",
       placeholder: "Posez votre question", envoyerQuestion: "Envoyer la question", votreQuestion: "Votre question",
       rappele: function (p) { return "Être rappelé" + (p ? " par " + p : ""); },
-      sources: "Sources :", contactDirect: " Contact direct : ", ou: " ou ",
+      sources: "Sources" + NB + ":", contactDirect: " Contact direct" + NB + ": ", ou: " ou ",
       recherche: "Je cherche dans les pages du site",
       indisponible: "L'assistant n'est pas disponible pour le moment.",
       erreur: function (statut, j) { return (j && j.erreur ? j.erreur + ". " : "La réponse n'a pas pu arriver. ") + "Réessayez dans un instant."; },
       connexion: "La réponse n'a pas pu arriver. Vérifiez votre connexion.",
       proposition: function (p) { return "Pour un avis sur votre situation, " + (p || "l'équipe") + " peut vous rappeler avec le fil de cette conversation."; },
       envoyerDemande: "Envoyer ma demande", annuler: "Annuler", donneesPerso: "données personnelles",
-      coordonnees: function (p) { return "Laissez vos coordonnées : " + (p || "nous") + " vous recontacte, avec le fil de cette conversation."; },
+      coordonnees: function (p) { return "Laissez vos coordonnées" + NB + ": " + (p || "nous") + " vous recontacte, avec le fil de cette conversation."; },
       prenom: "Prénom", email: "E-mail", telephone: "Téléphone (facultatif)", siteWeb: "Site web",
       envoiEnCours: "Envoi en cours…", envoiImpossible: "envoi impossible",
       merci: function (p) { return "Merci, votre demande est envoyée. " + (p || "Nous") + " vous recontacte."; },
@@ -40,7 +43,7 @@
     en: {
       lanceur: "A question?", fermer: "Close the assistant", conversation: "Conversation", badge: "AI",
       placeholder: "Ask your question", envoyerQuestion: "Send the question", votreQuestion: "Your question",
-      rappele: function (p) { return "Get a call back" + (p ? " from " + p : ""); },
+      rappele: function (p) { return p ? ["Get a call back", "from", p].join(" ") : "Get a call back"; },
       sources: "Sources:", contactDirect: " Direct contact: ", ou: " or ",
       recherche: "Searching the pages of this site",
       indisponible: "The assistant is not available right now.",
@@ -91,6 +94,8 @@
     // seul, la bulle WhatsApp du site étant juste à côté ; WhatsApp et téléphone restent proposés quand une réponse
     // n'arrive pas (contactsDirects).
     actions: lire("actions", "rappel,whatsapp,telephone").split(",").map(function (s) { return s.trim(); }),
+    mentionLienMots: lire("mention-lien-mots", ""),
+    mentionLienHref: lire("mention-lien-href", ""),
     suggestions: []
   };
   try { cfg.suggestions = JSON.parse(lire("suggestions", "[]")); } catch (e) { cfg.suggestions = []; }
@@ -126,7 +131,15 @@
   var lanceur = el("button", { type: "button", "class": "assistant-lanceur", "aria-expanded": "false", "aria-controls": "assistant-panneau", html: ICONES.bulle }, [el("span", { "class": "assistant-lanceur-texte", texte: T.lanceur })]);
   var titre = el("h2", { id: "assistant-titre", "class": "assistant-titre" }, [cfg.titre + " ", el("span", { "class": "assistant-badge", texte: T.badge })]);
   var fermer = el("button", { type: "button", "class": "assistant-fermer", "aria-label": T.fermer, html: ICONES.fermer });
-  var entete = el("div", { "class": "assistant-entete" }, [el("div", null, [titre, cfg.mention ? el("p", { "class": "assistant-mention", texte: cfg.mention }) : null]), fermer]);
+  // Mention avec un lien posé sur quelques-uns de ses mots (data-mention-lien-mots, 11/11/2026) : le
+  // lien vers la page qui dit ce que deviennent les questions, sans ajouter de ligne à l'en-tête.
+  function mentionNoeud() {
+    if (!cfg.mention) return null;
+    var i = cfg.mentionLienMots && cfg.mentionLienHref ? cfg.mention.indexOf(cfg.mentionLienMots) : -1;
+    if (i < 0) return el("p", { "class": "assistant-mention", texte: cfg.mention });
+    return el("p", { "class": "assistant-mention" }, [cfg.mention.slice(0, i), el("a", { href: cfg.mentionLienHref, texte: cfg.mentionLienMots }), cfg.mention.slice(i + cfg.mentionLienMots.length)]);
+  }
+  var entete = el("div", { "class": "assistant-entete" }, [el("div", null, [titre, mentionNoeud()]), fermer]);
   var fil = el("div", { "class": "assistant-fil", role: "log", "aria-live": "polite", "aria-label": T.conversation });
   var suggestions = el("div", { "class": "assistant-suggestions" });
   cfg.suggestions.forEach(function (s) {
@@ -142,7 +155,10 @@
   var lienWa = cfg.whatsapp && cfg.actions.indexOf("whatsapp") > -1 ? el("a", { "class": "assistant-action", href: cfg.whatsapp, target: "_blank", rel: "noopener", texte: "WhatsApp" }) : null;
   var lienTel = cfg.telephone && cfg.telephoneBrut && cfg.actions.indexOf("telephone") > -1 ? el("a", { "class": "assistant-action", href: "tel:" + cfg.telephoneBrut, texte: cfg.telephone }) : null;
   var actions = el("div", { "class": "assistant-actions" }, [boutonRappel, lienWa, lienTel]);
-  var panneau = el("section", { id: "assistant-panneau", "class": "assistant-panneau", role: "dialog", "aria-labelledby": "assistant-titre", hidden: true }, [entete, fil, saisie, actions]);
+  // data-clarity-mask : le fil réaffiche la question du visiteur en texte ordinaire, et un projet Clarity en masquage
+  // relâché l'enregistrait avec la réponse (MKZ, 11/11/2026). L'attribut prime sur les réglages du projet (doc
+  // Microsoft « Masking content ») ; le champ de saisie, lui, est masqué dans tous les modes.
+  var panneau = el("section", { id: "assistant-panneau", "class": "assistant-panneau", role: "dialog", "aria-labelledby": "assistant-titre", "data-clarity-mask": "True", hidden: true }, [entete, fil, saisie, actions]);
   document.body.appendChild(lanceur);
   document.body.appendChild(panneau);
 

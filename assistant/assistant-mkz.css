@@ -25,6 +25,8 @@ html[data-consent-open] .assistant-lanceur { display: none; }
    se rangent côte à côte. Cible de 44 px gardée au doigt ; 36 px à la souris. */
 .assistant-entete { padding: .6rem 1rem; }
 .assistant-mention { font-size: .8rem; opacity: .8; }
+/* Lien de la mention vers la politique (11/11/2026, contrôle RGPD) : jamais coupé entre deux lignes. */
+.assistant-mention a { white-space: nowrap; }
 .assistant-suggestions { gap: .4rem; }
 .assistant-suggestion { padding: .35rem .8rem; font-size: .875rem; font-weight: 500; }
 @media (pointer: fine) { .assistant-suggestion { min-height: 36px; } }
