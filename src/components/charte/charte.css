@@ -566,6 +566,11 @@ body:has(.charte) { margin: 0; font-family: var(--f-texte); font-size: 1.0625rem
 
 /* ---------- Pied de page ---------- */
 .charte .pied { background: var(--nuit); color: rgba(255, 255, 255, .72); padding: clamp(44px, 5vw, 68px) 0 26px; font-size: .9rem; }
+/* Intégration (11/11/2026) : marge basse du pied au-dessus des boutons fixes de l'assistant et de WhatsApp (ils montent
+   à 80 px du bord sous 768 px, à 92 px au-delà) ; en fin de page, « Politique de confidentialité » et « Gérer les
+   cookies » restaient dessous (contrôle design, CMP-11). 8 px d'écart en plus. */
+.charte .pied { padding-bottom: 88px; }
+@media (min-width: 768px) { .charte .pied { padding-bottom: 100px; } }
 .charte .pied a { text-decoration: none; transition: color .2s; }
 .charte .pied a:hover { color: #fff; }
 .charte .pied .bouton--plein:hover { background-image: none; background-color: #E6D9F5; color: var(--nuit); transform: none; box-shadow: none; }
