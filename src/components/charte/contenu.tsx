@@ -6,6 +6,7 @@ import Link from "next/link";
 import { articleUrl, formatDateEn, formatDateFr, getCategory, localeOf } from "@/lib/articles";
 import type { Article, Inline } from "@/lib/articles/types";
 import type { Locale } from "@/lib/i18n";
+import { horsNext } from "@/lib/charte";
 
 // Habillage d'une rubrique, relevé sur la maquette (hub Conseils, pages de rubrique, articles)
 export type Rubrique = {
@@ -125,8 +126,8 @@ export function enLigne(texte: Inline, avecLiens = true): React.ReactNode[] {
       const lm = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(tok);
       if (!lm) parts.push(tok);
       else if (!avecLiens) parts.push(lm[1]);
-      else if (lm[2].startsWith("/")) parts.push(<Link key={cle++} href={lm[2]}>{lm[1]}</Link>);
-      else if (lm[2].startsWith("#")) parts.push(<a key={cle++} href={lm[2]}>{lm[1]}</a>);
+      else if (lm[2].startsWith("/") && !horsNext(lm[2])) parts.push(<Link key={cle++} href={lm[2]}>{lm[1]}</Link>);
+      else if (lm[2].startsWith("/") || lm[2].startsWith("#")) parts.push(<a key={cle++} href={lm[2]}>{lm[1]}</a>);
       else parts.push(<a key={cle++} href={lm[2]} target="_blank" rel="noopener noreferrer">{lm[1]}</a>);
     }
     dernier = m.index + tok.length;

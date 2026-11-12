@@ -16,11 +16,13 @@ import type { Article, Block, CategorySlug } from "@/lib/articles/types";
 import { SITE, ui, type Locale } from "@/lib/i18n";
 import ChartePage from "./ChartePage";
 import { enLigne, rubrique } from "./contenu";
+import { horsNext } from "@/lib/charte";
 import "./metier.css";
 import "./pages.css";
 
 function Bouton({ href, children }: { href: string; children: React.ReactNode }) {
-  if (href.startsWith("/")) return <Link className="bouton bouton--plein" href={href}>{children}</Link>;
+  if (href.startsWith("/") && !horsNext(href)) return <Link className="bouton bouton--plein" href={href}>{children}</Link>;
+  if (href.startsWith("/")) return <a className="bouton bouton--plein" href={href}>{children}</a>;
   return <a className="bouton bouton--plein" href={href} target="_blank" rel="noopener noreferrer nofollow">{children}</a>;
 }
 

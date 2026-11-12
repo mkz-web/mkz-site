@@ -35,11 +35,15 @@ export function estCharte(chemin: string): boolean {
 
 // Pages servies HORS de Next (fichiers statiques de public/) : un <Link> vers elles fait précharger
 // par le routeur un arbre de route qui n'existe pas (404 de /empreinte-ia/__next._tree.txt sur
-// chaque page, mesuré le 01/11/2026). Elles se lient par un <a> ordinaire.
+// chaque page, mesuré le 01/11/2026). Elles se lient par un <a> ordinaire. Même règle pour un FICHIER
+// (llms.txt, llms-full.txt, un PDF) : ses liens de contenu faisaient demander /llms.txt/__next._tree.txt,
+// 404 sur deux pages anglaises (mesuré le 12/11/2026).
 const PAGES_HORS_NEXT = new Set<string>(["/empreinte-ia/"]);
 
 export function horsNext(chemin: string): boolean {
-  const c = chemin.endsWith("/") ? chemin : chemin + "/";
+  const p = chemin.split(/[?#]/)[0];
+  if (/\.[a-z0-9]+$/i.test(p)) return true;
+  const c = p.endsWith("/") ? p : p + "/";
   return PAGES_HORS_NEXT.has(c);
 }
 
