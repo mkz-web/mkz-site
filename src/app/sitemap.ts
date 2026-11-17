@@ -63,6 +63,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Cible « audit seo (gratuit) », 1 600 + 880/mois (DataForSEO 20/08/2026) ;
     // détail et échelle commerciale en tête de src/app/(fr)/audit-seo/page.tsx.
     entry("/audit-seo/", "fr", { priority: 0.9, changeFrequency: "monthly", lastModified: "2026-08-21" }),
+    // Audit GEO gratuit, test en direct des citations par une IA (phase « citations » de
+    // /api/scan). Cible « audit geo », 355 recherches par mois en médiane six mois (DataForSEO,
+    // 17/11/2026) ; pas de pendant anglais à ce jour, détail en tête de src/app/(fr)/audit-geo/page.tsx.
+    entry("/audit-geo/", "fr", { priority: 0.9, changeFrequency: "monthly", lastModified: "2026-11-17" }),
     // Hub des outils gratuits (22/08/2026) : page de navigation, pas une page
     // SEO ; détail en tête de src/app/(fr)/outils/page.tsx.
     entry("/outils/", "fr", { priority: 0.8, changeFrequency: "monthly", lastModified: "2026-08-22" }),

@@ -19,7 +19,7 @@ export default function OutilsCharte() {
         <div className="enveloppe console__in">
           <p className="console__sur" data-entree=""><i aria-hidden="true"></i>Outils gratuits</p>
           <h1 data-entree="">Mesurez avant de nous parler. <em className="degrade">Gratuitement.</em></h1>
-          <p className="console__intro" data-entree="">Deux outils en libre-service, sans inscription, construits avec la même règle que nos prestations : on mesure, on n’estime pas. Ils vous disent où vous en êtes. Ce que vous en faites ensuite vous appartient.</p>
+          <p className="console__intro" data-entree="">Trois outils en libre-service, sans inscription, construits avec la même règle que nos prestations : on mesure, on n’estime pas. Ils vous disent où vous en êtes. Ce que vous en faites ensuite vous appartient.</p>
           <div className="console__outil" data-entree="">
             <form action="/audit-seo/" method="get">
               <label htmlFor="console-site">Adresse de votre site</label>
@@ -34,14 +34,16 @@ export default function OutilsCharte() {
           </ul>
           <p className="console__tel" data-entree="">Une question ? On décroche : <a href="tel:0769093909">07 69 09 39 09</a></p>
         </div>
-        <nav className="raccourcis" aria-label="Les deux outils" data-revele-groupe="">
-            <a className="raccourci" href="#audit"><span className="raccourci__ico" aria-hidden="true"><svg><use href="#i-loupe"/></svg></span><span><small>Outil 01 · une minute</small><b>Audit SEO + IA gratuit</b></span></a>
-            <a className="raccourci" href="#empreinte"><span className="raccourci__ico" aria-hidden="true"><svg><use href="#i-etincelle"/></svg></span><span><small>Outil 02 · simulateur</small><b>Empreinte d’une requête IA</b></span></a>
+        {/* Trois outils depuis le 17/11/2026 (audit GEO) : variante « --3 » des raccourcis, styles « Intégration » de pages.css */}
+        <nav className="raccourcis raccourcis--3" aria-label="Les trois outils" data-revele-groupe="">
+            <a className="raccourci" href="#audit"><span className="raccourci__ico" aria-hidden="true"><svg><use href="#i-loupe"/></svg></span><span><small>Outil 01 · une minute</small><b>Audit SEO + IA</b></span></a>
+            <a className="raccourci" href="#audit-geo"><span className="raccourci__ico" aria-hidden="true"><svg><use href="#i-bulle"/></svg></span><span><small>Outil 02 · test en direct</small><b>Audit GEO</b></span></a>
+            <a className="raccourci" href="#empreinte"><span className="raccourci__ico" aria-hidden="true"><svg><use href="#i-etincelle"/></svg></span><span><small>Outil 03 · simulateur</small><b>Empreinte IA</b></span></a>
           </nav>
       </section>
 
       {/* OUTIL 01 · audit (clair), avec les raccourcis qui chevauchent le bandeau */}
-      <section className="section s-blanc section--raccourcis" id="audit" data-theme="clair">
+      <section className="section s-blanc section--raccourcis section--raccourcis-3" id="audit" data-theme="clair">
         <div className="enveloppe">
 
           <div className="outil outil--premier">
@@ -79,11 +81,40 @@ export default function OutilsCharte() {
         </div>
       </section>
 
-      {/* OUTIL 02 · empreinte (sombre) */}
+      {/* OUTIL 02 · audit GEO (clair, lavande), ajouté le 17/11/2026 : exemple d'un test réel sur mkz-consulting.fr */}
+      <section className="section s-lavande" id="audit-geo" data-theme="clair">
+        <div className="enveloppe outil outil--inverse">
+          <div className="outil__texte" data-revele="">
+            <p className="outil__num">Outil 02 · test en direct</p>
+            <h2 className="titre-2">Audit GEO <em className="degrade">gratuit</em></h2>
+            <p>Vos clients demandent déjà un nom à une IA. Le test pose trois questions à ChatGPT sur votre métier et votre zone, comme le ferait l’un d’eux, et vous montre la réponse telle qu’elle revient.</p>
+            <ul className="outil__liste">
+              <li><svg aria-hidden="true"><use href="#i-coche"/></svg><span>Deux demandes de recommandation, sans nommer votre entreprise : y êtes-vous, et qui y est à votre place ?</span></li>
+              <li><svg aria-hidden="true"><use href="#i-coche"/></svg><span>Une question sur vous : l’IA s’appuie-t-elle sur votre site, ou sur ce que d’autres en disent ?</span></li>
+              <li><svg aria-hidden="true"><use href="#i-coche"/></svg><span>La lisibilité de votre site par les IA, mesurée pendant que les questions partent.</span></li>
+            </ul>
+            <Link className="bouton bouton--plein" href="/audit-geo/">Poser les trois questions</Link>
+            <p className="outil__note">Sans inscription. Une IA ne répond pas deux fois pareil : c’est un relevé, pas un classement.</p>
+          </div>
+          <div className="outil__visuel" data-revele="" aria-hidden="true">
+            <div className="maquette maquette--geo">
+              <p className="maquette__barre"><span>Exemple : un test réel</span><b>mkz-consulting.fr</b></p>
+              <p className="maquette__champ"><small>Question posée à l’IA</small>Je cherche un prestataire pour : consultant SEO. Zone : Seine-et-Marne. Quelles entreprises me recommandes-tu ?</p>
+              <ul className="maquette__priorites">
+                <li><em>Cité</em>Première demande de recommandation</li>
+                <li><em>Pas cité</em>Deuxième demande, formulée autrement</li>
+                <li><em>Source</em>Question sur l’entreprise elle-même</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OUTIL 03 · empreinte (sombre) */}
       <section className="section s-teinte" id="empreinte" data-theme="sombre">
         <div className="enveloppe outil outil--inverse">
           <div className="outil__texte" data-revele="">
-            <p className="outil__num">Outil 02 · simulateur</p>
+            <p className="outil__num">Outil 03 · simulateur</p>
             <h2 className="titre-2">Empreinte <em className="degrade-rose">d’une requête IA</em></h2>
             <p>Combien coûte une question posée à une IA, en énergie, en CO2 et en eau ? Tapez votre requête, choisissez la classe de modèle et la région : le simulateur chiffre, fourchettes d’incertitude comprises.</p>
             <ul className="outil__liste">
@@ -126,7 +157,7 @@ export default function OutilsCharte() {
           </header>
           <div className="prose pourquoi__texte" data-revele="">
             <p>Parce que donner avant de vendre, c’est notre façon de travailler. Un artisan ou un dirigeant de TPE n’a pas besoin d’un discours, il a besoin d’un chiffre sur son propre site. L’outil le lui donne en une minute, et il reste libre de corriger lui-même, de demander le rapport, ou de nous appeler.</p>
-            <p>Les deux outils appliquent ce que nous vendons : ce site publie ses propres données structurées, son llms.txt, et un audit qui mesure sur le site réel au moment du test. Vous pouvez tout vérifier avant de nous confier votre <Link href="/referencement-seo/">référencement SEO</Link> ou votre <Link href="/referencement-ia/">référencement IA (GEO)</Link>. Les prix, eux, sont sur la page <Link href="/tarifs/">tarifs</Link>.</p>
+            <p>Ces outils appliquent ce que nous vendons : ce site publie ses propres données structurées, son llms.txt, et un audit qui mesure sur le site réel au moment du test. Vous pouvez tout vérifier avant de nous confier votre <Link href="/referencement-seo/">référencement SEO</Link> ou votre <Link href="/referencement-ia/">référencement IA (GEO)</Link>. Les prix, eux, sont sur la page <Link href="/tarifs/">tarifs</Link>.</p>
           </div>
           <div className="signature" data-revele="">
             <img className="signature__photo" src="/images/charte/mickael-480.webp" width="480" height="480" loading="lazy" alt="Mickaël Leclerc, fondateur de MKZ" />

@@ -28,6 +28,7 @@ export default function Pied({ chemin = "/", locale = "fr" }: { chemin?: string;
             <li><Link href="/referencement-ia/">Référencement IA (GEO)</Link></li>
             <li><Link href="/agence-web-77/">Agence web Seine-et-Marne</Link></li>
             <li><Link href="/audit-seo/">Audit SEO gratuit en ligne</Link></li>
+            <li><Link href="/audit-geo/">Audit GEO gratuit</Link></li>
             {/* Lien simple, pas <Link> : /empreinte-ia/ est une page statique servie hors de Next, et
                 le préchargement du routeur demandait son arbre de route (404 sur chaque page, mesuré le 01/11/2026). */}
             <li><a href="/empreinte-ia/">Empreinte d’une requête IA</a></li>

@@ -24,9 +24,9 @@ const URL = `${SITE}/outils/`;
 export const metadata: Metadata = createMetadata("fr", {
   // Le layout ajoute « | MKZ » : 65 caractères suffixe compris, mesuré par
   // validate-out (68 avec l'intitulé long, 22/08/2026).
-  title: "Outils gratuits : audit SEO + IA et empreinte IA",
+  title: "Outils gratuits : audit GEO, audit SEO et empreinte IA",
   description:
-    "Outils gratuits, sans inscription : l'audit SEO + IA qui mesure votre site en une minute, et le simulateur d'empreinte d'une requête IA (énergie, CO2, eau).",
+    "Outils gratuits, sans inscription : l'audit GEO qui interroge ChatGPT sur votre métier, l'audit SEO + IA en une minute, et l'empreinte d'une requête IA.",
   path: "/outils/",
 });
 
@@ -35,7 +35,7 @@ const content: ToolsPageContent = {
   h1Before: "Mesurez avant de nous parler. ",
   h1Em: "Gratuitement",
   h1After: ".",
-  sub: "Deux outils en libre-service, sans inscription, construits avec la même règle que nos prestations : on mesure, on n'estime pas. Ils vous disent où vous en êtes. Ce que vous en faites ensuite vous appartient.",
+  sub: "Trois outils en libre-service, sans inscription, construits avec la même règle que nos prestations : on mesure, on n'estime pas. Ils vous disent où vous en êtes. Ce que vous en faites ensuite vous appartient.",
   primary: { label: "Tester mon site en 1 minute", href: "/audit-seo/" },
   phonePrefix: "Une question ? On décroche :",
   tools: [
@@ -83,7 +83,7 @@ const toolsListSchema = {
   "@type": "ItemList",
   name: "Outils gratuits MKZ",
   url: URL,
-  numberOfItems: 2,
+  numberOfItems: 3,
   itemListElement: [
     {
       "@type": "ListItem",
@@ -104,6 +104,22 @@ const toolsListSchema = {
     {
       "@type": "ListItem",
       position: 2,
+      item: {
+        "@type": "WebApplication",
+        "@id": `${SITE}/audit-geo/#app`,
+        name: "Audit GEO gratuit",
+        url: `${SITE}/audit-geo/`,
+        description:
+          "Outil d'audit GEO gratuit en ligne : trois questions posées en direct à un modèle d'OpenAI avec recherche web sur le métier et la zone du visiteur, relevé des citations, et lisibilité du site par les IA. Sans inscription.",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        isAccessibleForFree: true,
+        inLanguage: "fr-FR",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
       item: {
         "@type": "WebApplication",
         name: "Empreinte d'une requête IA",
@@ -127,7 +143,7 @@ export default function OutilsPage() {
           name: "Outils gratuits MKZ",
           description: content.sub,
           url: "/outils/",
-          dateModified: "2026-08-22",
+          dateModified: "2026-11-17",
           locale: "fr",
         })}
       />

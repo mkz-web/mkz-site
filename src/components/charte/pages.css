@@ -900,3 +900,42 @@
   .charte .svc-duo::after { width: 52px; height: 52px; font-size: 1.6rem; }
   .charte .bio-console .hero__actions { flex-direction: column; gap: 10px; }
 }
+
+/* ---------- Intégration (17/11/2026) · audit GEO : formulaire à quatre champs, libellés visibles ---------- */
+.charte .audit-geo-form { margin-top: 28px; max-width: 620px; padding: clamp(16px, 2vw, 22px); border-radius: var(--r-grand); background: #fff; box-shadow: 0 24px 50px -30px rgba(42, 64, 137, .6), inset 0 0 0 1px rgba(32, 39, 72, .08); }
+.charte .audit-geo-form form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.charte .audit-geo-form form > p { display: grid; gap: 6px; min-width: 0; margin: 0; }
+.charte .audit-geo-form label { font-size: .875rem; font-weight: 600; color: var(--nuit); }
+.charte .audit-geo-form input { width: 100%; min-width: 0; height: 52px; padding: 0 18px; border: 0; border-radius: 14px; background: #F6F5FB; font: 500 1.0625rem var(--f-texte); color: var(--nuit); }
+.charte .audit-geo-form input::placeholder { color: #6B6F84; opacity: 1; }
+.charte .audit-geo-form input:focus-visible { outline: 3px solid rgba(112, 83, 152, .55); outline-offset: 1px; }
+.charte .audit-geo-form .bouton { grid-column: 1 / -1; justify-content: center; }
+.charte .audit-geo-form form > .audit-geo-form__note { grid-column: 1 / -1; font-size: 1rem; color: var(--texte-doux); text-align: center; }
+@media (max-width: 560px) {
+  .charte .audit-geo-form form { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Intégration (17/11/2026) · hub Outils à trois outils : raccourcis sur trois colonnes, puis empilés ---------- */
+@media (min-width: 900px) {
+  .charte .raccourcis--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); width: min(1120px, 100% - 32px); }
+}
+@media (max-width: 899px) {
+  .charte .console:has(.raccourcis--3) { padding-bottom: 230px; }
+  .charte .section--raccourcis-3 { padding-top: 210px; }
+}
+
+/* ---------- Intégration (17/11/2026) · pages d'outil : texte de lecture à 16 px sur téléphone, liens « pour aller plus loin » à 24 px de haut au moins ---------- */
+.charte .audit-liens { line-height: 2; }
+.charte .audit-liens a { padding-block: 4px; }
+@media (max-width: 767px) {
+  .charte .mesure p, .charte .audit-liens, .charte .audit-geo-form label { font-size: 1rem; }
+}
+/* Exemple de test de l'audit GEO : pastilles de verdict sur une ligne, alignées en haut du libellé */
+.charte .maquette--geo .maquette__priorites li { align-items: flex-start; }
+.charte .maquette--geo .maquette__priorites em { flex: none; min-width: 74px; text-align: center; white-space: nowrap; }
+/* Sous 900 px le bandeau passe sur une colonne : la carte du formulaire prend la largeur de la carte d'exemple dessous */
+@media (max-width: 899px) {
+  .charte .audit-geo-form { max-width: none; }
+}
+/* Bloc « Audit GEO » du hub, sur fond lavande : l'étiquette garde sa pastille visible (fond blanc) */
+.charte #audit-geo .outil__num { background: #fff; }

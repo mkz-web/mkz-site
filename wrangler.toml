@@ -16,9 +16,18 @@ compatibility_date = "2026-06-11"
 # Assistant du site (/api/chat) : plafond quotidien de réponses (functions/api/_plafond-assistant.mjs),
 # décidé par Mickaël le 06/11/2026. 300 réponses à 0,0014 USD mesuré = 0,42 USD par jour au pire.
 # Compteur « assistant:<jour UTC> » dans le même espace KV que le scan.
+#
+# Audit GEO (/api/scan, phase « citations ») : une question posée à un modèle
+# d'OpenAI avec recherche web par appel, trois par test. Mesuré le 17/11/2026 :
+# 0,022 USD la question sur gpt-6-luna (0,031 sur gpt-5.4-mini). 60 questions
+# par jour = 20 tests, 1,35 USD par jour au tarif mesuré. Compteur « geo:<jour
+# UTC> », lu puis écrit sans verrou : le plafond DUR est la limite de dépense
+# du compte DataForSEO.
 [vars]
 AUDIT_TIER1_MAX_JOUR = "50"
 ASSISTANT_MAX_JOUR = "300"
+AUDIT_GEO_MAX_JOUR = "60"
+AUDIT_GEO_MODELE = "gpt-6-luna"
 
 # Compteur du plafond et cache 24 h par domaine : espace KV « AUDIT_QUOTA ».
 # Sans ce binding, le moteur retombe sur un compteur en mémoire par isolat

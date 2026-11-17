@@ -43,11 +43,11 @@
 - ✅ **Un site bilingue en export statique.** 56 pages au sitemap le 27/10/2026 (40 en français, 16 en anglais). Le français reste à la racine des URL, l'anglais vit sous `/en/`, et les `hreflang` réciproques sont générés depuis une seule liste de paires.
 - ✅ **Une charte graphique unique, en production depuis le 22/10/2026.** Les 59 pages HTML du build la portent, anglais et pages d'erreur compris. Elle a été intégrée composant par composant depuis une maquette HTML : textes, prix, données structurées et formulaires sont lus dans les données du site, pas recopiés dans le gabarit.
 - ✅ **Une newsroom en cocons sémantiques.** 21 articles français en 4 cocons (tutoriels, création de site, SEO, référencement IA) et 3 articles anglais en 2 cocons. Chaque cocon pousse vers sa page pilier, et chaque article porte une barre « Résumer avec l'IA ».
-- ✅ **Deux outils gratuits, sans inscription.** L'[audit SEO + IA](https://mkz-consulting.fr/audit-seo/) : 20 mesures en une minute, score sur 100, moteur exécuté en Cloudflare Pages Functions. Le [simulateur d'empreinte d'une requête IA](https://mkz-consulting.fr/empreinte-ia/) : énergie, CO2 et eau d'une question posée à un modèle, jeu de données versionné.
+- ✅ **Trois outils gratuits, sans inscription.** L'[audit SEO + IA](https://mkz-consulting.fr/audit-seo/) : 20 mesures en une minute, score sur 100, moteur exécuté en Cloudflare Pages Functions. L'[audit GEO](https://mkz-consulting.fr/audit-geo/) : trois questions posées en direct à un modèle d'OpenAI avec recherche web, réponse affichée telle quelle, sites cités relevés. Le [simulateur d'empreinte d'une requête IA](https://mkz-consulting.fr/empreinte-ia/) : énergie, CO2 et eau d'une question posée à un modèle, jeu de données versionné.
 - ✅ **Le socle GEO.** `llms.txt`, `llms-full.txt`, `ai.txt` et `.well-known/ai.txt` générés au build depuis les mêmes sources que les pages, JSON-LD reparsé par script avant chaque publication, `robots.txt` ouvert aux robots des IA.
 - ✅ **La vie privée par construction.** Bandeau de consentement maison, Google Analytics 4 et Microsoft Clarity chargés uniquement après accord, zéro ressource externe dans le HTML statique.
 - ✅ **Une mise en production qui part d'un commit.** Chaque push sur `master` construit le site sous Linux, le contrôle, le publie, puis prouve que le site en ligne sert exactement ce build.
-- ✅ **14 scripts Node sans dépendance.** Ingestion des articles, validation du build, contrôle de la charte, déploiement, captures d'écran, harnais de test du moteur d'audit.
+- ✅ **16 scripts Node sans dépendance.** Ingestion des articles, validation du build, contrôle de la charte, déploiement, captures d'écran, harnais de test du moteur d'audit.
 - ✅ **Le journal des décisions.** Chaque choix, chaque mesure et chaque piège payé sont consignés avec leur date dans un journal tenu hors du dépôt public depuis le 09/09/2026 (il portait des notes internes). Les décisions qui structurent le code sont reprises plus bas.
 
 ## Démarrer en trois commandes
@@ -115,7 +115,7 @@ src/lib/                i18n.ts (interface, paires hreflang), charte.ts, consent
 functions/api/          /api/scan : moteur de l'outil d'audit (Cloudflare Pages Functions)
 empreinte-ia/           simulateur d'empreinte (sans dépendance), construit dans public/
 public/                 _headers (CSP, HSTS), _redirects, robots.txt, polices, images
-scripts/                14 scripts Node sans dépendance (tableau ci-dessous)
+scripts/                16 scripts Node sans dépendance (tableau ci-dessous)
 ```
 
 `src/components/` garde encore les gabarits d'avant la charte (`Header`, `Footer`, `PillarContent`, `ArticleRenderer`...) : plus aucune page ne les rend depuis le 22/10/2026, ils seront retirés. Les dossiers `_content-staging/`, `_research/`, `_veille/` et `_backlinks/` sont ignorés par git : matière de travail éditoriale, pas du site.
@@ -132,6 +132,8 @@ Tous en Node natif, sans rien installer. Chaque script porte en tête sa command
 | `aplatir-segments-export.mjs` | Enchaîné par `npm run build` : remet sous leur nom à points les fichiers de segment que l'export de Next range en sous-dossiers sous Windows (issue vercel/next.js 85374), sans quoi chaque lien préchargé sort en 404 |
 | `deploy.mjs` | Publie `out/` et `functions/` sur Cloudflare Pages par upload direct (wrangler via npx) ; refuse un build dont les segments ne sont pas aplatis |
 | `test-audit-engine.mjs` | Harnais de vérité terrain du moteur d'audit ; `--attendu-mkz` compare au résultat attendu sur ce site |
+| `test-audit-geo.mjs` | Banc de la phase « citations » de l'audit GEO : hors ligne par défaut, `--reel` pose les trois vraies questions |
+| `saboter-audit-geo.mjs` | Réintroduit un défaut à la fois dans une copie du moteur de citations et exige que le banc le voie |
 | `capturer-accueil-readme.mjs` | Captures réelles de l'accueil en production pour ce README, bandeau refusé, contrôles avant capture ; extrait aussi le logo clair et sombre du site servi |
 | `capturer-apercu-scan.mjs` | Capture réelle du résultat du scan ; ses images ne sont plus affichées depuis la charte |
 | `convertir-captures.mjs` | Convertit des captures PNG en WebP avec le canvas de Chrome en headless |

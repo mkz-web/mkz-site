@@ -93,6 +93,7 @@ const content: AuditPageContent = {
       { label: "notre guide complet de l'audit SEO", href: "/conseils/seo/audit-seo/" },
       { label: "la prestation de référencement SEO", href: "/referencement-seo/" },
       { label: "le référencement IA (GEO)", href: "/referencement-ia/" },
+      { label: "l'audit GEO gratuit", href: "/audit-geo/" },
       { label: "les tarifs de l'audit complet", href: "/tarifs/" },
     ],
   },

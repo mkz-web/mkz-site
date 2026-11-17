@@ -7,6 +7,8 @@
 // Portable Workers ET Node >= 18 (fetch global, zéro API Node) : le même code
 // tourne dans la Pages Function en production et dans le harnais de test
 // scripts/test-audit-engine.mjs. Dépendances : aucune.
+// Runtime minimal : Node 18 (ou Cloudflare Workers). Ce fichier est le moteur
+// du site, pas un script livré à un client.
 //
 // Découpage en 5 phases, une requête HTTP du front par phase, pour rester loin
 // des limites CPU des Workers et donner au visiteur une progression réelle :
@@ -16,6 +18,8 @@
 //   4 notfound  : vraie 404 contre soft-404
 //   5 autorite  : DataForSEO, liens entrants et positions Google France (Tier 1,
 //                 payant : cache 24 h par domaine et plafond quotidien dur)
+// Phase à part, appelée par /audit-geo/ seulement et hors du score :
+//   citations   : une question posée à un modèle d'OpenAI avec recherche web
 
 const UA = "MKZ-Audit/1.0 (+https://mkz-consulting.fr/audit-seo/)";
 const TIMEOUT_MS = 8000;
@@ -589,9 +593,9 @@ function magasin(kv) {
 
 // Un appel Live DataForSEO : une tâche, réponse normalisée { result, cost }
 // ou { error, code, cost }. Le coût est relevé sur la réponse, jamais supposé.
-async function dfsPost(chemin, tache, auth) {
+async function dfsPost(chemin, tache, auth, delaiMs = TIMEOUT_MS) {
   const ctl = new AbortController();
-  const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS);
+  const timer = setTimeout(() => ctl.abort(), delaiMs);
   try {
     const res = await fetch(`${DFS_API}${chemin}`, {
       method: "POST",
@@ -763,6 +767,220 @@ export async function phaseAutorite(origin, ctx = {}) {
 }
 
 // ---------------------------------------------------------------------------
+// Phase 6 : citations par une IA (audit GEO, /audit-geo/)
+// ---------------------------------------------------------------------------
+//
+// Une question par appel, posée à un modèle d'OpenAI avec recherche web par
+// l'API LLM Responses de DataForSEO (mêmes identifiants que la phase autorité).
+// Mesuré le 17/11/2026 sur trois modèles : 6 à 11 s et 0,022 à 0,031 USD la
+// question. Ce que la phase rend est RELEVÉ dans la réponse : le site est-il
+// parmi les sources, le nom est-il écrit dans le texte, quels autres sites sont
+// cités. Une IA ne répond pas deux fois pareil : une réponse est un relevé, pas
+// une position, et rien n'entre dans le score sur 100.
+//
+// Garde-fous : champs du visiteur filtrés (ils entrent dans la question),
+// cache 24 h par site, question et champs, plafond quotidien de questions
+// (AUDIT_GEO_MAX_JOUR) compté dans le même magasin que la phase autorité. Le
+// compteur se lit puis s'écrit sans verrou : des appels simultanés peuvent le
+// dépasser. Le vrai plafond dur est la limite de dépense du compte DataForSEO.
+
+export const GEO_MAX_JOUR_DEFAUT = 60; // questions par jour (UTC), trois par test
+export const GEO_MODELE_DEFAUT = "gpt-6-luna";
+const GEO_TIMEOUT_MS = 60000;
+const GEO_REPONSE_MAX = 1400;
+
+// Champs libres : lettres, chiffres et ponctuation de nom propre, 2 à 60
+// caractères. Ni guillemet, ni deux-points, ni saut de ligne.
+const CHAMP_GEO = /^[\p{L}\p{N}][\p{L}\p{N} '’&.,+-]{1,59}$/u;
+const LETTRE = /[\p{L}\p{N}]/u;
+
+export function champGeo(valeur) {
+  const v = String(valeur == null ? "" : valeur).replace(/\s+/g, " ").trim();
+  return CHAMP_GEO.test(v) ? v : null;
+}
+
+// Les trois questions d'un test. Deux demandes de recommandation, où le site
+// n'est pas nommé, et une question sur l'entreprise elle-même.
+export function questionsGeo({ nom, metier, zone, hote }) {
+  const forme = "Réponds par une liste simple, sans tableau : cinq noms au plus, chacun avec son site internet et une phrase.";
+  return [
+    {
+      n: 1,
+      type: "recommandation",
+      texte: `Je cherche un prestataire pour : ${metier}. Zone : ${zone}. Quelles entreprises ou quels professionnels me recommandes-tu ? ${forme}`,
+    },
+    {
+      n: 2,
+      type: "recommandation",
+      texte: `Quelles sont les entreprises les plus recommandées pour « ${metier} » dans la zone « ${zone} » ? ${forme}`,
+    },
+    {
+      n: 3,
+      type: "marque",
+      texte: `Que sais-tu de l'entreprise ${nom}, dont le site est ${hote} ? Dis en quelques phrases ce qu'elle fait, où elle travaille et ce que ses clients en disent.`,
+    },
+  ];
+}
+
+function sansAccents(s) {
+  return String(s == null ? "" : s)
+    .normalize("NFD")
+    .replace(/\p{M}+/gu, "")
+    .replace(/’/g, "'")
+    .toLowerCase();
+}
+
+// Vrai si `mot` figure dans `texte` sans lettre ni chiffre collé de part et
+// d'autre (« mkz » ne doit pas sortir dans « mkzone »).
+function contientMot(texte, mot) {
+  if (!mot) return false;
+  let i = -1;
+  while ((i = texte.indexOf(mot, i + 1)) !== -1) {
+    const avant = i > 0 ? texte[i - 1] : "";
+    const apres = texte[i + mot.length] || "";
+    if (!LETTRE.test(avant) && !LETTRE.test(apres)) return true;
+  }
+  return false;
+}
+
+// Texte et sources d'une réponse LLM Responses (items > message > sections).
+export function lireReponseLlm(result) {
+  const sections = [];
+  for (const item of (result && result.items) || []) {
+    if (item && item.type === "message") for (const s of item.sections || []) sections.push(s);
+  }
+  const brut = sections.map((s) => (s && s.text) || "").join("\n");
+  const sources = [];
+  const vus = new Set();
+  for (const s of sections) {
+    for (const a of (s && s.annotations) || []) {
+      let hote;
+      try {
+        hote = new URL(a.url).hostname.toLowerCase().replace(/^www\./, "");
+      } catch {
+        continue;
+      }
+      if (vus.has(hote)) continue;
+      vus.add(hote);
+      sources.push({ hote });
+    }
+  }
+  return { brut, sources };
+}
+
+function estLeSite(hoteSource, hote) {
+  return hoteSource === hote || hoteSource.endsWith("." + hote);
+}
+
+export function jugerCitation(lecture, { hote, nom }) {
+  const h = String(hote || "").toLowerCase().replace(/^www\./, "");
+  const texte = sansAccents(lecture.brut);
+  const source = lecture.sources.some((s) => estLeSite(s.hote, h));
+  const domaineEcrit = contientMot(texte, h);
+  const nomEcrit = contientMot(texte, sansAccents(nom).trim());
+  return { source, domaineEcrit, nomEcrit };
+}
+
+// La réponse telle qu'un lecteur la lirait : sans syntaxe Markdown ni renvois
+// de source entre parenthèses. Les mots ne sont pas touchés.
+export function texteLisible(brut) {
+  return String(brut || "")
+    .replace(/\(\[[^\]]*\]\([^)]*\)\)/g, "")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/\*\*|__|`/g, "")
+    .replace(/(^|[\s(«])\*([^*\n]+)\*(?=[\s).,;:!?»]|$)/gm, "$1$2")
+    .replace(/^[ \t]*\|?[-: |]{3,}\|?[ \t]*$/gm, "")
+    .replace(/^#{1,6}[ \t]*/gm, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/ ?\n ?/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/ +([.,;])/g, "$1")
+    .trim();
+}
+
+function cleGeo(s) {
+  return sansAccents(s).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40);
+}
+
+// champs : { nom, metier, zone, n } ; ctx : { login, password, kv, maxParJour, modele, force }
+export async function phaseCitations(origin, champs = {}, ctx = {}) {
+  const hote = new URL(origin).hostname.toLowerCase().replace(/^www\./, "");
+  const nom = champGeo(champs.nom);
+  const metier = champGeo(champs.metier);
+  const zone = champGeo(champs.zone);
+  const n = Number(champs.n);
+  if (!nom || !metier || !zone || ![1, 2, 3].includes(n)) return { error: "champs" };
+
+  const q = questionsGeo({ nom, metier, zone, hote })[n - 1];
+  const base = { n, type: q.type, question: q.texte };
+  const na = (reason, extra = {}) => ({ ...base, statut: "na", reason, ...extra });
+  if (!ctx.login || !ctx.password) return { citation: na("non-configure"), cost: 0 };
+
+  const store = magasin(ctx.kv);
+  const cleCache = `geo:v1:${hote}:${n}:${cleGeo(metier)}:${cleGeo(zone)}:${cleGeo(nom)}`;
+  const enCache = ctx.force ? null : await store.get(cleCache);
+  if (enCache && enCache.citation) {
+    return { citation: { ...enCache.citation, cache: true }, cost: 0, cache: true };
+  }
+
+  // Plafond du jour (UTC), en questions : incrémenté AVANT l'appel, un échec
+  // consomme donc le crédit, jamais l'inverse.
+  const max = Number(ctx.maxParJour) > 0 ? Number(ctx.maxParJour) : GEO_MAX_JOUR_DEFAUT;
+  const jour = new Date().toISOString().slice(0, 10);
+  const cleQuota = `geo:${jour}`;
+  const deja = Number(await store.get(cleQuota)) || 0;
+  if (deja >= max) {
+    return { citation: na("quota", { jour }), cost: 0, quota: { jour, deja, max, dur: store.dur } };
+  }
+  await store.put(cleQuota, deja + 1, QUOTA_TTL_S);
+  const quota = { jour, deja: deja + 1, max, dur: store.dur };
+
+  const modele = ctx.modele || GEO_MODELE_DEFAUT;
+  const rep = await dfsPost(
+    "/ai_optimization/chat_gpt/llm_responses/live",
+    {
+      user_prompt: q.texte,
+      model_name: modele,
+      web_search: true,
+      web_search_country_iso_code: "FR",
+      max_output_tokens: 1024,
+    },
+    { login: ctx.login, password: ctx.password },
+    GEO_TIMEOUT_MS
+  );
+  if (rep.error) return { citation: na(rep.error, { code: rep.code }), cost: rep.cost, quota };
+
+  const lecture = lireReponseLlm(rep.result);
+  if (!lecture.brut.trim()) return { citation: na("vide"), cost: rep.cost, quota };
+
+  const j = jugerCitation(lecture, { hote, nom });
+  const texte = texteLisible(lecture.brut);
+  const coupee = texte.length > GEO_REPONSE_MAX;
+  const citation = {
+    ...base,
+    statut: "ok",
+    // Question sur l'entreprise : son nom et son site sont dans la question,
+    // la réponse les répète. Seule la présence du site parmi les SOURCES y
+    // dit quelque chose.
+    cite: q.type === "marque" ? j.source : j.source || j.domaineEcrit || j.nomEcrit,
+    source: j.source,
+    domaineEcrit: j.domaineEcrit,
+    nomEcrit: j.nomEcrit,
+    reponse: coupee ? texte.slice(0, GEO_REPONSE_MAX).replace(/\s+\S*$/, "") + " […]" : texte,
+    coupee,
+    autres: lecture.sources
+      .map((s) => s.hote)
+      .filter((h) => !estLeSite(h, hote))
+      .slice(0, 8),
+    recherche: Boolean(rep.result && rep.result.web_search),
+    modele: (rep.result && rep.result.model_name) || modele,
+    releve: new Date().toISOString(),
+  };
+  await store.put(cleCache, { citation }, CACHE_TTL_S);
+  return { citation, cost: rep.cost, quota };
+}
+
+// ---------------------------------------------------------------------------
 // Orchestration : une phase par appel HTTP du front.
 // ---------------------------------------------------------------------------
 
@@ -778,6 +996,8 @@ export async function runPhase(phase, params) {
       return phaseNotFound(params.origin);
     case "autorite":
       return phaseAutorite(params.origin, params.ctx || {});
+    case "citations":
+      return phaseCitations(params.origin, params.champs || {}, params.ctx || {});
     default:
       return { error: "phase" };
   }

@@ -84,6 +84,7 @@ Hub Seine-et-Marne : ${SITE}/agence-web-77/ (Meaux, Melun, Chelles, Dammartin-en
 ## Chiffres vérifiables
 
 - Audit SEO en ligne gratuit : 20 mesures faites sur le site du visiteur en une minute, sans inscription (https://mkz-consulting.fr/audit-seo/).
+- Audit GEO en ligne gratuit : trois questions posées en direct à un modèle d'OpenAI avec recherche web (deux demandes de recommandation sur le métier et la zone du visiteur, une question sur son entreprise), réponse affichée telle quelle, relevé des sites cités, et lisibilité du site par les IA. Sans inscription (https://mkz-consulting.fr/audit-geo/).
 - Grille de prix publique : https://mkz-consulting.fr/tarifs/.
 - Le client reste propriétaire à 100 % de son site : code, accès, contenus.
 - Fondateur : Mickaël Leclerc, 20 ans d'expérience IT (infrastructure, automatisation, DevOps), qui réalise lui-même les prestations.

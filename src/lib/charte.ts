@@ -16,6 +16,7 @@ const PAGES_CHARTE = new Set<string>([
   "/outils/",
   "/contact/",
   "/audit-seo/",
+  "/audit-geo/",
   "/tarifs/",
   // Pages légales (21/10/2026)
   "/mentions-legales/",
@@ -52,7 +53,7 @@ export function horsNext(chemin: string): boolean {
 export function entreeActive(chemin: string): string | null {
   if (chemin === "/") return "/";
   if (chemin.startsWith("/conseils/")) return "/conseils/";
-  if (["/outils/", "/audit-seo/", "/empreinte-ia/"].includes(chemin)) return "/outils/";
+  if (["/outils/", "/audit-seo/", "/audit-geo/", "/empreinte-ia/"].includes(chemin)) return "/outils/";
   if (["/creation-site-internet/", "/referencement-seo/", "/referencement-ia/", "/tarifs/", "/contact/"].includes(chemin)) return chemin;
   // Pages anglaises (22/10/2026), même logique sur les entrées de ui.en.nav
   if (chemin === "/en/") return "/en/";

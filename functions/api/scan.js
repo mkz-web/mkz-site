@@ -1,4 +1,6 @@
 // Pages Function : POST /api/scan { phase, url | origin }
+// Runtime minimal : Cloudflare Workers (ou Node 18 dans les bancs). Fichier du
+// site, pas un script livré à un client.
 //
 // Une phase du moteur par appel (voir _engine.mjs) : le front enchaîne
 // origin -> robots -> page -> notfound -> autorite et affiche la progression
@@ -13,9 +15,12 @@
 // (DATAFORSEO_LOGIN, DATAFORSEO_PASSWORD), jamais dans le dépôt ni au client.
 // Turnstile et limites par IP restent à faire (S2 du cadrage).
 
-import { runPhase, normalizeTarget, TIER1_MAX_JOUR_DEFAUT } from "./_engine.mjs";
+import { runPhase, normalizeTarget, TIER1_MAX_JOUR_DEFAUT, GEO_MAX_JOUR_DEFAUT } from "./_engine.mjs";
 
-const PHASES = ["origin", "robots", "page", "notfound", "autorite"];
+// « citations » : phase de l'audit GEO (/audit-geo/), une question posée à un
+// modèle d'OpenAI par appel, payante elle aussi (cache 24 h, plafond quotidien
+// AUDIT_GEO_MAX_JOUR en questions, modèle AUDIT_GEO_MODELE).
+const PHASES = ["origin", "robots", "page", "notfound", "autorite", "citations"];
 
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -77,6 +82,35 @@ export async function onRequestPost(context) {
       })
     );
     return json({ checks: result.checks });
+  }
+
+  if (phase === "citations") {
+    const env = context.env || {};
+    const result = await runPhase("citations", {
+      origin: cible,
+      champs: { nom: body.nom, metier: body.metier, zone: body.zone, n: body.n },
+      ctx: {
+        login: env.DATAFORSEO_LOGIN,
+        password: env.DATAFORSEO_PASSWORD,
+        kv: env.AUDIT_QUOTA,
+        maxParJour: Number(env.AUDIT_GEO_MAX_JOUR) || GEO_MAX_JOUR_DEFAUT,
+        modele: env.AUDIT_GEO_MODELE,
+      },
+    });
+    if (result.error) return json({ error: result.error }, 422);
+    // Journal serveur : coût relevé et compteur du jour, jamais renvoyés au client.
+    console.log(
+      JSON.stringify({
+        audit: "citations",
+        host: new URL(cible).hostname,
+        n: result.citation.n,
+        statut: result.citation.statut,
+        cost: result.cost || 0,
+        cache: Boolean(result.cache),
+        quota: result.quota || null,
+      })
+    );
+    return json({ citation: result.citation });
   }
 
   const result = await runPhase(phase, { origin: cible });
