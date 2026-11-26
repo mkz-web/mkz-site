@@ -10,11 +10,11 @@ const article: Article = {
   "metaTitle": "Outil GEO : mesurer si les IA parlent de vous",
   "metaDescription": "Outils GEO payants ou protocole gratuit ? La méthode pour mesurer votre part de voix dans ChatGPT et Perplexity, et les pièges qui faussent la mesure.",
   "datePublished": "2026-08-07",
-  "dateModified": "2026-09-14",
+  "dateModified": "2026-11-26",
   "readingMinutes": 9,
-  "excerpt": "Depuis le 31 août 2026, la Search Console compte vos impressions dans les Aperçus IA de Google, sans les clics, et rien pour ChatGPT, Perplexity ou Gemini. Personne ne vous enverra de rapport disant combien de fois ChatGPT a prononcé votre nom. Voici le protocole gratuit qui vous donne ce chiffre en une heure, les pièges qui le faussent, et le moment où un outil payant devient justifié.",
+  "excerpt": "Depuis le 31 août 2026, la Search Console compte vos impressions dans les Aperçus IA de Google, sans les clics. Depuis novembre 2026, ChatGPT compte pour les entreprises vérifiées les réponses qui citent leur site, dans son Business Hub ; rien pour Perplexity ou Gemini. Personne ne vous enverra de rapport disant combien de fois ChatGPT a prononcé votre nom. Voici le protocole gratuit qui vous donne ce chiffre en une heure, les pièges qui le faussent, et le moment où un outil payant devient justifié.",
   "tldr": [
-    "Aucun moteur IA ne publie de rapport de visibilité. La mesure se fabrique, elle ne se reçoit pas.",
+    "Aucun moteur IA ne vous dit qui est cité à votre place. Le Business Hub de ChatGPT compte les citations de votre propre site, pas celles de vos concurrents : la part de voix se fabrique, elle ne se reçoit pas.",
     "**Vérifier votre balisage ne prouve rien.** Des données structurées en place ne disent pas si vous êtes cité, elles disent que le balisage est en place.",
     "Le protocole gratuit tient en une heure : 10 questions clients, 3 moteurs, conversations neuves, et un tableau daté.",
     "Piège majeur : un modèle ne répond pas deux fois pareil. Une mesure unique ne vaut rien, il faut répéter chaque question au moins trois fois.",
@@ -23,7 +23,7 @@ const article: Article = {
   "blocks": [
     {
       "type": "p",
-      "text": "En référencement classique, la mesure est fournie : Google vous dit vos positions, vos impressions, vos clics. Vous n'avez rien à construire. Dans les moteurs IA, il n'y a **aucun équivalent**. Ni tableau de bord, ni rapport, ni position. Juste des réponses en langage naturel qui citent des entreprises, ou pas."
+      "text": "En référencement classique, la mesure est fournie : Google vous dit vos positions, vos impressions, vos clics. Vous n'avez rien à construire. Dans les moteurs IA, il n'y a **pas d'équivalent complet**. Depuis novembre 2026, ChatGPT donne aux entreprises vérifiées un compteur des réponses qui citent leur site, dans son [Business Hub](/conseils/referencement-ia/revendiquer-entreprise-chatgpt/). Ni position, ni comparaison avec vos concurrents. Le reste, ce sont des réponses en langage naturel qui citent des entreprises, ou pas."
     },
     {
       "type": "p",

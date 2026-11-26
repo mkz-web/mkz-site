@@ -19,8 +19,9 @@ import a15 from "./optimiser-vitesse-wordpress";
 import a16 from "./pourquoi-mon-site-n-apparait-pas-sur-google";
 import a17 from "./referencement-local";
 import a18 from "./refonte-site-internet";
-import a19 from "./seo-artisan";
-import a20 from "./site-vitrine";
-import a21 from "./trouver-des-chantiers";
+import a19 from "./revendiquer-entreprise-chatgpt";
+import a20 from "./seo-artisan";
+import a21 from "./site-vitrine";
+import a22 from "./trouver-des-chantiers";
 
-export const registry: Article[] = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21];
+export const registry: Article[] = [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22];

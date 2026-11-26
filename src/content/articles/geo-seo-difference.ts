@@ -10,7 +10,7 @@ const article: Article = {
   "metaTitle": "GEO et SEO : quelle différence ? Le guide 2026",
   "metaDescription": "GEO et SEO : la différence expliquée sans jargon, ce que chacun rapporte à une TPE, et par où commencer. Avec les volumes de recherche mesurés en 2026.",
   "datePublished": "2026-08-07",
-  "dateModified": "2026-08-07",
+  "dateModified": "2026-11-26",
   "readingMinutes": 8,
   "excerpt": "Le SEO vous fait classer dans Google. Le GEO vous fait citer par ChatGPT. Deux métiers voisins, deux résultats différents, et beaucoup de confusion vendue au prix fort. Voici la différence réelle, ce que chacun rapporte à une TPE, et l'ordre dans lequel s'y prendre.",
   "tldr": [
@@ -133,7 +133,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "La ligne la plus importante du tableau est la dernière. En SEO, la mesure est fournie par Google. En GEO, personne ne vous la donne : il faut interroger les moteurs IA sur vos vraies questions métier et relever qui est cité. Un [audit SEO](/conseils/seo/audit-seo/) classique ne le fait pas."
+      "text": "La ligne la plus importante du tableau est la dernière. En SEO, la mesure est fournie par Google. En GEO, personne ne vous la donne en entier : ChatGPT compte désormais les réponses qui citent le site d'une entreprise vérifiée, sans dire qui est cité à sa place. Il faut donc interroger les moteurs IA sur vos vraies questions métier et relever qui est cité. Un [audit SEO](/conseils/seo/audit-seo/) classique ne le fait pas."
     },
     {
       "type": "h2",

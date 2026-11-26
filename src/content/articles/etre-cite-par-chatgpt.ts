@@ -150,7 +150,7 @@ const article: Article = {
     },
     {
       "type": "p",
-      "text": "Les moteurs IA ne se contentent pas de votre site. Ils croisent votre fiche d'établissement Google, les annuaires, la presse locale, les réseaux sociaux. Quand deux sources se contredisent sur votre adresse, vos horaires ou votre nom exact, le modèle préfère citer une entreprise sur laquelle il n'a pas de doute."
+      "text": "Les moteurs IA [ne se contentent pas de votre site](/conseils/referencement-ia/revendiquer-entreprise-chatgpt/). Ils croisent votre fiche d'établissement Google, les annuaires, la presse locale, les réseaux sociaux. Quand deux sources se contredisent sur votre adresse, vos horaires ou votre nom exact, le modèle préfère citer une entreprise sur laquelle il n'a pas de doute."
     },
     {
       "type": "ul",
