@@ -77,7 +77,7 @@ const article: Article = {
         "**Cherchez votre entreprise par son nom.** Sélectionnez la fiche qui lui correspond. Si elle n'existe pas, une entreprise en ligne éligible peut voir une option pour l'ajouter.",
         "**Prouvez le lien avec l'entreprise.** Choisissez l'une des méthodes affichées : **Téléphone de l'entreprise** (SMS ou appel automatisé, puis **Obtenir un code**), **Adresse e-mail professionnelle**, **Domaine du site web** ou **Boutique Shopify**.",
         "**Attendez la décision d'OpenAI.** Tant que la demande est en examen, le bouton **Annuler la revendication** reste disponible.",
-        "**Faites vérifier votre identité** par Persona (un service de vérification d'identité) :sélectionnez **Vérifier avec Persona**, puis **Continuer vers Persona**. La coche bleue n'apparaît qu'une fois cette vérification approuvée, et c'est cette vérification qui ouvre la modification de la fiche et les statistiques."
+        "**Faites vérifier votre identité** par Persona (un service de vérification d'identité) : sélectionnez **Vérifier avec Persona**, puis **Continuer vers Persona**. La coche bleue n'apparaît qu'une fois cette vérification approuvée, et c'est cette vérification qui ouvre la modification de la fiche et les statistiques."
       ]
     },
     {
